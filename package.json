@@ -1,0 +1,28 @@
+{
+  "name": "valfuse-node",
+  "private": true,
+  "packageManager": "npm@11.6.2",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "clean": "turbo clean",
+    "publish:core": "npm publish --workspace=packages/core",
+    "publish:adapter-react": "npm publish --workspace=packages/adapter-react",
+    "publish:all": "npm run publish:core && npm run publish:adapter-react"
+  },
+  "devDependencies": {
+    "@eslint/js": "latest",
+    "eslint": "latest",
+    "tsup": "latest",
+    "turbo": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "latest"
+  }
+}
+
