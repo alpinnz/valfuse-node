@@ -112,6 +112,63 @@ describe("useValfuseForm", () => {
     );
   });
 
+  it("should forward code from setErrors to formState.errors", async () => {
+    const { result } = renderHook(() => {
+      const form = useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      });
+      void form.formState.errors;
+      return form;
+    });
+
+    await act(async () => {
+      result.current.setErrors({
+        email: {
+          message: "Email not found",
+          type: "server",
+          code: "auth.email.not_found",
+        },
+      });
+    });
+
+    expect(result.current.formState.errors.email?.code).toBe("auth.email.not_found");
+  });
+
+  it("should forward code from schema validation to formState.errors", async () => {
+    const schemaWithCode = createSchema({
+      email: {
+        type: "string",
+        rules: [
+          { name: "required", error: { message: "Email wajib diisi", code: "email.required" } },
+        ],
+      },
+      password: {
+        type: "string",
+        rules: [
+          { name: "required", error: { message: "Password wajib diisi", code: "password.required" } },
+        ],
+      },
+    });
+
+    const { result } = renderHook(() => {
+      const form = useValfuseForm({
+        schema: schemaWithCode,
+        defaultValues: { email: "", password: "" },
+        mode: "onSubmit",
+      });
+      void form.formState.errors;
+      return form;
+    });
+
+    await act(async () => {
+      await result.current.handleSubmit(() => {})();
+    });
+
+    expect(result.current.formState.errors.email?.code).toBe("email.required");
+    expect(result.current.formState.errors.password?.code).toBe("password.required");
+  });
+
   it("should set error type from ValfuseError when calling setErrors", async () => {
     const { result } = renderHook(() => {
       const form = useValfuseForm({

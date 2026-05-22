@@ -10,6 +10,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.2] — 2026-05-23
+
+### Fixed
+
+- `code` field from `ValfuseRuleError` / `ValfuseError` was silently dropped when mapping errors through the resolver and `setErrors`; it is now correctly forwarded to `formState.errors`
+
+### Added
+
+- `ValfuseFieldError` type (`FieldError & { code?: string }`) — exported for consumer use
+- `UseValfuseFormReturn` now overrides `formState.errors` with `ValfuseFormErrors<TFieldValues>`, making `form.formState.errors.fieldName?.code` fully type-safe
+- `createValfuseResolver` now includes `code` in each resolved field error object
+
+---
+
 ## [0.0.1] — 2026-05-19
 
 ### Added
@@ -42,6 +56,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.1...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.2...HEAD
+[0.0.2]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.1...adapter-react-v0.0.2
 [0.0.1]: https://github.com/alpinnz/valfuse-node/releases/tag/adapter-react-v0.0.1
 

@@ -13,6 +13,7 @@ export function createValfuseResolver(schema: ValfuseSchema): Resolver {
           {
             type: fieldError.type ?? "validation",
             message: fieldError.message,
+            code: fieldError.code,
           },
         ])
       );

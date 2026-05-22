@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/adapter-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React Hook Form adapter for valfuse-node — useValfuseForm with native schema validation",
   "license": "MIT",
   "sideEffects": false,

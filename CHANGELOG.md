@@ -14,6 +14,16 @@ Per-package changelogs:
 
 ---
 
+## [0.0.2] — 2026-05-23
+
+### Fixed
+
+- `@valfuse-node/adapter-react@0.0.2`
+  - `code` field now correctly forwarded from schema errors and `setErrors` to `formState.errors`
+  - `formState.errors.fieldName?.code` is now fully type-safe via new `ValfuseFieldError` type
+
+---
+
 ## [0.0.1] — 2026-05-19
 
 ### Added
@@ -34,5 +44,6 @@ Per-package changelogs:
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.0.2...HEAD
+[0.0.2]: https://github.com/alpinnz/valfuse-node/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/alpinnz/valfuse-node/releases/tag/v0.0.1

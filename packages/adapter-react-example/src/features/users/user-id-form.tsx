@@ -53,7 +53,7 @@ export function UserIdForm() {
         id="id-email"
         label="Email"
         placeholder="Masukkan email"
-        error={form.formState.errors.email?.message}
+        error={form.formState.errors.email?.code}
         {...form.register("email")}
       />
 

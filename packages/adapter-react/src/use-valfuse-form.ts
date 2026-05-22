@@ -1,8 +1,14 @@
 import { useForm } from "react-hook-form";
-import type { FieldValues, UseFormProps, UseFormReturn } from "react-hook-form";
+import type { FieldError, FieldValues, UseFormProps, UseFormReturn } from "react-hook-form";
 import type { ValfuseFieldErrors, ValfuseSchema } from "@valfuse-node/core";
 import { normalizeError } from "@valfuse-node/core";
 import { createValfuseResolver } from "./create-valfuse-resolver";
+
+export type ValfuseFieldError = FieldError & { code?: string };
+
+type ValfuseFormErrors<TFieldValues extends FieldValues> = {
+  [K in keyof TFieldValues]?: ValfuseFieldError;
+};
 
 type UseValfuseFormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
   UseFormProps<TFieldValues>,
@@ -12,7 +18,10 @@ type UseValfuseFormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
 };
 
 export type UseValfuseFormReturn<TFieldValues extends FieldValues = FieldValues> =
-  UseFormReturn<TFieldValues> & {
+  Omit<UseFormReturn<TFieldValues>, "formState"> & {
+    formState: Omit<UseFormReturn<TFieldValues>["formState"], "errors"> & {
+      errors: ValfuseFormErrors<TFieldValues>;
+    };
     setErrors: (
       errors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>
     ) => void;
@@ -40,6 +49,8 @@ export function useValfuseForm<TFieldValues extends FieldValues = FieldValues>(
       form.setError(fieldName as Parameters<typeof form.setError>[0], {
         type: normalizedError.type ?? "manual",
         message: normalizedError.message,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ...(normalizedError.code !== undefined ? { code: normalizedError.code } as any : {}),
       });
     }
   };
