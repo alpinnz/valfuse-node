@@ -97,24 +97,76 @@ export function LoginForm() {
 const form = useValfuseForm<TFieldValues>({
   schema,        // ValfuseSchema — required
   defaultValues, // TFieldValues  — required
-  mode,          // "onSubmit" | "onChange" | "onBlur" — default: "onSubmit"
+  mode,          // ValfuseFormMode — default: "onSubmit"
 });
+```
+
+#### `mode` — Validation Mode
+
+Controls **when** validation is triggered. Mirrors react-hook-form's `mode` option:
+
+| Mode | Validation runs when… |
+|---|---|
+| `"onSubmit"` *(default)* | Form is submitted |
+| `"onBlur"` | A field loses focus |
+| `"onChange"` | A field value changes (every keystroke) |
+| `"onTouched"` | First blur → validates; then every change after that |
+| `"all"` | Both `onChange` and `onBlur` |
+
+```tsx
+// Validate once blurred, keep validating on every change after that
+const form = useValfuseForm({ schema, defaultValues, mode: "onTouched" });
+
+// Validate on every keystroke AND every blur
+const form = useValfuseForm({ schema, defaultValues, mode: "all" });
 ```
 
 #### Return Value
 
-| Property | Description |
-|---|---|
-| `form.register(name)` | Register native inputs or `forwardRef` components |
-| `form.control` | Pass to `<ValfuseController control={...} />` |
-| `form.handleSubmit(onValid)` | Validates then calls `onValid(values)` |
-| `form.formState.errors` | `ValfuseFormErrors<TFieldValues>` — typed field errors |
-| `form.formState.isSubmitting` | `boolean` — true while `onValid` is running |
-| `form.setErrors(errors)` | Inject external/server errors |
-| `form.clearErrors(name?)` | Clear one, many, or all errors |
-| `form.setValue(name, value)` | Programmatically set a field value |
-| `form.watch()` | Returns current form values |
-| `form.reset(values?)` | Reset to default values |
+| Property | Type | Description |
+|---|---|---|
+| `form.register(name)` | `ValfuseRegisterReturn` | Register native inputs or `forwardRef` components |
+| `form.control` | `ValfuseFormControl` | Pass to `<ValfuseController control={...} />` |
+| `form.handleSubmit(onValid)` | `function` | Validates with schema, calls `onValid(values)` on success |
+| `form.formState.errors` | `ValfuseFormErrors<TFieldValues>` | Typed field errors — `.message` and `.code` always available |
+| `form.formState.isSubmitting` | `boolean` | `true` while `onValid` is running |
+| `form.setErrors(errors)` | `void` | Inject external/server errors per field |
+| `form.clearErrors(name?)` | `void` | Clear one, many, or all field errors |
+| `form.setValue(name, value, options?)` | `void` | Set a field value; pass `{ shouldValidate: true }` to validate immediately |
+| `form.trigger(name?)` | `boolean` | Manually trigger validation; returns `true` if all triggered fields are valid |
+| `form.watch()` | `TFieldValues` | Returns current form values |
+| `form.reset(values?)` | `void` | Reset to default values (or provided partial values) |
+
+---
+
+### `form.setValue(name, value, options?)`
+
+Programmatically set a field value.
+
+```ts
+// Set value only — no validation
+form.setValue("email", "user@example.com");
+
+// Set value and validate immediately
+form.setValue("email", "user@example.com", { shouldValidate: true });
+```
+
+---
+
+### `form.trigger(name?)`
+
+Manually trigger validation without submitting. Returns `true` if all triggered fields are valid.
+
+```ts
+// Validate all fields
+const isValid = form.trigger();
+
+// Validate a single field
+form.trigger("email");
+
+// Validate multiple specific fields
+form.trigger(["email", "password"]);
+```
 
 ---
 
@@ -231,12 +283,12 @@ type FormValues = { role: Role | null };
 
 ## Error Flow
 
-All errors — schema validation, manual, and server — flow into the same place:
+All errors — schema validation, manual trigger, and server — flow into the same place:
 
 ```
-Schema errors (onSubmit/onChange/onBlur)  ──┐
-                                             ├──→ form.formState.errors.fieldName
-Server errors (form.setErrors)            ──┘
+Schema errors (mode: onSubmit / onChange / onBlur / onTouched / all)  ──┐
+Manual trigger (form.trigger())                                         ├──→ form.formState.errors.fieldName
+Server errors  (form.setErrors())                                       ──┘
 ```
 
 UI reads:
