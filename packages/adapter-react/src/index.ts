@@ -11,6 +11,8 @@ export type {
   ValfuseFormMode,
   ValfuseFormState,
   ValfuseFormErrors,
+  ValfuseDirtyFields,
+  ValfuseTouchedFields,
   ValfuseFormControl,
   ValfuseFieldError,
   ValfuseRegisterReturn,

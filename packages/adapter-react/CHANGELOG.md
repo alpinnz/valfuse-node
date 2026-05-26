@@ -10,6 +10,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.7] — 2026-05-26
+
+### Added
+
+- **`form.formState.isSubmitted`** — `true` after the form has been submitted at least once
+- **`form.formState.isSubmitSuccessful`** — `true` if the most recent submission passed validation and `onValid` resolved without throwing
+- **`form.formState.submitCount`** — increments on every submit attempt; resets to `0` on `form.reset()`
+- **`form.formState.isDirty`** — `true` if any field value differs from its default value
+- **`form.formState.isValid`** — `true` if there are currently no validation errors
+- **`form.formState.dirtyFields`** — `{ [fieldName]?: boolean }` map of fields whose value has changed from the default
+- **`form.formState.touchedFields`** — `{ [fieldName]?: boolean }` map of fields the user has focused and blurred
+- **`form.formState.defaultValues`** — exposes the `defaultValues` passed to `useValfuseForm`
+- New exported types: `ValfuseDirtyFields<T>`, `ValfuseTouchedFields<T>`
+
+### Changed
+
+- `ValfuseFormState` updated — new properties are non-breaking additions
+- `form.handleSubmit` now sets `isSubmitted`, `isSubmitSuccessful`, and `submitCount` on every call
+- `form.reset()` now resets `isSubmitted`, `isSubmitSuccessful`, and `submitCount` to their initial values
+
+---
+
 ## [0.0.6] — 2026-05-26
 
 ### Added
@@ -71,7 +93,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.6...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.7...HEAD
+[0.0.7]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.6...adapter-react-v0.0.7
 [0.0.6]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.5...adapter-react-v0.0.6
 [0.0.5]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.4...adapter-react-v0.0.5
 [0.0.4]: https://github.com/alpinnz/valfuse-node/releases/tag/adapter-react-v0.0.4

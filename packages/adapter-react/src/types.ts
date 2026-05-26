@@ -34,9 +34,47 @@ export type ValfuseFormErrors<TFieldValues extends Record<string, unknown>> = {
   [K in keyof TFieldValues]?: ValfuseFieldError;
 };
 
+export type ValfuseDirtyFields<TFieldValues extends Record<string, unknown>> = {
+  [K in keyof TFieldValues]?: boolean;
+};
+
+export type ValfuseTouchedFields<TFieldValues extends Record<string, unknown>> = {
+  [K in keyof TFieldValues]?: boolean;
+};
+
 export type ValfuseFormState<TFieldValues extends Record<string, unknown>> = {
+  /** All current field validation errors */
   errors: ValfuseFormErrors<TFieldValues>;
+
+  // ── Submission ──────────────────────────────────────────────────────────────
+
+  /** `true` while an async submit handler is running */
   isSubmitting: boolean;
+  /** `true` after the form has been submitted at least once */
+  isSubmitted: boolean;
+  /**
+   * `true` if the most recent submission completed without validation errors
+   * and the `onValid` handler resolved successfully.
+   */
+  isSubmitSuccessful: boolean;
+  /** Total number of submit attempts (resets on `reset()`) */
+  submitCount: number;
+
+  // ── Derived ─────────────────────────────────────────────────────────────────
+
+  /** `true` if any field value differs from its default value */
+  isDirty: boolean;
+  /**
+   * `true` if there are currently no validation errors.
+   * Note: for `"onSubmit"` mode this will be `true` until the first submission.
+   */
+  isValid: boolean;
+  /** Map of fields whose current value differs from the default (`{ email: true }`) */
+  dirtyFields: ValfuseDirtyFields<TFieldValues>;
+  /** Map of fields the user has interacted with (focused + blurred) */
+  touchedFields: ValfuseTouchedFields<TFieldValues>;
+  /** The `defaultValues` that were passed to `useValfuseForm` */
+  defaultValues: TFieldValues;
 };
 
 // ─── register() ───────────────────────────────────────────────────────────────
@@ -97,7 +135,11 @@ export type UseValfuseFormReturn<TFieldValues extends Record<string, unknown>> =
   handleSubmit: (
     onValid: (values: TFieldValues) => void | Promise<void>
   ) => (e?: React.FormEvent | { preventDefault?: () => void }) => Promise<void>;
-  /** Reactive form state (errors, isSubmitting) */
+  /**
+   * Reactive form state.
+   * Includes: errors, isSubmitting, isSubmitted, isSubmitSuccessful,
+   * submitCount, isDirty, isValid, dirtyFields, touchedFields, defaultValues.
+   */
   formState: ValfuseFormState<TFieldValues>;
   /** Inject external errors (e.g. from API responses) */
   setErrors: (errors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>) => void;

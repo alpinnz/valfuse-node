@@ -7,6 +7,8 @@ import type {
   UseValfuseFormReturn,
   ValfuseFieldError,
   ValfuseFormErrors,
+  ValfuseDirtyFields,
+  ValfuseTouchedFields,
   ValfuseFormControl,
 } from "./types";
 
@@ -39,6 +41,9 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const [values, setValues] = useState<TFieldValues>(() => ({ ...defaultValues }));
   const [errors, setErrorsState] = useState<ValfuseFormErrors<TFieldValues>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
+  const [submitCount, setSubmitCount] = useState(0);
   const [touchedFields, setTouchedFields] = useState<Set<string>>(() => new Set());
 
   // Keep latest values in a ref so event handlers never close over stale state
@@ -114,8 +119,12 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
         const currentValues = valuesRef.current;
         const schemaErrors = validateSchema(schema, currentValues as Record<string, unknown>);
 
+        setSubmitCount((c) => c + 1);
+        setIsSubmitted(true);
+
         if (Object.keys(schemaErrors).length > 0) {
           setErrorsState(mapToFieldErrors<TFieldValues>(schemaErrors));
+          setIsSubmitSuccessful(false);
           return;
         }
 
@@ -123,6 +132,10 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
         setIsSubmitting(true);
         try {
           await onValid(currentValues);
+          setIsSubmitSuccessful(true);
+        } catch (err) {
+          setIsSubmitSuccessful(false);
+          throw err;
         } finally {
           setIsSubmitting(false);
         }
@@ -252,6 +265,9 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       setValues({ ...defaultValues, ...newValues } as TFieldValues);
       setErrorsState({});
       setTouchedFields(new Set());
+      setIsSubmitted(false);
+      setIsSubmitSuccessful(false);
+      setSubmitCount(0);
     },
     [defaultValues]
   );
@@ -288,11 +304,46 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     _touchedFields: touchedFields,
   };
 
+  // ── Derived formState ──────────────────────────────────────────────────────
+  const isDirty = Object.keys(defaultValues).some(
+    (key) => values[key as keyof TFieldValues] !== defaultValues[key as keyof TFieldValues]
+  );
+
+  const dirtyFields = Object.keys(defaultValues).reduce<ValfuseDirtyFields<TFieldValues>>(
+    (acc, key) => {
+      const k = key as keyof TFieldValues;
+      if (values[k] !== defaultValues[k]) acc[k] = true;
+      return acc;
+    },
+    {}
+  );
+
+  const touchedFieldsRecord = Array.from(touchedFields).reduce<ValfuseTouchedFields<TFieldValues>>(
+    (acc, key) => {
+      acc[key as keyof TFieldValues] = true;
+      return acc;
+    },
+    {}
+  );
+
+  const isValid = Object.keys(errors).length === 0;
+
   return {
     register,
     control,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: {
+      errors,
+      isSubmitting,
+      isSubmitted,
+      isSubmitSuccessful,
+      submitCount,
+      isDirty,
+      isValid,
+      dirtyFields,
+      touchedFields: touchedFieldsRecord,
+      defaultValues,
+    },
     setErrors,
     clearErrors,
     setValue,

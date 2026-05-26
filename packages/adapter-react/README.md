@@ -123,19 +123,50 @@ const form = useValfuseForm({ schema, defaultValues, mode: "all" });
 
 #### Return Value
 
-| Property | Type | Description |
+| Property / Method | Type | Description |
 |---|---|---|
 | `form.register(name)` | `ValfuseRegisterReturn` | Register native inputs or `forwardRef` components |
 | `form.control` | `ValfuseFormControl` | Pass to `<ValfuseController control={...} />` |
 | `form.handleSubmit(onValid)` | `function` | Validates with schema, calls `onValid(values)` on success |
-| `form.formState.errors` | `ValfuseFormErrors<TFieldValues>` | Typed field errors — `.message` and `.code` always available |
-| `form.formState.isSubmitting` | `boolean` | `true` while `onValid` is running |
 | `form.setErrors(errors)` | `void` | Inject external/server errors per field |
 | `form.clearErrors(name?)` | `void` | Clear one, many, or all field errors |
 | `form.setValue(name, value, options?)` | `void` | Set a field value; pass `{ shouldValidate: true }` to validate immediately |
 | `form.trigger(name?)` | `boolean` | Manually trigger validation; returns `true` if all triggered fields are valid |
 | `form.watch()` | `TFieldValues` | Returns current form values |
 | `form.reset(values?)` | `void` | Reset to default values (or provided partial values) |
+
+#### `form.formState`
+
+| Property | Type | Description |
+|---|---|---|
+| `errors` | `ValfuseFormErrors<TFieldValues>` | Typed field errors — `.message`, `.code`, `.type`, `.metadata` |
+| `isSubmitting` | `boolean` | `true` while async `onValid` handler is running |
+| `isSubmitted` | `boolean` | `true` after the form has been submitted at least once |
+| `isSubmitSuccessful` | `boolean` | `true` if the most recent submission passed validation and `onValid` resolved |
+| `submitCount` | `number` | Total submit attempts — resets to `0` on `reset()` |
+| `isDirty` | `boolean` | `true` if any field value differs from its `defaultValue` |
+| `isValid` | `boolean` | `true` if there are currently no validation errors |
+| `dirtyFields` | `{ [K]?: boolean }` | Map of fields whose value has changed from the default |
+| `touchedFields` | `{ [K]?: boolean }` | Map of fields the user has interacted with (focused + blurred) |
+| `defaultValues` | `TFieldValues` | The `defaultValues` passed to `useValfuseForm` |
+
+```tsx
+// Submission state
+{form.formState.isSubmitting && <Spinner />}
+{form.formState.isSubmitted && !form.formState.isSubmitSuccessful && (
+  <p>Submit gagal, periksa kembali form.</p>
+)}
+<span>Submit ke-{form.formState.submitCount}</span>
+
+// Dirty & touched
+{form.formState.isDirty && <p>Ada perubahan yang belum disimpan.</p>}
+{form.formState.dirtyFields.email && <Badge>Diubah</Badge>}
+
+// Validity
+<button type="submit" disabled={form.formState.isSubmitting}>
+  {form.formState.isValid ? "Simpan" : "Perbaiki Form"}
+</button>
+```
 
 ---
 
@@ -331,6 +362,9 @@ import type {
   UseValfuseFormReturn,
   ValfuseFieldError,
   ValfuseFormErrors,
+  ValfuseDirtyFields,
+  ValfuseTouchedFields,
+  ValfuseFormState,
   ValfuseFormControl,
   ValfuseControllerProps,
 } from "@valfuse-node/adapter-react";
@@ -343,6 +377,11 @@ The hook is fully generic:
 ```ts
 const form = useValfuseForm<MyFormValues>({ schema, defaultValues });
 //    ^— typed as UseValfuseFormReturn<MyFormValues>
+
+// formState is fully typed — all properties are inferred from MyFormValues
+form.formState.dirtyFields.email    // boolean | undefined
+form.formState.touchedFields.email  // boolean | undefined
+form.formState.errors.email?.code   // string | undefined
 ```
 
 ---

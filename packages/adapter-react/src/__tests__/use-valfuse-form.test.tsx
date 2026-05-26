@@ -490,4 +490,217 @@ describe("useValfuseForm", () => {
 
     expect(result.current.formState.errors.email?.message).toBe("Email is required");
   });
+
+  // ── formState: isDirty / dirtyFields ─────────────────────────────────────────
+
+  it("isDirty should be false on init", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+    expect(result.current.formState.isDirty).toBe(false);
+    expect(result.current.formState.dirtyFields).toEqual({});
+  });
+
+  it("isDirty should be true after setValue changes a field", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => {
+      result.current.setValue("email", "changed@example.com");
+    });
+
+    expect(result.current.formState.isDirty).toBe(true);
+    expect(result.current.formState.dirtyFields).toEqual({ email: true });
+  });
+
+  it("isDirty should be false again after reset", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => { result.current.setValue("email", "x@x.com"); });
+    expect(result.current.formState.isDirty).toBe(true);
+
+    await act(async () => { result.current.reset(); });
+    expect(result.current.formState.isDirty).toBe(false);
+  });
+
+  // ── formState: isValid ───────────────────────────────────────────────────────
+
+  it("isValid should be true on init (no errors yet)", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+    expect(result.current.formState.isValid).toBe(true);
+  });
+
+  it("isValid should be false after validation errors are set", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => {
+      result.current.trigger();
+    });
+
+    expect(result.current.formState.isValid).toBe(false);
+  });
+
+  it("isValid should return true when all fields pass validation", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "valid@example.com", password: "securepass" },
+      })
+    );
+
+    await act(async () => { result.current.trigger(); });
+    expect(result.current.formState.isValid).toBe(true);
+  });
+
+  // ── formState: isSubmitted / isSubmitSuccessful / submitCount ─────────────────
+
+  it("isSubmitted should be false before any submit", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+    expect(result.current.formState.isSubmitted).toBe(false);
+    expect(result.current.formState.submitCount).toBe(0);
+  });
+
+  it("isSubmitted should be true after failed submit (validation errors)", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => {
+      await result.current.handleSubmit(() => {})();
+    });
+
+    expect(result.current.formState.isSubmitted).toBe(true);
+    expect(result.current.formState.isSubmitSuccessful).toBe(false);
+    expect(result.current.formState.submitCount).toBe(1);
+  });
+
+  it("isSubmitSuccessful should be true after valid submit", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "valid@example.com", password: "securepass" },
+      })
+    );
+
+    await act(async () => {
+      await result.current.handleSubmit(() => {})();
+    });
+
+    expect(result.current.formState.isSubmitted).toBe(true);
+    expect(result.current.formState.isSubmitSuccessful).toBe(true);
+    expect(result.current.formState.submitCount).toBe(1);
+  });
+
+  it("submitCount should increment on each submit attempt", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => { await result.current.handleSubmit(() => {})(); });
+    await act(async () => { await result.current.handleSubmit(() => {})(); });
+
+    expect(result.current.formState.submitCount).toBe(2);
+  });
+
+  it("reset should clear isSubmitted, isSubmitSuccessful and submitCount", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "valid@example.com", password: "securepass" },
+      })
+    );
+
+    await act(async () => { await result.current.handleSubmit(() => {})(); });
+    expect(result.current.formState.isSubmitted).toBe(true);
+
+    await act(async () => { result.current.reset(); });
+
+    expect(result.current.formState.isSubmitted).toBe(false);
+    expect(result.current.formState.isSubmitSuccessful).toBe(false);
+    expect(result.current.formState.submitCount).toBe(0);
+  });
+
+  // ── formState: touchedFields ──────────────────────────────────────────────────
+
+  it("touchedFields should be empty on init", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+    expect(result.current.formState.touchedFields).toEqual({});
+  });
+
+  it("touchedFields should contain field after onBlur", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => { result.current.register("email").onBlur(); });
+
+    expect(result.current.formState.touchedFields.email).toBe(true);
+    expect(result.current.formState.touchedFields.password).toBeUndefined();
+  });
+
+  it("touchedFields should reset after reset()", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => { result.current.register("email").onBlur(); });
+    expect(result.current.formState.touchedFields.email).toBe(true);
+
+    await act(async () => { result.current.reset(); });
+    expect(result.current.formState.touchedFields).toEqual({});
+  });
+
+  // ── formState: defaultValues ──────────────────────────────────────────────────
+
+  it("defaultValues should be exposed in formState", () => {
+    const defaults = { email: "default@example.com", password: "" };
+    const { result } = renderHook(() =>
+      useValfuseForm({ schema: testLoginSchema, defaultValues: defaults })
+    );
+    expect(result.current.formState.defaultValues).toEqual(defaults);
+  });
 });
