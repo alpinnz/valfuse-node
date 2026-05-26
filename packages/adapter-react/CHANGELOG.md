@@ -10,6 +10,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.6] — 2026-05-26
+
+### Added
+
+- **`mode: "onTouched"`** — validate on first blur; then validate on every subsequent change once the field has been touched
+- **`mode: "all"`** — validate on both `onChange` and `onBlur`
+
+### Changed
+
+- `ValfuseFormMode` updated: `"onSubmit" | "onBlur" | "onChange" | "onTouched" | "all"` (was `"onSubmit" | "onChange" | "onBlur"`)
+
+---
+
 ## [0.0.5] — 2026-05-26
 
 ### Added
@@ -58,6 +71,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.5...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.6...HEAD
+[0.0.6]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.5...adapter-react-v0.0.6
 [0.0.5]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.4...adapter-react-v0.0.5
 [0.0.4]: https://github.com/alpinnz/valfuse-node/releases/tag/adapter-react-v0.0.4

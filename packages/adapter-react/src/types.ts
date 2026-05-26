@@ -3,7 +3,18 @@ import type { ValfuseFieldErrors, ValfuseSchema } from "@valfuse-node/core";
 
 // ─── Validation mode ──────────────────────────────────────────────────────────
 
-export type ValfuseFormMode = "onSubmit" | "onChange" | "onBlur";
+/**
+ * Controls when validation is triggered — mirrors react-hook-form's `mode` option:
+ *
+ * | Mode         | Behaviour                                                               |
+ * |--------------|-------------------------------------------------------------------------|
+ * | `onSubmit`   | Validate only when the form is submitted (default)                      |
+ * | `onBlur`     | Validate when a field loses focus                                       |
+ * | `onChange`   | Validate on every keystroke / value change                              |
+ * | `onTouched`  | Validate on the first blur; after that validate on every change         |
+ * | `all`        | Validate on both `onChange` and `onBlur`                                |
+ */
+export type ValfuseFormMode = "onSubmit" | "onBlur" | "onChange" | "onTouched" | "all";
 
 // ─── Error ────────────────────────────────────────────────────────────────────
 
@@ -69,8 +80,10 @@ export type UseValfuseFormProps<TFieldValues extends Record<string, unknown>> = 
   /**
    * When validation runs:
    * - `"onSubmit"` (default) — only on form submission
-   * - `"onChange"` — on every keystroke
    * - `"onBlur"` — when a field loses focus
+   * - `"onChange"` — on every keystroke
+   * - `"onTouched"` — on first blur, then on every change after that
+   * - `"all"` — on both onChange and onBlur
    */
   mode?: ValfuseFormMode;
 };

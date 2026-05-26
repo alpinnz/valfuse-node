@@ -80,18 +80,29 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
         const newValue = e.target.value as TFieldValues[TName];
         const updated = { ...valuesRef.current, [name]: newValue };
         setValues(updated as TFieldValues);
-        if (mode === "onChange") {
+
+        const isTouched = touchedFields.has(name);
+
+        if (
+          mode === "onChange" ||
+          mode === "all" ||
+          (mode === "onTouched" && isTouched)
+        ) {
           validateField(name, updated as Record<string, unknown>);
         }
       },
       onBlur: () => {
         setTouchedFields((prev) => new Set([...prev, name]));
-        if (mode === "onBlur") {
+        if (
+          mode === "onBlur" ||
+          mode === "all" ||
+          mode === "onTouched"
+        ) {
           validateField(name, valuesRef.current as Record<string, unknown>);
         }
       },
     }),
-    [mode, validateField]
+    [mode, touchedFields, validateField]
   );
 
   // ── handleSubmit ───────────────────────────────────────────────────────────
@@ -255,13 +266,22 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     ) => {
       const updated = { ...valuesRef.current, [name]: value };
       setValues(updated as TFieldValues);
-      if (mode === "onChange") {
+      const isTouched = touchedFields.has(name);
+      if (
+        mode === "onChange" ||
+        mode === "all" ||
+        (mode === "onTouched" && isTouched)
+      ) {
         validateField(name, updated as Record<string, unknown>);
       }
     },
     _touchField: (name: string) => {
       setTouchedFields((prev) => new Set([...prev, name]));
-      if (mode === "onBlur") {
+      if (
+        mode === "onBlur" ||
+        mode === "all" ||
+        mode === "onTouched"
+      ) {
         validateField(name, valuesRef.current as Record<string, unknown>);
       }
     },

@@ -391,4 +391,103 @@ describe("useValfuseForm", () => {
     expect(result.current.formState.errors.email?.code).toBe("email.required");
     expect(result.current.formState.errors.password?.code).toBe("password.required");
   });
+
+  // ── mode: onTouched ──────────────────────────────────────────────────────────
+
+  it("mode=onTouched: should NOT validate on change before blur", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+        mode: "onTouched",
+      })
+    );
+
+    await act(async () => {
+      result.current.register("email").onChange({
+        target: { value: "bad" },
+      } as React.ChangeEvent<HTMLInputElement>);
+    });
+
+    // Not touched yet — no error
+    expect(result.current.formState.errors.email).toBeUndefined();
+  });
+
+  it("mode=onTouched: should validate on blur (first interaction)", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+        mode: "onTouched",
+      })
+    );
+
+    await act(async () => {
+      result.current.register("email").onBlur();
+    });
+
+    // After blur → validate
+    expect(result.current.formState.errors.email?.message).toBe("Email is required");
+  });
+
+  it("mode=onTouched: should validate on change after field is touched", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+        mode: "onTouched",
+      })
+    );
+
+    // Blur first to mark as touched
+    await act(async () => {
+      result.current.register("email").onBlur();
+    });
+
+    // Now change — should re-validate
+    await act(async () => {
+      result.current.register("email").onChange({
+        target: { value: "valid@example.com" },
+      } as React.ChangeEvent<HTMLInputElement>);
+    });
+
+    // Valid value → error cleared
+    expect(result.current.formState.errors.email).toBeUndefined();
+  });
+
+  // ── mode: all ────────────────────────────────────────────────────────────────
+
+  it("mode=all: should validate on change", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+        mode: "all",
+      })
+    );
+
+    await act(async () => {
+      result.current.register("email").onChange({
+        target: { value: "bad-email" },
+      } as React.ChangeEvent<HTMLInputElement>);
+    });
+
+    expect(result.current.formState.errors.email?.message).toBe("Invalid email format");
+  });
+
+  it("mode=all: should validate on blur", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+        mode: "all",
+      })
+    );
+
+    await act(async () => {
+      result.current.register("email").onBlur();
+    });
+
+    expect(result.current.formState.errors.email?.message).toBe("Email is required");
+  });
 });
