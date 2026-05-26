@@ -1,5 +1,4 @@
-import { Controller } from "react-hook-form";
-import { useValfuseForm } from "@valfuse-node/adapter-react";
+import { useValfuseForm, ValfuseController } from "@valfuse-node/adapter-react";
 
 import { TextInput } from "./components/text-input";
 import { RoleDropdownObject } from "./components/role-dropdown-object";
@@ -61,7 +60,7 @@ export function UserObjectForm() {
         {...form.register("email")}
       />
 
-      <Controller
+      <ValfuseController
         control={form.control}
         name="role"
         render={({ field, fieldState }) => (
@@ -70,7 +69,7 @@ export function UserObjectForm() {
             options={ROLE_OPTIONS}
             onChange={field.onChange}
             onBlur={field.onBlur}
-            error={fieldState.error?.message}
+            error={fieldState.error?.code}
           />
         )}
       />

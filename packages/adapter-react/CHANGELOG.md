@@ -10,53 +10,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-## [0.0.2] — 2026-05-23
-
-### Fixed
-
-- `code` field from `ValfuseRuleError` / `ValfuseError` was silently dropped when mapping errors through the resolver and `setErrors`; it is now correctly forwarded to `formState.errors`
+## [0.0.4] — 2026-05-26
 
 ### Added
 
-- `ValfuseFieldError` type (`FieldError & { code?: string }`) — exported for consumer use
-- `UseValfuseFormReturn` now overrides `formState.errors` with `ValfuseFormErrors<TFieldValues>`, making `form.formState.errors.fieldName?.code` fully type-safe
-- `createValfuseResolver` now includes `code` in each resolved field error object
+- `useValfuseForm()` — native React hook built on `useState` + `useRef` + `useCallback`; zero dependency on any external form library
+- `ValfuseController` — controlled field wrapper for complex inputs (dropdowns, date-pickers, etc.)
+- `types.ts` — all public form types as a dedicated module
+- `ValfuseFormControl` — typed bridge object passed to `ValfuseController`
+- `ValfuseFormMode` — `"onSubmit" | "onChange" | "onBlur"` validation trigger
+- `ValfuseRegisterReturn` — explicit return type of `form.register(name)`
+- `ValfuseFieldError` — `{ message, type, code?, metadata? }` — consistent error shape across schema validation and `setErrors`
+- `ValfuseControllerField`, `ValfuseControllerFieldState`, `ValfuseControllerRenderProps` — controller render prop types
 
----
+### API
 
-## [0.0.1] — 2026-05-19
-
-### Added
-
-**`useValfuseForm(props)`**
-- Wraps `react-hook-form`'s `useForm` with Valfuse native schema resolver
-- Accepts `schema: ValfuseSchema` instead of `resolver`
-- Returns all `UseFormReturn` properties plus `setErrors`
-- Fully generic over `TFieldValues extends FieldValues`
-
-**`form.setErrors(errors)`**
-- Injects external errors into `form.formState.errors`
-- Accepts `Record<string, string>` — simple string errors
-- Accepts `Record<string, ValfuseError>` — detailed error objects with `message`, `type`, `code`, `metadata`
-- Error type is forwarded to `formState.errors.fieldName.type`
-
-**`createValfuseResolver(schema)`**
-- Creates a `react-hook-form`-compatible async resolver from a `ValfuseSchema`
-- Calls `validateSchema` from `@valfuse-node/core`
-- Maps Valfuse errors to `react-hook-form` FieldErrors format
-- Exposed for advanced use cases (e.g. custom `useForm` setup)
-
-**TypeScript types**
-- `UseValfuseFormReturn<TFieldValues>` — return type of `useValfuseForm`
+**`form.register(name)`** — spread onto native inputs or `forwardRef` components  
+**`form.control`** — pass to `<ValfuseController control={...} />`  
+**`form.handleSubmit(onValid)`** — validates with schema, calls `onValid(values)` on success  
+**`form.formState.errors`** — typed field errors; `error?.message` and `error?.code` both available  
+**`form.formState.isSubmitting`** — boolean submission state  
+**`form.setErrors(errors)`** — inject server/manual errors; accepts `string` or `ValfuseError` per field  
+**`form.clearErrors(name?)`** — clear one, many, or all field errors  
+**`form.setValue(name, value)`** — programmatically set a field value  
+**`form.watch()`** — returns current form values  
+**`form.reset(values?)`** — reset to default values
 
 ### Dependencies
 
 - `@valfuse-node/core@^0.0.1`
-- peer: `react@>=18`, `react-dom@>=18`, `react-hook-form@>=7`
+- peer: `react@>=18`, `react-dom@>=18`
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.2...HEAD
-[0.0.2]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.1...adapter-react-v0.0.2
-[0.0.1]: https://github.com/alpinnz/valfuse-node/releases/tag/adapter-react-v0.0.1
-
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.4...HEAD
+[0.0.4]: https://github.com/alpinnz/valfuse-node/releases/tag/adapter-react-v0.0.4

@@ -1,15 +1,17 @@
 # @valfuse-node/adapter-react
 
-React Hook Form adapter for `valfuse-node`.
+Native React form adapter for `valfuse-node`.
 
-Connect native schema validation from `@valfuse-node/core` to your React forms with full support for `register()`, `Controller`, and server-side error injection via `form.setErrors()`.
+Connect native schema validation from `@valfuse-node/core` to your React forms — with full support for `register()`, `ValfuseController`, and server-side error injection via `form.setErrors()`.
+
+Zero dependency on `react-hook-form` or any external form library.
 
 ---
 
 ## Installation
 
 ```bash
-npm install @valfuse-node/adapter-react @valfuse-node/core react-hook-form
+npm install @valfuse-node/adapter-react @valfuse-node/core
 ```
 
 ### Peer Dependencies
@@ -18,18 +20,15 @@ npm install @valfuse-node/adapter-react @valfuse-node/core react-hook-form
 |---|---|
 | `react` | `>=18` |
 | `react-dom` | `>=18` |
-| `react-hook-form` | `>=7` |
 
 ---
 
 ## Overview
 
-`@valfuse-node/adapter-react` provides:
-
 | Export | Description |
 |---|---|
-| `useValfuseForm(props)` | `useForm` wrapper with schema validation and `setErrors` |
-| `createValfuseResolver(schema)` | Low-level resolver for `react-hook-form` |
+| `useValfuseForm(props)` | Native React hook — form state, validation, and error management |
+| `ValfuseController` | Controlled field wrapper for complex inputs (dropdowns, date-pickers, etc.) |
 
 ---
 
@@ -43,15 +42,15 @@ const loginSchema = createSchema({
   email: {
     type: "string",
     rules: [
-      { name: "required", error: { message: "Email wajib diisi" } },
-      { name: "email", error: { message: "Format email tidak valid" } },
+      { name: "required", error: { message: "Email wajib diisi", code: "email.required" } },
+      { name: "email",    error: { message: "Format email tidak valid", code: "email.invalid" } },
     ],
   },
   password: {
     type: "string",
     rules: [
-      { name: "required", error: { message: "Password wajib diisi" } },
-      { name: "min", value: 8, error: { message: "Password minimal 8 karakter" } },
+      { name: "required", error: { message: "Password wajib diisi", code: "password.required" } },
+      { name: "min", value: 8, error: { message: "Password minimal 8 karakter", code: "password.min" } },
     ],
   },
 });
@@ -69,26 +68,20 @@ export function LoginForm() {
   });
 
   const onSubmit = form.handleSubmit(async (values) => {
-    // values is fully typed as LoginFormValues
     await submitLoginApi(values);
   });
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        {...form.register("email")}
-        placeholder="Email"
-      />
-      {form.formState.errors.email?.message}
+      <input {...form.register("email")} placeholder="Email" />
+      <p>{form.formState.errors.email?.message}</p>
 
-      <input
-        type="password"
-        {...form.register("password")}
-        placeholder="Password"
-      />
-      {form.formState.errors.password?.message}
+      <input type="password" {...form.register("password")} placeholder="Password" />
+      <p>{form.formState.errors.password?.message}</p>
 
-      <button type="submit">Login</button>
+      <button type="submit" disabled={form.formState.isSubmitting}>
+        Login
+      </button>
     </form>
   );
 }
@@ -100,47 +93,42 @@ export function LoginForm() {
 
 ### `useValfuseForm(props)`
 
-A wrapper around `react-hook-form`'s `useForm` that integrates native Valfuse schema validation and adds `setErrors`.
-
 ```ts
 const form = useValfuseForm<TFieldValues>({
-  schema,           // ValfuseSchema — required
-  defaultValues,    // TFieldValues  — recommended
-  mode,             // ValidationMode — default: "onSubmit"
-  // ...all other useForm options except `resolver`
+  schema,        // ValfuseSchema — required
+  defaultValues, // TFieldValues  — required
+  mode,          // "onSubmit" | "onChange" | "onBlur" — default: "onSubmit"
 });
 ```
 
 #### Return Value
 
-All properties from `react-hook-form`'s `UseFormReturn`, plus:
+| Property | Description |
+|---|---|
+| `form.register(name)` | Register native inputs or `forwardRef` components |
+| `form.control` | Pass to `<ValfuseController control={...} />` |
+| `form.handleSubmit(onValid)` | Validates then calls `onValid(values)` |
+| `form.formState.errors` | `ValfuseFormErrors<TFieldValues>` — typed field errors |
+| `form.formState.isSubmitting` | `boolean` — true while `onValid` is running |
+| `form.setErrors(errors)` | Inject external/server errors |
+| `form.clearErrors(name?)` | Clear one, many, or all errors |
+| `form.setValue(name, value)` | Programmatically set a field value |
+| `form.watch()` | Returns current form values |
+| `form.reset(values?)` | Reset to default values |
 
-| Property | Type | Description |
-|---|---|---|
-| `form.register` | `UseFormRegister` | Register native inputs or `forwardRef` components |
-| `form.control` | `Control` | For use with `Controller` from `react-hook-form` |
-| `form.handleSubmit` | `UseFormHandleSubmit` | Wrap your submit handler |
-| `form.formState` | `FormState` | Access `errors`, `isSubmitting`, `isDirty`, etc. |
-| `form.setValue` | `UseFormSetValue` | Programmatically set a field value |
-| `form.watch` | `UseFormWatch` | Watch field value changes |
-| `form.reset` | `UseFormReset` | Reset form to default values |
-| `form.clearErrors` | `UseFormClearErrors` | Clear all or specific field errors |
-| `form.setErrors` | `(errors) => void` | Inject external/server errors |
+---
 
 ### `form.setErrors(errors)`
 
 Injects external errors (e.g. from API responses) into `form.formState.errors`.
 
-Accepts both simple and detailed formats:
-
 ```ts
 // Simple string errors
 form.setErrors({
   email: "Email tidak terdaftar",
-  password: "Password salah",
 });
 
-// Detailed ValfuseError objects
+// Detailed errors with code
 form.setErrors({
   email: {
     message: "Email tidak terdaftar",
@@ -158,21 +146,33 @@ form.setErrors({
 UI reads errors the same way regardless of source:
 
 ```tsx
-form.formState.errors.email?.message
-form.formState.errors.password?.message
+form.formState.errors.email?.message  // → string | undefined
+form.formState.errors.email?.code     // → string | undefined
 ```
 
-### `createValfuseResolver(schema)`
+---
 
-Low-level function that creates a `react-hook-form`-compatible resolver from a Valfuse schema. Used internally by `useValfuseForm`. Exposed for advanced use cases.
+### `ValfuseController`
 
-```ts
-import { useForm } from "react-hook-form";
-import { createValfuseResolver } from "@valfuse-node/adapter-react";
+Use `ValfuseController` for **complex inputs** (dropdowns, date-pickers, etc.) that cannot be registered with `form.register(name)`.
 
-const form = useForm({
-  resolver: createValfuseResolver(mySchema),
-});
+The `fieldState.error` render prop is typed as `ValfuseFieldError | undefined` — both `.message` and `.code` are available without any cast.
+
+```tsx
+import { useValfuseForm, ValfuseController } from "@valfuse-node/adapter-react";
+
+<ValfuseController
+  control={form.control}
+  name="roleId"
+  render={({ field, fieldState }) => (
+    <RoleDropdown
+      value={field.value}
+      onChange={field.onChange}   // receives raw value, not a DOM event
+      onBlur={field.onBlur}
+      error={fieldState.error?.code}
+    />
+  )}
+/>
 ```
 
 ---
@@ -184,34 +184,27 @@ const form = useForm({
 Use `register()` for **native HTML inputs** or components that use `React.forwardRef`:
 
 ```tsx
-// TextInput must use forwardRef to forward the ref
 <TextInput
-  id="email"
   label="Email"
-  placeholder="Masukkan email"
-  error={form.formState.errors.email?.message}
+  error={form.formState.errors.email?.code}
   {...form.register("email")}
 />
 ```
 
-The spread `{...form.register("email")}` provides `name`, `ref`, `onChange`, and `onBlur` to the input.
+### When to use `ValfuseController`
 
-### When to use `Controller`
-
-Use `Controller` from `react-hook-form` for **custom controlled components** that do not accept `ref`:
+Use `ValfuseController` for **custom controlled components** that manage their own internal state:
 
 ```tsx
-import { Controller } from "react-hook-form";
-
-<Controller
+<ValfuseController
   control={form.control}
   name="role"
   render={({ field, fieldState }) => (
-    <CustomDropdown
+    <RoleDropdownObject
       value={field.value}
       onChange={field.onChange}
       onBlur={field.onBlur}
-      error={fieldState.error?.message}
+      error={fieldState.error?.code}
     />
   )}
 />
@@ -219,68 +212,38 @@ import { Controller } from "react-hook-form";
 
 ### When to use `roleId: string` vs `role: Role | null`
 
-#### Use `roleId: string` when:
-
-- The API only needs the selected item's ID
-- The UI does not need the full object after selection
+#### `roleId: string` — when the API only needs an ID
 
 ```ts
-type FormValues = {
-  name: string;
-  roleId: string;  // stores "admin" | "staff" | "viewer"
-};
+type FormValues = { roleId: string };
+// Schema field: type: "string", rules: [{ name: "required", ... }]
 ```
 
-```ts
-// Schema field
-roleId: {
-  type: "string",
-  rules: [
-    { name: "required", error: { message: "Role wajib dipilih" } },
-  ],
-}
-```
-
-#### Use `role: Role | null` when:
-
-- The UI needs to display the full selected object (e.g. dropdown label)
-- The form submit handler needs to extract data from the object
+#### `role: Role | null` — when the UI needs the full object
 
 ```ts
 type Role = { id: string; name: string };
-
-type FormValues = {
-  name: string;
-  role: Role | null;  // stores the full selected object
-};
-```
-
-```ts
-// Schema field
-role: {
-  type: "object",
-  rules: [
-    { name: "required", error: { message: "Role wajib dipilih" } },
-  ],
-}
+type FormValues = { role: Role | null };
+// Schema field: type: "object", rules: [{ name: "required", ... }]
 ```
 
 ---
 
 ## Error Flow
 
-All errors — whether from schema validation or `setErrors()` — flow into the same place:
+All errors — schema validation, manual, and server — flow into the same place:
 
 ```
-Schema errors (onSubmit)  ──┐
-                             ├──→ form.formState.errors.fieldName?.message
-Server errors (setErrors) ──┘
+Schema errors (onSubmit/onChange/onBlur)  ──┐
+                                             ├──→ form.formState.errors.fieldName
+Server errors (form.setErrors)            ──┘
 ```
 
-UI only needs to read:
+UI reads:
 
 ```tsx
 {form.formState.errors.email?.message}
+{form.formState.errors.email?.code}
 ```
 
 ---
@@ -288,21 +251,15 @@ UI only needs to read:
 ## API Error Mapping Example
 
 ```ts
-// Map API validation response to setErrors format
 function mapApiValidationErrors(response: ApiValidationErrorResponse) {
   return Object.fromEntries(
-    response.errors?.map((apiValidationError) => [
-      apiValidationError.field,
-      {
-        message: apiValidationError.message,
-        type: "server",
-        code: apiValidationError.code,
-      },
+    response.errors?.map((err) => [
+      err.field,
+      { message: err.message, type: "server", code: err.code },
     ]) ?? []
   );
 }
 
-// Usage in form submit handler
 const onSubmit = form.handleSubmit(async (values) => {
   try {
     await submitApi(values);
@@ -318,7 +275,14 @@ const onSubmit = form.handleSubmit(async (values) => {
 ## TypeScript
 
 ```ts
-import type { UseValfuseFormReturn } from "@valfuse-node/adapter-react";
+import type {
+  UseValfuseFormReturn,
+  ValfuseFieldError,
+  ValfuseFormErrors,
+  ValfuseFormControl,
+  ValfuseControllerProps,
+} from "@valfuse-node/adapter-react";
+
 import type { ValfuseFieldErrors } from "@valfuse-node/core";
 ```
 

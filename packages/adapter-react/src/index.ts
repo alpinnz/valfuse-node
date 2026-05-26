@@ -1,4 +1,25 @@
+// ─── Hook ─────────────────────────────────────────────────────────────────────
 export { useValfuseForm } from "./use-valfuse-form";
-export type { UseValfuseFormReturn, ValfuseFieldError } from "./use-valfuse-form";
-export { createValfuseResolver } from "./create-valfuse-resolver";
 
+// ─── Component ────────────────────────────────────────────────────────────────
+export { ValfuseController } from "./valfuse-controller";
+
+// ─── Types: form ──────────────────────────────────────────────────────────────
+export type {
+  UseValfuseFormProps,
+  UseValfuseFormReturn,
+  ValfuseFormMode,
+  ValfuseFormState,
+  ValfuseFormErrors,
+  ValfuseFormControl,
+  ValfuseFieldError,
+  ValfuseRegisterReturn,
+} from "./types";
+
+// ─── Types: controller ────────────────────────────────────────────────────────
+export type {
+  ValfuseControllerProps,
+  ValfuseControllerField,
+  ValfuseControllerFieldState,
+  ValfuseControllerRenderProps,
+} from "./valfuse-controller";

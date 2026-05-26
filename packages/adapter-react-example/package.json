@@ -14,8 +14,7 @@
     "@valfuse-node/adapter-react": "*",
     "@valfuse-node/core": "*",
     "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/react": "latest",

@@ -1,7 +1,7 @@
 {
   "name": "@valfuse-node/adapter-react",
-  "version": "0.0.2",
-  "description": "React Hook Form adapter for valfuse-node — useValfuseForm with native schema validation",
+  "version": "0.0.4",
+  "description": "React adapter for valfuse-node — useValfuseForm with zero external form dependencies",
   "license": "MIT",
   "sideEffects": false,
   "keywords": [
@@ -9,7 +9,6 @@
     "schema",
     "form",
     "react",
-    "react-hook-form",
     "typescript",
     "valfuse",
     "adapter"
@@ -31,8 +30,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external react --external react-dom --external react-hook-form --external @valfuse-node/core",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external react --external react-dom --external react-hook-form --external @valfuse-node/core",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external react --external react-dom --external @valfuse-node/core",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external react --external react-dom --external @valfuse-node/core",
     "lint": "eslint src",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
@@ -43,8 +42,7 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18",
-    "react-hook-form": ">=7"
+    "react-dom": ">=18"
   },
   "publishConfig": {
     "access": "public"
@@ -58,7 +56,6 @@
     "jsdom": "latest",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7",
     "vitest": "latest"
   }
 }

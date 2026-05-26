@@ -1,10 +1,10 @@
 import type { ValfuseError, ValfuseGenericRule, ValfuseSchema } from "./types";
-import { validateStringRule } from "./rules/string.rules";
-import { validateNumberRule } from "./rules/number.rules";
-import { validateBooleanRule } from "./rules/boolean.rules";
-import { validateArrayRule } from "./rules/array.rules";
-import { validateObjectRule } from "./rules/object.rules";
-import { validateGenericRule } from "./rules/custom.rules";
+import { validateStringRule } from "./rules/string.rule";
+import { validateNumberRule } from "./rules/number.rule";
+import { validateBooleanRule } from "./rules/boolean.rule";
+import { validateArrayRule } from "./rules/array.rule";
+import { validateObjectRule } from "./rules/object.rule";
+import { validateGenericRule } from "./rules/generic.rule";
 
 const GENERIC_RULE_NAMES = new Set([
   "custom",

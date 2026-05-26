@@ -11,6 +11,7 @@ export type {
   ValfuseRegexValue,
   ValfuseRuleError,
   ValfuseSchema,
+  SetErrorsInput,
   // String rules
   ValfuseStringRule,
   ValfuseStringRequiredRule,
@@ -47,5 +48,4 @@ export type {
   ValfuseObjectFieldSchema,
 } from "./types";
 
-export type { SetErrorsInput } from "./errors/set-errors.types";
 

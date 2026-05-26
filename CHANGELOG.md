@@ -14,13 +14,15 @@ Per-package changelogs:
 
 ---
 
-## [0.0.2] — 2026-05-23
+## [0.0.4] — 2026-05-26
 
-### Fixed
+### Changed
 
-- `@valfuse-node/adapter-react@0.0.2`
-  - `code` field now correctly forwarded from schema errors and `setErrors` to `formState.errors`
-  - `formState.errors.fieldName?.code` is now fully type-safe via new `ValfuseFieldError` type
+- `@valfuse-node/adapter-react@0.0.4` — complete rewrite
+  - Removed `react-hook-form` dependency; form state is now native React (`useState` + `useRef` + `useCallback`)
+  - `ValfuseController` is now a native Valfuse component (no longer wraps RHF's `Controller`)
+  - Rule files renamed: `*.rules.ts` → `*.rule.ts`, `custom.rules.ts` → `generic.rule.ts`
+  - `form.formState.errors.fieldName?.code` fully type-safe on both `register()` and `ValfuseController`
 
 ---
 
@@ -32,18 +34,13 @@ Per-package changelogs:
   - `createSchema()`, `validateSchema()`, `normalizeError()`
   - String, number, boolean, array, object, and generic rules
   - Full TypeScript types
-- `@valfuse-node/adapter-react@0.0.1` — React Hook Form adapter
-  - `useValfuseForm()` with `setErrors()` support
-  - `createValfuseResolver()` for advanced use
-  - Compatible with `register()` and `Controller`
 - `@valfuse-node/adapter-react-example` — reference implementation (private)
-  - `UserObjectForm` — role as `Role | null` with `Controller`
-  - `UserIdForm` — roleId as `string` with `Controller`
-  - `TextInput`, `RoleDropdownObject`, `RoleDropdownId` components
+  - `UserObjectForm`, `UserIdForm`
+  - `TextInput`, `RoleDropdownObject`, `RoleDropdownId`
   - API error mapping example
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.0.2...HEAD
-[0.0.2]: https://github.com/alpinnz/valfuse-node/compare/v0.0.1...v0.0.2
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.0.4...HEAD
+[0.0.4]: https://github.com/alpinnz/valfuse-node/compare/v0.0.1...v0.0.4
 [0.0.1]: https://github.com/alpinnz/valfuse-node/releases/tag/v0.0.1

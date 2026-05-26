@@ -2,7 +2,7 @@
 
 Generic form validation library for Node.js-based frontend ecosystems.
 
-> **Config-first schema validation. React Hook Form adapter. No Zod. No localization. No UI dependency.**
+> **Config-first schema validation. Native React adapter. No Zod. No react-hook-form. No localization. No UI dependency.**
 
 ---
 
@@ -11,18 +11,18 @@ Generic form validation library for Node.js-based frontend ecosystems.
 | Package | Version | Description |
 |---|---|---|
 | [`@valfuse-node/core`](./packages/core/README.md) | `0.0.1` | Native schema validation engine |
-| [`@valfuse-node/adapter-react`](./packages/adapter-react/README.md) | `0.0.1` | React Hook Form adapter |
+| [`@valfuse-node/adapter-react`](./packages/adapter-react/README.md) | `0.0.4` | Native React form adapter |
 | [`@valfuse-node/adapter-react-example`](./packages/adapter-react-example/README.md) | — | Reference implementation (private) |
 
 ---
 
 ## Why valfuse-node?
 
-- **Config-first** — validation rules are plain objects, easy to read and maintain in any codebase
+- **Config-first** — validation rules are plain objects, easy to read and maintain
 - **No Zod dependency** — familiar Zod-like rule naming, fully native implementation
-- **React Hook Form compatible** — full support for `register()` and `Controller`
+- **Zero form library dependency** — `useValfuseForm` is built on React's own primitives (`useState`, `useRef`, `useCallback`)
 - **Unified error model** — schema validation, manual, and server errors all flow through `form.formState.errors`
-- **No UI coupling** — bring your own components; the library works with any input style
+- **No UI coupling** — bring your own components; works with any input style
 - **No localization dependency** — error messages live in your schema definition
 
 ---
@@ -33,8 +33,8 @@ Generic form validation library for Node.js-based frontend ecosystems.
 # Core validation only
 npm install @valfuse-node/core
 
-# React integration
-npm install @valfuse-node/adapter-react @valfuse-node/core react-hook-form
+# React adapter
+npm install @valfuse-node/adapter-react @valfuse-node/core
 ```
 
 ---
@@ -49,15 +49,15 @@ const loginSchema = createSchema({
   email: {
     type: "string",
     rules: [
-      { name: "required", error: { message: "Email wajib diisi" } },
-      { name: "email", error: { message: "Format email tidak valid" } },
+      { name: "required", error: { message: "Email wajib diisi", code: "email.required" } },
+      { name: "email", error: { message: "Format email tidak valid", code: "email.invalid" } },
     ],
   },
   password: {
     type: "string",
     rules: [
-      { name: "required", error: { message: "Password wajib diisi" } },
-      { name: "min", value: 8, error: { message: "Minimal 8 karakter" } },
+      { name: "required", error: { message: "Password wajib diisi", code: "password.required" } },
+      { name: "min", value: 8, error: { message: "Minimal 8 karakter", code: "password.min" } },
     ],
   },
 });
@@ -74,7 +74,7 @@ export function LoginForm() {
     } catch (err) {
       // Inject server errors directly into form state
       form.setErrors({
-        email: { message: "Email tidak ditemukan", type: "server" },
+        email: { message: "Email tidak ditemukan", type: "server", code: "auth.email.not_found" },
       });
     }
   });
@@ -109,7 +109,8 @@ Dependency direction:
 adapter-react-example → adapter-react → core
 ```
 
-`core` has zero dependency on React or any UI framework.
+`core` has zero dependency on React or any UI framework.  
+`adapter-react` has zero dependency on external form libraries.
 
 ---
 

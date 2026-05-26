@@ -1,59 +1,220 @@
-import { useForm } from "react-hook-form";
-import type { FieldError, FieldValues, UseFormProps, UseFormReturn } from "react-hook-form";
-import type { ValfuseFieldErrors, ValfuseSchema } from "@valfuse-node/core";
-import { normalizeError } from "@valfuse-node/core";
-import { createValfuseResolver } from "./create-valfuse-resolver";
+import { useState, useRef, useCallback, type FormEvent } from "react";
+import { validateSchema, normalizeError } from "@valfuse-node/core";
+import type { ValfuseFieldErrors } from "@valfuse-node/core";
 
-export type ValfuseFieldError = FieldError & { code?: string };
+import type {
+  UseValfuseFormProps,
+  UseValfuseFormReturn,
+  ValfuseFieldError,
+  ValfuseFormErrors,
+  ValfuseFormControl,
+} from "./types";
 
-type ValfuseFormErrors<TFieldValues extends FieldValues> = {
-  [K in keyof TFieldValues]?: ValfuseFieldError;
-};
+// ─── Internal helpers ─────────────────────────────────────────────────────────
 
-type UseValfuseFormProps<TFieldValues extends FieldValues = FieldValues> = Omit<
-  UseFormProps<TFieldValues>,
-  "resolver"
-> & {
-  schema: ValfuseSchema;
-};
+function mapToFieldErrors<TFieldValues extends Record<string, unknown>>(
+  schemaErrors: Record<string, { message: string; type?: string; code?: string; metadata?: Record<string, unknown> }>
+): ValfuseFormErrors<TFieldValues> {
+  return Object.fromEntries(
+    Object.entries(schemaErrors).map(([key, err]) => {
+      const fieldError: ValfuseFieldError = {
+        message: err.message,
+        type: err.type ?? "validation",
+        ...(err.code !== undefined && { code: err.code }),
+        ...(err.metadata !== undefined && { metadata: err.metadata }),
+      };
+      return [key, fieldError];
+    })
+  ) as ValfuseFormErrors<TFieldValues>;
+}
 
-export type UseValfuseFormReturn<TFieldValues extends FieldValues = FieldValues> =
-  Omit<UseFormReturn<TFieldValues>, "formState"> & {
-    formState: Omit<UseFormReturn<TFieldValues>["formState"], "errors"> & {
-      errors: ValfuseFormErrors<TFieldValues>;
-    };
-    setErrors: (
-      errors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>
-    ) => void;
-  };
+// ─── Hook ─────────────────────────────────────────────────────────────────────
 
-export function useValfuseForm<TFieldValues extends FieldValues = FieldValues>(
+export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   props: UseValfuseFormProps<TFieldValues>
 ): UseValfuseFormReturn<TFieldValues> {
-  const { schema, ...remainingFormProps } = props;
+  const { schema, defaultValues, mode = "onSubmit" } = props;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const form = useForm<TFieldValues>({
-    ...remainingFormProps,
-    resolver: createValfuseResolver(schema) as any,
-  });
+  // ── State ──────────────────────────────────────────────────────────────────
+  const [values, setValues] = useState<TFieldValues>(() => ({ ...defaultValues }));
+  const [errors, setErrorsState] = useState<ValfuseFormErrors<TFieldValues>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [touchedFields, setTouchedFields] = useState<Set<string>>(() => new Set());
 
-  const setErrors = (
-    errors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>
-  ): void => {
-    for (const [fieldName, rawFieldError] of Object.entries(errors)) {
-      if (rawFieldError === undefined) continue;
+  // Keep latest values in a ref so event handlers never close over stale state
+  const valuesRef = useRef(values);
+  valuesRef.current = values;
 
-      const normalizedError = normalizeError(rawFieldError);
-
-      form.setError(fieldName as Parameters<typeof form.setError>[0], {
-        type: normalizedError.type ?? "manual",
-        message: normalizedError.message,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        ...(normalizedError.code !== undefined ? { code: normalizedError.code } as any : {}),
+  // ── Internal: per-field validation ────────────────────────────────────────
+  const validateField = useCallback(
+    (name: string, currentValues: Record<string, unknown>) => {
+      if (!schema[name]) return;
+      const fieldErrors = validateSchema({ [name]: schema[name] }, currentValues);
+      setErrorsState((prev) => {
+        const next = { ...prev };
+        if (fieldErrors[name]) {
+          next[name as keyof TFieldValues] = {
+            message: fieldErrors[name].message,
+            type: fieldErrors[name].type ?? "validation",
+            ...(fieldErrors[name].code !== undefined && { code: fieldErrors[name].code }),
+          };
+        } else {
+          delete next[name as keyof TFieldValues];
+        }
+        return next;
       });
-    }
+    },
+    [schema]
+  );
+
+  // ── register ───────────────────────────────────────────────────────────────
+  const register = useCallback(
+    <TName extends keyof TFieldValues & string>(name: TName) => ({
+      name,
+      value: valuesRef.current[name] as string | number | readonly string[] | undefined,
+      onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const newValue = e.target.value as TFieldValues[TName];
+        const updated = { ...valuesRef.current, [name]: newValue };
+        setValues(updated as TFieldValues);
+        if (mode === "onChange") {
+          validateField(name, updated as Record<string, unknown>);
+        }
+      },
+      onBlur: () => {
+        setTouchedFields((prev) => new Set([...prev, name]));
+        if (mode === "onBlur") {
+          validateField(name, valuesRef.current as Record<string, unknown>);
+        }
+      },
+    }),
+    [mode, validateField]
+  );
+
+  // ── handleSubmit ───────────────────────────────────────────────────────────
+  const handleSubmit = useCallback(
+    (onValid: (values: TFieldValues) => void | Promise<void>) =>
+      async (e?: FormEvent | { preventDefault?: () => void }) => {
+        e?.preventDefault?.();
+
+        const currentValues = valuesRef.current;
+        const schemaErrors = validateSchema(schema, currentValues as Record<string, unknown>);
+
+        if (Object.keys(schemaErrors).length > 0) {
+          setErrorsState(mapToFieldErrors<TFieldValues>(schemaErrors));
+          return;
+        }
+
+        setErrorsState({});
+        setIsSubmitting(true);
+        try {
+          await onValid(currentValues);
+        } finally {
+          setIsSubmitting(false);
+        }
+      },
+    [schema]
+  );
+
+  // ── setErrors (external — e.g. API responses) ─────────────────────────────
+  const setErrors = useCallback(
+    (fieldErrors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>) => {
+      setErrorsState((prev) => {
+        const next = { ...prev };
+        for (const [fieldName, rawError] of Object.entries(fieldErrors)) {
+          if (rawError === undefined) continue;
+          const normalized = normalizeError(rawError);
+          next[fieldName as keyof TFieldValues] = {
+            message: normalized.message,
+            type: normalized.type ?? "manual",
+            ...(normalized.code !== undefined && { code: normalized.code }),
+            ...(normalized.metadata !== undefined && { metadata: normalized.metadata }),
+          };
+        }
+        return next;
+      });
+    },
+    []
+  );
+
+  // ── clearErrors ────────────────────────────────────────────────────────────
+  const clearErrors = useCallback(
+    (name?: keyof TFieldValues | Array<keyof TFieldValues>) => {
+      if (name === undefined) {
+        setErrorsState({});
+      } else if (Array.isArray(name)) {
+        setErrorsState((prev) => {
+          const next = { ...prev };
+          for (const n of name) delete next[n];
+          return next;
+        });
+      } else {
+        setErrorsState((prev) => {
+          const next = { ...prev };
+          delete next[name];
+          return next;
+        });
+      }
+    },
+    []
+  );
+
+  // ── setValue ───────────────────────────────────────────────────────────────
+  const setValue = useCallback(
+    <TName extends keyof TFieldValues>(name: TName, value: TFieldValues[TName]) => {
+      setValues((prev) => ({ ...prev, [name]: value }));
+    },
+    []
+  );
+
+  // ── watch ──────────────────────────────────────────────────────────────────
+  const watch = useCallback(() => values, [values]);
+
+  // ── reset ──────────────────────────────────────────────────────────────────
+  const reset = useCallback(
+    (newValues?: Partial<TFieldValues>) => {
+      setValues({ ...defaultValues, ...newValues } as TFieldValues);
+      setErrorsState({});
+      setTouchedFields(new Set());
+    },
+    [defaultValues]
+  );
+
+  // ── control (bridge to ValfuseController) ─────────────────────────────────
+  const control: ValfuseFormControl<TFieldValues> = {
+    _values: values,
+    _errors: errors,
+    _updateField: <TName extends keyof TFieldValues & string>(
+      name: TName,
+      value: TFieldValues[TName]
+    ) => {
+      const updated = { ...valuesRef.current, [name]: value };
+      setValues(updated as TFieldValues);
+      if (mode === "onChange") {
+        validateField(name, updated as Record<string, unknown>);
+      }
+    },
+    _touchField: (name: string) => {
+      setTouchedFields((prev) => new Set([...prev, name]));
+      if (mode === "onBlur") {
+        validateField(name, valuesRef.current as Record<string, unknown>);
+      }
+    },
+    _touchedFields: touchedFields,
   };
 
-  return { ...form, setErrors } as UseValfuseFormReturn<TFieldValues>;
+  return {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setErrors,
+    clearErrors,
+    setValue,
+    watch,
+    reset,
+  };
 }
+
+// ─── Re-export public types ───────────────────────────────────────────────────
+export type { ValfuseFieldError, UseValfuseFormReturn } from "./types";
+

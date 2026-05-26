@@ -209,3 +209,6 @@ export type ValfuseFieldSchema =
 
 export type ValfuseSchema = Record<string, ValfuseFieldSchema>;
 
+/** Alias for {@link ValfuseFieldErrors} — preferred for setErrors input typing */
+export type SetErrorsInput<TFieldName extends string = string> = ValfuseFieldErrors<TFieldName>;
+

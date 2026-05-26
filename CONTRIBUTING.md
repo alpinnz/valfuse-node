@@ -97,7 +97,7 @@ A task is considered done when:
 ### Architecture Rules
 
 - `core` must not depend on React or any UI framework
-- `adapter-react` may depend on `core`, React, and `react-hook-form`
+- `adapter-react` may depend on `core` and React only — no external form libraries
 - `adapter-react-example` may depend on all packages
 - Public API must be exported exclusively from `index.ts`
 - No cross-package internal imports (e.g. `@valfuse-node/core/src/rules/string.rules`)

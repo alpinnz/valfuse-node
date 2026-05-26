@@ -22,15 +22,12 @@ const testLoginSchema = createSchema({
 
 describe("useValfuseForm", () => {
   it("should initialize with empty formState errors", () => {
-    const { result } = renderHook(() => {
-      const form = useValfuseForm({
+    const { result } = renderHook(() =>
+      useValfuseForm({
         schema: testLoginSchema,
         defaultValues: { email: "", password: "" },
-      });
-      // subscribe to errors in render phase
-      void form.formState.errors;
-      return form;
-    });
+      })
+    );
 
     expect(result.current.formState.errors.email).toBeUndefined();
     expect(result.current.formState.errors.password).toBeUndefined();
@@ -56,15 +53,12 @@ describe("useValfuseForm", () => {
   });
 
   it("should set field errors when setErrors is called with string errors", async () => {
-    const { result } = renderHook(() => {
-      const form = useValfuseForm({
+    const { result } = renderHook(() =>
+      useValfuseForm({
         schema: testLoginSchema,
         defaultValues: { email: "", password: "" },
-      });
-      // subscribe to errors in render phase
-      void form.formState.errors;
-      return form;
-    });
+      })
+    );
 
     await act(async () => {
       result.current.setErrors({
@@ -82,14 +76,12 @@ describe("useValfuseForm", () => {
   });
 
   it("should set field errors when setErrors is called with ValfuseError objects", async () => {
-    const { result } = renderHook(() => {
-      const form = useValfuseForm({
+    const { result } = renderHook(() =>
+      useValfuseForm({
         schema: testLoginSchema,
         defaultValues: { email: "", password: "" },
-      });
-      void form.formState.errors;
-      return form;
-    });
+      })
+    );
 
     await act(async () => {
       result.current.setErrors({
@@ -113,14 +105,12 @@ describe("useValfuseForm", () => {
   });
 
   it("should forward code from setErrors to formState.errors", async () => {
-    const { result } = renderHook(() => {
-      const form = useValfuseForm({
+    const { result } = renderHook(() =>
+      useValfuseForm({
         schema: testLoginSchema,
         defaultValues: { email: "", password: "" },
-      });
-      void form.formState.errors;
-      return form;
-    });
+      })
+    );
 
     await act(async () => {
       result.current.setErrors({
@@ -151,15 +141,13 @@ describe("useValfuseForm", () => {
       },
     });
 
-    const { result } = renderHook(() => {
-      const form = useValfuseForm({
+    const { result } = renderHook(() =>
+      useValfuseForm({
         schema: schemaWithCode,
         defaultValues: { email: "", password: "" },
         mode: "onSubmit",
-      });
-      void form.formState.errors;
-      return form;
-    });
+      })
+    );
 
     await act(async () => {
       await result.current.handleSubmit(() => {})();
@@ -170,14 +158,12 @@ describe("useValfuseForm", () => {
   });
 
   it("should set error type from ValfuseError when calling setErrors", async () => {
-    const { result } = renderHook(() => {
-      const form = useValfuseForm({
+    const { result } = renderHook(() =>
+      useValfuseForm({
         schema: testLoginSchema,
         defaultValues: { email: "", password: "" },
-      });
-      void form.formState.errors;
-      return form;
-    });
+      })
+    );
 
     await act(async () => {
       result.current.setErrors({
@@ -192,14 +178,12 @@ describe("useValfuseForm", () => {
   });
 
   it("should clear errors after clearErrors is called", async () => {
-    const { result } = renderHook(() => {
-      const form = useValfuseForm({
+    const { result } = renderHook(() =>
+      useValfuseForm({
         schema: testLoginSchema,
         defaultValues: { email: "", password: "" },
-      });
-      void form.formState.errors;
-      return form;
-    });
+      })
+    );
 
     await act(async () => {
       result.current.setErrors({ email: "Some error" });
@@ -212,5 +196,36 @@ describe("useValfuseForm", () => {
     });
 
     expect(result.current.formState.errors.email).toBeUndefined();
+  });
+
+  it("should reset form to defaultValues", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => {
+      result.current.setErrors({ email: "Some error" });
+    });
+
+    await act(async () => {
+      result.current.reset();
+    });
+
+    expect(result.current.formState.errors.email).toBeUndefined();
+    expect(result.current.watch().email).toBe("");
+  });
+
+  it("should return current values from watch()", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "test@example.com", password: "" },
+      })
+    );
+
+    expect(result.current.watch().email).toBe("test@example.com");
   });
 });
