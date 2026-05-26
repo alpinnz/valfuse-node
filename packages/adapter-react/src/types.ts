@@ -44,37 +44,37 @@ export type ValfuseTouchedFields<TFieldValues extends Record<string, unknown>> =
 
 export type ValfuseFormState<TFieldValues extends Record<string, unknown>> = {
   /** All current field validation errors */
-  errors: ValfuseFormErrors<TFieldValues>;
+  readonly errors: ValfuseFormErrors<TFieldValues>;
 
   // ── Submission ──────────────────────────────────────────────────────────────
 
-  /** `true` while an async submit handler is running */
-  isSubmitting: boolean;
-  /** `true` after the form has been submitted at least once */
-  isSubmitted: boolean;
+  /** `true` while an async submit handler is running — never `undefined` */
+  readonly isSubmitting: boolean;
+  /** `true` after the form has been submitted at least once — never `undefined` */
+  readonly isSubmitted: boolean;
   /**
    * `true` if the most recent submission completed without validation errors
-   * and the `onValid` handler resolved successfully.
+   * and the `onValid` handler resolved successfully — never `undefined`.
    */
-  isSubmitSuccessful: boolean;
-  /** Total number of submit attempts (resets on `reset()`) */
-  submitCount: number;
+  readonly isSubmitSuccessful: boolean;
+  /** Total number of submit attempts (resets on `reset()`) — never `undefined` */
+  readonly submitCount: number;
 
   // ── Derived ─────────────────────────────────────────────────────────────────
 
-  /** `true` if any field value differs from its default value */
-  isDirty: boolean;
+  /** `true` if any field value differs from its default value — never `undefined` */
+  readonly isDirty: boolean;
   /**
-   * `true` if there are currently no validation errors.
+   * `true` if there are currently no validation errors — never `undefined`.
    * Note: for `"onSubmit"` mode this will be `true` until the first submission.
    */
-  isValid: boolean;
+  readonly isValid: boolean;
   /** Map of fields whose current value differs from the default (`{ email: true }`) */
-  dirtyFields: ValfuseDirtyFields<TFieldValues>;
+  readonly dirtyFields: ValfuseDirtyFields<TFieldValues>;
   /** Map of fields the user has interacted with (focused + blurred) */
-  touchedFields: ValfuseTouchedFields<TFieldValues>;
+  readonly touchedFields: ValfuseTouchedFields<TFieldValues>;
   /** The `defaultValues` that were passed to `useValfuseForm` */
-  defaultValues: TFieldValues;
+  readonly defaultValues: Readonly<TFieldValues>;
 };
 
 // ─── watch ────────────────────────────────────────────────────────────────────
