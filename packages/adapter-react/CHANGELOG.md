@@ -10,6 +10,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.10] — 2026-05-26
+
+### Fixed
+
+- **`isValid`** now correctly returns `false` on initial render (before any validation has run)
+  - Previously: `isValid` was `true` on init because `errors` was empty `{}`
+  - Now: `isValid` is `false` until at least one validation has been triggered (via `handleSubmit`, `trigger`, `setValue({ shouldValidate: true })`, or mode-based auto-validation on `onChange`/`onBlur`)
+  - `isValid` also resets back to `false` after `reset()` is called
+
+---
+
 ## [0.0.9] — 2026-05-26
 
 ### Changed
@@ -115,7 +126,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.9...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.10...HEAD
+[0.0.10]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.9...adapter-react-v0.0.10
 [0.0.9]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.8...adapter-react-v0.0.9
 [0.0.8]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.7...adapter-react-v0.0.8
 [0.0.7]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.6...adapter-react-v0.0.7

@@ -624,14 +624,15 @@ describe("useValfuseForm", () => {
 
   // ── formState: isValid ───────────────────────────────────────────────────────
 
-  it("isValid should be true on init (no errors yet)", () => {
+  it("isValid should be false on init (no validation has run yet)", () => {
     const { result } = renderHook(() =>
       useValfuseForm({
         schema: testLoginSchema,
         defaultValues: { email: "", password: "" },
       })
     );
-    expect(result.current.formState.isValid).toBe(true);
+    // isValid is false until at least one validation has run
+    expect(result.current.formState.isValid).toBe(false);
   });
 
   it("isValid should be false after validation errors are set", async () => {
@@ -659,6 +660,22 @@ describe("useValfuseForm", () => {
 
     await act(async () => { result.current.trigger(); });
     expect(result.current.formState.isValid).toBe(true);
+  });
+
+  it("isValid should go back to false after reset()", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "valid@example.com", password: "securepass" },
+      })
+    );
+
+    await act(async () => { result.current.trigger(); });
+    expect(result.current.formState.isValid).toBe(true);
+
+    await act(async () => { result.current.reset(); });
+    // After reset, hasValidated is cleared — isValid goes back to false
+    expect(result.current.formState.isValid).toBe(false);
   });
 
   // ── formState: isSubmitted / isSubmitSuccessful / submitCount ─────────────────

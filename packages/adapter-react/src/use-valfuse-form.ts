@@ -48,6 +48,10 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const [submitCount, setSubmitCount] = useState(0);
   const [touchedFields, setTouchedFields] = useState<Set<string>>(() => new Set());
 
+  // Tracks whether any validation has been run at least once.
+  // isValid is only meaningful (true) after the first validation attempt.
+  const hasValidatedRef = useRef(false);
+
   // Keep latest values in a ref so event handlers never close over stale state
   const valuesRef = useRef(values);
   valuesRef.current = values;
@@ -76,6 +80,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const validateField = useCallback(
     (name: string, currentValues: Record<string, unknown>) => {
       if (!schema[name]) return;
+      hasValidatedRef.current = true;
       const fieldErrors = validateSchema({ [name]: schema[name] }, currentValues);
       setErrorsState((prev) => {
         const next = { ...prev };
@@ -138,6 +143,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
         const currentValues = valuesRef.current;
         const schemaErrors = validateSchema(schema, currentValues as Record<string, unknown>);
 
+        hasValidatedRef.current = true;
         setSubmitCount((c) => c + 1);
         setIsSubmitted(true);
 
@@ -222,6 +228,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       let allValid = true;
       const nextErrors: ValfuseFormErrors<TFieldValues> = { ...errorsRef.current };
 
+      hasValidatedRef.current = true;
       for (const field of fieldsToValidate) {
         if (!schema[field]) continue;
         const fieldErrors = validateSchema({ [field]: schema[field] }, current);
@@ -254,6 +261,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       lastChangedFieldRef.current = name as string;
       setValues(updated as TFieldValues);
       if (options?.shouldValidate) {
+        hasValidatedRef.current = true;
         // validateField reads valuesRef which hasn't updated yet — use updated directly
         const field = name as string;
         if (!schema[field]) return;
@@ -310,6 +318,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       setIsSubmitted(false);
       setIsSubmitSuccessful(false);
       setSubmitCount(0);
+      hasValidatedRef.current = false;
     },
     [defaultValues]
   );
@@ -369,7 +378,9 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     {}
   );
 
-  const isValid = Object.keys(errors).length === 0;
+  // isValid is false on initial render (no validation has run yet).
+  // Becomes true only after at least one validation has run and there are no errors.
+  const isValid = hasValidatedRef.current && Object.keys(errors).length === 0;
 
   return {
     register,
