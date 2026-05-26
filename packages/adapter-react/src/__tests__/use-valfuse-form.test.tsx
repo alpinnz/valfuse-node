@@ -1038,3 +1038,124 @@ describe("useValfuseForm — transform", () => {
   });
 });
 
+// ── setValue + trigger stale-ref regression ───────────────────────────────────
+//
+// Reproduces the bug where calling setValue(name, value) followed immediately by
+// trigger([name]) would produce a false validation error because trigger() was
+// reading valuesRef.current which hadn't been updated yet (still held the
+// previous render's value). The fix syncs valuesRef.current inside setValue
+// BEFORE scheduling the React state update.
+describe("setValue + trigger stale-ref regression", () => {
+  const termsSchema = createSchema({
+    isTermsAccepted: {
+      type: "boolean",
+      rules: [
+        {
+          name: "custom",
+          validate: (value: unknown) => value === true,
+          error: { message: "You must accept the terms" },
+        },
+      ],
+    },
+    name: {
+      type: "string",
+      rules: [
+        { name: "required", error: { message: "Name is required" } },
+      ],
+    },
+  });
+
+  it("setValue(true) + trigger() should NOT produce an error for isTermsAccepted", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: termsSchema,
+        defaultValues: { isTermsAccepted: false, name: "Alice" },
+      })
+    );
+
+    await act(async () => {
+      result.current.setValue("isTermsAccepted", true);
+      result.current.trigger(["isTermsAccepted"]);
+    });
+
+    expect(result.current.formState.errors.isTermsAccepted).toBeUndefined();
+  });
+
+  it("setValue(false) + trigger() should produce an error for isTermsAccepted", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: termsSchema,
+        defaultValues: { isTermsAccepted: true, name: "Alice" },
+      })
+    );
+
+    await act(async () => {
+      result.current.setValue("isTermsAccepted", false);
+      result.current.trigger(["isTermsAccepted"]);
+    });
+
+    expect(result.current.formState.errors.isTermsAccepted).toBeDefined();
+    expect(result.current.formState.errors.isTermsAccepted?.message).toBe("You must accept the terms");
+  });
+
+  it("multiple sequential setValue + trigger calls should always read the latest value", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: termsSchema,
+        defaultValues: { isTermsAccepted: false, name: "" },
+      })
+    );
+
+    // Toggle true → no error
+    await act(async () => {
+      result.current.setValue("isTermsAccepted", true);
+      result.current.trigger(["isTermsAccepted"]);
+    });
+    expect(result.current.formState.errors.isTermsAccepted).toBeUndefined();
+
+    // Toggle back false → has error
+    await act(async () => {
+      result.current.setValue("isTermsAccepted", false);
+      result.current.trigger(["isTermsAccepted"]);
+    });
+    expect(result.current.formState.errors.isTermsAccepted).toBeDefined();
+
+    // Toggle true again → no error
+    await act(async () => {
+      result.current.setValue("isTermsAccepted", true);
+      result.current.trigger(["isTermsAccepted"]);
+    });
+    expect(result.current.formState.errors.isTermsAccepted).toBeUndefined();
+  });
+
+  it("setValue uses accepted rule for boolean checkbox scenario", async () => {
+    const checkboxSchema = createSchema({
+      agreed: {
+        type: "boolean",
+        rules: [
+          { name: "accepted", error: { message: "Must be accepted" } },
+        ],
+      },
+    });
+
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: checkboxSchema,
+        defaultValues: { agreed: false },
+      })
+    );
+
+    await act(async () => {
+      result.current.setValue("agreed", true);
+      result.current.trigger(["agreed"]);
+    });
+    expect(result.current.formState.errors.agreed).toBeUndefined();
+
+    await act(async () => {
+      result.current.setValue("agreed", false);
+      result.current.trigger(["agreed"]);
+    });
+    expect(result.current.formState.errors.agreed).toBeDefined();
+  });
+});
+

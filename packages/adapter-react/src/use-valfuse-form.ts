@@ -315,6 +315,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       const fieldTransform = schemaRef.current[name as string]?.transform;
       const transformedValue = fieldTransform ? (fieldTransform(value) as TFieldValues[TName]) : value;
       const updated = { ...valuesRef.current, [name]: transformedValue };
+      valuesRef.current = updated as TFieldValues; // sync update so trigger() reads the new value immediately
       lastChangedFieldRef.current = name as string;
       setValues(updated as TFieldValues);
 
