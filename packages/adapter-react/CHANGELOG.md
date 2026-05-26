@@ -10,6 +10,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.9] — 2026-05-26
+
+### Changed
+
+- All `ValfuseFormState` properties are now explicitly marked as `readonly` in TypeScript for better immutability
+  - `errors`, `isSubmitting`, `isSubmitted`, `isSubmitSuccessful`, `submitCount`, `isDirty`, `isValid`, `dirtyFields`, `touchedFields`, `defaultValues`
+
+---
+
+## [0.0.8] — 2026-05-26
+
+### Added
+
+- **`form.watch()`** — reactive watch for field values; mirrors react-hook-form overloads:
+  - `form.watch()` → all current values (`TFieldValues`)
+  - `form.watch("email")` → single field value
+  - `form.watch(["email", "name"])` → array of values in order
+  - `form.watch((values, info) => void)` → subscribe to changes; returns `unsubscribe` function
+- New exported types: `ValfuseWatchCallback<T>`, `ValfuseWatchFunction<T>`
+
+---
+
 ## [0.0.7] — 2026-05-26
 
 ### Added
@@ -93,7 +115,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.7...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.9...HEAD
+[0.0.9]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.8...adapter-react-v0.0.9
+[0.0.8]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.7...adapter-react-v0.0.8
 [0.0.7]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.6...adapter-react-v0.0.7
 [0.0.6]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.5...adapter-react-v0.0.6
 [0.0.5]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.4...adapter-react-v0.0.5
