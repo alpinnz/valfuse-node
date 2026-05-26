@@ -45,6 +45,10 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const valuesRef = useRef(values);
   valuesRef.current = values;
 
+  // Keep latest errors in a ref for trigger()
+  const errorsRef = useRef(errors);
+  errorsRef.current = errors;
+
   // ── Internal: per-field validation ────────────────────────────────────────
   const validateField = useCallback(
     (name: string, currentValues: Record<string, unknown>) => {
@@ -158,12 +162,74 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     []
   );
 
+  // ── trigger ────────────────────────────────────────────────────────────────
+  const trigger = useCallback(
+    (name?: keyof TFieldValues & string | Array<keyof TFieldValues & string>): boolean => {
+      const current = valuesRef.current as Record<string, unknown>;
+
+      let fieldsToValidate: string[];
+      if (name === undefined) {
+        fieldsToValidate = Object.keys(schema);
+      } else if (Array.isArray(name)) {
+        fieldsToValidate = name as string[];
+      } else {
+        fieldsToValidate = [name as string];
+      }
+
+      let allValid = true;
+      const nextErrors: ValfuseFormErrors<TFieldValues> = { ...errorsRef.current };
+
+      for (const field of fieldsToValidate) {
+        if (!schema[field]) continue;
+        const fieldErrors = validateSchema({ [field]: schema[field] }, current);
+        if (fieldErrors[field]) {
+          allValid = false;
+          nextErrors[field as keyof TFieldValues] = {
+            message: fieldErrors[field].message,
+            type: fieldErrors[field].type ?? "validation",
+            ...(fieldErrors[field].code !== undefined && { code: fieldErrors[field].code }),
+          };
+        } else {
+          delete nextErrors[field as keyof TFieldValues];
+        }
+      }
+
+      setErrorsState(nextErrors);
+      return allValid;
+    },
+    [schema]
+  );
+
   // ── setValue ───────────────────────────────────────────────────────────────
   const setValue = useCallback(
-    <TName extends keyof TFieldValues>(name: TName, value: TFieldValues[TName]) => {
-      setValues((prev) => ({ ...prev, [name]: value }));
+    <TName extends keyof TFieldValues>(
+      name: TName,
+      value: TFieldValues[TName],
+      options?: { shouldValidate?: boolean }
+    ) => {
+      const updated = { ...valuesRef.current, [name]: value };
+      setValues(updated as TFieldValues);
+      if (options?.shouldValidate) {
+        // validateField reads valuesRef which hasn't updated yet — use updated directly
+        const field = name as string;
+        if (!schema[field]) return;
+        const fieldErrors = validateSchema({ [field]: schema[field] }, updated as Record<string, unknown>);
+        setErrorsState((prev) => {
+          const next = { ...prev };
+          if (fieldErrors[field]) {
+            next[name as keyof TFieldValues] = {
+              message: fieldErrors[field].message,
+              type: fieldErrors[field].type ?? "validation",
+              ...(fieldErrors[field].code !== undefined && { code: fieldErrors[field].code }),
+            };
+          } else {
+            delete next[name as keyof TFieldValues];
+          }
+          return next;
+        });
+      }
     },
-    []
+    [schema]
   );
 
   // ── watch ──────────────────────────────────────────────────────────────────
@@ -210,6 +276,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     setErrors,
     clearErrors,
     setValue,
+    trigger,
     watch,
     reset,
   };

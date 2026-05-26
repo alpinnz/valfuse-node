@@ -228,4 +228,167 @@ describe("useValfuseForm", () => {
 
     expect(result.current.watch().email).toBe("test@example.com");
   });
+
+  // ── setValue ─────────────────────────────────────────────────────────────────
+
+  it("setValue without shouldValidate should NOT trigger validation", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => {
+      result.current.setValue("email", "not-an-email");
+    });
+
+    // value updated
+    expect(result.current.watch().email).toBe("not-an-email");
+    // no errors yet
+    expect(result.current.formState.errors.email).toBeUndefined();
+  });
+
+  it("setValue with shouldValidate: true should run validation and set error", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => {
+      result.current.setValue("email", "not-an-email", { shouldValidate: true });
+    });
+
+    expect(result.current.watch().email).toBe("not-an-email");
+    expect(result.current.formState.errors.email?.message).toBe("Invalid email format");
+  });
+
+  it("setValue with shouldValidate: true should clear error when value becomes valid", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    // First: set invalid
+    await act(async () => {
+      result.current.setValue("email", "bad", { shouldValidate: true });
+    });
+    expect(result.current.formState.errors.email).toBeDefined();
+
+    // Then: set valid
+    await act(async () => {
+      result.current.setValue("email", "valid@example.com", { shouldValidate: true });
+    });
+    expect(result.current.formState.errors.email).toBeUndefined();
+  });
+
+  // ── trigger ───────────────────────────────────────────────────────────────────
+
+  it("trigger() with no args should validate all fields and return false when invalid", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    let valid: boolean = true;
+    await act(async () => {
+      valid = result.current.trigger();
+    });
+
+    expect(valid).toBe(false);
+    expect(result.current.formState.errors.email?.message).toBe("Email is required");
+    expect(result.current.formState.errors.password?.message).toBe("Password is required");
+  });
+
+  it("trigger('email') should validate only the email field", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    let valid: boolean = true;
+    await act(async () => {
+      valid = result.current.trigger("email");
+    });
+
+    expect(valid).toBe(false);
+    expect(result.current.formState.errors.email?.message).toBe("Email is required");
+    // password should NOT be touched
+    expect(result.current.formState.errors.password).toBeUndefined();
+  });
+
+  it("trigger(['email', 'password']) should validate specified fields", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    let valid: boolean = true;
+    await act(async () => {
+      valid = result.current.trigger(["email", "password"]);
+    });
+
+    expect(valid).toBe(false);
+    expect(result.current.formState.errors.email).toBeDefined();
+    expect(result.current.formState.errors.password).toBeDefined();
+  });
+
+  it("trigger() should return true when all fields are valid", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "valid@example.com", password: "securepass" },
+      })
+    );
+
+    let valid: boolean = false;
+    await act(async () => {
+      valid = result.current.trigger();
+    });
+
+    expect(valid).toBe(true);
+    expect(result.current.formState.errors.email).toBeUndefined();
+    expect(result.current.formState.errors.password).toBeUndefined();
+  });
+
+  it("trigger should expose code from schema error", async () => {
+    const schemaWithCode = createSchema({
+      email: {
+        type: "string",
+        rules: [
+          { name: "required", error: { message: "Email wajib", code: "email.required" } },
+        ],
+      },
+      password: {
+        type: "string",
+        rules: [
+          { name: "required", error: { message: "Password wajib", code: "password.required" } },
+        ],
+      },
+    });
+
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: schemaWithCode,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    await act(async () => {
+      result.current.trigger();
+    });
+
+    expect(result.current.formState.errors.email?.code).toBe("email.required");
+    expect(result.current.formState.errors.password?.code).toBe("password.required");
+  });
 });

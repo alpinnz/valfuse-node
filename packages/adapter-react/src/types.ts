@@ -90,8 +90,24 @@ export type UseValfuseFormReturn<TFieldValues extends Record<string, unknown>> =
   setErrors: (errors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>) => void;
   /** Clear one, many, or all field errors */
   clearErrors: (name?: keyof TFieldValues | Array<keyof TFieldValues>) => void;
-  /** Programmatically set a field value */
-  setValue: <TName extends keyof TFieldValues>(name: TName, value: TFieldValues[TName]) => void;
+  /**
+   * Programmatically set a field value.
+   * Pass `{ shouldValidate: true }` to run validation immediately after setting.
+   */
+  setValue: <TName extends keyof TFieldValues>(
+    name: TName,
+    value: TFieldValues[TName],
+    options?: { shouldValidate?: boolean }
+  ) => void;
+  /**
+   * Manually trigger validation.
+   * - No argument → validate all fields
+   * - Single name → validate one field
+   * - Array of names → validate those fields
+   *
+   * Returns `true` if all triggered fields are valid, `false` otherwise.
+   */
+  trigger: (name?: keyof TFieldValues & string | Array<keyof TFieldValues & string>) => boolean;
   /** Watch all fields — returns the full values object */
   watch: () => TFieldValues;
   /** Reset the form to default values (or provided partial values) */

@@ -10,6 +10,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.5] — 2026-05-26
+
+### Added
+
+- **`form.trigger(name?)`** — manually trigger validation for one field, an array of fields, or all fields; returns `true` if all triggered fields are valid
+- **`form.setValue(name, value, options?)`** — now accepts optional `{ shouldValidate: boolean }`; when `true`, validation runs immediately after the value is set
+
+### Changed
+
+- `form.setValue` signature updated: `setValue(name, value, options?: { shouldValidate?: boolean })`
+- `UseValfuseFormReturn` updated with `trigger` method
+
+---
+
 ## [0.0.4] — 2026-05-26
 
 ### Added
@@ -32,7 +46,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 **`form.formState.isSubmitting`** — boolean submission state  
 **`form.setErrors(errors)`** — inject server/manual errors; accepts `string` or `ValfuseError` per field  
 **`form.clearErrors(name?)`** — clear one, many, or all field errors  
-**`form.setValue(name, value)`** — programmatically set a field value  
+**`form.setValue(name, value, options?)`** — programmatically set a field value; pass `{ shouldValidate: true }` to validate immediately  
+**`form.trigger(name?)`** — manually trigger validation; returns `true` if all triggered fields are valid  
 **`form.watch()`** — returns current form values  
 **`form.reset(values?)`** — reset to default values
 
@@ -43,5 +58,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.4...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.5...HEAD
+[0.0.5]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.4...adapter-react-v0.0.5
 [0.0.4]: https://github.com/alpinnz/valfuse-node/releases/tag/adapter-react-v0.0.4
