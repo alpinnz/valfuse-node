@@ -624,15 +624,26 @@ describe("useValfuseForm", () => {
 
   // ── formState: isValid ───────────────────────────────────────────────────────
 
-  it("isValid should be false on init (no validation has run yet)", () => {
+  it("isValid should be false on init when defaultValues fail schema", () => {
     const { result } = renderHook(() =>
       useValfuseForm({
         schema: testLoginSchema,
         defaultValues: { email: "", password: "" },
       })
     );
-    // isValid is false until at least one validation has run
+    // isValid is computed from schema — empty strings fail required rules
     expect(result.current.formState.isValid).toBe(false);
+  });
+
+  it("isValid should be true on init when defaultValues pass schema", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "valid@example.com", password: "securepass" },
+      })
+    );
+    // isValid is computed from schema — valid defaultValues pass immediately
+    expect(result.current.formState.isValid).toBe(true);
   });
 
   it("isValid should be false after validation errors are set", async () => {
@@ -662,7 +673,7 @@ describe("useValfuseForm", () => {
     expect(result.current.formState.isValid).toBe(true);
   });
 
-  it("isValid should go back to false after reset()", async () => {
+  it("isValid should reflect schema after reset() with valid defaultValues", async () => {
     const { result } = renderHook(() =>
       useValfuseForm({
         schema: testLoginSchema,
@@ -674,8 +685,48 @@ describe("useValfuseForm", () => {
     expect(result.current.formState.isValid).toBe(true);
 
     await act(async () => { result.current.reset(); });
-    // After reset, hasValidated is cleared — isValid goes back to false
+    // After reset, values go back to valid defaultValues — isValid stays true
+    expect(result.current.formState.isValid).toBe(true);
+  });
+
+  it("isValid should be false after reset() with invalid defaultValues", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    // Set valid values first
+    await act(async () => { result.current.setValue("email", "valid@example.com"); });
+    await act(async () => { result.current.setValue("password", "securepass"); });
+    expect(result.current.formState.isValid).toBe(true);
+
+    // After reset, values go back to invalid defaultValues — isValid is false
+    await act(async () => { result.current.reset(); });
     expect(result.current.formState.isValid).toBe(false);
+  });
+
+  it("setErrors (API error) should make isValid false, then setValue auto-clears it", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "valid@example.com", password: "securepass" },
+      })
+    );
+
+    // Initially valid
+    expect(result.current.formState.isValid).toBe(true);
+
+    // API returns error
+    await act(async () => { result.current.setErrors({ email: "Email already taken" }); });
+    expect(result.current.formState.errors.email?.message).toBe("Email already taken");
+    expect(result.current.formState.isValid).toBe(false);
+
+    // User changes the field → stale API error auto-cleared
+    await act(async () => { result.current.setValue("email", "another@example.com"); });
+    expect(result.current.formState.errors.email).toBeUndefined();
+    expect(result.current.formState.isValid).toBe(true);
   });
 
   // ── formState: isSubmitted / isSubmitSuccessful / submitCount ─────────────────
