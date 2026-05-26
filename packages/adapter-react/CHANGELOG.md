@@ -10,6 +10,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.12] — 2026-05-26
+
+### Fixed
+
+- **`setValue` stale-ref bug** — calling `setValue(name, value)` followed immediately by `trigger([name])`
+  (or `trigger()`) in the same synchronous block could produce a false validation error.
+  Root cause: `trigger()` reads `valuesRef.current` which was only updated on the next React render
+  (the line `valuesRef.current = values` runs during the render cycle, not inside event handlers).
+  `setValues(updated)` only *schedules* a re-render — so `valuesRef.current` was stale until that
+  render committed.
+  Fix: `valuesRef.current` is now synchronously assigned to `updated` inside `setValue` before
+  calling `setValues`, so any immediately subsequent `trigger()` call reads the correct new value.
+
+  **Affected pattern (now works correctly):**
+  ```ts
+  form.setValue('isTermsAccepted', true);
+  form.trigger(['isTermsAccepted']); // no longer produces a false error ✅
+  ```
+
+---
+
 ## [0.0.11] — 2026-05-26
 
 ### Added
@@ -198,7 +219,8 @@ All changes below exclusively prevent unnecessary React re-renders — zero beha
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.11...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.12...HEAD
+[0.0.12]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.11...adapter-react-v0.0.12
 [0.0.11]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.10...adapter-react-v0.0.11
 [0.0.10]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.9...adapter-react-v0.0.10
 [0.0.9]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.8...adapter-react-v0.0.9
