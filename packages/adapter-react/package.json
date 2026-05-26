@@ -38,7 +38,7 @@
     "clean": "rm -rf dist coverage"
   },
   "dependencies": {
-    "@valfuse-node/core": "^0.0.1"
+    "@valfuse-node/core": "^0.0.2"
   },
   "peerDependencies": {
     "react": ">=18",

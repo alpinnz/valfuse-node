@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Native config-first schema validation engine for valfuse-node",
   "license": "MIT",
   "sideEffects": false,

@@ -10,7 +10,7 @@ Generic form validation library for Node.js-based frontend ecosystems.
 
 | Package | Version | Description |
 |---|---|---|
-| [`@valfuse-node/core`](./packages/core/README.md) | `0.0.1` | Native schema validation engine |
+| [`@valfuse-node/core`](./packages/core/README.md) | `0.0.2` | Native schema validation engine |
 | [`@valfuse-node/adapter-react`](./packages/adapter-react/README.md) | `0.0.4` | Native React form adapter |
 | [`@valfuse-node/adapter-react-example`](./packages/adapter-react-example/README.md) | — | Reference implementation (private) |
 

@@ -10,6 +10,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.2] — 2026-05-26
+
+### Changed
+
+- Internal rule files renamed for naming consistency:
+  - `rules/string.rules.ts` → `rules/string.rule.ts`
+  - `rules/number.rules.ts` → `rules/number.rule.ts`
+  - `rules/boolean.rules.ts` → `rules/boolean.rule.ts`
+  - `rules/array.rules.ts` → `rules/array.rule.ts`
+  - `rules/object.rules.ts` → `rules/object.rule.ts`
+  - `rules/custom.rules.ts` → `rules/generic.rule.ts`
+- `SetErrorsInput` type moved from `errors/set-errors.types.ts` into `types.ts` — no API change
+
+> No breaking changes. Public API and dist output are identical to `0.0.1`.
+
+---
+
 ## [0.0.1] — 2026-05-19
 
 ### Added
@@ -61,6 +78,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/core-v0.0.1...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/core-v0.0.2...HEAD
+[0.0.2]: https://github.com/alpinnz/valfuse-node/compare/core-v0.0.1...core-v0.0.2
 [0.0.1]: https://github.com/alpinnz/valfuse-node/releases/tag/core-v0.0.1
 
