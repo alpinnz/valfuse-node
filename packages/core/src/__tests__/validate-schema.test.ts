@@ -244,7 +244,75 @@ describe("validateSchema", () => {
     expect(errors.role).toBeUndefined();
   });
 
-  // ─── Generic: custom ─────────────────────────────────────────────��─────────
+  // ─── Object: shape ─────────────────────────────────────────────────────────
+
+  it("should return shape error when value is not a plain object", () => {
+    const schema = createSchema({
+      meta: {
+        type: "object",
+        rules: [{ name: "shape", value: {}, error: { message: "Must be an object" } }],
+      },
+    });
+    expect(validateSchema(schema, { meta: "string" }).meta?.message).toBe("Must be an object");
+    expect(validateSchema(schema, { meta: [1, 2] }).meta?.message).toBe("Must be an object");
+    expect(validateSchema(schema, { meta: 42 }).meta?.message).toBe("Must be an object");
+  });
+
+  it("should not return shape error for a plain object with empty rule.value", () => {
+    const schema = createSchema({
+      meta: {
+        type: "object",
+        rules: [{ name: "shape", value: {}, error: { message: "Must be an object" } }],
+      },
+    });
+    expect(validateSchema(schema, { meta: { id: 1 } }).meta).toBeUndefined();
+  });
+
+  it("should not return shape error when null/undefined (required handles absence)", () => {
+    const schema = createSchema({
+      meta: {
+        type: "object",
+        rules: [{ name: "shape", value: {}, error: { message: "Must be an object" } }],
+      },
+    });
+    expect(validateSchema(schema, { meta: null }).meta).toBeUndefined();
+    expect(validateSchema(schema, { meta: undefined }).meta).toBeUndefined();
+  });
+
+  it("should return shape error when required keys/values do not match", () => {
+    const schema = createSchema({
+      role: {
+        type: "object",
+        rules: [
+          {
+            name: "shape",
+            value: { active: true },
+            error: { message: "Role must be active" },
+          },
+        ],
+      },
+    });
+    expect(validateSchema(schema, { role: { active: false } }).role?.message).toBe("Role must be active");
+    expect(validateSchema(schema, { role: { name: "Admin" } }).role?.message).toBe("Role must be active");
+  });
+
+  it("should not return shape error when required keys/values match", () => {
+    const schema = createSchema({
+      role: {
+        type: "object",
+        rules: [
+          {
+            name: "shape",
+            value: { active: true },
+            error: { message: "Role must be active" },
+          },
+        ],
+      },
+    });
+    expect(validateSchema(schema, { role: { active: true, id: 1 } }).role).toBeUndefined();
+  });
+
+  // ─── Generic: custom ──────────────────────────────────────────────────────
 
   it("should return custom error when custom validate returns false", () => {
     const schema = createSchema({

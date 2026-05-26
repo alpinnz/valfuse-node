@@ -10,6 +10,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.3] — 2026-05-26
+
+### Fixed
+
+- **`object.rule` — `shape` rule** was not checking key/value pairs at all; it only asserted that the value was a plain object.
+  Now correctly validates every `[key, expected]` entry in `rule.value` against the actual object:
+  `{ active: true }` fails if the object has `active: false` or is missing the key entirely.
+  An empty `rule.value` (`{}`) still asserts "must be a plain object" as intended.
+
+### Removed
+
+- `ValfuseFieldType` — internal type alias (`"string" | "number" | "boolean" | "array" | "object"`)
+  was dead code (never consumed outside its declaration). Removed to trim the internal surface area.
+  **No public API change** — it was never exported from `index.ts`.
+
+### Changed
+
+- `transformers.ts` — all JSDoc examples updated from `n.pipe` / `n.trim` (leftover "normalizer" naming)
+  to the correct `t.pipe` / `t.trim` namespace.
+
+---
+
 ## [0.0.2] — 2026-05-26
 
 ### Changed
@@ -78,7 +100,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/core-v0.0.2...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/core-v0.0.3...HEAD
+[0.0.3]: https://github.com/alpinnz/valfuse-node/compare/core-v0.0.2...core-v0.0.3
 [0.0.2]: https://github.com/alpinnz/valfuse-node/compare/core-v0.0.1...core-v0.0.2
 [0.0.1]: https://github.com/alpinnz/valfuse-node/releases/tag/core-v0.0.1
 

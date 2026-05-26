@@ -1,4 +1,4 @@
-import type { ChangeEvent, FocusEvent } from "react";
+import type { ChangeEvent } from "react";
 import type { ValfuseFieldErrors, ValfuseSchema } from "@valfuse-node/core";
 
 // ─── Validation mode ──────────────────────────────────────────────────────────
@@ -65,8 +65,8 @@ export type ValfuseFormState<TFieldValues extends Record<string, unknown>> = {
   /** `true` if any field value differs from its default value — never `undefined` */
   readonly isDirty: boolean;
   /**
-   * `true` if there are currently no validation errors — never `undefined`.
-   * Note: for `"onSubmit"` mode this will be `true` until the first submission.
+   * `true` if current values pass schema validation and there are no active errors.
+   * Computed directly from the schema — accurate from the very first render.
    */
   readonly isValid: boolean;
   /** Map of fields whose current value differs from the default (`{ email: true }`) */
@@ -113,7 +113,7 @@ export type ValfuseRegisterReturn = {
   /** Current field value — compatible with HTML input `value` prop */
   value: string | number | readonly string[] | undefined;
   onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
-  onBlur: (e?: FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  onBlur: () => void;
 };
 
 // ─── control (internal bridge ─ useValfuseForm ↔ ValfuseController) ──────────

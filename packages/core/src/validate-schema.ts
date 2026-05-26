@@ -1,22 +1,10 @@
-import type { ValfuseError, ValfuseGenericRule, ValfuseSchema } from "./types";
+import type { ValfuseError, ValfuseSchema } from "./types";
 import { validateStringRule } from "./rules/string.rule";
 import { validateNumberRule } from "./rules/number.rule";
 import { validateBooleanRule } from "./rules/boolean.rule";
 import { validateArrayRule } from "./rules/array.rule";
 import { validateObjectRule } from "./rules/object.rule";
-import { validateGenericRule } from "./rules/generic.rule";
-
-const GENERIC_RULE_NAMES = new Set([
-  "custom",
-  "refine",
-  "matchField",
-  "oneOf",
-  "notOneOf",
-]);
-
-function isGenericRule(rule: { name: string }): rule is ValfuseGenericRule {
-  return GENERIC_RULE_NAMES.has(rule.name);
-}
+import { validateGenericRule, isGenericRule } from "./rules/generic.rule";
 
 export function validateSchema(
   schema: ValfuseSchema,

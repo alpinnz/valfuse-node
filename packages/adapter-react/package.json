@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/adapter-react",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "React adapter for valfuse-node — useValfuseForm with zero external form dependencies",
   "license": "MIT",
   "sideEffects": false,
@@ -38,7 +38,7 @@
     "clean": "rm -rf dist coverage"
   },
   "dependencies": {
-    "@valfuse-node/core": "^0.0.2"
+    "@valfuse-node/core": "^0.0.3"
   },
   "peerDependencies": {
     "react": ">=18",

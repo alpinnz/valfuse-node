@@ -10,6 +10,78 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.0.11] — 2026-05-26
+
+### Added
+
+- **Field-level `transform` support** — `schema` fields can now specify a `transform` function (e.g. `t.pipe(t.trim, t.toLowerCase)`).
+  Transforms are applied automatically in:
+  - `register.onChange` — stores the transformed value; validation runs on the transformed value
+  - `register.onBlur` — transforms the current value (including raw `defaultValues`) before validating
+  - `control._updateField` (used by `ValfuseController`) — same as `register.onChange`
+  - `control._touchField` — same as `register.onBlur`
+  - `setValue` — transformed value is stored before validation
+  - `trigger` — all field transforms applied via `transformValues` before validation
+  - `handleSubmit` — `onValid` receives fully-transformed values
+  - `isValid` — computed against transformed values on every render
+- **`ValfuseDirtyFields<T>`** and **`ValfuseTouchedFields<T>`** are now correctly exported from the package root
+  (they were declared and documented since `0.0.7` but omitted from `index.ts`).
+
+### Fixed
+
+- **Double-transform bug** — `validateField` was re-applying a field's `transform` on top of an already-transformed
+  value (callers had already applied it). Transform is now strictly a caller responsibility:
+  `register.onChange` / `control._updateField` apply it once before storing; `register.onBlur` /
+  `control._touchField` apply it to `valuesRef.current` before calling `validateField`.
+
+### Performance
+
+All changes below exclusively prevent unnecessary React re-renders — zero behaviour change.
+
+- **`validateField` — dual bail-out in `setErrorsState` updater**
+  ① No error + field was already clean → return `prev` (no re-render)
+  ② Same error (message/type/code identical) → return `prev` — prevents a re-render on every
+     keystroke while the field stays invalid (e.g. `"hel"` → `"hell"` → `"hello"` all produce
+     the same `"Invalid email"` error)
+
+- **`setErrors` — same-error bail-out** — compares incoming error (message/type/code) against
+  `prev[field]` before marking `changed = true`; calling `setErrors` with an identical API error
+  twice is now a true no-op.
+
+- **`setValue + shouldValidate` — same bail-outs as `validateField`** applied inline.
+
+- **`handleSubmit` success path** — `setErrorsState({})` guarded by `errorsRef` check; skipped
+  when errors are already empty.
+
+- **`trigger` — `changed` flag** — `setErrorsState` only called when at least one error actually
+  changed; repeated `trigger()` on an already-valid form is now free.
+
+- **`clearErrors()` no-arg bail-out** — returns immediately when `errorsRef.current` is already empty.
+
+- **`clearErrors(fields[])` bail-out** — `toDelete.length === 0 → return prev`.
+
+- **`clearStaleFieldError` bail-out** — `!(name in prev) → return prev`.
+
+- **`setErrors` bail-out** — returns `prev` when all entries were `undefined`.
+
+- **`_updateField` / `_touchField` as stable `useCallback`s** — extracted from `control` useMemo
+  with their own stable deps (`[validateField, clearStaleFieldError]` / `[validateField]`), so
+  `ValfuseController` and any `React.memo`-wrapped children never see new function references
+  when unrelated fields change.
+
+- **`ValfuseController` — fine-grained deps** — extracts per-field scalars (`fieldValue`,
+  `fieldError`, `isTouched`) before `useMemo`; unrelated field changes no longer invalidate
+  this field's `field` / `fieldState` memos.
+
+- **`formState` memoized** — wrapped in `useMemo`; consumers who spread `formState` into props
+  or add it to `useEffect` deps get a stable reference.
+
+- **`new Set(prev) + .add()` instead of `new Set([...prev, name])`** — avoids an O(n)
+  intermediate array when marking a field as touched (applies to both `register.onBlur` and
+  `control._touchField`).
+
+---
+
 ## [0.0.10] — 2026-05-26
 
 ### Fixed
@@ -126,7 +198,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.10...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.11...HEAD
+[0.0.11]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.10...adapter-react-v0.0.11
 [0.0.10]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.9...adapter-react-v0.0.10
 [0.0.9]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.8...adapter-react-v0.0.9
 [0.0.8]: https://github.com/alpinnz/valfuse-node/compare/adapter-react-v0.0.7...adapter-react-v0.0.8

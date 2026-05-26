@@ -11,11 +11,11 @@ export type {
   ValfuseFormMode,
   ValfuseFormState,
   ValfuseFormErrors,
-  ValfuseDirtyFields,
-  ValfuseTouchedFields,
   ValfuseFormControl,
   ValfuseFieldError,
   ValfuseRegisterReturn,
+  ValfuseDirtyFields,
+  ValfuseTouchedFields,
   ValfuseWatchCallback,
   ValfuseWatchFunction,
 } from "./types";

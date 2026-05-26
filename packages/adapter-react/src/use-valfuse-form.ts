@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect, useMemo, type FormEvent } from "react";
-import { validateSchema, normalizeError } from "@valfuse-node/core";
+import { validateSchema, normalizeError, transformValues } from "@valfuse-node/core";
 import type { ValfuseFieldErrors } from "@valfuse-node/core";
 
 import type {
@@ -51,6 +51,11 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const modeRef = useRef(mode);
   modeRef.current = mode;
 
+  // Allows register/control onChange handlers to always read the latest schema
+  // (including transform functions) without being in useCallback deps.
+  const schemaRef = useRef(schema);
+  schemaRef.current = schema;
+
   // ── Watch subscriptions ───────────────────────────────────────────────────
   const watchSubscribersRef = useRef<Set<ValfuseWatchCallback<TFieldValues>>>(new Set());
   const lastChangedFieldRef = useRef<string | undefined>(undefined);
@@ -68,12 +73,28 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   }, [values]);
 
   // ── Internal: per-field validation ────────────────────────────────────────
+  // Callers are responsible for applying transforms BEFORE calling this —
+  // i.e. register.onChange and control._updateField pass an already-transformed
+  // `updated` object; register.onBlur and control._touchField apply the field
+  // transform themselves via schemaRef before invoking this.
   const validateField = useCallback(
     (name: string, currentValues: Record<string, unknown>) => {
       if (!schema[name]) return;
       const raw = validateSchema({ [name]: schema[name] }, currentValues);
       const error = buildFieldError(raw, name);
       setErrorsState((prev) => {
+        // ① No error + field was clean before → nothing to do.
+        if (!error && !(name in prev)) return prev;
+        // ② Same error as before (message/type/code unchanged) → nothing to do.
+        //    Prevents a re-render on every keystroke while the field stays invalid
+        //    (e.g. "hel" → "hell" → "hello" all produce the same "Invalid email" error).
+        const prevError = prev[name as keyof TFieldValues];
+        if (
+          error && prevError &&
+          error.message === prevError.message &&
+          error.type    === prevError.type &&
+          error.code    === prevError.code
+        ) return prev;
         const next = { ...prev };
         if (error) {
           next[name as keyof TFieldValues] = error;
@@ -105,25 +126,44 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       name,
       value: valuesRef.current[name] as string | number | readonly string[] | undefined,
       onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const newValue = e.target.value as TFieldValues[TName];
+        const rawValue = e.target.value as TFieldValues[TName];
+        // Apply field-level transform before storing — read via schemaRef to avoid stale closure.
+        const fieldTransform = schemaRef.current[name]?.transform;
+        const newValue = fieldTransform ? (fieldTransform(rawValue) as TFieldValues[TName]) : rawValue;
         const updated = { ...valuesRef.current, [name]: newValue };
         lastChangedFieldRef.current = name;
         setValues(updated as TFieldValues);
 
-        if (shouldValidateOnChange(mode, touchedFieldsRef.current.has(name))) {
+        if (shouldValidateOnChange(modeRef.current, touchedFieldsRef.current.has(name))) {
           validateField(name, updated as Record<string, unknown>);
         } else {
           clearStaleFieldError(name);
         }
       },
       onBlur: () => {
-        setTouchedFields((prev) => new Set([...prev, name]));
-        if (shouldValidateOnBlur(mode)) {
-          validateField(name, valuesRef.current as Record<string, unknown>);
+        // Guard: bail out early if already touched — avoids a pointless re-render.
+        // new Set(prev) copies without an intermediate array (avoids O(n) spread).
+        setTouchedFields((prev) => {
+          if (prev.has(name)) return prev;
+          const next = new Set(prev);
+          next.add(name);
+          return next;
+        });
+        if (shouldValidateOnBlur(modeRef.current)) {
+          // valuesRef.current may hold untransformed defaultValues if the user
+          // hasn't typed yet — apply the field transform here so validation is
+          // consistent with handleSubmit / isValid.
+          const current = valuesRef.current as Record<string, unknown>;
+          const fieldTransform = schemaRef.current[name]?.transform;
+          const forValidation = fieldTransform
+            ? { ...current, [name]: fieldTransform(current[name]) }
+            : current;
+          validateField(name, forValidation);
         }
       },
     }),
-    [mode, validateField, clearStaleFieldError]
+    // mode/touchedFields/schema read via refs — only stable deps here.
+    [validateField, clearStaleFieldError]
   );
 
   // ── handleSubmit ───────────────────────────────────────────────────────────
@@ -133,7 +173,9 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
         e?.preventDefault?.();
 
         const currentValues = valuesRef.current;
-        const schemaErrors = validateSchema(schema, currentValues as Record<string, unknown>);
+        // Apply all field transforms before validation and before passing to onValid.
+        const transformedValues = transformValues(schema, currentValues as Record<string, unknown>) as TFieldValues;
+        const schemaErrors = validateSchema(schema, transformedValues as Record<string, unknown>);
 
         setSubmitCount((c) => c + 1);
         setIsSubmitted(true);
@@ -144,10 +186,11 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
           return;
         }
 
-        setErrorsState({});
+        // Only clear errors if any exist — avoids a needless re-render on valid submit.
+        if (Object.keys(errorsRef.current).length > 0) setErrorsState({});
         setIsSubmitting(true);
         try {
-          await onValid(currentValues);
+          await onValid(transformedValues);
           setIsSubmitSuccessful(true);
         } catch (err) {
           setIsSubmitSuccessful(false);
@@ -164,17 +207,28 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     (fieldErrors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>) => {
       setErrorsState((prev) => {
         const next = { ...prev };
+        let changed = false;
         for (const [fieldName, rawError] of Object.entries(fieldErrors)) {
           if (rawError === undefined) continue;
           const normalized = normalizeError(rawError);
+          // Bail out if the error is already identical — avoids a needless
+          // re-render when the same API error is set twice in a row.
+          const prevFieldError = prev[fieldName as keyof TFieldValues];
+          if (
+            prevFieldError &&
+            prevFieldError.message === normalized.message &&
+            prevFieldError.type    === (normalized.type ?? "manual") &&
+            prevFieldError.code    === normalized.code
+          ) continue;
           next[fieldName as keyof TFieldValues] = {
             message: normalized.message,
             type: normalized.type ?? "manual",
             ...(normalized.code !== undefined && { code: normalized.code }),
             ...(normalized.metadata !== undefined && { metadata: normalized.metadata }),
           };
+          changed = true;
         }
-        return next;
+        return changed ? next : prev;
       });
     },
     []
@@ -184,13 +238,18 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const clearErrors = useCallback(
     (name?: keyof TFieldValues | Array<keyof TFieldValues>) => {
       if (name === undefined) {
+        // Bail out when errors is already empty — avoids a needless re-render.
+        if (Object.keys(errorsRef.current).length === 0) return;
         setErrorsState({});
         return;
       }
       const fields = Array.isArray(name) ? name : [name];
       setErrorsState((prev) => {
+        // Bail out early if none of the requested fields have an active error.
+        const toDelete = fields.filter((k) => k in prev);
+        if (toDelete.length === 0) return prev;
         const next = { ...prev };
-        for (const n of fields) delete next[n];
+        for (const n of toDelete) delete next[n];
         return next;
       });
     },
@@ -201,6 +260,9 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const trigger = useCallback(
     (name?: keyof TFieldValues & string | Array<keyof TFieldValues & string>): boolean => {
       const current = valuesRef.current as Record<string, unknown>;
+      // Apply all transforms so every rule operates on clean values — consistent
+      // with handleSubmit. Safe to call even if no transforms are defined.
+      const transformed = transformValues(schema, current);
 
       const fieldsToValidate: string[] =
         name === undefined
@@ -210,21 +272,33 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
           : [name as string];
 
       let allValid = true;
-      const nextErrors: ValfuseFormErrors<TFieldValues> = { ...errorsRef.current };
+      let changed = false;
+      const prevErrors = errorsRef.current;
+      const nextErrors: ValfuseFormErrors<TFieldValues> = { ...prevErrors };
 
       for (const field of fieldsToValidate) {
         if (!schema[field]) continue;
-        const raw = validateSchema({ [field]: schema[field] }, current);
+        const raw = validateSchema({ [field]: schema[field] }, transformed);
         const error = buildFieldError(raw, field);
         if (error) {
           allValid = false;
+          // Mark changed if this field had no prior error or the message/type/code changed.
+          const prev = prevErrors[field as keyof TFieldValues];
+          if (!prev || prev.message !== error.message || prev.type !== error.type || prev.code !== error.code) {
+            changed = true;
+          }
           nextErrors[field as keyof TFieldValues] = error;
         } else {
-          delete nextErrors[field as keyof TFieldValues];
+          if (field in nextErrors) {
+            changed = true;
+            delete nextErrors[field as keyof TFieldValues];
+          }
         }
       }
 
-      setErrorsState(nextErrors);
+      // Only update state if errors actually changed — avoids a needless re-render
+      // when trigger() is called on an already-valid form.
+      if (changed) setErrorsState(nextErrors);
       return allValid;
     },
     [schema]
@@ -237,7 +311,10 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       value: TFieldValues[TName],
       options?: { shouldValidate?: boolean }
     ) => {
-      const updated = { ...valuesRef.current, [name]: value };
+      // Apply field-level transform before storing — read via schemaRef to avoid stale closure.
+      const fieldTransform = schemaRef.current[name as string]?.transform;
+      const transformedValue = fieldTransform ? (fieldTransform(value) as TFieldValues[TName]) : value;
+      const updated = { ...valuesRef.current, [name]: transformedValue };
       lastChangedFieldRef.current = name as string;
       setValues(updated as TFieldValues);
 
@@ -247,6 +324,14 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
         const raw = validateSchema({ [field]: schema[field] }, updated as Record<string, unknown>);
         const error = buildFieldError(raw, field);
         setErrorsState((prev) => {
+          if (!error && !(field in prev)) return prev;
+          const prevError = prev[name as keyof TFieldValues];
+          if (
+            error && prevError &&
+            error.message === prevError.message &&
+            error.type    === prevError.type &&
+            error.code    === prevError.code
+          ) return prev;
           const next = { ...prev };
           if (error) {
             next[name as keyof TFieldValues] = error;
@@ -296,34 +381,65 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   );
 
   // ── control (bridge to ValfuseController) ─────────────────────────────────
-  // _updateField and _touchField read mode/touchedFields via refs so they don't
-  // force control to be recreated on every blur or mode change.
+  // Extracted as stable useCallbacks so ValfuseController (and any React.memo'd
+  // children it passes them to) won't see new function references on every
+  // value / error / touch change. They only recreate when the schema changes
+  // (via validateField dep), which is rare in practice.
+  const _updateField = useCallback(
+    <TName extends keyof TFieldValues & string>(name: TName, value: TFieldValues[TName]) => {
+      // Apply field-level transform — read via schemaRef to avoid stale closure.
+      const fieldTransform = schemaRef.current[name]?.transform;
+      const transformedValue = fieldTransform ? (fieldTransform(value) as TFieldValues[TName]) : value;
+      const updated = { ...valuesRef.current, [name]: transformedValue };
+      lastChangedFieldRef.current = name;
+      setValues(updated as TFieldValues);
+      if (shouldValidateOnChange(modeRef.current, touchedFieldsRef.current.has(name))) {
+        validateField(name, updated as Record<string, unknown>);
+      } else {
+        // Mirror register.onChange: clear any stale API error when not running
+        // full validation, so isValid stays accurate after a programmatic update.
+        clearStaleFieldError(name);
+      }
+    },
+    // schema/mode/touchedFields/values read via refs.
+    [validateField, clearStaleFieldError]
+  );
+
+  const _touchField = useCallback(
+    (name: string) => {
+      // Guard: bail out early if already touched — avoids a pointless re-render.
+      // new Set(prev) copies without an intermediate array (avoids O(n) spread).
+      setTouchedFields((prev) => {
+        if (prev.has(name)) return prev;
+        const next = new Set(prev);
+        next.add(name);
+        return next;
+      });
+      if (shouldValidateOnBlur(modeRef.current)) {
+        // Apply field transform in case defaultValues haven't been through onChange yet.
+        const current = valuesRef.current as Record<string, unknown>;
+        const fieldTransform = schemaRef.current[name]?.transform;
+        const forValidation = fieldTransform
+          ? { ...current, [name]: fieldTransform(current[name]) }
+          : current;
+        validateField(name, forValidation);
+      }
+    },
+    // schema/mode/values read via refs — only validateField is a dep.
+    [validateField]
+  );
+
+  // control exposes reactive data (_values, _errors, _touchedFields) plus the
+  // stable callbacks above. Deps are limited to what ValfuseController reads reactively.
   const control = useMemo<ValfuseFormControl<TFieldValues>>(
     () => ({
       _values: values,
       _errors: errors,
-      _updateField: <TName extends keyof TFieldValues & string>(
-        name: TName,
-        value: TFieldValues[TName]
-      ) => {
-        const updated = { ...valuesRef.current, [name]: value };
-        lastChangedFieldRef.current = name;
-        setValues(updated as TFieldValues);
-        if (shouldValidateOnChange(modeRef.current, touchedFieldsRef.current.has(name))) {
-          validateField(name, updated as Record<string, unknown>);
-        }
-      },
-      _touchField: (name: string) => {
-        setTouchedFields((prev) => new Set([...prev, name]));
-        if (shouldValidateOnBlur(modeRef.current)) {
-          validateField(name, valuesRef.current as Record<string, unknown>);
-        }
-      },
+      _updateField,
+      _touchField,
       _touchedFields: touchedFields,
     }),
-    // modeRef/touchedFieldsRef used inside so mode & touchedFields (for functions)
-    // are NOT deps. Only data that ValfuseController reads needs to be deps.
-    [values, errors, touchedFields, validateField]
+    [values, errors, touchedFields, _updateField, _touchField]
   );
 
   // ── Derived formState ──────────────────────────────────────────────────────
@@ -357,30 +473,40 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     [touchedFields]
   );
 
-  // isValid = schema passes for current values AND no errors in state
-  // (catches both schema failures and external API errors from setErrors).
-  const isSchemaValid = useMemo(
-    () => Object.keys(validateSchema(schema, values as Record<string, unknown>)).length === 0,
-    [schema, values]
-  );
-  const isValid = isSchemaValid && Object.keys(errors).length === 0;
+  // isValid = no active errors in state AND schema passes for current (transformed) values.
+  //
+  // Fast path: if errors state already has entries (e.g. from validateField or setErrors)
+  // skip the full schema re-validation to avoid running transformValues + validateSchema twice
+  // in the same render cycle as validateField already did the work.
+  //
+  // ⚠️ Performance note: schema and defaultValues should be defined outside the component
+  // (or wrapped in useMemo) to keep these deps stable across renders.
+  const isValid = useMemo(() => {
+    if (Object.keys(errors).length > 0) return false;
+    const transformed = transformValues(schema, values as Record<string, unknown>);
+    return Object.keys(validateSchema(schema, transformed)).length === 0;
+  }, [schema, values, errors]);
+
+  // formState is memoized so consumers who spread it into props or use it in
+  // useEffect deps get a stable reference — only changes when a field inside changes.
+  const formState = useMemo(() => ({
+    errors,
+    isSubmitting,
+    isSubmitted,
+    isSubmitSuccessful,
+    submitCount,
+    isDirty,
+    isValid,
+    dirtyFields,
+    touchedFields: touchedFieldsRecord,
+    defaultValues,
+  }), [errors, isSubmitting, isSubmitted, isSubmitSuccessful, submitCount, isDirty, isValid, dirtyFields, touchedFieldsRecord, defaultValues]);
 
   return {
     register,
     control,
     handleSubmit,
-    formState: {
-      errors,
-      isSubmitting,
-      isSubmitted,
-      isSubmitSuccessful,
-      submitCount,
-      isDirty,
-      isValid,
-      dirtyFields,
-      touchedFields: touchedFieldsRecord,
-      defaultValues,
-    },
+    formState,
     setErrors,
     clearErrors,
     setValue,

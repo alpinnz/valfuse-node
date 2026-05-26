@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import type { ValfuseFieldError, ValfuseFormControl } from "./types";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -66,21 +66,44 @@ export function ValfuseController<
   name,
   render,
 }: ValfuseControllerProps<TFieldValues, TName>): React.ReactElement {
-  const field: ValfuseControllerField<TFieldValues[TName]> = {
-    name,
-    value: control._values[name] as TFieldValues[TName],
-    onChange: (value: TFieldValues[TName]) => {
-      control._updateField(name, value);
-    },
-    onBlur: () => {
-      control._touchField(name);
-    },
-  };
+  // Stable callbacks — only recreate when control._updateField / _touchField
+  // change (i.e. when the schema changes), NOT on every value/error update.
+  // This ensures React.memo'd child inputs don't rerender from new function refs.
+  const onChange = useCallback(
+    (value: TFieldValues[TName]) => control._updateField(name, value),
+    [control._updateField, name]
+  );
 
-  const fieldState: ValfuseControllerFieldState = {
-    error: control._errors[name],
-    isTouched: control._touchedFields.has(name),
-  };
+  const onBlur = useCallback(
+    () => control._touchField(name),
+    [control._touchField, name]
+  );
+
+  // Extract only THIS field's reactive data so that when an unrelated field
+  // changes (different name), these local vars stay the same reference and the
+  // memos below don't invalidate — avoiding unnecessary re-renders of the
+  // render prop's children.
+  const fieldValue = control._values[name] as TFieldValues[TName];
+  const fieldError = control._errors[name];
+  const isTouched = control._touchedFields.has(name);
+
+  const field = useMemo(
+    (): ValfuseControllerField<TFieldValues[TName]> => ({
+      name,
+      value: fieldValue,
+      onChange,
+      onBlur,
+    }),
+    [name, fieldValue, onChange, onBlur]
+  );
+
+  const fieldState = useMemo(
+    (): ValfuseControllerFieldState => ({
+      error: fieldError,
+      isTouched,
+    }),
+    [fieldError, isTouched]
+  );
 
   return render({ field, fieldState });
 }

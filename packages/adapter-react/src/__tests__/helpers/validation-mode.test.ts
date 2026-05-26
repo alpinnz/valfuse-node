@@ -3,8 +3,6 @@ import { shouldValidateOnChange, shouldValidateOnBlur } from "../../helpers/vali
 import type { ValfuseFormMode } from "../../types";
 
 describe("shouldValidateOnChange", () => {
-  const modes: ValfuseFormMode[] = ["onSubmit", "onBlur", "onChange", "onTouched", "all"];
-
   it.each([
     // [mode, isTouched, expected]
     ["onChange",  false, true ],
@@ -27,11 +25,11 @@ describe("shouldValidateOnChange", () => {
 
 describe("shouldValidateOnBlur", () => {
   it.each([
-    ["onBlur",   true ],
-    ["all",      true ],
-    ["onTouched",true ],
-    ["onChange", false],
-    ["onSubmit", false],
+    ["onBlur",    true ],
+    ["all",       true ],
+    ["onTouched", true ],
+    ["onChange",  false],
+    ["onSubmit",  false],
   ] as [ValfuseFormMode, boolean][])(
     "mode=%s → %s",
     (mode, expected) => {

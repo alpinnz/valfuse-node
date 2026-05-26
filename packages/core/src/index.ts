@@ -1,51 +1,25 @@
 export { createSchema } from "./create-schema";
 export { validateSchema } from "./validate-schema";
-export { normalizeError } from "./errors/normalize-error";
+export { transformValues } from "./transform-values";
+export { normalizeError } from "./errors";
+export { t } from "./transformers";
 
 export type {
+  // Errors
   ValfuseError,
-  ValfuseErrorType,
   ValfuseFieldErrors,
-  ValfuseFieldSchema,
-  ValfuseFieldType,
-  ValfuseRegexValue,
   ValfuseRuleError,
+  // Rules — union types only (granular subtypes are internal)
+  ValfuseRegexValue,
+  ValfuseStringRule,
+  ValfuseNumberRule,
+  ValfuseBooleanRule,
+  ValfuseArrayRule,
+  ValfuseObjectRule,
+  ValfuseGenericRule,
+  // Schema
+  ValfuseTransformer,
+  ValfuseFieldSchema,
   ValfuseSchema,
   SetErrorsInput,
-  // String rules
-  ValfuseStringRule,
-  ValfuseStringRequiredRule,
-  ValfuseStringMinRule,
-  ValfuseStringMaxRule,
-  ValfuseStringLengthRule,
-  ValfuseStringEmailRule,
-  ValfuseStringUrlRule,
-  ValfuseStringUuidRule,
-  ValfuseStringRegexRule,
-  ValfuseStringIncludesRule,
-  ValfuseStringStartsWithRule,
-  ValfuseStringEndsWithRule,
-  // Number rules
-  ValfuseNumberRule,
-  // Boolean rules
-  ValfuseBooleanRule,
-  // Array rules
-  ValfuseArrayRule,
-  // Object rules
-  ValfuseObjectRule,
-  // Generic rules
-  ValfuseGenericRule,
-  ValfuseCustomRule,
-  ValfuseRefineRule,
-  ValfuseMatchFieldRule,
-  ValfuseOneOfRule,
-  ValfuseNotOneOfRule,
-  // Field schemas
-  ValfuseStringFieldSchema,
-  ValfuseNumberFieldSchema,
-  ValfuseBooleanFieldSchema,
-  ValfuseArrayFieldSchema,
-  ValfuseObjectFieldSchema,
 } from "./types";
-
-

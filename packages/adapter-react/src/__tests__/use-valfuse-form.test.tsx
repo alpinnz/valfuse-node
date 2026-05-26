@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { createSchema } from "@valfuse-node/core";
+import { createSchema, t } from "@valfuse-node/core";
 import { useValfuseForm } from "../use-valfuse-form";
 
 const testLoginSchema = createSchema({
@@ -859,3 +859,182 @@ describe("useValfuseForm", () => {
     expect(result.current.formState.defaultValues).toEqual(defaults);
   });
 });
+
+// ── transform integration ─────────────────────────────────────────────────────
+
+const transformSchema = createSchema({
+  email: {
+    type: "string",
+    transform: t.pipe(t.trim, t.toLowerCase),
+    rules: [
+      { name: "required", error: { message: "Email is required" } },
+      { name: "email",    error: { message: "Invalid email" } },
+    ],
+  },
+  name: {
+    type: "string",
+    transform: t.trim,
+    rules: [
+      { name: "required", error: { message: "Name is required" } },
+      { name: "min", value: 3, error: { message: "Name too short" } },
+    ],
+  },
+});
+
+describe("useValfuseForm — transform", () => {
+  it("register.onChange stores the transformed value", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({ schema: transformSchema, defaultValues: { email: "", name: "" } })
+    );
+
+    await act(async () => {
+      result.current.register("email").onChange({
+        target: { value: "  HELLO@EXAMPLE.COM  " },
+      } as React.ChangeEvent<HTMLInputElement>);
+    });
+
+    expect(result.current.watch("email")).toBe("hello@example.com");
+  });
+
+  it("register.onChange validates with transformed value (mode=onChange)", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({ schema: transformSchema, defaultValues: { email: "", name: "" }, mode: "onChange" })
+    );
+
+    await act(async () => {
+      result.current.register("email").onChange({
+        target: { value: "  HELLO@EXAMPLE.COM  " },
+      } as React.ChangeEvent<HTMLInputElement>);
+    });
+
+    // After trim + toLowerCase → "hello@example.com" — valid, no error
+    expect(result.current.formState.errors.email).toBeUndefined();
+  });
+
+  it("register.onBlur validates with transformed defaultValue (mode=onBlur)", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: transformSchema,
+        defaultValues: { email: "  HELLO@EXAMPLE.COM  ", name: "Alice" },
+        mode: "onBlur",
+      })
+    );
+
+    await act(async () => {
+      result.current.register("email").onBlur();
+    });
+
+    // Transform applied to raw defaultValue: "hello@example.com" is valid
+    expect(result.current.formState.errors.email).toBeUndefined();
+  });
+
+  it("register.onBlur reports error for invalid transformed value", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: transformSchema,
+        defaultValues: { email: "   ", name: "Alice" },
+        mode: "onBlur",
+      })
+    );
+
+    await act(async () => {
+      result.current.register("email").onBlur();
+    });
+
+    // t.pipe(t.trim, t.toLowerCase)("   ") → "" — fails required
+    expect(result.current.formState.errors.email?.message).toBe("Email is required");
+  });
+
+  it("setValue applies transform before storing", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({ schema: transformSchema, defaultValues: { email: "", name: "" } })
+    );
+
+    await act(async () => {
+      result.current.setValue("email", "  HELLO@EXAMPLE.COM  ");
+    });
+
+    expect(result.current.watch("email")).toBe("hello@example.com");
+  });
+
+  it("trigger validates with transformed values", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: transformSchema,
+        defaultValues: { email: "  HELLO@EXAMPLE.COM  ", name: "Alice" },
+      })
+    );
+
+    let valid = false;
+    await act(async () => {
+      valid = result.current.trigger("email");
+    });
+
+    // Transform → "hello@example.com" — valid
+    expect(valid).toBe(true);
+    expect(result.current.formState.errors.email).toBeUndefined();
+  });
+
+  it("trigger reports error when transformed value is invalid", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: transformSchema,
+        defaultValues: { email: "   ", name: "Alice" },
+      })
+    );
+
+    let valid = true;
+    await act(async () => {
+      valid = result.current.trigger("email");
+    });
+
+    // "   " → "" after trim → fails required
+    expect(valid).toBe(false);
+    expect(result.current.formState.errors.email?.message).toBe("Email is required");
+  });
+
+  it("handleSubmit passes transformed values to onValid", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: transformSchema,
+        defaultValues: { email: "  HELLO@EXAMPLE.COM  ", name: "  Alice  " },
+      })
+    );
+
+    let submitted: Record<string, unknown> | undefined;
+    await act(async () => {
+      await result.current.handleSubmit((values) => {
+        submitted = values as Record<string, unknown>;
+      })();
+    });
+
+    expect(submitted?.email).toBe("hello@example.com");
+    expect(submitted?.name).toBe("Alice"); // t.trim
+    expect(result.current.formState.isSubmitSuccessful).toBe(true);
+  });
+
+  it("isValid uses transformed values", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: transformSchema,
+        defaultValues: { email: "  HELLO@EXAMPLE.COM  ", name: "Alice" },
+      })
+    );
+
+    // Raw defaultValues would fail (spaces, uppercase) but after transform they pass
+    expect(result.current.formState.isValid).toBe(true);
+  });
+
+  it("isValid is false when transformed value still fails", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: transformSchema,
+        defaultValues: { email: "   ", name: "Alice" },
+      })
+    );
+
+    // "   " → "" after trim → fails required → isValid false
+    expect(result.current.formState.isValid).toBe(false);
+  });
+});
+
