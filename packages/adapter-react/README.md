@@ -132,7 +132,10 @@ const form = useValfuseForm({ schema, defaultValues, mode: "all" });
 | `form.clearErrors(name?)` | `void` | Clear one, many, or all field errors |
 | `form.setValue(name, value, options?)` | `void` | Set a field value; pass `{ shouldValidate: true }` to validate immediately |
 | `form.trigger(name?)` | `boolean` | Manually trigger validation; returns `true` if all triggered fields are valid |
-| `form.watch()` | `TFieldValues` | Returns current form values |
+| `form.watch()` | `TFieldValues` | Returns all current field values |
+| `form.watch(name)` | `TFieldValues[name]` | Returns the current value of a single field |
+| `form.watch(names[])` | `Array` | Returns an array of values in the same order as `names` |
+| `form.watch(callback)` | `() => void` | Subscribe to value changes; returns an unsubscribe function |
 | `form.reset(values?)` | `void` | Reset to default values (or provided partial values) |
 
 #### `form.formState`
@@ -181,6 +184,48 @@ form.setValue("email", "user@example.com");
 // Set value and validate immediately
 form.setValue("email", "user@example.com", { shouldValidate: true });
 ```
+
+---
+
+### `form.watch`
+
+Watch field values reactively — mirrors react-hook-form's `watch` API.
+
+#### Watch all fields
+
+```ts
+const values = form.watch();
+// → { email: "...", password: "..." }
+```
+
+#### Watch a single field
+
+```ts
+const email = form.watch("email");
+// → string (current value of the email field)
+```
+
+#### Watch multiple fields
+
+```ts
+const [email, password] = form.watch(["email", "password"]);
+// → values in the same order as the names array
+```
+
+#### Subscribe to changes (callback)
+
+```ts
+// Subscribe — callback is called on every value change
+const unsubscribe = form.watch((values, info) => {
+  console.log("changed field:", info.name);
+  console.log("all values:", values);
+});
+
+// Stop receiving notifications
+unsubscribe();
+```
+
+> The callback variant is useful for **side-effects** (e.g. fetching dependent data when a field changes) without causing extra re-renders.
 
 ---
 
@@ -367,6 +412,8 @@ import type {
   ValfuseFormState,
   ValfuseFormControl,
   ValfuseControllerProps,
+  ValfuseWatchCallback,
+  ValfuseWatchFunction,
 } from "@valfuse-node/adapter-react";
 
 import type { ValfuseFieldErrors } from "@valfuse-node/core";

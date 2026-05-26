@@ -229,6 +229,93 @@ describe("useValfuseForm", () => {
     expect(result.current.watch().email).toBe("test@example.com");
   });
 
+  it("watch('email') should return current value of a single field", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "hello@example.com", password: "pass1234" },
+      })
+    );
+
+    expect(result.current.watch("email")).toBe("hello@example.com");
+    expect(result.current.watch("password")).toBe("pass1234");
+  });
+
+  it("watch(['email', 'password']) should return array of values in order", () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "a@b.com", password: "secret99" },
+      })
+    );
+
+    const [email, password] = result.current.watch(["email", "password"]);
+    expect(email).toBe("a@b.com");
+    expect(password).toBe("secret99");
+  });
+
+  it("watch(callback) should be called with updated values after setValue", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    const received: Array<{ email: string; password: string }> = [];
+    let receivedNames: Array<string | undefined> = [];
+
+    act(() => {
+      result.current.watch((values, info) => {
+        received.push(values as { email: string; password: string });
+        receivedNames.push(info.name);
+      });
+    });
+
+    await act(async () => {
+      result.current.setValue("email", "watched@example.com");
+    });
+
+    expect(received.length).toBeGreaterThan(0);
+    expect(received[received.length - 1].email).toBe("watched@example.com");
+    expect(receivedNames[receivedNames.length - 1]).toBe("email");
+  });
+
+  it("watch(callback) unsubscribe should stop future notifications", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "", password: "" },
+      })
+    );
+
+    const calls: string[] = [];
+    let unsubscribe: (() => void) | undefined;
+
+    act(() => {
+      unsubscribe = result.current.watch((values) => {
+        calls.push((values as { email: string }).email);
+      });
+    });
+
+    await act(async () => {
+      result.current.setValue("email", "first@example.com");
+    });
+
+    const countAfterFirst = calls.length;
+    expect(countAfterFirst).toBeGreaterThan(0);
+
+    // Unsubscribe
+    act(() => { unsubscribe?.(); });
+
+    await act(async () => {
+      result.current.setValue("email", "second@example.com");
+    });
+
+    // Should NOT have been called again after unsubscribe
+    expect(calls.length).toBe(countAfterFirst);
+  });
+
   // ── setValue ─────────────────────────────────────────────────────────────────
 
   it("setValue without shouldValidate should NOT trigger validation", async () => {

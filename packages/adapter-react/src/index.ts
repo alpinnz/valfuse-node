@@ -16,6 +16,8 @@ export type {
   ValfuseFormControl,
   ValfuseFieldError,
   ValfuseRegisterReturn,
+  ValfuseWatchCallback,
+  ValfuseWatchFunction,
 } from "./types";
 
 // ─── Types: controller ────────────────────────────────────────────────────────

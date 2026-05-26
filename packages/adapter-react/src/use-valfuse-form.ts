@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, type FormEvent } from "react";
+import { useState, useRef, useCallback, useEffect, type FormEvent } from "react";
 import { validateSchema, normalizeError } from "@valfuse-node/core";
 import type { ValfuseFieldErrors } from "@valfuse-node/core";
 
@@ -10,6 +10,8 @@ import type {
   ValfuseDirtyFields,
   ValfuseTouchedFields,
   ValfuseFormControl,
+  ValfuseWatchCallback,
+  ValfuseWatchFunction,
 } from "./types";
 
 // ─── Internal helpers ─────────────────────────────────────────────────────────
@@ -54,6 +56,22 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const errorsRef = useRef(errors);
   errorsRef.current = errors;
 
+  // ── Watch subscriptions ───────────────────────────────────────────────────
+  const watchSubscribersRef = useRef<Set<ValfuseWatchCallback<TFieldValues>>>(new Set());
+  const lastChangedFieldRef = useRef<string | undefined>(undefined);
+
+  // Notify watch subscribers whenever values change
+  useEffect(() => {
+    if (watchSubscribersRef.current.size > 0) {
+      const info: { name?: string; type?: string } = {
+        name: lastChangedFieldRef.current,
+        type: lastChangedFieldRef.current ? "change" : undefined,
+      };
+      watchSubscribersRef.current.forEach((cb) => cb(values, info));
+    }
+    lastChangedFieldRef.current = undefined;
+  }, [values]);
+
   // ── Internal: per-field validation ────────────────────────────────────────
   const validateField = useCallback(
     (name: string, currentValues: Record<string, unknown>) => {
@@ -84,6 +102,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const newValue = e.target.value as TFieldValues[TName];
         const updated = { ...valuesRef.current, [name]: newValue };
+        lastChangedFieldRef.current = name;
         setValues(updated as TFieldValues);
 
         const isTouched = touchedFields.has(name);
@@ -232,6 +251,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       options?: { shouldValidate?: boolean }
     ) => {
       const updated = { ...valuesRef.current, [name]: value };
+      lastChangedFieldRef.current = name as string;
       setValues(updated as TFieldValues);
       if (options?.shouldValidate) {
         // validateField reads valuesRef which hasn't updated yet — use updated directly
@@ -257,7 +277,29 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   );
 
   // ── watch ──────────────────────────────────────────────────────────────────
-  const watch = useCallback(() => values, [values]);
+  const watch = useCallback(
+    (nameOrNamesOrCallback?: unknown) => {
+      // watch(callback) — subscribe to all value changes
+      if (typeof nameOrNamesOrCallback === "function") {
+        const cb = nameOrNamesOrCallback as ValfuseWatchCallback<TFieldValues>;
+        watchSubscribersRef.current.add(cb);
+        return () => watchSubscribersRef.current.delete(cb);
+      }
+      // watch(["email", "name"]) — snapshot of multiple fields (array preserving order)
+      if (Array.isArray(nameOrNamesOrCallback)) {
+        return nameOrNamesOrCallback.map(
+          (n) => valuesRef.current[n as keyof TFieldValues]
+        );
+      }
+      // watch("email") — snapshot of a single field
+      if (typeof nameOrNamesOrCallback === "string") {
+        return valuesRef.current[nameOrNamesOrCallback as keyof TFieldValues];
+      }
+      // watch() — all current values
+      return valuesRef.current;
+    },
+    []
+  ) as ValfuseWatchFunction<TFieldValues>;
 
   // ── reset ──────────────────────────────────────────────────────────────────
   const reset = useCallback(
@@ -281,6 +323,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       value: TFieldValues[TName]
     ) => {
       const updated = { ...valuesRef.current, [name]: value };
+      lastChangedFieldRef.current = name;
       setValues(updated as TFieldValues);
       const isTouched = touchedFields.has(name);
       if (

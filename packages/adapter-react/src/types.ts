@@ -77,6 +77,34 @@ export type ValfuseFormState<TFieldValues extends Record<string, unknown>> = {
   defaultValues: TFieldValues;
 };
 
+// ─── watch ────────────────────────────────────────────────────────────────────
+
+/**
+ * Callback passed to `form.watch(callback)`.
+ * Called every time any field value changes.
+ */
+export type ValfuseWatchCallback<TFieldValues extends Record<string, unknown>> = (
+  values: TFieldValues,
+  info: { name?: string; type?: string }
+) => void;
+
+/**
+ * Callable type for `form.watch` — mirrors react-hook-form overloads:
+ *
+ * ```ts
+ * form.watch()                          // → TFieldValues (all values)
+ * form.watch("email")                   // → TFieldValues["email"]
+ * form.watch(["email", "name"])         // → Array of values in the same order
+ * form.watch((values, info) => void)    // → () => void  (unsubscribe)
+ * ```
+ */
+export interface ValfuseWatchFunction<TFieldValues extends Record<string, unknown>> {
+  (): TFieldValues;
+  <TName extends keyof TFieldValues & string>(name: TName): TFieldValues[TName];
+  (names: Array<keyof TFieldValues & string>): Array<TFieldValues[keyof TFieldValues]>;
+  (callback: ValfuseWatchCallback<TFieldValues>): () => void;
+}
+
 // ─── register() ───────────────────────────────────────────────────────────────
 
 /** Props returned by `form.register(name)` — spread directly onto `<input>` */
@@ -163,8 +191,18 @@ export type UseValfuseFormReturn<TFieldValues extends Record<string, unknown>> =
    * Returns `true` if all triggered fields are valid, `false` otherwise.
    */
   trigger: (name?: keyof TFieldValues & string | Array<keyof TFieldValues & string>) => boolean;
-  /** Watch all fields — returns the full values object */
-  watch: () => TFieldValues;
+  /**
+   * Watch field values — mirrors react-hook-form's `watch`:
+   *
+   * ```ts
+   * form.watch()                           // all current values
+   * form.watch("email")                    // single field value
+   * form.watch(["email", "name"])          // array of values
+   * const unsub = form.watch((values, info) => { ... }); // subscribe
+   * unsub();                               // unsubscribe
+   * ```
+   */
+  watch: ValfuseWatchFunction<TFieldValues>;
   /** Reset the form to default values (or provided partial values) */
   reset: (values?: Partial<TFieldValues>) => void;
 };
