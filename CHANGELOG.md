@@ -4,64 +4,61 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-Per-package changelogs:
-- [`packages/core/CHANGELOG.md`](./packages/core/CHANGELOG.md)
-- [`packages/adapter-react/CHANGELOG.md`](./packages/adapter-react/CHANGELOG.md)
-
 ---
 
 ## [Unreleased]
 
----
-
-## [0.0.6] — 2026-05-26
-
-### Fixed
-
-- `@valfuse-node/adapter-react@0.0.10` — `isValid` fix
-  - `isValid` no longer returns `true` on initial render before any validation has run
+_No unreleased changes._
 
 ---
 
-## [0.0.5] — 2026-05-26
-
-### Changed
-
-- `@valfuse-node/adapter-react@0.0.9` — readonly formState + watch
-  - All `ValfuseFormState` properties marked as `readonly` for immutability
-  - `form.watch()` — reactive field watch with subscribe callback support
-
----
-
-## [0.0.4] — 2026-05-26
-
-### Changed
-
-- `@valfuse-node/adapter-react@0.0.4` — complete rewrite
-  - Removed `react-hook-form` dependency; form state is now native React (`useState` + `useRef` + `useCallback`)
-  - `ValfuseController` is now a native Valfuse component (no longer wraps RHF's `Controller`)
-  - Rule files renamed: `*.rules.ts` → `*.rule.ts`, `custom.rules.ts` → `generic.rule.ts`
-  - `form.formState.errors.fieldName?.code` fully type-safe on both `register()` and `ValfuseController`
-
----
-
-## [0.0.1] — 2026-05-19
+## [0.1.0] — 2026-05-28
 
 ### Added
 
-- `@valfuse-node/core@0.0.1` — native schema validation engine
-  - `createSchema()`, `validateSchema()`, `normalizeError()`
-  - String, number, boolean, array, object, and generic rules
-  - Full TypeScript types
-- `@valfuse-node/adapter-react-example` — reference implementation (private)
-  - `UserObjectForm`, `UserIdForm`
-  - `TextInput`, `RoleDropdownObject`, `RoleDropdownId`
-  - API error mapping example
+- **`@valfuse-node/core@0.1.0`** — framework-agnostic validation engine
+  - `createSchema()`, `validateSchema()`, `transformValues()`, `normalizeError()`
+  - `t()` transformer composer utility
+  - Built-in rules: `required`, `minLength`, `maxLength`, `pattern`, `email`, `url`, `min`, `max`, `integer`, `minItems`, `maxItems`, `refine`, `custom`, `matchField`, `oneOf`, `notOneOf`
+  - Full TypeScript types: `ValfuseSchema`, `ValfuseError`, `ValfuseFieldErrors`, all rule types
+
+- **`@valfuse-node/localization@0.1.0`** — localization compiler, CLI, and browser runtime
+  - CLI: `init`, `generate`, `validate`, `coverage`, `clean`
+  - YAML-based translation format with nested namespace support
+  - Full TypeScript code generation for locale files
+  - Browser-safe interpolation runtime (`/browser` and `/runtime` entry points)
+  - Context, gender, plural, and structured variant interpolation
+  - HTML and JSON coverage reports
+  - Watch mode for development (`valfuse-localization generate --watch`)
+
+- **`@valfuse-node/react@0.1.0`** — React 18 adapter
+  - `useValfuseForm` hook — native React state, no external form library dependency
+  - `ValfuseController` — controlled component bridge
+  - `form.register()`, `form.watch()`, `form.handleSubmit()`, `form.setErrors()`, `form.reset()`, `form.getValues()`
+  - `formState`: `errors`, `isValid`, `isDirty`, `isSubmitting`, `dirtyFields`, `touchedFields` — all `readonly`
+  - `LocalizationProvider`, `useLocalization`, `useLocalizationTree`
+  - `createLocalizationStore`, `createLazyLocaleLoader`, `createSsrLocalizationState`
+  - Storage strategies: `localStorageStrategy`, `sessionStorageStrategy`, `cookieStrategy`, `memoryStrategy`, `composeStorage`
+
+- **`@valfuse-node/vue@0.1.0`** — Vue 3 adapter
+  - `useValfuseForm` composable — reactive `formState` with computed getters
+  - `register()` returns native Vue v-model bindings (`modelValue`, `onUpdate:modelValue`, `onBlur`)
+  - Full parity with React adapter API: `watch`, `setValue`, `getValue`, `setErrors`, `clearErrors`, `reset`, `getValues`, `handleSubmit`
+
+- **`@valfuse-node/example-react`** (private) — reference React implementation
+  - `UserObjectForm`, `UserIdForm`, API error mapping, mode selector, `ValfuseController` demo
+
+- **`@valfuse-node/example-vue`** (private) — reference Vue 3 implementation
+  - Mirror of React example using `useValfuseForm` composable and native v-model bindings
+
+### Infrastructure
+
+- Turbo monorepo pipeline with dependency-ordered builds
+- Single root ESLint config (`typescript-eslint` flat config, `no-console: error`)
+- `tsup` for all library builds (CJS + ESM + `.d.ts`)
+- Vitest for unit tests across `core` and `react`
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.0.6...HEAD
-[0.0.6]: https://github.com/alpinnz/valfuse-node/compare/v0.0.5...v0.0.6
-[0.0.5]: https://github.com/alpinnz/valfuse-node/compare/v0.0.4...v0.0.5
-[0.0.4]: https://github.com/alpinnz/valfuse-node/compare/v0.0.1...v0.0.4
-[0.0.1]: https://github.com/alpinnz/valfuse-node/releases/tag/v0.0.1
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/alpinnz/valfuse-node/releases/tag/v0.1.0

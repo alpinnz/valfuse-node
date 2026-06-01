@@ -1,25 +1,4 @@
-export { createSchema } from "./create-schema";
-export { validateSchema } from "./validate-schema";
-export { transformValues } from "./transform-values";
-export { normalizeError } from "./errors";
-export { t } from "./transformers";
+// @valfuse-node/core - Orchestration layer
+// Re-exports from @valfuse-node/form for backward compatibility
 
-export type {
-  // Errors
-  ValfuseError,
-  ValfuseFieldErrors,
-  ValfuseRuleError,
-  // Rules — union types only (granular subtypes are internal)
-  ValfuseRegexValue,
-  ValfuseStringRule,
-  ValfuseNumberRule,
-  ValfuseBooleanRule,
-  ValfuseArrayRule,
-  ValfuseObjectRule,
-  ValfuseGenericRule,
-  // Schema
-  ValfuseTransformer,
-  ValfuseFieldSchema,
-  ValfuseSchema,
-  SetErrorsInput,
-} from "./types";
+export * from './public-api';

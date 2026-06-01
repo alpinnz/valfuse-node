@@ -7,14 +7,15 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "src/assets/localizations/**"]
     },
     "lint": {
       "dependsOn": ["^build"]
     },
     "test": {
       "dependsOn": ["^build"],
-      "outputs": ["coverage/**"]
+      "outputs": [],
+      "outputLogs": "new-only"
     },
     "typecheck": {
       "dependsOn": ["^build"]
