@@ -1,10 +1,7 @@
 {
   "name": "valfuse-node",
   "private": true,
-  "packageManager": "yarn@1.22.22",
-  "engines": {
-    "yarn": ">=1.22.0"
-  },
+  "packageManager": "npm@11.6.2",
   "workspaces": [
     "packages/*",
     "packages/examples/*"
