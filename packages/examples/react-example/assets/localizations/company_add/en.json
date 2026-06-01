@@ -1,0 +1,32 @@
+{
+  "@@locale": "en",
+  "@@module": "company_add",
+  "form": {
+    "submit": {
+      "button": "Create Company"
+    },
+    "cancel": {
+      "button": "Cancel"
+    }
+  },
+  "cancel_dialog": {
+    "title": "Cancel Adding Company?",
+    "description": "Are you sure you want to cancel this process?",
+    "back_to_form": {
+      "button": "Back to Form"
+    },
+    "confirm_cancel": {
+      "button": "Cancel"
+    },
+    "toast": {
+      "title": "Changes Discarded",
+      "message": "Unsaved changes have been discarded."
+    }
+  },
+  "toasttitle": {
+    "success": "Success!"
+  },
+  "toast": {
+    "success": "Company added successfully"
+  }
+}

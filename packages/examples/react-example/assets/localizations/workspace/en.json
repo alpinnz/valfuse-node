@@ -1,0 +1,181 @@
+{
+  "@@locale": "en",
+  "@@module": "company_and_workspace",
+  "listrk": {
+    "header": {
+      "title": "Workspace List"
+    }
+  },
+  "listcompany": {
+    "header": {
+      "title": "Company List"
+    }
+  },
+  "workspace": {
+    "list": {
+      "header": {
+        "managed_by": {
+          "label": "managed by {account name}"
+        }
+      },
+      "summary": {
+        "company_total": {
+          "label": "Total Companies"
+        },
+        "business_unit_total": {
+          "label": "Total Business Units"
+        }
+      },
+      "action": {
+        "create": {
+          "button": "Add Workspace"
+        }
+      },
+      "error": {
+        "title": "Failed to Load Workspaces",
+        "description": "Something went wrong while loading workspace data. Please try again."
+      },
+      "not_found": {
+        "title": "Workspace Not Found",
+        "description": "No workspaces match your search criteria."
+      },
+      "empty": {
+        "title": "No Workspaces Yet",
+        "description": "You don't have any workspaces yet. Create your first workspace to get started."
+      }
+    },
+    "create": {
+      "modal": {
+        "title": "Add Workspace"
+      },
+      "form": {
+        "name": {
+          "label": "Workspace Name",
+          "placeholder": "Example: Main Workspace",
+          "error": {
+            "required": "Workspace name is required.",
+            "min_length": "Workspace name must be at least 3 characters.",
+            "invalid_format": "Workspace name can only contain letters, numbers, dots, and commas.",
+            "duplicate": "This workspace name is already in use. Please use a different name.",
+            "max_length": "Workspace name must be no more than 60 characters."
+          }
+        }
+      },
+      "action": {
+        "cancel": {
+          "button": "Cancel"
+        },
+        "submit": {
+          "button": "Save"
+        }
+      },
+      "name": {
+        "info": {
+          "max_length": "Workspace name must be no more than 60 characters."
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "Success!",
+          "message": "Workspace was added successfully"
+        }
+      }
+    },
+    "edit": {
+      "action": {
+        "cancel": {
+          "button": "Cancel"
+        },
+        "submit": {
+          "button": "Save"
+        }
+      },
+      "form": {
+        "name": {
+          "error": {
+            "required": "Workspace name is required.",
+            "min_length": "Workspace name must be at least 3 characters.",
+            "invalid_format": "Workspace name can only contain letters, numbers, dots, and commas.",
+            "duplicate": "This workspace name is already in use. Please use a different name.",
+            "max_length": "Workspace name must be no more than 60 characters."
+          },
+          "max_length": "Workspace name must be no more than 60 characters."
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "Success!",
+          "message": "Workspace name has been successfully updated"
+        },
+        "cancle": {
+          "title": "Cancelled",
+          "message": "Workspace name update was cancelled"
+        }
+      }
+    },
+    "delete": {
+      "modal": {
+        "title": "Delete Workspace Confirmation",
+        "banner_title": "Information!",
+        "description": "All data in this workspace will be permanently deleted and cannot be recovered."
+      },
+      "checkbox": {
+        "confirmation": "I understand that this workspace will be permanently deleted and cannot be undone"
+      },
+      "form": {
+        "confirmation": {
+          "label": "Type {workspace name} to confirm",
+          "placeholder": "Enter workspace name"
+        }
+      },
+      "action": {
+        "cancel": {
+          "button": "Cancel"
+        },
+        "confirm": {
+          "button": "Confirm"
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "Success!",
+          "message": "Workspace has been successfully deleted"
+        }
+      }
+    },
+    "error": {
+      "name": {
+        "required": "Workspace name is required.",
+        "duplicate": "This workspace name is already in use. Please use a different name."
+      },
+      "confirm_name": {
+        "mismatch": "Confirmation name does not match. Make sure the workspace name is typed correctly."
+      },
+      "last_remaining": "This workspace cannot be deleted because it is your last workspace.",
+      "has_companies": "This workspace cannot be deleted because it still has related companies or business units."
+    }
+  },
+  "list_workspace": {
+    "modal": {
+      "title": "Add Workspace",
+      "label": "Workspace Name",
+      "placeholder": "Example: Main Workspace"
+    }
+  },
+  "detail_workspace": {
+    "edit": {
+      "title": "Edit Workspace",
+      "label": "Workspace Name"
+    }
+  },
+  "delete_info": {
+    "modal": {
+      "title": "Workspace Cannot Be Deleted",
+      "body": "This Workspace still has associated data. You need to delete all the data in it before you can delete the Workspace."
+    },
+    "button": {
+      "cancel": "Cancel",
+      "company_list": "Company List"
+    }
+  }
+}

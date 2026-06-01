@@ -1,0 +1,33 @@
+{
+  "name": "@valfuse-node/example-react",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reference implementation and playground for valfuse-node — form validation + localization",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "localization:generate": "valfuse-localization generate",
+    "localization:watch": "valfuse-localization generate --watch",
+    "localization:validate": "valfuse-localization validate",
+    "localization:clean": "valfuse-localization clean",
+    "localization:coverage": "valfuse-localization coverage"
+  },
+  "dependencies": {
+    "@valfuse-node/react": "*",
+    "@valfuse-node/form": "*",
+    "@valfuse-node/localization": "*",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  }
+}
+

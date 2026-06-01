@@ -1,0 +1,46 @@
+{
+  "@@locale": "en",
+  "@@module": "profile",
+  "change_password": {
+    "page": {
+      "title": "Change Password"
+    }
+  },
+  "profile_edit_personal": {
+    "page": {
+      "title": "Edit Personal Information"
+    },
+    "field": {
+      "name": "Full Name"
+    }
+  },
+  "profile": {
+    "page": {
+      "title": "My Profile"
+    },
+    "label": {
+      "profile_photo": "Profile Photo",
+      "name": "Name",
+      "nickname": "Nickname",
+      "gender": "Gender",
+      "date_of_birth": "Date of Birth",
+      "address": "Address",
+      "email": "Email",
+      "whatsapp_number": "WhatsApp Number"
+    },
+    "section": {
+      "personal_information": "Personal Information",
+      "data_account": "Account Data",
+      "security": "Security",
+      "data_privacy": "Data & Privacy"
+    },
+    "action": {
+      "change_password": "Change Password",
+      "create_password": "Create Password",
+      "delete_account": "Delete Account"
+    },
+    "logout": {
+      "button": "Logout"
+    }
+  }
+}

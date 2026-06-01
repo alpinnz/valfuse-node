@@ -1,0 +1,167 @@
+{
+  "@@locale": "id",
+  "@@module": "onboarding",
+  "onboarding": {
+    "step": {
+      "label": "Langkah"
+    },
+    "workspace": {
+      "title": "Ruang kerja",
+      "label": "Buat Ruang Kerja",
+      "desc": "Ruang Kerja adalah wadah untuk mengelompokkan perusahaan anda",
+      "add": {
+        "label": "Nama Ruang kerja",
+        "placeholder": "Contoh: Ruang Kerja Utama"
+      },
+      "name": {
+        "error": {
+          "required": "Nama Ruang Kerja wajib diisi.",
+          "min_length": "Nama Ruang Kerja minimal 3 karakter.",
+          "format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+          "duplicate": "Nama Ruang Kerja telah terdaftar. Silakan gunakan nama yang berbeda."
+        },
+        "info": {
+          "max_length": "Nama Ruang Kerja maksimal 60 karakter."
+        }
+      }
+    },
+    "company": {
+      "title": "Perusahaan",
+      "label": "Data Perusahaan",
+      "desc": "Lengkapi data perusahaan sebagai fondasi integrasi MyApp.",
+      "add": {
+        "company_name": {
+          "label": "Nama Perusahaan",
+          "placeholder": "Contoh: PT Kreasi Anak Bangsa / Toko Haji Udin"
+        },
+        "business_type": {
+          "label": "Jenis Usaha",
+          "placeholder": "Pilih Jenis Usaha"
+        },
+        "country": {
+          "label": "Negara",
+          "placeholder": "Pilih Negara"
+        },
+        "currency": {
+          "label": "Mata Uang Utama",
+          "placeholder": "Pilih Mata Uang"
+        }
+      },
+      "name": {
+        "error": {
+          "required": "Nama Perusahaan wajib diisi.",
+          "min_length": "Nama Perusahaan minimal 3 karakter.",
+          "format": "Nama Perusahaan hanya boleh berisi huruf, angka, titik, dan koma.",
+          "duplicate": "Nama Perusahaan sudah digunakan di Ruang Kerja ini. Gunakan nama lain agar data tetap rapi."
+        },
+        "info": {
+          "max_length": "Nama Perusahaan maksimal 60 karakter."
+        }
+      },
+      "business_type": {
+        "error": {
+          "required": "Pilih Jenis Usaha terlebih dahulu."
+        }
+      },
+      "country": {
+        "error": {
+          "required": "Pilih Negara terlebih dahulu."
+        }
+      },
+      "currency": {
+        "error": {
+          "required": "Pilih Mata Uang terlebih dahulu."
+        }
+      }
+    },
+    "business_unit": {
+      "title": "Unit Usaha",
+      "label": "Data Unit Usaha",
+      "desc": "Opsional - Jika Anda belum memiliki Unit usaha, anda dapat melewati langkah ini dan anda dapat menambahkan unit usaha nanti.",
+      "add": {
+        "bu_name": {
+          "label": "Nama Unit Usaha",
+          "placeholder": "Contoh: Nina Salon Cabang Bandung"
+        },
+        "bu_type": {
+          "label": "Jenis Unit Usaha",
+          "placeholder": "Pilih Jenis Unit Usaha"
+        }
+      },
+      "name": {
+        "error": {
+          "min_length": "Nama Unit Usaha minimal 3 karakter.",
+          "format": "Nama Unit Usaha hanya boleh berisi huruf, angka, titik, dan koma."
+        },
+        "info": {
+          "max_length": "Nama Unit Usaha maksimal 60 karakter."
+        }
+      }
+    },
+    "welcome": {
+      "page_title": "Selamat Datang di MyApp Access",
+      "page_content": "Di sini, Anda bisa mengelola seluruh identitas bisnis dengan lebih rapi. Mulai dari Ruang Kerja, Perusahaan, hingga Unit Usaha."
+    },
+    "navigation": {
+      "back": {
+        "button": "Kembali"
+      },
+      "next": {
+        "button": "Lanjutkan"
+      }
+    },
+    "structure": {
+      "page_title": "Kenali Struktur Kerja Anda",
+      "page_content": "Deskripsi singkat per level:\n\n* Ruang Kerja\n\nMerupakan wadah pengelompokan utama bisnis Anda\n\n* Perusahaan\n\nMerupakan konteks bisnis yang mengaktifkan modul MyApp\n\n* Unit Usaha\n\nMerupakan representasi operasional (cabang, outlet, Pabrik)"
+    },
+    "start": {
+      "page_title": "Siap Untuk Memulai?",
+      "page_content": "Kami akan memandu Anda menyiapkan Ruang Kerja, Perusahaan, dan Unit Usaha pertama Anda dalam beberapa langkah.",
+      "cta": {
+        "button": "Mulai Onboarding"
+      }
+    },
+    "preview": {
+      "page_title": "Pratinjau",
+      "page_content": {
+        "intro": "Pratinjau Data\nPeriksa kembali data Anda sebelum menyimpan."
+      },
+      "data": {
+        "workspace_name": {
+          "label": "Nama Ruang Kerja"
+        },
+        "company_name": {
+          "label": "Nama Perusahaan"
+        },
+        "business_type": {
+          "label": "Jenis Usaha"
+        },
+        "country_currency": {
+          "label": "Negara & Mata Uang"
+        },
+        "business_unit_name": {
+          "label": "Nama Unit Usaha"
+        },
+        "business_unit_type": {
+          "label": "Jenis Usaha"
+        }
+      },
+      "info": {
+        "note": "Anda dapat menambahkan Perusahaan dan Unit Usaha lainnya setelah proses onboarding selesai"
+      }
+    },
+    "success": {
+      "page_title": "Sukses",
+      "page_content": "Ruang Kerja, Perusahaan, dan Unit Usaha berhasil dibuat. Anda sudah dapat mulai menggunakannya.",
+      "cta": {
+        "button": "Masuk ke detail Perusahaan"
+      }
+    },
+    "error": {
+      "system": {
+        "page_title": "Gangguan Sistem",
+        "page_content": "Sistem sedang mengalami gangguan. coba lagi dalam beberapa saat"
+      }
+    }
+  }
+}

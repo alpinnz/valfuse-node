@@ -1,9 +1,13 @@
 {
   "name": "valfuse-node",
   "private": true,
-  "packageManager": "npm@11.6.2",
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "yarn": ">=1.22.0"
+  },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/examples/*"
   ],
   "scripts": {
     "dev": "turbo dev",
@@ -13,8 +17,15 @@
     "typecheck": "turbo typecheck",
     "clean": "turbo clean",
     "publish:core": "npm publish --workspace=packages/core",
-    "publish:adapter-react": "npm publish --workspace=packages/adapter-react",
-    "publish:all": "npm run publish:core && npm run publish:adapter-react"
+    "publish:localization": "npm publish --workspace=packages/localization",
+    "publish:react": "npm publish --workspace=packages/react",
+    "publish:vue": "npm publish --workspace=packages/vue",
+    "publish:all": "npm run publish:core && npm run publish:localization && npm run publish:react && npm run publish:vue",
+    "example:localization:generate": "npm run localization:generate --workspace=packages/examples/react-example",
+    "example:localization:watch": "npm run localization:watch --workspace=packages/examples/react-example",
+    "example:localization:validate": "npm run localization:validate --workspace=packages/examples/react-example",
+    "dev:react": "npm run dev --workspace=packages/examples/react-example",
+    "dev:vue": "npm run dev --workspace=packages/examples/vue-example"
   },
   "devDependencies": {
     "@eslint/js": "latest",
@@ -25,4 +36,3 @@
     "typescript-eslint": "latest"
   }
 }
-

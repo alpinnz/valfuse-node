@@ -1,0 +1,87 @@
+{
+  "@@locale": "id",
+  "@@module": "delete",
+  "company": {
+    "impact": {
+      "title": "Ringkasan Dampak Penghapusan Perusahaan",
+      "description": "Penghapusan perusahaan akan dilakukan secara permanen dan tidak dapat dipulihkan kembali. Penghapusan ini akan berdampak ke unit usaha di dalamnya.",
+      "modal": {
+        "title": "Ringkasan Dampak Penghapusan"
+      },
+      "summary": {
+        "description": "Perusahaan {companyName} akan dihapus.",
+        "unit_count": "Unit usaha yang akan terhapus {totalBusinessUnit} Unit Usaha yang terhubung."
+      },
+      "banner": {
+        "title": "Informasi!"
+      },
+      "button": {
+        "cancel": "Batal",
+        "confirm": "Setuju, Hapus Perusahaan",
+        "continue": "Ya, Lanjutkan"
+      }
+    },
+    "confirm": {
+      "title": "Konfirmasi Penghapusan Perusahaan",
+      "description": "Untuk melanjutkan, ketik nama perusahaan di bawah ini sebagai konfirmasi bahwa Anda memahami tindakan ini tidak dapat dibatalkan.",
+      "approval_text": "Saya menyetujui penghapusan perusahaan ini dilakukan secara permanen dan tidak dapat dibatalkan.",
+      "banner": {
+        "title": "Informasi!",
+        "description": "Semua data terkait akan ikut terhapus dan tidak dapat dikembalikan. Tindakan ini bersifat permanen dan tidak dapat dibatalkan."
+      },
+      "input": {
+        "label": "Nama Perusahaan",
+        "placeholder": "Ketik nama perusahaan untuk konfirmasi penghapusan",
+        "helper_text": "Ketik {companyName} untuk mengkonfirmasi"
+      },
+      "button": {
+        "cancel": "Batal",
+        "confirm": "Hapus Perusahaan",
+        "submit": "Konfirmasi"
+      }
+    },
+    "blocked": {
+      "title": "Gagal Hapus Perusahaan",
+      "button": {
+        "cancel": "Batal"
+      },
+      "active_units": {
+        "description": "Beberapa unit usaha dalam perusahaan ini masih aktif. Nonaktifkan terlebih dahulu sebelum melanjutkan proses.",
+        "action": "Kembali ke Daftar Unit Usaha"
+      },
+      "default_company": {
+        "description": "Perusahaan ini tidak dapat dihapus karena saat ini ditetapkan sebagai perusahaan default. Silakan ubah perusahaan default ke perusahaan lain jika tetap ingin menghapus perusahaan ini.",
+        "action": "Daftar Perusahaan"
+      }
+    },
+    "precheck": {
+      "loading": {
+        "label": "Memeriksa kelayakan penghapusan perusahaan"
+      },
+      "error": {
+        "title": "Gagal Memeriksa Dampak Penghapusan",
+        "message": "Data perusahaan tidak dapat diverifikasi untuk proses penghapusan. Silakan coba lagi.",
+        "unknown": "Terjadi gangguan saat memeriksa dampak penghapusan perusahaan."
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "Perusahaan Dihapus",
+        "message": "Perusahaan berhasil dihapus dari daftar."
+      },
+      "error_title": "Gagal Menghapus Perusahaan"
+    },
+    "error": {
+      "company_has_transaction": "Perusahaan tidak dapat dihapus karena memiliki transaksi",
+      "unit_has_transaction": "Perusahaan tidak dapat dihapus karena unit usaha memiliki transaksi",
+      "company_name_mismatch": "Nama perusahaan tidak sesuai",
+      "company_name_required": "Nama perusahaan harus diisi untuk melanjutkan penghapusan",
+      "has_active_units": "Perusahaan tidak dapat dihapus karena masih memiliki unit usaha aktif.",
+      "is_default": "Perusahaan default tidak dapat dihapus. Ubah default company terlebih dahulu.",
+      "forbidden": "Anda tidak memiliki akses untuk menghapus perusahaan ini.",
+      "not_found": "Perusahaan tidak ditemukan.",
+      "validation_error": "Validasi konfirmasi hapus gagal. Silakan cek kembali input Anda.",
+      "unknown": "Terjadi gangguan saat menghapus perusahaan."
+    }
+  }
+}

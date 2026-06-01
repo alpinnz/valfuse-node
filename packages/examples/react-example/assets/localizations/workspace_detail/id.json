@@ -1,0 +1,32 @@
+{
+  "@@locale": "id",
+  "@@module": "workspace_detail",
+  "company_list": {
+    "empty": {
+      "title": "Belum Ada Perusahaan",
+      "description": "Saat ini belum ada perusahaan yang dapat Anda akses di Ruang Kerja ini.",
+      "cta_button": "Tambah Perusahaan"
+    }
+  },
+  "workspace_detail": {
+    "page_title": "Detail Ruang Kerja",
+    "action": {
+      "add_company": {
+        "button": "Tambah Perusahaan"
+      }
+    },
+    "company_add": {
+      "modal": {
+        "title": "Tambah Perusahaan"
+      }
+    }
+  },
+  "detailrk": {
+    "data_info": "Informasi Ruang Kerja",
+    "name_ws": "Nama Ruang Kerja",
+    "owned_by": "Dikelola oleh",
+    "sumcompany": "Jumlah Perusahaan",
+    "sumbusiness_unit": "Jumlah Unit Usaha",
+    "company_list": "Daftar Perusahaan"
+  }
+}

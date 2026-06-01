@@ -1,0 +1,735 @@
+{
+  "@@locale": "id",
+  "@@module": "auth",
+  "login": {
+    "page_title": "Masuk ke Aplikasi",
+    "welcome": "<p>Yuk masuk ke akun <bold>MyApp</bold> anda</p>",
+    "or": "atau",
+    "register_prompt": {
+      "text": "Tidak punya akun?",
+      "link": "Daftar sekarang"
+    },
+    "google_button": {
+      "label": "Login dengan Google"
+    },
+    "google_popup": {
+      "loading": "Membuka jendela Google…"
+    },
+    "info": {
+      "cancelled": {
+        "title": "Proses masuk dibatalkan!",
+        "subtitle": "Login dibatalkan. Kamu bisa login kembali kapan saja."
+      }
+    },
+    "form": {
+      "email_wa": {
+        "label": "Email atau Nomor WhatsApp",
+        "placeholder": "Masukkan email atau nomor WhatsApp kamu",
+        "errors": {
+          "empty": "Kamu belum mengisi email atau nomor WhatsApp. Yuk lengkapi dulu biar bisa lanjut login.",
+          "format": "Formatnya belum sesuai. Yuk isi dengan email yang valid, atau nomor WA yang diawali 08 atau +kode negara.",
+          "not_found": "Kita belum menemukan akun dengan data itu. Yuk periksa kembali Email atau No. WA kamu, atau daftar akun baru kalau belum punya."
+        }
+      },
+      "password": {
+        "label": "Kata Sandi",
+        "placeholder": "••••••••",
+        "errors": {
+          "empty": "Kata sandi belum diisi. Isi dulu supaya kamu bisa masuk ke akunmu.",
+          "mismatch": "Kata sandi kamu belum cocok. Yuk periksa lagi dan coba."
+        }
+      },
+      "email_not_found": {
+        "error": "Akun tidak ditemukan, yuk periksa kembali Email atau No kamu.",
+        "password_security": {
+          "level_label": "Tingkat Keamanan:",
+          "requirement_list_aria_label": "Syarat Kata Sandi",
+          "requirement": {
+            "minimum_length": "Minimal 8 Karakter",
+            "uppercase": "Ada Huruf Besar (A-Z)",
+            "lowercase": "Ada Huruf Kecil (a-z)",
+            "number": "Ada Angka (0-9)",
+            "symbol": "Ada Simbol (!, @, #, $, %, &, *, ?, dsb.)"
+          }
+        }
+      },
+      "password_incorrect": {
+        "error": "Kata sandimu belum cocok, masih ada {attempts} kesempatan dalam 15 menit."
+      },
+      "remember_me": {
+        "label": "Ingat saya selama 30 hari"
+      },
+      "submit": {
+        "button": "Masuk",
+        "disabled": "Lengkapi dulu semua data yang diperlukan ya."
+      }
+    },
+    "banner": {
+      "error": {
+        "mismatch": "Kamu masih punya {attempts} kesempatan dalam 15 menit ke depan.",
+        "lockout": "Akunmu sementara dikunci selama 15 menit demi keamanan.\nKamu bisa mencoba lagi dalam {mm:ss}"
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "Login Berhasil",
+        "message": "Selamat datang di MyApp.",
+        "google_message": "Berhasil masuk dengan Google. Selamat datang di MyApp."
+      },
+      "error": {
+        "global": {
+          "title": "Gagal!",
+          "submit": "Percobaan login kamu tidak berhasil"
+        }
+      }
+    },
+    "button": {
+      "forgot": "Lupa Password",
+      "session_expired_idle": "Oke"
+    },
+    "bannertitle": {
+      "session_expired_idle": "Sesi Berakhir"
+    },
+    "bannermessage": {
+      "session_expired_idle": "Demi keamanan, sesi kamu otomatis berakhir setelah 30 menit tanpa aktivitas. Yuk, login lagi untuk melanjutkan."
+    },
+    "success": {
+      "redirect": {
+        "message": "Login berhasil. Mengarahkan Anda ke Beranda."
+      },
+      "home": {
+        "label": "Beranda"
+      },
+      "return": {
+        "label": "Kembali ke halaman asal"
+      }
+    }
+  },
+  "register": {
+    "page_title": "Pendaftaran Akun",
+    "form": {
+      "name": {
+        "label": "Nama",
+        "placeholder": "Contoh: Budi Santoso"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "contoh: budi@contoh.com"
+      },
+      "wa": {
+        "label": "Nomor WhatsApp",
+        "placeholder": "81234567890"
+      },
+      "password": {
+        "label": "Kata Sandi",
+        "placeholder": "••••••••",
+        "confirm": {
+          "label": "Konfirmasi Kata Sandi"
+        }
+      },
+      "checkbox": {
+        "terms": "Saya telah membaca dan menyetujui",
+        "privacy_policy": "Kebijakan Privasi",
+        "and": "&",
+        "terms_and_conditions": "Syarat & Ketentuan"
+      },
+      "submit": {
+        "button": "Daftar Sekarang"
+      }
+    },
+    "password_security": {
+      "level_label": "Tingkat Keamanan:",
+      "requirement_list_aria_label": "Syarat Kata Sandi",
+      "requirement": {
+        "minimum_length": "Minimal 8 Karakter",
+        "uppercase": "Ada Huruf Besar (A-Z)",
+        "lowercase": "Ada Huruf Kecil (a-z)",
+        "number": "Ada Angka (0-9)",
+        "symbol": "Ada Simbol (!, @, #, $, %, &, *, ?, dsb.)"
+      }
+    },
+    "error": {
+      "name": {
+        "required": "Nama perlu dilengkapi, mari isi dulu ya.",
+        "invalid_char": "Karakter [x] tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,)."
+      },
+      "email": {
+        "required": "Email perlu dilengkapi, mari isi dulu ya.",
+        "format": "Mari lengkapi email dengan format yang benar (contoh: nama@domain.com).",
+        "duplicate": "Email ini sudah dipakai. Coba variasi lain agar unik atau login."
+      },
+      "wa": {
+        "required": "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
+        "format": "Mari lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
+        "duplicate": "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login."
+      },
+      "password": {
+        "required": "Kata sandi perlu dilengkapi, mari isi dulu ya.",
+        "too_short": "Kata sandi minimal 8 karakter.",
+        "weak": "Kata sandi terlalu lemah, coba tambah variasi huruf & angka.",
+        "medium": "Kata sandi cukup, akan lebih aman jika tambah huruf besar/kecil atau simbol.",
+        "strong": "Kata sandi kuat, siap digunakan.",
+        "common": "Kata sandi terlalu mudah ditebak. Gunakan variasi lain, ya.",
+        "guide": "Gunakan ≥8 karakter. Wajib ada huruf & angka, simbol opsional.",
+        "confirm_required": "Konfirmasi kata sandi perlu dilengkapi, mari isi dulu ya.",
+        "mismatch": "Kata sandi dan konfirmasi tidak sama. Pastikan sesuai, ya."
+      },
+      "terms": {
+        "required": "Anda perlu menyetujui Kebijakan Privasi & Ketentuan Layanan dulu, ya."
+      },
+      "global": {
+        "title": "Gagal!",
+        "submit": "Ada data yang belum valid. Silakan periksa kembali bagian yang ditandai."
+      }
+    }
+  },
+  "verification_method": {
+    "page_title": "Metode Verifikasi",
+    "section_title": "Pilih Metode",
+    "option_email": {
+      "label": "Masuk dengan Email",
+      "desc": "Mengirimkan verifikasi pendaftaran ke email"
+    },
+    "option_whatsapp": {
+      "label": "Masuk dengan WhatsApp",
+      "desc": "Mengirimkan verifikasi pendaftaran ke WhatsApp"
+    },
+    "button_continue": "Lanjutkan"
+  },
+  "otp_whatsapp": {
+    "message": "{otp_code} adalah kode verifikasi akunmu di MyApp. Kode ini berlaku selama 5 menit. Jangan bagikan kode ini kepada siapa pun ya. Jika kamu tidak meminta kode ini, abaikan pesan ini atau hubungi tim dukungan MyApp."
+  },
+  "otp": {
+    "page_title": "Verifikasi OTP",
+    "form": {
+      "label": "Kode OTP",
+      "placeholder": "–",
+      "instruction": "Masukkan 6 digit kode OTP yang dikirim ke WhatsApp Anda.",
+      "resend": {
+        "button": "Kirim Ulang Kode",
+        "second": "detik"
+      }
+    },
+    "error": {
+      "invalid": "Kode OTP tidak sesuai. Yuk cek lagi.",
+      "invalid_with_resend": "Kode OTP tidak sesuai. Cek lagi, atau minta kirim ulang kode.",
+      "expired": "Kode OTP sudah kedaluwarsa. Silakan kirim ulang kode untuk melanjutkan.",
+      "lock": "Demi keamanan, verifikasi terkunci sementara. Coba lagi setelah 15 menit."
+    },
+    "fallback": {
+      "change_method": "Coba via Email",
+      "change_meethod_wa": "Coba via WhatsApp",
+      "sent_email": "Tautan verifikasi telah dikirim ke Email Anda."
+    },
+    "error_locked": {
+      "banner": {
+        "title": "Demi keamanan, verifikasi terkunci",
+        "message": "Coba lagi setelah 15 menit atau ganti nomor WhatsApp."
+      }
+    },
+    "success": {
+      "toast": {
+        "message": "Verifikasi berhasil. Selamat melanjutkan aktivitas."
+      }
+    },
+    "loading": {
+      "overlay": {
+        "label": "Memverifikasi OTP…"
+      }
+    }
+  },
+  "google_login": {
+    "success": {
+      "cta": "Lanjutkan"
+    }
+  },
+  "verify": {
+    "error": {
+      "locked": "Demi keamanan, verifikasi terkunci sementara. Silakan coba lagi setelah 15 menit.",
+      "limit_reached": "Percobaan OTP terlalu banyak. Silakan verifikasi via Email untuk melanjutkan.",
+      "limit_reached_title": "Percobaan OTP terlalu banyak",
+      "limit_reached_subtitle": "Silakan verifikasi via Email untuk melanjutkan"
+    },
+    "success": {
+      "toast": {
+        "title": "Sukses!",
+        "message": "Registrasi sukses! Yuk, mulai jelajahi fitur MyApp"
+      },
+      "title": "Verifikasi Berhasil",
+      "success_title": "Pendaftaran Anda Berhasil",
+      "message": "Akun Anda sudah aktif. Senang bisa mendampingi perjalanan Anda.",
+      "redirect": "Anda akan diarahkan otomatis dalam {xx} detik.",
+      "cta": "Lanjut ke Beranda"
+    },
+    "toast": {
+      "resend_success": "Kode OTP baru telah dikirim"
+    }
+  },
+  "verification_issue_wa": {
+    "page_title": "Kendala Verifikasi WhatsApp",
+    "lead": "Sepertinya verifikasi lewat WhatsApp sedang bermasalah. Supaya prosesmu tetap bisa lanjut, yuk gunakan Email.",
+    "cta_switch_email": "Gunakan Email"
+  },
+  "btn_verifikasi_email": "Verifikasi via Email",
+  "check_email": {
+    "page_title": "Cek Email Anda",
+    "description": "Kami telah mengirim tautan verifikasi ke alamat email yang Anda daftarkan.",
+    "description_1": "Kami telah ",
+    "description_2": "mengirim tautan verifikasi ke alamat email ",
+    "description_3": " yang Anda daftarkan.",
+    "help": {
+      "didnt_get_email": "Belum menerima email?",
+      "didnt_get_email_few_minutes": "Terkadang butuh beberapa menit hingga email masuk ke kotak masuk Anda.",
+      "check_spam": "Pastikan juga untuk memeriksa folder spam atau promosi."
+    }
+  },
+  "email": {
+    "verify": {
+      "subject": "Verifikasi alamat email Anda",
+      "preheader": "Klik tautan di bawah ini untuk memverifikasi email Anda.",
+      "heading": "Verifikasi Email Anda",
+      "body": {
+        "intro": "Halo, kami menerima permintaan untuk memverifikasi alamat email Anda. Klik tombol di bawah ini untuk menyelesaikan proses verifikasi."
+      },
+      "cta": {
+        "button": "Verifikasi Sekarang"
+      },
+      "footer": {
+        "disclaimer": "Jika Anda tidak meminta verifikasi ini, abaikan email ini."
+      },
+      "success": {
+        "message": "Link verifikasi berhasil dikirim. Silakan cek email Anda.",
+        "title": "Verifikasi Email Berhasil",
+        "cta": {
+          "home": "Ke Beranda"
+        }
+      },
+      "invalid_old_link": {
+        "title": "Link Sudah Tidak Aktif",
+        "message": "Sepertinya kamu membuka link yang lama. Silakan gunakan link verifikasi terbaru yang kami kirimkan ke email kamu."
+      }
+    }
+  },
+  "verification": {
+    "resend": {
+      "button": {
+        "label": "Kirim Ulang Link",
+        "success_message": "Link baru telah dikirim."
+      }
+    }
+  },
+  "verifikasi_wa": {
+    "resend": {
+      "button": {
+        "disabled": "Kirim Ulang Kode ({seconds} detik)",
+        "enabled": "Kirim Ulang Kode"
+      },
+      "success": {
+        "toast_title": "OTP Baru Dikirim",
+        "toast_message": "Kami telah mengirimkan kode OTP terbaru ke WhatsApp kamu."
+      },
+      "limit": {
+        "title": "Batas kirim ulang sudah tercapai.",
+        "message": "Kamu bisa menunggu 15 menit atau mengganti nomor WhatsApp."
+      }
+    },
+    "change_wa": {
+      "cta": "Ubah Nomor WA"
+    }
+  },
+  "change_wa": {
+    "modal": {
+      "title": "Ubah Nomor WhatsApp",
+      "subtitle": "Silakan masukkan nomor WhatsApp baru yang belum pernah digunakan agar proses selanjutnya lebih lancar."
+    },
+    "field": {
+      "phone": {
+        "label": "Nomor WA Baru",
+        "placeholder": "81234567890"
+      }
+    },
+    "cta": {
+      "submit": "Kirim OTP",
+      "cancel": "Batal"
+    },
+    "error": {
+      "required": "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
+      "invalid_format": "Gunakan format nomor WA yang benar ya (contoh: 81234567890)",
+      "already_used": "Nomor ini sudah digunakan. Coba pakai nomor lain yang aktif ya.",
+      "same_as_old": "Nomor ini sama dengan sebelumnya. Yuk gunakan nomor lain."
+    },
+    "toast": {
+      "success": {
+        "message": "Kami telah mengirimkan kode OTP ke nomor barumu."
+      }
+    }
+  },
+  "resend_email": {
+    "resend": {
+      "button": {
+        "disabled": "Kirim Ulang Link ({seconds} detik)",
+        "enabled": "Kirim Ulang Link"
+      },
+      "success": {
+        "toast_title": "Sukses!",
+        "toast_message": "Link verifikasi baru telah dikirim."
+      },
+      "limit": {
+        "title": "Batas kirim ulang telah tercapai.",
+        "message": "Silakan tunggu 15 menit atau ganti email kamu."
+      }
+    },
+    "change_email": {
+      "cta": "Ganti Email"
+    }
+  },
+  "two_factor_authentication": {
+    "email": {
+      "verify": {
+        "success": {
+          "title": "Verifikasi Email Berhasil",
+          "message": "Silakan kembali ke aplikasi atau tab sebelumnya untuk melanjutkan aktivitas kamu. Atau, kamu bisa kembali ke Beranda.",
+          "cta": {
+            "home": "Ke Beranda"
+          }
+        },
+        "invalid_old_link": {
+          "title": "Link Sudah Tidak Aktif",
+          "message_1": "Sepertinya kamu membuka link yang lama. Silakan gunakan ",
+          "message_highlight": "link verifikasi terbaru",
+          "message_2": " yang kami kirimkan ke email kamu."
+        },
+        "invalid_old_email": {
+          "title": "Link Sudah Tidak Aktif",
+          "message": "Sepertinya kamu membuka link dari email lama. Silakan cek email terbaru kamu untuk melanjutkan verifikasi."
+        }
+      }
+    }
+  },
+  "change_email": {
+    "modal": {
+      "title": "Ganti Email",
+      "subtitle": "Silakan masukkan email baru Anda. Pastikan email tidak digunakan atau sama dengan email sebelumnya."
+    },
+    "field": {
+      "email": {
+        "label": "Email Baru",
+        "placeholder": "contoh: budi@contoh.com"
+      }
+    },
+    "cta": {
+      "submit": "Kirim Link Verifikasi",
+      "cancel": "Batal"
+    },
+    "error": {
+      "email_required": "Email perlu dilengkapi, mari isi dulu ya.",
+      "email_invalid_format": "Gunakan format email yang benar ya (contoh: nama@domain.com).",
+      "email_already_used": "Email ini sudah digunakan. Coba pakai email lain yang aktif ya.",
+      "email_same_as_previous": "Email sama dengan sebelumnya. Yuk gunakan email lain."
+    }
+  },
+  "expired": {
+    "page_title": "Link Kadaluarsa",
+    "message": {
+      "info": "Link verifikasi ini sudah tidak berlaku."
+    },
+    "cta": {
+      "button": "Kirim Link Baru"
+    },
+    "toast": {
+      "success": "Tautan verifikasi baru telah dikirim ke email Anda.",
+      "title": "Registrasi Kadaluarsa",
+      "message": "Registrasi tidak ditemukan atau sudah kadaluarsa. Silakan login atau daftar ulang.",
+      "button": "Ke Login"
+    }
+  },
+  "verification_issue_email": {
+    "page_title": "Kendala Verifikasi Email",
+    "lead": "Sepertinya verifikasi lewat email sedang bermasalah. Biar prosesmu tetap lancar, yuk gunakan WhatsApp.",
+    "cta_switch_wa": "Gunakan WA"
+  },
+  "verification_limit_email": {
+    "limit": {
+      "message": "Permintaan link verifikasi terlalu banyak. Silakan lanjutkan verifikasi via WhatsApp.",
+      "message_title": "Permintaan link verifikasi terlalu banyak. ",
+      "message_subtitle": "Silakan lanjutkan verifikasi via WhatsApp"
+    },
+    "button": {
+      "whatsapp": "Gunakan WA"
+    }
+  },
+  "login_google": {
+    "idconfirm": {
+      "title": "Konfirmasi Identitas",
+      "description": "Kami menemukan bahwa email Google ini sudah terdaftar pada akun Anda. Untuk memastikan keamanan, mari verifikasi bahwa ini benar-benar Anda.",
+      "cta_confirm": "Konfirmasi dengan OTP",
+      "cta_cancel": "Batal",
+      "info_otp": "OTP dikirim ke WhatsApp Anda: {{08**-****-1234}}"
+    },
+    "auth": {
+      "oauth_failed": {
+        "error": {
+          "title": "Gagal membuka Pop-up Google",
+          "message": "Terjadi kendala saat membuka jendela login Google. Silakan coba lagi nanti, atau gunakan login manual untuk melanjutkan.",
+          "btnclose": "Tutup"
+        }
+      }
+    },
+    "register_from_google": {
+      "toast": {
+        "success": {
+          "title": "Sukses!",
+          "message": "Akunmu berhasil dibuat"
+        }
+      }
+    }
+  },
+  "unregistered_google_account_title": "Akun Belum Terdaftar",
+  "unregistered_google_account_message": "Akun Google yang dipilih belum terdaftar. Kamu dapat melanjutkan untuk membuat akun baru.",
+  "unregistered_google_account_create_account_button": "Buat Akun",
+  "unregistered_google_account_cancel_button": "Batal",
+  "google_account_preview_terms_link": "Syarat & Ketentuan",
+  "google_account_preview_privacy_link": "Kebijakan Privasi",
+  "unregistered_google_account": {
+    "page_title": "Akun Belum Terdaftar",
+    "message": "Akun Google yang dipilih belum terdaftar. Kamu dapat melanjutkan untuk membuat akun baru.",
+    "create_account_button": "Buat Akun",
+    "cancel_button": "Batal",
+    "error_modal": {
+      "title": "Pendaftaran tidak dapat dilanjutkan",
+      "subtitle": "Coba lagi nanti atau gunakan metode login lainnya."
+    }
+  },
+  "google_account_preview": {
+    "terms_link": "Syarat & Ketentuan",
+    "privacy_link": "Kebijakan Privasi"
+  },
+  "login_by_google_account": {
+    "page_title": "Konfirmasi Akun Google",
+    "form": {
+      "nama": {
+        "label": "Nama",
+        "placeholder": "contoh: Budi Santoso"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "email@domain.com"
+      },
+      "wa": {
+        "label": "Nomor WhatsApp",
+        "placeholder": "81234567890"
+      },
+      "tnc": {
+        "checkbox": "Saya setuju dengan Syarat & Ketentuan",
+        "link": "Syarat & Ketentuan"
+      },
+      "submit": {
+        "button": "Buat Akun"
+      }
+    },
+    "error": {
+      "nama": {
+        "required": "Nama perlu dilengkapi, mari isi dulu ya.",
+        "invalid_char": "Karakter {x} tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,).",
+        "max": "Nama maksimal 50 karakter, ya."
+      },
+      "wa": {
+        "required": "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
+        "format": "Lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
+        "nondigit": "Hanya boleh angka ya. Coba cek kembali nomor WhatsApp-nya.",
+        "duplicate": "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login."
+      },
+      "tnc": {
+        "required": "Silakan centang persetujuan dulu agar prosesnya bisa lanjut.",
+        "link_failed": "Halaman Syarat & Ketentuan sedang tidak bisa dibuka. Coba beberapa saat lagi, ya."
+      },
+      "email": {
+        "autofill_failed": "Kami belum bisa memuat email Anda. Coba muat ulang halaman, ya."
+      }
+    }
+  },
+  "login_by_google": {
+    "banner": {
+      "whatsapp_required": {
+        "message": "Nomor WhatsApp belum tersedia di akun Google Anda. Isi untuk melanjutkan pembuatan akun."
+      }
+    }
+  },
+  "confirm_logingoogle": {
+    "form": {
+      "name": {
+        "label": "Nama",
+        "placeholder": "Contoh: Budi Santoso"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "wa": {
+        "label": "No. WA",
+        "placeholder": "81234567890"
+      }
+    },
+    "error": {
+      "name": {
+        "required": "Nama perlu dilengkapi, mari isi dulu ya.",
+        "invalid_char": "Karakter [x] tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,)."
+      },
+      "wa": {
+        "required": "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
+        "format": "Mari lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
+        "duplicate": "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login."
+      }
+    }
+  },
+  "ui": {
+    "login": {
+      "hide_password": "Sembunyikan kata sandi",
+      "show_password": "Tampilkan kata sandi"
+    },
+    "main_layout": {
+      "language_switcher_aria_label": "Pilih bahasa aplikasi",
+      "language_id_label": "Indonesia",
+      "language_en_label": "English",
+      "profile_menu_aria_label": "Menu profil pengguna"
+    },
+    "dashboard": {
+      "welcome": "Selamat Datang, Salsa Maulana",
+      "hero_title": "Semua akses aplikasi MyApp dalam satu dashboard terintegrasi.",
+      "hero_subtitle": "Pilih aksi cepat untuk mengatur pengguna, role, dan hak akses tanpa berpindah halaman.",
+      "section_title": "Akses ke Aplikasi MyApp",
+      "section_subtitle": "Pilih modul yang ingin Anda buka sesuai kebutuhan operasional.",
+      "action_invite_team": "Undang Tim",
+      "action_manage_role": "Atur Role",
+      "action_audit_log": "Lihat Aktivitas",
+      "card_access_title": "MyApp Access",
+      "card_access_desc": "Kelola akses pengguna, role, dan status izin aplikasi.",
+      "card_access_status": "Paling Sering Digunakan",
+      "card_accounting_title": "MyApp Accounting",
+      "card_accounting_desc": "Pantau transaksi, laporan keuangan, dan jurnal operasional.",
+      "card_accounting_status": "Siap Dipakai",
+      "card_cta": "Buka aplikasi",
+      "last_action_prefix": "Aksi terakhir"
+    }
+  },
+  "errors": {
+    "invalid_email": "Alamat email tidak valid",
+    "weak_password": "Kata sandi terlalu lemah",
+    "user_not_found": "Pengguna tidak ditemukan"
+  },
+  "logout": {
+    "menu": {
+      "label": "Keluar"
+    },
+    "confirmation": {
+      "title": "Konfirmasi Keluar",
+      "button": {
+        "confirm": "Ya, Keluar"
+      }
+    },
+    "popup": {
+      "title": "Konfirmasi Keluar",
+      "message": "Anda yakin ingin keluar? Tenang, data Anda tetap aman.",
+      "button": {
+        "confirm": "Ya, Keluar",
+        "cancel": "Batal"
+      },
+      "error": {
+        "network_failure": "Jaringan bermasalah, coba lagi."
+      }
+    },
+    "confirm": {
+      "title": "Konfirmasi Logout",
+      "message": "Anda yakin ingin keluar?",
+      "button_yes": "Ya, Keluar",
+      "button_no": "Batal"
+    },
+    "success": {
+      "toast": "Anda sudah berhasil keluar. Sampai jumpa lagi."
+    },
+    "error": {
+      "network": "Jaringan bermasalah, coba lagi."
+    }
+  },
+  "session_pre_warning_google": {
+    "modal": {
+      "title": "Yuk Perbarui Sesi Kamu",
+      "description": "Sesi kamu sudah sampai batas 72 jam. Yuk verifikasi sebentar lewat Google biar tetap aman tanpa perlu ketik kata sandi."
+    },
+    "cta": {
+      "google": "Lanjutkan dengan Google"
+    }
+  },
+  "session_pre_warning_72h": {
+    "modal": {
+      "title": "Yuk Perbarui Sesi Kamu",
+      "description": "Sesi kamu sudah sampai batas 72 jam. Yuk verifikasi sebentar biar tetap aman. Masukkan kata sandimu untuk lanjut ya."
+    }
+  },
+  "screen_privacy_mode": {
+    "title": "Tampilan Disamarkan"
+  },
+  "idle": {
+    "popup": {
+      "title": "Sesi hampir berakhir",
+      "toast": {
+        "keepalive": {
+          "title": "Sukses!",
+          "message": "Sesi kamu diperpanjang."
+        }
+      }
+    }
+  },
+  "popup": {
+    "title": "Sesi Anda hampir berakhir",
+    "message": "Sesi akan berakhir dalam {{time}} detik.",
+    "button": {
+      "extend": "Tetap Login",
+      "close": "Tutup",
+      "logout": "Keluar Sekarang"
+    }
+  },
+  "popup_permission": {
+    "blocked": {
+      "title": "Izin Popup Diblokir"
+    }
+  },
+  "session": {
+    "expired": {
+      "modal": {
+        "message": "Sesi Anda telah berakhir. Demi keamanan, silakan login ulang untuk melanjutkan aktivitas Anda.",
+        "button": "Login Ulang"
+      }
+    }
+  },
+  "login_invite": {
+    "banner": {
+      "title": "Undangan Bergabung"
+    }
+  },
+  "register_invite": {
+    "banner": {
+      "title": "Undangan Bergabung"
+    }
+  },
+  "channel_verifiy": {
+    "page": {
+      "title": "Pilih Metode Verifikasi",
+      "info": "Untuk menjaga keamanan akun Anda, pilih salah satu metode untuk menerima kode verifikasi reset password."
+    }
+  },
+  "cekemail": {
+    "page_title": "Cek Email Anda",
+    "description": "Kami telah mengirim tautan verifikasi ke alamat email yang Anda daftarkan.",
+    "help": {
+      "didnt_get_email": "Belum menerima email? Terkadang butuh beberapa menit hingga email masuk ke kotak masuk Anda.",
+      "check_spam": "Pastikan juga untuk memeriksa folder spam atau promosi."
+    }
+  },
+  "login_page": {
+    "form": {
+      "button": {
+        "forgot_pass": "Lupa Password"
+      }
+    }
+  }
+}

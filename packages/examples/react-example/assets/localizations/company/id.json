@@ -1,0 +1,486 @@
+{
+  "@@locale": "id",
+  "@@module": "company",
+  "logo": {
+    "label": "Logo Perusahaan",
+    "placeholder": "Unggah Logo"
+  },
+  "name": {
+    "label": "Nama Perusahaan",
+    "placeholder": "Contoh: PT Kreasi Anak Bangsa"
+  },
+  "business_type": {
+    "label": "Jenis Usaha",
+    "placeholder": "Pilih Jenis Usaha"
+  },
+  "country": {
+    "label": "Negara",
+    "placeholder": "Pilih Negara"
+  },
+  "province": {
+    "label": "Provinsi",
+    "placeholder": "Pilih Provinsi"
+  },
+  "city": {
+    "label": "Kota/Kabupaten",
+    "placeholder": "Pilih Kota/Kabupaten"
+  },
+  "district": {
+    "label": "Kecamatan",
+    "placeholder": "Pilih Kecamatan"
+  },
+  "village": {
+    "label": "Kelurahan / Desa",
+    "placeholder": "Pilih Kelurahan / Desa"
+  },
+  "postal_code": {
+    "label": "Kode Pos",
+    "placeholder": "Contoh: 10130"
+  },
+  "address": {
+    "label": "Alamat Lengkap",
+    "placeholder": "Contoh: Jl. Mangga No.1"
+  },
+  "currency": {
+    "label": "Mata Uang Utama",
+    "placeholder": "Pilih Mata Uang"
+  },
+  "npwp": {
+    "label": "NPWP"
+  },
+  "nib": {
+    "label": "NIB"
+  },
+  "pkp_status": {
+    "label": "Status PKP",
+    "placeholder": "Pilih Status PKP"
+  },
+  "fiscal_year": {
+    "label": "Tahun Buku"
+  },
+  "accounting_start_date": {
+    "label": "Tanggal Mulai Pembukuan"
+  },
+  "email": {
+    "label": "Email"
+  },
+  "phone": {
+    "label": "No Telepon"
+  },
+  "whatsapp": {
+    "label": "No WhatsApp"
+  },
+  "website": {
+    "label": "Website"
+  },
+  "error": {
+    "bad_request": "Permintaan tidak dapat diproses. Periksa kembali input Anda lalu coba lagi.",
+    "forbidden": "Anda tidak memiliki akses untuk menjalankan aksi ini.",
+    "unauthorized": "Sesi Anda telah berakhir. Silakan masuk kembali.",
+    "not_found": "Data yang diminta tidak ditemukan.",
+    "conflict": "Data bertabrakan dengan data yang sudah ada. Periksa kembali lalu coba lagi.",
+    "validation_error": "Validasi gagal. Periksa kembali input Anda lalu coba lagi.",
+    "internal_server_error": "Terjadi gangguan pada server. Silakan coba lagi nanti.",
+    "service_unavailable": "Layanan sedang tidak tersedia. Silakan coba lagi nanti.",
+    "bad_gateway": "Layanan tidak dapat dijangkau. Silakan coba lagi nanti.",
+    "gateway_timeout": "Permintaan melewati batas waktu. Silakan coba lagi nanti.",
+    "session_expired": "Sesi Anda telah berakhir. Silakan masuk kembali.",
+    "expired_token": "Sesi Anda telah berakhir. Silakan masuk kembali.",
+    "account_not_linked": "Akun ini belum terhubung. Gunakan metode masuk lainnya.",
+    "unknown_error": "Terjadi kesalahan. Silakan coba lagi.",
+    "confirm_name": {
+      "mismatch": "Nama perusahaan tidak sesuai."
+    },
+    "has_transaction": "Perusahaan tidak dapat dihapus karena memiliki transaksi.",
+    "unit_has_transaction": "Perusahaan tidak dapat dihapus karena unit usaha memiliki transaksi.",
+    "has_active_units": "Perusahaan tidak dapat dihapus karena masih memiliki unit usaha aktif.",
+    "is_default": "Perusahaan default tidak dapat dihapus. Ubah default company terlebih dahulu.",
+    "name": {
+      "required": "Nama perusahaan wajib diisi.",
+      "duplicate": "Nama perusahaan sudah digunakan di ruang kerja ini. Gunakan nama lain.",
+      "min": "Nama perusahaan minimal 3 karakter."
+    },
+    "business_type": {
+      "invalid": "Pilih jenis usaha terlebih dahulu."
+    },
+    "postal_code": {
+      "invalid": "Kode pos harus terdiri dari 5 digit angka."
+    },
+    "country_code": {
+      "invalid": "Negara wajib dipilih."
+    },
+    "email": {
+      "invalid": "Format email tidak valid. Masukkan alamat email yang benar."
+    },
+    "phone": {
+      "duplicate": "Nomor telepon sudah digunakan oleh perusahaan lain."
+    },
+    "npwp": {
+      "invalid": "NPWP harus terdiri dari 16 digit angka.",
+      "duplicate": "NPWP sudah terdaftar pada perusahaan lain di ruang kerja ini."
+    },
+    "nib": {
+      "duplicate": "NIB sudah terdaftar pada perusahaan lain di ruang kerja ini."
+    }
+  },
+  "established_date": {
+    "label": "Tanggal Pendirian Perusahaan"
+  },
+  "created_date": {
+    "label": "Tanggal Pembuatan Perusahaan"
+  },
+  "business_unit_count": {
+    "label": "Jumlah Unit Usaha"
+  },
+  "modal": {
+    "save_changes": {
+      "desc": "Perubahanmu akan disimpan dan data perusahaan akan diperbarui.",
+      "primary_button": "Simpan Perubahan",
+      "secondary_button": "Kembali Edit"
+    }
+  },
+  "save": {
+    "confirm": {
+      "title": "Simpan perubahan data perusahaan sekarang?",
+      "description": "Perubahanmu akan disimpan dan data perusahaan akan diperbarui.",
+      "button": "Simpan Perubahan"
+    },
+    "cancel": {
+      "button": "Kembali Edit"
+    },
+    "success": "Perubahan data perusahaan berhasil disimpan"
+  },
+  "create": {
+    "modal": {
+      "title": "Masukan Data Perusahaan Baru"
+    },
+    "additional_info": {
+      "label": "Informasi Tambahan"
+    },
+    "option": {
+      "business_type": {
+        "jasa": "Jasa",
+        "retail": "Retail",
+        "manufaktur": "Manufaktur"
+      },
+      "country": {
+        "indonesia": "Indonesia"
+      },
+      "currency": {
+        "idr": "IDR (Rupiah)"
+      },
+      "pkp_status": {
+        "pkp": "PKP",
+        "non_pkp": "NON PKP"
+      }
+    },
+    "section": {
+      "identity": {
+        "label": "Identitas Perusahaan"
+      },
+      "address": {
+        "label": "Alamat"
+      },
+      "contact": {
+        "label": "Kontak"
+      },
+      "legal": {
+        "label": "Legal & Administrasi"
+      }
+    },
+    "form": {
+      "workspace": {
+        "label": "Ruang Kerja",
+        "dropdown": "Pilih Ruang Kerja"
+      },
+      "name": {
+        "label": "Nama Perusahaan",
+        "placeholder": "Contoh: PT KERASI ANAK BANGSA",
+        "error": {
+          "required": "Nama perusahaan perlu diisi.",
+          "min_length": "Minimal 3 karakter.",
+          "format": "Hanya huruf, angka, titik, dan koma.",
+          "duplicate": "Nama sudah digunakan di ruang kerja ini."
+        },
+        "info": {
+          "max_length": "Maksimal 60 karakter."
+        }
+      },
+      "business_type": {
+        "label": "Jenis Usaha",
+        "placeholder": "Pilih Jenis Usaha",
+        "error": {
+          "required": "Pilih jenis usaha terlebih dahulu."
+        }
+      },
+      "country": {
+        "label": "Negara",
+        "placeholder": "Pilih Negara",
+        "error": {
+          "required": "Pilih negara terlebih dahulu."
+        }
+      },
+      "currency": {
+        "label": "Mata Uang Utama",
+        "placeholder": "Pilih Mata Uang",
+        "error": {
+          "required": "Pilih Mata Uang terlebih dahulu."
+        }
+      },
+      "logo": {
+        "label": "Logo Perusahaan",
+        "placeholder": "Unggah logo perusahaan Anda",
+        "max_size": "Maks. ukuran file 2 MB"
+      },
+      "creation_date": {
+        "label": "Tanggal Pembuatan Perusahaan",
+        "placeholder": "Pilih Tanggal"
+      },
+      "establishment_date": {
+        "label": "Tanggal Pendirian Perusahaan",
+        "placeholder": "Pilih tanggal pendirian perusahaan"
+      },
+      "business_unit_count": {
+        "label": "Jumlah Unit Usaha",
+        "placeholder": "Jumlah Unit Usaha"
+      },
+      "province": {
+        "label": "Provinsi",
+        "placeholder": "Pilih Provinsi"
+      },
+      "city": {
+        "label": "Kota/Kabupaten",
+        "placeholder": "Pilih Kota atau Kabupaten"
+      },
+      "district": {
+        "label": "Kecamatan",
+        "placeholder": "Pilih Kecamatan"
+      },
+      "subdistrict": {
+        "label": "Kelurahan/Desa",
+        "placeholder": "Pilih Kelurahan atau Desa"
+      },
+      "postal_code": {
+        "label": "Kode Pos",
+        "placeholder": "Contoh: 65143"
+      },
+      "address": {
+        "label": "Alamat Lengkap",
+        "placeholder": "Contoh: Jl. Melati Blok C no. 65"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Contoh: hajiudin21@sample.com"
+      },
+      "phone": {
+        "label": "Nomor Telepon",
+        "placeholder": "Contoh: 021 - 6588912"
+      },
+      "whatsapp": {
+        "label": "Nomor Whatsapp",
+        "placeholder": "Contoh: 081234567891"
+      },
+      "website": {
+        "label": "Website",
+        "placeholder": "Contoh: www.hajiudin.pixel.id"
+      },
+      "tax_id": {
+        "label": "NPWP",
+        "placeholder": "Contoh: 123456789999000"
+      },
+      "nib": {
+        "label": "NIB",
+        "placeholder": "Contoh: 812358192100211"
+      },
+      "vat_status": {
+        "label": "Status PKP"
+      },
+      "sppkp_number": {
+        "label": "Nomor SPPKP",
+        "placeholder": "Contoh: PEM-80.KPJ21/2025"
+      },
+      "accounting_start_date": {
+        "label": "Tanggal Mulai Pembukuan",
+        "placeholder": "Pilih Tanggal"
+      },
+      "geo": {
+        "province_loading": "Memuat provinsi...",
+        "province_empty": "Provinsi tidak tersedia",
+        "city_select_province": "Pilih Provinsi terlebih dahulu",
+        "city_loading": "Memuat kota/kabupaten...",
+        "city_empty": "Kota/Kabupaten tidak tersedia",
+        "district_select_city": "Pilih Kota/Kabupaten terlebih dahulu",
+        "district_loading": "Memuat kecamatan...",
+        "district_empty": "Kecamatan tidak tersedia",
+        "subdistrict_select_district": "Pilih Kecamatan terlebih dahulu",
+        "subdistrict_loading": "Memuat kelurahan/desa...",
+        "subdistrict_empty": "Kelurahan/Desa tidak tersedia"
+      }
+    },
+    "action": {
+      "submit": {
+        "button": "Tambah Perusahaan"
+      },
+      "cancel": {
+        "button": "Batal"
+      }
+    }
+  },
+  "detail": {
+    "header": {
+      "title": "Detail Perusahaan"
+    },
+    "breadcrumb": {
+      "aria_label": "Navigasi breadcrumb detail perusahaan"
+    },
+    "info": {
+      "email": {
+        "label": "Email"
+      },
+      "whatsapp": {
+        "label": "No Whatsapp"
+      },
+      "phone": {
+        "label": "No Telepon"
+      },
+      "address": {
+        "label": "Alamat"
+      },
+      "business_unit_total": {
+        "label": "Total Unit Usaha",
+        "active_label": "Aktif"
+      }
+    },
+    "section": {
+      "profile": {
+        "label": "Profil Perusahaan"
+      },
+      "business_unit": {
+        "label": "Unit Usaha"
+      },
+      "user_management": {
+        "label": "Manajemen Pengguna"
+      },
+      "role_management": {
+        "label": "Manajemen Peran"
+      }
+    },
+    "status": {
+      "coming_soon": {
+        "label": "Segera Hadir"
+      }
+    },
+    "action": {
+      "set_default": "Jadikan Utama",
+      "primary_company": "Perusahaan Utama",
+      "delete_company": "Hapus Perusahaan",
+      "back_to_list": "Kembali ke Daftar Perusahaan"
+    },
+    "error": {
+      "title": "Gagal Memuat Detail Perusahaan",
+      "description": "Terjadi gangguan saat mengambil detail perusahaan.",
+      "retry": "Coba Lagi"
+    },
+    "toast": {
+      "set_default_success_title": "Default perusahaan berhasil disimpan",
+      "set_default_success_message": "Perusahaan ini akan otomatis terbuka saat Anda masuk",
+      "set_default_error_title": "Gagal Mengatur Perusahaan Default"
+    }
+  },
+  "profile": {
+    "header": {
+      "title": "Profil Perusahaan"
+    },
+    "option": {
+      "currency": {
+        "idr": "IDR (Rupiah)",
+        "usd": "USD (US Dollar)",
+        "sgd": "SGD (Singapore Dollar)"
+      }
+    },
+    "modal": {
+      "edit_prefix": "Edit"
+    },
+    "forbidden": {
+      "title": "Akses Ditolak",
+      "description": "Anda tidak memiliki izin untuk mengubah data perusahaan ini.",
+      "cta_back": "Kembali ke Detail Perusahaan"
+    },
+    "not_found": {
+      "title": "Halaman Tidak Ditemukan",
+      "description": "Data perusahaan tidak ditemukan. Silakan kembali ke halaman detail perusahaan.",
+      "cta_back": "Kembali ke Detail Perusahaan"
+    },
+    "error": {
+      "title": "Gagal Memuat Profil Perusahaan",
+      "description": "Terjadi gangguan saat mengambil profil perusahaan.",
+      "retry": "Coba Lagi"
+    },
+    "toast": {
+      "validation_failed_title": "Validasi Gagal",
+      "validation_failed_message": "Pastikan seluruh data wajib pada section ini terisi dengan benar.",
+      "save_failed_title": "Gagal Menyimpan",
+      "save_failed_message": "Terjadi gangguan saat menyimpan perubahan data perusahaan.",
+      "save_success_title": "Perubahan Berhasil Disimpan"
+    },
+    "discard_dialog": {
+      "title": "Apakah Kamu yakin ingin membatalkan?",
+      "description": "Perubahan data perusahaan yang belum disimpan akan hilang.",
+      "secondary": "Tidak",
+      "primary": "Ya"
+    },
+    "action": {
+      "cancel": "Batal",
+      "save": "Simpan",
+      "save_changes": "Simpan Perubahan"
+    }
+  },
+  "list": {
+    "search": {
+      "placeholder": "Cari disini...",
+      "loading": "Menerapkan pencarian perusahaan"
+    },
+    "action": {
+      "manage_workspace": "Kelola Ruang Kerja",
+      "add_company": "Tambah Perusahaan"
+    },
+    "error": {
+      "title": "Gagal memuat daftar perusahaan",
+      "description": "Terjadi gangguan saat memuat data perusahaan. Silakan coba lagi.",
+      "retry": "Coba Lagi"
+    },
+    "empty_filtered": {
+      "title": "Perusahaan Tidak Ditemukan",
+      "description": "Ubah kata kunci pencarian atau atur ulang filter ruang kerja."
+    },
+    "not_found": {
+      "title": "Perusahaan Tidak Ditemukan",
+      "description": "Tidak ada perusahaan yang sesuai kriteria pencarian Anda."
+    },
+    "ownership": {
+      "shared_by": "Dibagikan oleh {name}",
+      "mine": "Milik Saya"
+    },
+    "business_unit": {
+      "total_label": "Total Unit Usaha",
+      "active_label": "{count} Unit Usaha Aktif"
+    },
+    "load_more": {
+      "label": "Memuat lebih banyak data"
+    },
+    "filter": {
+      "button": "Filter Ruang Kerja",
+      "title": "Filter",
+      "search_placeholder": "Cari Ruang Kerja",
+      "empty_result": "Ruang kerja tidak ditemukan.",
+      "reset": "Atur Ulang",
+      "apply": "Terapkan",
+      "select_workspace": "Pilih {name}"
+    },
+    "toast": {
+      "logo_upload_failed_title": "Gagal Mengunggah Logo",
+      "logo_upload_failed_message": "Terjadi gangguan saat mengunggah logo perusahaan.",
+      "create_failed_title": "Gagal Menambahkan Perusahaan"
+    }
+  }
+}

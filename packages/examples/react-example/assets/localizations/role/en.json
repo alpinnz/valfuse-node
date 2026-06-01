@@ -1,0 +1,25 @@
+{
+  "@@locale": "en",
+  "@@module": "role",
+  "rolelist": {
+    "page_title": "Role List",
+    "section": {
+      "description": "Roles in the system function to regulate user access rights so that each user can only view or perform actions in accordance with the access granted"
+    },
+    "table": {
+      "role_name": {
+        "header": "Role Name"
+      },
+      "description": {
+        "header": "Description"
+      },
+      "user_count": {
+        "header": "User Count",
+        "tooltip": "The number of active users assigned to this role."
+      }
+    }
+  },
+  "role_detail": {
+    "page_title": "Role Detail"
+  }
+}

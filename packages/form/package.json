@@ -1,7 +1,7 @@
 {
-  "name": "@valfuse-node/core",
+  "name": "@valfuse-node/form",
   "version": "0.1.0",
-  "description": "[DEPRECATED] Orchestration layer for valfuse-node — use @valfuse-node/form for schema/validation and @valfuse-node/localization for i18n",
+  "description": "Form domain package for valfuse-node — schema, validation, transformation, rules, state, and methods",
   "license": "MIT",
   "sideEffects": false,
   "keywords": ["validation", "schema", "form", "typescript", "valfuse"],

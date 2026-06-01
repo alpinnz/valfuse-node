@@ -1,0 +1,240 @@
+{
+  "@@locale": "en",
+  "@@module": "business_unit",
+  "company_detail": {
+    "bu_add": {
+      "modal": {
+        "title": "Add Business Unit"
+      },
+      "section": {
+        "title": "Edit Business Unit"
+      },
+      "form": {
+        "name": {
+          "label": "Business Unit Name",
+          "placeholder": "Example: Dapur Dewi"
+        },
+        "type": {
+          "label": "Business Unit Type",
+          "placeholder": "Select Business Unit Type"
+        },
+        "address": {
+          "label": "Address",
+          "placeholder": "Example: Contoh : Jl. Mawar, No. 17, RT/RW 02/15"
+        },
+        "village": {
+          "label": "Village/Subdistrict",
+          "placeholder": "Select Village"
+        },
+        "district": {
+          "label": "District",
+          "placeholder": "Select District"
+        },
+        "city": {
+          "label": "City/Regency",
+          "placeholder": "Select City"
+        },
+        "province": {
+          "label": "Province",
+          "placeholder": "Select Province"
+        },
+        "bu_logo": {
+          "label": "Business Unit Logo",
+          "placeholder": "Upload your Business Unit logo"
+        },
+        "opening_date": {
+          "label": "Opening Date",
+          "placeholder": "Select Opening date"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Example : hajiudin21@sample.com"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Example: 021 - 6588912"
+        },
+        "npwpd": {
+          "label": "Local Tax ID (NPWPD)",
+          "placeholder": "Example: P-1299490012-0"
+        },
+        "nib": {
+          "label": "Business Identification Number (NIB)",
+          "placeholder": "Example: 91200202991"
+        }
+      }
+    }
+  },
+  "bu_detail": {
+    "edit": {
+      "form": {
+        "name": {
+          "label": "Business Unit Name",
+          "placeholder": "Example: Dapur Dewi"
+        },
+        "type": {
+          "label": "Business Unit Type",
+          "placeholder": "Select Business Unit Type"
+        },
+        "address": {
+          "label": "Address",
+          "placeholder": "Example: Contoh : Jl. Mawar, No. 17, RT/RW 02/15"
+        },
+        "village": {
+          "label": "Village/Subdistrict",
+          "placeholder": "Select Village"
+        },
+        "district": {
+          "label": "District",
+          "placeholder": "Select District"
+        },
+        "city": {
+          "label": "City/Regency",
+          "placeholder": "Select City"
+        },
+        "province": {
+          "label": "Province",
+          "placeholder": "Select Province"
+        },
+        "opening_date": {
+          "label": "Open Date",
+          "placeholder": "Select Opening date"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Example : hajiudin21@sample.com"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Example: 021 - 6588912"
+        },
+        "npwp": {
+          "label": "NPWP",
+          "placeholder": "Input NPWP"
+        },
+        "nib": {
+          "label": "NIB",
+          "placeholder": "Input NIB"
+        }
+      }
+    }
+  },
+  "error": {
+    "name": {
+      "duplicate": "Business Unit name is already registered. Please use a different name"
+    }
+  },
+  "business_unit_detail": {
+    "title": "Business Unit Details",
+    "label": {
+      "email": "Email",
+      "business_type": "Business Type",
+      "bookkeeping_date": "Bookkeeping Date",
+      "address": "Address",
+      "phone_number": "Phone Number",
+      "active": "Active"
+    },
+    "button": {
+      "deactivate": "Deactivate"
+    }
+  },
+  "business_unit_profile": {
+    "title": "Business Unit Profile",
+    "label": {
+      "business_unit_identity": "Business Unit Identity",
+      "business_unit_name": "Business Unit Name",
+      "business_type": "Business Type",
+      "logo": "Logo",
+      "business_unit_creation_date": "Business Unit Creation Date",
+      "address": "Address",
+      "subdistrict": "Urban Village",
+      "city_or_regency": "City/Regency",
+      "full_address": "Full Address",
+      "district": "District",
+      "province": "Province",
+      "contact": "Contact",
+      "phone_number": "Phone Number",
+      "whatsapp_number": "WhatsApp Number",
+      "email": "Email",
+      "legal_and_administration": "Legal & Administration",
+      "npwpd": "NPWPD",
+      "nib": "NIB"
+    },
+    "button": {
+      "edit": "Edit"
+    }
+  },
+  "business_unit_list": {
+    "title": "Business Unit List",
+    "button": {
+      "add_business_unit": "Add Business Unit"
+    },
+    "label": {
+      "outlet": "Outlet",
+      "branch": "Branch",
+      "factory": "Factory"
+    },
+    "search": {
+      "placeholder": "Search here"
+    },
+    "empty_state": {
+      "no_business_unit": "There are no business units at the moment",
+      "no_data": "There is no data to display"
+    }
+  },
+  "unit": {
+    "detail": {
+      "action": {
+        "delete": {
+          "label": "Delete Business Unit"
+        },
+        "deactivate": {
+          "label": "Deactivate Business Unit"
+        }
+      }
+    },
+    "delete": {
+      "impact": {
+        "title": "Delete Business Unit",
+        "description": "This action will permanently delete the business unit.",
+        "permanent": "All data related to this business unit will be permanently deleted and cannot be restored.",
+        "transaction_block": "This business unit has transaction history, so deletion cannot be performed.",
+        "alternative": "As an alternative, you can deactivate this business unit.",
+        "agree": {
+          "button": "Agree to Delete"
+        },
+        "cancel": {
+          "button": "Cancel"
+        }
+      },
+      "confirm": {
+        "title": "Confirm Business Unit Deletion",
+        "instruction": "Type the business unit name to confirm deletion.",
+        "input": {
+          "label": "Business Unit Name",
+          "placeholder": "Enter business unit name"
+        },
+        "delete": {
+          "button": "Delete"
+        },
+        "cancel": {
+          "button": "Cancel"
+        },
+        "error": {
+          "empty": "It looks like the business unit name hasn't been filled in yet. Please complete it to continue.",
+          "min": "The business unit name must contain at least 3 characters.",
+          "mismatch": "The business unit name doesn't match yet. Please retype it as shown."
+        }
+      },
+      "success": {
+        "toast": "Business unit has been successfully deleted."
+      },
+      "error": {
+        "fallback": {
+          "title": "The process could not be completed",
+          "description": "Something went wrong on our side. Please try again in a moment."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "@@locale": "id",
+  "@@module": "fallback",
+
+  "fb200_h": "Berhasil",
+  "fb200_d": "Permintaan Anda berhasil diproses.",
+  "fb200_b": "Baik",
+
+  "fb201_h": "Berhasil Dibuat",
+  "fb201_d": "Data berhasil dibuat.",
+  "fb201_b": "Baik",
+
+  "fb202_h": "Diterima",
+  "fb202_d": "Permintaan Anda diterima dan sedang diproses.",
+  "fb202_b": "Baik",
+
+  "fb204_h": "Selesai",
+  "fb204_d": "Permintaan berhasil diproses.",
+  "fb204_b": "Baik",
+
+  "fb300_h": "Dialihkan",
+  "fb300_d": "Permintaan Anda dialihkan. Silakan ikuti instruksi yang diberikan.",
+  "fb300_b": "Mengerti",
+
+  "fb301_h": "Pindah Permanen",
+  "fb301_d": "Resource yang diminta telah dipindahkan secara permanen.",
+  "fb301_b": "Mengerti",
+
+  "fb302_h": "Dialihkan Sementara",
+  "fb302_d": "Permintaan Anda dialihkan sementara. Silakan coba lagi.",
+  "fb302_b": "Mengerti",
+
+  "fb303_h": "Lihat Lainnya",
+  "fb303_d": "Silakan lanjutkan menggunakan resource atau endpoint yang diberikan.",
+  "fb303_b": "Mengerti",
+
+  "fb304_h": "Tidak Berubah",
+  "fb304_d": "Tidak ada perubahan. Silakan muat ulang jika diperlukan.",
+  "fb304_b": "Muat Ulang",
+
+  "fb307_h": "Dialihkan Sementara",
+  "fb307_d": "Permintaan Anda dialihkan sementara. Silakan coba lagi.",
+  "fb307_b": "Mengerti",
+
+  "fb308_h": "Pindah Permanen",
+  "fb308_d": "Resource yang diminta telah dipindahkan secara permanen.",
+  "fb308_b": "Mengerti",
+
+  "fb400_h": "Permintaan Tidak Valid",
+  "fb400_d": "Permintaan tidak valid. Silakan periksa input Anda dan coba lagi.",
+  "fb400_b": "Mengerti",
+
+  "fb401_h": "Sesi Berakhir",
+  "fb401_d": "Demi keamanan, sesi Anda sudah habis. Silakan login kembali untuk melanjutkan pekerjaan Anda.",
+  "fb401_b": "Login Ulang",
+
+  "fb402_h": "Pembayaran Diperlukan",
+  "fb402_d": "Permintaan membutuhkan pembayaran untuk dilanjutkan.",
+  "fb402_b": "Mengerti",
+
+  "fb403_h": "Akses Terbatas",
+  "fb403_d": "Anda belum memiliki izin untuk halaman ini. Hubungi admin perusahaan anda agar akses bisa dibuka.",
+  "fb403_b": "Hubungi Admin",
+
+  "fb404_h": "Halaman Tidak Ditemukan",
+  "fb404_d": "Kami tidak menemukan yang Anda cari. Mari kembali ke beranda untuk melanjutkan.",
+  "fb404_b": "Kembali ke Beranda",
+
+  "fb405_h": "Aksi Tidak Diizinkan",
+  "fb405_d": "Aksi ini tidak didukung untuk permintaan tersebut.",
+  "fb405_b": "Mengerti",
+
+  "fb406_h": "Tidak Dapat Diterima",
+  "fb406_d": "Permintaan tidak dapat diproses dengan format yang diminta.",
+  "fb406_b": "Mengerti",
+
+  "fb408_h": "Waktu Habis",
+  "fb408_d": "Permintaan membutuhkan waktu terlalu lama. Silakan coba lagi.",
+  "fb408_b": "Mengerti",
+
+  "fb409_h": "Terjadi Konflik",
+  "fb409_d": "Terjadi konflik karena data sudah ada atau sudah berubah.",
+  "fb409_b": "Mengerti",
+
+  "fb410_h": "Tidak Tersedia",
+  "fb410_d": "Resource ini sudah tidak tersedia.",
+  "fb410_b": "Mengerti",
+
+  "fb413_h": "Ukuran Terlalu Besar",
+  "fb413_d": "Ukuran data yang dikirim terlalu besar. Silakan coba lagi.",
+  "fb413_b": "Mengerti",
+
+  "fb415_h": "Format Tidak Didukung",
+  "fb415_d": "Format permintaan tidak didukung. Silakan coba lagi.",
+  "fb415_b": "Mengerti",
+
+  "fb422_h": "Validasi Gagal",
+  "fb422_d": "Beberapa input tidak valid. Silakan periksa kembali dan coba lagi.",
+  "fb422_b": "Mengerti",
+
+  "fb429_h": "Terlalu Banyak Permintaan",
+  "fb429_d": "Anda mengirim permintaan terlalu cepat. Tunggu sebentar lalu coba lagi.",
+  "fb429_b": "Mengerti",
+
+  "fb500_h": "Ada Kendala Teknis",
+  "fb500_d": "Sistem sedang mengalami gangguan. Tim kami sedang menangani, coba lagi sebentar.",
+  "fb500_b": "Baik, saya mengerti",
+  "fb500_b_secondary": "Hubungi CS MyApp",
+
+  "fb501_h": "Belum Tersedia",
+  "fb501_d": "Fitur ini belum tersedia. Silakan coba lagi nanti.",
+  "fb501_b": "Baik, saya mengerti",
+  "fb501_b_secondary": "Hubungi CS MyApp",
+
+  "fb502_h": "Gangguan Jaringan",
+  "fb502_d": "Terjadi masalah komunikasi dengan server. Biasanya hanya sementara, coba lagi ya.",
+  "fb502_b": "Baik, saya mengerti",
+  "fb502_b_secondary": "Hubungi CS MyApp",
+
+  "fb503_h": "Sedang Pemeliharaan",
+  "fb503_d": "Sistem sedang diperbarui untuk peningkatan layanan. Silakan kembali beberapa saat lagi.",
+  "fb503_b": "Baik, saya mengerti",
+  "fb503_b_secondary": "Hubungi CS MyApp",
+
+  "fb504_h": "Waktu Habis",
+  "fb504_d": "Permintaan Anda butuh waktu lebih lama dari biasanya. Silakan coba lagi dalam beberapa saat.",
+  "fb504_b": "Baik, saya mengerti",
+  "fb504_b_secondary": "Hubungi CS MyApp",
+
+  "support_url": "https://s.id/smartcare",
+  "support_label": "s.id/smartcare"
+}

@@ -1,0 +1,87 @@
+{
+  "@@locale": "en",
+  "@@module": "delete",
+  "company": {
+    "impact": {
+      "title": "Company Deletion Impact Summary",
+      "description": "Company deletion is permanent and cannot be undone. This deletion will affect the business units under it.",
+      "modal": {
+        "title": "Deletion Impact Summary"
+      },
+      "summary": {
+        "description": "Company {companyName} will be deleted.",
+        "unit_count": "Business units that will be deleted: {totalBusinessUnit} linked business units."
+      },
+      "banner": {
+        "title": "Information!"
+      },
+      "button": {
+        "cancel": "Cancel",
+        "confirm": "Agree, Delete Company",
+        "continue": "Yes, Continue"
+      }
+    },
+    "confirm": {
+      "title": "Confirm Company Deletion",
+      "description": "To proceed, type the company name below as confirmation that you understand this action cannot be undone.",
+      "approval_text": "I understand that deleting this company is permanent and cannot be undone.",
+      "banner": {
+        "title": "Information!",
+        "description": "All related data will be deleted and cannot be restored. This action is permanent and cannot be undone."
+      },
+      "input": {
+        "label": "Company Name",
+        "placeholder": "Type the company name to confirm deletion",
+        "helper_text": "Type {companyName} to confirm"
+      },
+      "button": {
+        "cancel": "Cancel",
+        "confirm": "Delete Company",
+        "submit": "Confirm"
+      }
+    },
+    "blocked": {
+      "title": "Failed to Delete Company",
+      "button": {
+        "cancel": "Cancel"
+      },
+      "active_units": {
+        "description": "Some business units in this company are still active. Deactivate them first before continuing.",
+        "action": "Back to Business Unit List"
+      },
+      "default_company": {
+        "description": "This company cannot be deleted because it is currently set as the default company. Please change the default company first if you still want to delete this company.",
+        "action": "Company List"
+      }
+    },
+    "precheck": {
+      "loading": {
+        "label": "Checking company deletion eligibility"
+      },
+      "error": {
+        "title": "Failed to Check Deletion Impact",
+        "message": "Company data could not be verified for deletion. Please try again.",
+        "unknown": "Something went wrong while checking company deletion impact."
+      }
+    },
+    "toast": {
+      "success": {
+        "title": "Company Deleted",
+        "message": "Company has been removed from the list."
+      },
+      "error_title": "Failed to Delete Company"
+    },
+    "error": {
+      "company_has_transaction": "Company cannot be deleted because it has transactions",
+      "unit_has_transaction": "Company cannot be deleted because its business units have transactions",
+      "company_name_mismatch": "Company name does not match",
+      "company_name_required": "Company name is required to proceed with deletion",
+      "has_active_units": "Company cannot be deleted because it still has active business units.",
+      "is_default": "Default company cannot be deleted. Change default company first.",
+      "forbidden": "You do not have permission to delete this company.",
+      "not_found": "Company not found.",
+      "validation_error": "Delete confirmation validation failed. Please check your input.",
+      "unknown": "Something went wrong while deleting the company."
+    }
+  }
+}

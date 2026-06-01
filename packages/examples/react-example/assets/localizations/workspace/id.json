@@ -1,0 +1,181 @@
+{
+  "@@locale": "id",
+  "@@module": "company_and_workspace",
+  "listrk": {
+    "header": {
+      "title": "Daftar Ruang Kerja"
+    }
+  },
+  "listcompany": {
+    "header": {
+      "title": "Daftar Perusahaan"
+    }
+  },
+  "workspace": {
+    "list": {
+      "header": {
+        "managed_by": {
+          "label": "dikelola oleh {nama akun}"
+        }
+      },
+      "summary": {
+        "company_total": {
+          "label": "Total Perusahaan"
+        },
+        "business_unit_total": {
+          "label": "Total Unit Usaha"
+        }
+      },
+      "action": {
+        "create": {
+          "button": "Tambah Ruang Kerja"
+        }
+      },
+      "error": {
+        "title": "Gagal Memuat Ruang Kerja",
+        "description": "Terjadi gangguan saat memuat data ruang kerja. Silakan coba lagi."
+      },
+      "not_found": {
+        "title": "Ruang Kerja Tidak Ditemukan",
+        "description": "Tidak ada ruang kerja yang sesuai kriteria pencarian Anda."
+      },
+      "empty": {
+        "title": "Belum Ada Ruang Kerja",
+        "description": "Anda belum memiliki ruang kerja. Buat ruang kerja pertama Anda untuk memulai."
+      }
+    },
+    "create": {
+      "modal": {
+        "title": "Tambah Ruang Kerja"
+      },
+      "form": {
+        "name": {
+          "label": "Nama Ruang Kerja",
+          "placeholder": "Contoh: Ruang Kerja Utama",
+          "error": {
+            "required": "Nama Ruang Kerja wajib diisi.",
+            "min_length": "Nama Ruang Kerja minimal 3 karakter.",
+            "invalid_format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+            "duplicate": "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
+            "max_length": "Nama Ruang Kerja maksimal 60 karakter."
+          }
+        }
+      },
+      "action": {
+        "cancel": {
+          "button": "Batal"
+        },
+        "submit": {
+          "button": "Simpan"
+        }
+      },
+      "name": {
+        "info": {
+          "max_length": "Nama Ruang Kerja maksimal 60 karakter."
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "Sukses!",
+          "message": "Ruang Kerja berhasil ditambahkan"
+        }
+      }
+    },
+    "edit": {
+      "action": {
+        "cancel": {
+          "button": "Batal"
+        },
+        "submit": {
+          "button": "Simpan"
+        }
+      },
+      "form": {
+        "name": {
+          "error": {
+            "required": "Nama Ruang Kerja wajib diisi.",
+            "min_length": "Nama Ruang Kerja minimal 3 karakter.",
+            "invalid_format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+            "duplicate": "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
+            "max_length": "Nama Ruang Kerja maksimal 60 karakter."
+          },
+          "max_length": "Nama Ruang Kerja maksimal 60 karakter."
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "Sukses!",
+          "message": "Nama Ruang Kerja berhasil diperbaharui"
+        },
+        "cancle": {
+          "title": "Dibatalkan",
+          "message": "Perubahan nama ruang kerja dibatalkan"
+        }
+      }
+    },
+    "delete": {
+      "modal": {
+        "title": "Konfirmasi Hapus Ruang Kerja",
+        "banner_title": "Informasi!",
+        "description": "Semua data di dalam ruang kerja ini akan terhapus secara permanen dan tidak bisa dipulihkan."
+      },
+      "checkbox": {
+        "confirmation": "Saya menyetujui penghapusan ruang kerja ini dilakukan secara permanen dan tidak dapat dibatalkan"
+      },
+      "form": {
+        "confirmation": {
+          "label": "Ketik {Nama ruang kerja} untuk mengkonfirmasi",
+          "placeholder": "Ketik nama ruang kerja"
+        }
+      },
+      "action": {
+        "cancel": {
+          "button": "Batal"
+        },
+        "confirm": {
+          "button": "Konfirmasi"
+        }
+      },
+      "toast": {
+        "success": {
+          "title": "Sukses!",
+          "message": "Data ruang kerja telah berhasil dihapus"
+        }
+      }
+    },
+    "error": {
+      "name": {
+        "required": "Nama Ruang Kerja wajib diisi.",
+        "duplicate": "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda."
+      },
+      "confirm_name": {
+        "mismatch": "Nama konfirmasi tidak sesuai. Pastikan nama Ruang Kerja diketik dengan benar."
+      },
+      "last_remaining": "Ruang kerja ini tidak dapat dihapus karena merupakan ruang kerja terakhir Anda.",
+      "has_companies": "Ruang kerja ini tidak dapat dihapus karena masih memiliki perusahaan atau unit usaha terkait."
+    }
+  },
+  "list_workspace": {
+    "modal": {
+      "title": "Tambah Ruang kerja",
+      "label": "Nama Ruang kerja",
+      "placeholder": "Contoh: Ruang Kerja Utama"
+    }
+  },
+  "detail_workspace": {
+    "edit": {
+      "title": "Ubah Ruang kerja",
+      "label": "Nama Ruang kerja"
+    }
+  },
+  "delete_info": {
+    "modal": {
+      "title": "Ruang Kerja Tidak dapat Dihapus",
+      "body": "Ruang Kerja ini masih memiliki data terkait. Anda perlu menghapus seluruh data di dalamnya sebelum dapat menghapus Ruang Kerja"
+    },
+    "button": {
+      "cancel": "Batal",
+      "company_list": "Daftar Perusahaan"
+    }
+  }
+}

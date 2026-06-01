@@ -1,0 +1,116 @@
+{
+  "@@locale": "en",
+  "@@module": "user",
+  "user_list": {
+    "modal": {
+      "title": "Add New User",
+      "label": {
+        "email": "Email",
+        "role": "User Role"
+      },
+      "placeholder": {
+        "email": "Example: budi@example.com",
+        "role": "Select User Role"
+      },
+      "info": {
+        "company": "Company: PT Ruam Ruam"
+      }
+    },
+    "header": {
+      "add_user": {
+        "button": "Add User"
+      }
+    }
+  },
+  "user_detail": {
+    "page_title": "User Detail",
+    "header": {
+      "title": "User Detail"
+    },
+    "button": {
+      "change_role": "Change Role",
+      "change_status": "Change Status"
+    },
+    "section": {
+      "title": "User Information",
+      "name": "Name",
+      "email": "Email",
+      "wa_number": "WhatsApp Number",
+      "status": "Status",
+      "role": "Role",
+      "access_scope": "Access Scope",
+      "join_date": "Join Date",
+      "invited_by": "Invited By"
+    }
+  },
+  "userlist": {
+    "title": "User Management",
+    "table": {
+      "title": "User List"
+    },
+    "pagination": {
+      "rows_per_page": "Rows per page"
+    },
+    "filter": {
+      "role": {
+        "label": "Role"
+      }
+    },
+    "search": {
+      "placeholder": "Search...",
+      "empty": {
+        "title": "No results found"
+      }
+    },
+    "action": {
+      "view_detail": "View Details"
+    },
+    "resend_invite": {
+      "toast": {
+        "title": "Success!"
+      }
+    }
+  },
+  "user_deactivate": {
+    "modal": {
+      "title": "Deactivate User Access?"
+    },
+    "toast_title": {
+      "success": "Success!"
+    }
+  },
+  "user_activate": {
+    "toast_title": {
+      "success": "Success!"
+    },
+    "toast_message": {
+      "success": "User has been reactivated successfully."
+    }
+  },
+  "ubah_akses_pengguna": {
+    "modal": {
+      "title": "Update User Access"
+    },
+    "toast_title": {
+      "success": "Success!"
+    }
+  },
+  "useradd": {
+    "owner_role": {
+      "banner": {
+        "title": "Business Owner Role"
+      }
+    }
+  },
+  "user_deactivated": {
+    "page": {
+      "title": "Your Access Has Been Deactivated"
+    }
+  },
+  "invite_email": {
+    "subject": "MyApp Invitation: Join {{company_name}}"
+  },
+  "email_aktifkan_pengguna": {
+    "subject": "MyApp: Your Access in {{Company Name}} Has Been Restored"
+  }
+}

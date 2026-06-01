@@ -1,0 +1,47 @@
+{
+  "auth.login_by_google_account.error.nama.invalid_char": [
+    "x"
+  ],
+  "auth.login.banner.error.mismatch": [
+    "attempts"
+  ],
+  "auth.login.form.password_incorrect.error": [
+    "attempts"
+  ],
+  "auth.otp_whatsapp.message": [
+    "otp_code"
+  ],
+  "auth.popup.message": [
+    "time"
+  ],
+  "auth.resend_email.resend.button.disabled": [
+    "seconds"
+  ],
+  "auth.verifikasi_wa.resend.button.disabled": [
+    "seconds"
+  ],
+  "auth.verify.success.redirect": [
+    "xx"
+  ],
+  "company.list.business_unit.active_label": [
+    "count"
+  ],
+  "company.list.filter.select_workspace": [
+    "name"
+  ],
+  "company.list.ownership.shared_by": [
+    "name"
+  ],
+  "delete.company.confirm.input.helper_text": [
+    "companyName"
+  ],
+  "delete.company.impact.summary.description": [
+    "companyName"
+  ],
+  "delete.company.impact.summary.unit_count": [
+    "totalBusinessUnit"
+  ],
+  "user.invite_email.subject": [
+    "company_name"
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "@@locale": "en",
+  "@@module": "fallback",
+
+  "fb200_h": "Success",
+  "fb200_d": "Your request was completed successfully.",
+  "fb200_b": "Okay",
+
+  "fb201_h": "Created",
+  "fb201_d": "The resource was created successfully.",
+  "fb201_b": "Okay",
+
+  "fb202_h": "Accepted",
+  "fb202_d": "Your request has been accepted and is being processed.",
+  "fb202_b": "Okay",
+
+  "fb204_h": "Done",
+  "fb204_d": "The request succeeded.",
+  "fb204_b": "Okay",
+
+  "fb300_h": "Redirected",
+  "fb300_d": "Your request was redirected. Please follow the provided instructions.",
+  "fb300_b": "Got it",
+
+  "fb301_h": "Moved Permanently",
+  "fb301_d": "The requested resource has been moved permanently.",
+  "fb301_b": "Got it",
+
+  "fb302_h": "Temporarily Redirected",
+  "fb302_d": "Your request was redirected temporarily. Please try again.",
+  "fb302_b": "Got it",
+
+  "fb303_h": "See Other",
+  "fb303_d": "Please continue using the resource or endpoint provided.",
+  "fb303_b": "Got it",
+
+  "fb304_h": "Not Modified",
+  "fb304_d": "There are no changes. Please refresh if needed.",
+  "fb304_b": "Refresh",
+
+  "fb307_h": "Temporarily Redirected",
+  "fb307_d": "Your request was redirected temporarily. Please try again.",
+  "fb307_b": "Got it",
+
+  "fb308_h": "Moved Permanently",
+  "fb308_d": "The requested resource has been moved permanently.",
+  "fb308_b": "Got it",
+
+  "fb400_h": "Bad Request",
+  "fb400_d": "The request is invalid. Please check your input and try again.",
+  "fb400_b": "Got it",
+
+  "fb401_h": "Session Expired",
+  "fb401_d": "For your security, your session has ended. Please log in again to continue your work.",
+  "fb401_b": "Log In Again",
+
+  "fb402_h": "Payment Required",
+  "fb402_d": "This request requires payment to continue.",
+  "fb402_b": "Got it",
+
+  "fb403_h": "Access Denied",
+  "fb403_d": "You don't have permission to access this page. Please contact your admin for assistance.",
+  "fb403_b": "Contact Admin",
+
+  "fb404_h": "Page Not Found",
+  "fb404_d": "We couldn't find what you're looking for. Let's go back to the homepage.",
+  "fb404_b": "Back to Home",
+
+  "fb405_h": "Method Not Allowed",
+  "fb405_d": "This action isn't supported for the requested resource.",
+  "fb405_b": "Got it",
+
+  "fb406_h": "Not Acceptable",
+  "fb406_d": "The request can't be processed in the requested format.",
+  "fb406_b": "Got it",
+
+  "fb408_h": "Request Timeout",
+  "fb408_d": "The request took too long. Please try again.",
+  "fb408_b": "Got it",
+
+  "fb409_h": "Conflict",
+  "fb409_d": "A conflict occurred because the data already exists or has been changed.",
+  "fb409_b": "Got it",
+
+  "fb410_h": "Gone",
+  "fb410_d": "This resource is no longer available.",
+  "fb410_b": "Got it",
+
+  "fb413_h": "Payload Too Large",
+  "fb413_d": "The data you sent is too large. Please try again.",
+  "fb413_b": "Got it",
+
+  "fb415_h": "Unsupported Media Type",
+  "fb415_d": "The request format isn't supported. Please try again.",
+  "fb415_b": "Got it",
+
+  "fb422_h": "Validation Failed",
+  "fb422_d": "Some inputs are invalid. Please review and try again.",
+  "fb422_b": "Got it",
+
+  "fb429_h": "Too Many Requests",
+  "fb429_d": "You're making requests too quickly. Please wait a moment and try again.",
+  "fb429_b": "Got it",
+
+  "fb500_h": "Technical Issue",
+  "fb500_d": "The system is experiencing an issue. Our team is fixing it, please try again shortly.",
+  "fb500_b": "Okay, I understand",
+  "fb500_b_secondary": "Contact MyApp CS",
+
+  "fb501_h": "Not Implemented",
+  "fb501_d": "This feature isn't available yet. Please try again later.",
+  "fb501_b": "Okay, I understand",
+  "fb501_b_secondary": "Contact MyApp CS",
+
+  "fb502_h": "Network Issue",
+  "fb502_d": "There was a problem communicating with the server. This is usually temporary, please try again.",
+  "fb502_b": "Okay, I understand",
+  "fb502_b_secondary": "Contact MyApp CS",
+
+  "fb503_h": "Under Maintenance",
+  "fb503_d": "The system is being updated for better service. Please check back later.",
+  "fb503_b": "Okay, I understand",
+  "fb503_b_secondary": "Contact MyApp CS",
+
+  "fb504_h": "Request Timeout",
+  "fb504_d": "Your request took longer than expected. Please try again in a moment.",
+  "fb504_b": "Okay, I understand",
+  "fb504_b_secondary": "Contact MyApp CS",
+
+  "support_url": "https://s.id/smartcare",
+  "support_label": "s.id/smartcare"
+}

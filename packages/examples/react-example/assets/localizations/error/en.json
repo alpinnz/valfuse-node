@@ -1,0 +1,69 @@
+{
+  "@@locale": "en",
+  "@@module": "error",
+  "error": {
+    "bad_request": "The request could not be processed. Please check your input and try again.",
+    "forbidden": "You do not have permission to perform this action.",
+    "unauthorized": "Your session has expired. Please sign in again.",
+    "not_found": "The requested data could not be found.",
+    "conflict": "The data conflicts with existing records. Please review and try again.",
+    "validation_error": "Validation failed. Please check your input and try again.",
+    "internal_server_error": "A server error occurred. Please try again later.",
+    "service_unavailable": "The service is temporarily unavailable. Please try again later.",
+    "bad_gateway": "The service could not be reached. Please try again later.",
+    "gateway_timeout": "The request timed out. Please try again later.",
+    "session_expired": "Your session has expired. Please sign in again.",
+    "expired_token": "Your session has expired. Please sign in again.",
+    "account_not_linked": "This account is not linked yet. Please use another sign-in method.",
+    "unknown_error": "Something went wrong. Please try again."
+  },
+  "logo": {
+    "size": "File size is too large. Maximum 2 MB.",
+    "format": "File format is not supported. Use PNG, JPG, JPEG, or WEBP."
+  },
+  "company": {
+    "name": {
+      "required": "Company name is required.",
+      "min": "Company name must be at least 3 characters.",
+      "max": "Company name must not exceed 60 characters.",
+      "invalid_character": "Company name may only contain letters, numbers, periods, and commas.",
+      "duplicate": "Company name already exists in this workspace. Please use another name."
+    }
+  },
+  "business_type": {
+    "required": "Business type must be selected."
+  },
+  "country": {
+    "required": "Country must be selected."
+  },
+  "currency": {
+    "required": "Primary currency must be selected."
+  },
+  "postal_code": {
+    "invalid": "Postal code must contain 5 digits."
+  },
+  "npwp": {
+    "invalid": "NPWP must contain 16 digits.",
+    "duplicate": "NPWP already exists for another company in this workspace."
+  },
+  "nib": {
+    "invalid": "NIB must contain 13 digits.",
+    "duplicate": "NIB already exists for another company in this workspace."
+  },
+  "email": {
+    "invalid": "Invalid email format. Please enter a valid email address."
+  },
+  "phone": {
+    "invalid": "Phone number must contain numbers only.",
+    "max": "Phone number must not exceed 13 digits.",
+    "duplicate": "Phone number is already used by another company."
+  },
+  "whatsapp": {
+    "invalid": "Please enter a valid WhatsApp number.",
+    "max": "WhatsApp number must not exceed 13 digits.",
+    "duplicate": "WhatsApp number is already used by another company."
+  },
+  "website": {
+    "invalid": "Invalid website format. Use format like: www.domain.com"
+  }
+}

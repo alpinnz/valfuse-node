@@ -1,0 +1,68 @@
+{
+  "name": "@valfuse-node/localization",
+  "version": "0.1.0",
+  "description": "Localization generation engine — compiler, CLI, validator and runtime for @valfuse-node",
+  "license": "MIT",
+  "keywords": [
+    "i18n",
+    "l10n",
+    "localization",
+    "json",
+    "codegen",
+    "cli",
+    "valfuse"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./runtime": {
+      "types": "./dist/browser.d.ts",
+      "default": "./dist/browser.js"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "default": "./dist/browser.js"
+    }
+  },
+  "bin": {
+    "valfuse-localization": "dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup && chmod +x dist/cli/index.js",
+    "dev": "tsup --watch",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "clean": "rm -rf dist coverage"
+  },
+  "dependencies": {
+    "@valfuse-node/core": "*",
+    "chokidar": "^3.6.0",
+    "yaml": "^2.5.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsup": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}
+
+
+

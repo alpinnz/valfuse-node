@@ -1,0 +1,46 @@
+{
+  "@@locale": "id",
+  "@@module": "profile",
+  "change_password": {
+    "page": {
+      "title": "Ubah Kata Sandi"
+    }
+  },
+  "profile_edit_personal": {
+    "page": {
+      "title": "Edit Data Pribadi"
+    },
+    "field": {
+      "name": "Nama Lengkap"
+    }
+  },
+  "profile": {
+    "page": {
+      "title": "Profil Saya"
+    },
+    "label": {
+      "profile_photo": "Foto Profil",
+      "name": "Nama",
+      "nickname": "Nama Panggilan",
+      "gender": "Jenis Kelamin",
+      "date_of_birth": "Tanggal Lahir",
+      "address": "Alamat",
+      "email": "Email",
+      "whatsapp_number": "Nomor WhatsApp"
+    },
+    "section": {
+      "personal_information": "Data Pribadi",
+      "data_account": "Data Akun",
+      "security": "Keamanan",
+      "data_privacy": "Data & Privasi"
+    },
+    "action": {
+      "change_password": "Ubah Kata Sandi",
+      "create_password": "Buat Kata Sandi",
+      "delete_account": "Hapus Akun"
+    },
+    "logout": {
+      "button": "Logout"
+    }
+  }
+}

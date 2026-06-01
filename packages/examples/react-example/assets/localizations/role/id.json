@@ -1,0 +1,25 @@
+{
+  "@@locale": "id",
+  "@@module": "role",
+  "rolelist": {
+    "page_title": "Daftar Peran",
+    "section": {
+      "description": "Peran dalam sistem berfungsi untuk mengatur hak akses pengguna sehingga setiap user hanya dapat melihat atau melakukan tindakan sesuai dengan akses yang diberikan"
+    },
+    "table": {
+      "role_name": {
+        "header": "Nama Peran"
+      },
+      "description": {
+        "header": "Deskripsi"
+      },
+      "user_count": {
+        "header": "Jumlah User",
+        "tooltip": "Jumlah pengguna aktif yang menggunakan peran ini."
+      }
+    }
+  },
+  "role_detail": {
+    "page_title": "Detail Peran"
+  }
+}

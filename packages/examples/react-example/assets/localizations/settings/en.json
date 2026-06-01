@@ -1,0 +1,28 @@
+{
+  "@@locale": "en",
+  "@@module": "settings",
+  "title": "Settings",
+  "profile": {
+    "title": "Profile",
+    "edit_profile": "Edit Profile",
+    "change_password": "Change Password",
+    "logout": {
+      "button": "Logout",
+      "popup": {
+        "title": "Logout Confirmation",
+        "message": "Are you sure you want to log out from this account?",
+        "confirm": "Yes, Logout",
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "preferences": {
+    "title": "Preferences",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications"
+  },
+  "company_setting": {
+    "page_title": "Company Settings"
+  }
+}

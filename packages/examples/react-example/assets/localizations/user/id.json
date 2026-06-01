@@ -1,0 +1,116 @@
+{
+  "@@locale": "id",
+  "@@module": "user",
+  "user_list": {
+    "modal": {
+      "title": "Tambah Pengguna Baru",
+      "label": {
+        "email": "Email",
+        "role": "Peran Pengguna"
+      },
+      "placeholder": {
+        "email": "contoh : budi@contoh.com",
+        "role": "Pilih Peran Pengguna"
+      },
+      "info": {
+        "company": "Perusahaan : PT Ruam Ruam"
+      }
+    },
+    "header": {
+      "add_user": {
+        "button": "Tambah Pengguna"
+      }
+    }
+  },
+  "user_detail": {
+    "page_title": "Detail Pengguna",
+    "header": {
+      "title": "Detail Pengguna"
+    },
+    "button": {
+      "change_role": "Ubah Peran",
+      "change_status": "Ubah Status"
+    },
+    "section": {
+      "title": "Informasi Pengguna",
+      "name": "Nama",
+      "email": "Email",
+      "wa_number": "Nomor Whatsapp",
+      "status": "Status",
+      "role": "Peran",
+      "access_scope": "Cakupan Akses",
+      "join_date": "Tanggal Bergabung",
+      "invited_by": "Diundang Oleh"
+    }
+  },
+  "userlist": {
+    "title": "Manajemen Pengguna",
+    "table": {
+      "title": "Daftar Pengguna"
+    },
+    "pagination": {
+      "rows_per_page": "Jumlah data per halaman"
+    },
+    "filter": {
+      "role": {
+        "label": "Peran"
+      }
+    },
+    "search": {
+      "placeholder": "Cari...",
+      "empty": {
+        "title": "Data tidak ditemukan"
+      }
+    },
+    "action": {
+      "view_detail": "Lihat Detail"
+    },
+    "resend_invite": {
+      "toast": {
+        "title": "Sukses!"
+      }
+    }
+  },
+  "user_deactivate": {
+    "modal": {
+      "title": "Nonaktifkan Akses Pengguna?"
+    },
+    "toast_title": {
+      "success": "Sukses!"
+    }
+  },
+  "user_activate": {
+    "toast_title": {
+      "success": "Sukses!"
+    },
+    "toast_message": {
+      "success": "Pengguna berhasil diaktifkan kembali."
+    }
+  },
+  "ubah_akses_pengguna": {
+    "modal": {
+      "title": "Ubah Akses Pengguna"
+    },
+    "toast_title": {
+      "success": "Sukses!"
+    }
+  },
+  "useradd": {
+    "owner_role": {
+      "banner": {
+        "title": "Peran Pemilik Usaha"
+      }
+    }
+  },
+  "user_deactivated": {
+    "page": {
+      "title": "Akses Anda Dinonaktifkan"
+    }
+  },
+  "invite_email": {
+    "subject": "Undangan MyApp: Bergabung ke {{company_name}}"
+  },
+  "email_aktifkan_pengguna": {
+    "subject": "MyApp: Akses Anda di {{Nama Perusahaan}} Diaktifkan Kembali"
+  }
+}

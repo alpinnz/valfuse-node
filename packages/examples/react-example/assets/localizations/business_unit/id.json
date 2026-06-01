@@ -1,0 +1,240 @@
+{
+  "@@locale": "id",
+  "@@module": "business_unit",
+  "company_detail": {
+    "bu_add": {
+      "modal": {
+        "title": "Tambah Unit Usaha"
+      },
+      "section": {
+        "title": "Ubah Unit Usaha"
+      },
+      "form": {
+        "name": {
+          "label": "Nama Unit Usaha",
+          "placeholder": "Contoh: Dapur Dewi"
+        },
+        "type": {
+          "label": "Jenis Unit Usaha",
+          "placeholder": "Pilih Jenis Unit Usaha"
+        },
+        "address": {
+          "label": "Alamat",
+          "placeholder": "Contoh: Contoh : Jl. Mawar, No. 17, RT/RW 02/15"
+        },
+        "village": {
+          "label": "Kelurahan/Desa",
+          "placeholder": "Pilih Kelurahan/Desa"
+        },
+        "district": {
+          "label": "Kecamatan",
+          "placeholder": "Pilih Kecamatan"
+        },
+        "city": {
+          "label": "Kota/Kabupaten",
+          "placeholder": "Pilih Kota/Kabupaten"
+        },
+        "province": {
+          "label": "Provinsi",
+          "placeholder": "Pilih Provinsi"
+        },
+        "bu_logo": {
+          "label": "Logo Unit Usaha",
+          "placeholder": "Unggah logo Unit Usaha"
+        },
+        "opening_date": {
+          "label": "Tanggal Pembukaan",
+          "placeholder": "Pilih tanggal pembukaan"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Contoh: hajiudin21@sample.com"
+        },
+        "phone": {
+          "label": "Nomor Telepon",
+          "placeholder": "Contoh: 021 - 6588912"
+        },
+        "npwpd": {
+          "label": "NPWPD",
+          "placeholder": "Contoh: P-1299490012-0"
+        },
+        "nib": {
+          "label": "NIB",
+          "placeholder": "Contoh: 91200202991"
+        }
+      }
+    }
+  },
+  "bu_detail": {
+    "edit": {
+      "form": {
+        "name": {
+          "label": "Nama Unit Usaha",
+          "placeholder": "Contoh: Dapur Dewi"
+        },
+        "type": {
+          "label": "Jenis Unit Usaha",
+          "placeholder": "Pilih Jenis Unit Usaha"
+        },
+        "address": {
+          "label": "Alamat",
+          "placeholder": "Contoh: Contoh : Jl. Mawar, No. 17, RT/RW 02/15"
+        },
+        "village": {
+          "label": "Kelurahan/Desa",
+          "placeholder": "Pilih Kelurahan/Desa"
+        },
+        "district": {
+          "label": "Kecamatan",
+          "placeholder": "Pilih Kecamatan"
+        },
+        "city": {
+          "label": "Kota/Kabupaten",
+          "placeholder": "Pilih Kota/Kabupaten"
+        },
+        "province": {
+          "label": "Provinsi",
+          "placeholder": "Pilih Provinsi"
+        },
+        "opening_date": {
+          "label": "Open Date",
+          "placeholder": "Pilih tanggal pembukaan"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Contoh: hajiudin21@sample.com"
+        },
+        "phone": {
+          "label": "Nomor Telepon",
+          "placeholder": "Contoh: 021 - 6588912"
+        },
+        "npwp": {
+          "label": "NPWP",
+          "placeholder": "Masukkan NPWP"
+        },
+        "nib": {
+          "label": "NIB",
+          "placeholder": "Masukkan NIB"
+        }
+      }
+    }
+  },
+  "error": {
+    "name": {
+      "duplicate": "Nama Unit Usaha telah terdaftar. Silakan gunakan nama yang berbeda"
+    }
+  },
+  "business_unit_detail": {
+    "title": "Detail Unit Usaha",
+    "label": {
+      "email": "Email",
+      "business_type": "Jenis Usaha",
+      "bookkeeping_date": "Tanggal Pembukuan",
+      "address": "Alamat",
+      "phone_number": "No Telpon",
+      "active": "Aktif"
+    },
+    "button": {
+      "deactivate": "Non Aktifkan"
+    }
+  },
+  "business_unit_profile": {
+    "title": "Profil Unit Usaha",
+    "label": {
+      "business_unit_identity": "Identitas Unit Usaha",
+      "business_unit_name": "Nama Unit Usaha",
+      "business_type": "Jenis Usaha",
+      "logo": "Logo",
+      "business_unit_creation_date": "Tanggal Pembuatan Unit Usaha",
+      "address": "Alamat",
+      "subdistrict": "Kelurahan",
+      "city_or_regency": "Kota/Kabupaten",
+      "full_address": "Alamat Lengkap",
+      "district": "Kecamatan",
+      "province": "Provinsi",
+      "contact": "Kontak",
+      "phone_number": "No Telpon",
+      "whatsapp_number": "No WhatsApp",
+      "email": "Email",
+      "legal_and_administration": "Legal & Administrasi",
+      "npwpd": "NPWPD",
+      "nib": "NIB"
+    },
+    "button": {
+      "edit": "Ubah"
+    }
+  },
+  "business_unit_list": {
+    "title": "Daftar Unit Usaha",
+    "button": {
+      "add_business_unit": "Tambah Unit Usaha"
+    },
+    "label": {
+      "outlet": "Otlet",
+      "branch": "Cabang",
+      "factory": "Pabrik"
+    },
+    "search": {
+      "placeholder": "Cari disini"
+    },
+    "empty_state": {
+      "no_business_unit": "Tidak ada unit usaha saat ini",
+      "no_data": "Tidak ada data yang bisa ditampilkan"
+    }
+  },
+  "unit": {
+    "detail": {
+      "action": {
+        "delete": {
+          "label": "Hapus Unit Usaha"
+        },
+        "deactivate": {
+          "label": "Nonaktifkan Unit Usaha"
+        }
+      }
+    },
+    "delete": {
+      "impact": {
+        "title": "Hapus Unit Usaha",
+        "description": "Tindakan ini akan menghapus unit usaha secara permanen.",
+        "permanent": "Semua data terkait unit usaha akan dihapus secara permanen dan tidak dapat dikembalikan.",
+        "transaction_block": "Unit usaha ini memiliki riwayat transaksi sehingga penghapusan tidak dapat dilakukan.",
+        "alternative": "Sebagai alternatif, Anda dapat menonaktifkan unit usaha ini.",
+        "agree": {
+          "button": "Setuju Hapus"
+        },
+        "cancel": {
+          "button": "Batal"
+        }
+      },
+      "confirm": {
+        "title": "Konfirmasi Hapus Unit Usaha",
+        "instruction": "Ketik nama unit usaha untuk mengonfirmasi penghapusan.",
+        "input": {
+          "label": "Nama Unit Usaha",
+          "placeholder": "Masukkan nama unit usaha"
+        },
+        "delete": {
+          "button": "Hapus"
+        },
+        "cancel": {
+          "button": "Batal"
+        },
+        "error": {
+          "empty": "Sepertinya nama unit usaha belum diisi. Yuk lengkapi dulu agar proses bisa dilanjutkan.",
+          "min": "Nama unit usaha minimal terdiri dari 3 karakter.",
+          "mismatch": "Nama unit usaha belum sesuai. Coba ketik ulang sesuai nama yang tertera."
+        }
+      },
+      "success": {
+        "toast": "Unit usaha berhasil dihapus."
+      },
+      "error": {
+        "fallback": {
+          "title": "Proses belum berhasil dijalankan",
+          "description": "Sepertinya terjadi kendala teknis. Yuk coba lagi beberapa saat lagi."
+        }
+      }
+    }
+  }
+}

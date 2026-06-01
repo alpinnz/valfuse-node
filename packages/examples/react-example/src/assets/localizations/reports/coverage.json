@@ -1,0 +1,15 @@
+{
+  "totals": {
+    "locales": 2,
+    "modules": 20,
+    "keys": 1229
+  },
+  "byLocale": {
+    "en": {
+      "keys": 1229
+    },
+    "id": {
+      "keys": 1229
+    }
+  }
+}

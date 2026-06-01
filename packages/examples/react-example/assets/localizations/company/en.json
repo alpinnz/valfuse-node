@@ -1,0 +1,486 @@
+{
+  "@@locale": "en",
+  "@@module": "company",
+  "logo": {
+    "label": "Company Logo",
+    "placeholder": "Upload Logo"
+  },
+  "name": {
+    "label": "Company Name",
+    "placeholder": "Example: PT Kreasi Anak Bangsa"
+  },
+  "business_type": {
+    "label": "Business Type",
+    "placeholder": "Select Business Type"
+  },
+  "country": {
+    "label": "Country",
+    "placeholder": "Select Country"
+  },
+  "province": {
+    "label": "Province",
+    "placeholder": "Select Province"
+  },
+  "city": {
+    "label": "City / Regency",
+    "placeholder": "Select City / Regency"
+  },
+  "district": {
+    "label": "District",
+    "placeholder": "Select District"
+  },
+  "village": {
+    "label": "Village / Subdistrict",
+    "placeholder": "Select Village / Subdistrict"
+  },
+  "postal_code": {
+    "label": "Postal Code",
+    "placeholder": "Example: 10130"
+  },
+  "address": {
+    "label": "Full Address",
+    "placeholder": "Example: Jl. Mangga No.1"
+  },
+  "currency": {
+    "label": "Primary Currency",
+    "placeholder": "Select Currency"
+  },
+  "npwp": {
+    "label": "Tax ID (NPWP)"
+  },
+  "nib": {
+    "label": "Business Identification Number (NIB)"
+  },
+  "pkp_status": {
+    "label": "PKP Status",
+    "placeholder": "Select PKP Status"
+  },
+  "fiscal_year": {
+    "label": "Fiscal Year"
+  },
+  "accounting_start_date": {
+    "label": "Accounting Start Date"
+  },
+  "email": {
+    "label": "Email"
+  },
+  "phone": {
+    "label": "Phone Number"
+  },
+  "whatsapp": {
+    "label": "WhatsApp Number"
+  },
+  "website": {
+    "label": "Website"
+  },
+  "error": {
+    "bad_request": "The request could not be processed. Please check your input and try again.",
+    "forbidden": "You do not have permission to perform this action.",
+    "unauthorized": "Your session has expired. Please sign in again.",
+    "not_found": "The requested data could not be found.",
+    "conflict": "The data conflicts with existing records. Please review and try again.",
+    "validation_error": "Validation failed. Please check your input and try again.",
+    "internal_server_error": "A server error occurred. Please try again later.",
+    "service_unavailable": "The service is temporarily unavailable. Please try again later.",
+    "bad_gateway": "The service could not be reached. Please try again later.",
+    "gateway_timeout": "The request timed out. Please try again later.",
+    "session_expired": "Your session has expired. Please sign in again.",
+    "expired_token": "Your session has expired. Please sign in again.",
+    "account_not_linked": "This account is not linked yet. Please use another sign-in method.",
+    "unknown_error": "Something went wrong. Please try again.",
+    "confirm_name": {
+      "mismatch": "Company name does not match."
+    },
+    "has_transaction": "Company cannot be deleted because it has transactions.",
+    "unit_has_transaction": "Company cannot be deleted because its business units have transactions.",
+    "has_active_units": "Company cannot be deleted because it still has active business units.",
+    "is_default": "Default company cannot be deleted. Change default company first.",
+    "name": {
+      "required": "Company name is required.",
+      "duplicate": "Company name already exists in this workspace. Please use another name.",
+      "min": "Company name must be at least 3 characters."
+    },
+    "business_type": {
+      "invalid": "Please select a business type."
+    },
+    "postal_code": {
+      "invalid": "Postal code must contain 5 digits."
+    },
+    "country_code": {
+      "invalid": "Country must be selected."
+    },
+    "email": {
+      "invalid": "Invalid email format. Please enter a valid email address."
+    },
+    "phone": {
+      "duplicate": "Phone number is already used by another company."
+    },
+    "npwp": {
+      "invalid": "NPWP must contain 16 digits.",
+      "duplicate": "NPWP already exists for another company in this workspace."
+    },
+    "nib": {
+      "duplicate": "NIB already exists for another company in this workspace."
+    }
+  },
+  "established_date": {
+    "label": "Company Establishment Date"
+  },
+  "created_date": {
+    "label": "Company Creation Date"
+  },
+  "business_unit_count": {
+    "label": "Total Business Units"
+  },
+  "modal": {
+    "save_changes": {
+      "desc": "Your changes will be saved and company data will be updated.",
+      "primary_button": "Save Changes",
+      "secondary_button": "Back to Edit"
+    }
+  },
+  "save": {
+    "confirm": {
+      "title": "Save changes to company data now?",
+      "description": "Your changes will be saved and company data will be updated.",
+      "button": "Save Changes"
+    },
+    "cancel": {
+      "button": "Back to Edit"
+    },
+    "success": "Company data changes have been saved successfully"
+  },
+  "create": {
+    "modal": {
+      "title": "Enter New Company Data"
+    },
+    "additional_info": {
+      "label": "Additional Information"
+    },
+    "option": {
+      "business_type": {
+        "jasa": "Services",
+        "retail": "Retail",
+        "manufaktur": "Manufacturing"
+      },
+      "country": {
+        "indonesia": "Indonesia"
+      },
+      "currency": {
+        "idr": "IDR (Rupiah)"
+      },
+      "pkp_status": {
+        "pkp": "PKP",
+        "non_pkp": "NON PKP"
+      }
+    },
+    "section": {
+      "identity": {
+        "label": "Company Identity"
+      },
+      "address": {
+        "label": "Address"
+      },
+      "contact": {
+        "label": "Contact"
+      },
+      "legal": {
+        "label": "Legal & Administration"
+      }
+    },
+    "form": {
+      "workspace": {
+        "label": "Workspace",
+        "dropdown": "Select Workspace"
+      },
+      "name": {
+        "label": "Company Name",
+        "placeholder": "Example: PT KERASI ANAK BANGSA",
+        "error": {
+          "required": "Company name is required.",
+          "min_length": "Minimum 3 characters.",
+          "format": "Only letters, numbers, periods, and commas are allowed.",
+          "duplicate": "This name is already used in this workspace."
+        },
+        "info": {
+          "max_length": "Maximum 60 characters."
+        }
+      },
+      "business_type": {
+        "label": "Business Type",
+        "placeholder": "Select Business Type",
+        "error": {
+          "required": "Please select a business type."
+        }
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Select Country",
+        "error": {
+          "required": "Please select a country."
+        }
+      },
+      "currency": {
+        "label": "Primary Currency",
+        "placeholder": "Select Currency",
+        "error": {
+          "required": "Please select a currency."
+        }
+      },
+      "logo": {
+        "label": "Company Logo",
+        "placeholder": "Upload your company logo",
+        "max_size": "Max file size 2 MB"
+      },
+      "creation_date": {
+        "label": "Company Creation Date",
+        "placeholder": "Select Date"
+      },
+      "establishment_date": {
+        "label": "Company Establishment Date",
+        "placeholder": "Select company establishment date"
+      },
+      "business_unit_count": {
+        "label": "Number of Business Units",
+        "placeholder": "Number of Business Units"
+      },
+      "province": {
+        "label": "Province",
+        "placeholder": "Select Province"
+      },
+      "city": {
+        "label": "City/Regency",
+        "placeholder": "Select City or Regency"
+      },
+      "district": {
+        "label": "District",
+        "placeholder": "Select District"
+      },
+      "subdistrict": {
+        "label": "Subdistrict/Village",
+        "placeholder": "Select Subdistrict or Village"
+      },
+      "postal_code": {
+        "label": "Postal Code",
+        "placeholder": "Example: 65143"
+      },
+      "address": {
+        "label": "Full Address",
+        "placeholder": "Example: Jl. Melati Block C no. 65"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Example: hajiudin21@sample.com"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "Example: 021 - 6588912"
+      },
+      "whatsapp": {
+        "label": "WhatsApp Number",
+        "placeholder": "Example: 081234567891"
+      },
+      "website": {
+        "label": "Website",
+        "placeholder": "Example: www.hajiudin.pixel.id"
+      },
+      "tax_id": {
+        "label": "Tax ID (NPWP)",
+        "placeholder": "Example: 123456789999000"
+      },
+      "nib": {
+        "label": "Business Identification Number (NIB)",
+        "placeholder": "Example: 812358192100211"
+      },
+      "vat_status": {
+        "label": "VAT Registered Status"
+      },
+      "sppkp_number": {
+        "label": "SPPKP Number",
+        "placeholder": "Example: PEM-80.KPJ21/2025"
+      },
+      "accounting_start_date": {
+        "label": "Accounting Start Date",
+        "placeholder": "Select Date"
+      },
+      "geo": {
+        "province_loading": "Loading provinces...",
+        "province_empty": "No provinces available",
+        "city_select_province": "Select province first",
+        "city_loading": "Loading cities/regencies...",
+        "city_empty": "No cities/regencies available",
+        "district_select_city": "Select city/regency first",
+        "district_loading": "Loading districts...",
+        "district_empty": "No districts available",
+        "subdistrict_select_district": "Select district first",
+        "subdistrict_loading": "Loading subdistricts/villages...",
+        "subdistrict_empty": "No subdistricts/villages available"
+      }
+    },
+    "action": {
+      "submit": {
+        "button": "Add Company"
+      },
+      "cancel": {
+        "button": "Cancel"
+      }
+    }
+  },
+  "detail": {
+    "header": {
+      "title": "Company Detail"
+    },
+    "breadcrumb": {
+      "aria_label": "Company detail breadcrumb navigation"
+    },
+    "info": {
+      "email": {
+        "label": "Email"
+      },
+      "whatsapp": {
+        "label": "WhatsApp Number"
+      },
+      "phone": {
+        "label": "Phone Number"
+      },
+      "address": {
+        "label": "Address"
+      },
+      "business_unit_total": {
+        "label": "Total Business Units",
+        "active_label": "Active"
+      }
+    },
+    "section": {
+      "profile": {
+        "label": "Company Profile"
+      },
+      "business_unit": {
+        "label": "Business Unit"
+      },
+      "user_management": {
+        "label": "User Management"
+      },
+      "role_management": {
+        "label": "Role Management"
+      }
+    },
+    "status": {
+      "coming_soon": {
+        "label": "Coming Soon"
+      }
+    },
+    "action": {
+      "set_default": "Set as Default",
+      "primary_company": "Primary Company",
+      "delete_company": "Delete Company",
+      "back_to_list": "Back to Company List"
+    },
+    "error": {
+      "title": "Failed to Load Company Detail",
+      "description": "Something went wrong while fetching company detail.",
+      "retry": "Retry"
+    },
+    "toast": {
+      "set_default_success_title": "Default company saved successfully",
+      "set_default_success_message": "This company will be opened automatically when you sign in",
+      "set_default_error_title": "Failed to Set Default Company"
+    }
+  },
+  "profile": {
+    "header": {
+      "title": "Company Profile"
+    },
+    "option": {
+      "currency": {
+        "idr": "IDR (Rupiah)",
+        "usd": "USD (US Dollar)",
+        "sgd": "SGD (Singapore Dollar)"
+      }
+    },
+    "modal": {
+      "edit_prefix": "Edit"
+    },
+    "forbidden": {
+      "title": "Access Denied",
+      "description": "You do not have permission to edit this company data.",
+      "cta_back": "Back to Company Detail"
+    },
+    "not_found": {
+      "title": "Page Not Found",
+      "description": "Company data was not found. Please return to company detail page.",
+      "cta_back": "Back to Company Detail"
+    },
+    "error": {
+      "title": "Failed to Load Company Profile",
+      "description": "Something went wrong while fetching company profile.",
+      "retry": "Retry"
+    },
+    "toast": {
+      "validation_failed_title": "Validation Failed",
+      "validation_failed_message": "Please make sure all required fields in this section are filled correctly.",
+      "save_failed_title": "Failed to Save",
+      "save_failed_message": "Something went wrong while saving company data changes.",
+      "save_success_title": "Changes Saved Successfully"
+    },
+    "discard_dialog": {
+      "title": "Are you sure you want to cancel?",
+      "description": "Unsaved company data changes will be lost.",
+      "secondary": "No",
+      "primary": "Yes"
+    },
+    "action": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "save_changes": "Save Changes"
+    }
+  },
+  "list": {
+    "search": {
+      "placeholder": "Search here...",
+      "loading": "Applying company search"
+    },
+    "action": {
+      "manage_workspace": "Manage Workspace",
+      "add_company": "Add Company"
+    },
+    "error": {
+      "title": "Failed to load company list",
+      "description": "Something went wrong while loading company data. Please try again.",
+      "retry": "Retry"
+    },
+    "empty_filtered": {
+      "title": "Company Not Found",
+      "description": "Change your search keyword or reset workspace filter."
+    },
+    "not_found": {
+      "title": "Company Not Found",
+      "description": "No companies match your search criteria."
+    },
+    "ownership": {
+      "shared_by": "Shared by {name}",
+      "mine": "Owned by Me"
+    },
+    "business_unit": {
+      "total_label": "Total Business Units",
+      "active_label": "{count} Active Business Units"
+    },
+    "load_more": {
+      "label": "Loading more data"
+    },
+    "filter": {
+      "button": "Workspace Filter",
+      "title": "Filter",
+      "search_placeholder": "Search Workspace",
+      "empty_result": "Workspace not found.",
+      "reset": "Reset",
+      "apply": "Apply",
+      "select_workspace": "Select {name}"
+    },
+    "toast": {
+      "logo_upload_failed_title": "Failed to Upload Logo",
+      "logo_upload_failed_message": "Something went wrong while uploading company logo.",
+      "create_failed_title": "Failed to Add Company"
+    }
+  }
+}

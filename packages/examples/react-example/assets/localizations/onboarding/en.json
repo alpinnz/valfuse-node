@@ -1,0 +1,167 @@
+{
+  "@@locale": "en",
+  "@@module": "onboarding",
+  "onboarding": {
+    "step": {
+      "label": "Langkah"
+    },
+    "workspace": {
+      "title": "Workspace",
+      "label": "Add Workspace",
+      "desc": "Workspace is a space for grouping your company",
+      "add": {
+        "label": "Workspace Name",
+        "placeholder": "Example: Ruang Kerja Utama"
+      },
+      "name": {
+        "error": {
+          "required": "Workspace name is required.",
+          "min_length": "Workspace name must be at least 3 characters.",
+          "format": "Workspace name can only contain letters, numbers, periods, and commas.",
+          "duplicate": "This workspace name is already registered. Please use a different name."
+        },
+        "info": {
+          "max_length": "Workspace name must be no more than 60 characters."
+        }
+      }
+    },
+    "company": {
+      "title": "Company",
+      "label": "Company Data",
+      "desc": "Complete company data as the foundation for MyApp integration.",
+      "add": {
+        "company_name": {
+          "label": "Company Name",
+          "placeholder": "Example: PT Kreasi Anak Bangsa / Haji Udin Store"
+        },
+        "business_type": {
+          "label": "Business Type",
+          "placeholder": "Select Business Type"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select Country"
+        },
+        "currency": {
+          "label": "Primary Currency",
+          "placeholder": "Select Currency"
+        }
+      },
+      "name": {
+        "error": {
+          "required": "Company name is required.",
+          "min_length": "Company name must be at least 3 characters.",
+          "format": "Company name can only contain letters, numbers, periods, and commas.",
+          "duplicate": "This company name is already used in this workspace. Please use a different name to keep your data organized."
+        },
+        "info": {
+          "max_length": "Company name must be no more than 60 characters."
+        }
+      },
+      "business_type": {
+        "error": {
+          "required": "Please select a business type."
+        }
+      },
+      "country": {
+        "error": {
+          "required": "Please select a country."
+        }
+      },
+      "currency": {
+        "error": {
+          "required": "Please select a currency."
+        }
+      }
+    },
+    "business_unit": {
+      "title": "Business Unit",
+      "label": "Business Unit Data",
+      "desc": "Optional - If you don't have a Business Unit yet, you can skip this step and you can add a Business Unit later.",
+      "add": {
+        "bu_name": {
+          "label": "Business Unit Name",
+          "placeholder": "Example: Nina Salon Cabang Bandung"
+        },
+        "bu_type": {
+          "label": "Business Unit Type",
+          "placeholder": "Select Business Unit Type"
+        }
+      },
+      "name": {
+        "error": {
+          "min_length": "Business unit name must be at least 3 characters.",
+          "format": "Business unit name can only contain letters, numbers, periods, and commas."
+        },
+        "info": {
+          "max_length": "Business unit name must be no more than 60 characters."
+        }
+      }
+    },
+    "welcome": {
+      "page_title": "Welcome to MyApp Access",
+      "page_content": "Here, you can manage your entire business identity in a more organized way-from Workspace, Company, to Business Unit."
+    },
+    "navigation": {
+      "back": {
+        "button": "Back"
+      },
+      "next": {
+        "button": "Next"
+      }
+    },
+    "structure": {
+      "page_title": "Get to Know Your Workspace Structure",
+      "page_content": "Here's a quick overview of each level:\n\n* Workspace\n\nThe main container for organizing your business\n\n* Company\n\nThe business context that enables MyApp modules\n\n* Business Unit\n\nThe operational entity (branch, outlet, factory)"
+    },
+    "start": {
+      "page_title": "Ready to Get Started?",
+      "page_content": "We'll guide you through setting up your first Workspace, Company, and Business Unit in just a few steps.",
+      "cta": {
+        "button": "Start Onboarding"
+      }
+    },
+    "preview": {
+      "page_title": "Preview",
+      "page_content": {
+        "intro": "Data Preview\nPlease review your data before saving."
+      },
+      "data": {
+        "workspace_name": {
+          "label": "Workspace Name"
+        },
+        "company_name": {
+          "label": "Company Name"
+        },
+        "business_type": {
+          "label": "Business Type"
+        },
+        "country_currency": {
+          "label": "Country & Currency"
+        },
+        "business_unit_name": {
+          "label": "Business Unit Name"
+        },
+        "business_unit_type": {
+          "label": "Business Unit Type"
+        }
+      },
+      "info": {
+        "note": "You can add more Companies and Business Units after completing the onboarding process"
+      }
+    },
+    "success": {
+      "page_title": "Success",
+      "page_content": "Your Workspace, Company, and Business Unit have been successfully created. You can now start using them.",
+      "cta": {
+        "button": "Go to Company Details"
+      }
+    },
+    "error": {
+      "system": {
+        "page_title": "System Issue",
+        "page_content": "The system is currently experiencing an issue. Please try again in a few moments."
+      }
+    }
+  }
+}

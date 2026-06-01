@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "@@module": "company_detail",
+  "access_error": {
+    "title": "Access Unavailable",
+    "description": "You no longer have access to this company or the access is no longer valid.",
+    "cta_back": "Back to Company List"
+  },
+  "access_companyidentity_subtitle": "Company Identity",
+  "access_address_subtitle": "Address",
+  "access_contact_subtitle": "Contact",
+  "access_legalandadministration_subtitle": "Legal & Administration"
+}

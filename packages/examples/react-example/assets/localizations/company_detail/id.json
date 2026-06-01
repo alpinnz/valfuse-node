@@ -1,0 +1,13 @@
+{
+  "@@locale": "id",
+  "@@module": "company_detail",
+  "access_error": {
+    "title": "Akses Tidak Tersedia",
+    "description": "Anda tidak memiliki akses ke perusahaan ini atau akses Anda sudah tidak berlaku.",
+    "cta_back": "Kembali ke Daftar Perusahaan"
+  },
+  "access_companyidentity_subtitle": "Identitas Perusahaan",
+  "access_address_subtitle": "Alamat",
+  "access_contact_subtitle": "Kontak",
+  "access_legalandadministration_subtitle": "Legal & Administrasi"
+}

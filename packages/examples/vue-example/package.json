@@ -1,0 +1,25 @@
+{
+  "name": "@valfuse-node/example-vue",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reference implementation and playground for valfuse-node — form validation with Vue 3",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "lint": "eslint src",
+    "typecheck": "vue-tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@valfuse-node/vue": "*",
+    "@valfuse-node/form": "*",
+    "vue": "^3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vue-tsc": "latest"
+  }
+}
+

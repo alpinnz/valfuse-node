@@ -1,0 +1,28 @@
+{
+  "@@locale": "id",
+  "@@module": "settings",
+  "title": "Pengaturan",
+  "profile": {
+    "title": "Profil",
+    "edit_profile": "Edit Profil",
+    "change_password": "Ubah Kata Sandi",
+    "logout": {
+      "button": "Logout",
+      "popup": {
+        "title": "Konfirmasi Logout",
+        "message": "Apakah Anda yakin ingin keluar dari akun ini?",
+        "confirm": "Ya, Logout",
+        "cancel": "Batal"
+      }
+    }
+  },
+  "preferences": {
+    "title": "Preferensi",
+    "language": "Bahasa",
+    "theme": "Tema",
+    "notifications": "Notifikasi"
+  },
+  "company_setting": {
+    "page_title": "Pengaturan Perusahaan"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "@@locale": "id",
+  "@@module": "company_add",
+  "form": {
+    "submit": {
+      "button": "Buat Perusahaan"
+    },
+    "cancel": {
+      "button": "Batal"
+    }
+  },
+  "cancel_dialog": {
+    "title": "Batalkan Tambah Perusahaan?",
+    "description": "Yakin ingin membatalkan proses ini?",
+    "back_to_form": {
+      "button": "Kembali ke Form"
+    },
+    "confirm_cancel": {
+      "button": "Batalkan"
+    },
+    "toast": {
+      "title": "Perubahan Dibatalkan",
+      "message": "Perubahan dibatalkan"
+    }
+  },
+  "toasttitle": {
+    "success": "Sukses!"
+  },
+  "toast": {
+    "success": "Perusahaan berhasil ditambahkan"
+  }
+}

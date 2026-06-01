@@ -1,0 +1,61 @@
+{
+  "@@locale": "en",
+  "@@module": "http",
+
+  "http_200_title": "Success",
+  "http_200_message": "Success",
+
+  "http_201_title": "Created",
+  "http_201_message": "Created successfully",
+
+  "http_202_title": "Accepted",
+  "http_202_message": "Request accepted and being processed",
+
+  "http_204_title": "No Content",
+  "http_204_message": "Deleted successfully",
+
+  "http_400_title": "Bad Request",
+  "http_400_message": "Bad request. Please check your input.",
+
+  "http_401_title": "Unauthorized",
+  "http_401_message": "You need to sign in to continue.",
+
+  "http_403_title": "Forbidden",
+  "http_403_message": "You don't have permission to access this resource.",
+
+  "http_404_title": "Not Found",
+  "http_404_message": "We couldn't find what you were looking for.",
+
+  "http_405_title": "Method Not Allowed",
+  "http_405_message": "This action isn't supported for the requested resource.",
+
+  "http_408_title": "Request Timeout",
+  "http_408_message": "The request took too long. Please try again.",
+
+  "http_409_title": "Conflict",
+  "http_409_message": "Data already exists",
+
+  "http_410_title": "Gone",
+  "http_410_message": "This resource is no longer available.",
+
+  "http_415_title": "Unsupported Media Type",
+  "http_415_message": "The request format isn't supported. Please try again.",
+
+  "http_422_title": "Validation Failed",
+  "http_422_message": "Validation failed. Please check your input.",
+
+  "http_429_title": "Too Many Requests",
+  "http_429_message": "Too many requests. Please wait a moment before trying again.",
+
+  "http_500_title": "Server Error",
+  "http_500_message": "Something went wrong on our side. Please try again later.",
+
+  "http_502_title": "Bad Gateway",
+  "http_502_message": "We couldn't reach the server. Please try again.",
+
+  "http_503_title": "Service Unavailable",
+  "http_503_message": "The service is temporarily unavailable. Please try again later.",
+
+  "http_504_title": "Gateway Timeout",
+  "http_504_message": "The server took too long to respond. Please try again."
+}
