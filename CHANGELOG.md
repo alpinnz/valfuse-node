@@ -14,6 +14,25 @@ _Nothing yet._
 
 ---
 
+## [0.3.0] — 2026-06-04
+
+### Changed
+
+- **`@valfuse-node/form@0.3.0`** — type widening for single-source-of-truth alignment
+  - **`ValfuseFormMode`**: 3 → 5 values. Adds `"onTouched"` (validate on first blur, then on every change) and `"all"` (validate on both `onChange` and `onBlur`). Matches the React and Vue adapter `ValfuseFormMode` definitions and the umbrella re-export.
+  - **`ValfuseDirtyFields` / `ValfuseTouchedFields`**: `{ [K]?: true }` → `{ [K]?: boolean }`. Matches the adapter runtime type and removes the false-narrow type from the public API. Internal `state/values.ts` and `state/touched.ts` switched to `boolean` in their intermediate records.
+  - **Why:** `@valfuse-node/core` re-exports types from `@valfuse-node/form` as its single source of truth. Before this change, the umbrella's `ValfuseFormState` was structurally incompatible with what the React adapter actually produced at runtime, and `ValfuseFormMode` was missing the two modes the adapters supported. Form is now the canonical declaration.
+  - **Additive (no breaking change for typical use):** consumers passing `"onSubmit" | "onBlur" | "onChange"` are unaffected; consumers reading `dirtyFields.username` (was `true | undefined`, now `boolean | undefined`) keep working because `true` is assignable to `boolean`. Consumers with exhaustive `switch` over `ValfuseFormMode` should add cases for `"onTouched"` and `"all"`.
+
+- **`@valfuse-node/core@0.3.0`** — tracks form's updated types
+  - `core` re-exports `@valfuse-node/form`'s types via `export *`. With form's `ValfuseFormMode`, `ValfuseDirtyFields`, and `ValfuseTouchedFields` widened in 0.3.0, the umbrella now matches what the React/Vue adapters return at runtime — `import { ValfuseFormState, ValfuseFormMode } from "@valfuse-node/core"` no longer requires a cast in consumer code.
+  - No runtime changes; bump tracks its `form` dependency.
+
+- **`@valfuse-node/react@0.3.0`**, **`@valfuse-node/vue@0.3.0`**, **`@valfuse-node/localization@0.3.0`** — version alignment
+  - No code changes. Bumped to 0.3.0 to keep the valfuse-node set on a unified version; the adapter `ValfuseFormMode` and `ValfuseFormState` were already structurally identical to form's 0.3.0 types, so the workspace resolves to a consistent set.
+
+---
+
 ## [0.2.0] — 2026-06-04
 
 ### Added
@@ -120,6 +139,7 @@ _Nothing yet._
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/alpinnz/valfuse-node/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/alpinnz/valfuse-node/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/alpinnz/valfuse-node/releases/tag/v0.1.0
