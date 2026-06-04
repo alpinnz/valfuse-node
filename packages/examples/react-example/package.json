@@ -8,17 +8,10 @@
     "build": "tsc -b && vite build",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist",
-    "localization:generate": "valfuse-localization generate",
-    "localization:watch": "valfuse-localization generate --watch",
-    "localization:validate": "valfuse-localization validate",
-    "localization:clean": "valfuse-localization clean",
-    "localization:coverage": "valfuse-localization coverage"
+    "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@valfuse-node/react": "*",
-    "@valfuse-node/form": "*",
-    "@valfuse-node/localization": "*",
+    "@valfuse-node/core": "*",
     "react": "^18",
     "react-dom": "^18"
   },

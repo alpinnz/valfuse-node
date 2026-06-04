@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { useValfuseForm, ValfuseController } from "@valfuse-node/react";
-import type { ValfuseFormMode, ValfuseFormState } from "@valfuse-node/react";
-import { createSchema } from "@valfuse-node/form";
+import { useReactValfuseForm, ValfuseController, createSchema } from "@valfuse-node/core";
+import type { ValfuseFormMode, ValfuseFormState } from "@valfuse-node/core";
 
 // ─── Schema & types — STABLE references, defined outside the component ─────────
 // ⚠️ Defining schema/defaultValues outside (or in useMemo) prevents unnecessary
@@ -328,7 +327,7 @@ function ModeSelector({
 // ─── Inner form (receives mode as prop, remounted when mode changes) ──────────
 
 function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
-  const form = useValfuseForm<AllFeaturesFormValues>({
+  const form = useReactValfuseForm<AllFeaturesFormValues>({
     schema,
     defaultValues: DEFAULT_VALUES,
     mode,

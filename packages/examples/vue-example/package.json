@@ -11,8 +11,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@valfuse-node/vue": "*",
-    "@valfuse-node/form": "*",
+    "@valfuse-node/core": "*",
     "vue": "^3"
   },
   "devDependencies": {

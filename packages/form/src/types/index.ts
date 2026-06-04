@@ -86,8 +86,15 @@ export type {
  * | `onSubmit`   | Validate only when the form is submitted (default)                      |
  * | `onBlur`     | Validate when a field loses focus                                       |
  * | `onChange`   | Validate on every keystroke / value change                              |
+ * | `onTouched`  | Validate on the first blur; after that validate on every change         |
+ * | `all`        | Validate on both `onChange` and `onBlur`                                |
  */
-export type ValfuseFormMode = "onSubmit" | "onBlur" | "onChange";
+export type ValfuseFormMode =
+  | "onSubmit"
+  | "onBlur"
+  | "onChange"
+  | "onTouched"
+  | "all";
 
 // ============================================================================
 // Error Types (Form-specific)
@@ -114,12 +121,12 @@ export type ValfuseFormErrors<TSchema extends Record<string, unknown>> = {
 
 /** Map of dirty fields (value changed from default) */
 export type ValfuseDirtyFields<TSchema extends Record<string, unknown>> = {
-  [K in keyof TSchema]?: true;
+  [K in keyof TSchema]?: boolean;
 };
 
 /** Map of touched fields (user interacted with) */
 export type ValfuseTouchedFields<TSchema extends Record<string, unknown>> = {
-  [K in keyof TSchema]?: true;
+  [K in keyof TSchema]?: boolean;
 };
 
 // ============================================================================

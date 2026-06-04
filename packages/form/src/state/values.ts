@@ -74,7 +74,7 @@ export function computeIsDirty<TSchema extends Record<string, unknown>>(
 export function computeDirtyFields<TSchema extends Record<string, unknown>>(
   state: FormValuesState<TSchema>
 ): ValfuseDirtyFields<TSchema> {
-  const dirty: Partial<Record<keyof TSchema, true>> = {};
+  const dirty: Partial<Record<keyof TSchema, boolean>> = {};
   for (const key of Object.keys(state.defaultValues)) {
     if (state.values[key as keyof TSchema] !== state.defaultValues[key as keyof TSchema]) {
       dirty[key as keyof TSchema] = true;

@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useLocalization } from "@valfuse-node/react";
+import { useLocalization } from "@valfuse-node/core";
 import { localization } from "../../assets/localizations/localization";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

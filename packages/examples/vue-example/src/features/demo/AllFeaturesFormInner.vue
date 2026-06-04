@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref, onUnmounted } from "vue";
-import { useValfuseForm } from "@valfuse-node/vue";
-import { createSchema } from "@valfuse-node/form";
-import type { ValfuseFormMode, ValfuseFormState } from "@valfuse-node/vue";
+import { useVueValfuseForm, createSchema } from "@valfuse-node/core";
+import type { ValfuseFormMode, ValfuseFormState } from "@valfuse-node/core";
 import TextInput from "../users/components/TextInput.vue";
 
 // ─── Props ────────────────────────────────────────────────────────────────────
@@ -47,7 +46,7 @@ const DEFAULT_VALUES = { username: "", email: "", bio: "", priority: "" };
 const PRIORITY_OPTIONS = ["low", "medium", "high", "critical"] as const;
 
 // ─── Composable ───────────────────────────────────────────────────────────────
-const form = useValfuseForm({
+const form = useVueValfuseForm({
   schema,
   defaultValues: DEFAULT_VALUES,
   mode: props.mode,

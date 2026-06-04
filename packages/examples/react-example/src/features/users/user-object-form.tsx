@@ -1,4 +1,4 @@
-import { useValfuseForm, ValfuseController } from "@valfuse-node/react";
+import { useReactValfuseForm, ValfuseController } from "@valfuse-node/core";
 
 import { TextInput } from "./components/text-input";
 import { RoleDropdownObject } from "./components/role-dropdown-object";
@@ -17,7 +17,7 @@ const ROLE_OPTIONS: Role[] = [
 ];
 
 export function UserObjectForm() {
-  const form = useValfuseForm<UserObjectFormValues>({
+  const form = useReactValfuseForm<UserObjectFormValues>({
     schema: userObjectSchema,
     defaultValues: {
       name: "",

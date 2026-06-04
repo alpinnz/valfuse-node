@@ -71,7 +71,7 @@ export function isTouched(state: FormTouchedState, name: string): boolean {
 
 /** Convert touched Set to Record for public API */
 export function toTouchedFieldsRecord(state: FormTouchedState): ValfuseTouchedFields<Record<string, unknown>> {
-  const record: Partial<Record<string, true>> = {};
+  const record: Partial<Record<string, boolean>> = {};
   for (const field of state.touchedFields) {
     record[field] = true;
   }

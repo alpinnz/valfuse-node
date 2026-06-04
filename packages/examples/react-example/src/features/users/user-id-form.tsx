@@ -1,4 +1,4 @@
-import { useValfuseForm, ValfuseController } from "@valfuse-node/react";
+import { useReactValfuseForm, ValfuseController } from "@valfuse-node/core";
 
 import { TextInput } from "./components/text-input";
 import { RoleDropdownId } from "./components/role-dropdown-id";
@@ -17,7 +17,7 @@ const ROLE_OPTIONS: Role[] = [
 ];
 
 export function UserIdForm() {
-  const form = useValfuseForm<UserIdFormValues>({
+  const form = useReactValfuseForm<UserIdFormValues>({
     schema: userIdSchema,
     defaultValues: {
       name: "",

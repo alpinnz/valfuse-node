@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import type { ValfuseFormMode } from "@valfuse-node/vue";
+import type { ValfuseFormMode } from "@valfuse-node/core";
 import AllFeaturesFormInner from "./AllFeaturesFormInner.vue";
 
 // ─── Modes yang tersedia di Vue adapter (parity dengan React) ────────────────

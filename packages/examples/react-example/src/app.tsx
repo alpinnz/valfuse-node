@@ -1,4 +1,4 @@
-import { LocalizationProvider, localStorageStrategy } from "@valfuse-node/react";
+import { LocalizationProvider, localStorageStrategy } from "@valfuse-node/core";
 import { UserObjectForm } from "./features/users/user-object-form";
 import { UserIdForm } from "./features/users/user-id-form";
 import { AllFeaturesDemo } from "./features/demo/all-features-form";

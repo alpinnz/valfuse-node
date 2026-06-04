@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useValfuseForm } from "@valfuse-node/vue";
+import { useVueValfuseForm } from "@valfuse-node/core";
 import TextInput from "./components/TextInput.vue";
 import RoleDropdownId from "./components/RoleDropdownId.vue";
 import { userIdSchema } from "./schemas/user-id.schema";
@@ -16,7 +16,7 @@ const ROLE_OPTIONS: Role[] = [
   { id: "viewer", name: "Viewer" },
 ];
 
-const form = useValfuseForm({
+const form = useVueValfuseForm({
   schema: userIdSchema,
   defaultValues: { name: "", email: "", roleId: "" },
   mode: "onSubmit",

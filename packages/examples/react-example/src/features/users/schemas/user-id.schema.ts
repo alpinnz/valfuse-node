@@ -1,4 +1,4 @@
-import { createSchema } from "@valfuse-node/form";
+import { createSchema } from "@valfuse-node/core";
 
 export const userIdSchema = createSchema({
   name: {
