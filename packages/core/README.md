@@ -9,9 +9,9 @@ npm install @valfuse-node/core
 That single command gives you:
 
 - 📦 **Form domain** (`@valfuse-node/form`) — schema, rules, validation, transformation, state
-- 🌐 **Localization** (`@valfuse-node/localization`) — CLI compiler, runtime interpolation
-- ⚛️ **React adapter** (`@valfuse-node/react`) — `useValfuseForm` hook, `ValfuseController`
-- 💚 **Vue adapter** (`@valfuse-node/vue`) — `useValfuseForm` composable
+- 🌐 **Localization** (`@valfuse-node/localization`) — CLI compiler, validators, browser runtime
+- ⚛️ **React adapter** (`@valfuse-node/react`) — `useReactValfuseForm` hook, `<ValfuseController>`, `<LocalizationProvider>`
+- 💚 **Vue adapter** (`@valfuse-node/vue`) — `useVueValfuseForm` composable
 
 **Peer dependencies (optional):** `react >= 18` (for the React adapter), `vue >= 3` (for the Vue adapter). Both are listed as optional peer deps, so you can install `@valfuse-node/core` and use only the form/localization pieces without React or Vue.
 
@@ -24,10 +24,11 @@ That single command gives you:
 - [API Reference](#api-reference)
   - [Form Domain](#form-domain-flattened-to-top-level)
   - [Localization](#localization-flattened-to-top-level)
-  - [React Adapter](#react-adapter-namespaced)
-  - [Vue Adapter](#vue-adapter-namespaced)
+  - [React Adapter](#react-adapter)
+  - [Vue Adapter](#vue-adapter)
 - [End-to-End Example](#end-to-end-example)
 - [Architecture](#architecture)
+- [Sub-package READMEs](#sub-package-readmes)
 - [License](#license)
 
 ---
@@ -42,12 +43,13 @@ import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/
 const schema = createSchema({
   email: {
     type: "string",
-    transformers: t("trim", "lowercase"),
-    rules: { required: true, email: true },
+    transform: t.pipe(t.trim, t.toLowerCase),
+    rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }],
   },
   age: {
     type: "number",
-    rules: { required: true, min: 18 },
+    transform: t.toInteger,
+    rules: [{ name: "min", value: 18, error: { message: "18+" } }],
   },
 });
 
@@ -55,42 +57,41 @@ const cleaned = transformValues(schema, { email: "  Alice@Example.com  ", age: "
 // → { email: "alice@example.com", age: 25 }
 
 const result = validateSchema(schema, cleaned);
-// result.isValid → true  |  result.errors → {}
+// result.errors → {}
 ```
 
 ### ⚛️ React
 
 ```tsx
-import { createSchema, ReactAdapter } from "@valfuse-node/core";
+import { createSchema, useReactValfuseForm, LocalizationProvider, useLocalization, localStorageStrategy } from "@valfuse-node/core";
+import manifest from "./loc/manifest.json";
 
-const { useValfuseForm } = ReactAdapter;
+<LocalizationProvider manifest={manifest} storage={localStorageStrategy()}>
+  <LoginForm />
+</LocalizationProvider>;
 
 const schema = createSchema({
-  email:    { type: "string", rules: { required: true, email: true } },
-  password: { type: "string", rules: { required: true, minLength: 8 } },
+  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
+  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
 });
 
 export function LoginForm() {
-  const form = useValfuseForm({
+  const { translate } = useLocalization();
+  const form = useReactValfuseForm({
     schema,
     defaultValues: { email: "", password: "" },
-  });
-
-  const onSubmit = form.handleSubmit(async (values) => {
-    await loginApi(values);
+    mode: "onBlur",
   });
 
   return (
-    <form onSubmit={onSubmit}>
-      <input {...form.register("email")} />
-      {form.formState.errors.email?.message}
+    <form onSubmit={form.handleSubmit(async (values) => { await loginApi(values); })}>
+      <input {...form.register("email")} placeholder={translate("auth.email")} />
+      {form.formState.errors.email && <span>{form.formState.errors.email.message}</span>}
 
       <input type="password" {...form.register("password")} />
-      {form.formState.errors.password?.message}
+      {form.formState.errors.password && <span>{form.formState.errors.password.message}</span>}
 
-      <button type="submit" disabled={form.formState.isSubmitting}>
-        Log in
-      </button>
+      <button type="submit" disabled={form.formState.isSubmitting}>{translate("auth.submit")}</button>
     </form>
   );
 }
@@ -100,29 +101,34 @@ export function LoginForm() {
 
 ```vue
 <script setup lang="ts">
-import { createSchema, VueAdapter } from "@valfuse-node/core";
-
-const { useValfuseForm } = VueAdapter;
+import { createSchema, useVueValfuseForm } from "@valfuse-node/core";
 
 const schema = createSchema({
-  email: { type: "string", rules: { required: true, email: true } },
+  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
+  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
 });
 
-const form = useValfuseForm({
+type Values = { email: string; password: string };
+
+const form = useVueValfuseForm<Values>({
   schema,
-  defaultValues: { email: "" },
+  defaultValues: { email: "", password: "" },
 });
 
-const onSubmit = form.handleSubmit(async (values) => {
+async function onSubmit(values: Values) {
   await loginApi(values);
-});
+}
 </script>
 
 <template>
-  <form @submit="onSubmit">
+  <form @submit="form.handleSubmit(onSubmit)">
     <input v-bind="form.register('email')" />
     <p v-if="form.formState.errors.email">{{ form.formState.errors.email.message }}</p>
-    <button :disabled="form.formState.isSubmitting">Submit</button>
+
+    <input type="password" v-bind="form.register('password')" />
+    <p v-if="form.formState.errors.password">{{ form.formState.errors.password.message }}</p>
+
+    <button type="submit" :disabled="form.formState.isSubmitting">Log in</button>
   </form>
 </template>
 ```
@@ -131,58 +137,51 @@ const onSubmit = form.handleSubmit(async (values) => {
 
 ```bash
 # Compile YAML/JSON locale files → type-safe TypeScript
-npx valfuse-localization init        # creates valfuse-localization.yaml
-npx valfuse-localization generate    # compiles → src/assets/localizations/
+npx valfuse-localization init
+npx valfuse-localization generate
+npx valfuse-localization generate --watch
 ```
 
 ```ts
-// In a React component
-import { ReactAdapter, interpolate } from "@valfuse-node/core";
-const { LocalizationProvider, useLocalization } = ReactAdapter;
-
-<LocalizationProvider locale="en" translations={translations}>
-  <App />
-</LocalizationProvider>;
-
-function Header() {
-  const { t } = useLocalization("common");
-  return <h1>{t("app_name")}</h1>;
-}
-
 // Or use the runtime interpolator directly (browser-safe):
-interpolate("Hello, {name}!", { name: "Alice" });  // → "Hello, Alice!"
+import { interpolate } from "@valfuse-node/core";
+
+interpolate("Hello, {name}!", { name: "Alice" });   // → "Hello, Alice!"
+interpolate("{count, plural, one {# item} other {# items}}", { count: 5 });
+// → "5 items"
 ```
 
 ---
 
 ## Import Map
 
-`@valfuse-node/core` re-exports four packages. Two are flattened (no name collisions), two are namespaced (collisions possible).
+`@valfuse-node/core` re-exports four packages. Two are flattened (no name collisions). The two adapter packages share a single value-level name (`useValfuseForm`), which is renamed at the umbrella level to `useReactValfuseForm` / `useVueValfuseForm` following the `{Tech}{Domain}{Feature}` convention. The underlying adapter packages keep their original `useValfuseForm` name.
 
 | Source | Access pattern | Why? |
 |---|---|---|
-| `@valfuse-node/form` | Top-level (`createSchema`, `validateSchema`, ...) | Framework-agnostic, no collision risk |
-| `@valfuse-node/localization` | Top-level (`interpolate`, `compileProject`, ...) | Framework-agnostic, no collision risk |
-| `@valfuse-node/react` | `ReactAdapter.*` namespace | Both React and Vue export `useValfuseForm`; namespacing disambiguates |
-| `@valfuse-node/vue` | `VueAdapter.*` namespace | Same reason as React |
+| `@valfuse-node/form` | Top-level (`createSchema`, `validateSchema`, `t`, …) | Framework-agnostic, no collision risk |
+| `@valfuse-node/localization` | Top-level (`interpolate`, `compileProject`, `loadConfig`, …) | Framework-agnostic, no collision risk |
+| `@valfuse-node/react` | Top-level (`useReactValfuseForm`, `ValfuseController`, `LocalizationProvider`, `useLocalization`, …) | The single conflicting value `useValfuseForm` is renamed to disambiguate |
+| `@valfuse-node/vue` | Top-level (`useVueValfuseForm`, …) | Same reason as React |
 
 ```ts
 import {
-  // Flat (from form)
+  // Form domain
   createSchema, validateSchema, transformValues, normalizeError, t,
-  // Flat (from localization)
+  // Localization
   interpolate, compileProject, loadConfig, runGenerate,
-  // Namespaced (from react)
-  ReactAdapter,
-  // Namespaced (from vue)
-  VueAdapter,
+  // React adapter — note the Tech-prefix
+  useReactValfuseForm, ValfuseController, LocalizationProvider, useLocalization,
+  useLocalizationTree, createLocalizationStore, createLazyLocaleLoader, createSsrLocalizationState,
+  localStorageStrategy, sessionStorageStrategy, cookieStrategy, memoryStrategy, composeStorage,
+  // Vue adapter — Tech-prefix disambiguates the identically-named React hook
+  useVueValfuseForm,
 } from "@valfuse-node/core";
-
-const { useValfuseForm } = ReactAdapter;
-const { useValfuseForm: useVueValfuseForm } = VueAdapter;
 ```
 
-> **Why namespace the adapters?** Both `@valfuse-node/react` and `@valfuse-node/vue` export identically-named hooks (`useValfuseForm`) and overlapping types (`UseValfuseFormProps`, `UseValfuseFormReturn`). Flattening them would silently shadow one with the other. Namespacing makes the choice explicit.
+> **Why tech-prefix the hooks?** Both `@valfuse-node/react` and `@valfuse-node/vue` export a hook named `useValfuseForm`. Flattening both into the umbrella would silently shadow one. The `{Tech}{Domain}{Feature}` rename (`useReactValfuseForm` / `useVueValfuseForm`) makes the choice explicit at the call site. The underlying adapter packages still export `useValfuseForm` for backward compat — the rename is umbrella-level only.
+
+> **TypeScript-only:** all types are re-exported flat from the form domain (no collision — both adapters import the same types from `@valfuse-node/form`).
 
 ---
 
@@ -192,88 +191,68 @@ const { useValfuseForm: useVueValfuseForm } = VueAdapter;
 
 #### `createSchema(fields)`
 
-Define your field structure and per-field rules. Returns a plain schema object.
+Define your field structure and per-field rules. Returns a plain schema object — `createSchema` is an identity function that gives you type inference.
 
 ```ts
-import { createSchema } from "@valfuse-node/core";
-
 const schema = createSchema({
-  name: {
-    type: "string",
-    rules: [
-      { name: "required", error: { message: "Required", code: "name.required" } },
-      { name: "max", value: 50, error: { message: "Max 50 chars", code: "name.max" } },
-    ],
-  },
-  age: {
-    type: "number",
-    rules: [{ name: "min", value: 18, error: { message: "Must be 18+", code: "age.min" } }],
-  },
-  active: { type: "boolean" },
+  name:  { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
+  age:   { type: "number", rules: [{ name: "min", value: 18, error: { message: "18+" } }] },
+  tags:  { type: "array",  rules: [{ name: "nonempty", error: { message: "Add at least 1" } }] },
 });
 ```
 
 **Supported field types:** `string` | `number` | `boolean` | `array` | `object`
 
-**Built-in rules:**
+**Built-in rules (full reference in [`@valfuse-node/form` README](../form/README.md#built-in-rules)):**
 
-| Type | Available rules |
+| Type | Rules |
 |---|---|
-| `string` | `required`, `minLength`, `maxLength`, `pattern`, `email`, `url` |
-| `number` | `required`, `min`, `max`, `integer` |
-| `boolean` | `required` |
-| `array` | `required`, `minItems`, `maxItems` |
-| `object` | `required` |
-| generic (all) | `refine`, `custom`, `matchField`, `oneOf`, `notOneOf` |
+| `string` | `required`, `min`, `max`, `length`, `email`, `url`, `uuid`, `regex`, `includes`, `startsWith`, `endsWith` |
+| `number` | `required`, `min`, `max`, `gt`, `gte`, `lt`, `lte`, `int`, `positive`, `nonnegative`, `negative`, `nonpositive`, `multipleOf` |
+| `boolean` | `required`, `literal`, `accepted` |
+| `array` | `required`, `min`, `max`, `length`, `nonempty` |
+| `object` | `required`, `shape` |
+| generic | `custom`, `refine`, `matchField`, `oneOf`, `notOneOf` |
 
 #### `validateSchema(schema, values)`
 
-Run validation imperatively — outside React/Vue, e.g. in server actions or Node.js.
-
 ```ts
-import { validateSchema } from "@valfuse-node/core";
-
 const errors = validateSchema(loginSchema, { email: "bad", password: "123" });
-// → { email: { message: "Invalid email format", code: "email.invalid", type: "rule" } }
+// → { email: { message: "Invalid email format", code: "email.invalid", type: "validation" } }
 ```
 
 #### `transformValues(schema, rawValues)`
 
-Coerces raw form input (often strings from HTML inputs) into properly typed values based on schema field types.
-
 ```ts
-import { transformValues } from "@valfuse-node/core";
-
 const typed = transformValues(schema, { age: "25", active: "true" });
 // → { age: 25, active: true }
 ```
 
 #### `normalizeError(raw)`
 
-Normalizes a string or error object into a `ValfuseError`.
-
 ```ts
-import { normalizeError } from "@valfuse-node/core";
-
 normalizeError("Something went wrong");
 // → { message: "Something went wrong" }
 ```
 
-#### `t(...transformerNames)`
+#### `t(...transformerNames)` — built-in transformers
 
-Compose field-level transformers declaratively.
+| Group | Transformer | Effect |
+|---|---|---|
+| String | `t.trim`, `t.trimStart`, `t.trimEnd` | Whitespace removal |
+| String | `t.toLowerCase`, `t.toUpperCase`, `t.toTitleCase`, `t.toSentenceCase` | Case |
+| String | `t.collapseSpaces` | Collapse whitespace |
+| Coercion | `t.toNumber`, `t.toInteger`, `t.toFloat` | String → number |
+| Coercion | `t.toBoolean` | `"true"/"1"/1/true` → `true` |
+| Compose | `t.pipe(...fns)` | Left-to-right composition |
 
 ```ts
-import { t } from "@valfuse-node/core";
-
 const schema = createSchema({
-  username: {
-    type: "string",
-    transformers: t("trim", "lowercase"),
-    rules: { required: true, minLength: 3 },
-  },
+  email: { type: "string", transform: t.pipe(t.trim, t.toLowerCase), rules: [{ name: "required", error: { message: "Required" } }] },
 });
 ```
+
+See [`@valfuse-node/form` README](../form/README.md#value-transformation) for full coverage of all transformers and custom-transformer authoring.
 
 ### Localization (flattened to top level)
 
@@ -287,13 +266,13 @@ The localization package has three import surfaces (CLI + compiler, browser runt
 | `compileProject(config)` | Run the full compile pipeline |
 | `normalizeProject(config)` | Normalize raw locale data |
 | `validateProject(config)` | Check key/placeholder parity |
-| `runInit / runGenerate / runValidate / runCoverage / runClean` | CLI command handlers |
+| `runInit` / `runGenerate` / `runValidate` / `runCoverage` / `runClean` | CLI command handlers |
 
 ```ts
 import { loadConfig, compileProject } from "@valfuse-node/core";
 
 const config = await loadConfig("./valfuse-localization.yaml");
-await compileProject(config);
+const compiled = await compileProject("./", config);
 ```
 
 #### Runtime (browser-safe)
@@ -301,11 +280,12 @@ await compileProject(config);
 | Export | Use |
 |---|---|
 | `interpolate(template, params, options?)` | Replace `{name}` placeholders |
-| `lookupMessage(messages, key)` | Look up a translation by dot-path key |
-| `pickPluralVariant(messages, count)` | Pick plural form by count |
-| `pickGenderVariant(messages, gender)` | Pick gender form |
-| `pickContextVariant(messages, context)` | Pick context form |
-| `parseStructuredVariants(value)` | Parse `one{...} other{...}` strings |
+| `lookupMessage(context, key)` | Look up a translation by dot-path key |
+| `pickPluralVariant(variants, count)` | Pick plural form by count |
+| `pickGenderVariant(variants, gender)` | Pick gender form |
+| `pickContextVariant(variants, context)` | Pick context form |
+| `pickStructuredPluralVariant` / `pickStructuredGenderVariant` / `pickStructuredContextVariant` | High-level structured variant pickers (auto-parse the JSON payload from the manifest) |
+| `parseStructuredVariants(value)` | Decode a JSON-encoded variant map |
 
 ```ts
 import { interpolate } from "@valfuse-node/core";
@@ -320,7 +300,7 @@ interpolate("{count, plural, one {# item} other {# items}}", { count: 5 });
 #### CLI
 
 ```bash
-npx valfuse-localization init           # scaffold valfuse-localization.yaml
+npx valfuse-localization init           # scaffold valfuse-localization.yaml + a sample module
 npx valfuse-localization generate       # compile JSON → TypeScript
 npx valfuse-localization generate --watch
 npx valfuse-localization validate       # key/placeholder parity check
@@ -330,77 +310,74 @@ npx valfuse-localization clean          # remove generated output
 
 Requires **Node.js ≥ 20**.
 
-### React adapter (namespaced)
+See [`@valfuse-node/localization` README](../localization/README.md) for the full source-file format, structured variants, config file, and programmatic compiler pipeline.
 
-Access via `ReactAdapter.*`. React is an optional peer dep — if you only use form/localization, you don't need it installed.
+### React adapter
+
+All React values are at the top level. React is an optional peer dep — if you only use form/localization, you don't need it installed.
 
 ```ts
-import { ReactAdapter } from "@valfuse-node/core";
-
-const {
-  useValfuseForm,        // main hook
-  ValfuseController,     // controlled-input bridge component
-  LocalizationProvider,  // context provider
-  useLocalization,       // translation hook
-  useLocalizationTree,   // raw-tree hook
-  createLocalizationStore,
-  createLazyLocaleLoader,
-  createSsrLocalizationState,
+import {
+  useReactValfuseForm,        // main hook
+  ValfuseController,         // controlled-input bridge component
+  LocalizationProvider,      // context provider
+  useLocalization,           // translation hook (full localizer API)
+  useLocalizationTree,       // nested-tree hook
+  createLocalizationStore,   // standalone mutable store
+  createLazyLocaleLoader,    // code-split locales
+  createSsrLocalizationState,// SSR snapshot helper
   localStorageStrategy, sessionStorageStrategy,
   cookieStrategy, memoryStrategy, composeStorage,
-} = ReactAdapter;
+} from "@valfuse-node/core";
 ```
 
-#### `useValfuseForm(options)`
+#### `useReactValfuseForm(options)`
 
-The primary React hook. **Complete API:**
+```ts
+const form = useReactValfuseForm<UserValues>({
+  schema,                 // ValfuseSchema (required)
+  defaultValues,          // { [field]: value } (required) — `TFieldValues` is inferred
+  mode?: "onSubmit" | "onChange" | "onBlur",
+  reValidateMode?: "onChange" | "onBlur" | "onSubmit",
+});
+```
 
 | Method / Property | Description |
 |---|---|
 | `form.register(name)` | Spread `{ name, value, onChange, onBlur, ref }` onto an `<input>` |
 | `form.handleSubmit(fn)` | Returns `onSubmit` handler; only calls `fn(values)` when validation passes |
-| `form.formState.errors` | `{ [field]: ValfuseFieldError }` — active errors |
+| `form.formState.errors` | `Partial<Record<keyof T, ValfuseFieldError>>` — active errors |
 | `form.formState.isSubmitting` | `true` while submit function is awaiting |
 | `form.formState.isSubmitted` | `true` after first submit attempt |
+| `form.formState.isSubmitSuccessful` | `true` if the most recent submit completed without throwing |
+| `form.formState.submitCount` | Total submit attempts |
 | `form.formState.isValid` | `true` when no validation errors exist |
 | `form.formState.isDirty` | `true` when any field differs from `defaultValues` |
-| `form.formState.dirtyFields` | Map of fields modified from `defaultValues` |
-| `form.formState.touchedFields` | Map of fields that received and lost focus |
+| `form.formState.dirtyFields` | Fields that differ from `defaultValues` |
+| `form.formState.touchedFields` | Fields the user has blurred |
+| `form.formState.defaultValues` | The defaults passed to the hook |
 | `form.setErrors(errors)` | Inject errors manually (e.g. from API response) |
 | `form.clearErrors(fields?)` | Clear one, many, or all errors |
-| `form.setValue(name, value)` | Programmatically set a field value |
-| `form.trigger(name?)` | Manually trigger validation |
-| `form.watch(...)` | Subscribe to field changes |
-| `form.reset(values?)` | Reset to `defaultValues` or provided values |
-| `form.control` | Pass to `ValfuseController` for custom inputs |
+| `form.setValue(name, value, options?)` | Programmatically set a field value (`{ shouldValidate: true }` to run validation) |
+| `form.trigger(name?)` | Manually trigger validation. `name` can be a string, an array, or omitted (validate all) |
+| `form.watch(...)` | Multi-overload subscribe / snapshot — `watch()`, `watch("email")`, `watch(["a","b"])`, `watch(callback)` |
+| `form.reset(values?)` | Reset to `defaultValues` (or provided partial values); also clears submission state |
+| `form.control` | Pass to `<ValfuseController>` for custom inputs |
 
-**Options:**
-
-```ts
-useValfuseForm({
-  schema,                 // ValfuseSchema (required)
-  defaultValues,          // { [field]: value } (required)
-  mode?: "onSubmit" | "onChange" | "onBlur" | "onTouched" | "all",
-});
-```
-
-#### `ValfuseController`
+#### `<ValfuseController>`
 
 For controlled inputs that don't work with `register` (custom select, date picker, checkbox group).
 
 ```tsx
-import { ReactAdapter } from "@valfuse-node/core";
-const { ValfuseController, useValfuseForm } = ReactAdapter;
-
 <ValfuseController
-  name="role"
   control={form.control}
+  name="role"
   render={({ field, fieldState }) => (
     <Select
       value={field.value}
       onChange={field.onChange}
       onBlur={field.onBlur}
-      isInvalid={fieldState.invalid}
+      isInvalid={!!fieldState.error}
     />
   )}
 />
@@ -409,60 +386,97 @@ const { ValfuseController, useValfuseForm } = ReactAdapter;
 #### Localization runtime
 
 ```tsx
-import { ReactAdapter } from "@valfuse-node/core";
-const { LocalizationProvider, useLocalization, localStorageStrategy } = ReactAdapter;
+import {
+  useReactValfuseForm,
+  LocalizationProvider,
+  useLocalization,
+  localStorageStrategy,
+} from "@valfuse-node/core";
 
 <LocalizationProvider
   manifest={localization}
-  storage={localStorageStrategy({ key: "locale" })}
+  storage={localStorageStrategy({ key: "app-locale" })}
   initialLocale="en"
 >
   <App />
 </LocalizationProvider>;
 
 function Header() {
-  const { t, locale, setLocale } = useLocalization("common");
-  return <h1>{t("app_name")}</h1>;
+  const { translate, locale, setLocale } = useLocalization();
+  return (
+    <header>
+      <h1>{translate("common.app.title")}</h1>
+      <select value={locale} onChange={(e) => setLocale(e.target.value)}>
+        <option value="en">English</option>
+        <option value="id">Bahasa Indonesia</option>
+      </select>
+    </header>
+  );
 }
 ```
 
+**`useLocalization()` returns:**
+
+| Group | API | Description |
+|---|---|---|
+| Translate | `translate(key, fallback?)` | Lookup with optional fallback |
+| Translate | `translateOrNull(key)` | Returns `null` when missing or key is `null`/`undefined` |
+| Format | `format(key, params)` | Lookup + placeholder interpolation |
+| Format | `formatOrNull(key, params)` | Format, returns `null` when missing |
+| Variants | `plural(key, count)` | Pick a plural branch |
+| Variants | `pluralOrNull(key, count)` | Plural, returns `null` when missing |
+| Variants | `gender(key, value, params)` | Pick a gender branch |
+| Variants | `context(key, value, params?)` | Pick a context branch |
+| Namespace | `namespace(scope)` | Returns a `NamespacedLocalizer` with the 8 methods above, all auto-prefixed |
+| Iteration | `entriesForLocale` | `Array<[key, value]>` sorted alphabetically by key |
+| Context | `locale` | Current locale string |
+| Context | `setLocale(locale)` | Switch active locale (also writes to the configured `storage`) |
+| Context | `store` | Lower-level `LocalizationStore` — `store.t(key, params)`, `store.getLocale()`, `store.setLocale(locale)` |
+| Context | `manifest` | The raw `RuntimeManifest` passed to the provider |
+
 **Storage strategies:** `localStorageStrategy` | `sessionStorageStrategy` | `cookieStrategy` | `memoryStrategy` | `composeStorage`
 
-### Vue adapter (namespaced)
+See [`@valfuse-node/react` README](../react/README.md#localization-runtime) for full storage-strategy options and the `useLocalizationTree()` hook.
 
-Access via `VueAdapter.*`. Vue is an optional peer dep.
+### Vue adapter
+
+All Vue values are at the top level. Vue is an optional peer dep.
 
 ```vue
 <script setup lang="ts">
-import { createSchema, VueAdapter } from "@valfuse-node/core";
-const { useValfuseForm } = VueAdapter;
+import { createSchema, useVueValfuseForm } from "@valfuse-node/core";
 
 const schema = createSchema({
-  email: { type: "string", rules: { required: true, email: true } },
+  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
+  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
 });
 
-const form = useValfuseForm({
+type Values = { email: string; password: string };
+
+const form = useVueValfuseForm<Values>({
   schema,
-  defaultValues: { email: "" },
+  defaultValues: { email: "", password: "" },
 });
 
-const onSubmit = form.handleSubmit(async (values) => {
+async function onSubmit(values: Values) {
   await loginApi(values);
-});
+}
 </script>
 
 <template>
-  <form @submit="onSubmit">
+  <form @submit="form.handleSubmit(onSubmit)">
     <input v-bind="form.register('email')" />
     <p v-if="form.formState.errors.email">{{ form.formState.errors.email.message }}</p>
-    <button :disabled="form.formState.isSubmitting">Submit</button>
+    <input type="password" v-bind="form.register('password')" />
+    <p v-if="form.formState.errors.password">{{ form.formState.errors.password.message }}</p>
+    <button type="submit" :disabled="form.formState.isSubmitting">Log in</button>
   </form>
 </template>
 ```
 
-The Vue `register()` returns `{ name, modelValue, "onUpdate:modelValue", onBlur }` — compatible with Vue's `v-bind` and `v-model`.
+The Vue `register()` returns `{ name, modelValue, "onUpdate:modelValue", onBlur }` — compatible with Vue's `v-bind` and `v-model`. The form contract is **identical at the type level** with the React adapter.
 
-> **Heads-up:** The Vue adapter is currently a thin composable; it does not yet expose a `ValfuseController` equivalent or all `formState` fields that React does. See [TODO] for parity work.
+> **Heads-up:** The Vue adapter is currently a thin composable; it does not yet expose a `<ValfuseController>` equivalent, `getValue`/`getValues` convenience getters, or all the `useLocalization`-family helpers. See [`@valfuse-node/vue` README](../vue/README.md#api-parity-vs-react) for the full parity matrix.
 
 ---
 
@@ -471,17 +485,20 @@ The Vue `register()` returns `{ name, modelValue, "onUpdate:modelValue", onBlur 
 A complete React form with validation, transformation, server-error injection, and localization:
 
 ```tsx
-import { createSchema, ReactAdapter } from "@valfuse-node/core";
-
-const { useValfuseForm, LocalizationProvider, useLocalization } = ReactAdapter;
+import {
+  createSchema,
+  useReactValfuseForm,
+  ValfuseController,
+  LocalizationProvider,
+  useLocalization,
+  localStorageStrategy,
+} from "@valfuse-node/core";
+import manifest from "./loc/manifest.json";
 
 const schema = createSchema({
   email: {
     type: "string",
-    transformers: [
-      { name: "trim" },
-      { name: "lowercase" },
-    ],
+    transform: (v) => String(v).trim().toLowerCase(),
     rules: [
       { name: "required", error: { message: "Email is required", code: "email.required" } },
       { name: "email",    error: { message: "Invalid email",     code: "email.invalid" } },
@@ -490,14 +507,24 @@ const schema = createSchema({
   password: {
     type: "string",
     rules: [
-      { name: "required", error: { message: "Required", code: "password.required" } },
+      { name: "required",  error: { message: "Required",  code: "password.required" } },
       { name: "minLength", value: 8, error: { message: "Min 8 chars", code: "password.min" } },
     ],
   },
 });
 
+export function App() {
+  return (
+    <LocalizationProvider manifest={manifest} storage={localStorageStrategy()}>
+      <SignupForm />
+    </LocalizationProvider>
+  );
+}
+
 export function SignupForm() {
-  const form = useValfuseForm({
+  const { translate, format } = useLocalization();
+
+  const form = useReactValfuseForm({
     schema,
     defaultValues: { email: "", password: "" },
     mode: "onBlur",
@@ -516,7 +543,7 @@ export function SignupForm() {
   return (
     <form onSubmit={onSubmit}>
       <label>
-        Email
+        {translate("auth.email")}
         <input {...form.register("email")} />
         {form.formState.errors.email && (
           <span className="error">{form.formState.errors.email.message}</span>
@@ -524,16 +551,31 @@ export function SignupForm() {
       </label>
 
       <label>
-        Password
+        {translate("auth.password")}
         <input type="password" {...form.register("password")} />
         {form.formState.errors.password && (
           <span className="error">{form.formState.errors.password.message}</span>
         )}
       </label>
 
+      <ValfuseController
+        control={form.control}
+        name="email"
+        render={({ field, fieldState }) => (
+          <input
+            value={field.value}
+            onChange={(e) => field.onChange(e.target.value)}
+            onBlur={field.onBlur}
+            className={fieldState.error ? "invalid" : ""}
+          />
+        )}
+      />
+
       <button type="submit" disabled={form.formState.isSubmitting}>
-        Sign up
+        {translate("auth.submit")}
       </button>
+
+      <p>{format("auth.password_hint", { min: 8 })}</p>
     </form>
   );
 }
@@ -550,8 +592,8 @@ export function SignupForm() {
 │  @valfuse-node/core  (this package — facade only)         │
 │    ├─ Form domain exports (flattened)                     │
 │    ├─ Localization exports (flattened)                     │
-│    ├─ ReactAdapter namespace                              │
-│    └─ VueAdapter namespace                                │
+│    ├─ React adapter exports (flat, with useReactValfuseForm)│
+│    └─ Vue adapter exports   (flat, with useVueValfuseForm) │
 └────────────────────────────────────────────────────────────┘
             │                  │             │           │
             ▼                  ▼             ▼           ▼
@@ -578,13 +620,13 @@ export function SignupForm() {
 
 For deeper detail on any specific surface:
 
-- [`@valfuse-node/form`](./packages/form/README.md) (or built into this README above)
-- [`@valfuse-node/react`](./packages/react/README.md)
-- [`@valfuse-node/vue`](./packages/vue/README.md)
-- [`@valfuse-node/localization`](./packages/localization/README.md)
+- [`@valfuse-node/form`](../form/README.md) — schema, rules, transformers, validation, framework-agnostic state
+- [`@valfuse-node/localization`](../localization/README.md) — CLI, compiler, runtime interpolation, structured variants, validators
+- [`@valfuse-node/react`](../react/README.md) — `useValfuseForm`, `<ValfuseController>`, `LocalizationProvider`, storage strategies
+- [`@valfuse-node/vue`](../vue/README.md) — `useValfuseForm` composable, v-model bindings, parity with React
 
 ---
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](../../LICENSE)
