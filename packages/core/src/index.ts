@@ -7,8 +7,11 @@
 // Naming convention:
 //   - Framework-agnostic APIs (`form`, `localization`) are flattened to top
 //     level — no naming collision risk.
-//   - Framework adapters (`react`, `vue`) are exported as namespaces because
-//     they both define `useValfuseForm` and overlapping hook types.
+//   - Framework adapters (`react`, `vue`) follow the `{Tech}{Domain}{Feature}`
+//     pattern. The only value-level conflict is `useValfuseForm` (both adapters
+//     export it); it is renamed at the umbrella level to `useReactValfuseForm`
+//     and `useVueValfuseForm`. Adapter packages keep their original names.
+//   - Types come from `form` (single source of truth) and are exported once.
 
 // ---------------------------------------------------------------------------
 // Form domain (framework-agnostic): schema, rules, validation, transformation,
@@ -22,13 +25,16 @@ export * from "@valfuse-node/form";
 export * from "@valfuse-node/localization";
 
 // ---------------------------------------------------------------------------
-// React adapter — namespaced to avoid collision with Vue's hook of the same
-// name. Import like: `import { ReactAdapter } from "@valfuse-node/core"`,
-// then `ReactAdapter.useValfuseForm(...)`. React/Vue are optional peer deps.
+// React adapter — barrel re-export with the conflicting `useValfuseForm`
+// renamed to `useReactValfuseForm`. Import like:
+//   `import { useReactValfuseForm, ValfuseController } from "@valfuse-node/core";`
+// React/Vue are optional peer deps.
 // ---------------------------------------------------------------------------
-export * as ReactAdapter from "@valfuse-node/react";
+export * from "./react-adapter";
 
 // ---------------------------------------------------------------------------
-// Vue adapter — namespaced for the same reason as React.
+// Vue adapter — barrel re-export with the conflicting `useValfuseForm`
+// renamed to `useVueValfuseForm`. Import like:
+//   `import { useVueValfuseForm } from "@valfuse-node/core";`
 // ---------------------------------------------------------------------------
-export * as VueAdapter from "@valfuse-node/vue";
+export * from "./vue-adapter";

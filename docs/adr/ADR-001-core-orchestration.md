@@ -164,7 +164,7 @@ core ──→ react
 core ──→ vue
 ```
 
-`form` and `localization` are flattened to top level (no name collisions). `react` and `vue` are namespaced as `ReactAdapter` and `VueAdapter` to disambiguate the identically-named `useValfuseForm` hooks.
+`form` and `localization` are flattened to top level (no name collisions). `react` and `vue` are exported flat with `{Tech}{Domain}{Feature}`-prefixed hook names — `useReactValfuseForm` and `useVueValfuseForm` — to disambiguate the identically-named `useValfuseForm` exposed by both adapter packages. The underlying `@valfuse-node/react` and `@valfuse-node/vue` packages keep their original `useValfuseForm` name; the rename is umbrella-level only.
 
 ### What is preserved from ADR-001
 - ✅ `core` still does **not** contain schema, validation, transformation, or rules — all of that stays in `form`.

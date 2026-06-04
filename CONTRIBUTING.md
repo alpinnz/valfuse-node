@@ -29,7 +29,7 @@ valfuse-node/
 ├── packages/
 │   ├── core/                            # @valfuse-node/core (umbrella — re-exports the others)
 │   │   └── src/
-│   │       └── index.ts                 # Facade: re-exports from form/localization (flat) and react/vue (namespaced as ReactAdapter / VueAdapter)
+│   │       └── index.ts                 # Facade: re-exports from form/localization (flat) and react/vue (flat with `{Tech}`-prefixed hook names: useReactValfuseForm, useVueValfuseForm)
 │   │
 │   ├── localization/                    # @valfuse-node/localization
 │   │   └── src/
