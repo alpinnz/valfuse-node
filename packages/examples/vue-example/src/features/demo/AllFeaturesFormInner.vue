@@ -53,9 +53,9 @@ const form = useValfuseForm({
   mode: props.mode,
 });
 
-// ─── watch(name, cb) — per-field reactive watcher ─────────────────────────────
-// Vue API: form.watch(name, cb) → returns unsubscribe fn
-// Tidak ada global watch() atau multi-field watch() — gunakan multiple watch per field.
+// ─── watch(name, cb) — per-field reactive watcher (Vue legacy form) ───────────
+// Vue adapter mendukung watch(name, cb) di samping watch(cb) global.
+// Bentuk legacy ini dipertahankan untuk backward compat.
 
 type WatchEntry = { name: string; value: unknown };
 const watchLog = ref<WatchEntry[]>([]);
@@ -92,12 +92,12 @@ function inputStyle(hasError: boolean): Record<string, string> {
   };
 }
 
-function dirtyFieldsLabel(formState: ValfuseFormState<typeof schema>): string {
-  return JSON.stringify(Array.from(formState.dirtyFields));
+function dirtyFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>): string {
+  return JSON.stringify(formState.dirtyFields);
 }
 
-function touchedFieldsLabel(formState: ValfuseFormState<typeof schema>): string {
-  return JSON.stringify(Array.from(formState.touchedFields));
+function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>): string {
+  return JSON.stringify(formState.touchedFields);
 }
 </script>
 

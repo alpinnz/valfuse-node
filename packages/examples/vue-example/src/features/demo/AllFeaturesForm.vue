@@ -3,13 +3,14 @@ import { ref } from "vue";
 import type { ValfuseFormMode } from "@valfuse-node/vue";
 import AllFeaturesFormInner from "./AllFeaturesFormInner.vue";
 
-// ─── Modes tersedia di Vue adapter (tidak ada "onTouched") ────────────────────
-const ALL_MODES: ValfuseFormMode[] = ["onSubmit", "onBlur", "onChange", "all"];
+// ─── Modes yang tersedia di Vue adapter (parity dengan React) ────────────────
+const ALL_MODES: ValfuseFormMode[] = ["onSubmit", "onBlur", "onChange", "onTouched", "all"];
 
 const MODE_DESC: Record<ValfuseFormMode, string> = {
   onSubmit: "validasi hanya saat submit",
   onBlur: "validasi saat field blur",
   onChange: "validasi setiap perubahan",
+  onTouched: "validasi saat field pertama kali di-blur",
   all: "onChange + onBlur",
 };
 
