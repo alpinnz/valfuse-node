@@ -20,6 +20,15 @@ export default tseslint.config(
     rules: {
       "no-console": "error",
     },
+  },
+  {
+    // Test files legitimately need `any` to exercise untyped inputs and
+    // edge cases (e.g. partial rule objects, unknown field names). The
+    // strict no-explicit-any rule belongs in production code, not tests.
+    files: ["**/__tests__/**", "**/*.test.ts", "**/*.test.tsx"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   }
 );
 
