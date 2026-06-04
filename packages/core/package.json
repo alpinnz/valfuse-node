@@ -1,10 +1,20 @@
 {
   "name": "@valfuse-node/core",
-  "version": "0.1.0",
-  "description": "[DEPRECATED] Orchestration layer for valfuse-node — use @valfuse-node/form for schema/validation and @valfuse-node/localization for i18n",
+  "version": "0.2.0",
+  "description": "Umbrella entry point for valfuse-node — re-exports form domain, localization runtime, and React/Vue adapters so a single install gives you the full library.",
   "license": "MIT",
   "sideEffects": false,
-  "keywords": ["validation", "schema", "form", "typescript", "valfuse"],
+  "keywords": [
+    "validation",
+    "schema",
+    "form",
+    "i18n",
+    "localization",
+    "react",
+    "vue",
+    "typescript",
+    "valfuse"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -17,16 +27,34 @@
   },
   "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "lint": "eslint src",
     "test": "vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist coverage"
   },
+  "dependencies": {
+    "@valfuse-node/form": "*",
+    "@valfuse-node/localization": "*",
+    "@valfuse-node/react": "*",
+    "@valfuse-node/vue": "*"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "vue": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "vue": { "optional": true }
+  },
   "publishConfig": { "access": "public" },
   "devDependencies": {
+    "@types/react": "latest",
     "@vitest/coverage-v8": "latest",
+    "react": "^18",
+    "tsup": "latest",
+    "typescript": "latest",
     "vitest": "latest"
   }
 }

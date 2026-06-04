@@ -139,3 +139,42 @@ import { createSchema, validateSchema } from "@valfuse-node/form";
 - Core package marked as deprecated in package.json description
 - No immediate removal planned
 - Consumers encouraged to migrate promptly
+
+---
+
+## 7. Addendum (2026-06-04) — Pivot to Umbrella Role
+
+### Updated Status
+**This ADR is partially superseded by a role pivot.** The "core is orchestration only, with no schema/validation" architectural rule from §3 still holds — but the *role* of `core` is no longer "placeholder for future orchestration logic." It is now the **umbrella entry point** for the entire valfuse-node ecosystem.
+
+### Why pivot?
+ADR-001's "no schema/validation in core" rule was sound: domain logic belongs in `form`, not `core`. But ADR-001 did not define what `core` *should* export. The interim state — an empty interface and a 0-byte ESM bundle — was unacceptable to publish.
+
+After a fresh architecture review (2026-06-04), the user (Alfin) requested a single-install experience:
+
+> "inginku core ini sebagai orcestra import/export dari form, localization, react, vue agar secara terpusat cukup `npm install @valfuse-node/core` sudah ada semuanya di library tersebut"
+
+### New role of `core`
+`@valfuse-node/core` is now a **pure re-export facade**. Its `dist/index.mjs` is ~270 B and contains only `export * from` statements. The dependency direction is:
+
+```
+core ──→ form
+core ──→ localization
+core ──→ react
+core ──→ vue
+```
+
+`form` and `localization` are flattened to top level (no name collisions). `react` and `vue` are namespaced as `ReactAdapter` and `VueAdapter` to disambiguate the identically-named `useValfuseForm` hooks.
+
+### What is preserved from ADR-001
+- ✅ `core` still does **not** contain schema, validation, transformation, or rules — all of that stays in `form`.
+- ✅ `core` still has **no** domain logic of its own. It is a re-export layer only.
+- ✅ The dependency graph remains acyclic (the `localization → core` edge that existed as an unused-but-declared dep has been removed).
+
+### What changed
+- ❌ `core` is **no longer** an "orchestration placeholder" or "deprecation stub."
+- ❌ The migration path described in §6 is **no longer necessary** for new consumers — they can install `@valfuse-node/core` and use `createSchema` etc. directly. Existing consumers who updated to `@valfuse-node/form` per §6 are unaffected.
+- ⚠️ The "core has no peer dependencies" assumption is false: it now lists `react >= 18` and `vue >= 3` as **optional** peer dependencies. Consumers using only form/localization do not need to install them.
+
+### Implications for ADR-002
+ADR-002 ("Shared Utilities Extraction") is **superseded** by this addendum. The original idea — extract genuinely-shared utilities into `core` so both `form` and `localization` depend on it — would have created a cycle (since `core` now re-exports from `localization`). The new architecture makes ADR-002 unnecessary: there is no "shared utilities" role for `core` because `core` is a re-export facade, not a domain package.

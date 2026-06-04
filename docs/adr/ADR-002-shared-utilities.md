@@ -12,7 +12,7 @@
 | **Direview oleh** | - |
 | **Direview pada** | - |
 | **Versi** | v1 |
-| **Status** | draft |
+| **Status** | **superseded** (see ADR-001 §7 addendum, 2026-06-04) |
 
 ---
 

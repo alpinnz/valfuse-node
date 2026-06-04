@@ -48,7 +48,8 @@ Most form libraries require you to learn a heavy abstraction or lock you into a 
 
 | Package | Description |
 |---|---|
-| [`@valfuse-node/core`](./packages/core/README.md) | Native schema validation engine (framework-agnostic) |
+| [`@valfuse-node/core`](./packages/core/README.md) | **Umbrella entry point** — re-exports form, localization, and adapters from one package |
+| [`@valfuse-node/form`](./packages/form/README.md) | Framework-agnostic schema validation, transformation, and state (used internally by all adapters) |
 | [`@valfuse-node/react`](./packages/react/README.md) | React `useValfuseForm` hook + localization runtime |
 | [`@valfuse-node/vue`](./packages/vue/README.md) | Vue `useValfuseForm` composable |
 | [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON → type-safe TypeScript localization |
@@ -59,18 +60,17 @@ Most form libraries require you to learn a heavy abstraction or lock you into a 
 
 ## Installation
 
+> **Recommended:** install `@valfuse-node/core` — one package that re-exports form, localization, and the React/Vue adapters. See the [core README](./packages/core/README.md) for the full API.
+
 ```bash
-# Core validation only (Node.js or any framework)
+# Umbrella — everything in one install
 npm install @valfuse-node/core
 
-# React form hook (includes validation)
-npm install @valfuse-node/react @valfuse-node/core
-
-# Vue form composable (includes validation)
-npm install @valfuse-node/vue @valfuse-node/core
-
-# Localization CLI (i18n compiler + runtime)
-npm install @valfuse-node/localization
+# Or pick packages individually (smaller install, more explicit)
+npm install @valfuse-node/form                       # framework-agnostic validation only
+npm install @valfuse-node/react @valfuse-node/form   # React hook (validation pulled in transitively)
+npm install @valfuse-node/vue  @valfuse-node/form   # Vue composable
+npm install @valfuse-node/localization               # i18n compiler + runtime
 ```
 
 ---

@@ -27,17 +27,9 @@ npm run build
 ```
 valfuse-node/
 ├── packages/
-│   ├── core/                            # @valfuse-node/core
+│   ├── core/                            # @valfuse-node/core (umbrella — re-exports the others)
 │   │   └── src/
-│   │       ├── errors/                  # Error normalization utilities
-│   │       ├── rules/                   # Validation rules (string, number, boolean, array, object, generic)
-│   │       ├── schema/                  # Schema creation
-│   │       ├── shared/                  # Shared transformers
-│   │       ├── transformation/          # Value transformation pipeline
-│   │       ├── types/                   # TypeScript types (errors, rules, schema)
-│   │       ├── validation/              # Schema validation logic
-│   │       ├── public-api.ts            # Named re-exports for the public API
-│   │       └── index.ts                 # Package entry point
+│   │       └── index.ts                 # Facade: re-exports from form/localization (flat) and react/vue (namespaced as ReactAdapter / VueAdapter)
 │   │
 │   ├── localization/                    # @valfuse-node/localization
 │   │   └── src/
@@ -190,14 +182,15 @@ A task is considered done when:
 
 ### Architecture Rules
 
-- `core` must not depend on React, Vue, or any UI framework
-- `react` may depend on `core` and `localization` only — no external form libraries
-- `vue` may depend on `core` only — no external form libraries
+- `form` and `localization` are **zero-dependency domain packages** — they must not import React, Vue, or any UI framework
+- `react` may depend on `form` and `localization` only — no external form libraries
+- `vue` may depend on `form` only — no external form libraries
+- `core` is the **umbrella facade** — it re-exports from `form`, `localization`, `react`, and `vue`. It must not contain any domain logic of its own; it is a re-export layer only.
 - `localization` must not depend on React or any UI framework (browser runtime is framework-agnostic)
 - `examples/react-example` may depend on all packages
 - `examples/vue-example` may depend on all packages
-- Public API must be declared in `public-api.ts` and re-exported from `index.ts`
-- No cross-package internal imports (e.g. `@valfuse-node/core/src/rules/string.rule`)
+- Public API must be declared in `public-api.ts` and re-exported from `index.ts` (except `core`, which has no `public-api.ts` because it is itself a re-export layer)
+- No cross-package internal imports (e.g. `@valfuse-node/form/src/rules/string.rule`)
 - The `localization` package exposes two entry points: `index.ts` (Node.js/CLI) and `browser.ts` (runtime)
 
 ---
