@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed
+
+_Nothing yet._
+
+---
+
+## [0.2.0] — 2026-06-04
+
 ### Added
 
 - **`@valfuse-node/react@0.2.0`** — `ValfuseController` test coverage
@@ -47,13 +55,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - **After:** `core` is the **umbrella entry point** for the entire valfuse-node ecosystem. A single `npm install @valfuse-node/core` gives you form, localization, and the React/Vue adapters.
   - Re-exports:
     - `form` and `localization` are **flattened to top level** (no name collisions).
-    - `react` and `vue` are **namespaced** as `ReactAdapter` and `VueAdapter` to disambiguate the identically-named `useValfuseForm` hooks.
+    - `react` and `vue` are exported flat with `{Tech}{Domain}{Feature}`-prefixed hook names — `useReactValfuseForm` and `useVueValfuseForm` — to disambiguate the identically-named `useValfuseForm` exposed by both adapter packages. The underlying adapter packages keep their original `useValfuseForm` name; the rename is umbrella-level only.
   - New `tsup.config.ts` marks all four sub-packages and `react`/`vue` as external — output is a ~270 B ESM facade that resolves sub-packages at runtime, enabling tree-shaking and zero duplication.
   - Added `peerDependencies` for `react >= 18` and `vue >= 3`, both marked **optional** in `peerDependenciesMeta` (you only need the peer you actually use).
   - Removed unused `@valfuse-node/core` dependency from `@valfuse-node/localization` (broke the build-time circular dependency).
   - **Breaking:** `core` no longer exports the empty `CoreOrchestrationConfig` interface from `0.1.0`. The previous `core` build produced 0-byte ESM output and failed lint, so no real consumer could have been using it.
 
 - **Architecture:** the documented role of `core` flipped from "orchestration placeholder" to "umbrella facade". See `docs/adr/ADR-001-core-orchestration.md` addendum and `docs/adr/ADR-002-shared-utilities.md` for context.
+
+- **`@valfuse-node/core@0.2.0`** — adapter hook naming standardization
+  - Replaces the `ReactAdapter` / `VueAdapter` namespace pattern with flat, top-level exports using a `{Tech}{Domain}{Feature}` naming convention.
+  - The only value-level conflict is `useValfuseForm` (both adapters export it). It is renamed at the umbrella level to `useReactValfuseForm` / `useVueValfuseForm` so consumers can import both from `@valfuse-node/core` without destructuring namespaces.
+  - All other adapter names (`ValfuseController`, `LocalizationProvider`, `useLocalization`, etc.) are React-specific and have no Vue counterpart, so they remain unprefixed.
+  - The underlying `@valfuse-node/react` and `@valfuse-node/vue` packages keep their original `useValfuseForm` name — the rename is umbrella-level only, preserving backward compat for any consumer importing directly from an adapter package.
+  - Migration: replace `import { ReactAdapter } from "@valfuse-node/core"; const { useValfuseForm } = ReactAdapter;` with `import { useReactValfuseForm } from "@valfuse-node/core";` (same shape for Vue).
 
 ---
 
@@ -105,5 +120,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/alpinnz/valfuse-node/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/alpinnz/valfuse-node/releases/tag/v0.1.0
