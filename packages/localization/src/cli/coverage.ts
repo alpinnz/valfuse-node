@@ -23,12 +23,7 @@ export async function runCoverage(
   }
 
   const output = options.output ?? "coverage.json";
-  await writeFile(
-    absolutePath(cwd, output),
-    `${JSON.stringify(coverage, null, 2)}\n`,
-    "utf8"
-  );
+  await writeFile(absolutePath(cwd, output), `${JSON.stringify(coverage, null, 2)}\n`, "utf8");
   // eslint-disable-next-line no-console
   console.log(`✅ Coverage JSON written to ${output}`);
 }
-

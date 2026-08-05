@@ -68,18 +68,17 @@ describe("t.toFloat", () => {
 
 describe("t.toBoolean", () => {
   it.each([
-    [true,   true],
+    [true, true],
     ["true", true],
-    [1,      true],
-    ["1",    true],
-    [false,  false],
-    ["false",false],
-    [0,      false],
-    ["0",    false],
-    ["",     false],
-  ] as [unknown, boolean][])(
-    "t.toBoolean(%j) → %s",
-    (input, expected) => expect(t.toBoolean(input)).toBe(expected)
+    [1, true],
+    ["1", true],
+    [false, false],
+    ["false", false],
+    [0, false],
+    ["0", false],
+    ["", false],
+  ] as [unknown, boolean][])("t.toBoolean(%j) → %s", (input, expected) =>
+    expect(t.toBoolean(input)).toBe(expected)
   );
 });
 
@@ -107,4 +106,3 @@ describe("t.pipe", () => {
     expect(transform("  42  ")).toBe(42);
   });
 });
-

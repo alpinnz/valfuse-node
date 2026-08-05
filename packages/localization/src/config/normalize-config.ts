@@ -1,9 +1,7 @@
 import { DEFAULT_CONFIG } from "./defaults";
 import type { LocalizationConfig } from "../types/config";
 
-export function normalizeConfig(
-  rawConfig: Partial<LocalizationConfig>
-): LocalizationConfig {
+export function normalizeConfig(rawConfig: Partial<LocalizationConfig>): LocalizationConfig {
   return {
     ...DEFAULT_CONFIG,
     ...rawConfig,
@@ -21,4 +19,3 @@ export function normalizeConfig(
     },
   };
 }
-

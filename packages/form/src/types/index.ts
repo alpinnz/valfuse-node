@@ -13,7 +13,7 @@ import type {
   ValfuseErrorType,
   ValfuseError,
   ValfuseFieldErrors,
-} from './errors';
+} from "./errors";
 
 import type {
   ValfuseRegexValue,
@@ -28,7 +28,7 @@ import type {
   ValfuseMatchFieldRule,
   ValfuseOneOfRule,
   ValfuseNotOneOfRule,
-} from './rules';
+} from "./rules";
 
 import type {
   ValfuseTransformer,
@@ -40,7 +40,7 @@ import type {
   ValfuseFieldSchema,
   ValfuseSchema,
   SetErrorsInput,
-} from './schema';
+} from "./schema";
 
 // ============================================================================
 // Re-export for public API
@@ -89,12 +89,7 @@ export type {
  * | `onTouched`  | Validate on the first blur; after that validate on every change         |
  * | `all`        | Validate on both `onChange` and `onBlur`                                |
  */
-export type ValfuseFormMode =
-  | "onSubmit"
-  | "onBlur"
-  | "onChange"
-  | "onTouched"
-  | "all";
+export type ValfuseFormMode = "onSubmit" | "onBlur" | "onChange" | "onTouched" | "all";
 
 // ============================================================================
 // Error Types (Form-specific)
@@ -201,7 +196,7 @@ export interface ValfuseWatchFunction<TSchema extends Record<string, unknown>> {
 export interface ValfuseRegisterReturn {
   name: string;
   value?: string | number | readonly string[] | undefined;
-  onChange: (e: unknown) => void;  // React ChangeEvent
+  onChange: (e: unknown) => void; // React ChangeEvent
   onBlur: () => void;
 }
 
@@ -227,10 +222,7 @@ export interface ValfuseFormControl<TSchema extends Record<string, unknown>> {
   /** @internal Current validation errors */
   _errors: ValfuseFormErrors<TSchema>;
   /** @internal Update a single field value */
-  _updateField: <TName extends keyof TSchema & string>(
-    name: TName,
-    value: TSchema[TName]
-  ) => void;
+  _updateField: <TName extends keyof TSchema & string>(name: TName, value: TSchema[TName]) => void;
   /** @internal Mark a field as touched */
   _touchField: (name: string) => void;
   /** @internal Set of names of fields the user has interacted with */
@@ -304,7 +296,7 @@ export interface UseValfuseFormReturn<TSchema extends Record<string, unknown>> {
    *
    * Returns true if all triggered fields are valid, false otherwise.
    */
-  trigger: (name?: keyof TSchema & string | Array<keyof TSchema & string>) => boolean;
+  trigger: (name?: (keyof TSchema & string) | Array<keyof TSchema & string>) => boolean;
 
   /**
    * Watch field values:

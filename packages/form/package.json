@@ -4,7 +4,13 @@
   "description": "Form domain package for valfuse-node — schema, validation, transformation, rules, state, and methods",
   "license": "MIT",
   "sideEffects": false,
-  "keywords": ["validation", "schema", "form", "typescript", "valfuse"],
+  "keywords": [
+    "validation",
+    "schema",
+    "form",
+    "typescript",
+    "valfuse"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -15,7 +21,11 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
@@ -24,9 +34,11 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist coverage"
   },
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
-    "@vitest/coverage-v8": "latest",
-    "vitest": "latest"
+    "@vitest/coverage-v8": "4.1.6",
+    "vitest": "4.1.6"
   }
 }

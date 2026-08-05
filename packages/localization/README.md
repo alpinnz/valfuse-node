@@ -104,10 +104,10 @@ assets/localizations/
 
 The two reserved keys at the root are:
 
-| Key | Purpose |
-|---|---|
+| Key        | Purpose                                  |
+| ---------- | ---------------------------------------- |
 | `@@module` | Module name (must match the folder name) |
-| `@@locale` | Locale code (`en`, `id`, `ja`, …) |
+| `@@locale` | Locale code (`en`, `id`, `ja`, …)        |
 
 ### Flat vs. nested
 
@@ -144,8 +144,8 @@ Mark a leaf as **structured** with one of the three reserved keys: `@plural`, `@
   "items": {
     "count": {
       "@plural": {
-        "zero":  "No items",
-        "one":   "1 item",
+        "zero": "No items",
+        "one": "1 item",
         "other": "{count} items"
       }
     }
@@ -155,9 +155,9 @@ Mark a leaf as **structured** with one of the three reserved keys: `@plural`, `@
 
 ```ts
 import { plural } from "@valfuse-node/localization/runtime";
-plural("common.items.count", 0);   // → "No items"
-plural("common.items.count", 1);   // → "1 item"
-plural("common.items.count", 5);   // → "5 items"
+plural("common.items.count", 0); // → "No items"
+plural("common.items.count", 1); // → "1 item"
+plural("common.items.count", 5); // → "5 items"
 ```
 
 `{count}` is auto-injected as a placeholder for plural branches.
@@ -169,9 +169,9 @@ plural("common.items.count", 5);   // → "5 items"
   "profile": {
     "follower_count": {
       "@gender": {
-        "male":   "{count} male followers",
+        "male": "{count} male followers",
         "female": "{count} female followers",
-        "other":  "{count} followers"
+        "other": "{count} followers"
       }
     }
   }
@@ -180,7 +180,7 @@ plural("common.items.count", 5);   // → "5 items"
 
 ```ts
 import { gender } from "@valfuse-node/localization/runtime";
-gender("common.profile.follower_count", "male",   { count: 3 }); // → "3 male followers"
+gender("common.profile.follower_count", "male", { count: 3 }); // → "3 male followers"
 gender("common.profile.follower_count", "female", { count: 3 }); // → "3 female followers"
 ```
 
@@ -191,7 +191,7 @@ gender("common.profile.follower_count", "female", { count: 3 }); // → "3 femal
   "word": {
     "open": {
       "@context": {
-        "verb":   "Open the file",
+        "verb": "Open the file",
         "adjective": "The file is open"
       }
     }
@@ -201,7 +201,7 @@ gender("common.profile.follower_count", "female", { count: 3 }); // → "3 femal
 
 ```ts
 import { context } from "@valfuse-node/localization/runtime";
-context("common.word.open", "verb");      // → "Open the file"
+context("common.word.open", "verb"); // → "Open the file"
 context("common.word.open", "adjective"); // → "The file is open"
 ```
 
@@ -219,7 +219,7 @@ Attach developer-only metadata to a leaf using sibling keys. Metadata is **never
 {
   "welcome": {
     "@description": "Greeting shown on the home page hero",
-    "@example":     "Hello, Alfin!",
+    "@example": "Hello, Alfin!",
     "@placeholders": {
       "name": "User's first name"
     },
@@ -228,12 +228,12 @@ Attach developer-only metadata to a leaf using sibling keys. Metadata is **never
 }
 ```
 
-| Key | Type | Purpose |
-|---|---|---|
-| `@description` | `string` | Human-readable description for translators / docs |
-| `@example` | `string` | Example of a fully-interpolated message |
-| `@placeholders` | `Record<string, string>` | Per-placeholder documentation |
-| `@custom` | `Record<string, unknown>` | Any custom tooling metadata (use only when `validation.allow_custom_metadata: true`) |
+| Key             | Type                      | Purpose                                                                              |
+| --------------- | ------------------------- | ------------------------------------------------------------------------------------ |
+| `@description`  | `string`                  | Human-readable description for translators / docs                                    |
+| `@example`      | `string`                  | Example of a fully-interpolated message                                              |
+| `@placeholders` | `Record<string, string>`  | Per-placeholder documentation                                                        |
+| `@custom`       | `Record<string, unknown>` | Any custom tooling metadata (use only when `validation.allow_custom_metadata: true`) |
 
 > **Reserved keys (cannot be used as message names):** `@@module`, `@@locale`, `@plural`, `@gender`, `@context`, `@description`, `@example`, `@placeholders`, `@custom`.
 
@@ -242,15 +242,15 @@ Attach developer-only metadata to a leaf using sibling keys. Metadata is **never
 ## The `valfuse-localization.yaml` Config File
 
 ```yaml
-input_dir: assets/localizations        # where the YAML/JSON source files live
-output_dir: src/assets/localizations   # where the generated TS/JSON go
+input_dir: assets/localizations # where the YAML/JSON source files live
+output_dir: src/assets/localizations # where the generated TS/JSON go
 
-framework: react                       # react | vue | nest
-class_name: Localization               # name of the generated class/namespace
+framework: react # react | vue | nest
+class_name: Localization # name of the generated class/namespace
 
-base_locale: en                        # default locale at runtime
-fallback_locale: en                    # fallback when a key is missing
-strict: true                           # throw on errors (vs. just warn)
+base_locale: en # default locale at runtime
+fallback_locale: en # fallback when a key is missing
+strict: true # throw on errors (vs. just warn)
 
 # Prepend the module folder name to every key:
 #   "module" (default) → common.auth.login.title
@@ -263,16 +263,16 @@ generated:
   runtime_manifest_file: localization.manifest.json
 
 validation:
-  max_depth: 10                        # reject nested objects deeper than this
-  require_key_parity: true             # every key must exist in every locale
-  require_placeholder_parity: true     # placeholder set must match across locales
-  require_structured_parity: true      # @plural/@gender/@context variants must match
-  allow_custom_metadata: true          # allow @custom blocks
-  validate_path_metadata_consistency: true  # metadata must match across locales
+  max_depth: 10 # reject nested objects deeper than this
+  require_key_parity: true # every key must exist in every locale
+  require_placeholder_parity: true # placeholder set must match across locales
+  require_structured_parity: true # @plural/@gender/@context variants must match
+  allow_custom_metadata: true # allow @custom blocks
+  validate_path_metadata_consistency: true # metadata must match across locales
 
 reporting:
   output_dir: src/assets/localizations/reports
-  coverage_format: json                # json | html
+  coverage_format: json # json | html
 ```
 
 ---
@@ -350,7 +350,7 @@ Auto-generates a `TranslationKey` union from the compiled set of keys. Use it to
 ```ts
 import type { TranslationKey } from "./assets/localizations/localization.types";
 const key: TranslationKey = "common.errors.required"; // ✓
-const bad: TranslationKey = "common.erros.requird";   // ✗ type error
+const bad: TranslationKey = "common.erros.requird"; // ✗ type error
 ```
 
 ### `localization.manifest.json` — the browser-loadable payload
@@ -399,7 +399,7 @@ import {
 interpolate("Hello, {name}!", { name: "Alfin" });
 // → "Hello, Alfin!"
 
-interpolate("Hello, {name}!", {});         // missing → kept as-is → "Hello, {name}!"
+interpolate("Hello, {name}!", {}); // missing → kept as-is → "Hello, {name}!"
 interpolate("Total: {price}", { price: 0 }); // 0 is a real value → "Total: 0"
 ```
 
@@ -460,15 +460,15 @@ interface RuntimeContext {
 
 The compiler runs seven independent validators. Each can be turned on/off in config (`validation.*`).
 
-| Validator | What it checks | Toggle |
-|---|---|---|
-| `validateKeyParity` | Every key exists in every locale | `require_key_parity` |
-| `validatePlaceholderParity` | Placeholder sets match across locales | `require_placeholder_parity` |
-| `validateStructuredParity` | `@plural`/`@gender`/`@context` variant keys match across locales | `require_structured_parity` |
-| `validateMetadataUsage` | Inline metadata is well-formed | always on |
-| `validatePathConsistency` | Metadata is consistent across locales for the same path | `validate_path_metadata_consistency` |
-| `validateFlattenCollision` | No two source paths flatten to the same key | always on |
-| `validateMaxDepth` | No nesting deeper than `max_depth` | `max_depth` |
+| Validator                   | What it checks                                                   | Toggle                               |
+| --------------------------- | ---------------------------------------------------------------- | ------------------------------------ |
+| `validateKeyParity`         | Every key exists in every locale                                 | `require_key_parity`                 |
+| `validatePlaceholderParity` | Placeholder sets match across locales                            | `require_placeholder_parity`         |
+| `validateStructuredParity`  | `@plural`/`@gender`/`@context` variant keys match across locales | `require_structured_parity`          |
+| `validateMetadataUsage`     | Inline metadata is well-formed                                   | always on                            |
+| `validatePathConsistency`   | Metadata is consistent across locales for the same path          | `validate_path_metadata_consistency` |
+| `validateFlattenCollision`  | No two source paths flatten to the same key                      | always on                            |
+| `validateMaxDepth`          | No nesting deeper than `max_depth`                               | `max_depth`                          |
 
 ---
 
@@ -552,8 +552,8 @@ type NamespacePrefix = "module" | "none";
 {
   "scripts": {
     "i18n:generate": "valfuse-localization generate",
-    "i18n:watch":    "valfuse-localization generate --watch",
-    "i18n:check":    "valfuse-localization validate",
+    "i18n:watch": "valfuse-localization generate --watch",
+    "i18n:check": "valfuse-localization validate",
     "i18n:coverage": "valfuse-localization coverage --format html"
   }
 }
@@ -569,7 +569,12 @@ type NamespacePrefix = "module" | "none";
 ### Use the runtime directly (without the React provider)
 
 ```ts
-import { interpolate, lookupMessage, type RuntimeContext, type RuntimeManifest } from "@valfuse-node/localization";
+import {
+  interpolate,
+  lookupMessage,
+  type RuntimeContext,
+  type RuntimeManifest,
+} from "@valfuse-node/localization";
 
 const manifest: RuntimeManifest = await fetch("/loc/manifest.json").then((r) => r.json());
 const ctx: RuntimeContext = {

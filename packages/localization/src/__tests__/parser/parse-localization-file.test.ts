@@ -118,9 +118,9 @@ describe("parseLocalizationFile", () => {
     });
 
     it("throws on null at any level", () => {
-      expect(() =>
-        parseLocalizationFile({ bad: null as unknown })
-      ).toThrow(/Invalid localization node/);
+      expect(() => parseLocalizationFile({ bad: null as unknown })).toThrow(
+        /Invalid localization node/
+      );
     });
   });
 });

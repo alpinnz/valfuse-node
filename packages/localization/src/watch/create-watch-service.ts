@@ -19,4 +19,3 @@ export function createWatchService(
 
   return async () => watcher.close();
 }
-

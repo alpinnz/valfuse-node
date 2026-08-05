@@ -7,7 +7,5 @@ import type { RuntimeManifest } from "@valfuse-node/localization";
  * load only the active locale's messages on demand.
  */
 export function createLazyLocaleLoader(manifest: RuntimeManifest) {
-  return async (locale: string): Promise<Record<string, string>> =>
-    manifest.messages[locale] ?? {};
+  return async (locale: string): Promise<Record<string, string>> => manifest.messages[locale] ?? {};
 }
-

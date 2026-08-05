@@ -1,7 +1,8 @@
 import type { ValfuseError, ValfuseRegexValue, ValfuseStringRule } from "../types";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const URL_REGEX = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)$/;
+const URL_REGEX =
+  /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)$/;
 const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function toRegExp(regexValue: ValfuseRegexValue): RegExp {
@@ -11,10 +12,7 @@ function toRegExp(regexValue: ValfuseRegexValue): RegExp {
   return new RegExp(regexValue.pattern, regexValue.flags);
 }
 
-export function validateStringRule(
-  value: unknown,
-  rule: ValfuseStringRule
-): ValfuseError | null {
+export function validateStringRule(value: unknown, rule: ValfuseStringRule): ValfuseError | null {
   const stringValue = typeof value === "string" ? value : "";
 
   switch (rule.name) {

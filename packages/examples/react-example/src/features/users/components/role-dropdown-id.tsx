@@ -8,13 +8,7 @@ type RoleDropdownIdProps = {
   onBlur?: () => void;
 };
 
-export function RoleDropdownId({
-  value,
-  options,
-  error,
-  onChange,
-  onBlur,
-}: RoleDropdownIdProps) {
+export function RoleDropdownId({ value, options, error, onChange, onBlur }: RoleDropdownIdProps) {
   const selectedRole = options.find((role) => role.id === value);
 
   return (
@@ -59,7 +53,14 @@ export function RoleDropdownId({
           <button
             type="button"
             onClick={() => onChange("")}
-            style={{ marginTop: "0.5rem", fontSize: "0.75rem", color: "red", background: "none", border: "none", cursor: "pointer" }}
+            style={{
+              marginTop: "0.5rem",
+              fontSize: "0.75rem",
+              color: "red",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
           >
             Hapus pilihan
           </button>
@@ -74,4 +75,3 @@ export function RoleDropdownId({
     </div>
   );
 }
-

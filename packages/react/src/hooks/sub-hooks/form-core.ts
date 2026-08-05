@@ -5,11 +5,7 @@
  * when reading the rest of the code. The mirror assignments (`xRef.current = x`)
  * stay co-located with the state they mirror to prevent mirror drift.
  */
-import type {
-  Dispatch,
-  MutableRefObject,
-  SetStateAction,
-} from "react";
+import type { Dispatch, MutableRefObject, SetStateAction } from "react";
 import type { ValfuseSchema } from "@valfuse-node/form";
 import type {
   ValfuseFormErrors,
@@ -67,8 +63,4 @@ export interface FormCore<TFieldValues extends Record<string, unknown>> {
 }
 
 /** Re-export types so consumers can `import type { ... } from "./form-core"`. */
-export type {
-  ValfuseDirtyFields,
-  ValfuseTouchedFields,
-  UseValfuseFormProps,
-};
+export type { ValfuseDirtyFields, ValfuseTouchedFields, UseValfuseFormProps };

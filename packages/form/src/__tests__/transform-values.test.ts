@@ -66,4 +66,3 @@ describe("transformValues", () => {
     expect(result).toEqual({ email: "test@test.com" });
   });
 });
-

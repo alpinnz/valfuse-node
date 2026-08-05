@@ -1,8 +1,6 @@
 import { readFile } from "node:fs/promises";
 
-export async function readJsonFile(
-  filePath: string
-): Promise<Record<string, unknown>> {
+export async function readJsonFile(filePath: string): Promise<Record<string, unknown>> {
   const content = await readFile(filePath, "utf8");
   const parsed = JSON.parse(content) as unknown;
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
@@ -10,4 +8,3 @@ export async function readJsonFile(
   }
   return parsed as Record<string, unknown>;
 }
-

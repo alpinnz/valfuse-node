@@ -13,9 +13,7 @@ export function buildManifest(
     for (const message of Object.values(entry.messages)) {
       const localeMessages = (messages[entry.locale] ??= {});
       const fullKey =
-        config.namespace_prefix === "none"
-          ? message.key
-          : `${entry.module}.${message.key}`;
+        config.namespace_prefix === "none" ? message.key : `${entry.module}.${message.key}`;
 
       // Structured keys: store JSON-encoded variants for runtime resolution.
       // Plain keys: store the string value directly.
@@ -37,4 +35,3 @@ export function buildManifest(
     messages,
   };
 }
-

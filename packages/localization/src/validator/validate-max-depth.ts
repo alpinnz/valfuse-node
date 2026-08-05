@@ -2,10 +2,7 @@ import type { Diagnostic } from "../types/diagnostics";
 import type { NormalizedProject } from "../types/normalized";
 import { DIAGNOSTIC_CODES } from "../diagnostics/codes";
 
-export function validateMaxDepth(
-  project: NormalizedProject,
-  maxDepth: number
-): Diagnostic[] {
+export function validateMaxDepth(project: NormalizedProject, maxDepth: number): Diagnostic[] {
   const diagnostics: Diagnostic[] = [];
 
   for (const entry of project.entries) {

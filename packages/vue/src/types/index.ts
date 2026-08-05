@@ -20,8 +20,9 @@ import type {
  * should prefer `form.watch((values, info) => { ... })` so the callback
  * signature matches the form-domain `ValfuseWatchCallback`.
  */
-export interface ValfuseVueWatchFunction<TFieldValues extends Record<string, unknown>>
-  extends ValfuseWatchFunction<TFieldValues> {
+export interface ValfuseVueWatchFunction<
+  TFieldValues extends Record<string, unknown>,
+> extends ValfuseWatchFunction<TFieldValues> {
   (name: keyof TFieldValues & string, callback: (value: unknown) => void): () => void;
 }
 
@@ -105,7 +106,7 @@ export interface UseValfuseFormReturn<TFieldValues extends Record<string, unknow
   setErrors: (errors: SetErrorsInput) => void;
   clearErrors: (fields?: Array<keyof TFieldValues & string>) => void;
   setValue: (name: keyof TFieldValues & string, value: unknown) => void;
-  trigger: (name?: keyof TFieldValues & string | Array<keyof TFieldValues & string>) => boolean;
+  trigger: (name?: (keyof TFieldValues & string) | Array<keyof TFieldValues & string>) => boolean;
   watch: ValfuseVueWatchFunction<TFieldValues>;
   reset: (values?: Partial<TFieldValues>) => void;
   /** Vue-specific extension: read a single field value. */

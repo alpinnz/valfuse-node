@@ -39,16 +39,19 @@ describe("object rule: shape", () => {
   describe("with empty shape (asserts plain object)", () => {
     const rule = mkRule({ name: "shape", value: {}, error: ERR });
 
-    it("fails when value is a string", () => expect(validateObjectRule("string", rule)).toEqual(ERR));
+    it("fails when value is a string", () =>
+      expect(validateObjectRule("string", rule)).toEqual(ERR));
     it("fails when value is a number", () => expect(validateObjectRule(42, rule)).toEqual(ERR));
     it("fails when value is a boolean", () => expect(validateObjectRule(true, rule)).toEqual(ERR));
     it("fails when value is an array", () => expect(validateObjectRule([1, 2], rule)).toEqual(ERR));
 
-    it("passes for a plain object", () => expect(validateObjectRule({ key: "value" }, rule)).toBeNull());
+    it("passes for a plain object", () =>
+      expect(validateObjectRule({ key: "value" }, rule)).toBeNull());
     it("passes for an empty object", () => expect(validateObjectRule({}, rule)).toBeNull());
 
     it("skips check when value is null", () => expect(validateObjectRule(null, rule)).toBeNull());
-    it("skips check when value is undefined", () => expect(validateObjectRule(undefined, rule)).toBeNull());
+    it("skips check when value is undefined", () =>
+      expect(validateObjectRule(undefined, rule)).toBeNull());
   });
 
   describe("with specific shape constraints", () => {
@@ -86,7 +89,10 @@ describe("object rule: shape", () => {
 describe("object rules integration via validateSchema", () => {
   it("validates required object field", () => {
     const schema = createSchema({
-      user: { type: "object", rules: [{ name: "required", error: { message: "User is required" } }] },
+      user: {
+        type: "object",
+        rules: [{ name: "required", error: { message: "User is required" } }],
+      },
     });
     expect(validateSchema(schema, { user: null }).user?.message).toBe("User is required");
     expect(validateSchema(schema, { user: undefined }).user?.message).toBe("User is required");
@@ -96,7 +102,10 @@ describe("object rules integration via validateSchema", () => {
 
   it("validates shape rule — must be a plain object", () => {
     const schema = createSchema({
-      meta: { type: "object", rules: [{ name: "shape", value: {}, error: { message: "Must be a plain object" } }] },
+      meta: {
+        type: "object",
+        rules: [{ name: "shape", value: {}, error: { message: "Must be a plain object" } }],
+      },
     });
     expect(validateSchema(schema, { meta: [1, 2] }).meta?.message).toBe("Must be a plain object");
     expect(validateSchema(schema, { meta: "string" }).meta?.message).toBe("Must be a plain object");
@@ -114,13 +123,18 @@ describe("object rules integration via validateSchema", () => {
       },
     });
     expect(validateSchema(schema, { role: null }).role?.message).toBe("Role is required");
-    expect(validateSchema(schema, { role: { active: false } }).role?.message).toBe("Role must be active");
+    expect(validateSchema(schema, { role: { active: false } }).role?.message).toBe(
+      "Role must be active"
+    );
     expect(validateSchema(schema, { role: { active: true } }).role).toBeUndefined();
   });
 
   it("shape skips validation for null/undefined (required handles absence)", () => {
     const schema = createSchema({
-      config: { type: "object", rules: [{ name: "shape", value: { debug: true }, error: { message: "Shape error" } }] },
+      config: {
+        type: "object",
+        rules: [{ name: "shape", value: { debug: true }, error: { message: "Shape error" } }],
+      },
     });
     expect(validateSchema(schema, { config: null }).config).toBeUndefined();
     expect(validateSchema(schema, { config: undefined }).config).toBeUndefined();
@@ -137,8 +151,11 @@ describe("object rules integration via validateSchema", () => {
       },
     });
     expect(validateSchema(schema, { address: null }).address?.message).toBe("Address is required");
-    expect(validateSchema(schema, { address: "123 Main St" }).address?.message).toBe("Address must be an object");
-    expect(validateSchema(schema, { address: { street: "123 Main St", city: "Anytown" } }).address).toBeUndefined();
+    expect(validateSchema(schema, { address: "123 Main St" }).address?.message).toBe(
+      "Address must be an object"
+    );
+    expect(
+      validateSchema(schema, { address: { street: "123 Main St", city: "Anytown" } }).address
+    ).toBeUndefined();
   });
 });
-

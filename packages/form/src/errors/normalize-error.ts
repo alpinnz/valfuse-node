@@ -6,4 +6,3 @@ export function normalizeError(error: string | ValfuseError): ValfuseError {
   }
   return error;
 }
-

@@ -162,15 +162,15 @@ A task is considered done when:
 
 ### Naming
 
-| Unit | Convention | Example |
-|---|---|---|
-| React component | Descriptive noun (`PascalCase`) | `ValfuseController` |
-| Vue composable | `use` prefix (`camelCase`) | `useValfuseForm` |
-| Logic function | Action/domain verb (`camelCase`) | `validateStringRule` |
-| Helper/utility | Transformation name (`camelCase`) | `normalizeError` |
-| Constant | `UPPER_SNAKE_CASE` | `EMAIL_REGEX` |
-| File | `kebab-case` | `validate-schema.ts` |
-| Type / Interface | `PascalCase` | `ValfuseSchema` |
+| Unit             | Convention                        | Example              |
+| ---------------- | --------------------------------- | -------------------- |
+| React component  | Descriptive noun (`PascalCase`)   | `ValfuseController`  |
+| Vue composable   | `use` prefix (`camelCase`)        | `useValfuseForm`     |
+| Logic function   | Action/domain verb (`camelCase`)  | `validateStringRule` |
+| Helper/utility   | Transformation name (`camelCase`) | `normalizeError`     |
+| Constant         | `UPPER_SNAKE_CASE`                | `EMAIL_REGEX`        |
+| File             | `kebab-case`                      | `validate-schema.ts` |
+| Type / Interface | `PascalCase`                      | `ValfuseSchema`      |
 
 ### Forbidden
 

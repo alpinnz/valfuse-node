@@ -126,17 +126,13 @@ describe("ValfuseController", () => {
   });
 
   it("does not render the error span when there is no error", () => {
-    render(
-      <FormWithController defaultValues={{ role: "user", email: "valid@example.com" }} />
-    );
+    render(<FormWithController defaultValues={{ role: "user", email: "valid@example.com" }} />);
     expect(screen.queryByTestId("email-error")).toBeNull();
   });
 
   it("renders the validation error message and code on fieldState.error", () => {
     // mode="onChange" so the field validates as the user types
-    render(
-      <FormWithController defaultValues={{ role: "user", email: "" }} mode="onChange" />
-    );
+    render(<FormWithController defaultValues={{ role: "user", email: "" }} mode="onChange" />);
     const input = screen.getByTestId<HTMLInputElement>("email-input");
 
     act(() => {
@@ -149,9 +145,7 @@ describe("ValfuseController", () => {
   });
 
   it("clears the error after the user fixes the value", () => {
-    render(
-      <FormWithController defaultValues={{ role: "user", email: "" }} mode="onChange" />
-    );
+    render(<FormWithController defaultValues={{ role: "user", email: "" }} mode="onChange" />);
     const input = screen.getByTestId<HTMLInputElement>("email-input");
 
     act(() => {
@@ -250,10 +244,7 @@ describe("ValfuseController", () => {
           name="role"
           render={({ field, fieldState }) => (
             <div data-testid="date-picker">
-              <button
-                data-testid="date-picker-set"
-                onClick={() => field.onChange("admin")}
-              >
+              <button data-testid="date-picker-set" onClick={() => field.onChange("admin")}>
                 Pick Admin
               </button>
               <button data-testid="date-picker-blur" onClick={field.onBlur}>

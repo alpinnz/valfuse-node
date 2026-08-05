@@ -42,8 +42,20 @@ import { createSchema } from "@valfuse-node/core";
 import { useValfuseForm } from "@valfuse-node/react";
 
 const schema = createSchema({
-  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
-  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8 chars" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  password: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "minLength", value: 8, error: { message: "Min 8 chars" } },
+    ],
+  },
 });
 
 export function LoginForm() {
@@ -61,7 +73,9 @@ export function LoginForm() {
       <input type="password" {...form.register("password")} />
       {form.formState.errors.password && <span>{form.formState.errors.password.message}</span>}
 
-      <button type="submit" disabled={form.formState.isSubmitting}>Log in</button>
+      <button type="submit" disabled={form.formState.isSubmitting}>
+        Log in
+      </button>
     </form>
   );
 }
@@ -81,26 +95,26 @@ function useValfuseForm<TFieldValues extends Record<string, unknown>>(
 
 ```ts
 interface UseValfuseFormProps<TFieldValues> {
-  schema: ValfuseSchema;                                 // required — from @valfuse-node/form
-  defaultValues: TFieldValues;                            // required — values shape (inferred)
-  mode?: "onSubmit" | "onChange" | "onBlur";              // default: "onSubmit"
-  reValidateMode?: "onChange" | "onBlur" | "onSubmit";   // default: "onChange"
+  schema: ValfuseSchema; // required — from @valfuse-node/form
+  defaultValues: TFieldValues; // required — values shape (inferred)
+  mode?: "onSubmit" | "onChange" | "onBlur"; // default: "onSubmit"
+  reValidateMode?: "onChange" | "onBlur" | "onSubmit"; // default: "onChange"
 }
 ```
 
-| Option | Type | Default | Notes |
-|---|---|---|---|
-| `schema` | `ValfuseSchema` | — (required) | The rule-based schema |
-| `defaultValues` | object literal | — (required) | The generic `TFieldValues` is **inferred** from this. The same shape flows through `form.handleSubmit(fn)`, `formState.errors`, etc. |
-| `mode` | union | `"onSubmit"` | When validation first runs. `"onChange"` validates on every keystroke; `"onBlur"` validates when a field loses focus |
-| `reValidateMode` | union | `"onChange"` | Mode used **after the first submit attempt** to re-validate fields the user fixes |
+| Option           | Type            | Default      | Notes                                                                                                                                |
+| ---------------- | --------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `schema`         | `ValfuseSchema` | — (required) | The rule-based schema                                                                                                                |
+| `defaultValues`  | object literal  | — (required) | The generic `TFieldValues` is **inferred** from this. The same shape flows through `form.handleSubmit(fn)`, `formState.errors`, etc. |
+| `mode`           | union           | `"onSubmit"` | When validation first runs. `"onChange"` validates on every keystroke; `"onBlur"` validates when a field loses focus                 |
+| `reValidateMode` | union           | `"onChange"` | Mode used **after the first submit attempt** to re-validate fields the user fixes                                                    |
 
 ### Return value
 
 ```ts
 interface UseValfuseFormReturn<TFieldValues> {
-  register:  (name) => { name, value, onChange, onBlur, ref };
-  control:   ValfuseFormControl<TFieldValues>;
+  register: (name) => { name; value; onChange; onBlur; ref };
+  control: ValfuseFormControl<TFieldValues>;
   formState: ValfuseFormState<TFieldValues>;
   handleSubmit: (onValid) => (e?) => Promise<void>;
   setErrors: (errors) => void;
@@ -123,18 +137,18 @@ Returns props to spread onto an `<input>`:
 
 ### `form.formState`
 
-| Field | Type | Description |
-|---|---|---|
-| `errors` | `Partial<Record<keyof T, ValfuseFieldError>>` | Current field errors (validation + server + manual) |
-| `isSubmitting` | `boolean` | `true` while the async submit handler is running |
-| `isSubmitted` | `boolean` | `true` after the first submit attempt |
-| `isSubmitSuccessful` | `boolean` | `true` if the most recent submit completed without throwing |
-| `submitCount` | `number` | Total submit attempts |
-| `isDirty` | `boolean` | `true` if any field differs from `defaultValues` |
-| `isValid` | `boolean` | `true` when no errors are present |
-| `dirtyFields` | `Partial<Record<keyof T, true>>` | Fields that differ from `defaultValues` |
-| `touchedFields` | `Partial<Record<keyof T, true>>` | Fields the user has blurred |
-| `defaultValues` | `Readonly<T>` | The defaults passed at hook initialization |
+| Field                | Type                                          | Description                                                 |
+| -------------------- | --------------------------------------------- | ----------------------------------------------------------- |
+| `errors`             | `Partial<Record<keyof T, ValfuseFieldError>>` | Current field errors (validation + server + manual)         |
+| `isSubmitting`       | `boolean`                                     | `true` while the async submit handler is running            |
+| `isSubmitted`        | `boolean`                                     | `true` after the first submit attempt                       |
+| `isSubmitSuccessful` | `boolean`                                     | `true` if the most recent submit completed without throwing |
+| `submitCount`        | `number`                                      | Total submit attempts                                       |
+| `isDirty`            | `boolean`                                     | `true` if any field differs from `defaultValues`            |
+| `isValid`            | `boolean`                                     | `true` when no errors are present                           |
+| `dirtyFields`        | `Partial<Record<keyof T, true>>`              | Fields that differ from `defaultValues`                     |
+| `touchedFields`      | `Partial<Record<keyof T, true>>`              | Fields the user has blurred                                 |
+| `defaultValues`      | `Readonly<T>`                                 | The defaults passed at hook initialization                  |
 
 ### `form.handleSubmit(onValid)`
 
@@ -153,9 +167,9 @@ Validates first; calls `onValid(values)` only when validation passes. Sets `isSu
 
 ```tsx
 form.setErrors({ email: { message: "Account exists", code: "auth.duplicate" } });
-form.clearErrors();                       // clear all
-form.clearErrors("email");                // clear one
-form.clearErrors(["email", "password"]);  // clear many
+form.clearErrors(); // clear all
+form.clearErrors("email"); // clear one
+form.clearErrors(["email", "password"]); // clear many
 ```
 
 ### `form.setValue(name, value, options?)`
@@ -174,20 +188,21 @@ By default, setting a value **does not** trigger validation. Pass `{ shouldValid
 Manually trigger validation:
 
 ```tsx
-form.trigger();             // all fields
-form.trigger("email");      // one field
-form.trigger(["email", "password"]);  // many
+form.trigger(); // all fields
+form.trigger("email"); // one field
+form.trigger(["email", "password"]); // many
 // returns boolean — true if all triggered fields are valid
 ```
 
 ### `form.watch(...)` — multi-overload
 
 ```tsx
-const all     = form.watch();                          // TFieldValues snapshot
-const email   = form.watch("email");                   // TFieldValues["email"]
-const pair    = form.watch(["email", "name"]);         // Array of values
+const all = form.watch(); // TFieldValues snapshot
+const email = form.watch("email"); // TFieldValues["email"]
+const pair = form.watch(["email", "name"]); // Array of values
 
-const unsub = form.watch((values, info) => {           // subscribe
+const unsub = form.watch((values, info) => {
+  // subscribe
   console.log("changed:", info?.name, values);
 });
 
@@ -198,8 +213,8 @@ unsub();
 ### `form.reset(values?)`
 
 ```tsx
-form.reset();                  // back to defaultValues
-form.reset({ email: "" });     // partial override
+form.reset(); // back to defaultValues
+form.reset({ email: "" }); // partial override
 ```
 
 Resets values, errors, touched, dirty, and submission state.
@@ -240,7 +255,7 @@ interface ValfuseControllerRenderProps<T, TName extends keyof T & string> {
   field: {
     name: string;
     value: T[TName];
-    onChange: (value: T[TName]) => void;   // receives raw value, not a DOM event
+    onChange: (value: T[TName]) => void; // receives raw value, not a DOM event
     onBlur: () => void;
   };
   fieldState: {
@@ -268,14 +283,14 @@ import localization from "./assets/localizations/localization.manifest.json";
   initialLocale="en"
 >
   <App />
-</LocalizationProvider>
+</LocalizationProvider>;
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `manifest` | `RuntimeManifest` | The generated manifest JSON |
-| `initialLocale` | `string` | Locale to use when no value is stored. Must be in `manifest.locales` |
-| `storage` | `LocaleStorage` | Pluggable persistence (defaults to no persistence — in-memory only) |
+| Prop            | Type              | Description                                                          |
+| --------------- | ----------------- | -------------------------------------------------------------------- |
+| `manifest`      | `RuntimeManifest` | The generated manifest JSON                                          |
+| `initialLocale` | `string`          | Locale to use when no value is stored. Must be in `manifest.locales` |
+| `storage`       | `LocaleStorage`   | Pluggable persistence (defaults to no persistence — in-memory only)  |
 
 The provider resolves the initial locale in this order: **storage value** → `initialLocale` → `manifest.base_locale`.
 
@@ -286,73 +301,79 @@ import { useLocalization } from "@valfuse-node/react";
 
 const {
   // Translation methods
-  translate, translateOrNull,
-  format, formatOrNull,
-  plural, pluralOrNull,
-  gender, context,
+  translate,
+  translateOrNull,
+  format,
+  formatOrNull,
+  plural,
+  pluralOrNull,
+  gender,
+  context,
   namespace,
 
   // Iteration
   entriesForLocale,
 
   // Provider context
-  locale, setLocale,
-  store, manifest,
+  locale,
+  setLocale,
+  store,
+  manifest,
 } = useLocalization();
 ```
 
 #### `translate(key, fallback?)`
 
 ```tsx
-translate("common.welcome");                              // → "Hello!"
-translate("common.missing", "Default greeting");          // → "Default greeting"
-translate("common.missing", null);                        // → key (returns key when missing & no fallback)
+translate("common.welcome"); // → "Hello!"
+translate("common.missing", "Default greeting"); // → "Default greeting"
+translate("common.missing", null); // → key (returns key when missing & no fallback)
 ```
 
 #### `translateOrNull(key)` — null-safe variant
 
 ```tsx
-translateOrNull("common.welcome");            // → "Hello!"
-translateOrNull("common.missing");            // → null
-translateOrNull(null);                        // → null
-translateOrNull(undefined);                   // → null
+translateOrNull("common.welcome"); // → "Hello!"
+translateOrNull("common.missing"); // → null
+translateOrNull(null); // → null
+translateOrNull(undefined); // → null
 ```
 
 #### `format(key, params)` / `formatOrNull(key, params)`
 
 ```tsx
-format("common.welcome", { name: "Alfin" });            // → "Hello, Alfin!"
-formatOrNull("common.welcome", { name: "Alfin" });     // → "Hello, Alfin!" or null
+format("common.welcome", { name: "Alfin" }); // → "Hello, Alfin!"
+formatOrNull("common.welcome", { name: "Alfin" }); // → "Hello, Alfin!" or null
 ```
 
 #### `plural(key, count)` / `pluralOrNull(key, count)`
 
 ```tsx
-plural("common.items.count", 0);   // → "No items"
-plural("common.items.count", 1);   // → "1 item"
-plural("common.items.count", 5);   // → "5 items"
+plural("common.items.count", 0); // → "No items"
+plural("common.items.count", 1); // → "1 item"
+plural("common.items.count", 5); // → "5 items"
 ```
 
 #### `gender(key, value, params)`
 
 ```tsx
-gender("common.profile.followers", "male",   { count: 3 }); // → "3 male followers"
+gender("common.profile.followers", "male", { count: 3 }); // → "3 male followers"
 gender("common.profile.followers", "female", { count: 3 }); // → "3 female followers"
-gender("common.profile.followers", "other",  { count: 3 }); // → "3 followers"
+gender("common.profile.followers", "other", { count: 3 }); // → "3 followers"
 ```
 
 #### `context(key, value, params?)`
 
 ```tsx
-context("common.word.open", "verb");                 // → "Open the file"
-context("common.word.open", "adjective", {});        // → "The file is open"
+context("common.word.open", "verb"); // → "Open the file"
+context("common.word.open", "adjective", {}); // → "The file is open"
 ```
 
 #### `namespace(scope)` — scoped sub-localizer
 
 ```tsx
 const t = useLocalization().namespace("common.errors");
-t.translate("required");    // looks up "common.errors.required"
+t.translate("required"); // looks up "common.errors.required"
 t.format("min_length", { min: 8 });
 t.plural("items.count", 5);
 ```
@@ -371,8 +392,8 @@ const entries = useLocalization().entriesForLocale;
 
 ```tsx
 const { locale, setLocale } = useLocalization();
-setLocale("id");         // switch to Indonesian
-console.log(locale);     // → "id"
+setLocale("id"); // switch to Indonesian
+console.log(locale); // → "id"
 ```
 
 `setLocale` also writes the new value to the configured `storage` (if any).
@@ -411,22 +432,24 @@ Use it when you want a deeply-nested "namespace" shape (e.g. for I18n-style cons
 
 ### Storage strategies
 
-| Strategy | Persistence | SSR-safe | Options |
-|---|---|---|---|
-| `localStorageStrategy()` | `window.localStorage` | partial | `{ key }` (default `"locale"`) |
-| `sessionStorageStrategy()` | `window.sessionStorage` | partial | `{ key }` |
-| `cookieStrategy({ … })` | HTTP cookie | yes | `{ key, domain, path, maxAge, secure, sameSite }` |
-| `memoryStrategy()` | in-process memory | yes | `{ initialLocale }` |
-| `composeStorage(a, b, …)` | union of multiple | mixed | — |
+| Strategy                   | Persistence             | SSR-safe | Options                                           |
+| -------------------------- | ----------------------- | -------- | ------------------------------------------------- |
+| `localStorageStrategy()`   | `window.localStorage`   | partial  | `{ key }` (default `"locale"`)                    |
+| `sessionStorageStrategy()` | `window.sessionStorage` | partial  | `{ key }`                                         |
+| `cookieStrategy({ … })`    | HTTP cookie             | yes      | `{ key, domain, path, maxAge, secure, sameSite }` |
+| `memoryStrategy()`         | in-process memory       | yes      | `{ initialLocale }`                               |
+| `composeStorage(a, b, …)`  | union of multiple       | mixed    | —                                                 |
 
 ```tsx
 // Persist in BOTH a cookie (for SSR) and localStorage (for the client)
 const storage = composeStorage(
   cookieStrategy({ domain: ".example.com" }),
-  localStorageStrategy({ key: "locale" }),
+  localStorageStrategy({ key: "locale" })
 );
 
-<LocalizationProvider manifest={manifest} storage={storage}>…</LocalizationProvider>
+<LocalizationProvider manifest={manifest} storage={storage}>
+  …
+</LocalizationProvider>;
 ```
 
 ### `createLocalizationStore`
@@ -437,9 +460,9 @@ Build a standalone, mutable store (useful outside React):
 import { createLocalizationStore } from "@valfuse-node/react";
 
 const store = createLocalizationStore(manifest, "id");
-store.t("common.welcome", { name: "Alfin" });   // → "Halo, Alfin!"
+store.t("common.welcome", { name: "Alfin" }); // → "Halo, Alfin!"
 store.setLocale("en");
-store.getLocale();                              // → "en"
+store.getLocale(); // → "en"
 ```
 
 ### `createLazyLocaleLoader`
@@ -448,7 +471,7 @@ store.getLocale();                              // → "en"
 import { createLazyLocaleLoader } from "@valfuse-node/react";
 
 const loadLocale = createLazyLocaleLoader(manifest);
-const enMessages = await loadLocale("en");   // → Record<string, string>
+const enMessages = await loadLocale("en"); // → Record<string, string>
 ```
 
 Useful for code-splitting per-locale payloads.
@@ -511,9 +534,15 @@ The schema is shared with `@valfuse-node/form`. Define it once, reuse everywhere
 import { createSchema } from "@valfuse-node/form";
 
 export const userSchema = createSchema({
-  name:  { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
-  email: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
-  age:   { type: "number", rules: [{ name: "min", value: 18, error: { message: "18+" } }] },
+  name: { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  age: { type: "number", rules: [{ name: "min", value: 18, error: { message: "18+" } }] },
 });
 
 export type UserValues = {
@@ -566,8 +595,12 @@ export function UserForm() {
         )}
       />
 
-      <button type="submit" disabled={form.formState.isSubmitting}>Save</button>
-      <button type="button" onClick={() => form.reset()}>Reset</button>
+      <button type="submit" disabled={form.formState.isSubmitting}>
+        Save
+      </button>
+      <button type="button" onClick={() => form.reset()}>
+        Reset
+      </button>
       <pre>{JSON.stringify(form.watch(), null, 2)}</pre>
     </form>
   );

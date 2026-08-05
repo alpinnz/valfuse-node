@@ -14,15 +14,9 @@
  * errors" behaviour when `shouldValidate` isn't requested.
  */
 import { useCallback, type FormEvent } from "react";
-import {
-  validateSchema,
-  normalizeError,
-  transformValues,
-} from "@valfuse-node/form";
+import { validateSchema, normalizeError, transformValues } from "@valfuse-node/form";
 import type { ValfuseFieldErrors } from "@valfuse-node/form";
-import type {
-  ValfuseFormErrors,
-} from "../../types/index";
+import type { ValfuseFormErrors } from "../../types/index";
 import { buildFieldError, mapToFieldErrors } from "../../helpers/index";
 import type { FormCore } from "./form-core";
 
@@ -43,10 +37,7 @@ export function useFormActions<TFieldValues extends Record<string, unknown>>(
           schema,
           currentValues as Record<string, unknown>
         ) as TFieldValues;
-        const schemaErrors = validateSchema(
-          schema,
-          transformedValues as Record<string, unknown>
-        );
+        const schemaErrors = validateSchema(schema, transformedValues as Record<string, unknown>);
 
         core.setSubmitCount((c) => c + 1);
         core.setIsSubmitted(true);
@@ -85,9 +76,7 @@ export function useFormActions<TFieldValues extends Record<string, unknown>>(
 
   // ── setErrors (external — e.g. API responses) ────────────────────────────
   const setErrors = useCallback(
-    (
-      fieldErrors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>
-    ) => {
+    (fieldErrors: ValfuseFieldErrors<Extract<keyof TFieldValues, string>>) => {
       core.setErrorsState((prev: ValfuseFormErrors<TFieldValues>) => {
         const next = { ...prev };
         let changed = false;
@@ -102,7 +91,8 @@ export function useFormActions<TFieldValues extends Record<string, unknown>>(
             prevFieldError.message === normalized.message &&
             prevFieldError.type === (normalized.type ?? "manual") &&
             prevFieldError.code === normalized.code
-          ) continue;
+          )
+            continue;
           next[fieldName as keyof TFieldValues] = {
             message: normalized.message,
             type: normalized.type ?? "manual",
@@ -143,11 +133,7 @@ export function useFormActions<TFieldValues extends Record<string, unknown>>(
 
   // ── trigger ──────────────────────────────────────────────────────────────
   const trigger = useCallback(
-    (
-      name?:
-        | (keyof TFieldValues & string)
-        | Array<keyof TFieldValues & string>
-    ): boolean => {
+    (name?: (keyof TFieldValues & string) | Array<keyof TFieldValues & string>): boolean => {
       const { schema, refs } = core;
       const current = refs.valuesRef.current as Record<string, unknown>;
       // Apply all transforms so every rule operates on clean values — consistent
@@ -158,8 +144,8 @@ export function useFormActions<TFieldValues extends Record<string, unknown>>(
         name === undefined
           ? Object.keys(schema)
           : Array.isArray(name)
-          ? (name as string[])
-          : [name as string];
+            ? (name as string[])
+            : [name as string];
 
       let allValid = true;
       let changed = false;
@@ -220,10 +206,7 @@ export function useFormActions<TFieldValues extends Record<string, unknown>>(
       if (options?.shouldValidate) {
         const field = name as string;
         if (!schema[field]) return;
-        const raw = validateSchema(
-          { [field]: schema[field] },
-          updated as Record<string, unknown>
-        );
+        const raw = validateSchema({ [field]: schema[field] }, updated as Record<string, unknown>);
         const error = buildFieldError(raw, field);
         core.setErrorsState((prev: ValfuseFormErrors<TFieldValues>) => {
           if (!error && !(field in prev)) return prev;
@@ -234,7 +217,8 @@ export function useFormActions<TFieldValues extends Record<string, unknown>>(
             error.message === prevError.message &&
             error.type === prevError.type &&
             error.code === prevError.code
-          ) return prev;
+          )
+            return prev;
           const next = { ...prev };
           if (error) {
             next[name as keyof TFieldValues] = error;

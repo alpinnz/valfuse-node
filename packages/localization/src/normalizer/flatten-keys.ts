@@ -10,9 +10,7 @@ function toLeaf(node: string | LocalizedLeaf): LocalizedLeaf {
   return typeof node === "string" ? { value: node } : node;
 }
 
-export function flattenKeys(
-  root: Record<string, LocalizationAstNode>
-): FlattenedLeaf[] {
+export function flattenKeys(root: Record<string, LocalizationAstNode>): FlattenedLeaf[] {
   const output: FlattenedLeaf[] = [];
 
   function visit(prefix: string, node: LocalizationAstNode): void {
@@ -39,4 +37,3 @@ export function flattenKeys(
 
   return output.sort((a, b) => a.key.localeCompare(b.key));
 }
-

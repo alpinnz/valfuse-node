@@ -17,4 +17,3 @@ export interface RuntimeManifest {
    */
   messages: Record<string, Record<string, string>>;
 }
-

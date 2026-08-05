@@ -4,12 +4,12 @@ import { parseStructuredNode } from "../../parser/parse-structured-node";
 describe("parseStructuredNode", () => {
   describe("@plural", () => {
     it("parses a plural node with simple variants", () => {
-      expect(
-        parseStructuredNode({ "@plural": { one: "1 item", other: "{count} items" } })
-      ).toEqual({
-        type: "plural",
-        variants: { one: "1 item", other: "{count} items" },
-      });
+      expect(parseStructuredNode({ "@plural": { one: "1 item", other: "{count} items" } })).toEqual(
+        {
+          type: "plural",
+          variants: { one: "1 item", other: "{count} items" },
+        }
+      );
     });
 
     it("includes the zero variant in plural", () => {
@@ -105,21 +105,21 @@ describe("parseStructuredNode", () => {
     });
 
     it("throws when a variant value is not a string", () => {
-      expect(() =>
-        parseStructuredNode({ "@plural": { one: 42, other: "{count}" } })
-      ).toThrow(/Structured variant "one" must be a string/);
+      expect(() => parseStructuredNode({ "@plural": { one: 42, other: "{count}" } })).toThrow(
+        /Structured variant "one" must be a string/
+      );
     });
 
     it("throws when a gender variant value is null", () => {
-      expect(() =>
-        parseStructuredNode({ "@gender": { male: null, other: "They" } })
-      ).toThrow(/Structured variant "male" must be a string/);
+      expect(() => parseStructuredNode({ "@gender": { male: null, other: "They" } })).toThrow(
+        /Structured variant "male" must be a string/
+      );
     });
 
     it("throws when a context variant value is a boolean", () => {
-      expect(() =>
-        parseStructuredNode({ "@context": { formal: true } })
-      ).toThrow(/Structured variant "formal" must be a string/);
+      expect(() => parseStructuredNode({ "@context": { formal: true } })).toThrow(
+        /Structured variant "formal" must be a string/
+      );
     });
   });
 });

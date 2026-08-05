@@ -144,14 +144,12 @@ describe("string rule: email", () => {
     expect(validateStringRule(email, rule)).toEqual(ERR);
   });
 
-  it.each([
-    "user@example.com",
-    "user.name+tag@sub.domain.org",
-    "admin@valfuse.io",
-    "a@b.co",
-  ])("passes for valid email: %s", (email) => {
-    expect(validateStringRule(email, rule)).toBeNull();
-  });
+  it.each(["user@example.com", "user.name+tag@sub.domain.org", "admin@valfuse.io", "a@b.co"])(
+    "passes for valid email: %s",
+    (email) => {
+      expect(validateStringRule(email, rule)).toBeNull();
+    }
+  );
 });
 
 // ─── url ─────────────────────────────────────────────────────────────────────
@@ -188,9 +186,9 @@ describe("string rule: uuid", () => {
   it.each([
     "not-a-uuid",
     "12345678-1234-1234-1234-1234567890ZZ", // invalid hex
-    "12345678123412341234123456789012",       // no dashes
+    "12345678123412341234123456789012", // no dashes
     "",
-    "00000000-0000-0000-0000-00000000000",   // too short
+    "00000000-0000-0000-0000-00000000000", // too short
   ])("fails for invalid UUID: %s", (uuid) => {
     expect(validateStringRule(uuid, rule)).toEqual(ERR);
   });
@@ -304,7 +302,10 @@ describe("string rule: endsWith", () => {
 describe("string rules integration via validateSchema", () => {
   it("validates length rule correctly", () => {
     const schema = createSchema({
-      pin: { type: "string", rules: [{ name: "length", value: 4, error: { message: "PIN must be 4 digits" } }] },
+      pin: {
+        type: "string",
+        rules: [{ name: "length", value: 4, error: { message: "PIN must be 4 digits" } }],
+      },
     });
     expect(validateSchema(schema, { pin: "123" }).pin?.message).toBe("PIN must be 4 digits");
     expect(validateSchema(schema, { pin: "12345" }).pin?.message).toBe("PIN must be 4 digits");
@@ -324,31 +325,49 @@ describe("string rules integration via validateSchema", () => {
       id: { type: "string", rules: [{ name: "uuid", error: { message: "Invalid UUID" } }] },
     });
     expect(validateSchema(schema, { id: "bad-uuid" }).id?.message).toBe("Invalid UUID");
-    expect(validateSchema(schema, { id: "550e8400-e29b-41d4-a716-446655440000" }).id).toBeUndefined();
+    expect(
+      validateSchema(schema, { id: "550e8400-e29b-41d4-a716-446655440000" }).id
+    ).toBeUndefined();
   });
 
   it("validates includes rule correctly", () => {
     const schema = createSchema({
-      bio: { type: "string", rules: [{ name: "includes", value: "valfuse", error: { message: "Must mention valfuse" } }] },
+      bio: {
+        type: "string",
+        rules: [{ name: "includes", value: "valfuse", error: { message: "Must mention valfuse" } }],
+      },
     });
-    expect(validateSchema(schema, { bio: "I love forms" }).bio?.message).toBe("Must mention valfuse");
+    expect(validateSchema(schema, { bio: "I love forms" }).bio?.message).toBe(
+      "Must mention valfuse"
+    );
     expect(validateSchema(schema, { bio: "I love valfuse" }).bio).toBeUndefined();
   });
 
   it("validates startsWith rule correctly", () => {
     const schema = createSchema({
-      link: { type: "string", rules: [{ name: "startsWith", value: "https://", error: { message: "Must be HTTPS" } }] },
+      link: {
+        type: "string",
+        rules: [{ name: "startsWith", value: "https://", error: { message: "Must be HTTPS" } }],
+      },
     });
-    expect(validateSchema(schema, { link: "http://example.com" }).link?.message).toBe("Must be HTTPS");
+    expect(validateSchema(schema, { link: "http://example.com" }).link?.message).toBe(
+      "Must be HTTPS"
+    );
     expect(validateSchema(schema, { link: "https://example.com" }).link).toBeUndefined();
   });
 
   it("validates endsWith rule correctly", () => {
     const schema = createSchema({
-      email: { type: "string", rules: [{ name: "endsWith", value: "@company.com", error: { message: "Must be company email" } }] },
+      email: {
+        type: "string",
+        rules: [
+          { name: "endsWith", value: "@company.com", error: { message: "Must be company email" } },
+        ],
+      },
     });
-    expect(validateSchema(schema, { email: "user@gmail.com" }).email?.message).toBe("Must be company email");
+    expect(validateSchema(schema, { email: "user@gmail.com" }).email?.message).toBe(
+      "Must be company email"
+    );
     expect(validateSchema(schema, { email: "user@company.com" }).email).toBeUndefined();
   });
 });
-

@@ -9,7 +9,12 @@ export default defineConfig({
       provider: "v8",
       include: ["src/**/*.ts", "src/**/*.tsx"],
       exclude: ["src/__tests__/**"],
+      thresholds: {
+        lines: 55,
+        functions: 40,
+        branches: 40,
+        statements: 55,
+      },
     },
   },
 });
-

@@ -4,7 +4,16 @@
   "description": "Vue adapter for valfuse-node — useValfuseForm composable",
   "license": "MIT",
   "sideEffects": false,
-  "keywords": ["validation", "schema", "form", "vue", "vue3", "composable", "typescript", "valfuse"],
+  "keywords": [
+    "validation",
+    "schema",
+    "form",
+    "vue",
+    "vue3",
+    "composable",
+    "typescript",
+    "valfuse"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -15,7 +24,11 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean --external vue --external @valfuse-node/form",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external vue --external @valfuse-node/form",
@@ -30,13 +43,14 @@
   "peerDependencies": {
     "vue": ">=3"
   },
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
-    "@vitejs/plugin-vue": "latest",
-    "@vitest/coverage-v8": "latest",
-    "@vue/test-utils": "latest",
-    "vitest": "latest",
+    "@vitejs/plugin-vue": "6.0.7",
+    "@vitest/coverage-v8": "4.1.6",
+    "@vue/test-utils": "2.4.10",
+    "vitest": "4.1.6",
     "vue": "^3"
   }
 }
-

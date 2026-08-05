@@ -69,9 +69,7 @@ describe("parseInlineMetadata", () => {
 
   describe("custom metadata keys", () => {
     it("captures unknown @-prefixed keys under 'custom' (without the @ prefix)", () => {
-      expect(
-        parseInlineMetadata({ "@internal": "x", "@audience": "admin" })
-      ).toEqual({
+      expect(parseInlineMetadata({ "@internal": "x", "@audience": "admin" })).toEqual({
         custom: { internal: "x", audience: "admin" },
       });
     });

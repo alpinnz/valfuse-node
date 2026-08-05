@@ -89,9 +89,7 @@ describe("validatePlaceholderParity", () => {
       {
         module: "common",
         locale: "id",
-        messages: [
-          makeMessage({ key: "static", sourceKey: "static", locale: "id" }),
-        ],
+        messages: [makeMessage({ key: "static", sourceKey: "static", locale: "id" })],
       },
     ]);
     expect(validatePlaceholderParity(project)).toEqual([]);

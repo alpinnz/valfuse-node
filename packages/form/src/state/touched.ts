@@ -3,7 +3,7 @@
 // ============================================================================
 // Pure functions for managing touched fields state.
 
-import type { ValfuseTouchedFields } from '../types';
+import type { ValfuseTouchedFields } from "../types";
 
 // ============================================================================
 // State Types
@@ -30,10 +30,7 @@ export function createTouchedState(): FormTouchedState {
 // ============================================================================
 
 /** Mark a field as touched */
-export function markTouched(
-  state: FormTouchedState,
-  name: string
-): FormTouchedState {
+export function markTouched(state: FormTouchedState, name: string): FormTouchedState {
   if (state.touchedFields.has(name)) {
     return state; // already touched, no change
   }
@@ -43,10 +40,7 @@ export function markTouched(
 }
 
 /** Mark a field as untouched */
-export function markUntouched(
-  state: FormTouchedState,
-  name: string
-): FormTouchedState {
+export function markUntouched(state: FormTouchedState, name: string): FormTouchedState {
   if (!state.touchedFields.has(name)) {
     return state; // already untouched, no change
   }
@@ -70,7 +64,9 @@ export function isTouched(state: FormTouchedState, name: string): boolean {
 }
 
 /** Convert touched Set to Record for public API */
-export function toTouchedFieldsRecord(state: FormTouchedState): ValfuseTouchedFields<Record<string, unknown>> {
+export function toTouchedFieldsRecord(
+  state: FormTouchedState
+): ValfuseTouchedFields<Record<string, unknown>> {
   const record: Partial<Record<string, boolean>> = {};
   for (const field of state.touchedFields) {
     record[field] = true;

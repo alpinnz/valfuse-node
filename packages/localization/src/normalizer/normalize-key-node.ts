@@ -19,4 +19,3 @@ export function normalizeKeyNode(
     placeholders: extractPlaceholders(value),
   };
 }
-

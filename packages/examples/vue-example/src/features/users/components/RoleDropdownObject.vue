@@ -14,8 +14,8 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div style="margin-bottom: 1rem;">
-    <label style="display: block; margin-bottom: 0.25rem;">Role</label>
+  <div style="margin-bottom: 1rem">
+    <label style="display: block; margin-bottom: 0.25rem">Role</label>
 
     <div
       :style="{
@@ -27,13 +27,13 @@ const emit = defineEmits<{
       <!-- trigger blur proxy -->
       <button
         type="button"
-        style="background: none; border: none; cursor: pointer; padding: 0;"
+        style="background: none; border: none; cursor: pointer; padding: 0"
         @blur="emit('blur')"
       >
         {{ props.modelValue ? props.modelValue.name : "Pilih role" }}
       </button>
 
-      <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem;">
+      <div style="margin-top: 0.5rem; display: flex; gap: 0.5rem">
         <button
           v-for="role in props.options"
           :key="role.id"
@@ -54,20 +54,22 @@ const emit = defineEmits<{
       <button
         v-if="props.modelValue"
         type="button"
-        style="margin-top: 0.5rem; font-size: 0.75rem; color: red; background: none; border: none; cursor: pointer;"
+        style="
+          margin-top: 0.5rem;
+          font-size: 0.75rem;
+          color: red;
+          background: none;
+          border: none;
+          cursor: pointer;
+        "
         @click="emit('update:modelValue', null)"
       >
         Hapus pilihan
       </button>
     </div>
 
-    <p
-      v-if="props.error"
-      role="alert"
-      style="color: red; margin: 0.25rem 0 0; font-size: 0.875rem;"
-    >
+    <p v-if="props.error" role="alert" style="color: red; margin: 0.25rem 0 0; font-size: 0.875rem">
       {{ props.error }}
     </p>
   </div>
 </template>
-

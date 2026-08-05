@@ -60,4 +60,3 @@ export function pickStructuredPluralVariant(
   if (!variants) return raw;
   return interpolate(pickPluralVariant(variants, count), { count, ...params });
 }
-

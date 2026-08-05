@@ -18,17 +18,14 @@ defineEmits<{
 </script>
 
 <template>
-  <div style="margin-bottom: 1rem;">
-    <label
-      :for="id"
-      style="display: block; margin-bottom: 0.25rem;"
-    >{{ label }}</label>
+  <div style="margin-bottom: 1rem">
+    <label :for="id" style="display: block; margin-bottom: 0.25rem">{{ label }}</label>
 
     <input
       :id="id"
       :name="name"
       :type="type ?? 'text'"
-      :value="(modelValue as string)"
+      :value="modelValue as string"
       :placeholder="placeholder"
       :style="{
         border: error ? '1px solid red' : '1px solid #ccc',
@@ -42,13 +39,8 @@ defineEmits<{
       @blur="$emit('blur')"
     />
 
-    <p
-      v-if="error"
-      role="alert"
-      style="color: red; margin: 0.25rem 0 0; font-size: 0.875rem;"
-    >
+    <p v-if="error" role="alert" style="color: red; margin: 0.25rem 0 0; font-size: 0.875rem">
       {{ error }}
     </p>
   </div>
 </template>
-

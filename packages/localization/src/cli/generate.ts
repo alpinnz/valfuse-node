@@ -7,9 +7,7 @@ import { ensureOutputDirs } from "../emitter/ensure-output-dirs";
 import { createWatchService } from "../watch/create-watch-service";
 import { renderTerminalReport } from "../diagnostics/render-terminal-report";
 
-export async function runGenerate(
-  options: { cwd?: string; watch?: boolean } = {}
-): Promise<void> {
+export async function runGenerate(options: { cwd?: string; watch?: boolean } = {}): Promise<void> {
   const cwd = absolutePath(options.cwd ?? process.cwd());
   const config = await loadConfig(cwd);
 
@@ -23,10 +21,7 @@ export async function runGenerate(
       // eslint-disable-next-line no-console
       console.error(renderTerminalReport(compiled.diagnostics));
     }
-    if (
-      compiled.diagnostics.some((d) => d.severity === "error") &&
-      config.strict
-    ) {
+    if (compiled.diagnostics.some((d) => d.severity === "error") && config.strict) {
       throw new Error("Localization generation failed with diagnostics.");
     }
   };
@@ -37,10 +32,11 @@ export async function runGenerate(
     const stopWatching = createWatchService(cwd, config, generateOnce);
     // Graceful shutdown on SIGINT (Ctrl+C).
     process.once("SIGINT", () => {
-      stopWatching().then(() => process.exit(0)).catch(() => process.exit(1));
+      stopWatching()
+        .then(() => process.exit(0))
+        .catch(() => process.exit(1));
     });
     // Keep process alive for watch mode.
     await new Promise<never>(() => undefined);
   }
 }
-

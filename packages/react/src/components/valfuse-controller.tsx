@@ -30,9 +30,7 @@ export type ValfuseControllerProps<
 > = {
   control: ValfuseFormControl<TFieldValues>;
   name: TName;
-  render: (
-    props: ValfuseControllerRenderProps<TFieldValues, TName>
-  ) => React.ReactElement;
+  render: (props: ValfuseControllerRenderProps<TFieldValues, TName>) => React.ReactElement;
 };
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -61,11 +59,7 @@ export type ValfuseControllerProps<
 export function ValfuseController<
   TFieldValues extends Record<string, unknown>,
   TName extends keyof TFieldValues & string = keyof TFieldValues & string,
->({
-  control,
-  name,
-  render,
-}: ValfuseControllerProps<TFieldValues, TName>): React.ReactElement {
+>({ control, name, render }: ValfuseControllerProps<TFieldValues, TName>): React.ReactElement {
   // Stable callbacks — only recreate when control._updateField / _touchField
   // change (i.e. when the schema changes), NOT on every value/error update.
   // This ensures React.memo'd child inputs don't rerender from new function refs.
@@ -74,10 +68,7 @@ export function ValfuseController<
     [control._updateField, name]
   );
 
-  const onBlur = useCallback(
-    () => control._touchField(name),
-    [control._touchField, name]
-  );
+  const onBlur = useCallback(() => control._touchField(name), [control._touchField, name]);
 
   // Extract only THIS field's reactive data so that when an unrelated field
   // changes (different name), these local vars stay the same reference and the

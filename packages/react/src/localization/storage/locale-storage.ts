@@ -56,9 +56,7 @@ export interface CookieStrategyOptions {
  * @example
  * <LocalizationProvider storage={localStorageStrategy()} … />
  */
-export function localStorageStrategy(
-  options: LocalStorageStrategyOptions = {}
-): LocaleStorage {
+export function localStorageStrategy(options: LocalStorageStrategyOptions = {}): LocaleStorage {
   const key = options.key ?? "locale";
   return {
     get() {
@@ -91,9 +89,7 @@ export function localStorageStrategy(
  * @example
  * <LocalizationProvider storage={sessionStorageStrategy()} … />
  */
-export function sessionStorageStrategy(
-  options: SessionStorageStrategyOptions = {}
-): LocaleStorage {
+export function sessionStorageStrategy(options: SessionStorageStrategyOptions = {}): LocaleStorage {
   const key = options.key ?? "locale";
   return {
     get() {
@@ -130,13 +126,7 @@ export function sessionStorageStrategy(
  * <LocalizationProvider storage={cookieStrategy({ domain: ".example.com" })} … />
  */
 export function cookieStrategy(options: CookieStrategyOptions = {}): LocaleStorage {
-  const {
-    key = "locale",
-    domain,
-    path = "/",
-    maxAge = 31_536_000,
-    sameSite = "Lax",
-  } = options;
+  const { key = "locale", domain, path = "/", maxAge = 31_536_000, sameSite = "Lax" } = options;
 
   function buildCookie(value: string, age: number): string {
     const isSecure =
@@ -157,9 +147,7 @@ export function cookieStrategy(options: CookieStrategyOptions = {}): LocaleStora
     get() {
       if (typeof document === "undefined") return undefined;
       const encodedKey = encodeURIComponent(key);
-      const match = document.cookie
-        .split("; ")
-        .find((c) => c.startsWith(`${encodedKey}=`));
+      const match = document.cookie.split("; ").find((c) => c.startsWith(`${encodedKey}=`));
       const rawValue = match?.split("=").slice(1).join("=");
       return rawValue !== undefined ? decodeURIComponent(rawValue) : undefined;
     },
@@ -181,9 +169,7 @@ export function cookieStrategy(options: CookieStrategyOptions = {}): LocaleStora
  * @example
  * <LocalizationProvider storage={memoryStrategy()} … />
  */
-export function memoryStrategy(
-  options: { initialLocale?: string } = {}
-): LocaleStorage {
+export function memoryStrategy(options: { initialLocale?: string } = {}): LocaleStorage {
   let stored: string | undefined = options.initialLocale;
   return {
     get: () => stored,
@@ -223,4 +209,3 @@ export function composeStorage(...storages: LocaleStorage[]): LocaleStorage {
     },
   };
 }
-

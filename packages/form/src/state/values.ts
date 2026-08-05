@@ -4,7 +4,7 @@
 // Pure functions for managing form values state.
 // These are framework-agnostic and can be used by React, Vue, or any adapter.
 
-import type { ValfuseDirtyFields } from '../types';
+import type { ValfuseDirtyFields } from "../types";
 
 // ============================================================================
 // State Types

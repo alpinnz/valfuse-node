@@ -3,11 +3,7 @@ import { useVueValfuseForm } from "@valfuse-node/core";
 import TextInput from "./components/TextInput.vue";
 import RoleDropdownId from "./components/RoleDropdownId.vue";
 import { userIdSchema } from "./schemas/user-id.schema";
-import {
-  createUserApi,
-  mapApiValidationErrors,
-  type ApiValidationErrorResponse,
-} from "./user.api";
+import { createUserApi, mapApiValidationErrors, type ApiValidationErrorResponse } from "./user.api";
 import type { Role } from "./types/user-form.types";
 
 const ROLE_OPTIONS: Role[] = [
@@ -37,7 +33,7 @@ const onSubmit = form.handleSubmit(async (values) => {
 </script>
 
 <template>
-  <form @submit="onSubmit" style="max-width: 400px;">
+  <form @submit="onSubmit" style="max-width: 400px">
     <TextInput
       id="id-name"
       label="Nama"
@@ -67,10 +63,9 @@ const onSubmit = form.handleSubmit(async (values) => {
     <button
       type="submit"
       :disabled="form.formState.isSubmitting"
-      style="padding: 0.5rem 1.5rem; cursor: pointer;"
+      style="padding: 0.5rem 1.5rem; cursor: pointer"
     >
       {{ form.formState.isSubmitting ? "Menyimpan..." : "Simpan" }}
     </button>
   </form>
 </template>
-

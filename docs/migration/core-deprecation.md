@@ -1,18 +1,18 @@
 ## 1. Informasi Umum
 
-| Field | Value |
-|-------|-------|
-| **Nama Dokumen** | Migration Guide: @valfuse-node/core Deprecation |
-| **Nama Project** | valfuse-node |
-| **Modul / Fitur** | packages/core deprecation |
-| **Dibuat oleh** | Alfin Noviaji |
-| **Dibuat pada** | 2026-06-01 |
-| **Diubah oleh** | - |
-| **Diubah pada** | - |
-| **Direview oleh** | - |
-| **Direview pada** | - |
-| **Versi** | v1 |
-| **Status** | draft |
+| Field             | Value                                           |
+| ----------------- | ----------------------------------------------- |
+| **Nama Dokumen**  | Migration Guide: @valfuse-node/core Deprecation |
+| **Nama Project**  | valfuse-node                                    |
+| **Modul / Fitur** | packages/core deprecation                       |
+| **Dibuat oleh**   | Alfin Noviaji                                   |
+| **Dibuat pada**   | 2026-06-01                                      |
+| **Diubah oleh**   | -                                               |
+| **Diubah pada**   | -                                               |
+| **Direview oleh** | -                                               |
+| **Direview pada** | -                                               |
+| **Versi**         | v1                                              |
+| **Status**        | draft                                           |
 
 ---
 
@@ -27,12 +27,14 @@ The package previously re-exported form domain logic from `@valfuse-node/form`. 
 ## 3. What Changed
 
 ### Before
+
 ```typescript
 // Using @valfuse-node/core (now deprecated)
 import { createSchema, validateSchema, transformValues } from "@valfuse-node/core";
 ```
 
 ### After
+
 ```typescript
 // Using @valfuse-node/form (correct)
 import { createSchema, validateSchema, transformValues } from "@valfuse-node/form";
@@ -45,6 +47,7 @@ import { createSchema, validateSchema, transformValues } from "@valfuse-node/for
 ### Step 1: Update package.json
 
 **Before:**
+
 ```json
 {
   "dependencies": {
@@ -54,6 +57,7 @@ import { createSchema, validateSchema, transformValues } from "@valfuse-node/for
 ```
 
 **After:**
+
 ```json
 {
   "dependencies": {
@@ -65,6 +69,7 @@ import { createSchema, validateSchema, transformValues } from "@valfuse-node/for
 ### Step 2: Update Imports
 
 Replace all occurrences:
+
 ```typescript
 // Change from:
 import { ... } from "@valfuse-node/core";
@@ -85,19 +90,20 @@ yarn test
 ## 5. Common Imports Mapping
 
 | Old Import (`@valfuse-node/core`) | New Import (`@valfuse-node/form`) |
-|----------------------------------|------------------------------------|
-| `createSchema` | `createSchema` |
-| `validateSchema` | `validateSchema` |
-| `transformValues` | `transformValues` |
-| `normalizeError` | `normalizeError` |
-| `t` (transformer) | `t` (transformer) |
-| All types | All types |
+| --------------------------------- | --------------------------------- |
+| `createSchema`                    | `createSchema`                    |
+| `validateSchema`                  | `validateSchema`                  |
+| `transformValues`                 | `transformValues`                 |
+| `normalizeError`                  | `normalizeError`                  |
+| `t` (transformer)                 | `t` (transformer)                 |
+| All types                         | All types                         |
 
 ---
 
 ## 6. Why This Change
 
 The previous architecture had `@valfuse-node/core` re-exporting form domain logic:
+
 ```
 react ──→ core ──→ form  (WRONG)
 ```
@@ -105,6 +111,7 @@ react ──→ core ──→ form  (WRONG)
 This violated Clean Architecture — the orchestration layer should not depend on domain logic.
 
 The corrected architecture:
+
 ```
 react ──→ form ──→ [schema, rules, validation]
 vue   ──→ form
@@ -123,6 +130,7 @@ vue   ──→ form
 ## 8. Help
 
 If you encounter issues during migration:
+
 1. Verify your imports are from `@valfuse-node/form`
 2. Check that `@valfuse-node/core` is removed from dependencies
 3. Run `yarn install` to update lockfile

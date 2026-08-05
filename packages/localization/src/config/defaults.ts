@@ -27,4 +27,3 @@ export const DEFAULT_CONFIG: LocalizationConfig = {
     coverage_format: "json",
   },
 };
-

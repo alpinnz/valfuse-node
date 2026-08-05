@@ -32,4 +32,3 @@ validation:
 reporting:
   output_dir: src/assets/localizations/reports
   coverage_format: json
-

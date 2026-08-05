@@ -9,4 +9,3 @@ export type {
   ValfuseFormState,
   ValfuseRegisterReturn,
 } from "./types/index";
-

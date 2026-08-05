@@ -57,7 +57,14 @@ export function RoleDropdownObject({
           <button
             type="button"
             onClick={() => onChange(null)}
-            style={{ marginTop: "0.5rem", fontSize: "0.75rem", color: "red", background: "none", border: "none", cursor: "pointer" }}
+            style={{
+              marginTop: "0.5rem",
+              fontSize: "0.75rem",
+              color: "red",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
           >
             Hapus pilihan
           </button>
@@ -72,4 +79,3 @@ export function RoleDropdownObject({
     </div>
   );
 }
-

@@ -80,7 +80,8 @@ describe("boolean rule: accepted", () => {
 
   it("passes for true", () => expect(validateBooleanRule(true, rule)).toBeNull());
   it("passes for truthy value like 1", () => expect(validateBooleanRule(1, rule)).toBeNull());
-  it("passes for non-empty string (truthy)", () => expect(validateBooleanRule("yes", rule)).toBeNull());
+  it("passes for non-empty string (truthy)", () =>
+    expect(validateBooleanRule("yes", rule)).toBeNull());
 });
 
 // ─── Integration via validateSchema ──────────────────────────────────────────
@@ -88,10 +89,15 @@ describe("boolean rule: accepted", () => {
 describe("boolean rules integration via validateSchema", () => {
   it("validates required boolean field (null)", () => {
     const schema = createSchema({
-      active: { type: "boolean", rules: [{ name: "required", error: { message: "Active is required" } }] },
+      active: {
+        type: "boolean",
+        rules: [{ name: "required", error: { message: "Active is required" } }],
+      },
     });
     expect(validateSchema(schema, { active: null }).active?.message).toBe("Active is required");
-    expect(validateSchema(schema, { active: undefined }).active?.message).toBe("Active is required");
+    expect(validateSchema(schema, { active: undefined }).active?.message).toBe(
+      "Active is required"
+    );
     expect(validateSchema(schema, { active: false }).active).toBeUndefined();
     expect(validateSchema(schema, { active: true }).active).toBeUndefined();
   });
@@ -103,13 +109,18 @@ describe("boolean rules integration via validateSchema", () => {
         rules: [{ name: "literal", value: true, error: { message: "You must accept the terms" } }],
       },
     });
-    expect(validateSchema(schema, { terms: false }).terms?.message).toBe("You must accept the terms");
+    expect(validateSchema(schema, { terms: false }).terms?.message).toBe(
+      "You must accept the terms"
+    );
     expect(validateSchema(schema, { terms: true }).terms).toBeUndefined();
   });
 
   it("validates accepted rule (checkbox must be checked)", () => {
     const schema = createSchema({
-      consent: { type: "boolean", rules: [{ name: "accepted", error: { message: "Consent is required" } }] },
+      consent: {
+        type: "boolean",
+        rules: [{ name: "accepted", error: { message: "Consent is required" } }],
+      },
     });
     expect(validateSchema(schema, { consent: false }).consent?.message).toBe("Consent is required");
     expect(validateSchema(schema, { consent: null }).consent?.message).toBe("Consent is required");
@@ -127,7 +138,9 @@ describe("boolean rules integration via validateSchema", () => {
       },
     });
     // null triggers required first
-    expect(validateSchema(schema, { gdpr: null }).gdpr?.message).toBe("GDPR consent field is required");
+    expect(validateSchema(schema, { gdpr: null }).gdpr?.message).toBe(
+      "GDPR consent field is required"
+    );
     // false: required passes (false is present), accepted fails
     expect(validateSchema(schema, { gdpr: false }).gdpr?.message).toBe("You must accept GDPR");
     // true: all pass
@@ -138,11 +151,14 @@ describe("boolean rules integration via validateSchema", () => {
     const schema = createSchema({
       marketing: {
         type: "boolean",
-        rules: [{ name: "literal", value: false, error: { message: "Marketing must be declined" } }],
+        rules: [
+          { name: "literal", value: false, error: { message: "Marketing must be declined" } },
+        ],
       },
     });
-    expect(validateSchema(schema, { marketing: true }).marketing?.message).toBe("Marketing must be declined");
+    expect(validateSchema(schema, { marketing: true }).marketing?.message).toBe(
+      "Marketing must be declined"
+    );
     expect(validateSchema(schema, { marketing: false }).marketing).toBeUndefined();
   });
 });
-

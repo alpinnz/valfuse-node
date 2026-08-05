@@ -41,12 +41,7 @@ import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/
 ## Quick Start
 
 ```ts
-import {
-  createSchema,
-  validateSchema,
-  transformValues,
-  t,
-} from "@valfuse-node/form";
+import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/form";
 
 const schema = createSchema({
   email: {
@@ -54,14 +49,14 @@ const schema = createSchema({
     transform: t.pipe(t.trim, t.toLowerCase),
     rules: [
       { name: "required", error: { message: "Email is required", code: "email.required" } },
-      { name: "email",    error: { message: "Invalid email",    code: "email.invalid" } },
+      { name: "email", error: { message: "Invalid email", code: "email.invalid" } },
     ],
   },
   age: {
     type: "number",
     transform: t.toInteger,
     rules: [
-      { name: "required", error: { message: "Required",  code: "age.required" } },
+      { name: "required", error: { message: "Required", code: "age.required" } },
       { name: "min", value: 18, error: { message: "Must be 18+", code: "age.min" } },
     ],
   },
@@ -102,7 +97,7 @@ const schema = createSchema({
   // ─── number fields ──────────────────────────────────────────────────────────
   age: {
     type: "number",
-    transform: t.toInteger,            // optional pre-validation coercion
+    transform: t.toInteger, // optional pre-validation coercion
     rules: [
       { name: "min", value: 0, error: { message: "Must be ≥ 0" } },
       { name: "max", value: 120, error: { message: "Must be ≤ 120" } },
@@ -113,9 +108,7 @@ const schema = createSchema({
   // ─── boolean fields ─────────────────────────────────────────────────────────
   agreed: {
     type: "boolean",
-    rules: [
-      { name: "accepted", error: { message: "You must accept the terms" } },
-    ],
+    rules: [{ name: "accepted", error: { message: "You must accept the terms" } }],
   },
 
   // ─── array fields ───────────────────────────────────────────────────────────
@@ -130,22 +123,20 @@ const schema = createSchema({
   // ─── object fields (nested) ─────────────────────────────────────────────────
   address: {
     type: "object",
-    rules: [
-      { name: "required", error: { message: "Address is required" } },
-    ],
+    rules: [{ name: "required", error: { message: "Address is required" } }],
   },
 });
 ```
 
 ### Supported field types
 
-| Type | Description |
-|---|---|
-| `"string"` | Free text, validated by string rules |
-| `"number"` | Coerced numeric value (use `transform: t.toNumber` to coerce raw strings) |
-| `"boolean"` | `true` / `false` |
-| `"array"` | Any array (length-based rules only — element validation is a `custom` rule) |
-| `"object"` | Any object (shape and presence rules only) |
+| Type        | Description                                                                 |
+| ----------- | --------------------------------------------------------------------------- |
+| `"string"`  | Free text, validated by string rules                                        |
+| `"number"`  | Coerced numeric value (use `transform: t.toNumber` to coerce raw strings)   |
+| `"boolean"` | `true` / `false`                                                            |
+| `"array"`   | Any array (length-based rules only — element validation is a `custom` rule) |
+| `"object"`  | Any object (shape and presence rules only)                                  |
 
 ---
 
@@ -153,79 +144,84 @@ const schema = createSchema({
 
 ### String rules
 
-| Rule | Value | Example |
-|---|---|---|
-| `required` | — | `{ name: "required", error: { message: "Required" } }` |
-| `min` | `number` (length) | `{ name: "min", value: 3, error: … }` |
-| `max` | `number` (length) | `{ name: "max", value: 100, error: … }` |
-| `length` | `number` (exact length) | `{ name: "length", value: 10, error: … }` |
-| `email` | — | `{ name: "email", error: … }` |
-| `url` | — | `{ name: "url", error: … }` |
-| `uuid` | — | `{ name: "uuid", error: … }` |
-| `regex` | `RegExp` or `{ pattern, flags }` | `{ name: "regex", value: /^[a-z]+$/, error: … }` |
-| `includes` | `string` | `{ name: "includes", value: "@", error: … }` |
-| `startsWith` | `string` | `{ name: "startsWith", value: "https://", error: … }` |
-| `endsWith` | `string` | `{ name: "endsWith", value: ".com", error: … }` |
+| Rule         | Value                            | Example                                                |
+| ------------ | -------------------------------- | ------------------------------------------------------ |
+| `required`   | —                                | `{ name: "required", error: { message: "Required" } }` |
+| `min`        | `number` (length)                | `{ name: "min", value: 3, error: … }`                  |
+| `max`        | `number` (length)                | `{ name: "max", value: 100, error: … }`                |
+| `length`     | `number` (exact length)          | `{ name: "length", value: 10, error: … }`              |
+| `email`      | —                                | `{ name: "email", error: … }`                          |
+| `url`        | —                                | `{ name: "url", error: … }`                            |
+| `uuid`       | —                                | `{ name: "uuid", error: … }`                           |
+| `regex`      | `RegExp` or `{ pattern, flags }` | `{ name: "regex", value: /^[a-z]+$/, error: … }`       |
+| `includes`   | `string`                         | `{ name: "includes", value: "@", error: … }`           |
+| `startsWith` | `string`                         | `{ name: "startsWith", value: "https://", error: … }`  |
+| `endsWith`   | `string`                         | `{ name: "endsWith", value: ".com", error: … }`        |
 
 ### Number rules
 
-| Rule | Value | Notes |
-|---|---|---|
-| `required` | — | Rejects `null`, `undefined`, `NaN` |
-| `min` | `number` | Inclusive lower bound |
-| `max` | `number` | Inclusive upper bound |
-| `gt` | `number` | Strictly greater than |
-| `gte` | `number` | Greater than or equal |
-| `lt` | `number` | Strictly less than |
-| `lte` | `number` | Less than or equal |
-| `int` | — | Rejects non-integers |
-| `positive` | — | `> 0` |
-| `nonnegative` | — | `≥ 0` |
-| `negative` | — | `< 0` |
-| `nonpositive` | — | `≤ 0` |
-| `multipleOf` | `number` | `value % multipleOf === 0` |
+| Rule          | Value    | Notes                              |
+| ------------- | -------- | ---------------------------------- |
+| `required`    | —        | Rejects `null`, `undefined`, `NaN` |
+| `min`         | `number` | Inclusive lower bound              |
+| `max`         | `number` | Inclusive upper bound              |
+| `gt`          | `number` | Strictly greater than              |
+| `gte`         | `number` | Greater than or equal              |
+| `lt`          | `number` | Strictly less than                 |
+| `lte`         | `number` | Less than or equal                 |
+| `int`         | —        | Rejects non-integers               |
+| `positive`    | —        | `> 0`                              |
+| `nonnegative` | —        | `≥ 0`                              |
+| `negative`    | —        | `< 0`                              |
+| `nonpositive` | —        | `≤ 0`                              |
+| `multipleOf`  | `number` | `value % multipleOf === 0`         |
 
 ### Boolean rules
 
-| Rule | Value | Notes |
-|---|---|---|
-| `required` | — | Rejects `null`, `undefined`, `false` |
-| `literal` | `boolean` | Must match exactly |
-| `accepted` | — | Sugar for `literal: true` (terms-of-service pattern) |
+| Rule       | Value     | Notes                                                |
+| ---------- | --------- | ---------------------------------------------------- |
+| `required` | —         | Rejects `null`, `undefined`, `false`                 |
+| `literal`  | `boolean` | Must match exactly                                   |
+| `accepted` | —         | Sugar for `literal: true` (terms-of-service pattern) |
 
 ### Array rules
 
-| Rule | Value |
-|---|---|
-| `required` | — |
-| `min` | `number` (min length) |
-| `max` | `number` (max length) |
-| `length` | `number` (exact length) |
-| `nonempty` | — (length ≥ 1) |
+| Rule       | Value                   |
+| ---------- | ----------------------- |
+| `required` | —                       |
+| `min`      | `number` (min length)   |
+| `max`      | `number` (max length)   |
+| `length`   | `number` (exact length) |
+| `nonempty` | — (length ≥ 1)          |
 
 ### Object rules
 
-| Rule | Value |
-|---|---|
-| `required` | — (rejects `null` / `undefined`) |
-| `shape` | `Record<string, unknown>` (key set must match) |
+| Rule       | Value                                          |
+| ---------- | ---------------------------------------------- |
+| `required` | — (rejects `null` / `undefined`)               |
+| `shape`    | `Record<string, unknown>` (key set must match) |
 
 ### Generic (all types)
 
-| Rule | Shape | Use |
-|---|---|---|
-| `custom` | `{ name: "custom", validate: (v, all) => boolean, error }` | Ad-hoc validator with access to all values |
-| `refine` | Same as `custom` | Alias — same implementation, different intent name |
-| `matchField` | `{ name: "matchField", value: "<other-field-name>", error }` | Cross-field equality (e.g. password confirmation) |
-| `oneOf` | `{ name: "oneOf", value: unknown[], error }` | Value must be in the list |
-| `notOneOf` | `{ name: "notOneOf", value: unknown[], error }` | Value must NOT be in the list |
+| Rule         | Shape                                                        | Use                                                |
+| ------------ | ------------------------------------------------------------ | -------------------------------------------------- |
+| `custom`     | `{ name: "custom", validate: (v, all) => boolean, error }`   | Ad-hoc validator with access to all values         |
+| `refine`     | Same as `custom`                                             | Alias — same implementation, different intent name |
+| `matchField` | `{ name: "matchField", value: "<other-field-name>", error }` | Cross-field equality (e.g. password confirmation)  |
+| `oneOf`      | `{ name: "oneOf", value: unknown[], error }`                 | Value must be in the list                          |
+| `notOneOf`   | `{ name: "notOneOf", value: unknown[], error }`              | Value must NOT be in the list                      |
 
 **Example — cross-field password match:**
 
 ```ts
 const schema = createSchema({
-  password:        { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
-  confirmPassword: { type: "string", rules: [{ name: "matchField", value: "password", error: { message: "Passwords do not match" } }] },
+  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
+  confirmPassword: {
+    type: "string",
+    rules: [
+      { name: "matchField", value: "password", error: { message: "Passwords do not match" } },
+    ],
+  },
 });
 ```
 
@@ -259,23 +255,23 @@ const schema = createSchema({
 import { t } from "@valfuse-node/form";
 
 // ─── String transformers ──────────────────────────────────────────────────────
-t.trim             // "  hi  " → "hi"
-t.trimStart        // "  hi  " → "hi  "
-t.trimEnd          // "  hi  " → "  hi"
-t.toLowerCase      // "Hi" → "hi"
-t.toUpperCase      // "hi" → "HI"
-t.toTitleCase      // "hello world" → "Hello World"
-t.toSentenceCase   // "HELLO" → "Hello"
-t.collapseSpaces   // "a   b" → "a b"
+t.trim; // "  hi  " → "hi"
+t.trimStart; // "  hi  " → "hi  "
+t.trimEnd; // "  hi  " → "  hi"
+t.toLowerCase; // "Hi" → "hi"
+t.toUpperCase; // "hi" → "HI"
+t.toTitleCase; // "hello world" → "Hello World"
+t.toSentenceCase; // "HELLO" → "Hello"
+t.collapseSpaces; // "a   b" → "a b"
 
 // ─── Coercion transformers ───────────────────────────────────────────────────
-t.toNumber         // "42" → 42   (returns original if NaN)
-t.toInteger        // "42.7" → 42
-t.toFloat          // "3.14" → 3.14
-t.toBoolean        // "true"/"1"/1/true → true; everything else → false
+t.toNumber; // "42" → 42   (returns original if NaN)
+t.toInteger; // "42.7" → 42
+t.toFloat; // "3.14" → 3.14
+t.toBoolean; // "true"/"1"/1/true → true; everything else → false
 
 // ─── Composition ──────────────────────────────────────────────────────────────
-t.pipe(t.trim, t.toLowerCase)   // compose left-to-right
+t.pipe(t.trim, t.toLowerCase); // compose left-to-right
 ```
 
 ### Custom transformers
@@ -283,8 +279,7 @@ t.pipe(t.trim, t.toLowerCase)   // compose left-to-right
 Any function `(value: unknown) => unknown` is a valid transformer:
 
 ```ts
-const slugify = (v: unknown) =>
-  typeof v === "string" ? v.toLowerCase().replace(/\s+/g, "-") : v;
+const slugify = (v: unknown) => (typeof v === "string" ? v.toLowerCase().replace(/\s+/g, "-") : v);
 
 const schema = createSchema({
   slug: {
@@ -331,10 +326,10 @@ const errors = validateSchema(loginSchema, {
 
 ```ts
 interface ValfuseError {
-  message: string;                           // user-facing message
+  message: string; // user-facing message
   type?: "validation" | "server" | "manual" | "custom";
-  code?: string;                             // semantic code (e.g. "email.required")
-  metadata?: Record<string, unknown>;        // extra context
+  code?: string; // semantic code (e.g. "email.required")
+  metadata?: Record<string, unknown>; // extra context
 }
 ```
 
@@ -363,20 +358,20 @@ Useful when you need to merge API errors (which may be strings or objects) into 
 ```ts
 interface ValfuseFieldError {
   message: string;
-  type?: string;                              // "validation" | "server" | "manual" | "custom"
-  code?: string;                              // e.g. "email.required", "auth.not_found"
+  type?: string; // "validation" | "server" | "manual" | "custom"
+  code?: string; // e.g. "email.required", "auth.not_found"
   metadata?: Record<string, unknown>;
 }
 ```
 
 ### Error types by origin
 
-| `type` | Origin | Typical use |
-|---|---|---|
-| `"validation"` | A schema rule failed | Automatic — emitted by `validateSchema` |
-| `"server"` | Injected via `form.setErrors` after a failed API call | Manual |
-| `"manual"` | Injected via `form.setErrors` for client-only logic | Manual |
-| `"custom"` | Returned by a `custom` / `refine` rule | Automatic — but tagged "custom" so consumers can distinguish |
+| `type`         | Origin                                                | Typical use                                                  |
+| -------------- | ----------------------------------------------------- | ------------------------------------------------------------ |
+| `"validation"` | A schema rule failed                                  | Automatic — emitted by `validateSchema`                      |
+| `"server"`     | Injected via `form.setErrors` after a failed API call | Manual                                                       |
+| `"manual"`     | Injected via `form.setErrors` for client-only logic   | Manual                                                       |
+| `"custom"`     | Returned by a `custom` / `refine` rule                | Automatic — but tagged "custom" so consumers can distinguish |
 
 ---
 
@@ -387,7 +382,13 @@ If you want the same form-state primitives the React/Vue adapters use internally
 ### Values
 
 ```ts
-import { createValuesState, updateValue, resetValues, computeIsDirty, computeDirtyFields } from "@valfuse-node/form";
+import {
+  createValuesState,
+  updateValue,
+  resetValues,
+  computeIsDirty,
+  computeDirtyFields,
+} from "@valfuse-node/form";
 
 const state = createValuesState({ email: "", age: 0 });
 updateValue(state, "email", "alice@example.com");
@@ -401,31 +402,49 @@ resetValues(state, { email: "", age: 0 });
 ### Touched
 
 ```ts
-import { createTouchedState, markTouched, isTouched, toTouchedFieldsRecord } from "@valfuse-node/form";
+import {
+  createTouchedState,
+  markTouched,
+  isTouched,
+  toTouchedFieldsRecord,
+} from "@valfuse-node/form";
 
 const touched = createTouchedState();
 markTouched(touched, "email");
-isTouched(touched, "email");              // true
-toTouchedFieldsRecord(touched);            // { email: true }
+isTouched(touched, "email"); // true
+toTouchedFieldsRecord(touched); // { email: true }
 ```
 
 ### Errors
 
 ```ts
-import { createErrorsState, setFieldError, clearFieldErrors, hasErrors, getFieldError, toFormErrors } from "@valfuse-node/form";
+import {
+  createErrorsState,
+  setFieldError,
+  clearFieldErrors,
+  hasErrors,
+  getFieldError,
+  toFormErrors,
+} from "@valfuse-node/form";
 
 const errors = createErrorsState();
 setFieldError(errors, "email", { message: "Taken", code: "auth.duplicate" });
-hasErrors(errors);                          // true
-getFieldError(errors, "email");             // { message: "Taken", code: "auth.duplicate" }
+hasErrors(errors); // true
+getFieldError(errors, "email"); // { message: "Taken", code: "auth.duplicate" }
 clearFieldErrors(errors);
-toFormErrors(errors);                       // {} (object form)
+toFormErrors(errors); // {} (object form)
 ```
 
 ### Submission
 
 ```ts
-import { createSubmissionState, startSubmit, endSubmitSuccess, endSubmitFailure, resetSubmission } from "@valfuse-node/form";
+import {
+  createSubmissionState,
+  startSubmit,
+  endSubmitSuccess,
+  endSubmitFailure,
+  resetSubmission,
+} from "@valfuse-node/form";
 
 const sub = createSubmissionState();
 startSubmit(sub);
@@ -470,11 +489,11 @@ Every rule is a discriminated union member with a discriminator field. The TypeS
 ```ts
 // Generic (work on any field type)
 type ValfuseGenericRule =
-  | { name: "custom";     validate: (v, all) => boolean; error: ValfuseRuleError }
-  | { name: "refine";     validate: (v, all) => boolean; error: ValfuseRuleError }
-  | { name: "matchField"; value: string;                 error: ValfuseRuleError }
-  | { name: "oneOf";      value: unknown[];              error: ValfuseRuleError }
-  | { name: "notOneOf";   value: unknown[];              error: ValfuseRuleError };
+  | { name: "custom"; validate: (v, all) => boolean; error: ValfuseRuleError }
+  | { name: "refine"; validate: (v, all) => boolean; error: ValfuseRuleError }
+  | { name: "matchField"; value: string; error: ValfuseRuleError }
+  | { name: "oneOf"; value: unknown[]; error: ValfuseRuleError }
+  | { name: "notOneOf"; value: unknown[]; error: ValfuseRuleError };
 ```
 
 ### Error types
@@ -505,7 +524,11 @@ type ValfuseFieldErrors<TFieldName extends string = string> = Partial<
 import { createSchema, validateSchema, transformValues } from "@valfuse-node/form";
 
 const schema = createSchema({
-  email: { type: "string", transform: (v) => String(v).toLowerCase(), rules: [{ name: "required", error: { message: "Required" } }] },
+  email: {
+    type: "string",
+    transform: (v) => String(v).toLowerCase(),
+    rules: [{ name: "required", error: { message: "Required" } }],
+  },
 });
 
 const input = process.argv[2] ?? "";
@@ -530,13 +553,25 @@ npx tsx scripts/validate-signup.ts "alice@example.com"
 import { createSchema, validateSchema, transformValues, normalizeError } from "@valfuse-node/form";
 
 const schema = createSchema({
-  email:    { type: "string", rules: [{ name: "required", error: { message: "Email required" } }, { name: "email", error: { message: "Invalid" } }] },
-  password: { type: "string", rules: [{ name: "required", error: { message: "Password required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Email required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  password: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Password required" } },
+      { name: "minLength", value: 8, error: { message: "Min 8" } },
+    ],
+  },
 });
 
 export async function signupAction(formData: FormData) {
   const typed = transformValues(schema, {
-    email:    String(formData.get("email") ?? ""),
+    email: String(formData.get("email") ?? ""),
     password: String(formData.get("password") ?? ""),
   });
   const errors = validateSchema(schema, typed);
@@ -554,7 +589,7 @@ export async function signupAction(formData: FormData) {
 ```ts
 // schemas/user.ts  (shared by web + mobile)
 import { createSchema } from "@valfuse-node/form";
-export const userSchema = createSchema({ /* … */ });
+export const userSchema = createSchema({/* … */});
 ```
 
 ```tsx

@@ -3,36 +3,27 @@ import type { ValfuseTransformer } from "../types";
 // ─── String transformers ───────────────────────────────────────────────────────
 
 /** Remove leading and trailing whitespace. */
-const trim: ValfuseTransformer = (v) =>
-  typeof v === "string" ? v.trim() : v;
+const trim: ValfuseTransformer = (v) => (typeof v === "string" ? v.trim() : v);
 
 /** Remove leading whitespace only. */
-const trimStart: ValfuseTransformer = (v) =>
-  typeof v === "string" ? v.trimStart() : v;
+const trimStart: ValfuseTransformer = (v) => (typeof v === "string" ? v.trimStart() : v);
 
 /** Remove trailing whitespace only. */
-const trimEnd: ValfuseTransformer = (v) =>
-  typeof v === "string" ? v.trimEnd() : v;
+const trimEnd: ValfuseTransformer = (v) => (typeof v === "string" ? v.trimEnd() : v);
 
 /** Convert string to lowercase. */
-const toLowerCase: ValfuseTransformer = (v) =>
-  typeof v === "string" ? v.toLowerCase() : v;
+const toLowerCase: ValfuseTransformer = (v) => (typeof v === "string" ? v.toLowerCase() : v);
 
 /** Convert string to uppercase. */
-const toUpperCase: ValfuseTransformer = (v) =>
-  typeof v === "string" ? v.toUpperCase() : v;
+const toUpperCase: ValfuseTransformer = (v) => (typeof v === "string" ? v.toUpperCase() : v);
 
 /** Capitalize first letter of each word. */
 const toTitleCase: ValfuseTransformer = (v) =>
-  typeof v === "string"
-    ? v.replace(/\b\w/g, (c) => c.toUpperCase())
-    : v;
+  typeof v === "string" ? v.replace(/\b\w/g, (c) => c.toUpperCase()) : v;
 
 /** Capitalize only the first letter of the entire string. */
 const toSentenceCase: ValfuseTransformer = (v) =>
-  typeof v === "string" && v.length > 0
-    ? v.charAt(0).toUpperCase() + v.slice(1).toLowerCase()
-    : v;
+  typeof v === "string" && v.length > 0 ? v.charAt(0).toUpperCase() + v.slice(1).toLowerCase() : v;
 
 /** Collapse multiple whitespace characters into a single space. */
 const collapseSpaces: ValfuseTransformer = (v) =>
@@ -77,8 +68,7 @@ const toFloat: ValfuseTransformer = (v) => {
  * Coerce a value to boolean.
  * `"true"`, `"1"`, `1`, and `true` → `true`; everything else → `false`.
  */
-const toBoolean: ValfuseTransformer = (v) =>
-  v === true || v === "true" || v === 1 || v === "1";
+const toBoolean: ValfuseTransformer = (v) => v === true || v === "true" || v === 1 || v === "1";
 
 // ─── Composition ──────────────────────────────────────────────────────────────
 
@@ -120,4 +110,3 @@ export const t = {
   // Composition
   pipe,
 } as const;
-

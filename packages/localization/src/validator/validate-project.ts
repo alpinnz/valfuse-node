@@ -34,4 +34,3 @@ export function validateProject(
 
   return diagnostics;
 }
-

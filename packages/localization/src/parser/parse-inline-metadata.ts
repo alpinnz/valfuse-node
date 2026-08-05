@@ -1,8 +1,6 @@
 import type { InlineMetadata } from "../types/ast";
 
-export function parseInlineMetadata(
-  node: Record<string, unknown>
-): InlineMetadata | undefined {
+export function parseInlineMetadata(node: Record<string, unknown>): InlineMetadata | undefined {
   const metadataKeys = Object.keys(node).filter(
     (key) =>
       key.startsWith("@") &&
@@ -29,4 +27,3 @@ export function parseInlineMetadata(
   }
   return metadata;
 }
-

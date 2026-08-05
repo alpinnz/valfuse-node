@@ -13,8 +13,16 @@ const schema = createSchema({
     transform: (v: unknown) => String(v).toLowerCase().trim(),
     rules: [
       { name: "required", error: { message: "Username wajib diisi", code: "username.required" } },
-      { name: "min", value: 3, error: { message: "Username minimal 3 karakter", code: "username.min" } },
-      { name: "max", value: 20, error: { message: "Username maksimal 20 karakter", code: "username.max" } },
+      {
+        name: "min",
+        value: 3,
+        error: { message: "Username minimal 3 karakter", code: "username.min" },
+      },
+      {
+        name: "max",
+        value: 20,
+        error: { message: "Username maksimal 20 karakter", code: "username.max" },
+      },
     ],
   },
   email: {
@@ -136,7 +144,9 @@ function Section({ title, children }: { title: React.ReactNode; children: React.
         marginBottom: "0.9rem",
       }}
     >
-      <legend style={{ fontFamily: "monospace", fontSize: "0.85rem", padding: "0 4px" }}>{title}</legend>
+      <legend style={{ fontFamily: "monospace", fontSize: "0.85rem", padding: "0 4px" }}>
+        {title}
+      </legend>
       {children}
     </fieldset>
   );
@@ -144,11 +154,7 @@ function Section({ title, children }: { title: React.ReactNode; children: React.
 
 // ─── formState debug panel ────────────────────────────────────────────────────
 
-function FormStatePanel({
-  formState,
-}: {
-  formState: ValfuseFormState<AllFeaturesFormValues>;
-}) {
+function FormStatePanel({ formState }: { formState: ValfuseFormState<AllFeaturesFormValues> }) {
   const errorEntries = Object.entries(formState.errors) as [
     keyof AllFeaturesFormValues,
     NonNullable<ValfuseFormState<AllFeaturesFormValues>["errors"][keyof AllFeaturesFormValues]>,
@@ -218,9 +224,7 @@ function FormStatePanel({
       <div style={{ marginTop: "0.6rem" }}>
         <span style={{ fontFamily: "monospace", color: "#7c3aed" }}>errors</span>
         {errorEntries.length === 0 ? (
-          <span style={{ marginLeft: "6px", color: "#64748b", fontSize: "0.75rem" }}>
-            {"{}"}
-          </span>
+          <span style={{ marginLeft: "6px", color: "#64748b", fontSize: "0.75rem" }}>{"{}"}</span>
         ) : (
           <div style={{ marginTop: "4px" }}>
             {errorEntries.map(([field, err]) => (
@@ -234,8 +238,7 @@ function FormStatePanel({
                   lineHeight: 1.4,
                 }}
               >
-                <strong style={{ fontFamily: "monospace" }}>{field}</strong>:{" "}
-                {err.message}
+                <strong style={{ fontFamily: "monospace" }}>{field}</strong>: {err.message}
                 {err.code && (
                   <span style={{ color: "#94a3b8", marginLeft: "4px", fontSize: "0.72rem" }}>
                     [{err.code}]
@@ -318,7 +321,9 @@ function ModeSelector({
       </div>
       <p style={{ margin: "0.5rem 0 0", fontSize: "0.78rem", color: "#1e40af" }}>
         <strong>{value}</strong>: {MODE_DESC[value]} —{" "}
-        <em>Mengganti mode akan me-reset form (re-mount via <code>key</code>).</em>
+        <em>
+          Mengganti mode akan me-reset form (re-mount via <code>key</code>).
+        </em>
       </p>
     </div>
   );
@@ -339,9 +344,7 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
 
   useEffect(() => {
     const unsub = form.watch((values, info) => {
-      setWatchLog((prev) =>
-        [{ name: info.name, snapshot: { ...values } }, ...prev].slice(0, 5)
-      );
+      setWatchLog((prev) => [{ name: info.name, snapshot: { ...values } }, ...prev].slice(0, 5));
     });
     return () => unsub();
     // form.watch adalah callback stabil (didefinisikan dengan useCallback di hook)
@@ -375,7 +378,6 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
     >
       {/* ── Left column: form + controls ─────────────────────────────────── */}
       <div>
-
         {/* 1. register() ─────────────────────────────────────────────────── */}
         <Section title={<>register() — native inputs</>}>
           <form id="all-features-form" onSubmit={onSubmit}>
@@ -398,7 +400,9 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
 
             {/* email */}
             <div style={fieldbox}>
-              <label htmlFor="af-email" style={label}>Email</label>
+              <label htmlFor="af-email" style={label}>
+                Email
+              </label>
               <input
                 id="af-email"
                 placeholder="user@example.com"
@@ -438,14 +442,14 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
             name="priority"
             render={({ field, fieldState }) => (
               <div style={fieldbox}>
-                <label htmlFor="af-priority" style={label}>Priority</label>
+                <label htmlFor="af-priority" style={label}>
+                  Priority
+                </label>
                 <select
                   id="af-priority"
                   value={field.value as string}
                   onChange={(e) =>
-                    field.onChange(
-                      e.target.value as AllFeaturesFormValues["priority"]
-                    )
+                    field.onChange(e.target.value as AllFeaturesFormValues["priority"])
                   }
                   onBlur={field.onBlur}
                   style={inputStyle(!!fieldState.error)}
@@ -511,17 +515,13 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
           </button>
           <button
             style={{ ...baseBtn, background: "#7c3aed" }}
-            onClick={() =>
-              form.setValue("email", "valid@example.com", { shouldValidate: true })
-            }
+            onClick={() => form.setValue("email", "valid@example.com", { shouldValidate: true })}
           >
             setValue("email", valid + shouldValidate)
           </button>
           <button
             style={{ ...baseBtn, background: "#dc2626" }}
-            onClick={() =>
-              form.setValue("email", "bukan-email", { shouldValidate: true })
-            }
+            onClick={() => form.setValue("email", "bukan-email", { shouldValidate: true })}
           >
             setValue("email", invalid + shouldValidate)
           </button>
@@ -529,10 +529,7 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
 
         {/* 4. trigger() ──────────────────────────────────────────────────── */}
         <Section title="trigger()">
-          <button
-            style={{ ...baseBtn, background: "#0891b2" }}
-            onClick={() => form.trigger()}
-          >
+          <button style={{ ...baseBtn, background: "#0891b2" }} onClick={() => form.trigger()}>
             trigger() — semua field
           </button>
           <button
@@ -551,10 +548,7 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
 
         {/* 5. clearErrors() ──────────────────────────────────────────────── */}
         <Section title="clearErrors()">
-          <button
-            style={{ ...baseBtn, background: "#059669" }}
-            onClick={() => form.clearErrors()}
-          >
+          <button style={{ ...baseBtn, background: "#059669" }} onClick={() => form.clearErrors()}>
             clearErrors() — semua
           </button>
           <button
@@ -660,9 +654,7 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
                   <span style={{ fontFamily: "monospace", color: "#7c3aed" }}>
                     [{entry.name ?? "—"}]
                   </span>{" "}
-                  <code style={{ wordBreak: "break-all" }}>
-                    {JSON.stringify(entry.snapshot)}
-                  </code>
+                  <code style={{ wordBreak: "break-all" }}>{JSON.stringify(entry.snapshot)}</code>
                 </div>
               ))}
             </div>
@@ -682,9 +674,7 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
             </thead>
             <tbody>
               <tr style={{ borderBottom: "1px solid #f1f5f9" }}>
-                <td
-                  style={{ padding: "4px 6px", fontFamily: "monospace", color: "#7c3aed" }}
-                >
+                <td style={{ padding: "4px 6px", fontFamily: "monospace", color: "#7c3aed" }}>
                   watch()
                 </td>
                 <td style={{ padding: "4px 6px", wordBreak: "break-all" }}>
@@ -692,27 +682,19 @@ function AllFeaturesFormInner({ mode }: { mode: ValfuseFormMode }) {
                 </td>
               </tr>
               <tr style={{ borderBottom: "1px solid #f1f5f9" }}>
-                <td
-                  style={{ padding: "4px 6px", fontFamily: "monospace", color: "#7c3aed" }}
-                >
+                <td style={{ padding: "4px 6px", fontFamily: "monospace", color: "#7c3aed" }}>
                   watch("username")
                 </td>
                 <td style={{ padding: "4px 6px" }}>
-                  <code style={{ fontSize: "0.72rem" }}>
-                    {JSON.stringify(watchedUsername)}
-                  </code>
+                  <code style={{ fontSize: "0.72rem" }}>{JSON.stringify(watchedUsername)}</code>
                 </td>
               </tr>
               <tr>
-                <td
-                  style={{ padding: "4px 6px", fontFamily: "monospace", color: "#7c3aed" }}
-                >
+                <td style={{ padding: "4px 6px", fontFamily: "monospace", color: "#7c3aed" }}>
                   watch(["email","priority"])
                 </td>
                 <td style={{ padding: "4px 6px", wordBreak: "break-all" }}>
-                  <code style={{ fontSize: "0.72rem" }}>
-                    {JSON.stringify(watchedMultiple)}
-                  </code>
+                  <code style={{ fontSize: "0.72rem" }}>{JSON.stringify(watchedMultiple)}</code>
                 </td>
               </tr>
             </tbody>
@@ -736,4 +718,3 @@ export function AllFeaturesDemo() {
     </div>
   );
 }
-

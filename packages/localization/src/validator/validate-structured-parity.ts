@@ -10,9 +10,7 @@ export function validateStructuredParity(project: NormalizedProject): Diagnostic
     for (const message of Object.values(entry.messages)) {
       const id = `${entry.module}:${message.key}`;
       const signature = message.structured
-        ? `${message.structured.type}:${Object.keys(message.structured.variants)
-            .sort()
-            .join(",")}`
+        ? `${message.structured.type}:${Object.keys(message.structured.variants).sort().join(",")}`
         : "none";
 
       if (!baseline.has(id)) {

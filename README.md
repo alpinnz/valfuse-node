@@ -28,28 +28,28 @@
 
 Most form libraries require you to learn a heavy abstraction or lock you into a specific validation engine (Zod, Yup, etc.). Valfuse takes a different approach:
 
-| Concern | Valfuse approach |
-|---|---|
-| Schema definition | Plain objects — readable, serializable, no runtime magic |
-| Validation | Native rule engine, no Zod / Yup dependency |
-| React integration | Only `useState`, `useRef`, `useCallback` — no hidden state machines |
-| Vue integration | Native Vue composable with `reactive`, `ref` — no extra wrapper |
-| Error model | Schema, manual, and server errors unified in `formState.errors` |
-| Localization | YAML-configured CLI that compiles JSON locales into type-safe TypeScript |
-| UI | Zero UI coupling — works with any component library or raw HTML |
-| Multi-framework | One schema is reused across React, Vue, and Node.js |
+| Concern           | Valfuse approach                                                         |
+| ----------------- | ------------------------------------------------------------------------ |
+| Schema definition | Plain objects — readable, serializable, no runtime magic                 |
+| Validation        | Native rule engine, no Zod / Yup dependency                              |
+| React integration | Only `useState`, `useRef`, `useCallback` — no hidden state machines      |
+| Vue integration   | Native Vue composable with `reactive`, `ref` — no extra wrapper          |
+| Error model       | Schema, manual, and server errors unified in `formState.errors`          |
+| Localization      | YAML-configured CLI that compiles JSON locales into type-safe TypeScript |
+| UI                | Zero UI coupling — works with any component library or raw HTML          |
+| Multi-framework   | One schema is reused across React, Vue, and Node.js                      |
 
 ---
 
 ## Packages
 
-| Package | Description | npm |
-|---|---|---|
-| [`@valfuse-node/core`](./packages/core/README.md) | **Umbrella entry point** — re-exports form, localization, and adapters from one package | ✅ published |
-| [`@valfuse-node/form`](./packages/form/README.md) | Framework-agnostic schema, rules, validation, transformation, state | ✅ published |
-| [`@valfuse-node/react`](./packages/react/README.md) | React `useValfuseForm` hook, `<ValfuseController>`, full localization runtime | ✅ published |
-| [`@valfuse-node/vue`](./packages/vue/README.md) | Vue 3 `useValfuseForm` composable with native v-model bindings | ✅ published |
-| [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON/YAML → type-safe TypeScript localization + browser runtime | ✅ published |
+| Package                                                           | Description                                                                             | npm          |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------ |
+| [`@valfuse-node/core`](./packages/core/README.md)                 | **Umbrella entry point** — re-exports form, localization, and adapters from one package | ✅ published |
+| [`@valfuse-node/form`](./packages/form/README.md)                 | Framework-agnostic schema, rules, validation, transformation, state                     | ✅ published |
+| [`@valfuse-node/react`](./packages/react/README.md)               | React `useValfuseForm` hook, `<ValfuseController>`, full localization runtime           | ✅ published |
+| [`@valfuse-node/vue`](./packages/vue/README.md)                   | Vue 3 `useValfuseForm` composable with native v-model bindings                          | ✅ published |
+| [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON/YAML → type-safe TypeScript localization + browser runtime           | ✅ published |
 
 > The `@valfuse-node/example-react` and `@valfuse-node/example-vue` packages are private playgrounds — see [Examples](#examples).
 
@@ -93,7 +93,7 @@ const schema = createSchema({
     transform: t.pipe(t.trim, t.toLowerCase),
     rules: [
       { name: "required", error: { message: "Required" } },
-      { name: "email",    error: { message: "Invalid" } },
+      { name: "email", error: { message: "Invalid" } },
     ],
   },
   age: {
@@ -104,7 +104,7 @@ const schema = createSchema({
 });
 
 const cleaned = transformValues(schema, { email: "  Alice@Example.com  ", age: "25" });
-const errors  = validateSchema(schema, cleaned);
+const errors = validateSchema(schema, cleaned);
 ```
 
 ### ⚛️ React
@@ -113,8 +113,20 @@ const errors  = validateSchema(schema, cleaned);
 import { createSchema, useReactValfuseForm } from "@valfuse-node/core";
 
 const schema = createSchema({
-  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
-  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  password: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "minLength", value: 8, error: { message: "Min 8" } },
+    ],
+  },
 });
 
 export function LoginForm() {
@@ -125,14 +137,20 @@ export function LoginForm() {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(async (values) => { await loginApi(values); })}>
+    <form
+      onSubmit={form.handleSubmit(async (values) => {
+        await loginApi(values);
+      })}
+    >
       <input {...form.register("email")} />
       {form.formState.errors.email && <span>{form.formState.errors.email.message}</span>}
 
       <input type="password" {...form.register("password")} />
       {form.formState.errors.password && <span>{form.formState.errors.password.message}</span>}
 
-      <button type="submit" disabled={form.formState.isSubmitting}>Log in</button>
+      <button type="submit" disabled={form.formState.isSubmitting}>
+        Log in
+      </button>
     </form>
   );
 }
@@ -145,8 +163,20 @@ export function LoginForm() {
 import { createSchema, useVueValfuseForm } from "@valfuse-node/core";
 
 const schema = createSchema({
-  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
-  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  password: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "minLength", value: 8, error: { message: "Min 8" } },
+    ],
+  },
 });
 
 type Values = { email: string; password: string };
@@ -223,13 +253,13 @@ function Header() {
 
 **Dependency direction** (strictly inner→outer is forbidden):
 
-| Package | Depends on | Peer |
-|---|---|---|
-| `form` | — | — |
-| `localization` | — | — |
-| `react` | `form`, `localization` | `react >= 18` |
-| `vue` | `form` | `vue >= 3` |
-| `core` | `form`, `localization`, `react`, `vue` | `react >= 18`, `vue >= 3` (both optional) |
+| Package        | Depends on                             | Peer                                      |
+| -------------- | -------------------------------------- | ----------------------------------------- |
+| `form`         | —                                      | —                                         |
+| `localization` | —                                      | —                                         |
+| `react`        | `form`, `localization`                 | `react >= 18`                             |
+| `vue`          | `form`                                 | `vue >= 3`                                |
+| `core`         | `form`, `localization`, `react`, `vue` | `react >= 18`, `vue >= 3` (both optional) |
 
 **Build order:** `form` → `localization` → `react` → `vue` → `core` (turbo handles this automatically).
 

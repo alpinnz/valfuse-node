@@ -9,4 +9,3 @@ export async function runClean(options: { cwd?: string } = {}): Promise<void> {
   // eslint-disable-next-line no-console
   console.log("✅ Localization output cleaned.");
 }
-

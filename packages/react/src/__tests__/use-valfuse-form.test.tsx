@@ -67,12 +67,8 @@ describe("useValfuseForm", () => {
       });
     });
 
-    expect(result.current.formState.errors.email?.message).toBe(
-      "Email tidak ditemukan"
-    );
-    expect(result.current.formState.errors.password?.message).toBe(
-      "Password salah"
-    );
+    expect(result.current.formState.errors.email?.message).toBe("Email tidak ditemukan");
+    expect(result.current.formState.errors.password?.message).toBe("Password salah");
   });
 
   it("should set field errors when setErrors is called with ValfuseError objects", async () => {
@@ -99,9 +95,7 @@ describe("useValfuseForm", () => {
     });
 
     expect(result.current.formState.errors.email?.message).toBe("Email salah");
-    expect(result.current.formState.errors.password?.message).toBe(
-      "Password salah"
-    );
+    expect(result.current.formState.errors.password?.message).toBe("Password salah");
   });
 
   it("should forward code from setErrors to formState.errors", async () => {
@@ -136,7 +130,10 @@ describe("useValfuseForm", () => {
       password: {
         type: "string",
         rules: [
-          { name: "required", error: { message: "Password wajib diisi", code: "password.required" } },
+          {
+            name: "required",
+            error: { message: "Password wajib diisi", code: "password.required" },
+          },
         ],
       },
     });
@@ -306,7 +303,9 @@ describe("useValfuseForm", () => {
     expect(countAfterFirst).toBeGreaterThan(0);
 
     // Unsubscribe
-    act(() => { unsubscribe?.(); });
+    act(() => {
+      unsubscribe?.();
+    });
 
     await act(async () => {
       result.current.setValue("email", "second@example.com");
@@ -452,9 +451,7 @@ describe("useValfuseForm", () => {
     const schemaWithCode = createSchema({
       email: {
         type: "string",
-        rules: [
-          { name: "required", error: { message: "Email wajib", code: "email.required" } },
-        ],
+        rules: [{ name: "required", error: { message: "Email wajib", code: "email.required" } }],
       },
       password: {
         type: "string",
@@ -615,10 +612,14 @@ describe("useValfuseForm", () => {
       })
     );
 
-    await act(async () => { result.current.setValue("email", "x@x.com"); });
+    await act(async () => {
+      result.current.setValue("email", "x@x.com");
+    });
     expect(result.current.formState.isDirty).toBe(true);
 
-    await act(async () => { result.current.reset(); });
+    await act(async () => {
+      result.current.reset();
+    });
     expect(result.current.formState.isDirty).toBe(false);
   });
 
@@ -669,7 +670,9 @@ describe("useValfuseForm", () => {
       })
     );
 
-    await act(async () => { result.current.trigger(); });
+    await act(async () => {
+      result.current.trigger();
+    });
     expect(result.current.formState.isValid).toBe(true);
   });
 
@@ -681,10 +684,14 @@ describe("useValfuseForm", () => {
       })
     );
 
-    await act(async () => { result.current.trigger(); });
+    await act(async () => {
+      result.current.trigger();
+    });
     expect(result.current.formState.isValid).toBe(true);
 
-    await act(async () => { result.current.reset(); });
+    await act(async () => {
+      result.current.reset();
+    });
     // After reset, values go back to valid defaultValues — isValid stays true
     expect(result.current.formState.isValid).toBe(true);
   });
@@ -698,12 +705,18 @@ describe("useValfuseForm", () => {
     );
 
     // Set valid values first
-    await act(async () => { result.current.setValue("email", "valid@example.com"); });
-    await act(async () => { result.current.setValue("password", "securepass"); });
+    await act(async () => {
+      result.current.setValue("email", "valid@example.com");
+    });
+    await act(async () => {
+      result.current.setValue("password", "securepass");
+    });
     expect(result.current.formState.isValid).toBe(true);
 
     // After reset, values go back to invalid defaultValues — isValid is false
-    await act(async () => { result.current.reset(); });
+    await act(async () => {
+      result.current.reset();
+    });
     expect(result.current.formState.isValid).toBe(false);
   });
 
@@ -719,12 +732,16 @@ describe("useValfuseForm", () => {
     expect(result.current.formState.isValid).toBe(true);
 
     // API returns error
-    await act(async () => { result.current.setErrors({ email: "Email already taken" }); });
+    await act(async () => {
+      result.current.setErrors({ email: "Email already taken" });
+    });
     expect(result.current.formState.errors.email?.message).toBe("Email already taken");
     expect(result.current.formState.isValid).toBe(false);
 
     // User changes the field → stale API error auto-cleared
-    await act(async () => { result.current.setValue("email", "another@example.com"); });
+    await act(async () => {
+      result.current.setValue("email", "another@example.com");
+    });
     expect(result.current.formState.errors.email).toBeUndefined();
     expect(result.current.formState.isValid).toBe(true);
   });
@@ -784,8 +801,12 @@ describe("useValfuseForm", () => {
       })
     );
 
-    await act(async () => { await result.current.handleSubmit(() => {})(); });
-    await act(async () => { await result.current.handleSubmit(() => {})(); });
+    await act(async () => {
+      await result.current.handleSubmit(() => {})();
+    });
+    await act(async () => {
+      await result.current.handleSubmit(() => {})();
+    });
 
     expect(result.current.formState.submitCount).toBe(2);
   });
@@ -798,10 +819,14 @@ describe("useValfuseForm", () => {
       })
     );
 
-    await act(async () => { await result.current.handleSubmit(() => {})(); });
+    await act(async () => {
+      await result.current.handleSubmit(() => {})();
+    });
     expect(result.current.formState.isSubmitted).toBe(true);
 
-    await act(async () => { result.current.reset(); });
+    await act(async () => {
+      result.current.reset();
+    });
 
     expect(result.current.formState.isSubmitted).toBe(false);
     expect(result.current.formState.isSubmitSuccessful).toBe(false);
@@ -828,7 +853,9 @@ describe("useValfuseForm", () => {
       })
     );
 
-    await act(async () => { result.current.register("email").onBlur(); });
+    await act(async () => {
+      result.current.register("email").onBlur();
+    });
 
     expect(result.current.formState.touchedFields.email).toBe(true);
     expect(result.current.formState.touchedFields.password).toBeUndefined();
@@ -842,10 +869,14 @@ describe("useValfuseForm", () => {
       })
     );
 
-    await act(async () => { result.current.register("email").onBlur(); });
+    await act(async () => {
+      result.current.register("email").onBlur();
+    });
     expect(result.current.formState.touchedFields.email).toBe(true);
 
-    await act(async () => { result.current.reset(); });
+    await act(async () => {
+      result.current.reset();
+    });
     expect(result.current.formState.touchedFields).toEqual({});
   });
 
@@ -868,7 +899,7 @@ const transformSchema = createSchema({
     transform: t.pipe(t.trim, t.toLowerCase),
     rules: [
       { name: "required", error: { message: "Email is required" } },
-      { name: "email",    error: { message: "Invalid email" } },
+      { name: "email", error: { message: "Invalid email" } },
     ],
   },
   name: {
@@ -898,7 +929,11 @@ describe("useValfuseForm — transform", () => {
 
   it("register.onChange validates with transformed value (mode=onChange)", async () => {
     const { result } = renderHook(() =>
-      useValfuseForm({ schema: transformSchema, defaultValues: { email: "", name: "" }, mode: "onChange" })
+      useValfuseForm({
+        schema: transformSchema,
+        defaultValues: { email: "", name: "" },
+        mode: "onChange",
+      })
     );
 
     await act(async () => {
@@ -1059,9 +1094,7 @@ describe("setValue + trigger stale-ref regression", () => {
     },
     name: {
       type: "string",
-      rules: [
-        { name: "required", error: { message: "Name is required" } },
-      ],
+      rules: [{ name: "required", error: { message: "Name is required" } }],
     },
   });
 
@@ -1095,7 +1128,9 @@ describe("setValue + trigger stale-ref regression", () => {
     });
 
     expect(result.current.formState.errors.isTermsAccepted).toBeDefined();
-    expect(result.current.formState.errors.isTermsAccepted?.message).toBe("You must accept the terms");
+    expect(result.current.formState.errors.isTermsAccepted?.message).toBe(
+      "You must accept the terms"
+    );
   });
 
   it("multiple sequential setValue + trigger calls should always read the latest value", async () => {
@@ -1132,9 +1167,7 @@ describe("setValue + trigger stale-ref regression", () => {
     const checkboxSchema = createSchema({
       agreed: {
         type: "boolean",
-        rules: [
-          { name: "accepted", error: { message: "Must be accepted" } },
-        ],
+        rules: [{ name: "accepted", error: { message: "Must be accepted" } }],
       },
     });
 
@@ -1158,4 +1191,3 @@ describe("setValue + trigger stale-ref regression", () => {
     expect(result.current.formState.errors.agreed).toBeDefined();
   });
 });
-

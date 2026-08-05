@@ -4,7 +4,15 @@
   "description": "React adapter for valfuse-node — useValfuseForm hook, ValfuseController, and localization runtime",
   "license": "MIT",
   "sideEffects": false,
-  "keywords": ["validation", "schema", "form", "react", "typescript", "valfuse", "localization"],
+  "keywords": [
+    "validation",
+    "schema",
+    "form",
+    "react",
+    "typescript",
+    "valfuse",
+    "localization"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -15,7 +23,11 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean --external react --external react-dom --external @valfuse-node/form --external @valfuse-node/localization",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external react --external react-dom --external @valfuse-node/form --external @valfuse-node/localization",
@@ -32,17 +44,18 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
-    "@testing-library/react": "latest",
-    "@testing-library/user-event": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "@vitest/coverage-v8": "latest",
-    "jsdom": "latest",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitest/coverage-v8": "4.1.6",
+    "jsdom": "29.1.1",
     "react": "^18",
     "react-dom": "^18",
-    "vitest": "latest"
+    "vitest": "4.1.6"
   }
 }
-

@@ -1,11 +1,9 @@
 import type { ValfuseError, ValfuseNumberRule } from "../types";
 
-export function validateNumberRule(
-  value: unknown,
-  rule: ValfuseNumberRule
-): ValfuseError | null {
+export function validateNumberRule(value: unknown, rule: ValfuseNumberRule): ValfuseError | null {
   const numericValue = typeof value === "number" ? value : NaN;
-  const hasNumericValue = value !== null && value !== undefined && value !== "" && !isNaN(numericValue);
+  const hasNumericValue =
+    value !== null && value !== undefined && value !== "" && !isNaN(numericValue);
 
   switch (rule.name) {
     case "required":

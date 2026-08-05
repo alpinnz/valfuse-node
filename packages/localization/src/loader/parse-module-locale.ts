@@ -1,8 +1,6 @@
 import { basename, dirname } from "node:path";
 
-export function parseModuleLocale(
-  filePath: string
-): { module: string; locale: string } {
+export function parseModuleLocale(filePath: string): { module: string; locale: string } {
   const module = basename(dirname(filePath));
   const locale = basename(filePath).replace(/\.json$/u, "");
   if (!module || !locale) {
@@ -10,4 +8,3 @@ export function parseModuleLocale(
   }
   return { module, locale };
 }
-

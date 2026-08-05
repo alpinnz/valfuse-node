@@ -45,8 +45,7 @@ export interface LocalizationProviderProps {
 
 // ─── Internal context ─────────────────────────────────────────────────────────
 
-export const LocalizationContext =
-  createContext<LocalizationContextValue | null>(null);
+export const LocalizationContext = createContext<LocalizationContextValue | null>(null);
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -98,10 +97,5 @@ export default function LocalizationProvider({
     return { locale, setLocale, store, manifest };
   }, [locale, manifest, setLocale]);
 
-  return (
-    <LocalizationContext.Provider value={value}>
-      {children}
-    </LocalizationContext.Provider>
-  );
+  return <LocalizationContext.Provider value={value}>{children}</LocalizationContext.Provider>;
 }
-

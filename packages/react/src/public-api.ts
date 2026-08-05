@@ -64,4 +64,3 @@ export {
   memoryStrategy,
   composeStorage,
 } from "./localization/storage/locale-storage";
-

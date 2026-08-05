@@ -49,12 +49,8 @@ describe("pickStructuredContextVariant", () => {
   const raw = JSON.stringify({ formal: "Good day, {name}", casual: "Hey, {name}" });
 
   it("picks the matching context variant and interpolates params", () => {
-    expect(pickStructuredContextVariant(raw, "formal", { name: "Alfin" })).toBe(
-      "Good day, Alfin"
-    );
-    expect(pickStructuredContextVariant(raw, "casual", { name: "Alfin" })).toBe(
-      "Hey, Alfin"
-    );
+    expect(pickStructuredContextVariant(raw, "formal", { name: "Alfin" })).toBe("Good day, Alfin");
+    expect(pickStructuredContextVariant(raw, "casual", { name: "Alfin" })).toBe("Hey, Alfin");
   });
 
   it("falls back to 'default' when the requested context is missing", () => {
@@ -62,9 +58,7 @@ describe("pickStructuredContextVariant", () => {
       default: "Hello, {name}",
       formal: "Good day, {name}",
     });
-    expect(pickStructuredContextVariant(withDefault, "missing", { name: "X" })).toBe(
-      "Hello, X"
-    );
+    expect(pickStructuredContextVariant(withDefault, "missing", { name: "X" })).toBe("Hello, X");
   });
 
   it("interpolates without params (no params argument)", () => {
@@ -80,9 +74,7 @@ describe("pickStructuredContextVariant", () => {
   });
 
   it("returns the raw input unchanged when it is not a valid structured payload", () => {
-    expect(pickStructuredContextVariant("plain string", "formal", { x: 1 })).toBe(
-      "plain string"
-    );
+    expect(pickStructuredContextVariant("plain string", "formal", { x: 1 })).toBe("plain string");
   });
 });
 
@@ -106,9 +98,7 @@ describe("pickStructuredGenderVariant", () => {
 
   it("interpolates params into the chosen variant", () => {
     const named = JSON.stringify({ male: "{name} submitted" });
-    expect(pickStructuredGenderVariant(named, "male", { name: "Alfin" })).toBe(
-      "Alfin submitted"
-    );
+    expect(pickStructuredGenderVariant(named, "male", { name: "Alfin" })).toBe("Alfin submitted");
   });
 
   it("returns raw input when not a structured payload", () => {
@@ -140,16 +130,12 @@ describe("pickStructuredPluralVariant", () => {
 
   it("user-provided params override the auto-injected count", () => {
     const withCount = JSON.stringify({ other: "{count} items" });
-    expect(
-      pickStructuredPluralVariant(withCount, 5, { count: 99 })
-    ).toBe("99 items");
+    expect(pickStructuredPluralVariant(withCount, 5, { count: 99 })).toBe("99 items");
   });
 
   it("merges user params alongside the count injection", () => {
     const withName = JSON.stringify({ other: "{name} has {count} items" });
-    expect(
-      pickStructuredPluralVariant(withName, 3, { name: "Alfin" })
-    ).toBe("Alfin has 3 items");
+    expect(pickStructuredPluralVariant(withName, 3, { name: "Alfin" })).toBe("Alfin has 3 items");
   });
 
   it("returns raw input when not a structured payload", () => {

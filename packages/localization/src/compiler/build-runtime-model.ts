@@ -4,11 +4,7 @@ export interface RuntimeModel {
   stringsTree: Record<string, unknown>;
 }
 
-function setNested(
-  target: Record<string, unknown>,
-  path: string[],
-  value: unknown
-): void {
+function setNested(target: Record<string, unknown>, path: string[], value: unknown): void {
   if (path.length === 0) return;
   let cursor: Record<string, unknown> = target;
   for (let i = 0; i < path.length - 1; i += 1) {

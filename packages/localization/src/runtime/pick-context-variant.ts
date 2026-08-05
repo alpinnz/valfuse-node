@@ -5,10 +5,6 @@
  * @param context Requested context value.
  * @returns Matching variant, then `default`, then first available, else empty string.
  */
-export function pickContextVariant(
-  variants: Record<string, string>,
-  context: string
-): string {
+export function pickContextVariant(variants: Record<string, string>, context: string): string {
   return variants[context] ?? variants.default ?? Object.values(variants)[0] ?? "";
 }
-

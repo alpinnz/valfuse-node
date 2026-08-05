@@ -55,4 +55,3 @@ export function mapToFieldErrors<TFieldValues extends Record<string, unknown>>(
     })
   ) as ValfuseFormErrors<TFieldValues>;
 }
-

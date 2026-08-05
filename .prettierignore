@@ -1,0 +1,9 @@
+dist/
+coverage/
+node_modules/
+.turbo/
+.claude/
+CHANGELOG.md
+*.tsbuildinfo
+packages/*/src/assets/localizations/localization.ts
+packages/*/src/assets/localizations/localization.types.ts

@@ -23,14 +23,22 @@
     "example:localization:watch": "npm run localization:watch --workspace=packages/examples/react-example",
     "example:localization:validate": "npm run localization:validate --workspace=packages/examples/react-example",
     "dev:react": "npm run dev --workspace=packages/examples/react-example",
-    "dev:vue": "npm run dev --workspace=packages/examples/vue-example"
+    "dev:vue": "npm run dev --workspace=packages/examples/vue-example",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:coverage": "turbo test -- --coverage",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run test"
   },
   "devDependencies": {
-    "@eslint/js": "latest",
-    "eslint": "latest",
-    "tsup": "latest",
-    "turbo": "latest",
-    "typescript": "latest",
-    "typescript-eslint": "latest"
+    "@eslint/js": "10.0.1",
+    "eslint": "10.4.0",
+    "prettier": "3.9.6",
+    "tsup": "8.5.1",
+    "turbo": "2.9.14",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.59.4"
+  },
+  "overrides": {
+    "esbuild": "0.28.1"
   }
 }

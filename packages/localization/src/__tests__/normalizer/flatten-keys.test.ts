@@ -58,9 +58,7 @@ describe("flattenKeys", () => {
       "@@module": "common",
       greeting: "Hello",
     });
-    expect(result).toEqual([
-      { key: "greeting", sourceKey: "greeting", leaf: { value: "Hello" } },
-    ]);
+    expect(result).toEqual([{ key: "greeting", sourceKey: "greeting", leaf: { value: "Hello" } }]);
   });
 
   it("returns leaves sorted by key (alphabetical, locale-aware)", () => {
