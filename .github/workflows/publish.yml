@@ -1,0 +1,101 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CI: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # -------------------------------------------------------------------
+      # Resolve which package (if any) this tag targets.
+      # Expected tag format:  v<semver>-<package>   e.g. v0.3.0-core
+      # - bare tags like v0.3.0 are intentionally IGNORED (skip, exit 0).
+      # - unknown package names are ignored with a warning.
+      # - a version mismatch between tag and package.json is a HARD FAIL.
+      # -------------------------------------------------------------------
+      - name: Resolve target package from tag
+        id: resolve
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+
+          # v<semver>-<pkg> exactly
+          if [[ ! "${TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-[a-z0-9-]+$ ]]; then
+            echo "Tag '${TAG}' is not v<semver>-<pkg>; skipping publish."
+            echo "match=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          VERSION="${TAG#v}"
+          VERSION="${VERSION%%-*}"
+          PKG="${TAG##*-}"
+
+          case "${PKG}" in
+            core|form|localization|react|vue) ;;
+            *)
+              echo "Tag '${TAG}' targets unknown package '${PKG}'; skipping."
+              echo "match=false" >> "$GITHUB_OUTPUT"
+              exit 0
+              ;;
+          esac
+
+          echo "match=true" >> "$GITHUB_OUTPUT"
+          echo "pkg=${PKG}" >> "$GITHUB_OUTPUT"
+          echo "pkg_name=@valfuse-node/${PKG}" >> "$GITHUB_OUTPUT"
+          echo "path=packages/${PKG}" >> "$GITHUB_OUTPUT"
+          echo "tag_version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Skip (tag not for a publishable package)
+        if: steps.resolve.outputs.match != 'true'
+        run: echo "No publishable package targeted by this tag."
+
+      # Hard gate: tag version MUST equal package version (publish.md 2.2.6)
+      - name: Verify version matches tag
+        if: steps.resolve.outputs.match == 'true'
+        run: |
+          TAG_VERSION="${{ steps.resolve.outputs.tag_version }}"
+          PKG_PATH="${{ steps.resolve.outputs.path }}"
+          PACKAGE_VERSION="$(node -p "require('./${PKG_PATH}/package.json').version")"
+
+          if [ "${TAG_VERSION}" != "${PACKAGE_VERSION}" ]; then
+            echo "Tag \"${{ github.ref_name }}\" does not match ${PKG_PATH} version ${PACKAGE_VERSION}"
+            exit 1
+          fi
+          echo "Version ${PACKAGE_VERSION} matches tag ${GITHUB_REF_NAME}."
+
+      - name: Test package
+        if: steps.resolve.outputs.match == 'true'
+        run: npm test --workspace="${{ steps.resolve.outputs.path }}"
+
+      - name: Build package
+        if: steps.resolve.outputs.match == 'true'
+        run: npm run build --workspace="${{ steps.resolve.outputs.path }}"
+
+      - name: Publish package
+        if: steps.resolve.outputs.match == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+        run: npm publish --workspace="${{ steps.resolve.outputs.path }}"
