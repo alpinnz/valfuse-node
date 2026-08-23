@@ -9,6 +9,10 @@ export default tseslint.config(
       "**/dist/**",
       "**/node_modules/**",
       "**/coverage/**",
+      // Keep source Coverage modules (src/coverage and __tests__/coverage)
+      // lintable even though the generated `coverage/` output is ignored above.
+      "!**/src/coverage/**",
+      "!**/__tests__/coverage/**",
       // Auto-generated localization runtime files — do not lint
       "**/src/assets/localizations/localization.ts",
       "**/src/assets/localizations/localization.types.ts",

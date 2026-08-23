@@ -5,6 +5,10 @@ node_modules/
 dist/
 build/
 coverage/
+!**/src/coverage/
+!**/src/coverage/**
+!**/__tests__/coverage/
+!**/__tests__/coverage/**
 *.tsbuildinfo
 .turbo/
 

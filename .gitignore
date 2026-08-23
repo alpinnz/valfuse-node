@@ -8,8 +8,12 @@ build/
 # TypeScript incremental build
 *.tsbuildinfo
 
-# Test coverage
+# Test coverage output (keeps source coverage folders tracked)
 coverage/
+!**/src/coverage/
+!**/src/coverage/**
+!**/__tests__/coverage/
+!**/__tests__/coverage/**
 
 # Turborepo cache
 .turbo/
