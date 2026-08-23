@@ -47,10 +47,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "latest",
-    "@vitest/coverage-v8": "latest",
-    "@vue/test-utils": "latest",
-    "vitest": "latest",
+    "@vitejs/plugin-vue": "6.0.7",
+    "@vitest/coverage-v8": "4.1.6",
+    "@vue/test-utils": "2.4.10",
+    "vitest": "4.1.6",
     "vue": "^3"
   }
 }

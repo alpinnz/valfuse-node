@@ -60,11 +60,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/react": "latest",
-    "@vitest/coverage-v8": "latest",
+    "@types/react": "19.2.14",
+    "@vitest/coverage-v8": "4.1.6",
     "react": "^18",
-    "tsup": "latest",
-    "typescript": "latest",
-    "vitest": "latest"
+    "tsup": "8.5.1",
+    "typescript": "6.0.3",
+    "vitest": "4.1.6"
   }
 }

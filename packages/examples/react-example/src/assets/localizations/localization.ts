@@ -6,5018 +6,5006 @@
 import type { LocalizationManifest, LocalizationNode } from "./localization.types";
 
 const manifest: LocalizationManifest = {
-  "base_locale": "en",
-  "fallback_locale": "en",
-  "locales": [
-    "en",
-    "id"
+  base_locale: "en",
+  fallback_locale: "en",
+  locales: ["en", "id"],
+  entries: [
+    {
+      key: "auth_privacy_policy.consent.privacy_policy",
+      placeholders: [],
+    },
+    {
+      key: "auth_terms_condition.consent.terms_conditions",
+      placeholders: [],
+    },
+    {
+      key: "auth.btn_verifikasi_email",
+      placeholders: [],
+    },
+    {
+      key: "auth.cekemail.description",
+      placeholders: [],
+    },
+    {
+      key: "auth.cekemail.help.check_spam",
+      placeholders: [],
+    },
+    {
+      key: "auth.cekemail.help.didnt_get_email",
+      placeholders: [],
+    },
+    {
+      key: "auth.cekemail.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.cta.cancel",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.cta.submit",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.error.email_already_used",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.error.email_invalid_format",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.error.email_required",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.error.email_same_as_previous",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.field.email.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.field.email.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.modal.subtitle",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_email.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.cta.cancel",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.cta.submit",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.error.already_used",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.error.invalid_format",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.error.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.error.same_as_old",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.field.phone.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.field.phone.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.modal.subtitle",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.change_wa.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.channel_verifiy.page.info",
+      placeholders: [],
+    },
+    {
+      key: "auth.channel_verifiy.page.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.check_email.description",
+      placeholders: [],
+    },
+    {
+      key: "auth.check_email.description_1",
+      placeholders: [],
+    },
+    {
+      key: "auth.check_email.description_2",
+      placeholders: [],
+    },
+    {
+      key: "auth.check_email.description_3",
+      placeholders: [],
+    },
+    {
+      key: "auth.check_email.help.check_spam",
+      placeholders: [],
+    },
+    {
+      key: "auth.check_email.help.didnt_get_email",
+      placeholders: [],
+    },
+    {
+      key: "auth.check_email.help.didnt_get_email_few_minutes",
+      placeholders: [],
+    },
+    {
+      key: "auth.check_email.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.error.name.invalid_char",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.error.name.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.error.wa.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.error.wa.format",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.error.wa.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.form.email.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.form.name.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.form.name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.form.wa.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.confirm_logingoogle.form.wa.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.body.intro",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.cta.button",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.footer.disclaimer",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.heading",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.invalid_old_link.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.invalid_old_link.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.preheader",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.subject",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.success.cta.home",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.success.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.email.verify.success.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.errors.invalid_email",
+      placeholders: [],
+    },
+    {
+      key: "auth.errors.user_not_found",
+      placeholders: [],
+    },
+    {
+      key: "auth.errors.weak_password",
+      placeholders: [],
+    },
+    {
+      key: "auth.expired.cta.button",
+      placeholders: [],
+    },
+    {
+      key: "auth.expired.message.info",
+      placeholders: [],
+    },
+    {
+      key: "auth.expired.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.expired.toast.button",
+      placeholders: [],
+    },
+    {
+      key: "auth.expired.toast.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.expired.toast.success",
+      placeholders: [],
+    },
+    {
+      key: "auth.expired.toast.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.google_account_preview_privacy_link",
+      placeholders: [],
+    },
+    {
+      key: "auth.google_account_preview_terms_link",
+      placeholders: [],
+    },
+    {
+      key: "auth.google_account_preview.privacy_link",
+      placeholders: [],
+    },
+    {
+      key: "auth.google_account_preview.terms_link",
+      placeholders: [],
+    },
+    {
+      key: "auth.google_login.success.cta",
+      placeholders: [],
+    },
+    {
+      key: "auth.idle.popup.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.idle.popup.toast.keepalive.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.idle.popup.toast.keepalive.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.email.autofill_failed",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.nama.invalid_char",
+      placeholders: ["x"],
+    },
+    {
+      key: "auth.login_by_google_account.error.nama.max",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.nama.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.tnc.link_failed",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.tnc.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.wa.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.wa.format",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.wa.nondigit",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.error.wa.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.email.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.email.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.nama.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.nama.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.tnc.checkbox",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.tnc.link",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.wa.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.form.wa.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google_account.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_by_google.banner.whatsapp_required.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.auth.oauth_failed.error.btnclose",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.auth.oauth_failed.error.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.auth.oauth_failed.error.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.idconfirm.cta_cancel",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.idconfirm.cta_confirm",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.idconfirm.description",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.idconfirm.info_otp",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.idconfirm.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.register_from_google.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_google.register_from_google.toast.success.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_invite.banner.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login_page.form.button.forgot_pass",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.banner.error.lockout",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.banner.error.mismatch",
+      placeholders: ["attempts"],
+    },
+    {
+      key: "auth.login.bannermessage.session_expired_idle",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.bannertitle.session_expired_idle",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.button.forgot",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.button.session_expired_idle",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_not_found.error",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_not_found.password_security.level_label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_not_found.password_security.requirement_list_aria_label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_not_found.password_security.requirement.lowercase",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_not_found.password_security.requirement.minimum_length",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_not_found.password_security.requirement.number",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_not_found.password_security.requirement.symbol",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_not_found.password_security.requirement.uppercase",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_wa.errors.empty",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_wa.errors.format",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_wa.errors.not_found",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_wa.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.email_wa.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.password_incorrect.error",
+      placeholders: ["attempts"],
+    },
+    {
+      key: "auth.login.form.password.errors.empty",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.password.errors.mismatch",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.password.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.password.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.remember_me.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.form.submit.disabled",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.google_button.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.google_popup.loading",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.info.cancelled.subtitle",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.info.cancelled.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.or",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.register_prompt.link",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.register_prompt.text",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.success.home.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.success.redirect.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.success.return.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.toast.error.global.submit",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.toast.error.global.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.toast.success.google_message",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.toast.success.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.login.welcome",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.confirm.button_no",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.confirm.button_yes",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.confirm.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.confirm.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.confirmation.button.confirm",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.confirmation.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.error.network",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.menu.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.popup.button.cancel",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.popup.button.confirm",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.popup.error.network_failure",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.popup.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.popup.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.logout.success.toast",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp_whatsapp.message",
+      placeholders: ["otp_code"],
+    },
+    {
+      key: "auth.otp.error_locked.banner.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.error_locked.banner.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.error.expired",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.error.invalid",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.error.invalid_with_resend",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.error.lock",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.fallback.change_meethod_wa",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.fallback.change_method",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.fallback.sent_email",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.form.instruction",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.form.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.form.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.form.resend.button",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.form.resend.second",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.loading.overlay.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.otp.success.toast.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.popup_permission.blocked.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.popup.button.close",
+      placeholders: [],
+    },
+    {
+      key: "auth.popup.button.extend",
+      placeholders: [],
+    },
+    {
+      key: "auth.popup.button.logout",
+      placeholders: [],
+    },
+    {
+      key: "auth.popup.message",
+      placeholders: ["time"],
+    },
+    {
+      key: "auth.popup.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.register_invite.banner.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.email.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.email.format",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.email.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.global.submit",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.global.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.name.invalid_char",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.name.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.common",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.confirm_required",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.guide",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.medium",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.mismatch",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.strong",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.too_short",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.password.weak",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.terms.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.wa.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.wa.format",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.error.wa.required",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.checkbox.and",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.checkbox.privacy_policy",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.checkbox.terms",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.checkbox.terms_and_conditions",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.email.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.email.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.name.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.password.confirm.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.password.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.password.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.wa.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.form.wa.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.password_security.level_label",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.password_security.requirement_list_aria_label",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.password_security.requirement.lowercase",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.password_security.requirement.minimum_length",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.password_security.requirement.number",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.password_security.requirement.symbol",
+      placeholders: [],
+    },
+    {
+      key: "auth.register.password_security.requirement.uppercase",
+      placeholders: [],
+    },
+    {
+      key: "auth.resend_email.change_email.cta",
+      placeholders: [],
+    },
+    {
+      key: "auth.resend_email.resend.button.disabled",
+      placeholders: ["seconds"],
+    },
+    {
+      key: "auth.resend_email.resend.button.enabled",
+      placeholders: [],
+    },
+    {
+      key: "auth.resend_email.resend.limit.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.resend_email.resend.limit.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.resend_email.resend.success.toast_message",
+      placeholders: [],
+    },
+    {
+      key: "auth.resend_email.resend.success.toast_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.screen_privacy_mode.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.session_pre_warning_72h.modal.description",
+      placeholders: [],
+    },
+    {
+      key: "auth.session_pre_warning_72h.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.session_pre_warning_google.cta.google",
+      placeholders: [],
+    },
+    {
+      key: "auth.session_pre_warning_google.modal.description",
+      placeholders: [],
+    },
+    {
+      key: "auth.session_pre_warning_google.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.session.expired.modal.button",
+      placeholders: [],
+    },
+    {
+      key: "auth.session.expired.modal.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.invalid_old_email.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.invalid_old_email.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.invalid_old_link.message_1",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.invalid_old_link.message_2",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.invalid_old_link.message_highlight",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.invalid_old_link.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.success.cta.home",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.success.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.two_factor_authentication.email.verify.success.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.action_audit_log",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.action_invite_team",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.action_manage_role",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.card_access_desc",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.card_access_status",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.card_access_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.card_accounting_desc",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.card_accounting_status",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.card_accounting_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.card_cta",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.hero_subtitle",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.hero_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.last_action_prefix",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.section_subtitle",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.section_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.dashboard.welcome",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.login.hide_password",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.login.show_password",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.main_layout.language_en_label",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.main_layout.language_id_label",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.main_layout.language_switcher_aria_label",
+      placeholders: [],
+    },
+    {
+      key: "auth.ui.main_layout.profile_menu_aria_label",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account_cancel_button",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account_create_account_button",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account_message",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account.cancel_button",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account.create_account_button",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account.error_modal.subtitle",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account.error_modal.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.unregistered_google_account.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_issue_email.cta_switch_wa",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_issue_email.lead",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_issue_email.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_issue_wa.cta_switch_email",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_issue_wa.lead",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_issue_wa.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_limit_email.button.whatsapp",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_limit_email.limit.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_limit_email.limit.message_subtitle",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_limit_email.limit.message_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_method.button_continue",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_method.option_email.desc",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_method.option_email.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_method.option_whatsapp.desc",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_method.option_whatsapp.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_method.page_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification_method.section_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification.resend.button.label",
+      placeholders: [],
+    },
+    {
+      key: "auth.verification.resend.button.success_message",
+      placeholders: [],
+    },
+    {
+      key: "auth.verifikasi_wa.change_wa.cta",
+      placeholders: [],
+    },
+    {
+      key: "auth.verifikasi_wa.resend.button.disabled",
+      placeholders: ["seconds"],
+    },
+    {
+      key: "auth.verifikasi_wa.resend.button.enabled",
+      placeholders: [],
+    },
+    {
+      key: "auth.verifikasi_wa.resend.limit.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.verifikasi_wa.resend.limit.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verifikasi_wa.resend.success.toast_message",
+      placeholders: [],
+    },
+    {
+      key: "auth.verifikasi_wa.resend.success.toast_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.error.limit_reached",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.error.limit_reached_subtitle",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.error.limit_reached_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.error.locked",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.success.cta",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.success.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.success.redirect",
+      placeholders: ["xx"],
+    },
+    {
+      key: "auth.verify.success.success_title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.success.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.success.toast.message",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.success.toast.title",
+      placeholders: [],
+    },
+    {
+      key: "auth.verify.toast.resend_success",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.address.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.address.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.city.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.city.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.district.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.district.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.email.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.email.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.name.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.nib.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.nib.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.npwp.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.npwp.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.opening_date.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.opening_date.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.phone.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.phone.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.province.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.province.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.type.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.type.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.village.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.bu_detail.edit.form.village.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_detail.button.deactivate",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_detail.label.active",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_detail.label.address",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_detail.label.bookkeeping_date",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_detail.label.business_type",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_detail.label.email",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_detail.label.phone_number",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_detail.title",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_list.button.add_business_unit",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_list.empty_state.no_business_unit",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_list.empty_state.no_data",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_list.label.branch",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_list.label.factory",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_list.label.outlet",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_list.search.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_list.title",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.button.edit",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.address",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.business_type",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.business_unit_creation_date",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.business_unit_identity",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.business_unit_name",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.city_or_regency",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.contact",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.district",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.email",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.full_address",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.legal_and_administration",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.logo",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.nib",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.npwpd",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.phone_number",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.province",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.subdistrict",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.label.whatsapp_number",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.business_unit_profile.title",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.address.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.address.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.bu_logo.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.bu_logo.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.city.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.city.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.district.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.district.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.email.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.email.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.name.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.nib.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.nib.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.npwpd.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.npwpd.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.opening_date.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.opening_date.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.phone.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.phone.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.province.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.province.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.type.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.type.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.village.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.form.village.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.company_detail.bu_add.section.title",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.error.name.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.delete.button",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.error.empty",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.error.min",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.error.mismatch",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.input.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.input.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.instruction",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.confirm.title",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.error.fallback.description",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.error.fallback.title",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.impact.agree.button",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.impact.alternative",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.impact.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.impact.description",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.impact.permanent",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.impact.title",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.impact.transaction_block",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.delete.success.toast",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.detail.action.deactivate.label",
+      placeholders: [],
+    },
+    {
+      key: "business_unit.unit.detail.action.delete.label",
+      placeholders: [],
+    },
+    {
+      key: "common.app_powered",
+      placeholders: [],
+    },
+    {
+      key: "common.app_shell.menu.chart_of_account",
+      placeholders: [],
+    },
+    {
+      key: "common.app_shell.menu.dashboard",
+      placeholders: [],
+    },
+    {
+      key: "common.app_title",
+      placeholders: [],
+    },
+    {
+      key: "company_add.cancel_dialog.back_to_form.button",
+      placeholders: [],
+    },
+    {
+      key: "company_add.cancel_dialog.confirm_cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "company_add.cancel_dialog.description",
+      placeholders: [],
+    },
+    {
+      key: "company_add.cancel_dialog.title",
+      placeholders: [],
+    },
+    {
+      key: "company_add.cancel_dialog.toast.message",
+      placeholders: [],
+    },
+    {
+      key: "company_add.cancel_dialog.toast.title",
+      placeholders: [],
+    },
+    {
+      key: "company_add.form.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "company_add.form.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "company_add.toast.success",
+      placeholders: [],
+    },
+    {
+      key: "company_add.toasttitle.success",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.detail_workspace.edit.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.detail_workspace.edit.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.list_workspace.modal.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.list_workspace.modal.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.list_workspace.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.listcompany.header.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.listrk.header.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.add.bu_name.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.add.bu_name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.add.bu_type.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.add.bu_type.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.desc",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.name.error.format",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.business_unit.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.add.business_type.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.add.business_type.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.add.company_name.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.add.company_name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.add.country.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.add.country.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.add.currency.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.add.currency.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.business_type.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.country.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.currency.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.desc",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.name.error.format",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.company.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.navigation.back.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.navigation.next.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.data.business_type.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.data.business_unit_name.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.data.business_unit_type.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.data.company_name.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.data.country_currency.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.data.workspace_name.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.info.note",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.page_content.intro",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.preview.page_title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.start.cta.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.start.page_content",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.start.page_title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.structure.page_content",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.structure.page_title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.success.cta.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.success.page_content",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.success.page_title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.welcome.page_content",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.welcome.page_title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.add.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.add.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.desc",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.name.error.format",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.onboarding.workspace.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.action.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.action.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.form.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.form.name.error.invalid_format",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.form.name.error.max_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.form.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.form.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.form.name.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.form.name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.create.toast.success.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.delete.action.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.delete.action.confirm.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.delete.checkbox.confirmation",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.delete.form.confirmation.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.delete.form.confirmation.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.delete.modal.description",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.delete.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.action.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.action.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.form.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.form.name.error.invalid_format",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.form.name.error.max_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.form.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.form.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.form.name.max_length",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.toast.cancle.message",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.toast.cancle.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.edit.toast.success.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.action.create.button",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.empty.description",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.empty.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.error.description",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.error.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.header.managed_by.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.not_found.description",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.not_found.title",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.summary.business_unit_total.label",
+      placeholders: [],
+    },
+    {
+      key: "company_and_workspace.workspace.list.summary.company_total.label",
+      placeholders: [],
+    },
+    {
+      key: "company_detail.access_address_subtitle",
+      placeholders: [],
+    },
+    {
+      key: "company_detail.access_companyidentity_subtitle",
+      placeholders: [],
+    },
+    {
+      key: "company_detail.access_contact_subtitle",
+      placeholders: [],
+    },
+    {
+      key: "company_detail.access_error.cta_back",
+      placeholders: [],
+    },
+    {
+      key: "company_detail.access_error.description",
+      placeholders: [],
+    },
+    {
+      key: "company_detail.access_error.title",
+      placeholders: [],
+    },
+    {
+      key: "company_detail.access_legalandadministration_subtitle",
+      placeholders: [],
+    },
+    {
+      key: "company.accounting_start_date.label",
+      placeholders: [],
+    },
+    {
+      key: "company.address.label",
+      placeholders: [],
+    },
+    {
+      key: "company.address.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.business_type.label",
+      placeholders: [],
+    },
+    {
+      key: "company.business_type.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.business_unit_count.label",
+      placeholders: [],
+    },
+    {
+      key: "company.city.label",
+      placeholders: [],
+    },
+    {
+      key: "company.city.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.country.label",
+      placeholders: [],
+    },
+    {
+      key: "company.country.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.action.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "company.create.action.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "company.create.additional_info.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.accounting_start_date.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.accounting_start_date.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.address.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.address.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.business_type.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.business_type.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.business_type.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.business_unit_count.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.business_unit_count.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.city.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.city.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.country.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.country.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.country.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.creation_date.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.creation_date.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.currency.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.currency.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.currency.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.district.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.district.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.email.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.email.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.establishment_date.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.establishment_date.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.city_empty",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.city_loading",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.city_select_province",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.district_empty",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.district_loading",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.district_select_city",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.province_empty",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.province_loading",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.subdistrict_empty",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.subdistrict_loading",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.geo.subdistrict_select_district",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.logo.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.logo.max_size",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.logo.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.name.error.format",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.name.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.nib.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.nib.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.phone.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.phone.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.postal_code.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.postal_code.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.province.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.province.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.sppkp_number.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.sppkp_number.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.subdistrict.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.subdistrict.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.tax_id.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.tax_id.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.vat_status.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.website.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.website.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.whatsapp.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.whatsapp.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.workspace.dropdown",
+      placeholders: [],
+    },
+    {
+      key: "company.create.form.workspace.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "company.create.option.business_type.jasa",
+      placeholders: [],
+    },
+    {
+      key: "company.create.option.business_type.manufaktur",
+      placeholders: [],
+    },
+    {
+      key: "company.create.option.business_type.retail",
+      placeholders: [],
+    },
+    {
+      key: "company.create.option.country.indonesia",
+      placeholders: [],
+    },
+    {
+      key: "company.create.option.currency.idr",
+      placeholders: [],
+    },
+    {
+      key: "company.create.option.pkp_status.non_pkp",
+      placeholders: [],
+    },
+    {
+      key: "company.create.option.pkp_status.pkp",
+      placeholders: [],
+    },
+    {
+      key: "company.create.section.address.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.section.contact.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.section.identity.label",
+      placeholders: [],
+    },
+    {
+      key: "company.create.section.legal.label",
+      placeholders: [],
+    },
+    {
+      key: "company.created_date.label",
+      placeholders: [],
+    },
+    {
+      key: "company.currency.label",
+      placeholders: [],
+    },
+    {
+      key: "company.currency.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.action.back_to_list",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.action.delete_company",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.action.primary_company",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.action.set_default",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.breadcrumb.aria_label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.error.description",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.error.retry",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.error.title",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.header.title",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.info.address.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.info.business_unit_total.active_label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.info.business_unit_total.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.info.email.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.info.phone.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.info.whatsapp.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.section.business_unit.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.section.profile.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.section.role_management.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.section.user_management.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.status.coming_soon.label",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.toast.set_default_error_title",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.toast.set_default_success_message",
+      placeholders: [],
+    },
+    {
+      key: "company.detail.toast.set_default_success_title",
+      placeholders: [],
+    },
+    {
+      key: "company.district.label",
+      placeholders: [],
+    },
+    {
+      key: "company.district.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.email.label",
+      placeholders: [],
+    },
+    {
+      key: "company.error.account_not_linked",
+      placeholders: [],
+    },
+    {
+      key: "company.error.bad_gateway",
+      placeholders: [],
+    },
+    {
+      key: "company.error.bad_request",
+      placeholders: [],
+    },
+    {
+      key: "company.error.business_type.invalid",
+      placeholders: [],
+    },
+    {
+      key: "company.error.confirm_name.mismatch",
+      placeholders: [],
+    },
+    {
+      key: "company.error.conflict",
+      placeholders: [],
+    },
+    {
+      key: "company.error.country_code.invalid",
+      placeholders: [],
+    },
+    {
+      key: "company.error.email.invalid",
+      placeholders: [],
+    },
+    {
+      key: "company.error.expired_token",
+      placeholders: [],
+    },
+    {
+      key: "company.error.forbidden",
+      placeholders: [],
+    },
+    {
+      key: "company.error.gateway_timeout",
+      placeholders: [],
+    },
+    {
+      key: "company.error.has_active_units",
+      placeholders: [],
+    },
+    {
+      key: "company.error.has_transaction",
+      placeholders: [],
+    },
+    {
+      key: "company.error.internal_server_error",
+      placeholders: [],
+    },
+    {
+      key: "company.error.is_default",
+      placeholders: [],
+    },
+    {
+      key: "company.error.name.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company.error.name.min",
+      placeholders: [],
+    },
+    {
+      key: "company.error.name.required",
+      placeholders: [],
+    },
+    {
+      key: "company.error.nib.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company.error.not_found",
+      placeholders: [],
+    },
+    {
+      key: "company.error.npwp.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company.error.npwp.invalid",
+      placeholders: [],
+    },
+    {
+      key: "company.error.phone.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "company.error.postal_code.invalid",
+      placeholders: [],
+    },
+    {
+      key: "company.error.service_unavailable",
+      placeholders: [],
+    },
+    {
+      key: "company.error.session_expired",
+      placeholders: [],
+    },
+    {
+      key: "company.error.unauthorized",
+      placeholders: [],
+    },
+    {
+      key: "company.error.unit_has_transaction",
+      placeholders: [],
+    },
+    {
+      key: "company.error.unknown_error",
+      placeholders: [],
+    },
+    {
+      key: "company.error.validation_error",
+      placeholders: [],
+    },
+    {
+      key: "company.established_date.label",
+      placeholders: [],
+    },
+    {
+      key: "company.fiscal_year.label",
+      placeholders: [],
+    },
+    {
+      key: "company.list.action.add_company",
+      placeholders: [],
+    },
+    {
+      key: "company.list.action.manage_workspace",
+      placeholders: [],
+    },
+    {
+      key: "company.list.business_unit.active_label",
+      placeholders: ["count"],
+    },
+    {
+      key: "company.list.business_unit.total_label",
+      placeholders: [],
+    },
+    {
+      key: "company.list.empty_filtered.description",
+      placeholders: [],
+    },
+    {
+      key: "company.list.empty_filtered.title",
+      placeholders: [],
+    },
+    {
+      key: "company.list.error.description",
+      placeholders: [],
+    },
+    {
+      key: "company.list.error.retry",
+      placeholders: [],
+    },
+    {
+      key: "company.list.error.title",
+      placeholders: [],
+    },
+    {
+      key: "company.list.filter.apply",
+      placeholders: [],
+    },
+    {
+      key: "company.list.filter.button",
+      placeholders: [],
+    },
+    {
+      key: "company.list.filter.empty_result",
+      placeholders: [],
+    },
+    {
+      key: "company.list.filter.reset",
+      placeholders: [],
+    },
+    {
+      key: "company.list.filter.search_placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.list.filter.select_workspace",
+      placeholders: ["name"],
+    },
+    {
+      key: "company.list.filter.title",
+      placeholders: [],
+    },
+    {
+      key: "company.list.load_more.label",
+      placeholders: [],
+    },
+    {
+      key: "company.list.not_found.description",
+      placeholders: [],
+    },
+    {
+      key: "company.list.not_found.title",
+      placeholders: [],
+    },
+    {
+      key: "company.list.ownership.mine",
+      placeholders: [],
+    },
+    {
+      key: "company.list.ownership.shared_by",
+      placeholders: ["name"],
+    },
+    {
+      key: "company.list.search.loading",
+      placeholders: [],
+    },
+    {
+      key: "company.list.search.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.list.toast.create_failed_title",
+      placeholders: [],
+    },
+    {
+      key: "company.list.toast.logo_upload_failed_message",
+      placeholders: [],
+    },
+    {
+      key: "company.list.toast.logo_upload_failed_title",
+      placeholders: [],
+    },
+    {
+      key: "company.logo.label",
+      placeholders: [],
+    },
+    {
+      key: "company.logo.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.modal.save_changes.desc",
+      placeholders: [],
+    },
+    {
+      key: "company.modal.save_changes.primary_button",
+      placeholders: [],
+    },
+    {
+      key: "company.modal.save_changes.secondary_button",
+      placeholders: [],
+    },
+    {
+      key: "company.name.label",
+      placeholders: [],
+    },
+    {
+      key: "company.name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.nib.label",
+      placeholders: [],
+    },
+    {
+      key: "company.npwp.label",
+      placeholders: [],
+    },
+    {
+      key: "company.phone.label",
+      placeholders: [],
+    },
+    {
+      key: "company.pkp_status.label",
+      placeholders: [],
+    },
+    {
+      key: "company.pkp_status.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.postal_code.label",
+      placeholders: [],
+    },
+    {
+      key: "company.postal_code.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.action.cancel",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.action.save",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.action.save_changes",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.discard_dialog.description",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.discard_dialog.primary",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.discard_dialog.secondary",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.discard_dialog.title",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.error.description",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.error.retry",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.error.title",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.forbidden.cta_back",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.forbidden.description",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.forbidden.title",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.header.title",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.modal.edit_prefix",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.not_found.cta_back",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.not_found.description",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.not_found.title",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.option.currency.idr",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.option.currency.sgd",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.option.currency.usd",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.toast.save_failed_message",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.toast.save_failed_title",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.toast.save_success_title",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.toast.validation_failed_message",
+      placeholders: [],
+    },
+    {
+      key: "company.profile.toast.validation_failed_title",
+      placeholders: [],
+    },
+    {
+      key: "company.province.label",
+      placeholders: [],
+    },
+    {
+      key: "company.province.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.save.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "company.save.confirm.button",
+      placeholders: [],
+    },
+    {
+      key: "company.save.confirm.description",
+      placeholders: [],
+    },
+    {
+      key: "company.save.confirm.title",
+      placeholders: [],
+    },
+    {
+      key: "company.save.success",
+      placeholders: [],
+    },
+    {
+      key: "company.village.label",
+      placeholders: [],
+    },
+    {
+      key: "company.village.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "company.website.label",
+      placeholders: [],
+    },
+    {
+      key: "company.whatsapp.label",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.blocked.active_units.action",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.blocked.active_units.description",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.blocked.button.cancel",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.blocked.default_company.action",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.blocked.default_company.description",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.blocked.title",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.approval_text",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.banner.description",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.banner.title",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.button.cancel",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.button.confirm",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.button.submit",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.description",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.input.helper_text",
+      placeholders: ["companyName"],
+    },
+    {
+      key: "delete.company.confirm.input.label",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.input.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.confirm.title",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.company_has_transaction",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.company_name_mismatch",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.company_name_required",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.forbidden",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.has_active_units",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.is_default",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.not_found",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.unit_has_transaction",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.unknown",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.error.validation_error",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.impact.banner.title",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.impact.button.cancel",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.impact.button.confirm",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.impact.button.continue",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.impact.description",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.impact.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.impact.summary.description",
+      placeholders: ["companyName"],
+    },
+    {
+      key: "delete.company.impact.summary.unit_count",
+      placeholders: ["totalBusinessUnit"],
+    },
+    {
+      key: "delete.company.impact.title",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.precheck.error.message",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.precheck.error.title",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.precheck.error.unknown",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.precheck.loading.label",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.toast.error_title",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "delete.company.toast.success.title",
+      placeholders: [],
+    },
+    {
+      key: "error.business_type.required",
+      placeholders: [],
+    },
+    {
+      key: "error.company.name.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "error.company.name.invalid_character",
+      placeholders: [],
+    },
+    {
+      key: "error.company.name.max",
+      placeholders: [],
+    },
+    {
+      key: "error.company.name.min",
+      placeholders: [],
+    },
+    {
+      key: "error.company.name.required",
+      placeholders: [],
+    },
+    {
+      key: "error.country.required",
+      placeholders: [],
+    },
+    {
+      key: "error.currency.required",
+      placeholders: [],
+    },
+    {
+      key: "error.email.invalid",
+      placeholders: [],
+    },
+    {
+      key: "error.error.account_not_linked",
+      placeholders: [],
+    },
+    {
+      key: "error.error.bad_gateway",
+      placeholders: [],
+    },
+    {
+      key: "error.error.bad_request",
+      placeholders: [],
+    },
+    {
+      key: "error.error.conflict",
+      placeholders: [],
+    },
+    {
+      key: "error.error.expired_token",
+      placeholders: [],
+    },
+    {
+      key: "error.error.forbidden",
+      placeholders: [],
+    },
+    {
+      key: "error.error.gateway_timeout",
+      placeholders: [],
+    },
+    {
+      key: "error.error.internal_server_error",
+      placeholders: [],
+    },
+    {
+      key: "error.error.not_found",
+      placeholders: [],
+    },
+    {
+      key: "error.error.service_unavailable",
+      placeholders: [],
+    },
+    {
+      key: "error.error.session_expired",
+      placeholders: [],
+    },
+    {
+      key: "error.error.unauthorized",
+      placeholders: [],
+    },
+    {
+      key: "error.error.unknown_error",
+      placeholders: [],
+    },
+    {
+      key: "error.error.validation_error",
+      placeholders: [],
+    },
+    {
+      key: "error.logo.format",
+      placeholders: [],
+    },
+    {
+      key: "error.logo.size",
+      placeholders: [],
+    },
+    {
+      key: "error.nib.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "error.nib.invalid",
+      placeholders: [],
+    },
+    {
+      key: "error.npwp.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "error.npwp.invalid",
+      placeholders: [],
+    },
+    {
+      key: "error.phone.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "error.phone.invalid",
+      placeholders: [],
+    },
+    {
+      key: "error.phone.max",
+      placeholders: [],
+    },
+    {
+      key: "error.postal_code.invalid",
+      placeholders: [],
+    },
+    {
+      key: "error.website.invalid",
+      placeholders: [],
+    },
+    {
+      key: "error.whatsapp.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "error.whatsapp.invalid",
+      placeholders: [],
+    },
+    {
+      key: "error.whatsapp.max",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb200_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb200_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb200_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb201_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb201_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb201_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb202_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb202_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb202_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb204_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb204_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb204_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb300_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb300_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb300_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb301_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb301_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb301_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb302_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb302_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb302_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb303_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb303_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb303_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb304_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb304_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb304_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb307_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb307_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb307_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb308_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb308_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb308_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb400_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb400_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb400_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb401_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb401_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb401_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb402_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb402_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb402_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb403_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb403_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb403_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb404_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb404_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb404_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb405_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb405_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb405_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb406_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb406_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb406_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb408_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb408_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb408_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb409_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb409_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb409_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb410_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb410_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb410_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb413_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb413_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb413_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb415_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb415_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb415_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb422_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb422_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb422_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb429_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb429_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb429_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb500_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb500_b_secondary",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb500_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb500_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb501_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb501_b_secondary",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb501_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb501_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb502_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb502_b_secondary",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb502_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb502_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb503_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb503_b_secondary",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb503_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb503_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb504_b",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb504_b_secondary",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb504_d",
+      placeholders: [],
+    },
+    {
+      key: "fallback.fb504_h",
+      placeholders: [],
+    },
+    {
+      key: "fallback.support_label",
+      placeholders: [],
+    },
+    {
+      key: "fallback.support_url",
+      placeholders: [],
+    },
+    {
+      key: "http.http_200_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_200_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_201_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_201_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_202_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_202_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_204_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_204_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_400_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_400_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_401_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_401_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_403_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_403_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_404_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_404_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_405_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_405_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_408_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_408_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_409_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_409_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_410_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_410_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_415_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_415_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_422_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_422_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_429_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_429_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_500_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_500_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_502_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_502_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_503_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_503_title",
+      placeholders: [],
+    },
+    {
+      key: "http.http_504_message",
+      placeholders: [],
+    },
+    {
+      key: "http.http_504_title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.add.bu_name.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.add.bu_name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.add.bu_type.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.add.bu_type.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.desc",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.name.error.format",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.business_unit.title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.add.business_type.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.add.business_type.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.add.company_name.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.add.company_name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.add.country.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.add.country.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.add.currency.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.add.currency.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.business_type.error.required",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.country.error.required",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.currency.error.required",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.desc",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.name.error.format",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.company.title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.error.system.page_content",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.error.system.page_title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.navigation.back.button",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.navigation.next.button",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.data.business_type.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.data.business_unit_name.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.data.business_unit_type.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.data.company_name.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.data.country_currency.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.data.workspace_name.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.info.note",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.page_content.intro",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.preview.page_title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.start.cta.button",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.start.page_content",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.start.page_title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.step.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.structure.page_content",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.structure.page_title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.success.cta.button",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.success.page_content",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.success.page_title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.welcome.page_content",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.welcome.page_title",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.add.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.add.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.desc",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.label",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.name.error.format",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "onboarding.onboarding.workspace.title",
+      placeholders: [],
+    },
+    {
+      key: "profile.change_password.page.title",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile_edit_personal.field.name",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile_edit_personal.page.title",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.action.change_password",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.action.create_password",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.action.delete_account",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.label.address",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.label.date_of_birth",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.label.email",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.label.gender",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.label.name",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.label.nickname",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.label.profile_photo",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.label.whatsapp_number",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.logout.button",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.page.title",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.section.data_account",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.section.data_privacy",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.section.personal_information",
+      placeholders: [],
+    },
+    {
+      key: "profile.profile.section.security",
+      placeholders: [],
+    },
+    {
+      key: "role.role_detail.page_title",
+      placeholders: [],
+    },
+    {
+      key: "role.rolelist.page_title",
+      placeholders: [],
+    },
+    {
+      key: "role.rolelist.section.description",
+      placeholders: [],
+    },
+    {
+      key: "role.rolelist.table.description.header",
+      placeholders: [],
+    },
+    {
+      key: "role.rolelist.table.role_name.header",
+      placeholders: [],
+    },
+    {
+      key: "role.rolelist.table.user_count.header",
+      placeholders: [],
+    },
+    {
+      key: "role.rolelist.table.user_count.tooltip",
+      placeholders: [],
+    },
+    {
+      key: "settings.company_setting.page_title",
+      placeholders: [],
+    },
+    {
+      key: "settings.preferences.language",
+      placeholders: [],
+    },
+    {
+      key: "settings.preferences.notifications",
+      placeholders: [],
+    },
+    {
+      key: "settings.preferences.theme",
+      placeholders: [],
+    },
+    {
+      key: "settings.preferences.title",
+      placeholders: [],
+    },
+    {
+      key: "settings.profile.change_password",
+      placeholders: [],
+    },
+    {
+      key: "settings.profile.edit_profile",
+      placeholders: [],
+    },
+    {
+      key: "settings.profile.logout.button",
+      placeholders: [],
+    },
+    {
+      key: "settings.profile.logout.popup.cancel",
+      placeholders: [],
+    },
+    {
+      key: "settings.profile.logout.popup.confirm",
+      placeholders: [],
+    },
+    {
+      key: "settings.profile.logout.popup.message",
+      placeholders: [],
+    },
+    {
+      key: "settings.profile.logout.popup.title",
+      placeholders: [],
+    },
+    {
+      key: "settings.profile.title",
+      placeholders: [],
+    },
+    {
+      key: "settings.title",
+      placeholders: [],
+    },
+    {
+      key: "user.email_aktifkan_pengguna.subject",
+      placeholders: [],
+    },
+    {
+      key: "user.invite_email.subject",
+      placeholders: ["company_name"],
+    },
+    {
+      key: "user.ubah_akses_pengguna.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "user.ubah_akses_pengguna.toast_title.success",
+      placeholders: [],
+    },
+    {
+      key: "user.user_activate.toast_message.success",
+      placeholders: [],
+    },
+    {
+      key: "user.user_activate.toast_title.success",
+      placeholders: [],
+    },
+    {
+      key: "user.user_deactivate.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "user.user_deactivate.toast_title.success",
+      placeholders: [],
+    },
+    {
+      key: "user.user_deactivated.page.title",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.button.change_role",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.button.change_status",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.header.title",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.page_title",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.access_scope",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.email",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.invited_by",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.join_date",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.name",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.role",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.status",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.title",
+      placeholders: [],
+    },
+    {
+      key: "user.user_detail.section.wa_number",
+      placeholders: [],
+    },
+    {
+      key: "user.user_list.header.add_user.button",
+      placeholders: [],
+    },
+    {
+      key: "user.user_list.modal.info.company",
+      placeholders: [],
+    },
+    {
+      key: "user.user_list.modal.label.email",
+      placeholders: [],
+    },
+    {
+      key: "user.user_list.modal.label.role",
+      placeholders: [],
+    },
+    {
+      key: "user.user_list.modal.placeholder.email",
+      placeholders: [],
+    },
+    {
+      key: "user.user_list.modal.placeholder.role",
+      placeholders: [],
+    },
+    {
+      key: "user.user_list.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "user.useradd.owner_role.banner.title",
+      placeholders: [],
+    },
+    {
+      key: "user.userlist.action.view_detail",
+      placeholders: [],
+    },
+    {
+      key: "user.userlist.filter.role.label",
+      placeholders: [],
+    },
+    {
+      key: "user.userlist.pagination.rows_per_page",
+      placeholders: [],
+    },
+    {
+      key: "user.userlist.resend_invite.toast.title",
+      placeholders: [],
+    },
+    {
+      key: "user.userlist.search.empty.title",
+      placeholders: [],
+    },
+    {
+      key: "user.userlist.search.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "user.userlist.table.title",
+      placeholders: [],
+    },
+    {
+      key: "user.userlist.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.company_list.empty.cta_button",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.company_list.empty.description",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.company_list.empty.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.detailrk.company_list",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.detailrk.data_info",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.detailrk.name_ws",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.detailrk.owned_by",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.detailrk.sumbusiness_unit",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.detailrk.sumcompany",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.workspace_detail.action.add_company.button",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.workspace_detail.company_add.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace_detail.workspace_detail.page_title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.delete_info.button.cancel",
+      placeholders: [],
+    },
+    {
+      key: "workspace.delete_info.button.company_list",
+      placeholders: [],
+    },
+    {
+      key: "workspace.delete_info.modal.body",
+      placeholders: [],
+    },
+    {
+      key: "workspace.delete_info.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.detail_workspace.edit.label",
+      placeholders: [],
+    },
+    {
+      key: "workspace.detail_workspace.edit.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.list_workspace.modal.label",
+      placeholders: [],
+    },
+    {
+      key: "workspace.list_workspace.modal.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "workspace.list_workspace.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.listcompany.header.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.listrk.header.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.action.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.action.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.form.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.form.name.error.invalid_format",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.form.name.error.max_length",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.form.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.form.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.form.name.label",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.form.name.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.name.info.max_length",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.create.toast.success.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.action.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.action.confirm.button",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.checkbox.confirmation",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.form.confirmation.label",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.form.confirmation.placeholder",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.modal.banner_title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.modal.description",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.modal.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.delete.toast.success.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.action.cancel.button",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.action.submit.button",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.form.name.error.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.form.name.error.invalid_format",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.form.name.error.max_length",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.form.name.error.min_length",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.form.name.error.required",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.form.name.max_length",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.toast.cancle.message",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.toast.cancle.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.toast.success.message",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.edit.toast.success.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.error.confirm_name.mismatch",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.error.has_companies",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.error.last_remaining",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.error.name.duplicate",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.error.name.required",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.action.create.button",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.empty.description",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.empty.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.error.description",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.error.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.header.managed_by.label",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.not_found.description",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.not_found.title",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.summary.business_unit_total.label",
+      placeholders: [],
+    },
+    {
+      key: "workspace.workspace.list.summary.company_total.label",
+      placeholders: [],
+    },
   ],
-  "entries": [
-    {
-      "key": "auth_privacy_policy.consent.privacy_policy",
-      "placeholders": []
-    },
-    {
-      "key": "auth_terms_condition.consent.terms_conditions",
-      "placeholders": []
-    },
-    {
-      "key": "auth.btn_verifikasi_email",
-      "placeholders": []
-    },
-    {
-      "key": "auth.cekemail.description",
-      "placeholders": []
-    },
-    {
-      "key": "auth.cekemail.help.check_spam",
-      "placeholders": []
-    },
-    {
-      "key": "auth.cekemail.help.didnt_get_email",
-      "placeholders": []
-    },
-    {
-      "key": "auth.cekemail.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.cta.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.cta.submit",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.error.email_already_used",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.error.email_invalid_format",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.error.email_required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.error.email_same_as_previous",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.field.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.field.email.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.modal.subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_email.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.cta.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.cta.submit",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.error.already_used",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.error.invalid_format",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.error.same_as_old",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.field.phone.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.field.phone.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.modal.subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.change_wa.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.channel_verifiy.page.info",
-      "placeholders": []
-    },
-    {
-      "key": "auth.channel_verifiy.page.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.check_email.description",
-      "placeholders": []
-    },
-    {
-      "key": "auth.check_email.description_1",
-      "placeholders": []
-    },
-    {
-      "key": "auth.check_email.description_2",
-      "placeholders": []
-    },
-    {
-      "key": "auth.check_email.description_3",
-      "placeholders": []
-    },
-    {
-      "key": "auth.check_email.help.check_spam",
-      "placeholders": []
-    },
-    {
-      "key": "auth.check_email.help.didnt_get_email",
-      "placeholders": []
-    },
-    {
-      "key": "auth.check_email.help.didnt_get_email_few_minutes",
-      "placeholders": []
-    },
-    {
-      "key": "auth.check_email.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.error.name.invalid_char",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.error.name.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.error.wa.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.error.wa.format",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.error.wa.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.form.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.form.name.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.form.name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.form.wa.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.confirm_logingoogle.form.wa.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.body.intro",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.cta.button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.footer.disclaimer",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.heading",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.invalid_old_link.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.invalid_old_link.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.preheader",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.subject",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.success.cta.home",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.email.verify.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.errors.invalid_email",
-      "placeholders": []
-    },
-    {
-      "key": "auth.errors.user_not_found",
-      "placeholders": []
-    },
-    {
-      "key": "auth.errors.weak_password",
-      "placeholders": []
-    },
-    {
-      "key": "auth.expired.cta.button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.expired.message.info",
-      "placeholders": []
-    },
-    {
-      "key": "auth.expired.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.expired.toast.button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.expired.toast.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.expired.toast.success",
-      "placeholders": []
-    },
-    {
-      "key": "auth.expired.toast.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.google_account_preview_privacy_link",
-      "placeholders": []
-    },
-    {
-      "key": "auth.google_account_preview_terms_link",
-      "placeholders": []
-    },
-    {
-      "key": "auth.google_account_preview.privacy_link",
-      "placeholders": []
-    },
-    {
-      "key": "auth.google_account_preview.terms_link",
-      "placeholders": []
-    },
-    {
-      "key": "auth.google_login.success.cta",
-      "placeholders": []
-    },
-    {
-      "key": "auth.idle.popup.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.idle.popup.toast.keepalive.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.idle.popup.toast.keepalive.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.email.autofill_failed",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.nama.invalid_char",
-      "placeholders": [
-        "x"
-      ]
-    },
-    {
-      "key": "auth.login_by_google_account.error.nama.max",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.nama.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.tnc.link_failed",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.tnc.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.wa.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.wa.format",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.wa.nondigit",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.error.wa.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.email.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.nama.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.nama.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.tnc.checkbox",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.tnc.link",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.wa.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.form.wa.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google_account.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_by_google.banner.whatsapp_required.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.auth.oauth_failed.error.btnclose",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.auth.oauth_failed.error.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.auth.oauth_failed.error.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.idconfirm.cta_cancel",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.idconfirm.cta_confirm",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.idconfirm.description",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.idconfirm.info_otp",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.idconfirm.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.register_from_google.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_google.register_from_google.toast.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_invite.banner.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login_page.form.button.forgot_pass",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.banner.error.lockout",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.banner.error.mismatch",
-      "placeholders": [
-        "attempts"
-      ]
-    },
-    {
-      "key": "auth.login.bannermessage.session_expired_idle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.bannertitle.session_expired_idle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.button.forgot",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.button.session_expired_idle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_not_found.error",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_not_found.password_security.level_label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_not_found.password_security.requirement_list_aria_label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_not_found.password_security.requirement.lowercase",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_not_found.password_security.requirement.minimum_length",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_not_found.password_security.requirement.number",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_not_found.password_security.requirement.symbol",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_not_found.password_security.requirement.uppercase",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_wa.errors.empty",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_wa.errors.format",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_wa.errors.not_found",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_wa.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.email_wa.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.password_incorrect.error",
-      "placeholders": [
-        "attempts"
-      ]
-    },
-    {
-      "key": "auth.login.form.password.errors.empty",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.password.errors.mismatch",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.password.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.password.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.remember_me.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.form.submit.disabled",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.google_button.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.google_popup.loading",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.info.cancelled.subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.info.cancelled.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.or",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.register_prompt.link",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.register_prompt.text",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.success.home.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.success.redirect.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.success.return.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.toast.error.global.submit",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.toast.error.global.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.toast.success.google_message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.toast.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.login.welcome",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.confirm.button_no",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.confirm.button_yes",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.confirm.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.confirm.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.confirmation.button.confirm",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.confirmation.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.error.network",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.menu.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.popup.button.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.popup.button.confirm",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.popup.error.network_failure",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.popup.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.popup.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.logout.success.toast",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp_whatsapp.message",
-      "placeholders": [
-        "otp_code"
-      ]
-    },
-    {
-      "key": "auth.otp.error_locked.banner.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.error_locked.banner.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.error.expired",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.error.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.error.invalid_with_resend",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.error.lock",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.fallback.change_meethod_wa",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.fallback.change_method",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.fallback.sent_email",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.form.instruction",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.form.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.form.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.form.resend.button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.form.resend.second",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.loading.overlay.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.otp.success.toast.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.popup_permission.blocked.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.popup.button.close",
-      "placeholders": []
-    },
-    {
-      "key": "auth.popup.button.extend",
-      "placeholders": []
-    },
-    {
-      "key": "auth.popup.button.logout",
-      "placeholders": []
-    },
-    {
-      "key": "auth.popup.message",
-      "placeholders": [
-        "time"
-      ]
-    },
-    {
-      "key": "auth.popup.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register_invite.banner.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.email.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.email.format",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.email.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.global.submit",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.global.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.name.invalid_char",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.name.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.common",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.confirm_required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.guide",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.medium",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.mismatch",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.strong",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.too_short",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.password.weak",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.terms.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.wa.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.wa.format",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.error.wa.required",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.checkbox.and",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.checkbox.privacy_policy",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.checkbox.terms",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.checkbox.terms_and_conditions",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.email.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.name.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.password.confirm.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.password.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.password.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.wa.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.form.wa.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.password_security.level_label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.password_security.requirement_list_aria_label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.password_security.requirement.lowercase",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.password_security.requirement.minimum_length",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.password_security.requirement.number",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.password_security.requirement.symbol",
-      "placeholders": []
-    },
-    {
-      "key": "auth.register.password_security.requirement.uppercase",
-      "placeholders": []
-    },
-    {
-      "key": "auth.resend_email.change_email.cta",
-      "placeholders": []
-    },
-    {
-      "key": "auth.resend_email.resend.button.disabled",
-      "placeholders": [
-        "seconds"
-      ]
-    },
-    {
-      "key": "auth.resend_email.resend.button.enabled",
-      "placeholders": []
-    },
-    {
-      "key": "auth.resend_email.resend.limit.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.resend_email.resend.limit.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.resend_email.resend.success.toast_message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.resend_email.resend.success.toast_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.screen_privacy_mode.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.session_pre_warning_72h.modal.description",
-      "placeholders": []
-    },
-    {
-      "key": "auth.session_pre_warning_72h.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.session_pre_warning_google.cta.google",
-      "placeholders": []
-    },
-    {
-      "key": "auth.session_pre_warning_google.modal.description",
-      "placeholders": []
-    },
-    {
-      "key": "auth.session_pre_warning_google.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.session.expired.modal.button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.session.expired.modal.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.invalid_old_email.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.invalid_old_email.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.invalid_old_link.message_1",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.invalid_old_link.message_2",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.invalid_old_link.message_highlight",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.invalid_old_link.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.success.cta.home",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.two_factor_authentication.email.verify.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.action_audit_log",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.action_invite_team",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.action_manage_role",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.card_access_desc",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.card_access_status",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.card_access_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.card_accounting_desc",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.card_accounting_status",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.card_accounting_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.card_cta",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.hero_subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.hero_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.last_action_prefix",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.section_subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.section_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.dashboard.welcome",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.login.hide_password",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.login.show_password",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.main_layout.language_en_label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.main_layout.language_id_label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.main_layout.language_switcher_aria_label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.ui.main_layout.profile_menu_aria_label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account_cancel_button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account_create_account_button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account_message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account.cancel_button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account.create_account_button",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account.error_modal.subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account.error_modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.unregistered_google_account.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_issue_email.cta_switch_wa",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_issue_email.lead",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_issue_email.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_issue_wa.cta_switch_email",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_issue_wa.lead",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_issue_wa.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_limit_email.button.whatsapp",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_limit_email.limit.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_limit_email.limit.message_subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_limit_email.limit.message_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_method.button_continue",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_method.option_email.desc",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_method.option_email.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_method.option_whatsapp.desc",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_method.option_whatsapp.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_method.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification_method.section_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification.resend.button.label",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verification.resend.button.success_message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verifikasi_wa.change_wa.cta",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verifikasi_wa.resend.button.disabled",
-      "placeholders": [
-        "seconds"
-      ]
-    },
-    {
-      "key": "auth.verifikasi_wa.resend.button.enabled",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verifikasi_wa.resend.limit.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verifikasi_wa.resend.limit.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verifikasi_wa.resend.success.toast_message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verifikasi_wa.resend.success.toast_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.error.limit_reached",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.error.limit_reached_subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.error.limit_reached_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.error.locked",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.success.cta",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.success.redirect",
-      "placeholders": [
-        "xx"
-      ]
-    },
-    {
-      "key": "auth.verify.success.success_title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.success.toast.message",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.success.toast.title",
-      "placeholders": []
-    },
-    {
-      "key": "auth.verify.toast.resend_success",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.address.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.address.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.city.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.city.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.district.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.district.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.email.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.name.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.nib.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.nib.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.npwp.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.npwp.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.opening_date.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.opening_date.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.phone.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.phone.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.province.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.province.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.type.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.type.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.village.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.bu_detail.edit.form.village.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_detail.button.deactivate",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_detail.label.active",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_detail.label.address",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_detail.label.bookkeeping_date",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_detail.label.business_type",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_detail.label.email",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_detail.label.phone_number",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_detail.title",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_list.button.add_business_unit",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_list.empty_state.no_business_unit",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_list.empty_state.no_data",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_list.label.branch",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_list.label.factory",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_list.label.outlet",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_list.search.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_list.title",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.button.edit",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.address",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.business_type",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.business_unit_creation_date",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.business_unit_identity",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.business_unit_name",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.city_or_regency",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.contact",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.district",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.email",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.full_address",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.legal_and_administration",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.logo",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.nib",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.npwpd",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.phone_number",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.province",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.subdistrict",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.label.whatsapp_number",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.business_unit_profile.title",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.address.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.address.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.bu_logo.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.bu_logo.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.city.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.city.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.district.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.district.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.email.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.name.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.nib.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.nib.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.npwpd.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.npwpd.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.opening_date.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.opening_date.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.phone.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.phone.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.province.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.province.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.type.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.type.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.village.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.form.village.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.company_detail.bu_add.section.title",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.error.name.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.delete.button",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.error.empty",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.error.min",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.error.mismatch",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.input.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.input.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.instruction",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.confirm.title",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.error.fallback.description",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.error.fallback.title",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.impact.agree.button",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.impact.alternative",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.impact.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.impact.description",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.impact.permanent",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.impact.title",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.impact.transaction_block",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.delete.success.toast",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.detail.action.deactivate.label",
-      "placeholders": []
-    },
-    {
-      "key": "business_unit.unit.detail.action.delete.label",
-      "placeholders": []
-    },
-    {
-      "key": "common.app_powered",
-      "placeholders": []
-    },
-    {
-      "key": "common.app_shell.menu.chart_of_account",
-      "placeholders": []
-    },
-    {
-      "key": "common.app_shell.menu.dashboard",
-      "placeholders": []
-    },
-    {
-      "key": "common.app_title",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.cancel_dialog.back_to_form.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.cancel_dialog.confirm_cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.cancel_dialog.description",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.cancel_dialog.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.cancel_dialog.toast.message",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.cancel_dialog.toast.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.form.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.form.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.toast.success",
-      "placeholders": []
-    },
-    {
-      "key": "company_add.toasttitle.success",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.detail_workspace.edit.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.detail_workspace.edit.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.list_workspace.modal.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.list_workspace.modal.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.list_workspace.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.listcompany.header.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.listrk.header.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.add.bu_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.add.bu_name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.add.bu_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.add.bu_type.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.desc",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.name.error.format",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.business_unit.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.add.business_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.add.business_type.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.add.company_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.add.company_name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.add.country.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.add.country.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.add.currency.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.add.currency.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.business_type.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.country.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.currency.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.desc",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.name.error.format",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.company.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.navigation.back.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.navigation.next.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.data.business_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.data.business_unit_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.data.business_unit_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.data.company_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.data.country_currency.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.data.workspace_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.info.note",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.page_content.intro",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.preview.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.start.cta.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.start.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.start.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.structure.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.structure.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.success.cta.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.success.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.success.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.welcome.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.welcome.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.add.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.add.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.desc",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.name.error.format",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.onboarding.workspace.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.action.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.action.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.form.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.form.name.error.invalid_format",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.form.name.error.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.form.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.form.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.form.name.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.form.name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.create.toast.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.delete.action.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.delete.action.confirm.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.delete.checkbox.confirmation",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.delete.form.confirmation.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.delete.form.confirmation.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.delete.modal.description",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.delete.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.action.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.action.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.form.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.form.name.error.invalid_format",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.form.name.error.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.form.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.form.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.form.name.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.toast.cancle.message",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.toast.cancle.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.edit.toast.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.action.create.button",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.empty.description",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.empty.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.error.description",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.error.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.header.managed_by.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.not_found.description",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.not_found.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.summary.business_unit_total.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_and_workspace.workspace.list.summary.company_total.label",
-      "placeholders": []
-    },
-    {
-      "key": "company_detail.access_address_subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "company_detail.access_companyidentity_subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "company_detail.access_contact_subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "company_detail.access_error.cta_back",
-      "placeholders": []
-    },
-    {
-      "key": "company_detail.access_error.description",
-      "placeholders": []
-    },
-    {
-      "key": "company_detail.access_error.title",
-      "placeholders": []
-    },
-    {
-      "key": "company_detail.access_legalandadministration_subtitle",
-      "placeholders": []
-    },
-    {
-      "key": "company.accounting_start_date.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.address.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.address.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.business_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.business_type.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.business_unit_count.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.city.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.city.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.country.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.country.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.action.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.action.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.additional_info.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.accounting_start_date.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.accounting_start_date.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.address.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.address.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.business_type.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.business_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.business_type.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.business_unit_count.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.business_unit_count.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.city.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.city.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.country.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.country.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.country.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.creation_date.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.creation_date.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.currency.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.currency.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.currency.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.district.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.district.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.email.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.establishment_date.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.establishment_date.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.city_empty",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.city_loading",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.city_select_province",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.district_empty",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.district_loading",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.district_select_city",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.province_empty",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.province_loading",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.subdistrict_empty",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.subdistrict_loading",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.geo.subdistrict_select_district",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.logo.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.logo.max_size",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.logo.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.name.error.format",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.name.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.nib.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.nib.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.phone.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.phone.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.postal_code.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.postal_code.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.province.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.province.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.sppkp_number.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.sppkp_number.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.subdistrict.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.subdistrict.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.tax_id.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.tax_id.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.vat_status.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.website.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.website.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.whatsapp.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.whatsapp.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.workspace.dropdown",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.form.workspace.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.option.business_type.jasa",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.option.business_type.manufaktur",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.option.business_type.retail",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.option.country.indonesia",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.option.currency.idr",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.option.pkp_status.non_pkp",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.option.pkp_status.pkp",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.section.address.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.section.contact.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.section.identity.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.create.section.legal.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.created_date.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.currency.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.currency.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.action.back_to_list",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.action.delete_company",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.action.primary_company",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.action.set_default",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.breadcrumb.aria_label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.error.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.error.retry",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.error.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.header.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.info.address.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.info.business_unit_total.active_label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.info.business_unit_total.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.info.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.info.phone.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.info.whatsapp.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.section.business_unit.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.section.profile.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.section.role_management.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.section.user_management.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.status.coming_soon.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.toast.set_default_error_title",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.toast.set_default_success_message",
-      "placeholders": []
-    },
-    {
-      "key": "company.detail.toast.set_default_success_title",
-      "placeholders": []
-    },
-    {
-      "key": "company.district.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.district.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.email.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.account_not_linked",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.bad_gateway",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.bad_request",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.business_type.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.confirm_name.mismatch",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.conflict",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.country_code.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.email.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.expired_token",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.forbidden",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.gateway_timeout",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.has_active_units",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.has_transaction",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.internal_server_error",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.is_default",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.name.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.name.min",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.name.required",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.nib.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.not_found",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.npwp.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.npwp.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.phone.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.postal_code.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.service_unavailable",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.session_expired",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.unauthorized",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.unit_has_transaction",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.unknown_error",
-      "placeholders": []
-    },
-    {
-      "key": "company.error.validation_error",
-      "placeholders": []
-    },
-    {
-      "key": "company.established_date.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.fiscal_year.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.action.add_company",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.action.manage_workspace",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.business_unit.active_label",
-      "placeholders": [
-        "count"
-      ]
-    },
-    {
-      "key": "company.list.business_unit.total_label",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.empty_filtered.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.empty_filtered.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.error.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.error.retry",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.error.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.filter.apply",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.filter.button",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.filter.empty_result",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.filter.reset",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.filter.search_placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.filter.select_workspace",
-      "placeholders": [
-        "name"
-      ]
-    },
-    {
-      "key": "company.list.filter.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.load_more.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.not_found.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.not_found.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.ownership.mine",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.ownership.shared_by",
-      "placeholders": [
-        "name"
-      ]
-    },
-    {
-      "key": "company.list.search.loading",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.search.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.toast.create_failed_title",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.toast.logo_upload_failed_message",
-      "placeholders": []
-    },
-    {
-      "key": "company.list.toast.logo_upload_failed_title",
-      "placeholders": []
-    },
-    {
-      "key": "company.logo.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.logo.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.modal.save_changes.desc",
-      "placeholders": []
-    },
-    {
-      "key": "company.modal.save_changes.primary_button",
-      "placeholders": []
-    },
-    {
-      "key": "company.modal.save_changes.secondary_button",
-      "placeholders": []
-    },
-    {
-      "key": "company.name.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.nib.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.npwp.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.phone.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.pkp_status.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.pkp_status.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.postal_code.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.postal_code.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.action.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.action.save",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.action.save_changes",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.discard_dialog.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.discard_dialog.primary",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.discard_dialog.secondary",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.discard_dialog.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.error.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.error.retry",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.error.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.forbidden.cta_back",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.forbidden.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.forbidden.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.header.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.modal.edit_prefix",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.not_found.cta_back",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.not_found.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.not_found.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.option.currency.idr",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.option.currency.sgd",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.option.currency.usd",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.toast.save_failed_message",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.toast.save_failed_title",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.toast.save_success_title",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.toast.validation_failed_message",
-      "placeholders": []
-    },
-    {
-      "key": "company.profile.toast.validation_failed_title",
-      "placeholders": []
-    },
-    {
-      "key": "company.province.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.province.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.save.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "company.save.confirm.button",
-      "placeholders": []
-    },
-    {
-      "key": "company.save.confirm.description",
-      "placeholders": []
-    },
-    {
-      "key": "company.save.confirm.title",
-      "placeholders": []
-    },
-    {
-      "key": "company.save.success",
-      "placeholders": []
-    },
-    {
-      "key": "company.village.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.village.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "company.website.label",
-      "placeholders": []
-    },
-    {
-      "key": "company.whatsapp.label",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.blocked.active_units.action",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.blocked.active_units.description",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.blocked.button.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.blocked.default_company.action",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.blocked.default_company.description",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.blocked.title",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.approval_text",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.banner.description",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.banner.title",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.button.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.button.confirm",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.button.submit",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.description",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.input.helper_text",
-      "placeholders": [
-        "companyName"
-      ]
-    },
-    {
-      "key": "delete.company.confirm.input.label",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.input.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.confirm.title",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.company_has_transaction",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.company_name_mismatch",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.company_name_required",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.forbidden",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.has_active_units",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.is_default",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.not_found",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.unit_has_transaction",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.unknown",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.error.validation_error",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.impact.banner.title",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.impact.button.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.impact.button.confirm",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.impact.button.continue",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.impact.description",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.impact.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.impact.summary.description",
-      "placeholders": [
-        "companyName"
-      ]
-    },
-    {
-      "key": "delete.company.impact.summary.unit_count",
-      "placeholders": [
-        "totalBusinessUnit"
-      ]
-    },
-    {
-      "key": "delete.company.impact.title",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.precheck.error.message",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.precheck.error.title",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.precheck.error.unknown",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.precheck.loading.label",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.toast.error_title",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "delete.company.toast.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "error.business_type.required",
-      "placeholders": []
-    },
-    {
-      "key": "error.company.name.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "error.company.name.invalid_character",
-      "placeholders": []
-    },
-    {
-      "key": "error.company.name.max",
-      "placeholders": []
-    },
-    {
-      "key": "error.company.name.min",
-      "placeholders": []
-    },
-    {
-      "key": "error.company.name.required",
-      "placeholders": []
-    },
-    {
-      "key": "error.country.required",
-      "placeholders": []
-    },
-    {
-      "key": "error.currency.required",
-      "placeholders": []
-    },
-    {
-      "key": "error.email.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.account_not_linked",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.bad_gateway",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.bad_request",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.conflict",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.expired_token",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.forbidden",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.gateway_timeout",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.internal_server_error",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.not_found",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.service_unavailable",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.session_expired",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.unauthorized",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.unknown_error",
-      "placeholders": []
-    },
-    {
-      "key": "error.error.validation_error",
-      "placeholders": []
-    },
-    {
-      "key": "error.logo.format",
-      "placeholders": []
-    },
-    {
-      "key": "error.logo.size",
-      "placeholders": []
-    },
-    {
-      "key": "error.nib.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "error.nib.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "error.npwp.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "error.npwp.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "error.phone.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "error.phone.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "error.phone.max",
-      "placeholders": []
-    },
-    {
-      "key": "error.postal_code.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "error.website.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "error.whatsapp.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "error.whatsapp.invalid",
-      "placeholders": []
-    },
-    {
-      "key": "error.whatsapp.max",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb200_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb200_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb200_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb201_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb201_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb201_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb202_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb202_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb202_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb204_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb204_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb204_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb300_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb300_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb300_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb301_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb301_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb301_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb302_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb302_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb302_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb303_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb303_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb303_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb304_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb304_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb304_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb307_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb307_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb307_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb308_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb308_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb308_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb400_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb400_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb400_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb401_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb401_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb401_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb402_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb402_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb402_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb403_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb403_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb403_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb404_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb404_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb404_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb405_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb405_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb405_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb406_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb406_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb406_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb408_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb408_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb408_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb409_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb409_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb409_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb410_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb410_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb410_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb413_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb413_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb413_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb415_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb415_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb415_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb422_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb422_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb422_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb429_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb429_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb429_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb500_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb500_b_secondary",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb500_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb500_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb501_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb501_b_secondary",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb501_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb501_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb502_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb502_b_secondary",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb502_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb502_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb503_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb503_b_secondary",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb503_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb503_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb504_b",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb504_b_secondary",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb504_d",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.fb504_h",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.support_label",
-      "placeholders": []
-    },
-    {
-      "key": "fallback.support_url",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_200_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_200_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_201_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_201_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_202_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_202_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_204_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_204_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_400_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_400_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_401_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_401_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_403_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_403_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_404_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_404_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_405_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_405_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_408_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_408_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_409_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_409_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_410_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_410_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_415_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_415_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_422_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_422_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_429_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_429_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_500_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_500_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_502_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_502_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_503_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_503_title",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_504_message",
-      "placeholders": []
-    },
-    {
-      "key": "http.http_504_title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.add.bu_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.add.bu_name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.add.bu_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.add.bu_type.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.desc",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.name.error.format",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.business_unit.title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.add.business_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.add.business_type.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.add.company_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.add.company_name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.add.country.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.add.country.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.add.currency.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.add.currency.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.business_type.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.country.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.currency.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.desc",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.name.error.format",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.company.title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.error.system.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.error.system.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.navigation.back.button",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.navigation.next.button",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.data.business_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.data.business_unit_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.data.business_unit_type.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.data.company_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.data.country_currency.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.data.workspace_name.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.info.note",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.page_content.intro",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.preview.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.start.cta.button",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.start.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.start.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.step.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.structure.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.structure.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.success.cta.button",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.success.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.success.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.welcome.page_content",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.welcome.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.add.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.add.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.desc",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.label",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.name.error.format",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "onboarding.onboarding.workspace.title",
-      "placeholders": []
-    },
-    {
-      "key": "profile.change_password.page.title",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile_edit_personal.field.name",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile_edit_personal.page.title",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.action.change_password",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.action.create_password",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.action.delete_account",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.label.address",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.label.date_of_birth",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.label.email",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.label.gender",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.label.name",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.label.nickname",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.label.profile_photo",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.label.whatsapp_number",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.logout.button",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.page.title",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.section.data_account",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.section.data_privacy",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.section.personal_information",
-      "placeholders": []
-    },
-    {
-      "key": "profile.profile.section.security",
-      "placeholders": []
-    },
-    {
-      "key": "role.role_detail.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "role.rolelist.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "role.rolelist.section.description",
-      "placeholders": []
-    },
-    {
-      "key": "role.rolelist.table.description.header",
-      "placeholders": []
-    },
-    {
-      "key": "role.rolelist.table.role_name.header",
-      "placeholders": []
-    },
-    {
-      "key": "role.rolelist.table.user_count.header",
-      "placeholders": []
-    },
-    {
-      "key": "role.rolelist.table.user_count.tooltip",
-      "placeholders": []
-    },
-    {
-      "key": "settings.company_setting.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "settings.preferences.language",
-      "placeholders": []
-    },
-    {
-      "key": "settings.preferences.notifications",
-      "placeholders": []
-    },
-    {
-      "key": "settings.preferences.theme",
-      "placeholders": []
-    },
-    {
-      "key": "settings.preferences.title",
-      "placeholders": []
-    },
-    {
-      "key": "settings.profile.change_password",
-      "placeholders": []
-    },
-    {
-      "key": "settings.profile.edit_profile",
-      "placeholders": []
-    },
-    {
-      "key": "settings.profile.logout.button",
-      "placeholders": []
-    },
-    {
-      "key": "settings.profile.logout.popup.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "settings.profile.logout.popup.confirm",
-      "placeholders": []
-    },
-    {
-      "key": "settings.profile.logout.popup.message",
-      "placeholders": []
-    },
-    {
-      "key": "settings.profile.logout.popup.title",
-      "placeholders": []
-    },
-    {
-      "key": "settings.profile.title",
-      "placeholders": []
-    },
-    {
-      "key": "settings.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.email_aktifkan_pengguna.subject",
-      "placeholders": []
-    },
-    {
-      "key": "user.invite_email.subject",
-      "placeholders": [
-        "company_name"
-      ]
-    },
-    {
-      "key": "user.ubah_akses_pengguna.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.ubah_akses_pengguna.toast_title.success",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_activate.toast_message.success",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_activate.toast_title.success",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_deactivate.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_deactivate.toast_title.success",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_deactivated.page.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.button.change_role",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.button.change_status",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.header.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.access_scope",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.email",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.invited_by",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.join_date",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.name",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.role",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.status",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_detail.section.wa_number",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_list.header.add_user.button",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_list.modal.info.company",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_list.modal.label.email",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_list.modal.label.role",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_list.modal.placeholder.email",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_list.modal.placeholder.role",
-      "placeholders": []
-    },
-    {
-      "key": "user.user_list.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.useradd.owner_role.banner.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.userlist.action.view_detail",
-      "placeholders": []
-    },
-    {
-      "key": "user.userlist.filter.role.label",
-      "placeholders": []
-    },
-    {
-      "key": "user.userlist.pagination.rows_per_page",
-      "placeholders": []
-    },
-    {
-      "key": "user.userlist.resend_invite.toast.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.userlist.search.empty.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.userlist.search.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "user.userlist.table.title",
-      "placeholders": []
-    },
-    {
-      "key": "user.userlist.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.company_list.empty.cta_button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.company_list.empty.description",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.company_list.empty.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.detailrk.company_list",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.detailrk.data_info",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.detailrk.name_ws",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.detailrk.owned_by",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.detailrk.sumbusiness_unit",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.detailrk.sumcompany",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.workspace_detail.action.add_company.button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.workspace_detail.company_add.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace_detail.workspace_detail.page_title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.delete_info.button.cancel",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.delete_info.button.company_list",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.delete_info.modal.body",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.delete_info.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.detail_workspace.edit.label",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.detail_workspace.edit.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.list_workspace.modal.label",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.list_workspace.modal.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.list_workspace.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.listcompany.header.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.listrk.header.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.action.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.action.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.form.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.form.name.error.invalid_format",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.form.name.error.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.form.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.form.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.form.name.label",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.form.name.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.name.info.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.create.toast.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.action.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.action.confirm.button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.checkbox.confirmation",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.form.confirmation.label",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.form.confirmation.placeholder",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.modal.banner_title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.modal.description",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.modal.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.delete.toast.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.action.cancel.button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.action.submit.button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.form.name.error.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.form.name.error.invalid_format",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.form.name.error.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.form.name.error.min_length",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.form.name.error.required",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.form.name.max_length",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.toast.cancle.message",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.toast.cancle.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.toast.success.message",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.edit.toast.success.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.error.confirm_name.mismatch",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.error.has_companies",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.error.last_remaining",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.error.name.duplicate",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.error.name.required",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.action.create.button",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.empty.description",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.empty.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.error.description",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.error.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.header.managed_by.label",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.not_found.description",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.not_found.title",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.summary.business_unit_total.label",
-      "placeholders": []
-    },
-    {
-      "key": "workspace.workspace.list.summary.company_total.label",
-      "placeholders": []
-    }
-  ],
-  "messages": {
-    "en": {
+  messages: {
+    en: {
       "auth.btn_verifikasi_email": "Verify via Email",
-      "auth.cekemail.description": "We've sent a verification link to the email address you registered.",
+      "auth.cekemail.description":
+        "We've sent a verification link to the email address you registered.",
       "auth.cekemail.help.check_spam": "Be sure to also check your spam or promotions folder.",
-      "auth.cekemail.help.didnt_get_email": "Haven't received the email? It may take a few minutes for the email to arrive in your inbox.",
+      "auth.cekemail.help.didnt_get_email":
+        "Haven't received the email? It may take a few minutes for the email to arrive in your inbox.",
       "auth.cekemail.page_title": "Check Your Email",
       "auth.change_email.cta.cancel": "Cancel",
       "auth.change_email.cta.submit": "Send Verification Link",
-      "auth.change_email.error.email_already_used": "This email is already in use. Try another one active email.",
-      "auth.change_email.error.email_invalid_format": "Please enter a valid email (e.g., name@domain.com).",
+      "auth.change_email.error.email_already_used":
+        "This email is already in use. Try another one active email.",
+      "auth.change_email.error.email_invalid_format":
+        "Please enter a valid email (e.g., name@domain.com).",
       "auth.change_email.error.email_required": "Please fill in your email.",
-      "auth.change_email.error.email_same_as_previous": "This email is the same as your previous one. Please use a different email.",
+      "auth.change_email.error.email_same_as_previous":
+        "This email is the same as your previous one. Please use a different email.",
       "auth.change_email.field.email.label": "New Email",
       "auth.change_email.field.email.placeholder": "e.g., budi@contoh.com",
-      "auth.change_email.modal.subtitle": "Please enter your new email. Make sure it’s not already in use or the same as your previous email.",
+      "auth.change_email.modal.subtitle":
+        "Please enter your new email. Make sure it’s not already in use or the same as your previous email.",
       "auth.change_email.modal.title": "Change Email",
       "auth.change_wa.cta.cancel": "Cancel",
       "auth.change_wa.cta.submit": "Send OTP",
-      "auth.change_wa.error.already_used": "This number is already in use. Try another active number.",
-      "auth.change_wa.error.invalid_format": "Please use a valid WhatsApp number (e.g., 81234567890).",
+      "auth.change_wa.error.already_used":
+        "This number is already in use. Try another active number.",
+      "auth.change_wa.error.invalid_format":
+        "Please use a valid WhatsApp number (e.g., 81234567890).",
       "auth.change_wa.error.required": "WhatsApp number is required, please fill it in.",
-      "auth.change_wa.error.same_as_old": "This number is the same as your previous one. Please use a different number.",
+      "auth.change_wa.error.same_as_old":
+        "This number is the same as your previous one. Please use a different number.",
       "auth.change_wa.field.phone.label": "New WA Number",
       "auth.change_wa.field.phone.placeholder": "81234567890",
-      "auth.change_wa.modal.subtitle": "Please enter a new WhatsApp number that has never been used to make the next process smoother.",
+      "auth.change_wa.modal.subtitle":
+        "Please enter a new WhatsApp number that has never been used to make the next process smoother.",
       "auth.change_wa.modal.title": "Change WhatsApp Number",
       "auth.change_wa.toast.success.message": "We've sent an OTP to your new number.",
-      "auth.channel_verifiy.page.info": "To keep your account secure, select one of the methods to receive a password reset verification code.",
+      "auth.channel_verifiy.page.info":
+        "To keep your account secure, select one of the methods to receive a password reset verification code.",
       "auth.channel_verifiy.page.title": "Select Verification Method",
-      "auth.check_email.description": "We’ve sent a verification link to the email address you registered.",
+      "auth.check_email.description":
+        "We’ve sent a verification link to the email address you registered.",
       "auth.check_email.description_1": "We’ve ",
       "auth.check_email.description_2": "sent a verification link to the email address ",
       "auth.check_email.description_3": " you registered.",
       "auth.check_email.help.check_spam": "Be sure to also check your spam or promotions folder.",
       "auth.check_email.help.didnt_get_email": "Haven’t received the email?",
-      "auth.check_email.help.didnt_get_email_few_minutes": "It may take a few minutes for the email to arrive in your inbox.",
+      "auth.check_email.help.didnt_get_email_few_minutes":
+        "It may take a few minutes for the email to arrive in your inbox.",
       "auth.check_email.page_title": "Check Your Email",
-      "auth.confirm_logingoogle.error.name.invalid_char": "Character [x] is not allowed. Use letters, spaces, dots (.) or commas (,).",
+      "auth.confirm_logingoogle.error.name.invalid_char":
+        "Character [x] is not allowed. Use letters, spaces, dots (.) or commas (,).",
       "auth.confirm_logingoogle.error.name.required": "Name is required, please fill it in.",
-      "auth.confirm_logingoogle.error.wa.duplicate": "This WhatsApp number is already used. Try another one or log in.",
-      "auth.confirm_logingoogle.error.wa.format": "Please enter a valid WhatsApp number (example: 81234567890).",
-      "auth.confirm_logingoogle.error.wa.required": "WhatsApp number is required, please fill it in.",
+      "auth.confirm_logingoogle.error.wa.duplicate":
+        "This WhatsApp number is already used. Try another one or log in.",
+      "auth.confirm_logingoogle.error.wa.format":
+        "Please enter a valid WhatsApp number (example: 81234567890).",
+      "auth.confirm_logingoogle.error.wa.required":
+        "WhatsApp number is required, please fill it in.",
       "auth.confirm_logingoogle.form.email.label": "Email",
       "auth.confirm_logingoogle.form.name.label": "Name",
       "auth.confirm_logingoogle.form.name.placeholder": "Example: John Doe",
       "auth.confirm_logingoogle.form.wa.label": "WhatsApp Number",
       "auth.confirm_logingoogle.form.wa.placeholder": "81234567890",
-      "auth.email.verify.body.intro": "Hello, we’ve received a request to verify your email address. Click the button below to complete the verification process.",
+      "auth.email.verify.body.intro":
+        "Hello, we’ve received a request to verify your email address. Click the button below to complete the verification process.",
       "auth.email.verify.cta.button": "Verify Now",
-      "auth.email.verify.footer.disclaimer": "If you did not request this verification, please ignore this email.",
+      "auth.email.verify.footer.disclaimer":
+        "If you did not request this verification, please ignore this email.",
       "auth.email.verify.heading": "Verify Your Email",
-      "auth.email.verify.invalid_old_link.message": "It looks like you opened an older link. Please use the latest verification link we sent to your email.",
+      "auth.email.verify.invalid_old_link.message":
+        "It looks like you opened an older link. Please use the latest verification link we sent to your email.",
       "auth.email.verify.invalid_old_link.title": "Link No Longer Active",
       "auth.email.verify.preheader": "Click the link below to verify your email.",
       "auth.email.verify.subject": "Verify Your Email Address",
       "auth.email.verify.success.cta.home": "Go to Home",
-      "auth.email.verify.success.message": "A verification link has been sent. Please check your email.",
+      "auth.email.verify.success.message":
+        "A verification link has been sent. Please check your email.",
       "auth.email.verify.success.title": "Email Verification Successful",
       "auth.errors.invalid_email": "Invalid email address",
       "auth.errors.user_not_found": "User not found",
@@ -5026,7 +5014,8 @@ const manifest: LocalizationManifest = {
       "auth.expired.message.info": "This verification link is no longer valid.",
       "auth.expired.page_title": "Expired Link",
       "auth.expired.toast.button": "Go to Login",
-      "auth.expired.toast.message": "Registration not found or has expired. Please log in or register again.",
+      "auth.expired.toast.message":
+        "Registration not found or has expired. Please log in or register again.",
       "auth.expired.toast.success": "A new verification link has been sent to your email.",
       "auth.expired.toast.title": "Registration Expired",
       "auth.google_account_preview_privacy_link": "Privacy Policy",
@@ -5037,16 +5026,24 @@ const manifest: LocalizationManifest = {
       "auth.idle.popup.title": "Session about to end",
       "auth.idle.popup.toast.keepalive.message": "Your session has been extended.",
       "auth.idle.popup.toast.keepalive.title": "Success!",
-      "auth.login_by_google_account.error.email.autofill_failed": "We couldn’t load your email. Please refresh the page.",
-      "auth.login_by_google_account.error.nama.invalid_char": "Character {x} is not allowed. Use letters, spaces, dots (.) or commas (,).",
+      "auth.login_by_google_account.error.email.autofill_failed":
+        "We couldn’t load your email. Please refresh the page.",
+      "auth.login_by_google_account.error.nama.invalid_char":
+        "Character {x} is not allowed. Use letters, spaces, dots (.) or commas (,).",
       "auth.login_by_google_account.error.nama.max": "Name can be up to 50 characters.",
       "auth.login_by_google_account.error.nama.required": "Name is required, please fill it in.",
-      "auth.login_by_google_account.error.tnc.link_failed": "The Terms & Conditions page is currently unavailable. Please try again later.",
-      "auth.login_by_google_account.error.tnc.required": "Please agree to the terms before continuing.",
-      "auth.login_by_google_account.error.wa.duplicate": "This WhatsApp number is already used. Try another one or log in.",
-      "auth.login_by_google_account.error.wa.format": "Please enter a valid WhatsApp number (example: 81234567890).",
-      "auth.login_by_google_account.error.wa.nondigit": "Only digits are allowed. Please check your WhatsApp number.",
-      "auth.login_by_google_account.error.wa.required": "WhatsApp number is required, please fill it in.",
+      "auth.login_by_google_account.error.tnc.link_failed":
+        "The Terms & Conditions page is currently unavailable. Please try again later.",
+      "auth.login_by_google_account.error.tnc.required":
+        "Please agree to the terms before continuing.",
+      "auth.login_by_google_account.error.wa.duplicate":
+        "This WhatsApp number is already used. Try another one or log in.",
+      "auth.login_by_google_account.error.wa.format":
+        "Please enter a valid WhatsApp number (example: 81234567890).",
+      "auth.login_by_google_account.error.wa.nondigit":
+        "Only digits are allowed. Please check your WhatsApp number.",
+      "auth.login_by_google_account.error.wa.required":
+        "WhatsApp number is required, please fill it in.",
       "auth.login_by_google_account.form.email.label": "Email",
       "auth.login_by_google_account.form.email.placeholder": "email@domain.com",
       "auth.login_by_google_account.form.nama.label": "Name",
@@ -5057,41 +5054,61 @@ const manifest: LocalizationManifest = {
       "auth.login_by_google_account.form.wa.label": "WhatsApp Number",
       "auth.login_by_google_account.form.wa.placeholder": "81234567890",
       "auth.login_by_google_account.page_title": "Google Account Confirmation",
-      "auth.login_by_google.banner.whatsapp_required.message": "Your WhatsApp number is not available in your Google account. Please enter it to continue creating your account.",
+      "auth.login_by_google.banner.whatsapp_required.message":
+        "Your WhatsApp number is not available in your Google account. Please enter it to continue creating your account.",
       "auth.login_google.auth.oauth_failed.error.btnclose": "Close",
-      "auth.login_google.auth.oauth_failed.error.message": "There was an issue opening the Google login window. Please try again later, or use manual login to continue.",
+      "auth.login_google.auth.oauth_failed.error.message":
+        "There was an issue opening the Google login window. Please try again later, or use manual login to continue.",
       "auth.login_google.auth.oauth_failed.error.title": "Failed to Open Google Pop-up",
       "auth.login_google.idconfirm.cta_cancel": "Cancel",
       "auth.login_google.idconfirm.cta_confirm": "Confirm With OTP",
-      "auth.login_google.idconfirm.description": "We found that this Google email is already linked to your existing account. For your security, let’s verify that this is really you.",
+      "auth.login_google.idconfirm.description":
+        "We found that this Google email is already linked to your existing account. For your security, let’s verify that this is really you.",
       "auth.login_google.idconfirm.info_otp": "OTP has been sent to your WhatsApp: {08-****-1234}",
       "auth.login_google.idconfirm.title": "Identity Confirmation",
-      "auth.login_google.register_from_google.toast.success.message": "Your account has been created",
+      "auth.login_google.register_from_google.toast.success.message":
+        "Your account has been created",
       "auth.login_google.register_from_google.toast.success.title": "Success!",
       "auth.login_invite.banner.title": "Company Invitation",
       "auth.login_page.form.button.forgot_pass": "Forgot Password",
-      "auth.login.banner.error.lockout": "Your account is temporarily locked for 15 minutes for security reasons.\nYou can try again in {mm:ss}.",
-      "auth.login.banner.error.mismatch": "You still have {attempts} chances in the next 15 minutes.",
-      "auth.login.bannermessage.session_expired_idle": "For your security, your session automatically ended after inactivity for 30 minutes. Please log in again to continue your work.",
+      "auth.login.banner.error.lockout":
+        "Your account is temporarily locked for 15 minutes for security reasons.\nYou can try again in {mm:ss}.",
+      "auth.login.banner.error.mismatch":
+        "You still have {attempts} chances in the next 15 minutes.",
+      "auth.login.bannermessage.session_expired_idle":
+        "For your security, your session automatically ended after inactivity for 30 minutes. Please log in again to continue your work.",
       "auth.login.bannertitle.session_expired_idle": "Session Ended",
       "auth.login.button.forgot": "Forgot Password",
       "auth.login.button.session_expired_idle": "Okay",
-      "auth.login.form.email_not_found.error": "Account not found, please check your email or number again.",
+      "auth.login.form.email_not_found.error":
+        "Account not found, please check your email or number again.",
       "auth.login.form.email_not_found.password_security.level_label": "Security Level:",
-      "auth.login.form.email_not_found.password_security.requirement_list_aria_label": "Password Requirements",
-      "auth.login.form.email_not_found.password_security.requirement.lowercase": "Contains Lowercase Letter (a-z)",
-      "auth.login.form.email_not_found.password_security.requirement.minimum_length": "Minimum 8 Characters",
-      "auth.login.form.email_not_found.password_security.requirement.number": "Contains Number (0-9)",
-      "auth.login.form.email_not_found.password_security.requirement.symbol": "Contains Symbol (!, @, #, $, %, &, *, ?, etc.)",
-      "auth.login.form.email_not_found.password_security.requirement.uppercase": "Contains Uppercase Letter (A-Z)",
-      "auth.login.form.email_wa.errors.empty": "You haven’t entered your email or WhatsApp number yet. Please complete it to continue logging in.",
-      "auth.login.form.email_wa.errors.format": "The format doesn’t look right yet. Try using a valid email or WhatsApp number that starts with 08 or a country code (+).",
-      "auth.login.form.email_wa.errors.not_found": "We haven't found an account with that information. Please check your email or WhatsApp number again, or register a new account if you don't have one.",
+      "auth.login.form.email_not_found.password_security.requirement_list_aria_label":
+        "Password Requirements",
+      "auth.login.form.email_not_found.password_security.requirement.lowercase":
+        "Contains Lowercase Letter (a-z)",
+      "auth.login.form.email_not_found.password_security.requirement.minimum_length":
+        "Minimum 8 Characters",
+      "auth.login.form.email_not_found.password_security.requirement.number":
+        "Contains Number (0-9)",
+      "auth.login.form.email_not_found.password_security.requirement.symbol":
+        "Contains Symbol (!, @, #, $, %, &, *, ?, etc.)",
+      "auth.login.form.email_not_found.password_security.requirement.uppercase":
+        "Contains Uppercase Letter (A-Z)",
+      "auth.login.form.email_wa.errors.empty":
+        "You haven’t entered your email or WhatsApp number yet. Please complete it to continue logging in.",
+      "auth.login.form.email_wa.errors.format":
+        "The format doesn’t look right yet. Try using a valid email or WhatsApp number that starts with 08 or a country code (+).",
+      "auth.login.form.email_wa.errors.not_found":
+        "We haven't found an account with that information. Please check your email or WhatsApp number again, or register a new account if you don't have one.",
       "auth.login.form.email_wa.label": "Email or WhatsApp Number",
       "auth.login.form.email_wa.placeholder": "Enter your email or WhatsApp number",
-      "auth.login.form.password_incorrect.error": "Your password doesn’t match yet. You still have {attempts} more tries within 15 minutes.",
-      "auth.login.form.password.errors.empty": "Password is missing. Please fill it in to access your account.",
-      "auth.login.form.password.errors.mismatch": "Your password doesn't match. Please check again and try again.",
+      "auth.login.form.password_incorrect.error":
+        "Your password doesn’t match yet. You still have {attempts} more tries within 15 minutes.",
+      "auth.login.form.password.errors.empty":
+        "Password is missing. Please fill it in to access your account.",
+      "auth.login.form.password.errors.mismatch":
+        "Your password doesn't match. Please check again and try again.",
       "auth.login.form.password.label": "Password",
       "auth.login.form.password.placeholder": "••••••••",
       "auth.login.form.remember_me.label": "Remember me for 30 days",
@@ -5110,7 +5127,8 @@ const manifest: LocalizationManifest = {
       "auth.login.success.return.label": "Return to previous page",
       "auth.login.toast.error.global.submit": "Your login attempt was unsuccessful",
       "auth.login.toast.error.global.title": "Failed!",
-      "auth.login.toast.success.google_message": "Successfully logged in with Google. Welcome to MyApp.",
+      "auth.login.toast.success.google_message":
+        "Successfully logged in with Google. Welcome to MyApp.",
       "auth.login.toast.success.message": "Successfully logged in. Welcome to MyApp.",
       "auth.login.toast.success.title": "Login Successful",
       "auth.login.welcome": "<p>Come on, log in to your <bold>MyApp</bold> account</p>",
@@ -5125,16 +5143,21 @@ const manifest: LocalizationManifest = {
       "auth.logout.popup.button.cancel": "Cancel",
       "auth.logout.popup.button.confirm": "Yes, Log Out",
       "auth.logout.popup.error.network_failure": "Network issue, please try again.",
-      "auth.logout.popup.message": "Are you sure you want to log out? Don't worry, your data remains safe.",
+      "auth.logout.popup.message":
+        "Are you sure you want to log out? Don't worry, your data remains safe.",
       "auth.logout.popup.title": "Logout Confirmation",
       "auth.logout.success.toast": "You have successfully logged out. See you soon.",
-      "auth.otp_whatsapp.message": "{otp_code} is your MyApp account verification code. This code is valid for 5 minutes. Please don’t share it with anyone. If you didn’t request this code, please ignore this message or contact the MyApp support team.",
-      "auth.otp.error_locked.banner.message": "Try again after 15 minutes or change your WhatsApp number.",
-      "auth.otp.error_locked.banner.title": "For security reasons, verification is temporarily locked",
+      "auth.otp_whatsapp.message":
+        "{otp_code} is your MyApp account verification code. This code is valid for 5 minutes. Please don’t share it with anyone. If you didn’t request this code, please ignore this message or contact the MyApp support team.",
+      "auth.otp.error_locked.banner.message":
+        "Try again after 15 minutes or change your WhatsApp number.",
+      "auth.otp.error_locked.banner.title":
+        "For security reasons, verification is temporarily locked",
       "auth.otp.error.expired": "OTP has expired. Please request a new one to continue.",
       "auth.otp.error.invalid": "Invalid OTP. Please try again.",
       "auth.otp.error.invalid_with_resend": "Invalid OTP. Check again, or request a new code.",
-      "auth.otp.error.lock": "For security reasons, verification is temporarily locked. Please try again in 15 minutes.",
+      "auth.otp.error.lock":
+        "For security reasons, verification is temporarily locked. Please try again in 15 minutes.",
       "auth.otp.fallback.change_meethod_wa": "Try via WhatsApp",
       "auth.otp.fallback.change_method": "Try via Email",
       "auth.otp.fallback.sent_email": "A verification link has been sent to your Email.",
@@ -5153,25 +5176,35 @@ const manifest: LocalizationManifest = {
       "auth.popup.message": "Your session will end in {{time}} seconds.",
       "auth.popup.title": "Your session is about to end",
       "auth.register_invite.banner.title": "Company Invitation",
-      "auth.register.error.email.duplicate": "This email is already used. Try another one or log in.",
+      "auth.register.error.email.duplicate":
+        "This email is already used. Try another one or log in.",
       "auth.register.error.email.format": "Please enter a valid email (example: name@domain.com).",
       "auth.register.error.email.required": "Email is required, please fill it in.",
-      "auth.register.error.global.submit": "Some fields are invalid. Please check the highlighted sections.",
+      "auth.register.error.global.submit":
+        "Some fields are invalid. Please check the highlighted sections.",
       "auth.register.error.global.title": "Failed!",
-      "auth.register.error.name.invalid_char": "Character [x] is not allowed. Use letters, spaces, dots (.) or commas (,).",
+      "auth.register.error.name.invalid_char":
+        "Character [x] is not allowed. Use letters, spaces, dots (.) or commas (,).",
       "auth.register.error.name.required": "Name is required, please fill it in.",
       "auth.register.error.password.common": "Password is too common. Please choose another one.",
-      "auth.register.error.password.confirm_required": "Confirm password is required, please fill it in.",
-      "auth.register.error.password.guide": "Use ≥8 characters. Must include letters & numbers, symbols optional.",
-      "auth.register.error.password.medium": "Password is fair, make it stronger with uppercase/lowercase or symbols.",
-      "auth.register.error.password.mismatch": "Password and confirmation do not match. Please check again.",
+      "auth.register.error.password.confirm_required":
+        "Confirm password is required, please fill it in.",
+      "auth.register.error.password.guide":
+        "Use ≥8 characters. Must include letters & numbers, symbols optional.",
+      "auth.register.error.password.medium":
+        "Password is fair, make it stronger with uppercase/lowercase or symbols.",
+      "auth.register.error.password.mismatch":
+        "Password and confirmation do not match. Please check again.",
       "auth.register.error.password.required": "Password is required, please fill it in.",
       "auth.register.error.password.strong": "Password is strong and ready to use.",
       "auth.register.error.password.too_short": "Password must be at least 8 characters.",
       "auth.register.error.password.weak": "Password is too weak, try adding letters & numbers.",
-      "auth.register.error.terms.required": "You need to agree to the Privacy Policy & Terms of Service.",
-      "auth.register.error.wa.duplicate": "This WhatsApp number is already used. Try another one or log in.",
-      "auth.register.error.wa.format": "Please enter a valid WhatsApp number (example: 81234567890).",
+      "auth.register.error.terms.required":
+        "You need to agree to the Privacy Policy & Terms of Service.",
+      "auth.register.error.wa.duplicate":
+        "This WhatsApp number is already used. Try another one or log in.",
+      "auth.register.error.wa.format":
+        "Please enter a valid WhatsApp number (example: 81234567890).",
       "auth.register.error.wa.required": "WhatsApp number is required, please fill it in.",
       "auth.register.form.checkbox.and": "&",
       "auth.register.form.checkbox.privacy_policy": "Privacy Policy",
@@ -5193,46 +5226,61 @@ const manifest: LocalizationManifest = {
       "auth.register.password_security.requirement.lowercase": "Contains Lowercase Letter (a-z)",
       "auth.register.password_security.requirement.minimum_length": "Minimum 8 Characters",
       "auth.register.password_security.requirement.number": "Contains Number (0-9)",
-      "auth.register.password_security.requirement.symbol": "Contains Symbol (!, @, #, $, %, &, *, ?, etc.)",
+      "auth.register.password_security.requirement.symbol":
+        "Contains Symbol (!, @, #, $, %, &, *, ?, etc.)",
       "auth.register.password_security.requirement.uppercase": "Contains Uppercase Letter (A-Z)",
       "auth.resend_email.change_email.cta": "Change Email",
       "auth.resend_email.resend.button.disabled": "Resend Link ({seconds} seconds)",
       "auth.resend_email.resend.button.enabled": "Resend Link",
-      "auth.resend_email.resend.limit.message": "Please wait 15 minutes or update your email address.",
+      "auth.resend_email.resend.limit.message":
+        "Please wait 15 minutes or update your email address.",
       "auth.resend_email.resend.limit.title": "Resend limit reached.",
       "auth.resend_email.resend.success.toast_message": "A new verification link has been sent.",
       "auth.resend_email.resend.success.toast_title": "Success!",
       "auth.screen_privacy_mode.title": "Screen Blurred",
-      "auth.session_pre_warning_72h.modal.description": "Your session has reached the 72-hour limit. Let's do a quick verification to keep things secure. Please enter your password to continue.",
+      "auth.session_pre_warning_72h.modal.description":
+        "Your session has reached the 72-hour limit. Let's do a quick verification to keep things secure. Please enter your password to continue.",
       "auth.session_pre_warning_72h.modal.title": "Refresh Your Session",
       "auth.session_pre_warning_google.cta.google": "Continue with Google",
-      "auth.session_pre_warning_google.modal.description": "Your session has reached the 72-hour limit. Let's do a quick check with Google so everything stays secure without typing your password.",
+      "auth.session_pre_warning_google.modal.description":
+        "Your session has reached the 72-hour limit. Let's do a quick check with Google so everything stays secure without typing your password.",
       "auth.session_pre_warning_google.modal.title": "Refresh Your Session",
       "auth.session.expired.modal.button": "Sign In Again",
-      "auth.session.expired.modal.message": "Your session has ended. For your security, please sign in again to continue.",
-      "auth.two_factor_authentication.email.verify.invalid_old_email.message": "It looks like you opened a link from an old email address. Please check your latest email to continue verification.",
-      "auth.two_factor_authentication.email.verify.invalid_old_email.title": "Link No Longer Active",
-      "auth.two_factor_authentication.email.verify.invalid_old_link.message_1": "It looks like you opened an older link. Please use the ",
-      "auth.two_factor_authentication.email.verify.invalid_old_link.message_2": " we sent to your email.",
-      "auth.two_factor_authentication.email.verify.invalid_old_link.message_highlight": "latest verification link",
+      "auth.session.expired.modal.message":
+        "Your session has ended. For your security, please sign in again to continue.",
+      "auth.two_factor_authentication.email.verify.invalid_old_email.message":
+        "It looks like you opened a link from an old email address. Please check your latest email to continue verification.",
+      "auth.two_factor_authentication.email.verify.invalid_old_email.title":
+        "Link No Longer Active",
+      "auth.two_factor_authentication.email.verify.invalid_old_link.message_1":
+        "It looks like you opened an older link. Please use the ",
+      "auth.two_factor_authentication.email.verify.invalid_old_link.message_2":
+        " we sent to your email.",
+      "auth.two_factor_authentication.email.verify.invalid_old_link.message_highlight":
+        "latest verification link",
       "auth.two_factor_authentication.email.verify.invalid_old_link.title": "Link No Longer Active",
       "auth.two_factor_authentication.email.verify.success.cta.home": "Go to Home",
-      "auth.two_factor_authentication.email.verify.success.message": "Please return to the app or your previous tab to continue your activity. Or, you can go back to the Home page.",
+      "auth.two_factor_authentication.email.verify.success.message":
+        "Please return to the app or your previous tab to continue your activity. Or, you can go back to the Home page.",
       "auth.two_factor_authentication.email.verify.success.title": "Email Verification Successful",
       "auth.ui.dashboard.action_audit_log": "View Activity",
       "auth.ui.dashboard.action_invite_team": "Invite Team",
       "auth.ui.dashboard.action_manage_role": "Manage Roles",
-      "auth.ui.dashboard.card_access_desc": "Manage user access, roles, and application permission status.",
+      "auth.ui.dashboard.card_access_desc":
+        "Manage user access, roles, and application permission status.",
       "auth.ui.dashboard.card_access_status": "Most Used",
       "auth.ui.dashboard.card_access_title": "MyApp Access",
-      "auth.ui.dashboard.card_accounting_desc": "Monitor transactions, financial reports, and operational journals.",
+      "auth.ui.dashboard.card_accounting_desc":
+        "Monitor transactions, financial reports, and operational journals.",
       "auth.ui.dashboard.card_accounting_status": "Ready to Use",
       "auth.ui.dashboard.card_accounting_title": "MyApp Accounting",
       "auth.ui.dashboard.card_cta": "Open app",
-      "auth.ui.dashboard.hero_subtitle": "Choose quick actions to manage users, roles, and permissions without changing pages.",
+      "auth.ui.dashboard.hero_subtitle":
+        "Choose quick actions to manage users, roles, and permissions without changing pages.",
       "auth.ui.dashboard.hero_title": "All MyApp access in one integrated dashboard.",
       "auth.ui.dashboard.last_action_prefix": "Last action",
-      "auth.ui.dashboard.section_subtitle": "Select the module you want to open based on your operational needs.",
+      "auth.ui.dashboard.section_subtitle":
+        "Select the module you want to open based on your operational needs.",
       "auth.ui.dashboard.section_title": "Access to MyApp Applications",
       "auth.ui.dashboard.welcome": "Welcome, Salsa Maulana",
       "auth.ui.login.hide_password": "Hide Password",
@@ -5243,28 +5291,37 @@ const manifest: LocalizationManifest = {
       "auth.ui.main_layout.profile_menu_aria_label": "User profile menu",
       "auth.unregistered_google_account_cancel_button": "Cancel",
       "auth.unregistered_google_account_create_account_button": "Create Account",
-      "auth.unregistered_google_account_message": "The selected Google account is not registered. You may proceed to create a new account.",
+      "auth.unregistered_google_account_message":
+        "The selected Google account is not registered. You may proceed to create a new account.",
       "auth.unregistered_google_account_title": "Unregistered Account",
       "auth.unregistered_google_account.cancel_button": "Cancel",
       "auth.unregistered_google_account.create_account_button": "Create Account",
-      "auth.unregistered_google_account.error_modal.subtitle": "Please try again later or use another login method.",
+      "auth.unregistered_google_account.error_modal.subtitle":
+        "Please try again later or use another login method.",
       "auth.unregistered_google_account.error_modal.title": "Registration cannot continue",
-      "auth.unregistered_google_account.message": "The selected Google account is not registered. You may proceed to create a new account.",
+      "auth.unregistered_google_account.message":
+        "The selected Google account is not registered. You may proceed to create a new account.",
       "auth.unregistered_google_account.page_title": "Unregistered Account",
       "auth.verification_issue_email.cta_switch_wa": "Use WhatsApp",
-      "auth.verification_issue_email.lead": "It looks like email verification is having an issue. To keep things moving, let’s switch to WhatsApp.",
+      "auth.verification_issue_email.lead":
+        "It looks like email verification is having an issue. To keep things moving, let’s switch to WhatsApp.",
       "auth.verification_issue_email.page_title": "Email Verification Issue",
       "auth.verification_issue_wa.cta_switch_email": "Use Email",
-      "auth.verification_issue_wa.lead": "It looks like WhatsApp verification is having an issue. To keep things moving, let’s switch to Email.",
+      "auth.verification_issue_wa.lead":
+        "It looks like WhatsApp verification is having an issue. To keep things moving, let’s switch to Email.",
       "auth.verification_issue_wa.page_title": "WhatsApp Verification Issue",
       "auth.verification_limit_email.button.whatsapp": "Use WhatsApp",
-      "auth.verification_limit_email.limit.message": "Too much request for verification link. To continue, please verify via WhatsApp.",
-      "auth.verification_limit_email.limit.message_subtitle": "To continue, please verify via WhatsApp",
+      "auth.verification_limit_email.limit.message":
+        "Too much request for verification link. To continue, please verify via WhatsApp.",
+      "auth.verification_limit_email.limit.message_subtitle":
+        "To continue, please verify via WhatsApp",
       "auth.verification_limit_email.limit.message_title": "Too many verification link requests. ",
       "auth.verification_method.button_continue": "Continue",
-      "auth.verification_method.option_email.desc": "Sends a registration verification link to your email",
+      "auth.verification_method.option_email.desc":
+        "Sends a registration verification link to your email",
       "auth.verification_method.option_email.label": "Sign in with Email",
-      "auth.verification_method.option_whatsapp.desc": "Sends a registration verification code to your WhatsApp",
+      "auth.verification_method.option_whatsapp.desc":
+        "Sends a registration verification code to your WhatsApp",
       "auth.verification_method.option_whatsapp.label": "Sign in with WhatsApp",
       "auth.verification_method.page_title": "Verification Method",
       "auth.verification_method.section_title": "Choose a Method",
@@ -5273,26 +5330,35 @@ const manifest: LocalizationManifest = {
       "auth.verifikasi_wa.change_wa.cta": "Change WhatsApp Number",
       "auth.verifikasi_wa.resend.button.disabled": "Resend Code ({seconds} seconds)",
       "auth.verifikasi_wa.resend.button.enabled": "Resend Code",
-      "auth.verifikasi_wa.resend.limit.message": "You may wait 15 minutes or change your WhatsApp number.",
+      "auth.verifikasi_wa.resend.limit.message":
+        "You may wait 15 minutes or change your WhatsApp number.",
       "auth.verifikasi_wa.resend.limit.title": "Resend limit reached.",
-      "auth.verifikasi_wa.resend.success.toast_message": "We’ve sent the latest OTP to your WhatsApp.",
+      "auth.verifikasi_wa.resend.success.toast_message":
+        "We’ve sent the latest OTP to your WhatsApp.",
       "auth.verifikasi_wa.resend.success.toast_title": "New OTP Sent",
-      "auth.verify.error.limit_reached": "Too many OTP attempts. Please verify via Email to continue.",
+      "auth.verify.error.limit_reached":
+        "Too many OTP attempts. Please verify via Email to continue.",
       "auth.verify.error.limit_reached_subtitle": "Please verify via Email to continue",
       "auth.verify.error.limit_reached_title": "Too many OTP attempts",
-      "auth.verify.error.locked": "For your security, verification is temporarily locked. Please try again after 15 minutes.",
+      "auth.verify.error.locked":
+        "For your security, verification is temporarily locked. Please try again after 15 minutes.",
       "auth.verify.success.cta": "Go to Beranda",
-      "auth.verify.success.message": "Your account is now active. We’re glad to support your journey.",
+      "auth.verify.success.message":
+        "Your account is now active. We’re glad to support your journey.",
       "auth.verify.success.redirect": "You will be redirected automatically in {xx} seconds.",
       "auth.verify.success.success_title": "Your Registration is Successful",
       "auth.verify.success.title": "Verification Successful",
-      "auth.verify.success.toast.message": "Registration completed successfully. You can now explore MyApp.",
+      "auth.verify.success.toast.message":
+        "Registration completed successfully. You can now explore MyApp.",
       "auth.verify.success.toast.title": "Success!",
       "auth.verify.toast.resend_success": "New OTP has been sent",
-      "auth_privacy_policy.consent.privacy_policy": "<p><strong>1. Introduction</strong></p>\n<p>\n  Welcome to MyApp Access.<br />\n  We respect your privacy and are committed to protecting your personal data.<br />\n  This Privacy Policy explains how we collect, use, store, and protect your information\n  when you use our services.\n</p>\n\n<br />\n\n<p><strong>2. Data We Collect</strong></p>\n<p>When you use MyApp Access, we may collect the following information:</p>\n<ul>\n  <li>Full name</li>\n  <li>Email address</li>\n  <li>Phone number</li>\n  <li>Profile photo</li>\n  <li>Device information (device type, browser, operating system)</li>\n  <li>Application usage activity data</li>\n  <li>Location data (where relevant and with your permission)</li>\n</ul>\n\n<br />\n\n<p><strong>3. How We Collect Data</strong></p>\n<p>Your data is collected through:</p>\n<ul>\n  <li>The account registration process</li>\n  <li>Your use of features within the application</li>\n  <li>When you contact our customer support</li>\n  <li>Cookies and other tracking technologies when you use our website</li>\n</ul>\n\n<br />\n\n<p><strong>4. Purpose of Data Usage</strong></p>\n<p>We use your personal data to:</p>\n<ul>\n  <li>Create and manage your account</li>\n  <li>Provide access to application services and features</li>\n  <li>Connect you with various applications within the MyApp ecosystem</li>\n  <li>Contact you regarding the use of our services</li>\n  <li>Improve user experience</li>\n  <li>Provide technical support and customer service</li>\n  <li>Ensure the security and integrity of our systems</li>\n  <li>Comply with applicable legal obligations</li>\n</ul>\n\n<br />\n\n<p><strong>5. Data Storage and Security</strong></p>\n<p>\n  We store your data on secure servers and implement appropriate technical and\n  organizational measures to protect it from unauthorized access, use, or disclosure.<br />\n  These measures include encryption, restricted access controls, and industry-standard\n  security best practices.\n</p>\n\n<br />\n\n<p><strong>6. Use of Data Within the MyApp Ecosystem</strong></p>\n<p>\n  By registering with MyApp Access, you understand and agree that your personal data\n  may be used across applications within the Valfuse ecosystem, including but not\n  limited to:\n</p>\n<ul>\n  <li>MyApp Accounting</li>\n  <li>MyApp HRIS</li>\n  <li>MyApp Inventory</li>\n  <li>MyApp Factory</li>\n  <li>MyApp Chain</li>\n</ul>\n<p>\n  This data usage is intended to provide an integrated service experience without\n  requiring re-registration for each application.<br />\n  We are committed to maintaining the security and confidentiality of your data\n  throughout the Valfuse ecosystem.\n</p>\n\n<br />\n\n<p><strong>7. Data You Input into the Applications</strong></p>\n<p>\n  Operational data that you upload, store, or manage within other MyApp applications—\n  such as sales data, purchase data, product data, or employee data—remains entirely\n  your property as the user.\n</p>\n<p>We only access and process such data to the extent necessary to:</p>\n<ul>\n  <li>Provide our services</li>\n  <li>Maintain system security</li>\n  <li>Fulfill legal obligations</li>\n</ul>\n<p>\n  We do not use your operational data for any other purposes without your explicit\n  consent.\n</p>\n\n<br />\n\n<p><strong>8. Data Sharing with Third Parties</strong></p>\n<p>\n  We do not sell or rent your personal data.<br />\n  We only share data with trusted third parties in the following cases:\n</p>\n<ul>\n  <li>Technical service providers (such as hosting providers, email services, and cloud infrastructure providers)</li>\n  <li>Legal compliance or court orders</li>\n</ul>\n<p>\n  All third parties are required to maintain the confidentiality and security of your\n  data.\n</p>\n\n<br />\n\n<p><strong>9. Your Rights Over Your Data</strong></p>\n<p>You have the right to:</p>\n<ul>\n  <li>Access your personal data</li>\n  <li>Correct inaccurate data</li>\n  <li>Request deletion of your data</li>\n  <li>Withdraw consent previously given</li>\n  <li>Restrict or object to certain data processing activities</li>\n</ul>\n<p>\n  Requests may be submitted through our customer support.\n</p>\n\n<br />\n\n<p><strong>10. Cookies and Tracking Technologies</strong></p>\n<p>If you use our website, we may use cookies to:</p>\n<ul>\n  <li>Improve website functionality</li>\n  <li>Analyze usage</li>\n  <li>Provide a better user experience</li>\n</ul>\n<p>\n  You can manage your cookie preferences through your browser settings.\n</p>\n\n<br />\n\n<p><strong>11. Changes to This Privacy Policy</strong></p>\n<p>\n  We may update this Privacy Policy from time to time to reflect changes in our practices\n  or legal requirements.<br />\n  If there are material changes, we will notify you through the application or via email.\n</p>\n\n<br />\n\n<p><strong>12. Contact Us</strong></p>\n<p>\n  If you have any questions or requests regarding this Privacy Policy, you may contact us at:<br />\n  📧 Email:\n  <a href=\"mailto:support@valfuseaccess.com\">support@valfuseaccess.com</a>\n</p>",
-      "auth_terms_condition.consent.terms_conditions": "<p><strong>1. Introduction</strong></p>\n<p>\n  Welcome to MyApp Access.<br />\n  By registering for and using our services, you agree to be bound by these Terms and Conditions.<br />\n  If you do not agree with any part of these terms, you are not permitted to use our services.\n</p>\n\n<br />\n\n<p><strong>2. Definitions</strong></p>\n<p>In these Terms and Conditions:</p>\n<ul>\n  <li><strong>MyApp Access</strong> refers to the identity and access management service for all applications within the Valfuse ecosystem.</li>\n  <li><strong>User</strong> means an individual who creates an account and/or uses the MyApp Access services.</li>\n  <li><strong>Services</strong> means the features, functions, applications, and platforms available through MyApp Access.</li>\n  <li><strong>Account</strong> means the identity created by a User to access our services.</li>\n</ul>\n\n<br />\n\n<p><strong>3. Account Terms</strong></p>\n<ul>\n  <li>You are responsible for maintaining the confidentiality of your account login information.</li>\n  <li>You are responsible for all activities that occur under your account.</li>\n  <li>You are required to provide accurate, complete, and up-to-date information when creating an account.</li>\n  <li>You are prohibited from creating an account using false identities or using another person’s information without authorization.</li>\n</ul>\n\n<br />\n\n<p><strong>4. User Rights and Obligations</strong></p>\n<ul>\n  <li>You have the right to use our services in accordance with these Terms and Conditions.</li>\n  <li>You are obligated to use the services in a lawful manner and in compliance with applicable laws.</li>\n  <li>You are not permitted to:\n    <ul>\n      <li>Use the services for illegal activities</li>\n      <li>Disrupt the security or integrity of our systems</li>\n      <li>Attempt to access another user’s account without authorization</li>\n      <li>Use the services for spam, malware distribution, or other harmful activities</li>\n    </ul>\n  </li>\n</ul>\n\n<br />\n\n<p><strong>5. Rights and Obligations of MyApp Access</strong></p>\n<ul>\n  <li>We reserve the right to:\n    <ul>\n      <li>Restrict, suspend, or terminate your account if you violate these Terms and Conditions</li>\n      <li>Modify or discontinue the services at any time, with or without prior notice</li>\n    </ul>\n  </li>\n  <li>We are obligated to:\n    <ul>\n      <li>Protect your personal data in accordance with our Privacy Policy and applicable laws</li>\n      <li>Provide services as described and in accordance with the applicable terms</li>\n    </ul>\n  </li>\n</ul>\n\n<br />\n\n<p><strong>6. MyApp Ecosystem Integration</strong></p>\n<ul>\n  <li>\n    By using MyApp Access, you acknowledge that your account will be used to access various applications within the MyApp ecosystem, including MyApp Accounting, MyApp HRIS, MyApp Inventory, and other related applications.\n  </li>\n  <li>\n    Your data will be jointly managed across MyApp applications in accordance with our Privacy Policy.\n  </li>\n</ul>\n\n<br />\n\n<p><strong>7. Limitation of Liability</strong></p>\n<ul>\n  <li>The services are provided <i>as is</i> without any warranties, whether express or implied.</li>\n  <li>We shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use of or inability to use our services.</li>\n  <li>We do not guarantee that the services will be free from interruptions, errors, or security breaches; however, we will make reasonable efforts to provide the best possible service.</li>\n</ul>\n\n<br />\n\n<p><strong>8. Changes to the Terms and Conditions</strong></p>\n<ul>\n  <li>We may update these Terms and Conditions from time to time.</li>\n  <li>If there are material changes, we will provide appropriate notice.</li>\n  <li>Continued use of the services after such changes constitutes your acceptance of the updated terms.</li>\n</ul>\n\n<br />\n\n<p><strong>9. Governing Law</strong></p>\n<p>\n  These Terms and Conditions are governed by and construed in accordance with the laws of the Republic of Indonesia.<br />\n  We are committed to protecting user data and transactions in compliance with applicable laws and regulations, including but not limited to:\n</p>\n<ul>\n  <li>Law No. 11 of 2008 on Electronic Information and Transactions (ITE Law), as amended</li>\n  <li>Law No. 27 of 2022 on Personal Data Protection (Indonesia PDP Law)</li>\n</ul>\n\n<br />\n\n<p><strong>10. Contact Information</strong></p>\n<p>\n  If you have any questions regarding these Terms and Conditions, you may contact us at:<br />\n  📧 Email:\n  <a href=\"mailto:support@valfuseaccess.com\">support@valfuseaccess.com</a>\n</p>",
+      "auth_privacy_policy.consent.privacy_policy":
+        '<p><strong>1. Introduction</strong></p>\n<p>\n  Welcome to MyApp Access.<br />\n  We respect your privacy and are committed to protecting your personal data.<br />\n  This Privacy Policy explains how we collect, use, store, and protect your information\n  when you use our services.\n</p>\n\n<br />\n\n<p><strong>2. Data We Collect</strong></p>\n<p>When you use MyApp Access, we may collect the following information:</p>\n<ul>\n  <li>Full name</li>\n  <li>Email address</li>\n  <li>Phone number</li>\n  <li>Profile photo</li>\n  <li>Device information (device type, browser, operating system)</li>\n  <li>Application usage activity data</li>\n  <li>Location data (where relevant and with your permission)</li>\n</ul>\n\n<br />\n\n<p><strong>3. How We Collect Data</strong></p>\n<p>Your data is collected through:</p>\n<ul>\n  <li>The account registration process</li>\n  <li>Your use of features within the application</li>\n  <li>When you contact our customer support</li>\n  <li>Cookies and other tracking technologies when you use our website</li>\n</ul>\n\n<br />\n\n<p><strong>4. Purpose of Data Usage</strong></p>\n<p>We use your personal data to:</p>\n<ul>\n  <li>Create and manage your account</li>\n  <li>Provide access to application services and features</li>\n  <li>Connect you with various applications within the MyApp ecosystem</li>\n  <li>Contact you regarding the use of our services</li>\n  <li>Improve user experience</li>\n  <li>Provide technical support and customer service</li>\n  <li>Ensure the security and integrity of our systems</li>\n  <li>Comply with applicable legal obligations</li>\n</ul>\n\n<br />\n\n<p><strong>5. Data Storage and Security</strong></p>\n<p>\n  We store your data on secure servers and implement appropriate technical and\n  organizational measures to protect it from unauthorized access, use, or disclosure.<br />\n  These measures include encryption, restricted access controls, and industry-standard\n  security best practices.\n</p>\n\n<br />\n\n<p><strong>6. Use of Data Within the MyApp Ecosystem</strong></p>\n<p>\n  By registering with MyApp Access, you understand and agree that your personal data\n  may be used across applications within the Valfuse ecosystem, including but not\n  limited to:\n</p>\n<ul>\n  <li>MyApp Accounting</li>\n  <li>MyApp HRIS</li>\n  <li>MyApp Inventory</li>\n  <li>MyApp Factory</li>\n  <li>MyApp Chain</li>\n</ul>\n<p>\n  This data usage is intended to provide an integrated service experience without\n  requiring re-registration for each application.<br />\n  We are committed to maintaining the security and confidentiality of your data\n  throughout the Valfuse ecosystem.\n</p>\n\n<br />\n\n<p><strong>7. Data You Input into the Applications</strong></p>\n<p>\n  Operational data that you upload, store, or manage within other MyApp applications—\n  such as sales data, purchase data, product data, or employee data—remains entirely\n  your property as the user.\n</p>\n<p>We only access and process such data to the extent necessary to:</p>\n<ul>\n  <li>Provide our services</li>\n  <li>Maintain system security</li>\n  <li>Fulfill legal obligations</li>\n</ul>\n<p>\n  We do not use your operational data for any other purposes without your explicit\n  consent.\n</p>\n\n<br />\n\n<p><strong>8. Data Sharing with Third Parties</strong></p>\n<p>\n  We do not sell or rent your personal data.<br />\n  We only share data with trusted third parties in the following cases:\n</p>\n<ul>\n  <li>Technical service providers (such as hosting providers, email services, and cloud infrastructure providers)</li>\n  <li>Legal compliance or court orders</li>\n</ul>\n<p>\n  All third parties are required to maintain the confidentiality and security of your\n  data.\n</p>\n\n<br />\n\n<p><strong>9. Your Rights Over Your Data</strong></p>\n<p>You have the right to:</p>\n<ul>\n  <li>Access your personal data</li>\n  <li>Correct inaccurate data</li>\n  <li>Request deletion of your data</li>\n  <li>Withdraw consent previously given</li>\n  <li>Restrict or object to certain data processing activities</li>\n</ul>\n<p>\n  Requests may be submitted through our customer support.\n</p>\n\n<br />\n\n<p><strong>10. Cookies and Tracking Technologies</strong></p>\n<p>If you use our website, we may use cookies to:</p>\n<ul>\n  <li>Improve website functionality</li>\n  <li>Analyze usage</li>\n  <li>Provide a better user experience</li>\n</ul>\n<p>\n  You can manage your cookie preferences through your browser settings.\n</p>\n\n<br />\n\n<p><strong>11. Changes to This Privacy Policy</strong></p>\n<p>\n  We may update this Privacy Policy from time to time to reflect changes in our practices\n  or legal requirements.<br />\n  If there are material changes, we will notify you through the application or via email.\n</p>\n\n<br />\n\n<p><strong>12. Contact Us</strong></p>\n<p>\n  If you have any questions or requests regarding this Privacy Policy, you may contact us at:<br />\n  📧 Email:\n  <a href="mailto:support@valfuseaccess.com">support@valfuseaccess.com</a>\n</p>',
+      "auth_terms_condition.consent.terms_conditions":
+        '<p><strong>1. Introduction</strong></p>\n<p>\n  Welcome to MyApp Access.<br />\n  By registering for and using our services, you agree to be bound by these Terms and Conditions.<br />\n  If you do not agree with any part of these terms, you are not permitted to use our services.\n</p>\n\n<br />\n\n<p><strong>2. Definitions</strong></p>\n<p>In these Terms and Conditions:</p>\n<ul>\n  <li><strong>MyApp Access</strong> refers to the identity and access management service for all applications within the Valfuse ecosystem.</li>\n  <li><strong>User</strong> means an individual who creates an account and/or uses the MyApp Access services.</li>\n  <li><strong>Services</strong> means the features, functions, applications, and platforms available through MyApp Access.</li>\n  <li><strong>Account</strong> means the identity created by a User to access our services.</li>\n</ul>\n\n<br />\n\n<p><strong>3. Account Terms</strong></p>\n<ul>\n  <li>You are responsible for maintaining the confidentiality of your account login information.</li>\n  <li>You are responsible for all activities that occur under your account.</li>\n  <li>You are required to provide accurate, complete, and up-to-date information when creating an account.</li>\n  <li>You are prohibited from creating an account using false identities or using another person’s information without authorization.</li>\n</ul>\n\n<br />\n\n<p><strong>4. User Rights and Obligations</strong></p>\n<ul>\n  <li>You have the right to use our services in accordance with these Terms and Conditions.</li>\n  <li>You are obligated to use the services in a lawful manner and in compliance with applicable laws.</li>\n  <li>You are not permitted to:\n    <ul>\n      <li>Use the services for illegal activities</li>\n      <li>Disrupt the security or integrity of our systems</li>\n      <li>Attempt to access another user’s account without authorization</li>\n      <li>Use the services for spam, malware distribution, or other harmful activities</li>\n    </ul>\n  </li>\n</ul>\n\n<br />\n\n<p><strong>5. Rights and Obligations of MyApp Access</strong></p>\n<ul>\n  <li>We reserve the right to:\n    <ul>\n      <li>Restrict, suspend, or terminate your account if you violate these Terms and Conditions</li>\n      <li>Modify or discontinue the services at any time, with or without prior notice</li>\n    </ul>\n  </li>\n  <li>We are obligated to:\n    <ul>\n      <li>Protect your personal data in accordance with our Privacy Policy and applicable laws</li>\n      <li>Provide services as described and in accordance with the applicable terms</li>\n    </ul>\n  </li>\n</ul>\n\n<br />\n\n<p><strong>6. MyApp Ecosystem Integration</strong></p>\n<ul>\n  <li>\n    By using MyApp Access, you acknowledge that your account will be used to access various applications within the MyApp ecosystem, including MyApp Accounting, MyApp HRIS, MyApp Inventory, and other related applications.\n  </li>\n  <li>\n    Your data will be jointly managed across MyApp applications in accordance with our Privacy Policy.\n  </li>\n</ul>\n\n<br />\n\n<p><strong>7. Limitation of Liability</strong></p>\n<ul>\n  <li>The services are provided <i>as is</i> without any warranties, whether express or implied.</li>\n  <li>We shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use of or inability to use our services.</li>\n  <li>We do not guarantee that the services will be free from interruptions, errors, or security breaches; however, we will make reasonable efforts to provide the best possible service.</li>\n</ul>\n\n<br />\n\n<p><strong>8. Changes to the Terms and Conditions</strong></p>\n<ul>\n  <li>We may update these Terms and Conditions from time to time.</li>\n  <li>If there are material changes, we will provide appropriate notice.</li>\n  <li>Continued use of the services after such changes constitutes your acceptance of the updated terms.</li>\n</ul>\n\n<br />\n\n<p><strong>9. Governing Law</strong></p>\n<p>\n  These Terms and Conditions are governed by and construed in accordance with the laws of the Republic of Indonesia.<br />\n  We are committed to protecting user data and transactions in compliance with applicable laws and regulations, including but not limited to:\n</p>\n<ul>\n  <li>Law No. 11 of 2008 on Electronic Information and Transactions (ITE Law), as amended</li>\n  <li>Law No. 27 of 2022 on Personal Data Protection (Indonesia PDP Law)</li>\n</ul>\n\n<br />\n\n<p><strong>10. Contact Information</strong></p>\n<p>\n  If you have any questions regarding these Terms and Conditions, you may contact us at:<br />\n  📧 Email:\n  <a href="mailto:support@valfuseaccess.com">support@valfuseaccess.com</a>\n</p>',
       "business_unit.bu_detail.edit.form.address.label": "Address",
-      "business_unit.bu_detail.edit.form.address.placeholder": "Example: Contoh : Jl. Mawar, No. 17, RT/RW 02/15",
+      "business_unit.bu_detail.edit.form.address.placeholder":
+        "Example: Contoh : Jl. Mawar, No. 17, RT/RW 02/15",
       "business_unit.bu_detail.edit.form.city.label": "City/Regency",
       "business_unit.bu_detail.edit.form.city.placeholder": "Select City",
       "business_unit.bu_detail.edit.form.district.label": "District",
@@ -5324,7 +5390,8 @@ const manifest: LocalizationManifest = {
       "business_unit.business_unit_detail.label.phone_number": "Phone Number",
       "business_unit.business_unit_detail.title": "Business Unit Details",
       "business_unit.business_unit_list.button.add_business_unit": "Add Business Unit",
-      "business_unit.business_unit_list.empty_state.no_business_unit": "There are no business units at the moment",
+      "business_unit.business_unit_list.empty_state.no_business_unit":
+        "There are no business units at the moment",
       "business_unit.business_unit_list.empty_state.no_data": "There is no data to display",
       "business_unit.business_unit_list.label.branch": "Branch",
       "business_unit.business_unit_list.label.factory": "Factory",
@@ -5334,7 +5401,8 @@ const manifest: LocalizationManifest = {
       "business_unit.business_unit_profile.button.edit": "Edit",
       "business_unit.business_unit_profile.label.address": "Address",
       "business_unit.business_unit_profile.label.business_type": "Business Type",
-      "business_unit.business_unit_profile.label.business_unit_creation_date": "Business Unit Creation Date",
+      "business_unit.business_unit_profile.label.business_unit_creation_date":
+        "Business Unit Creation Date",
       "business_unit.business_unit_profile.label.business_unit_identity": "Business Unit Identity",
       "business_unit.business_unit_profile.label.business_unit_name": "Business Unit Name",
       "business_unit.business_unit_profile.label.city_or_regency": "City/Regency",
@@ -5342,7 +5410,8 @@ const manifest: LocalizationManifest = {
       "business_unit.business_unit_profile.label.district": "District",
       "business_unit.business_unit_profile.label.email": "Email",
       "business_unit.business_unit_profile.label.full_address": "Full Address",
-      "business_unit.business_unit_profile.label.legal_and_administration": "Legal & Administration",
+      "business_unit.business_unit_profile.label.legal_and_administration":
+        "Legal & Administration",
       "business_unit.business_unit_profile.label.logo": "Logo",
       "business_unit.business_unit_profile.label.nib": "NIB",
       "business_unit.business_unit_profile.label.npwpd": "NPWPD",
@@ -5352,15 +5421,18 @@ const manifest: LocalizationManifest = {
       "business_unit.business_unit_profile.label.whatsapp_number": "WhatsApp Number",
       "business_unit.business_unit_profile.title": "Business Unit Profile",
       "business_unit.company_detail.bu_add.form.address.label": "Address",
-      "business_unit.company_detail.bu_add.form.address.placeholder": "Example: Contoh : Jl. Mawar, No. 17, RT/RW 02/15",
+      "business_unit.company_detail.bu_add.form.address.placeholder":
+        "Example: Contoh : Jl. Mawar, No. 17, RT/RW 02/15",
       "business_unit.company_detail.bu_add.form.bu_logo.label": "Business Unit Logo",
-      "business_unit.company_detail.bu_add.form.bu_logo.placeholder": "Upload your Business Unit logo",
+      "business_unit.company_detail.bu_add.form.bu_logo.placeholder":
+        "Upload your Business Unit logo",
       "business_unit.company_detail.bu_add.form.city.label": "City/Regency",
       "business_unit.company_detail.bu_add.form.city.placeholder": "Select City",
       "business_unit.company_detail.bu_add.form.district.label": "District",
       "business_unit.company_detail.bu_add.form.district.placeholder": "Select District",
       "business_unit.company_detail.bu_add.form.email.label": "Email",
-      "business_unit.company_detail.bu_add.form.email.placeholder": "Example : hajiudin21@sample.com",
+      "business_unit.company_detail.bu_add.form.email.placeholder":
+        "Example : hajiudin21@sample.com",
       "business_unit.company_detail.bu_add.form.name.label": "Business Unit Name",
       "business_unit.company_detail.bu_add.form.name.placeholder": "Example: Dapur Dewi",
       "business_unit.company_detail.bu_add.form.nib.label": "Business Identification Number (NIB)",
@@ -5379,25 +5451,35 @@ const manifest: LocalizationManifest = {
       "business_unit.company_detail.bu_add.form.village.placeholder": "Select Village",
       "business_unit.company_detail.bu_add.modal.title": "Add Business Unit",
       "business_unit.company_detail.bu_add.section.title": "Edit Business Unit",
-      "business_unit.error.name.duplicate": "Business Unit name is already registered. Please use a different name",
+      "business_unit.error.name.duplicate":
+        "Business Unit name is already registered. Please use a different name",
       "business_unit.unit.delete.confirm.cancel.button": "Cancel",
       "business_unit.unit.delete.confirm.delete.button": "Delete",
-      "business_unit.unit.delete.confirm.error.empty": "It looks like the business unit name hasn't been filled in yet. Please complete it to continue.",
-      "business_unit.unit.delete.confirm.error.min": "The business unit name must contain at least 3 characters.",
-      "business_unit.unit.delete.confirm.error.mismatch": "The business unit name doesn't match yet. Please retype it as shown.",
+      "business_unit.unit.delete.confirm.error.empty":
+        "It looks like the business unit name hasn't been filled in yet. Please complete it to continue.",
+      "business_unit.unit.delete.confirm.error.min":
+        "The business unit name must contain at least 3 characters.",
+      "business_unit.unit.delete.confirm.error.mismatch":
+        "The business unit name doesn't match yet. Please retype it as shown.",
       "business_unit.unit.delete.confirm.input.label": "Business Unit Name",
       "business_unit.unit.delete.confirm.input.placeholder": "Enter business unit name",
-      "business_unit.unit.delete.confirm.instruction": "Type the business unit name to confirm deletion.",
+      "business_unit.unit.delete.confirm.instruction":
+        "Type the business unit name to confirm deletion.",
       "business_unit.unit.delete.confirm.title": "Confirm Business Unit Deletion",
-      "business_unit.unit.delete.error.fallback.description": "Something went wrong on our side. Please try again in a moment.",
+      "business_unit.unit.delete.error.fallback.description":
+        "Something went wrong on our side. Please try again in a moment.",
       "business_unit.unit.delete.error.fallback.title": "The process could not be completed",
       "business_unit.unit.delete.impact.agree.button": "Agree to Delete",
-      "business_unit.unit.delete.impact.alternative": "As an alternative, you can deactivate this business unit.",
+      "business_unit.unit.delete.impact.alternative":
+        "As an alternative, you can deactivate this business unit.",
       "business_unit.unit.delete.impact.cancel.button": "Cancel",
-      "business_unit.unit.delete.impact.description": "This action will permanently delete the business unit.",
-      "business_unit.unit.delete.impact.permanent": "All data related to this business unit will be permanently deleted and cannot be restored.",
+      "business_unit.unit.delete.impact.description":
+        "This action will permanently delete the business unit.",
+      "business_unit.unit.delete.impact.permanent":
+        "All data related to this business unit will be permanently deleted and cannot be restored.",
       "business_unit.unit.delete.impact.title": "Delete Business Unit",
-      "business_unit.unit.delete.impact.transaction_block": "This business unit has transaction history, so deletion cannot be performed.",
+      "business_unit.unit.delete.impact.transaction_block":
+        "This business unit has transaction history, so deletion cannot be performed.",
       "business_unit.unit.delete.success.toast": "Business unit has been successfully deleted.",
       "business_unit.unit.detail.action.deactivate.label": "Deactivate Business Unit",
       "business_unit.unit.detail.action.delete.label": "Delete Business Unit",
@@ -5458,7 +5540,8 @@ const manifest: LocalizationManifest = {
       "company.create.form.logo.max_size": "Max file size 2 MB",
       "company.create.form.logo.placeholder": "Upload your company logo",
       "company.create.form.name.error.duplicate": "This name is already used in this workspace.",
-      "company.create.form.name.error.format": "Only letters, numbers, periods, and commas are allowed.",
+      "company.create.form.name.error.format":
+        "Only letters, numbers, periods, and commas are allowed.",
       "company.create.form.name.error.min_length": "Minimum 3 characters.",
       "company.create.form.name.error.required": "Company name is required.",
       "company.create.form.name.info.max_length": "Maximum 60 characters.",
@@ -5521,27 +5604,34 @@ const manifest: LocalizationManifest = {
       "company.detail.section.user_management.label": "User Management",
       "company.detail.status.coming_soon.label": "Coming Soon",
       "company.detail.toast.set_default_error_title": "Failed to Set Default Company",
-      "company.detail.toast.set_default_success_message": "This company will be opened automatically when you sign in",
+      "company.detail.toast.set_default_success_message":
+        "This company will be opened automatically when you sign in",
       "company.detail.toast.set_default_success_title": "Default company saved successfully",
       "company.district.label": "District",
       "company.district.placeholder": "Select District",
       "company.email.label": "Email",
-      "company.error.account_not_linked": "This account is not linked yet. Please use another sign-in method.",
+      "company.error.account_not_linked":
+        "This account is not linked yet. Please use another sign-in method.",
       "company.error.bad_gateway": "The service could not be reached. Please try again later.",
-      "company.error.bad_request": "The request could not be processed. Please check your input and try again.",
+      "company.error.bad_request":
+        "The request could not be processed. Please check your input and try again.",
       "company.error.business_type.invalid": "Please select a business type.",
       "company.error.confirm_name.mismatch": "Company name does not match.",
-      "company.error.conflict": "The data conflicts with existing records. Please review and try again.",
+      "company.error.conflict":
+        "The data conflicts with existing records. Please review and try again.",
       "company.error.country_code.invalid": "Country must be selected.",
       "company.error.email.invalid": "Invalid email format. Please enter a valid email address.",
       "company.error.expired_token": "Your session has expired. Please sign in again.",
       "company.error.forbidden": "You do not have permission to perform this action.",
       "company.error.gateway_timeout": "The request timed out. Please try again later.",
-      "company.error.has_active_units": "Company cannot be deleted because it still has active business units.",
+      "company.error.has_active_units":
+        "Company cannot be deleted because it still has active business units.",
       "company.error.has_transaction": "Company cannot be deleted because it has transactions.",
       "company.error.internal_server_error": "A server error occurred. Please try again later.",
-      "company.error.is_default": "Default company cannot be deleted. Change default company first.",
-      "company.error.name.duplicate": "Company name already exists in this workspace. Please use another name.",
+      "company.error.is_default":
+        "Default company cannot be deleted. Change default company first.",
+      "company.error.name.duplicate":
+        "Company name already exists in this workspace. Please use another name.",
       "company.error.name.min": "Company name must be at least 3 characters.",
       "company.error.name.required": "Company name is required.",
       "company.error.nib.duplicate": "NIB already exists for another company in this workspace.",
@@ -5550,10 +5640,12 @@ const manifest: LocalizationManifest = {
       "company.error.npwp.invalid": "NPWP must contain 16 digits.",
       "company.error.phone.duplicate": "Phone number is already used by another company.",
       "company.error.postal_code.invalid": "Postal code must contain 5 digits.",
-      "company.error.service_unavailable": "The service is temporarily unavailable. Please try again later.",
+      "company.error.service_unavailable":
+        "The service is temporarily unavailable. Please try again later.",
       "company.error.session_expired": "Your session has expired. Please sign in again.",
       "company.error.unauthorized": "Your session has expired. Please sign in again.",
-      "company.error.unit_has_transaction": "Company cannot be deleted because its business units have transactions.",
+      "company.error.unit_has_transaction":
+        "Company cannot be deleted because its business units have transactions.",
       "company.error.unknown_error": "Something went wrong. Please try again.",
       "company.error.validation_error": "Validation failed. Please check your input and try again.",
       "company.established_date.label": "Company Establishment Date",
@@ -5562,9 +5654,11 @@ const manifest: LocalizationManifest = {
       "company.list.action.manage_workspace": "Manage Workspace",
       "company.list.business_unit.active_label": "{count} Active Business Units",
       "company.list.business_unit.total_label": "Total Business Units",
-      "company.list.empty_filtered.description": "Change your search keyword or reset workspace filter.",
+      "company.list.empty_filtered.description":
+        "Change your search keyword or reset workspace filter.",
       "company.list.empty_filtered.title": "Company Not Found",
-      "company.list.error.description": "Something went wrong while loading company data. Please try again.",
+      "company.list.error.description":
+        "Something went wrong while loading company data. Please try again.",
       "company.list.error.retry": "Retry",
       "company.list.error.title": "Failed to load company list",
       "company.list.filter.apply": "Apply",
@@ -5582,11 +5676,13 @@ const manifest: LocalizationManifest = {
       "company.list.search.loading": "Applying company search",
       "company.list.search.placeholder": "Search here...",
       "company.list.toast.create_failed_title": "Failed to Add Company",
-      "company.list.toast.logo_upload_failed_message": "Something went wrong while uploading company logo.",
+      "company.list.toast.logo_upload_failed_message":
+        "Something went wrong while uploading company logo.",
       "company.list.toast.logo_upload_failed_title": "Failed to Upload Logo",
       "company.logo.label": "Company Logo",
       "company.logo.placeholder": "Upload Logo",
-      "company.modal.save_changes.desc": "Your changes will be saved and company data will be updated.",
+      "company.modal.save_changes.desc":
+        "Your changes will be saved and company data will be updated.",
       "company.modal.save_changes.primary_button": "Save Changes",
       "company.modal.save_changes.secondary_button": "Back to Edit",
       "company.name.label": "Company Name",
@@ -5609,26 +5705,31 @@ const manifest: LocalizationManifest = {
       "company.profile.error.retry": "Retry",
       "company.profile.error.title": "Failed to Load Company Profile",
       "company.profile.forbidden.cta_back": "Back to Company Detail",
-      "company.profile.forbidden.description": "You do not have permission to edit this company data.",
+      "company.profile.forbidden.description":
+        "You do not have permission to edit this company data.",
       "company.profile.forbidden.title": "Access Denied",
       "company.profile.header.title": "Company Profile",
       "company.profile.modal.edit_prefix": "Edit",
       "company.profile.not_found.cta_back": "Back to Company Detail",
-      "company.profile.not_found.description": "Company data was not found. Please return to company detail page.",
+      "company.profile.not_found.description":
+        "Company data was not found. Please return to company detail page.",
       "company.profile.not_found.title": "Page Not Found",
       "company.profile.option.currency.idr": "IDR (Rupiah)",
       "company.profile.option.currency.sgd": "SGD (Singapore Dollar)",
       "company.profile.option.currency.usd": "USD (US Dollar)",
-      "company.profile.toast.save_failed_message": "Something went wrong while saving company data changes.",
+      "company.profile.toast.save_failed_message":
+        "Something went wrong while saving company data changes.",
       "company.profile.toast.save_failed_title": "Failed to Save",
       "company.profile.toast.save_success_title": "Changes Saved Successfully",
-      "company.profile.toast.validation_failed_message": "Please make sure all required fields in this section are filled correctly.",
+      "company.profile.toast.validation_failed_message":
+        "Please make sure all required fields in this section are filled correctly.",
       "company.profile.toast.validation_failed_title": "Validation Failed",
       "company.province.label": "Province",
       "company.province.placeholder": "Select Province",
       "company.save.cancel.button": "Back to Edit",
       "company.save.confirm.button": "Save Changes",
-      "company.save.confirm.description": "Your changes will be saved and company data will be updated.",
+      "company.save.confirm.description":
+        "Your changes will be saved and company data will be updated.",
       "company.save.confirm.title": "Save changes to company data now?",
       "company.save.success": "Company data changes have been saved successfully",
       "company.village.label": "Village / Subdistrict",
@@ -5653,176 +5754,251 @@ const manifest: LocalizationManifest = {
       "company_and_workspace.listcompany.header.title": "Company List",
       "company_and_workspace.listrk.header.title": "Workspace List",
       "company_and_workspace.onboarding.business_unit.add.bu_name.label": "Business Unit Name",
-      "company_and_workspace.onboarding.business_unit.add.bu_name.placeholder": "Example: Nina Salon Bandung Branch",
+      "company_and_workspace.onboarding.business_unit.add.bu_name.placeholder":
+        "Example: Nina Salon Bandung Branch",
       "company_and_workspace.onboarding.business_unit.add.bu_type.label": "Business Unit Type",
-      "company_and_workspace.onboarding.business_unit.add.bu_type.placeholder": "Select Business Unit Type",
-      "company_and_workspace.onboarding.business_unit.desc": "Optional - If you don't have a Business Unit yet, you can skip this step and you can add a Business Unit later.",
+      "company_and_workspace.onboarding.business_unit.add.bu_type.placeholder":
+        "Select Business Unit Type",
+      "company_and_workspace.onboarding.business_unit.desc":
+        "Optional - If you don't have a Business Unit yet, you can skip this step and you can add a Business Unit later.",
       "company_and_workspace.onboarding.business_unit.label": "Business Unit Data",
-      "company_and_workspace.onboarding.business_unit.name.error.format": "Business unit name can only contain letters, numbers, periods, and commas.",
-      "company_and_workspace.onboarding.business_unit.name.error.min_length": "Business unit name must be at least 3 characters.",
-      "company_and_workspace.onboarding.business_unit.name.info.max_length": "Business unit name must be no more than 60 characters.",
+      "company_and_workspace.onboarding.business_unit.name.error.format":
+        "Business unit name can only contain letters, numbers, periods, and commas.",
+      "company_and_workspace.onboarding.business_unit.name.error.min_length":
+        "Business unit name must be at least 3 characters.",
+      "company_and_workspace.onboarding.business_unit.name.info.max_length":
+        "Business unit name must be no more than 60 characters.",
       "company_and_workspace.onboarding.business_unit.title": "Business Unit",
       "company_and_workspace.onboarding.company.add.business_type.label": "Business Type",
-      "company_and_workspace.onboarding.company.add.business_type.placeholder": "Select Business Type",
+      "company_and_workspace.onboarding.company.add.business_type.placeholder":
+        "Select Business Type",
       "company_and_workspace.onboarding.company.add.company_name.label": "Company Name",
-      "company_and_workspace.onboarding.company.add.company_name.placeholder": "Example: PT Kreasi Anak Bangsa / Haji Udin Store",
+      "company_and_workspace.onboarding.company.add.company_name.placeholder":
+        "Example: PT Kreasi Anak Bangsa / Haji Udin Store",
       "company_and_workspace.onboarding.company.add.country.label": "Country",
       "company_and_workspace.onboarding.company.add.country.placeholder": "Select Country",
       "company_and_workspace.onboarding.company.add.currency.label": "Primary Currency",
       "company_and_workspace.onboarding.company.add.currency.placeholder": "Select Currency",
-      "company_and_workspace.onboarding.company.business_type.error.required": "Please select a business type.",
+      "company_and_workspace.onboarding.company.business_type.error.required":
+        "Please select a business type.",
       "company_and_workspace.onboarding.company.country.error.required": "Please select a country.",
-      "company_and_workspace.onboarding.company.currency.error.required": "Please select a currency.",
-      "company_and_workspace.onboarding.company.desc": "Complete company data as the foundation for MyApp integration.",
+      "company_and_workspace.onboarding.company.currency.error.required":
+        "Please select a currency.",
+      "company_and_workspace.onboarding.company.desc":
+        "Complete company data as the foundation for MyApp integration.",
       "company_and_workspace.onboarding.company.label": "Company Data",
-      "company_and_workspace.onboarding.company.name.error.duplicate": "This company name is already used in this workspace. Please use a different name to keep your data organized.",
-      "company_and_workspace.onboarding.company.name.error.format": "Company name can only contain letters, numbers, periods, and commas.",
-      "company_and_workspace.onboarding.company.name.error.min_length": "Company name must be at least 3 characters.",
+      "company_and_workspace.onboarding.company.name.error.duplicate":
+        "This company name is already used in this workspace. Please use a different name to keep your data organized.",
+      "company_and_workspace.onboarding.company.name.error.format":
+        "Company name can only contain letters, numbers, periods, and commas.",
+      "company_and_workspace.onboarding.company.name.error.min_length":
+        "Company name must be at least 3 characters.",
       "company_and_workspace.onboarding.company.name.error.required": "Company name is required.",
-      "company_and_workspace.onboarding.company.name.info.max_length": "Company name must be no more than 60 characters.",
+      "company_and_workspace.onboarding.company.name.info.max_length":
+        "Company name must be no more than 60 characters.",
       "company_and_workspace.onboarding.company.title": "Company",
       "company_and_workspace.onboarding.navigation.back.button": "Back",
       "company_and_workspace.onboarding.navigation.next.button": "Next",
       "company_and_workspace.onboarding.preview.data.business_type.label": "Business Type",
-      "company_and_workspace.onboarding.preview.data.business_unit_name.label": "Business Unit Name",
-      "company_and_workspace.onboarding.preview.data.business_unit_type.label": "Business Unit Type",
+      "company_and_workspace.onboarding.preview.data.business_unit_name.label":
+        "Business Unit Name",
+      "company_and_workspace.onboarding.preview.data.business_unit_type.label":
+        "Business Unit Type",
       "company_and_workspace.onboarding.preview.data.company_name.label": "Company Name",
       "company_and_workspace.onboarding.preview.data.country_currency.label": "Country & Currency",
       "company_and_workspace.onboarding.preview.data.workspace_name.label": "Workspace Name",
-      "company_and_workspace.onboarding.preview.info.note": "You can add more Companies and Business Units after completing the onboarding process",
-      "company_and_workspace.onboarding.preview.page_content.intro": "Data Preview\nPlease review your data before saving.",
+      "company_and_workspace.onboarding.preview.info.note":
+        "You can add more Companies and Business Units after completing the onboarding process",
+      "company_and_workspace.onboarding.preview.page_content.intro":
+        "Data Preview\nPlease review your data before saving.",
       "company_and_workspace.onboarding.preview.page_title": "Preview",
       "company_and_workspace.onboarding.start.cta.button": "Start Onboarding",
-      "company_and_workspace.onboarding.start.page_content": "We'll guide you through setting up your first Workspace, Company, and Business Unit in just a few steps.",
+      "company_and_workspace.onboarding.start.page_content":
+        "We'll guide you through setting up your first Workspace, Company, and Business Unit in just a few steps.",
       "company_and_workspace.onboarding.start.page_title": "Ready to Get Started?",
-      "company_and_workspace.onboarding.structure.page_content": "Here's a quick overview of each level:\nWorkspace\nThe main container for organizing your business\nCompany\nThe business context that enables MyApp modules\nBusiness Unit\nThe operational entity (branch, outlet, factory)",
-      "company_and_workspace.onboarding.structure.page_title": "Get to Know Your Workspace Structure",
+      "company_and_workspace.onboarding.structure.page_content":
+        "Here's a quick overview of each level:\nWorkspace\nThe main container for organizing your business\nCompany\nThe business context that enables MyApp modules\nBusiness Unit\nThe operational entity (branch, outlet, factory)",
+      "company_and_workspace.onboarding.structure.page_title":
+        "Get to Know Your Workspace Structure",
       "company_and_workspace.onboarding.success.cta.button": "Go to Company Details",
-      "company_and_workspace.onboarding.success.page_content": "Your Workspace, Company, and Business Unit have been successfully created. You can now start using them.",
+      "company_and_workspace.onboarding.success.page_content":
+        "Your Workspace, Company, and Business Unit have been successfully created. You can now start using them.",
       "company_and_workspace.onboarding.success.page_title": "Success",
-      "company_and_workspace.onboarding.welcome.page_content": "Here, you can manage your entire business identity in a more organized way-from Workspace, Company, to Business Unit.",
+      "company_and_workspace.onboarding.welcome.page_content":
+        "Here, you can manage your entire business identity in a more organized way-from Workspace, Company, to Business Unit.",
       "company_and_workspace.onboarding.welcome.page_title": "Welcome to MyApp Access",
       "company_and_workspace.onboarding.workspace.add.label": "Workspace Name",
       "company_and_workspace.onboarding.workspace.add.placeholder": "Example: Main Workspace",
-      "company_and_workspace.onboarding.workspace.desc": "Workspace is a space for grouping your company",
+      "company_and_workspace.onboarding.workspace.desc":
+        "Workspace is a space for grouping your company",
       "company_and_workspace.onboarding.workspace.label": "Add Workspace",
-      "company_and_workspace.onboarding.workspace.name.error.duplicate": "This workspace name is already registered. Please use a different name.",
-      "company_and_workspace.onboarding.workspace.name.error.format": "Workspace name can only contain letters, numbers, periods, and commas.",
-      "company_and_workspace.onboarding.workspace.name.error.min_length": "Workspace name must be at least 3 characters.",
-      "company_and_workspace.onboarding.workspace.name.error.required": "Workspace name is required.",
-      "company_and_workspace.onboarding.workspace.name.info.max_length": "Workspace name must be no more than 60 characters.",
+      "company_and_workspace.onboarding.workspace.name.error.duplicate":
+        "This workspace name is already registered. Please use a different name.",
+      "company_and_workspace.onboarding.workspace.name.error.format":
+        "Workspace name can only contain letters, numbers, periods, and commas.",
+      "company_and_workspace.onboarding.workspace.name.error.min_length":
+        "Workspace name must be at least 3 characters.",
+      "company_and_workspace.onboarding.workspace.name.error.required":
+        "Workspace name is required.",
+      "company_and_workspace.onboarding.workspace.name.info.max_length":
+        "Workspace name must be no more than 60 characters.",
       "company_and_workspace.onboarding.workspace.title": "Workspace",
       "company_and_workspace.workspace.create.action.cancel.button": "Cancel",
       "company_and_workspace.workspace.create.action.submit.button": "Save",
-      "company_and_workspace.workspace.create.form.name.error.duplicate": "This workspace name is already in use. Please use a different name.",
-      "company_and_workspace.workspace.create.form.name.error.invalid_format": "Workspace name can only contain letters, numbers, dots, and commas.",
-      "company_and_workspace.workspace.create.form.name.error.max_length": "Workspace name must be no more than 60 characters.",
-      "company_and_workspace.workspace.create.form.name.error.min_length": "Workspace name must be at least 3 characters.",
-      "company_and_workspace.workspace.create.form.name.error.required": "Workspace name is required.",
+      "company_and_workspace.workspace.create.form.name.error.duplicate":
+        "This workspace name is already in use. Please use a different name.",
+      "company_and_workspace.workspace.create.form.name.error.invalid_format":
+        "Workspace name can only contain letters, numbers, dots, and commas.",
+      "company_and_workspace.workspace.create.form.name.error.max_length":
+        "Workspace name must be no more than 60 characters.",
+      "company_and_workspace.workspace.create.form.name.error.min_length":
+        "Workspace name must be at least 3 characters.",
+      "company_and_workspace.workspace.create.form.name.error.required":
+        "Workspace name is required.",
       "company_and_workspace.workspace.create.form.name.label": "Workspace Name",
       "company_and_workspace.workspace.create.form.name.placeholder": "Example: Main Workspace",
       "company_and_workspace.workspace.create.modal.title": "Add Workspace",
-      "company_and_workspace.workspace.create.name.info.max_length": "Workspace name must be no more than 60 characters.",
-      "company_and_workspace.workspace.create.toast.success.message": "Workspace was added successfully",
+      "company_and_workspace.workspace.create.name.info.max_length":
+        "Workspace name must be no more than 60 characters.",
+      "company_and_workspace.workspace.create.toast.success.message":
+        "Workspace was added successfully",
       "company_and_workspace.workspace.create.toast.success.title": "Success!",
       "company_and_workspace.workspace.delete.action.cancel.button": "Cancel",
       "company_and_workspace.workspace.delete.action.confirm.button": "Confirm",
-      "company_and_workspace.workspace.delete.checkbox.confirmation": "I understand that this workspace will be permanently deleted and cannot be undone",
-      "company_and_workspace.workspace.delete.form.confirmation.label": "Type {workspace name} to confirm",
-      "company_and_workspace.workspace.delete.form.confirmation.placeholder": "Enter workspace name",
-      "company_and_workspace.workspace.delete.modal.description": "All data in this workspace will be permanently deleted and cannot be recovered.",
+      "company_and_workspace.workspace.delete.checkbox.confirmation":
+        "I understand that this workspace will be permanently deleted and cannot be undone",
+      "company_and_workspace.workspace.delete.form.confirmation.label":
+        "Type {workspace name} to confirm",
+      "company_and_workspace.workspace.delete.form.confirmation.placeholder":
+        "Enter workspace name",
+      "company_and_workspace.workspace.delete.modal.description":
+        "All data in this workspace will be permanently deleted and cannot be recovered.",
       "company_and_workspace.workspace.delete.modal.title": "Delete Workspace Confirmation",
       "company_and_workspace.workspace.edit.action.cancel.button": "Cancel",
       "company_and_workspace.workspace.edit.action.submit.button": "Save",
-      "company_and_workspace.workspace.edit.form.name.error.duplicate": "This workspace name is already in use. Please use a different name.",
-      "company_and_workspace.workspace.edit.form.name.error.invalid_format": "Workspace name can only contain letters, numbers, dots, and commas.",
-      "company_and_workspace.workspace.edit.form.name.error.max_length": "Workspace name must be no more than 60 characters.",
-      "company_and_workspace.workspace.edit.form.name.error.min_length": "Workspace name must be at least 3 characters.",
-      "company_and_workspace.workspace.edit.form.name.error.required": "Workspace name is required.",
-      "company_and_workspace.workspace.edit.form.name.max_length": "Workspace name must be no more than 60 characters.",
-      "company_and_workspace.workspace.edit.toast.cancle.message": "Workspace name update was cancelled",
+      "company_and_workspace.workspace.edit.form.name.error.duplicate":
+        "This workspace name is already in use. Please use a different name.",
+      "company_and_workspace.workspace.edit.form.name.error.invalid_format":
+        "Workspace name can only contain letters, numbers, dots, and commas.",
+      "company_and_workspace.workspace.edit.form.name.error.max_length":
+        "Workspace name must be no more than 60 characters.",
+      "company_and_workspace.workspace.edit.form.name.error.min_length":
+        "Workspace name must be at least 3 characters.",
+      "company_and_workspace.workspace.edit.form.name.error.required":
+        "Workspace name is required.",
+      "company_and_workspace.workspace.edit.form.name.max_length":
+        "Workspace name must be no more than 60 characters.",
+      "company_and_workspace.workspace.edit.toast.cancle.message":
+        "Workspace name update was cancelled",
       "company_and_workspace.workspace.edit.toast.cancle.title": "Cancelled",
-      "company_and_workspace.workspace.edit.toast.success.message": "Workspace name has been successfully updated",
+      "company_and_workspace.workspace.edit.toast.success.message":
+        "Workspace name has been successfully updated",
       "company_and_workspace.workspace.edit.toast.success.title": "Success!",
       "company_and_workspace.workspace.list.action.create.button": "Add Workspace",
-      "company_and_workspace.workspace.list.empty.description": "You don't have any workspaces yet. Create your first workspace to get started.",
+      "company_and_workspace.workspace.list.empty.description":
+        "You don't have any workspaces yet. Create your first workspace to get started.",
       "company_and_workspace.workspace.list.empty.title": "No Workspaces Yet",
-      "company_and_workspace.workspace.list.error.description": "Something went wrong while loading workspace data. Please try again.",
+      "company_and_workspace.workspace.list.error.description":
+        "Something went wrong while loading workspace data. Please try again.",
       "company_and_workspace.workspace.list.error.title": "Failed to Load Workspaces",
       "company_and_workspace.workspace.list.header.managed_by.label": "managed by {account name}",
-      "company_and_workspace.workspace.list.not_found.description": "No workspaces match your search criteria.",
+      "company_and_workspace.workspace.list.not_found.description":
+        "No workspaces match your search criteria.",
       "company_and_workspace.workspace.list.not_found.title": "Workspace Not Found",
-      "company_and_workspace.workspace.list.summary.business_unit_total.label": "Total Business Units",
+      "company_and_workspace.workspace.list.summary.business_unit_total.label":
+        "Total Business Units",
       "company_and_workspace.workspace.list.summary.company_total.label": "Total Companies",
       "company_detail.access_address_subtitle": "Address",
       "company_detail.access_companyidentity_subtitle": "Company Identity",
       "company_detail.access_contact_subtitle": "Contact",
       "company_detail.access_error.cta_back": "Back to Company List",
-      "company_detail.access_error.description": "You no longer have access to this company or the access is no longer valid.",
+      "company_detail.access_error.description":
+        "You no longer have access to this company or the access is no longer valid.",
       "company_detail.access_error.title": "Access Unavailable",
       "company_detail.access_legalandadministration_subtitle": "Legal & Administration",
       "delete.company.blocked.active_units.action": "Back to Business Unit List",
-      "delete.company.blocked.active_units.description": "Some business units in this company are still active. Deactivate them first before continuing.",
+      "delete.company.blocked.active_units.description":
+        "Some business units in this company are still active. Deactivate them first before continuing.",
       "delete.company.blocked.button.cancel": "Cancel",
       "delete.company.blocked.default_company.action": "Company List",
-      "delete.company.blocked.default_company.description": "This company cannot be deleted because it is currently set as the default company. Please change the default company first if you still want to delete this company.",
+      "delete.company.blocked.default_company.description":
+        "This company cannot be deleted because it is currently set as the default company. Please change the default company first if you still want to delete this company.",
       "delete.company.blocked.title": "Failed to Delete Company",
-      "delete.company.confirm.approval_text": "I understand that deleting this company is permanent and cannot be undone.",
-      "delete.company.confirm.banner.description": "All related data will be deleted and cannot be restored. This action is permanent and cannot be undone.",
+      "delete.company.confirm.approval_text":
+        "I understand that deleting this company is permanent and cannot be undone.",
+      "delete.company.confirm.banner.description":
+        "All related data will be deleted and cannot be restored. This action is permanent and cannot be undone.",
       "delete.company.confirm.banner.title": "Information!",
       "delete.company.confirm.button.cancel": "Cancel",
       "delete.company.confirm.button.confirm": "Delete Company",
       "delete.company.confirm.button.submit": "Confirm",
-      "delete.company.confirm.description": "To proceed, type the company name below as confirmation that you understand this action cannot be undone.",
+      "delete.company.confirm.description":
+        "To proceed, type the company name below as confirmation that you understand this action cannot be undone.",
       "delete.company.confirm.input.helper_text": "Type {companyName} to confirm",
       "delete.company.confirm.input.label": "Company Name",
       "delete.company.confirm.input.placeholder": "Type the company name to confirm deletion",
       "delete.company.confirm.title": "Confirm Company Deletion",
-      "delete.company.error.company_has_transaction": "Company cannot be deleted because it has transactions",
+      "delete.company.error.company_has_transaction":
+        "Company cannot be deleted because it has transactions",
       "delete.company.error.company_name_mismatch": "Company name does not match",
-      "delete.company.error.company_name_required": "Company name is required to proceed with deletion",
+      "delete.company.error.company_name_required":
+        "Company name is required to proceed with deletion",
       "delete.company.error.forbidden": "You do not have permission to delete this company.",
-      "delete.company.error.has_active_units": "Company cannot be deleted because it still has active business units.",
-      "delete.company.error.is_default": "Default company cannot be deleted. Change default company first.",
+      "delete.company.error.has_active_units":
+        "Company cannot be deleted because it still has active business units.",
+      "delete.company.error.is_default":
+        "Default company cannot be deleted. Change default company first.",
       "delete.company.error.not_found": "Company not found.",
-      "delete.company.error.unit_has_transaction": "Company cannot be deleted because its business units have transactions",
+      "delete.company.error.unit_has_transaction":
+        "Company cannot be deleted because its business units have transactions",
       "delete.company.error.unknown": "Something went wrong while deleting the company.",
-      "delete.company.error.validation_error": "Delete confirmation validation failed. Please check your input.",
+      "delete.company.error.validation_error":
+        "Delete confirmation validation failed. Please check your input.",
       "delete.company.impact.banner.title": "Information!",
       "delete.company.impact.button.cancel": "Cancel",
       "delete.company.impact.button.confirm": "Agree, Delete Company",
       "delete.company.impact.button.continue": "Yes, Continue",
-      "delete.company.impact.description": "Company deletion is permanent and cannot be undone. This deletion will affect the business units under it.",
+      "delete.company.impact.description":
+        "Company deletion is permanent and cannot be undone. This deletion will affect the business units under it.",
       "delete.company.impact.modal.title": "Deletion Impact Summary",
       "delete.company.impact.summary.description": "Company {companyName} will be deleted.",
-      "delete.company.impact.summary.unit_count": "Business units that will be deleted: {totalBusinessUnit} linked business units.",
+      "delete.company.impact.summary.unit_count":
+        "Business units that will be deleted: {totalBusinessUnit} linked business units.",
       "delete.company.impact.title": "Company Deletion Impact Summary",
-      "delete.company.precheck.error.message": "Company data could not be verified for deletion. Please try again.",
+      "delete.company.precheck.error.message":
+        "Company data could not be verified for deletion. Please try again.",
       "delete.company.precheck.error.title": "Failed to Check Deletion Impact",
-      "delete.company.precheck.error.unknown": "Something went wrong while checking company deletion impact.",
+      "delete.company.precheck.error.unknown":
+        "Something went wrong while checking company deletion impact.",
       "delete.company.precheck.loading.label": "Checking company deletion eligibility",
       "delete.company.toast.error_title": "Failed to Delete Company",
       "delete.company.toast.success.message": "Company has been removed from the list.",
       "delete.company.toast.success.title": "Company Deleted",
       "error.business_type.required": "Business type must be selected.",
-      "error.company.name.duplicate": "Company name already exists in this workspace. Please use another name.",
-      "error.company.name.invalid_character": "Company name may only contain letters, numbers, periods, and commas.",
+      "error.company.name.duplicate":
+        "Company name already exists in this workspace. Please use another name.",
+      "error.company.name.invalid_character":
+        "Company name may only contain letters, numbers, periods, and commas.",
       "error.company.name.max": "Company name must not exceed 60 characters.",
       "error.company.name.min": "Company name must be at least 3 characters.",
       "error.company.name.required": "Company name is required.",
       "error.country.required": "Country must be selected.",
       "error.currency.required": "Primary currency must be selected.",
       "error.email.invalid": "Invalid email format. Please enter a valid email address.",
-      "error.error.account_not_linked": "This account is not linked yet. Please use another sign-in method.",
+      "error.error.account_not_linked":
+        "This account is not linked yet. Please use another sign-in method.",
       "error.error.bad_gateway": "The service could not be reached. Please try again later.",
-      "error.error.bad_request": "The request could not be processed. Please check your input and try again.",
-      "error.error.conflict": "The data conflicts with existing records. Please review and try again.",
+      "error.error.bad_request":
+        "The request could not be processed. Please check your input and try again.",
+      "error.error.conflict":
+        "The data conflicts with existing records. Please review and try again.",
       "error.error.expired_token": "Your session has expired. Please sign in again.",
       "error.error.forbidden": "You do not have permission to perform this action.",
       "error.error.gateway_timeout": "The request timed out. Please try again later.",
       "error.error.internal_server_error": "A server error occurred. Please try again later.",
       "error.error.not_found": "The requested data could not be found.",
-      "error.error.service_unavailable": "The service is temporarily unavailable. Please try again later.",
+      "error.error.service_unavailable":
+        "The service is temporarily unavailable. Please try again later.",
       "error.error.session_expired": "Your session has expired. Please sign in again.",
       "error.error.unauthorized": "Your session has expired. Please sign in again.",
       "error.error.unknown_error": "Something went wrong. Please try again.",
@@ -5878,16 +6054,19 @@ const manifest: LocalizationManifest = {
       "fallback.fb400_d": "The request is invalid. Please check your input and try again.",
       "fallback.fb400_h": "Bad Request",
       "fallback.fb401_b": "Log In Again",
-      "fallback.fb401_d": "For your security, your session has ended. Please log in again to continue your work.",
+      "fallback.fb401_d":
+        "For your security, your session has ended. Please log in again to continue your work.",
       "fallback.fb401_h": "Session Expired",
       "fallback.fb402_b": "Got it",
       "fallback.fb402_d": "This request requires payment to continue.",
       "fallback.fb402_h": "Payment Required",
       "fallback.fb403_b": "Contact Admin",
-      "fallback.fb403_d": "You don't have permission to access this page. Please contact your admin for assistance.",
+      "fallback.fb403_d":
+        "You don't have permission to access this page. Please contact your admin for assistance.",
       "fallback.fb403_h": "Access Denied",
       "fallback.fb404_b": "Back to Home",
-      "fallback.fb404_d": "We couldn't find what you're looking for. Let's go back to the homepage.",
+      "fallback.fb404_d":
+        "We couldn't find what you're looking for. Let's go back to the homepage.",
       "fallback.fb404_h": "Page Not Found",
       "fallback.fb405_b": "Got it",
       "fallback.fb405_d": "This action isn't supported for the requested resource.",
@@ -5899,7 +6078,8 @@ const manifest: LocalizationManifest = {
       "fallback.fb408_d": "The request took too long. Please try again.",
       "fallback.fb408_h": "Request Timeout",
       "fallback.fb409_b": "Got it",
-      "fallback.fb409_d": "A conflict occurred because the data already exists or has been changed.",
+      "fallback.fb409_d":
+        "A conflict occurred because the data already exists or has been changed.",
       "fallback.fb409_h": "Conflict",
       "fallback.fb410_b": "Got it",
       "fallback.fb410_d": "This resource is no longer available.",
@@ -5918,7 +6098,8 @@ const manifest: LocalizationManifest = {
       "fallback.fb429_h": "Too Many Requests",
       "fallback.fb500_b": "Okay, I understand",
       "fallback.fb500_b_secondary": "Contact MyApp CS",
-      "fallback.fb500_d": "The system is experiencing an issue. Our team is fixing it, please try again shortly.",
+      "fallback.fb500_d":
+        "The system is experiencing an issue. Our team is fixing it, please try again shortly.",
       "fallback.fb500_h": "Technical Issue",
       "fallback.fb501_b": "Okay, I understand",
       "fallback.fb501_b_secondary": "Contact MyApp CS",
@@ -5926,11 +6107,13 @@ const manifest: LocalizationManifest = {
       "fallback.fb501_h": "Not Implemented",
       "fallback.fb502_b": "Okay, I understand",
       "fallback.fb502_b_secondary": "Contact MyApp CS",
-      "fallback.fb502_d": "There was a problem communicating with the server. This is usually temporary, please try again.",
+      "fallback.fb502_d":
+        "There was a problem communicating with the server. This is usually temporary, please try again.",
       "fallback.fb502_h": "Network Issue",
       "fallback.fb503_b": "Okay, I understand",
       "fallback.fb503_b_secondary": "Contact MyApp CS",
-      "fallback.fb503_d": "The system is being updated for better service. Please check back later.",
+      "fallback.fb503_d":
+        "The system is being updated for better service. Please check back later.",
       "fallback.fb503_h": "Under Maintenance",
       "fallback.fb504_b": "Okay, I understand",
       "fallback.fb504_b_secondary": "Contact MyApp CS",
@@ -5977,35 +6160,48 @@ const manifest: LocalizationManifest = {
       "http.http_504_message": "The server took too long to respond. Please try again.",
       "http.http_504_title": "Gateway Timeout",
       "onboarding.onboarding.business_unit.add.bu_name.label": "Business Unit Name",
-      "onboarding.onboarding.business_unit.add.bu_name.placeholder": "Example: Nina Salon Cabang Bandung",
+      "onboarding.onboarding.business_unit.add.bu_name.placeholder":
+        "Example: Nina Salon Cabang Bandung",
       "onboarding.onboarding.business_unit.add.bu_type.label": "Business Unit Type",
       "onboarding.onboarding.business_unit.add.bu_type.placeholder": "Select Business Unit Type",
-      "onboarding.onboarding.business_unit.desc": "Optional - If you don't have a Business Unit yet, you can skip this step and you can add a Business Unit later.",
+      "onboarding.onboarding.business_unit.desc":
+        "Optional - If you don't have a Business Unit yet, you can skip this step and you can add a Business Unit later.",
       "onboarding.onboarding.business_unit.label": "Business Unit Data",
-      "onboarding.onboarding.business_unit.name.error.format": "Business unit name can only contain letters, numbers, periods, and commas.",
-      "onboarding.onboarding.business_unit.name.error.min_length": "Business unit name must be at least 3 characters.",
-      "onboarding.onboarding.business_unit.name.info.max_length": "Business unit name must be no more than 60 characters.",
+      "onboarding.onboarding.business_unit.name.error.format":
+        "Business unit name can only contain letters, numbers, periods, and commas.",
+      "onboarding.onboarding.business_unit.name.error.min_length":
+        "Business unit name must be at least 3 characters.",
+      "onboarding.onboarding.business_unit.name.info.max_length":
+        "Business unit name must be no more than 60 characters.",
       "onboarding.onboarding.business_unit.title": "Business Unit",
       "onboarding.onboarding.company.add.business_type.label": "Business Type",
       "onboarding.onboarding.company.add.business_type.placeholder": "Select Business Type",
       "onboarding.onboarding.company.add.company_name.label": "Company Name",
-      "onboarding.onboarding.company.add.company_name.placeholder": "Example: PT Kreasi Anak Bangsa / Haji Udin Store",
+      "onboarding.onboarding.company.add.company_name.placeholder":
+        "Example: PT Kreasi Anak Bangsa / Haji Udin Store",
       "onboarding.onboarding.company.add.country.label": "Country",
       "onboarding.onboarding.company.add.country.placeholder": "Select Country",
       "onboarding.onboarding.company.add.currency.label": "Primary Currency",
       "onboarding.onboarding.company.add.currency.placeholder": "Select Currency",
-      "onboarding.onboarding.company.business_type.error.required": "Please select a business type.",
+      "onboarding.onboarding.company.business_type.error.required":
+        "Please select a business type.",
       "onboarding.onboarding.company.country.error.required": "Please select a country.",
       "onboarding.onboarding.company.currency.error.required": "Please select a currency.",
-      "onboarding.onboarding.company.desc": "Complete company data as the foundation for MyApp integration.",
+      "onboarding.onboarding.company.desc":
+        "Complete company data as the foundation for MyApp integration.",
       "onboarding.onboarding.company.label": "Company Data",
-      "onboarding.onboarding.company.name.error.duplicate": "This company name is already used in this workspace. Please use a different name to keep your data organized.",
-      "onboarding.onboarding.company.name.error.format": "Company name can only contain letters, numbers, periods, and commas.",
-      "onboarding.onboarding.company.name.error.min_length": "Company name must be at least 3 characters.",
+      "onboarding.onboarding.company.name.error.duplicate":
+        "This company name is already used in this workspace. Please use a different name to keep your data organized.",
+      "onboarding.onboarding.company.name.error.format":
+        "Company name can only contain letters, numbers, periods, and commas.",
+      "onboarding.onboarding.company.name.error.min_length":
+        "Company name must be at least 3 characters.",
       "onboarding.onboarding.company.name.error.required": "Company name is required.",
-      "onboarding.onboarding.company.name.info.max_length": "Company name must be no more than 60 characters.",
+      "onboarding.onboarding.company.name.info.max_length":
+        "Company name must be no more than 60 characters.",
       "onboarding.onboarding.company.title": "Company",
-      "onboarding.onboarding.error.system.page_content": "The system is currently experiencing an issue. Please try again in a few moments.",
+      "onboarding.onboarding.error.system.page_content":
+        "The system is currently experiencing an issue. Please try again in a few moments.",
       "onboarding.onboarding.error.system.page_title": "System Issue",
       "onboarding.onboarding.navigation.back.button": "Back",
       "onboarding.onboarding.navigation.next.button": "Next",
@@ -6015,29 +6211,39 @@ const manifest: LocalizationManifest = {
       "onboarding.onboarding.preview.data.company_name.label": "Company Name",
       "onboarding.onboarding.preview.data.country_currency.label": "Country & Currency",
       "onboarding.onboarding.preview.data.workspace_name.label": "Workspace Name",
-      "onboarding.onboarding.preview.info.note": "You can add more Companies and Business Units after completing the onboarding process",
-      "onboarding.onboarding.preview.page_content.intro": "Data Preview\nPlease review your data before saving.",
+      "onboarding.onboarding.preview.info.note":
+        "You can add more Companies and Business Units after completing the onboarding process",
+      "onboarding.onboarding.preview.page_content.intro":
+        "Data Preview\nPlease review your data before saving.",
       "onboarding.onboarding.preview.page_title": "Preview",
       "onboarding.onboarding.start.cta.button": "Start Onboarding",
-      "onboarding.onboarding.start.page_content": "We'll guide you through setting up your first Workspace, Company, and Business Unit in just a few steps.",
+      "onboarding.onboarding.start.page_content":
+        "We'll guide you through setting up your first Workspace, Company, and Business Unit in just a few steps.",
       "onboarding.onboarding.start.page_title": "Ready to Get Started?",
       "onboarding.onboarding.step.label": "Langkah",
-      "onboarding.onboarding.structure.page_content": "Here's a quick overview of each level:\n\n* Workspace\n\nThe main container for organizing your business\n\n* Company\n\nThe business context that enables MyApp modules\n\n* Business Unit\n\nThe operational entity (branch, outlet, factory)",
+      "onboarding.onboarding.structure.page_content":
+        "Here's a quick overview of each level:\n\n* Workspace\n\nThe main container for organizing your business\n\n* Company\n\nThe business context that enables MyApp modules\n\n* Business Unit\n\nThe operational entity (branch, outlet, factory)",
       "onboarding.onboarding.structure.page_title": "Get to Know Your Workspace Structure",
       "onboarding.onboarding.success.cta.button": "Go to Company Details",
-      "onboarding.onboarding.success.page_content": "Your Workspace, Company, and Business Unit have been successfully created. You can now start using them.",
+      "onboarding.onboarding.success.page_content":
+        "Your Workspace, Company, and Business Unit have been successfully created. You can now start using them.",
       "onboarding.onboarding.success.page_title": "Success",
-      "onboarding.onboarding.welcome.page_content": "Here, you can manage your entire business identity in a more organized way-from Workspace, Company, to Business Unit.",
+      "onboarding.onboarding.welcome.page_content":
+        "Here, you can manage your entire business identity in a more organized way-from Workspace, Company, to Business Unit.",
       "onboarding.onboarding.welcome.page_title": "Welcome to MyApp Access",
       "onboarding.onboarding.workspace.add.label": "Workspace Name",
       "onboarding.onboarding.workspace.add.placeholder": "Example: Ruang Kerja Utama",
       "onboarding.onboarding.workspace.desc": "Workspace is a space for grouping your company",
       "onboarding.onboarding.workspace.label": "Add Workspace",
-      "onboarding.onboarding.workspace.name.error.duplicate": "This workspace name is already registered. Please use a different name.",
-      "onboarding.onboarding.workspace.name.error.format": "Workspace name can only contain letters, numbers, periods, and commas.",
-      "onboarding.onboarding.workspace.name.error.min_length": "Workspace name must be at least 3 characters.",
+      "onboarding.onboarding.workspace.name.error.duplicate":
+        "This workspace name is already registered. Please use a different name.",
+      "onboarding.onboarding.workspace.name.error.format":
+        "Workspace name can only contain letters, numbers, periods, and commas.",
+      "onboarding.onboarding.workspace.name.error.min_length":
+        "Workspace name must be at least 3 characters.",
       "onboarding.onboarding.workspace.name.error.required": "Workspace name is required.",
-      "onboarding.onboarding.workspace.name.info.max_length": "Workspace name must be no more than 60 characters.",
+      "onboarding.onboarding.workspace.name.info.max_length":
+        "Workspace name must be no more than 60 characters.",
       "onboarding.onboarding.workspace.title": "Workspace",
       "profile.change_password.page.title": "Change Password",
       "profile.profile_edit_personal.field.name": "Full Name",
@@ -6061,7 +6267,8 @@ const manifest: LocalizationManifest = {
       "profile.profile.section.security": "Security",
       "role.role_detail.page_title": "Role Detail",
       "role.rolelist.page_title": "Role List",
-      "role.rolelist.section.description": "Roles in the system function to regulate user access rights so that each user can only view or perform actions in accordance with the access granted",
+      "role.rolelist.section.description":
+        "Roles in the system function to regulate user access rights so that each user can only view or perform actions in accordance with the access granted",
       "role.rolelist.table.description.header": "Description",
       "role.rolelist.table.role_name.header": "Role Name",
       "role.rolelist.table.user_count.header": "User Count",
@@ -6076,11 +6283,13 @@ const manifest: LocalizationManifest = {
       "settings.profile.logout.button": "Logout",
       "settings.profile.logout.popup.cancel": "Cancel",
       "settings.profile.logout.popup.confirm": "Yes, Logout",
-      "settings.profile.logout.popup.message": "Are you sure you want to log out from this account?",
+      "settings.profile.logout.popup.message":
+        "Are you sure you want to log out from this account?",
       "settings.profile.logout.popup.title": "Logout Confirmation",
       "settings.profile.title": "Profile",
       "settings.title": "Settings",
-      "user.email_aktifkan_pengguna.subject": "MyApp: Your Access in {{Company Name}} Has Been Restored",
+      "user.email_aktifkan_pengguna.subject":
+        "MyApp: Your Access in {{Company Name}} Has Been Restored",
       "user.invite_email.subject": "MyApp Invitation: Join {{company_name}}",
       "user.ubah_akses_pengguna.modal.title": "Update User Access",
       "user.ubah_akses_pengguna.toast_title.success": "Success!",
@@ -6120,7 +6329,8 @@ const manifest: LocalizationManifest = {
       "user.userlist.title": "User Management",
       "workspace.delete_info.button.cancel": "Cancel",
       "workspace.delete_info.button.company_list": "Company List",
-      "workspace.delete_info.modal.body": "This Workspace still has associated data. You need to delete all the data in it before you can delete the Workspace.",
+      "workspace.delete_info.modal.body":
+        "This Workspace still has associated data. You need to delete all the data in it before you can delete the Workspace.",
       "workspace.delete_info.modal.title": "Workspace Cannot Be Deleted",
       "workspace.detail_workspace.edit.label": "Workspace Name",
       "workspace.detail_workspace.edit.title": "Edit Workspace",
@@ -6131,48 +6341,67 @@ const manifest: LocalizationManifest = {
       "workspace.listrk.header.title": "Workspace List",
       "workspace.workspace.create.action.cancel.button": "Cancel",
       "workspace.workspace.create.action.submit.button": "Save",
-      "workspace.workspace.create.form.name.error.duplicate": "This workspace name is already in use. Please use a different name.",
-      "workspace.workspace.create.form.name.error.invalid_format": "Workspace name can only contain letters, numbers, dots, and commas.",
-      "workspace.workspace.create.form.name.error.max_length": "Workspace name must be no more than 60 characters.",
-      "workspace.workspace.create.form.name.error.min_length": "Workspace name must be at least 3 characters.",
+      "workspace.workspace.create.form.name.error.duplicate":
+        "This workspace name is already in use. Please use a different name.",
+      "workspace.workspace.create.form.name.error.invalid_format":
+        "Workspace name can only contain letters, numbers, dots, and commas.",
+      "workspace.workspace.create.form.name.error.max_length":
+        "Workspace name must be no more than 60 characters.",
+      "workspace.workspace.create.form.name.error.min_length":
+        "Workspace name must be at least 3 characters.",
       "workspace.workspace.create.form.name.error.required": "Workspace name is required.",
       "workspace.workspace.create.form.name.label": "Workspace Name",
       "workspace.workspace.create.form.name.placeholder": "Example: Main Workspace",
       "workspace.workspace.create.modal.title": "Add Workspace",
-      "workspace.workspace.create.name.info.max_length": "Workspace name must be no more than 60 characters.",
+      "workspace.workspace.create.name.info.max_length":
+        "Workspace name must be no more than 60 characters.",
       "workspace.workspace.create.toast.success.message": "Workspace was added successfully",
       "workspace.workspace.create.toast.success.title": "Success!",
       "workspace.workspace.delete.action.cancel.button": "Cancel",
       "workspace.workspace.delete.action.confirm.button": "Confirm",
-      "workspace.workspace.delete.checkbox.confirmation": "I understand that this workspace will be permanently deleted and cannot be undone",
+      "workspace.workspace.delete.checkbox.confirmation":
+        "I understand that this workspace will be permanently deleted and cannot be undone",
       "workspace.workspace.delete.form.confirmation.label": "Type {workspace name} to confirm",
       "workspace.workspace.delete.form.confirmation.placeholder": "Enter workspace name",
       "workspace.workspace.delete.modal.banner_title": "Information!",
-      "workspace.workspace.delete.modal.description": "All data in this workspace will be permanently deleted and cannot be recovered.",
+      "workspace.workspace.delete.modal.description":
+        "All data in this workspace will be permanently deleted and cannot be recovered.",
       "workspace.workspace.delete.modal.title": "Delete Workspace Confirmation",
       "workspace.workspace.delete.toast.success.message": "Workspace has been successfully deleted",
       "workspace.workspace.delete.toast.success.title": "Success!",
       "workspace.workspace.edit.action.cancel.button": "Cancel",
       "workspace.workspace.edit.action.submit.button": "Save",
-      "workspace.workspace.edit.form.name.error.duplicate": "This workspace name is already in use. Please use a different name.",
-      "workspace.workspace.edit.form.name.error.invalid_format": "Workspace name can only contain letters, numbers, dots, and commas.",
-      "workspace.workspace.edit.form.name.error.max_length": "Workspace name must be no more than 60 characters.",
-      "workspace.workspace.edit.form.name.error.min_length": "Workspace name must be at least 3 characters.",
+      "workspace.workspace.edit.form.name.error.duplicate":
+        "This workspace name is already in use. Please use a different name.",
+      "workspace.workspace.edit.form.name.error.invalid_format":
+        "Workspace name can only contain letters, numbers, dots, and commas.",
+      "workspace.workspace.edit.form.name.error.max_length":
+        "Workspace name must be no more than 60 characters.",
+      "workspace.workspace.edit.form.name.error.min_length":
+        "Workspace name must be at least 3 characters.",
       "workspace.workspace.edit.form.name.error.required": "Workspace name is required.",
-      "workspace.workspace.edit.form.name.max_length": "Workspace name must be no more than 60 characters.",
+      "workspace.workspace.edit.form.name.max_length":
+        "Workspace name must be no more than 60 characters.",
       "workspace.workspace.edit.toast.cancle.message": "Workspace name update was cancelled",
       "workspace.workspace.edit.toast.cancle.title": "Cancelled",
-      "workspace.workspace.edit.toast.success.message": "Workspace name has been successfully updated",
+      "workspace.workspace.edit.toast.success.message":
+        "Workspace name has been successfully updated",
       "workspace.workspace.edit.toast.success.title": "Success!",
-      "workspace.workspace.error.confirm_name.mismatch": "Confirmation name does not match. Make sure the workspace name is typed correctly.",
-      "workspace.workspace.error.has_companies": "This workspace cannot be deleted because it still has related companies or business units.",
-      "workspace.workspace.error.last_remaining": "This workspace cannot be deleted because it is your last workspace.",
-      "workspace.workspace.error.name.duplicate": "This workspace name is already in use. Please use a different name.",
+      "workspace.workspace.error.confirm_name.mismatch":
+        "Confirmation name does not match. Make sure the workspace name is typed correctly.",
+      "workspace.workspace.error.has_companies":
+        "This workspace cannot be deleted because it still has related companies or business units.",
+      "workspace.workspace.error.last_remaining":
+        "This workspace cannot be deleted because it is your last workspace.",
+      "workspace.workspace.error.name.duplicate":
+        "This workspace name is already in use. Please use a different name.",
       "workspace.workspace.error.name.required": "Workspace name is required.",
       "workspace.workspace.list.action.create.button": "Add Workspace",
-      "workspace.workspace.list.empty.description": "You don't have any workspaces yet. Create your first workspace to get started.",
+      "workspace.workspace.list.empty.description":
+        "You don't have any workspaces yet. Create your first workspace to get started.",
       "workspace.workspace.list.empty.title": "No Workspaces Yet",
-      "workspace.workspace.list.error.description": "Something went wrong while loading workspace data. Please try again.",
+      "workspace.workspace.list.error.description":
+        "Something went wrong while loading workspace data. Please try again.",
       "workspace.workspace.list.error.title": "Failed to Load Workspaces",
       "workspace.workspace.list.header.managed_by.label": "managed by {account name}",
       "workspace.workspace.list.not_found.description": "No workspaces match your search criteria.",
@@ -6180,7 +6409,8 @@ const manifest: LocalizationManifest = {
       "workspace.workspace.list.summary.business_unit_total.label": "Total Business Units",
       "workspace.workspace.list.summary.company_total.label": "Total Companies",
       "workspace_detail.company_list.empty.cta_button": "Add Company",
-      "workspace_detail.company_list.empty.description": "There are currently no companies you can access in this workspace.",
+      "workspace_detail.company_list.empty.description":
+        "There are currently no companies you can access in this workspace.",
       "workspace_detail.company_list.empty.title": "No Companies Yet",
       "workspace_detail.detailrk.company_list": "Company List",
       "workspace_detail.detailrk.data_info": "Workspace Information",
@@ -6190,65 +6420,86 @@ const manifest: LocalizationManifest = {
       "workspace_detail.detailrk.sumcompany": "Total Companies",
       "workspace_detail.workspace_detail.action.add_company.button": "Add Company",
       "workspace_detail.workspace_detail.company_add.modal.title": "Add Company",
-      "workspace_detail.workspace_detail.page_title": "Workspace Detail"
+      "workspace_detail.workspace_detail.page_title": "Workspace Detail",
     },
-    "id": {
+    id: {
       "auth.btn_verifikasi_email": "Verifikasi via Email",
-      "auth.cekemail.description": "Kami telah mengirim tautan verifikasi ke alamat email yang Anda daftarkan.",
+      "auth.cekemail.description":
+        "Kami telah mengirim tautan verifikasi ke alamat email yang Anda daftarkan.",
       "auth.cekemail.help.check_spam": "Pastikan juga untuk memeriksa folder spam atau promosi.",
-      "auth.cekemail.help.didnt_get_email": "Belum menerima email? Terkadang butuh beberapa menit hingga email masuk ke kotak masuk Anda.",
+      "auth.cekemail.help.didnt_get_email":
+        "Belum menerima email? Terkadang butuh beberapa menit hingga email masuk ke kotak masuk Anda.",
       "auth.cekemail.page_title": "Cek Email Anda",
       "auth.change_email.cta.cancel": "Batal",
       "auth.change_email.cta.submit": "Kirim Link Verifikasi",
-      "auth.change_email.error.email_already_used": "Email ini sudah digunakan. Coba pakai email lain yang aktif ya.",
-      "auth.change_email.error.email_invalid_format": "Gunakan format email yang benar ya (contoh: nama@domain.com).",
+      "auth.change_email.error.email_already_used":
+        "Email ini sudah digunakan. Coba pakai email lain yang aktif ya.",
+      "auth.change_email.error.email_invalid_format":
+        "Gunakan format email yang benar ya (contoh: nama@domain.com).",
       "auth.change_email.error.email_required": "Email perlu dilengkapi, mari isi dulu ya.",
-      "auth.change_email.error.email_same_as_previous": "Email sama dengan sebelumnya. Yuk gunakan email lain.",
+      "auth.change_email.error.email_same_as_previous":
+        "Email sama dengan sebelumnya. Yuk gunakan email lain.",
       "auth.change_email.field.email.label": "Email Baru",
       "auth.change_email.field.email.placeholder": "contoh: budi@contoh.com",
-      "auth.change_email.modal.subtitle": "Silakan masukkan email baru Anda. Pastikan email tidak digunakan atau sama dengan email sebelumnya.",
+      "auth.change_email.modal.subtitle":
+        "Silakan masukkan email baru Anda. Pastikan email tidak digunakan atau sama dengan email sebelumnya.",
       "auth.change_email.modal.title": "Ganti Email",
       "auth.change_wa.cta.cancel": "Batal",
       "auth.change_wa.cta.submit": "Kirim OTP",
-      "auth.change_wa.error.already_used": "Nomor ini sudah digunakan. Coba pakai nomor lain yang aktif ya.",
-      "auth.change_wa.error.invalid_format": "Gunakan format nomor WA yang benar ya (contoh: 81234567890)",
+      "auth.change_wa.error.already_used":
+        "Nomor ini sudah digunakan. Coba pakai nomor lain yang aktif ya.",
+      "auth.change_wa.error.invalid_format":
+        "Gunakan format nomor WA yang benar ya (contoh: 81234567890)",
       "auth.change_wa.error.required": "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
-      "auth.change_wa.error.same_as_old": "Nomor ini sama dengan sebelumnya. Yuk gunakan nomor lain.",
+      "auth.change_wa.error.same_as_old":
+        "Nomor ini sama dengan sebelumnya. Yuk gunakan nomor lain.",
       "auth.change_wa.field.phone.label": "Nomor WA Baru",
       "auth.change_wa.field.phone.placeholder": "81234567890",
-      "auth.change_wa.modal.subtitle": "Silakan masukkan nomor WhatsApp baru yang belum pernah digunakan agar proses selanjutnya lebih lancar.",
+      "auth.change_wa.modal.subtitle":
+        "Silakan masukkan nomor WhatsApp baru yang belum pernah digunakan agar proses selanjutnya lebih lancar.",
       "auth.change_wa.modal.title": "Ubah Nomor WhatsApp",
       "auth.change_wa.toast.success.message": "Kami telah mengirimkan kode OTP ke nomor barumu.",
-      "auth.channel_verifiy.page.info": "Untuk menjaga keamanan akun Anda, pilih salah satu metode untuk menerima kode verifikasi reset password.",
+      "auth.channel_verifiy.page.info":
+        "Untuk menjaga keamanan akun Anda, pilih salah satu metode untuk menerima kode verifikasi reset password.",
       "auth.channel_verifiy.page.title": "Pilih Metode Verifikasi",
-      "auth.check_email.description": "Kami telah mengirim tautan verifikasi ke alamat email yang Anda daftarkan.",
+      "auth.check_email.description":
+        "Kami telah mengirim tautan verifikasi ke alamat email yang Anda daftarkan.",
       "auth.check_email.description_1": "Kami telah ",
       "auth.check_email.description_2": "mengirim tautan verifikasi ke alamat email ",
       "auth.check_email.description_3": " yang Anda daftarkan.",
       "auth.check_email.help.check_spam": "Pastikan juga untuk memeriksa folder spam atau promosi.",
       "auth.check_email.help.didnt_get_email": "Belum menerima email?",
-      "auth.check_email.help.didnt_get_email_few_minutes": "Terkadang butuh beberapa menit hingga email masuk ke kotak masuk Anda.",
+      "auth.check_email.help.didnt_get_email_few_minutes":
+        "Terkadang butuh beberapa menit hingga email masuk ke kotak masuk Anda.",
       "auth.check_email.page_title": "Cek Email Anda",
-      "auth.confirm_logingoogle.error.name.invalid_char": "Karakter [x] tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,).",
+      "auth.confirm_logingoogle.error.name.invalid_char":
+        "Karakter [x] tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,).",
       "auth.confirm_logingoogle.error.name.required": "Nama perlu dilengkapi, mari isi dulu ya.",
-      "auth.confirm_logingoogle.error.wa.duplicate": "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login.",
-      "auth.confirm_logingoogle.error.wa.format": "Mari lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
-      "auth.confirm_logingoogle.error.wa.required": "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
+      "auth.confirm_logingoogle.error.wa.duplicate":
+        "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login.",
+      "auth.confirm_logingoogle.error.wa.format":
+        "Mari lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
+      "auth.confirm_logingoogle.error.wa.required":
+        "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
       "auth.confirm_logingoogle.form.email.label": "Email",
       "auth.confirm_logingoogle.form.name.label": "Nama",
       "auth.confirm_logingoogle.form.name.placeholder": "Contoh: Budi Santoso",
       "auth.confirm_logingoogle.form.wa.label": "No. WA",
       "auth.confirm_logingoogle.form.wa.placeholder": "81234567890",
-      "auth.email.verify.body.intro": "Halo, kami menerima permintaan untuk memverifikasi alamat email Anda. Klik tombol di bawah ini untuk menyelesaikan proses verifikasi.",
+      "auth.email.verify.body.intro":
+        "Halo, kami menerima permintaan untuk memverifikasi alamat email Anda. Klik tombol di bawah ini untuk menyelesaikan proses verifikasi.",
       "auth.email.verify.cta.button": "Verifikasi Sekarang",
-      "auth.email.verify.footer.disclaimer": "Jika Anda tidak meminta verifikasi ini, abaikan email ini.",
+      "auth.email.verify.footer.disclaimer":
+        "Jika Anda tidak meminta verifikasi ini, abaikan email ini.",
       "auth.email.verify.heading": "Verifikasi Email Anda",
-      "auth.email.verify.invalid_old_link.message": "Sepertinya kamu membuka link yang lama. Silakan gunakan link verifikasi terbaru yang kami kirimkan ke email kamu.",
+      "auth.email.verify.invalid_old_link.message":
+        "Sepertinya kamu membuka link yang lama. Silakan gunakan link verifikasi terbaru yang kami kirimkan ke email kamu.",
       "auth.email.verify.invalid_old_link.title": "Link Sudah Tidak Aktif",
       "auth.email.verify.preheader": "Klik tautan di bawah ini untuk memverifikasi email Anda.",
       "auth.email.verify.subject": "Verifikasi alamat email Anda",
       "auth.email.verify.success.cta.home": "Ke Beranda",
-      "auth.email.verify.success.message": "Link verifikasi berhasil dikirim. Silakan cek email Anda.",
+      "auth.email.verify.success.message":
+        "Link verifikasi berhasil dikirim. Silakan cek email Anda.",
       "auth.email.verify.success.title": "Verifikasi Email Berhasil",
       "auth.errors.invalid_email": "Alamat email tidak valid",
       "auth.errors.user_not_found": "Pengguna tidak ditemukan",
@@ -6257,7 +6508,8 @@ const manifest: LocalizationManifest = {
       "auth.expired.message.info": "Link verifikasi ini sudah tidak berlaku.",
       "auth.expired.page_title": "Link Kadaluarsa",
       "auth.expired.toast.button": "Ke Login",
-      "auth.expired.toast.message": "Registrasi tidak ditemukan atau sudah kadaluarsa. Silakan login atau daftar ulang.",
+      "auth.expired.toast.message":
+        "Registrasi tidak ditemukan atau sudah kadaluarsa. Silakan login atau daftar ulang.",
       "auth.expired.toast.success": "Tautan verifikasi baru telah dikirim ke email Anda.",
       "auth.expired.toast.title": "Registrasi Kadaluarsa",
       "auth.google_account_preview_privacy_link": "Kebijakan Privasi",
@@ -6268,16 +6520,25 @@ const manifest: LocalizationManifest = {
       "auth.idle.popup.title": "Sesi hampir berakhir",
       "auth.idle.popup.toast.keepalive.message": "Sesi kamu diperpanjang.",
       "auth.idle.popup.toast.keepalive.title": "Sukses!",
-      "auth.login_by_google_account.error.email.autofill_failed": "Kami belum bisa memuat email Anda. Coba muat ulang halaman, ya.",
-      "auth.login_by_google_account.error.nama.invalid_char": "Karakter {x} tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,).",
+      "auth.login_by_google_account.error.email.autofill_failed":
+        "Kami belum bisa memuat email Anda. Coba muat ulang halaman, ya.",
+      "auth.login_by_google_account.error.nama.invalid_char":
+        "Karakter {x} tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,).",
       "auth.login_by_google_account.error.nama.max": "Nama maksimal 50 karakter, ya.",
-      "auth.login_by_google_account.error.nama.required": "Nama perlu dilengkapi, mari isi dulu ya.",
-      "auth.login_by_google_account.error.tnc.link_failed": "Halaman Syarat & Ketentuan sedang tidak bisa dibuka. Coba beberapa saat lagi, ya.",
-      "auth.login_by_google_account.error.tnc.required": "Silakan centang persetujuan dulu agar prosesnya bisa lanjut.",
-      "auth.login_by_google_account.error.wa.duplicate": "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login.",
-      "auth.login_by_google_account.error.wa.format": "Lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
-      "auth.login_by_google_account.error.wa.nondigit": "Hanya boleh angka ya. Coba cek kembali nomor WhatsApp-nya.",
-      "auth.login_by_google_account.error.wa.required": "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
+      "auth.login_by_google_account.error.nama.required":
+        "Nama perlu dilengkapi, mari isi dulu ya.",
+      "auth.login_by_google_account.error.tnc.link_failed":
+        "Halaman Syarat & Ketentuan sedang tidak bisa dibuka. Coba beberapa saat lagi, ya.",
+      "auth.login_by_google_account.error.tnc.required":
+        "Silakan centang persetujuan dulu agar prosesnya bisa lanjut.",
+      "auth.login_by_google_account.error.wa.duplicate":
+        "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login.",
+      "auth.login_by_google_account.error.wa.format":
+        "Lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
+      "auth.login_by_google_account.error.wa.nondigit":
+        "Hanya boleh angka ya. Coba cek kembali nomor WhatsApp-nya.",
+      "auth.login_by_google_account.error.wa.required":
+        "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
       "auth.login_by_google_account.form.email.label": "Email",
       "auth.login_by_google_account.form.email.placeholder": "email@domain.com",
       "auth.login_by_google_account.form.nama.label": "Nama",
@@ -6288,41 +6549,59 @@ const manifest: LocalizationManifest = {
       "auth.login_by_google_account.form.wa.label": "Nomor WhatsApp",
       "auth.login_by_google_account.form.wa.placeholder": "81234567890",
       "auth.login_by_google_account.page_title": "Konfirmasi Akun Google",
-      "auth.login_by_google.banner.whatsapp_required.message": "Nomor WhatsApp belum tersedia di akun Google Anda. Isi untuk melanjutkan pembuatan akun.",
+      "auth.login_by_google.banner.whatsapp_required.message":
+        "Nomor WhatsApp belum tersedia di akun Google Anda. Isi untuk melanjutkan pembuatan akun.",
       "auth.login_google.auth.oauth_failed.error.btnclose": "Tutup",
-      "auth.login_google.auth.oauth_failed.error.message": "Terjadi kendala saat membuka jendela login Google. Silakan coba lagi nanti, atau gunakan login manual untuk melanjutkan.",
+      "auth.login_google.auth.oauth_failed.error.message":
+        "Terjadi kendala saat membuka jendela login Google. Silakan coba lagi nanti, atau gunakan login manual untuk melanjutkan.",
       "auth.login_google.auth.oauth_failed.error.title": "Gagal membuka Pop-up Google",
       "auth.login_google.idconfirm.cta_cancel": "Batal",
       "auth.login_google.idconfirm.cta_confirm": "Konfirmasi dengan OTP",
-      "auth.login_google.idconfirm.description": "Kami menemukan bahwa email Google ini sudah terdaftar pada akun Anda. Untuk memastikan keamanan, mari verifikasi bahwa ini benar-benar Anda.",
+      "auth.login_google.idconfirm.description":
+        "Kami menemukan bahwa email Google ini sudah terdaftar pada akun Anda. Untuk memastikan keamanan, mari verifikasi bahwa ini benar-benar Anda.",
       "auth.login_google.idconfirm.info_otp": "OTP dikirim ke WhatsApp Anda: {{08**-****-1234}}",
       "auth.login_google.idconfirm.title": "Konfirmasi Identitas",
       "auth.login_google.register_from_google.toast.success.message": "Akunmu berhasil dibuat",
       "auth.login_google.register_from_google.toast.success.title": "Sukses!",
       "auth.login_invite.banner.title": "Undangan Bergabung",
       "auth.login_page.form.button.forgot_pass": "Lupa Password",
-      "auth.login.banner.error.lockout": "Akunmu sementara dikunci selama 15 menit demi keamanan.\nKamu bisa mencoba lagi dalam {mm:ss}",
-      "auth.login.banner.error.mismatch": "Kamu masih punya {attempts} kesempatan dalam 15 menit ke depan.",
-      "auth.login.bannermessage.session_expired_idle": "Demi keamanan, sesi kamu otomatis berakhir setelah 30 menit tanpa aktivitas. Yuk, login lagi untuk melanjutkan.",
+      "auth.login.banner.error.lockout":
+        "Akunmu sementara dikunci selama 15 menit demi keamanan.\nKamu bisa mencoba lagi dalam {mm:ss}",
+      "auth.login.banner.error.mismatch":
+        "Kamu masih punya {attempts} kesempatan dalam 15 menit ke depan.",
+      "auth.login.bannermessage.session_expired_idle":
+        "Demi keamanan, sesi kamu otomatis berakhir setelah 30 menit tanpa aktivitas. Yuk, login lagi untuk melanjutkan.",
       "auth.login.bannertitle.session_expired_idle": "Sesi Berakhir",
       "auth.login.button.forgot": "Lupa Password",
       "auth.login.button.session_expired_idle": "Oke",
-      "auth.login.form.email_not_found.error": "Akun tidak ditemukan, yuk periksa kembali Email atau No kamu.",
+      "auth.login.form.email_not_found.error":
+        "Akun tidak ditemukan, yuk periksa kembali Email atau No kamu.",
       "auth.login.form.email_not_found.password_security.level_label": "Tingkat Keamanan:",
-      "auth.login.form.email_not_found.password_security.requirement_list_aria_label": "Syarat Kata Sandi",
-      "auth.login.form.email_not_found.password_security.requirement.lowercase": "Ada Huruf Kecil (a-z)",
-      "auth.login.form.email_not_found.password_security.requirement.minimum_length": "Minimal 8 Karakter",
+      "auth.login.form.email_not_found.password_security.requirement_list_aria_label":
+        "Syarat Kata Sandi",
+      "auth.login.form.email_not_found.password_security.requirement.lowercase":
+        "Ada Huruf Kecil (a-z)",
+      "auth.login.form.email_not_found.password_security.requirement.minimum_length":
+        "Minimal 8 Karakter",
       "auth.login.form.email_not_found.password_security.requirement.number": "Ada Angka (0-9)",
-      "auth.login.form.email_not_found.password_security.requirement.symbol": "Ada Simbol (!, @, #, $, %, &, *, ?, dsb.)",
-      "auth.login.form.email_not_found.password_security.requirement.uppercase": "Ada Huruf Besar (A-Z)",
-      "auth.login.form.email_wa.errors.empty": "Kamu belum mengisi email atau nomor WhatsApp. Yuk lengkapi dulu biar bisa lanjut login.",
-      "auth.login.form.email_wa.errors.format": "Formatnya belum sesuai. Yuk isi dengan email yang valid, atau nomor WA yang diawali 08 atau +kode negara.",
-      "auth.login.form.email_wa.errors.not_found": "Kita belum menemukan akun dengan data itu. Yuk periksa kembali Email atau No. WA kamu, atau daftar akun baru kalau belum punya.",
+      "auth.login.form.email_not_found.password_security.requirement.symbol":
+        "Ada Simbol (!, @, #, $, %, &, *, ?, dsb.)",
+      "auth.login.form.email_not_found.password_security.requirement.uppercase":
+        "Ada Huruf Besar (A-Z)",
+      "auth.login.form.email_wa.errors.empty":
+        "Kamu belum mengisi email atau nomor WhatsApp. Yuk lengkapi dulu biar bisa lanjut login.",
+      "auth.login.form.email_wa.errors.format":
+        "Formatnya belum sesuai. Yuk isi dengan email yang valid, atau nomor WA yang diawali 08 atau +kode negara.",
+      "auth.login.form.email_wa.errors.not_found":
+        "Kita belum menemukan akun dengan data itu. Yuk periksa kembali Email atau No. WA kamu, atau daftar akun baru kalau belum punya.",
       "auth.login.form.email_wa.label": "Email atau Nomor WhatsApp",
       "auth.login.form.email_wa.placeholder": "Masukkan email atau nomor WhatsApp kamu",
-      "auth.login.form.password_incorrect.error": "Kata sandimu belum cocok, masih ada {attempts} kesempatan dalam 15 menit.",
-      "auth.login.form.password.errors.empty": "Kata sandi belum diisi. Isi dulu supaya kamu bisa masuk ke akunmu.",
-      "auth.login.form.password.errors.mismatch": "Kata sandi kamu belum cocok. Yuk periksa lagi dan coba.",
+      "auth.login.form.password_incorrect.error":
+        "Kata sandimu belum cocok, masih ada {attempts} kesempatan dalam 15 menit.",
+      "auth.login.form.password.errors.empty":
+        "Kata sandi belum diisi. Isi dulu supaya kamu bisa masuk ke akunmu.",
+      "auth.login.form.password.errors.mismatch":
+        "Kata sandi kamu belum cocok. Yuk periksa lagi dan coba.",
       "auth.login.form.password.label": "Kata Sandi",
       "auth.login.form.password.placeholder": "••••••••",
       "auth.login.form.remember_me.label": "Ingat saya selama 30 hari",
@@ -6341,7 +6620,8 @@ const manifest: LocalizationManifest = {
       "auth.login.success.return.label": "Kembali ke halaman asal",
       "auth.login.toast.error.global.submit": "Percobaan login kamu tidak berhasil",
       "auth.login.toast.error.global.title": "Gagal!",
-      "auth.login.toast.success.google_message": "Berhasil masuk dengan Google. Selamat datang di MyApp.",
+      "auth.login.toast.success.google_message":
+        "Berhasil masuk dengan Google. Selamat datang di MyApp.",
       "auth.login.toast.success.message": "Selamat datang di MyApp.",
       "auth.login.toast.success.title": "Login Berhasil",
       "auth.login.welcome": "<p>Yuk masuk ke akun <bold>MyApp</bold> anda</p>",
@@ -6359,13 +6639,18 @@ const manifest: LocalizationManifest = {
       "auth.logout.popup.message": "Anda yakin ingin keluar? Tenang, data Anda tetap aman.",
       "auth.logout.popup.title": "Konfirmasi Keluar",
       "auth.logout.success.toast": "Anda sudah berhasil keluar. Sampai jumpa lagi.",
-      "auth.otp_whatsapp.message": "{otp_code} adalah kode verifikasi akunmu di MyApp. Kode ini berlaku selama 5 menit. Jangan bagikan kode ini kepada siapa pun ya. Jika kamu tidak meminta kode ini, abaikan pesan ini atau hubungi tim dukungan MyApp.",
-      "auth.otp.error_locked.banner.message": "Coba lagi setelah 15 menit atau ganti nomor WhatsApp.",
+      "auth.otp_whatsapp.message":
+        "{otp_code} adalah kode verifikasi akunmu di MyApp. Kode ini berlaku selama 5 menit. Jangan bagikan kode ini kepada siapa pun ya. Jika kamu tidak meminta kode ini, abaikan pesan ini atau hubungi tim dukungan MyApp.",
+      "auth.otp.error_locked.banner.message":
+        "Coba lagi setelah 15 menit atau ganti nomor WhatsApp.",
       "auth.otp.error_locked.banner.title": "Demi keamanan, verifikasi terkunci",
-      "auth.otp.error.expired": "Kode OTP sudah kedaluwarsa. Silakan kirim ulang kode untuk melanjutkan.",
+      "auth.otp.error.expired":
+        "Kode OTP sudah kedaluwarsa. Silakan kirim ulang kode untuk melanjutkan.",
       "auth.otp.error.invalid": "Kode OTP tidak sesuai. Yuk cek lagi.",
-      "auth.otp.error.invalid_with_resend": "Kode OTP tidak sesuai. Cek lagi, atau minta kirim ulang kode.",
-      "auth.otp.error.lock": "Demi keamanan, verifikasi terkunci sementara. Coba lagi setelah 15 menit.",
+      "auth.otp.error.invalid_with_resend":
+        "Kode OTP tidak sesuai. Cek lagi, atau minta kirim ulang kode.",
+      "auth.otp.error.lock":
+        "Demi keamanan, verifikasi terkunci sementara. Coba lagi setelah 15 menit.",
       "auth.otp.fallback.change_meethod_wa": "Coba via WhatsApp",
       "auth.otp.fallback.change_method": "Coba via Email",
       "auth.otp.fallback.sent_email": "Tautan verifikasi telah dikirim ke Email Anda.",
@@ -6384,25 +6669,38 @@ const manifest: LocalizationManifest = {
       "auth.popup.message": "Sesi akan berakhir dalam {{time}} detik.",
       "auth.popup.title": "Sesi Anda hampir berakhir",
       "auth.register_invite.banner.title": "Undangan Bergabung",
-      "auth.register.error.email.duplicate": "Email ini sudah dipakai. Coba variasi lain agar unik atau login.",
-      "auth.register.error.email.format": "Mari lengkapi email dengan format yang benar (contoh: nama@domain.com).",
+      "auth.register.error.email.duplicate":
+        "Email ini sudah dipakai. Coba variasi lain agar unik atau login.",
+      "auth.register.error.email.format":
+        "Mari lengkapi email dengan format yang benar (contoh: nama@domain.com).",
       "auth.register.error.email.required": "Email perlu dilengkapi, mari isi dulu ya.",
-      "auth.register.error.global.submit": "Ada data yang belum valid. Silakan periksa kembali bagian yang ditandai.",
+      "auth.register.error.global.submit":
+        "Ada data yang belum valid. Silakan periksa kembali bagian yang ditandai.",
       "auth.register.error.global.title": "Gagal!",
-      "auth.register.error.name.invalid_char": "Karakter [x] tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,).",
+      "auth.register.error.name.invalid_char":
+        "Karakter [x] tidak diperbolehkan. Gunakan huruf, spasi, titik (.) atau koma (,).",
       "auth.register.error.name.required": "Nama perlu dilengkapi, mari isi dulu ya.",
-      "auth.register.error.password.common": "Kata sandi terlalu mudah ditebak. Gunakan variasi lain, ya.",
-      "auth.register.error.password.confirm_required": "Konfirmasi kata sandi perlu dilengkapi, mari isi dulu ya.",
-      "auth.register.error.password.guide": "Gunakan ≥8 karakter. Wajib ada huruf & angka, simbol opsional.",
-      "auth.register.error.password.medium": "Kata sandi cukup, akan lebih aman jika tambah huruf besar/kecil atau simbol.",
-      "auth.register.error.password.mismatch": "Kata sandi dan konfirmasi tidak sama. Pastikan sesuai, ya.",
+      "auth.register.error.password.common":
+        "Kata sandi terlalu mudah ditebak. Gunakan variasi lain, ya.",
+      "auth.register.error.password.confirm_required":
+        "Konfirmasi kata sandi perlu dilengkapi, mari isi dulu ya.",
+      "auth.register.error.password.guide":
+        "Gunakan ≥8 karakter. Wajib ada huruf & angka, simbol opsional.",
+      "auth.register.error.password.medium":
+        "Kata sandi cukup, akan lebih aman jika tambah huruf besar/kecil atau simbol.",
+      "auth.register.error.password.mismatch":
+        "Kata sandi dan konfirmasi tidak sama. Pastikan sesuai, ya.",
       "auth.register.error.password.required": "Kata sandi perlu dilengkapi, mari isi dulu ya.",
       "auth.register.error.password.strong": "Kata sandi kuat, siap digunakan.",
       "auth.register.error.password.too_short": "Kata sandi minimal 8 karakter.",
-      "auth.register.error.password.weak": "Kata sandi terlalu lemah, coba tambah variasi huruf & angka.",
-      "auth.register.error.terms.required": "Anda perlu menyetujui Kebijakan Privasi & Ketentuan Layanan dulu, ya.",
-      "auth.register.error.wa.duplicate": "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login.",
-      "auth.register.error.wa.format": "Mari lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
+      "auth.register.error.password.weak":
+        "Kata sandi terlalu lemah, coba tambah variasi huruf & angka.",
+      "auth.register.error.terms.required":
+        "Anda perlu menyetujui Kebijakan Privasi & Ketentuan Layanan dulu, ya.",
+      "auth.register.error.wa.duplicate":
+        "Nomor WhatsApp ini sudah dipakai. Coba nomor lain agar unik atau login.",
+      "auth.register.error.wa.format":
+        "Mari lengkapi nomor WhatsApp dengan format yang benar (contoh: 81234567890).",
       "auth.register.error.wa.required": "Nomor WhatsApp perlu dilengkapi, mari isi dulu ya.",
       "auth.register.form.checkbox.and": "&",
       "auth.register.form.checkbox.privacy_policy": "Kebijakan Privasi",
@@ -6424,7 +6722,8 @@ const manifest: LocalizationManifest = {
       "auth.register.password_security.requirement.lowercase": "Ada Huruf Kecil (a-z)",
       "auth.register.password_security.requirement.minimum_length": "Minimal 8 Karakter",
       "auth.register.password_security.requirement.number": "Ada Angka (0-9)",
-      "auth.register.password_security.requirement.symbol": "Ada Simbol (!, @, #, $, %, &, *, ?, dsb.)",
+      "auth.register.password_security.requirement.symbol":
+        "Ada Simbol (!, @, #, $, %, &, *, ?, dsb.)",
       "auth.register.password_security.requirement.uppercase": "Ada Huruf Besar (A-Z)",
       "auth.resend_email.change_email.cta": "Ganti Email",
       "auth.resend_email.resend.button.disabled": "Kirim Ulang Link ({seconds} detik)",
@@ -6434,36 +6733,51 @@ const manifest: LocalizationManifest = {
       "auth.resend_email.resend.success.toast_message": "Link verifikasi baru telah dikirim.",
       "auth.resend_email.resend.success.toast_title": "Sukses!",
       "auth.screen_privacy_mode.title": "Tampilan Disamarkan",
-      "auth.session_pre_warning_72h.modal.description": "Sesi kamu sudah sampai batas 72 jam. Yuk verifikasi sebentar biar tetap aman. Masukkan kata sandimu untuk lanjut ya.",
+      "auth.session_pre_warning_72h.modal.description":
+        "Sesi kamu sudah sampai batas 72 jam. Yuk verifikasi sebentar biar tetap aman. Masukkan kata sandimu untuk lanjut ya.",
       "auth.session_pre_warning_72h.modal.title": "Yuk Perbarui Sesi Kamu",
       "auth.session_pre_warning_google.cta.google": "Lanjutkan dengan Google",
-      "auth.session_pre_warning_google.modal.description": "Sesi kamu sudah sampai batas 72 jam. Yuk verifikasi sebentar lewat Google biar tetap aman tanpa perlu ketik kata sandi.",
+      "auth.session_pre_warning_google.modal.description":
+        "Sesi kamu sudah sampai batas 72 jam. Yuk verifikasi sebentar lewat Google biar tetap aman tanpa perlu ketik kata sandi.",
       "auth.session_pre_warning_google.modal.title": "Yuk Perbarui Sesi Kamu",
       "auth.session.expired.modal.button": "Login Ulang",
-      "auth.session.expired.modal.message": "Sesi Anda telah berakhir. Demi keamanan, silakan login ulang untuk melanjutkan aktivitas Anda.",
-      "auth.two_factor_authentication.email.verify.invalid_old_email.message": "Sepertinya kamu membuka link dari email lama. Silakan cek email terbaru kamu untuk melanjutkan verifikasi.",
-      "auth.two_factor_authentication.email.verify.invalid_old_email.title": "Link Sudah Tidak Aktif",
-      "auth.two_factor_authentication.email.verify.invalid_old_link.message_1": "Sepertinya kamu membuka link yang lama. Silakan gunakan ",
-      "auth.two_factor_authentication.email.verify.invalid_old_link.message_2": " yang kami kirimkan ke email kamu.",
-      "auth.two_factor_authentication.email.verify.invalid_old_link.message_highlight": "link verifikasi terbaru",
-      "auth.two_factor_authentication.email.verify.invalid_old_link.title": "Link Sudah Tidak Aktif",
+      "auth.session.expired.modal.message":
+        "Sesi Anda telah berakhir. Demi keamanan, silakan login ulang untuk melanjutkan aktivitas Anda.",
+      "auth.two_factor_authentication.email.verify.invalid_old_email.message":
+        "Sepertinya kamu membuka link dari email lama. Silakan cek email terbaru kamu untuk melanjutkan verifikasi.",
+      "auth.two_factor_authentication.email.verify.invalid_old_email.title":
+        "Link Sudah Tidak Aktif",
+      "auth.two_factor_authentication.email.verify.invalid_old_link.message_1":
+        "Sepertinya kamu membuka link yang lama. Silakan gunakan ",
+      "auth.two_factor_authentication.email.verify.invalid_old_link.message_2":
+        " yang kami kirimkan ke email kamu.",
+      "auth.two_factor_authentication.email.verify.invalid_old_link.message_highlight":
+        "link verifikasi terbaru",
+      "auth.two_factor_authentication.email.verify.invalid_old_link.title":
+        "Link Sudah Tidak Aktif",
       "auth.two_factor_authentication.email.verify.success.cta.home": "Ke Beranda",
-      "auth.two_factor_authentication.email.verify.success.message": "Silakan kembali ke aplikasi atau tab sebelumnya untuk melanjutkan aktivitas kamu. Atau, kamu bisa kembali ke Beranda.",
+      "auth.two_factor_authentication.email.verify.success.message":
+        "Silakan kembali ke aplikasi atau tab sebelumnya untuk melanjutkan aktivitas kamu. Atau, kamu bisa kembali ke Beranda.",
       "auth.two_factor_authentication.email.verify.success.title": "Verifikasi Email Berhasil",
       "auth.ui.dashboard.action_audit_log": "Lihat Aktivitas",
       "auth.ui.dashboard.action_invite_team": "Undang Tim",
       "auth.ui.dashboard.action_manage_role": "Atur Role",
-      "auth.ui.dashboard.card_access_desc": "Kelola akses pengguna, role, dan status izin aplikasi.",
+      "auth.ui.dashboard.card_access_desc":
+        "Kelola akses pengguna, role, dan status izin aplikasi.",
       "auth.ui.dashboard.card_access_status": "Paling Sering Digunakan",
       "auth.ui.dashboard.card_access_title": "MyApp Access",
-      "auth.ui.dashboard.card_accounting_desc": "Pantau transaksi, laporan keuangan, dan jurnal operasional.",
+      "auth.ui.dashboard.card_accounting_desc":
+        "Pantau transaksi, laporan keuangan, dan jurnal operasional.",
       "auth.ui.dashboard.card_accounting_status": "Siap Dipakai",
       "auth.ui.dashboard.card_accounting_title": "MyApp Accounting",
       "auth.ui.dashboard.card_cta": "Buka aplikasi",
-      "auth.ui.dashboard.hero_subtitle": "Pilih aksi cepat untuk mengatur pengguna, role, dan hak akses tanpa berpindah halaman.",
-      "auth.ui.dashboard.hero_title": "Semua akses aplikasi MyApp dalam satu dashboard terintegrasi.",
+      "auth.ui.dashboard.hero_subtitle":
+        "Pilih aksi cepat untuk mengatur pengguna, role, dan hak akses tanpa berpindah halaman.",
+      "auth.ui.dashboard.hero_title":
+        "Semua akses aplikasi MyApp dalam satu dashboard terintegrasi.",
       "auth.ui.dashboard.last_action_prefix": "Aksi terakhir",
-      "auth.ui.dashboard.section_subtitle": "Pilih modul yang ingin Anda buka sesuai kebutuhan operasional.",
+      "auth.ui.dashboard.section_subtitle":
+        "Pilih modul yang ingin Anda buka sesuai kebutuhan operasional.",
       "auth.ui.dashboard.section_title": "Akses ke Aplikasi MyApp",
       "auth.ui.dashboard.welcome": "Selamat Datang, Salsa Maulana",
       "auth.ui.login.hide_password": "Sembunyikan kata sandi",
@@ -6474,28 +6788,37 @@ const manifest: LocalizationManifest = {
       "auth.ui.main_layout.profile_menu_aria_label": "Menu profil pengguna",
       "auth.unregistered_google_account_cancel_button": "Batal",
       "auth.unregistered_google_account_create_account_button": "Buat Akun",
-      "auth.unregistered_google_account_message": "Akun Google yang dipilih belum terdaftar. Kamu dapat melanjutkan untuk membuat akun baru.",
+      "auth.unregistered_google_account_message":
+        "Akun Google yang dipilih belum terdaftar. Kamu dapat melanjutkan untuk membuat akun baru.",
       "auth.unregistered_google_account_title": "Akun Belum Terdaftar",
       "auth.unregistered_google_account.cancel_button": "Batal",
       "auth.unregistered_google_account.create_account_button": "Buat Akun",
-      "auth.unregistered_google_account.error_modal.subtitle": "Coba lagi nanti atau gunakan metode login lainnya.",
+      "auth.unregistered_google_account.error_modal.subtitle":
+        "Coba lagi nanti atau gunakan metode login lainnya.",
       "auth.unregistered_google_account.error_modal.title": "Pendaftaran tidak dapat dilanjutkan",
-      "auth.unregistered_google_account.message": "Akun Google yang dipilih belum terdaftar. Kamu dapat melanjutkan untuk membuat akun baru.",
+      "auth.unregistered_google_account.message":
+        "Akun Google yang dipilih belum terdaftar. Kamu dapat melanjutkan untuk membuat akun baru.",
       "auth.unregistered_google_account.page_title": "Akun Belum Terdaftar",
       "auth.verification_issue_email.cta_switch_wa": "Gunakan WA",
-      "auth.verification_issue_email.lead": "Sepertinya verifikasi lewat email sedang bermasalah. Biar prosesmu tetap lancar, yuk gunakan WhatsApp.",
+      "auth.verification_issue_email.lead":
+        "Sepertinya verifikasi lewat email sedang bermasalah. Biar prosesmu tetap lancar, yuk gunakan WhatsApp.",
       "auth.verification_issue_email.page_title": "Kendala Verifikasi Email",
       "auth.verification_issue_wa.cta_switch_email": "Gunakan Email",
-      "auth.verification_issue_wa.lead": "Sepertinya verifikasi lewat WhatsApp sedang bermasalah. Supaya prosesmu tetap bisa lanjut, yuk gunakan Email.",
+      "auth.verification_issue_wa.lead":
+        "Sepertinya verifikasi lewat WhatsApp sedang bermasalah. Supaya prosesmu tetap bisa lanjut, yuk gunakan Email.",
       "auth.verification_issue_wa.page_title": "Kendala Verifikasi WhatsApp",
       "auth.verification_limit_email.button.whatsapp": "Gunakan WA",
-      "auth.verification_limit_email.limit.message": "Permintaan link verifikasi terlalu banyak. Silakan lanjutkan verifikasi via WhatsApp.",
-      "auth.verification_limit_email.limit.message_subtitle": "Silakan lanjutkan verifikasi via WhatsApp",
-      "auth.verification_limit_email.limit.message_title": "Permintaan link verifikasi terlalu banyak. ",
+      "auth.verification_limit_email.limit.message":
+        "Permintaan link verifikasi terlalu banyak. Silakan lanjutkan verifikasi via WhatsApp.",
+      "auth.verification_limit_email.limit.message_subtitle":
+        "Silakan lanjutkan verifikasi via WhatsApp",
+      "auth.verification_limit_email.limit.message_title":
+        "Permintaan link verifikasi terlalu banyak. ",
       "auth.verification_method.button_continue": "Lanjutkan",
       "auth.verification_method.option_email.desc": "Mengirimkan verifikasi pendaftaran ke email",
       "auth.verification_method.option_email.label": "Masuk dengan Email",
-      "auth.verification_method.option_whatsapp.desc": "Mengirimkan verifikasi pendaftaran ke WhatsApp",
+      "auth.verification_method.option_whatsapp.desc":
+        "Mengirimkan verifikasi pendaftaran ke WhatsApp",
       "auth.verification_method.option_whatsapp.label": "Masuk dengan WhatsApp",
       "auth.verification_method.page_title": "Metode Verifikasi",
       "auth.verification_method.section_title": "Pilih Metode",
@@ -6504,26 +6827,34 @@ const manifest: LocalizationManifest = {
       "auth.verifikasi_wa.change_wa.cta": "Ubah Nomor WA",
       "auth.verifikasi_wa.resend.button.disabled": "Kirim Ulang Kode ({seconds} detik)",
       "auth.verifikasi_wa.resend.button.enabled": "Kirim Ulang Kode",
-      "auth.verifikasi_wa.resend.limit.message": "Kamu bisa menunggu 15 menit atau mengganti nomor WhatsApp.",
+      "auth.verifikasi_wa.resend.limit.message":
+        "Kamu bisa menunggu 15 menit atau mengganti nomor WhatsApp.",
       "auth.verifikasi_wa.resend.limit.title": "Batas kirim ulang sudah tercapai.",
-      "auth.verifikasi_wa.resend.success.toast_message": "Kami telah mengirimkan kode OTP terbaru ke WhatsApp kamu.",
+      "auth.verifikasi_wa.resend.success.toast_message":
+        "Kami telah mengirimkan kode OTP terbaru ke WhatsApp kamu.",
       "auth.verifikasi_wa.resend.success.toast_title": "OTP Baru Dikirim",
-      "auth.verify.error.limit_reached": "Percobaan OTP terlalu banyak. Silakan verifikasi via Email untuk melanjutkan.",
+      "auth.verify.error.limit_reached":
+        "Percobaan OTP terlalu banyak. Silakan verifikasi via Email untuk melanjutkan.",
       "auth.verify.error.limit_reached_subtitle": "Silakan verifikasi via Email untuk melanjutkan",
       "auth.verify.error.limit_reached_title": "Percobaan OTP terlalu banyak",
-      "auth.verify.error.locked": "Demi keamanan, verifikasi terkunci sementara. Silakan coba lagi setelah 15 menit.",
+      "auth.verify.error.locked":
+        "Demi keamanan, verifikasi terkunci sementara. Silakan coba lagi setelah 15 menit.",
       "auth.verify.success.cta": "Lanjut ke Beranda",
-      "auth.verify.success.message": "Akun Anda sudah aktif. Senang bisa mendampingi perjalanan Anda.",
+      "auth.verify.success.message":
+        "Akun Anda sudah aktif. Senang bisa mendampingi perjalanan Anda.",
       "auth.verify.success.redirect": "Anda akan diarahkan otomatis dalam {xx} detik.",
       "auth.verify.success.success_title": "Pendaftaran Anda Berhasil",
       "auth.verify.success.title": "Verifikasi Berhasil",
       "auth.verify.success.toast.message": "Registrasi sukses! Yuk, mulai jelajahi fitur MyApp",
       "auth.verify.success.toast.title": "Sukses!",
       "auth.verify.toast.resend_success": "Kode OTP baru telah dikirim",
-      "auth_privacy_policy.consent.privacy_policy": "<p><strong>1. Pendahuluan</strong></p>\n<p>\n  Selamat datang di MyApp Access.<br />\n  Kami menghormati privasi Anda dan berkomitmen untuk melindungi data pribadi Anda.<br />\n  Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan,\n  dan melindungi informasi Anda saat menggunakan layanan kami.\n</p>\n\n<br />\n\n<p><strong>2. Data yang Kami Kumpulkan</strong></p>\n<p>Saat Anda menggunakan MyApp Access, kami dapat mengumpulkan informasi berikut:</p>\n<ul>\n  <li>Nama lengkap</li>\n  <li>Alamat email</li>\n  <li>Nomor telepon</li>\n  <li>Foto profil</li>\n  <li>Informasi perangkat (tipe perangkat, browser, sistem operasi)</li>\n  <li>Data aktivitas penggunaan aplikasi</li>\n  <li>Lokasi (jika relevan dan dengan izin Anda)</li>\n</ul>\n\n<br />\n\n<p><strong>3. Cara Kami Mengumpulkan Data</strong></p>\n<p>Data Anda dikumpulkan melalui:</p>\n<ul>\n  <li>Proses pendaftaran akun</li>\n  <li>Saat Anda menggunakan fitur-fitur di aplikasi</li>\n  <li>Saat Anda menghubungi layanan pelanggan kami</li>\n  <li>Cookies dan teknologi pelacakan lainnya saat menggunakan website kami</li>\n</ul>\n\n<br />\n\n<p><strong>4. Tujuan Penggunaan Data</strong></p>\n<p>Kami menggunakan data pribadi Anda untuk:</p>\n<ul>\n  <li>Membuat dan mengelola akun Anda</li>\n  <li>Memberikan akses ke layanan dan fitur aplikasi</li>\n  <li>Menghubungkan Anda dengan berbagai aplikasi dalam ekosistem MyApp</li>\n  <li>Menghubungi Anda terkait penggunaan layanan</li>\n  <li>Meningkatkan pengalaman pengguna</li>\n  <li>Menyediakan dukungan teknis dan layanan pelanggan</li>\n  <li>Memastikan keamanan dan integritas sistem kami</li>\n  <li>Memenuhi kewajiban hukum yang berlaku</li>\n</ul>\n\n<br />\n\n<p><strong>5. Penyimpanan dan Keamanan Data</strong></p>\n<p>\n  Kami menyimpan data Anda di server yang aman dan menerapkan langkah-langkah teknis\n  dan organisasi untuk melindungi data dari akses, penggunaan, atau pengungkapan yang\n  tidak sah.<br />\n  Kami menggunakan enkripsi, kontrol akses terbatas, serta praktik keamanan terbaik\n  sesuai standar industri.\n</p>\n\n<br />\n\n<p><strong>6. Penggunaan Data dalam Ekosistem MyApp</strong></p>\n<p>\n  Dengan mendaftar di MyApp Access, Anda memahami dan menyetujui bahwa data pribadi Anda\n  dapat digunakan di seluruh aplikasi dalam ekosistem Valfuse, termasuk namun tidak\n  terbatas pada:\n</p>\n<ul>\n  <li>MyApp Accounting</li>\n  <li>MyApp HRIS</li>\n  <li>MyApp Inventory</li>\n  <li>MyApp Factory</li>\n  <li>MyApp Chain</li>\n</ul>\n<p>\n  Penggunaan data ini bertujuan untuk memberikan pengalaman layanan yang terintegrasi\n  tanpa perlu registrasi ulang di setiap aplikasi.<br />\n  Kami berkomitmen untuk menjaga keamanan dan kerahasiaan data Anda di seluruh\n  ekosistem Valfuse.\n</p>\n\n<br />\n\n<p><strong>7. Data yang Anda Input ke Dalam Aplikasi</strong></p>\n<p>\n  Data operasional yang Anda unggah, simpan, atau kelola dalam aplikasi-aplikasi MyApp,\n  seperti data penjualan, pembelian, data produk, atau data karyawan, sepenuhnya merupakan\n  milik Anda sebagai pengguna.\n</p>\n<p>Kami hanya mengakses dan memproses data tersebut sebatas yang diperlukan untuk:</p>\n<ul>\n  <li>Menyediakan layanan</li>\n  <li>Menjaga keamanan sistem</li>\n  <li>Memenuhi kewajiban hukum</li>\n</ul>\n<p>\n  Kami tidak menggunakan data operasional tersebut untuk tujuan lain tanpa persetujuan\n  eksplisit dari Anda.\n</p>\n\n<br />\n\n<p><strong>8. Berbagi Data ke Pihak Ketiga</strong></p>\n<p>\n  Kami tidak menjual atau menyewakan data pribadi Anda.<br />\n  Kami hanya membagikan data kepada pihak ketiga terpercaya dalam kondisi berikut:\n</p>\n<ul>\n  <li>Penyedia layanan teknis (misalnya hosting, layanan email, dan infrastruktur cloud)</li>\n  <li>Kepatuhan terhadap hukum atau perintah pengadilan</li>\n</ul>\n<p>\n  Semua pihak ketiga tersebut diwajibkan menjaga kerahasiaan dan keamanan data Anda.\n</p>\n\n<br />\n\n<p><strong>9. Hak Anda atas Data Anda</strong></p>\n<p>Anda berhak untuk:</p>\n<ul>\n  <li>Mengakses data pribadi Anda</li>\n  <li>Memperbaiki data yang tidak akurat</li>\n  <li>Meminta penghapusan data</li>\n  <li>Menarik persetujuan yang telah diberikan</li>\n  <li>Membatasi atau menolak pemrosesan data tertentu</li>\n</ul>\n<p>\n  Permintaan terkait hak-hak tersebut dapat diajukan melalui layanan pelanggan kami.\n</p>\n\n<br />\n\n<p><strong>10. Cookie dan Teknologi Pelacakan</strong></p>\n<p>Jika Anda menggunakan website kami, kami dapat menggunakan cookies untuk:</p>\n<ul>\n  <li>Meningkatkan fungsionalitas website</li>\n  <li>Menganalisis penggunaan</li>\n  <li>Menyediakan pengalaman pengguna yang lebih baik</li>\n</ul>\n<p>\n  Anda dapat mengatur preferensi cookie melalui pengaturan browser Anda.\n</p>\n\n<br />\n\n<p><strong>11. Perubahan terhadap Kebijakan Privasi</strong></p>\n<p>\n  Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu untuk mencerminkan\n  perubahan dalam praktik kami atau perubahan hukum yang berlaku.<br />\n  Jika terdapat perubahan material, kami akan memberitahukan Anda melalui aplikasi\n  atau melalui email.\n</p>\n\n<br />\n\n<p><strong>12. Hubungi Kami</strong></p>\n<p>\n  Jika Anda memiliki pertanyaan atau permintaan terkait Kebijakan Privasi ini,\n  Anda dapat menghubungi kami di:<br />\n  📧 Email:\n  <a href=\"mailto:support@valfuseaccess.com\">support@valfuseaccess.com</a>\n</p>",
-      "auth_terms_condition.consent.terms_conditions": "<p><strong>1. Pendahuluan</strong></p>\n<p>\n  Selamat datang di MyApp Access.<br />\n  Dengan mendaftar dan menggunakan layanan kami, Anda menyetujui untuk terikat dengan\n  Syarat dan Ketentuan ini.<br />\n  Jika Anda tidak setuju dengan salah satu bagian dari syarat ini, Anda tidak diperkenankan\n  menggunakan layanan kami.\n</p>\n\n<br />\n\n<p><strong>2. Definisi</strong></p>\n<p>Dalam Syarat dan Ketentuan ini:</p>\n<ul>\n  <li><strong>MyApp Access</strong> merujuk pada layanan manajemen identitas dan akses untuk seluruh aplikasi dalam ekosistem Valfuse.</li>\n  <li><strong>User</strong> berarti individu yang membuat akun dan/atau menggunakan layanan MyApp Access.</li>\n  <li><strong>Layanan</strong> berarti fitur, fungsi, aplikasi, dan platform yang tersedia melalui MyApp Access.</li>\n  <li><strong>Akun</strong> berarti identitas yang dibuat oleh User untuk mengakses layanan kami.</li>\n</ul>\n\n<br />\n\n<p><strong>3. Ketentuan Akun</strong></p>\n<ul>\n  <li>Anda bertanggung jawab untuk menjaga kerahasiaan informasi login akun Anda.</li>\n  <li>Anda bertanggung jawab atas semua aktivitas yang terjadi melalui akun Anda.</li>\n  <li>Anda wajib memberikan informasi yang akurat, lengkap, dan terkini saat membuat akun.</li>\n  <li>Anda dilarang membuat akun menggunakan identitas palsu atau informasi orang lain tanpa izin.</li>\n</ul>\n\n<br />\n\n<p><strong>4. Hak dan Kewajiban User</strong></p>\n<ul>\n  <li>Anda berhak menggunakan layanan kami sesuai dengan Syarat dan Ketentuan ini.</li>\n  <li>Anda berkewajiban untuk menggunakan layanan dengan cara yang sah dan tidak melanggar hukum yang berlaku.</li>\n  <li>Anda tidak diperbolehkan untuk:\n    <ul>\n      <li>Menggunakan layanan untuk aktivitas ilegal</li>\n      <li>Mengganggu keamanan atau integritas sistem kami</li>\n      <li>Melakukan upaya mengakses akun orang lain tanpa izin</li>\n      <li>Menggunakan layanan untuk spam, penyebaran malware, atau aktivitas berbahaya lainnya</li>\n    </ul>\n  </li>\n</ul>\n\n<br />\n\n<p><strong>5. Hak dan Kewajiban MyApp Access</strong></p>\n<ul>\n  <li>Kami berhak untuk:\n    <ul>\n      <li>Membatasi, menangguhkan, atau menghentikan akun Anda jika melanggar ketentuan ini.</li>\n      <li>Mengubah atau menghentikan layanan kapan saja dengan atau tanpa pemberitahuan.</li>\n    </ul>\n  </li>\n  <li>Kami berkewajiban untuk:\n    <ul>\n      <li>Melindungi data pribadi Anda sesuai dengan Kebijakan Privasi kami dan ketentuan hukum yang berlaku.</li>\n      <li>Memberikan layanan sesuai dengan deskripsi dan ketentuan yang berlaku.</li>\n    </ul>\n  </li>\n</ul>\n\n<br />\n\n<p><strong>6. Integrasi Ekosistem MyApp</strong></p>\n<ul>\n  <li>\n    Dengan menggunakan MyApp Access, Anda memahami bahwa akun Anda akan digunakan untuk\n    mengakses berbagai aplikasi dalam ekosistem MyApp, seperti MyApp Accounting,\n    MyApp HRIS, MyApp Inventory, dan aplikasi lainnya.\n  </li>\n  <li>\n    Data Anda akan dikelola bersama di seluruh aplikasi MyApp sesuai dengan Kebijakan Privasi kami.\n  </li>\n</ul>\n\n<br />\n\n<p><strong>7. Pembatasan Tanggung Jawab</strong></p>\n<ul>\n  <li>Layanan disediakan <i>sebagaimana adanya</i> tanpa jaminan apa pun, baik tersurat maupun tersirat.</li>\n  <li>\n    Kami tidak bertanggung jawab atas kerugian langsung, tidak langsung, insidental,\n    khusus, atau konsekuensial yang timbul dari penggunaan atau ketidakmampuan menggunakan layanan kami.\n  </li>\n  <li>\n    Kami tidak menjamin layanan akan bebas dari gangguan, error, atau gangguan keamanan,\n    namun kami berusaha memberikan layanan sebaik mungkin.\n  </li>\n</ul>\n\n<br />\n\n<p><strong>8. Perubahan Syarat dan Ketentuan</strong></p>\n<ul>\n  <li>Kami dapat memperbarui Syarat dan Ketentuan ini dari waktu ke waktu.</li>\n  <li>Jika terdapat perubahan material, kami akan memberikan pemberitahuan yang sesuai.</li>\n  <li>\n    Penggunaan layanan secara berkelanjutan setelah perubahan berarti Anda menyetujui\n    Syarat dan Ketentuan yang telah diperbarui.\n  </li>\n</ul>\n\n<br />\n\n<p><strong>9. Hukum yang Berlaku</strong></p>\n<p>\n  Syarat dan Ketentuan ini diatur dan ditafsirkan berdasarkan hukum yang berlaku\n  di Negara Republik Indonesia.<br />\n  Kami berkomitmen untuk melindungi data dan transaksi pengguna sesuai dengan\n  peraturan perundang-undangan yang berlaku, termasuk namun tidak terbatas pada:\n</p>\n<ul>\n  <li>Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik (UU ITE) beserta perubahannya.</li>\n  <li>Undang-Undang Nomor 27 Tahun 2022 tentang Perlindungan Data Pribadi (UU PDP Indonesia).</li>\n</ul>\n\n<br />\n\n<p><strong>10. Kontak</strong></p>\n<p>\n  Jika Anda memiliki pertanyaan tentang Syarat dan Ketentuan ini, Anda dapat menghubungi kami di:<br />\n  📧 Email:\n  <a href=\"mailto:support@valfuseaccess.com\">support@valfuseaccess.com</a>\n</p>",
+      "auth_privacy_policy.consent.privacy_policy":
+        '<p><strong>1. Pendahuluan</strong></p>\n<p>\n  Selamat datang di MyApp Access.<br />\n  Kami menghormati privasi Anda dan berkomitmen untuk melindungi data pribadi Anda.<br />\n  Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan,\n  dan melindungi informasi Anda saat menggunakan layanan kami.\n</p>\n\n<br />\n\n<p><strong>2. Data yang Kami Kumpulkan</strong></p>\n<p>Saat Anda menggunakan MyApp Access, kami dapat mengumpulkan informasi berikut:</p>\n<ul>\n  <li>Nama lengkap</li>\n  <li>Alamat email</li>\n  <li>Nomor telepon</li>\n  <li>Foto profil</li>\n  <li>Informasi perangkat (tipe perangkat, browser, sistem operasi)</li>\n  <li>Data aktivitas penggunaan aplikasi</li>\n  <li>Lokasi (jika relevan dan dengan izin Anda)</li>\n</ul>\n\n<br />\n\n<p><strong>3. Cara Kami Mengumpulkan Data</strong></p>\n<p>Data Anda dikumpulkan melalui:</p>\n<ul>\n  <li>Proses pendaftaran akun</li>\n  <li>Saat Anda menggunakan fitur-fitur di aplikasi</li>\n  <li>Saat Anda menghubungi layanan pelanggan kami</li>\n  <li>Cookies dan teknologi pelacakan lainnya saat menggunakan website kami</li>\n</ul>\n\n<br />\n\n<p><strong>4. Tujuan Penggunaan Data</strong></p>\n<p>Kami menggunakan data pribadi Anda untuk:</p>\n<ul>\n  <li>Membuat dan mengelola akun Anda</li>\n  <li>Memberikan akses ke layanan dan fitur aplikasi</li>\n  <li>Menghubungkan Anda dengan berbagai aplikasi dalam ekosistem MyApp</li>\n  <li>Menghubungi Anda terkait penggunaan layanan</li>\n  <li>Meningkatkan pengalaman pengguna</li>\n  <li>Menyediakan dukungan teknis dan layanan pelanggan</li>\n  <li>Memastikan keamanan dan integritas sistem kami</li>\n  <li>Memenuhi kewajiban hukum yang berlaku</li>\n</ul>\n\n<br />\n\n<p><strong>5. Penyimpanan dan Keamanan Data</strong></p>\n<p>\n  Kami menyimpan data Anda di server yang aman dan menerapkan langkah-langkah teknis\n  dan organisasi untuk melindungi data dari akses, penggunaan, atau pengungkapan yang\n  tidak sah.<br />\n  Kami menggunakan enkripsi, kontrol akses terbatas, serta praktik keamanan terbaik\n  sesuai standar industri.\n</p>\n\n<br />\n\n<p><strong>6. Penggunaan Data dalam Ekosistem MyApp</strong></p>\n<p>\n  Dengan mendaftar di MyApp Access, Anda memahami dan menyetujui bahwa data pribadi Anda\n  dapat digunakan di seluruh aplikasi dalam ekosistem Valfuse, termasuk namun tidak\n  terbatas pada:\n</p>\n<ul>\n  <li>MyApp Accounting</li>\n  <li>MyApp HRIS</li>\n  <li>MyApp Inventory</li>\n  <li>MyApp Factory</li>\n  <li>MyApp Chain</li>\n</ul>\n<p>\n  Penggunaan data ini bertujuan untuk memberikan pengalaman layanan yang terintegrasi\n  tanpa perlu registrasi ulang di setiap aplikasi.<br />\n  Kami berkomitmen untuk menjaga keamanan dan kerahasiaan data Anda di seluruh\n  ekosistem Valfuse.\n</p>\n\n<br />\n\n<p><strong>7. Data yang Anda Input ke Dalam Aplikasi</strong></p>\n<p>\n  Data operasional yang Anda unggah, simpan, atau kelola dalam aplikasi-aplikasi MyApp,\n  seperti data penjualan, pembelian, data produk, atau data karyawan, sepenuhnya merupakan\n  milik Anda sebagai pengguna.\n</p>\n<p>Kami hanya mengakses dan memproses data tersebut sebatas yang diperlukan untuk:</p>\n<ul>\n  <li>Menyediakan layanan</li>\n  <li>Menjaga keamanan sistem</li>\n  <li>Memenuhi kewajiban hukum</li>\n</ul>\n<p>\n  Kami tidak menggunakan data operasional tersebut untuk tujuan lain tanpa persetujuan\n  eksplisit dari Anda.\n</p>\n\n<br />\n\n<p><strong>8. Berbagi Data ke Pihak Ketiga</strong></p>\n<p>\n  Kami tidak menjual atau menyewakan data pribadi Anda.<br />\n  Kami hanya membagikan data kepada pihak ketiga terpercaya dalam kondisi berikut:\n</p>\n<ul>\n  <li>Penyedia layanan teknis (misalnya hosting, layanan email, dan infrastruktur cloud)</li>\n  <li>Kepatuhan terhadap hukum atau perintah pengadilan</li>\n</ul>\n<p>\n  Semua pihak ketiga tersebut diwajibkan menjaga kerahasiaan dan keamanan data Anda.\n</p>\n\n<br />\n\n<p><strong>9. Hak Anda atas Data Anda</strong></p>\n<p>Anda berhak untuk:</p>\n<ul>\n  <li>Mengakses data pribadi Anda</li>\n  <li>Memperbaiki data yang tidak akurat</li>\n  <li>Meminta penghapusan data</li>\n  <li>Menarik persetujuan yang telah diberikan</li>\n  <li>Membatasi atau menolak pemrosesan data tertentu</li>\n</ul>\n<p>\n  Permintaan terkait hak-hak tersebut dapat diajukan melalui layanan pelanggan kami.\n</p>\n\n<br />\n\n<p><strong>10. Cookie dan Teknologi Pelacakan</strong></p>\n<p>Jika Anda menggunakan website kami, kami dapat menggunakan cookies untuk:</p>\n<ul>\n  <li>Meningkatkan fungsionalitas website</li>\n  <li>Menganalisis penggunaan</li>\n  <li>Menyediakan pengalaman pengguna yang lebih baik</li>\n</ul>\n<p>\n  Anda dapat mengatur preferensi cookie melalui pengaturan browser Anda.\n</p>\n\n<br />\n\n<p><strong>11. Perubahan terhadap Kebijakan Privasi</strong></p>\n<p>\n  Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu untuk mencerminkan\n  perubahan dalam praktik kami atau perubahan hukum yang berlaku.<br />\n  Jika terdapat perubahan material, kami akan memberitahukan Anda melalui aplikasi\n  atau melalui email.\n</p>\n\n<br />\n\n<p><strong>12. Hubungi Kami</strong></p>\n<p>\n  Jika Anda memiliki pertanyaan atau permintaan terkait Kebijakan Privasi ini,\n  Anda dapat menghubungi kami di:<br />\n  📧 Email:\n  <a href="mailto:support@valfuseaccess.com">support@valfuseaccess.com</a>\n</p>',
+      "auth_terms_condition.consent.terms_conditions":
+        '<p><strong>1. Pendahuluan</strong></p>\n<p>\n  Selamat datang di MyApp Access.<br />\n  Dengan mendaftar dan menggunakan layanan kami, Anda menyetujui untuk terikat dengan\n  Syarat dan Ketentuan ini.<br />\n  Jika Anda tidak setuju dengan salah satu bagian dari syarat ini, Anda tidak diperkenankan\n  menggunakan layanan kami.\n</p>\n\n<br />\n\n<p><strong>2. Definisi</strong></p>\n<p>Dalam Syarat dan Ketentuan ini:</p>\n<ul>\n  <li><strong>MyApp Access</strong> merujuk pada layanan manajemen identitas dan akses untuk seluruh aplikasi dalam ekosistem Valfuse.</li>\n  <li><strong>User</strong> berarti individu yang membuat akun dan/atau menggunakan layanan MyApp Access.</li>\n  <li><strong>Layanan</strong> berarti fitur, fungsi, aplikasi, dan platform yang tersedia melalui MyApp Access.</li>\n  <li><strong>Akun</strong> berarti identitas yang dibuat oleh User untuk mengakses layanan kami.</li>\n</ul>\n\n<br />\n\n<p><strong>3. Ketentuan Akun</strong></p>\n<ul>\n  <li>Anda bertanggung jawab untuk menjaga kerahasiaan informasi login akun Anda.</li>\n  <li>Anda bertanggung jawab atas semua aktivitas yang terjadi melalui akun Anda.</li>\n  <li>Anda wajib memberikan informasi yang akurat, lengkap, dan terkini saat membuat akun.</li>\n  <li>Anda dilarang membuat akun menggunakan identitas palsu atau informasi orang lain tanpa izin.</li>\n</ul>\n\n<br />\n\n<p><strong>4. Hak dan Kewajiban User</strong></p>\n<ul>\n  <li>Anda berhak menggunakan layanan kami sesuai dengan Syarat dan Ketentuan ini.</li>\n  <li>Anda berkewajiban untuk menggunakan layanan dengan cara yang sah dan tidak melanggar hukum yang berlaku.</li>\n  <li>Anda tidak diperbolehkan untuk:\n    <ul>\n      <li>Menggunakan layanan untuk aktivitas ilegal</li>\n      <li>Mengganggu keamanan atau integritas sistem kami</li>\n      <li>Melakukan upaya mengakses akun orang lain tanpa izin</li>\n      <li>Menggunakan layanan untuk spam, penyebaran malware, atau aktivitas berbahaya lainnya</li>\n    </ul>\n  </li>\n</ul>\n\n<br />\n\n<p><strong>5. Hak dan Kewajiban MyApp Access</strong></p>\n<ul>\n  <li>Kami berhak untuk:\n    <ul>\n      <li>Membatasi, menangguhkan, atau menghentikan akun Anda jika melanggar ketentuan ini.</li>\n      <li>Mengubah atau menghentikan layanan kapan saja dengan atau tanpa pemberitahuan.</li>\n    </ul>\n  </li>\n  <li>Kami berkewajiban untuk:\n    <ul>\n      <li>Melindungi data pribadi Anda sesuai dengan Kebijakan Privasi kami dan ketentuan hukum yang berlaku.</li>\n      <li>Memberikan layanan sesuai dengan deskripsi dan ketentuan yang berlaku.</li>\n    </ul>\n  </li>\n</ul>\n\n<br />\n\n<p><strong>6. Integrasi Ekosistem MyApp</strong></p>\n<ul>\n  <li>\n    Dengan menggunakan MyApp Access, Anda memahami bahwa akun Anda akan digunakan untuk\n    mengakses berbagai aplikasi dalam ekosistem MyApp, seperti MyApp Accounting,\n    MyApp HRIS, MyApp Inventory, dan aplikasi lainnya.\n  </li>\n  <li>\n    Data Anda akan dikelola bersama di seluruh aplikasi MyApp sesuai dengan Kebijakan Privasi kami.\n  </li>\n</ul>\n\n<br />\n\n<p><strong>7. Pembatasan Tanggung Jawab</strong></p>\n<ul>\n  <li>Layanan disediakan <i>sebagaimana adanya</i> tanpa jaminan apa pun, baik tersurat maupun tersirat.</li>\n  <li>\n    Kami tidak bertanggung jawab atas kerugian langsung, tidak langsung, insidental,\n    khusus, atau konsekuensial yang timbul dari penggunaan atau ketidakmampuan menggunakan layanan kami.\n  </li>\n  <li>\n    Kami tidak menjamin layanan akan bebas dari gangguan, error, atau gangguan keamanan,\n    namun kami berusaha memberikan layanan sebaik mungkin.\n  </li>\n</ul>\n\n<br />\n\n<p><strong>8. Perubahan Syarat dan Ketentuan</strong></p>\n<ul>\n  <li>Kami dapat memperbarui Syarat dan Ketentuan ini dari waktu ke waktu.</li>\n  <li>Jika terdapat perubahan material, kami akan memberikan pemberitahuan yang sesuai.</li>\n  <li>\n    Penggunaan layanan secara berkelanjutan setelah perubahan berarti Anda menyetujui\n    Syarat dan Ketentuan yang telah diperbarui.\n  </li>\n</ul>\n\n<br />\n\n<p><strong>9. Hukum yang Berlaku</strong></p>\n<p>\n  Syarat dan Ketentuan ini diatur dan ditafsirkan berdasarkan hukum yang berlaku\n  di Negara Republik Indonesia.<br />\n  Kami berkomitmen untuk melindungi data dan transaksi pengguna sesuai dengan\n  peraturan perundang-undangan yang berlaku, termasuk namun tidak terbatas pada:\n</p>\n<ul>\n  <li>Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik (UU ITE) beserta perubahannya.</li>\n  <li>Undang-Undang Nomor 27 Tahun 2022 tentang Perlindungan Data Pribadi (UU PDP Indonesia).</li>\n</ul>\n\n<br />\n\n<p><strong>10. Kontak</strong></p>\n<p>\n  Jika Anda memiliki pertanyaan tentang Syarat dan Ketentuan ini, Anda dapat menghubungi kami di:<br />\n  📧 Email:\n  <a href="mailto:support@valfuseaccess.com">support@valfuseaccess.com</a>\n</p>',
       "business_unit.bu_detail.edit.form.address.label": "Alamat",
-      "business_unit.bu_detail.edit.form.address.placeholder": "Contoh: Contoh : Jl. Mawar, No. 17, RT/RW 02/15",
+      "business_unit.bu_detail.edit.form.address.placeholder":
+        "Contoh: Contoh : Jl. Mawar, No. 17, RT/RW 02/15",
       "business_unit.bu_detail.edit.form.city.label": "Kota/Kabupaten",
       "business_unit.bu_detail.edit.form.city.placeholder": "Pilih Kota/Kabupaten",
       "business_unit.bu_detail.edit.form.district.label": "Kecamatan",
@@ -6555,8 +6886,10 @@ const manifest: LocalizationManifest = {
       "business_unit.business_unit_detail.label.phone_number": "No Telpon",
       "business_unit.business_unit_detail.title": "Detail Unit Usaha",
       "business_unit.business_unit_list.button.add_business_unit": "Tambah Unit Usaha",
-      "business_unit.business_unit_list.empty_state.no_business_unit": "Tidak ada unit usaha saat ini",
-      "business_unit.business_unit_list.empty_state.no_data": "Tidak ada data yang bisa ditampilkan",
+      "business_unit.business_unit_list.empty_state.no_business_unit":
+        "Tidak ada unit usaha saat ini",
+      "business_unit.business_unit_list.empty_state.no_data":
+        "Tidak ada data yang bisa ditampilkan",
       "business_unit.business_unit_list.label.branch": "Cabang",
       "business_unit.business_unit_list.label.factory": "Pabrik",
       "business_unit.business_unit_list.label.outlet": "Otlet",
@@ -6565,7 +6898,8 @@ const manifest: LocalizationManifest = {
       "business_unit.business_unit_profile.button.edit": "Ubah",
       "business_unit.business_unit_profile.label.address": "Alamat",
       "business_unit.business_unit_profile.label.business_type": "Jenis Usaha",
-      "business_unit.business_unit_profile.label.business_unit_creation_date": "Tanggal Pembuatan Unit Usaha",
+      "business_unit.business_unit_profile.label.business_unit_creation_date":
+        "Tanggal Pembuatan Unit Usaha",
       "business_unit.business_unit_profile.label.business_unit_identity": "Identitas Unit Usaha",
       "business_unit.business_unit_profile.label.business_unit_name": "Nama Unit Usaha",
       "business_unit.business_unit_profile.label.city_or_regency": "Kota/Kabupaten",
@@ -6583,7 +6917,8 @@ const manifest: LocalizationManifest = {
       "business_unit.business_unit_profile.label.whatsapp_number": "No WhatsApp",
       "business_unit.business_unit_profile.title": "Profil Unit Usaha",
       "business_unit.company_detail.bu_add.form.address.label": "Alamat",
-      "business_unit.company_detail.bu_add.form.address.placeholder": "Contoh: Contoh : Jl. Mawar, No. 17, RT/RW 02/15",
+      "business_unit.company_detail.bu_add.form.address.placeholder":
+        "Contoh: Contoh : Jl. Mawar, No. 17, RT/RW 02/15",
       "business_unit.company_detail.bu_add.form.bu_logo.label": "Logo Unit Usaha",
       "business_unit.company_detail.bu_add.form.bu_logo.placeholder": "Unggah logo Unit Usaha",
       "business_unit.company_detail.bu_add.form.city.label": "Kota/Kabupaten",
@@ -6599,7 +6934,8 @@ const manifest: LocalizationManifest = {
       "business_unit.company_detail.bu_add.form.npwpd.label": "NPWPD",
       "business_unit.company_detail.bu_add.form.npwpd.placeholder": "Contoh: P-1299490012-0",
       "business_unit.company_detail.bu_add.form.opening_date.label": "Tanggal Pembukaan",
-      "business_unit.company_detail.bu_add.form.opening_date.placeholder": "Pilih tanggal pembukaan",
+      "business_unit.company_detail.bu_add.form.opening_date.placeholder":
+        "Pilih tanggal pembukaan",
       "business_unit.company_detail.bu_add.form.phone.label": "Nomor Telepon",
       "business_unit.company_detail.bu_add.form.phone.placeholder": "Contoh: 021 - 6588912",
       "business_unit.company_detail.bu_add.form.province.label": "Provinsi",
@@ -6610,25 +6946,35 @@ const manifest: LocalizationManifest = {
       "business_unit.company_detail.bu_add.form.village.placeholder": "Pilih Kelurahan/Desa",
       "business_unit.company_detail.bu_add.modal.title": "Tambah Unit Usaha",
       "business_unit.company_detail.bu_add.section.title": "Ubah Unit Usaha",
-      "business_unit.error.name.duplicate": "Nama Unit Usaha telah terdaftar. Silakan gunakan nama yang berbeda",
+      "business_unit.error.name.duplicate":
+        "Nama Unit Usaha telah terdaftar. Silakan gunakan nama yang berbeda",
       "business_unit.unit.delete.confirm.cancel.button": "Batal",
       "business_unit.unit.delete.confirm.delete.button": "Hapus",
-      "business_unit.unit.delete.confirm.error.empty": "Sepertinya nama unit usaha belum diisi. Yuk lengkapi dulu agar proses bisa dilanjutkan.",
-      "business_unit.unit.delete.confirm.error.min": "Nama unit usaha minimal terdiri dari 3 karakter.",
-      "business_unit.unit.delete.confirm.error.mismatch": "Nama unit usaha belum sesuai. Coba ketik ulang sesuai nama yang tertera.",
+      "business_unit.unit.delete.confirm.error.empty":
+        "Sepertinya nama unit usaha belum diisi. Yuk lengkapi dulu agar proses bisa dilanjutkan.",
+      "business_unit.unit.delete.confirm.error.min":
+        "Nama unit usaha minimal terdiri dari 3 karakter.",
+      "business_unit.unit.delete.confirm.error.mismatch":
+        "Nama unit usaha belum sesuai. Coba ketik ulang sesuai nama yang tertera.",
       "business_unit.unit.delete.confirm.input.label": "Nama Unit Usaha",
       "business_unit.unit.delete.confirm.input.placeholder": "Masukkan nama unit usaha",
-      "business_unit.unit.delete.confirm.instruction": "Ketik nama unit usaha untuk mengonfirmasi penghapusan.",
+      "business_unit.unit.delete.confirm.instruction":
+        "Ketik nama unit usaha untuk mengonfirmasi penghapusan.",
       "business_unit.unit.delete.confirm.title": "Konfirmasi Hapus Unit Usaha",
-      "business_unit.unit.delete.error.fallback.description": "Sepertinya terjadi kendala teknis. Yuk coba lagi beberapa saat lagi.",
+      "business_unit.unit.delete.error.fallback.description":
+        "Sepertinya terjadi kendala teknis. Yuk coba lagi beberapa saat lagi.",
       "business_unit.unit.delete.error.fallback.title": "Proses belum berhasil dijalankan",
       "business_unit.unit.delete.impact.agree.button": "Setuju Hapus",
-      "business_unit.unit.delete.impact.alternative": "Sebagai alternatif, Anda dapat menonaktifkan unit usaha ini.",
+      "business_unit.unit.delete.impact.alternative":
+        "Sebagai alternatif, Anda dapat menonaktifkan unit usaha ini.",
       "business_unit.unit.delete.impact.cancel.button": "Batal",
-      "business_unit.unit.delete.impact.description": "Tindakan ini akan menghapus unit usaha secara permanen.",
-      "business_unit.unit.delete.impact.permanent": "Semua data terkait unit usaha akan dihapus secara permanen dan tidak dapat dikembalikan.",
+      "business_unit.unit.delete.impact.description":
+        "Tindakan ini akan menghapus unit usaha secara permanen.",
+      "business_unit.unit.delete.impact.permanent":
+        "Semua data terkait unit usaha akan dihapus secara permanen dan tidak dapat dikembalikan.",
       "business_unit.unit.delete.impact.title": "Hapus Unit Usaha",
-      "business_unit.unit.delete.impact.transaction_block": "Unit usaha ini memiliki riwayat transaksi sehingga penghapusan tidak dapat dilakukan.",
+      "business_unit.unit.delete.impact.transaction_block":
+        "Unit usaha ini memiliki riwayat transaksi sehingga penghapusan tidak dapat dilakukan.",
       "business_unit.unit.delete.success.toast": "Unit usaha berhasil dihapus.",
       "business_unit.unit.detail.action.deactivate.label": "Nonaktifkan Unit Usaha",
       "business_unit.unit.detail.action.delete.label": "Hapus Unit Usaha",
@@ -6752,50 +7098,63 @@ const manifest: LocalizationManifest = {
       "company.detail.section.user_management.label": "Manajemen Pengguna",
       "company.detail.status.coming_soon.label": "Segera Hadir",
       "company.detail.toast.set_default_error_title": "Gagal Mengatur Perusahaan Default",
-      "company.detail.toast.set_default_success_message": "Perusahaan ini akan otomatis terbuka saat Anda masuk",
+      "company.detail.toast.set_default_success_message":
+        "Perusahaan ini akan otomatis terbuka saat Anda masuk",
       "company.detail.toast.set_default_success_title": "Default perusahaan berhasil disimpan",
       "company.district.label": "Kecamatan",
       "company.district.placeholder": "Pilih Kecamatan",
       "company.email.label": "Email",
       "company.error.account_not_linked": "Akun ini belum terhubung. Gunakan metode masuk lainnya.",
       "company.error.bad_gateway": "Layanan tidak dapat dijangkau. Silakan coba lagi nanti.",
-      "company.error.bad_request": "Permintaan tidak dapat diproses. Periksa kembali input Anda lalu coba lagi.",
+      "company.error.bad_request":
+        "Permintaan tidak dapat diproses. Periksa kembali input Anda lalu coba lagi.",
       "company.error.business_type.invalid": "Pilih jenis usaha terlebih dahulu.",
       "company.error.confirm_name.mismatch": "Nama perusahaan tidak sesuai.",
-      "company.error.conflict": "Data bertabrakan dengan data yang sudah ada. Periksa kembali lalu coba lagi.",
+      "company.error.conflict":
+        "Data bertabrakan dengan data yang sudah ada. Periksa kembali lalu coba lagi.",
       "company.error.country_code.invalid": "Negara wajib dipilih.",
       "company.error.email.invalid": "Format email tidak valid. Masukkan alamat email yang benar.",
       "company.error.expired_token": "Sesi Anda telah berakhir. Silakan masuk kembali.",
       "company.error.forbidden": "Anda tidak memiliki akses untuk menjalankan aksi ini.",
       "company.error.gateway_timeout": "Permintaan melewati batas waktu. Silakan coba lagi nanti.",
-      "company.error.has_active_units": "Perusahaan tidak dapat dihapus karena masih memiliki unit usaha aktif.",
+      "company.error.has_active_units":
+        "Perusahaan tidak dapat dihapus karena masih memiliki unit usaha aktif.",
       "company.error.has_transaction": "Perusahaan tidak dapat dihapus karena memiliki transaksi.",
-      "company.error.internal_server_error": "Terjadi gangguan pada server. Silakan coba lagi nanti.",
-      "company.error.is_default": "Perusahaan default tidak dapat dihapus. Ubah default company terlebih dahulu.",
-      "company.error.name.duplicate": "Nama perusahaan sudah digunakan di ruang kerja ini. Gunakan nama lain.",
+      "company.error.internal_server_error":
+        "Terjadi gangguan pada server. Silakan coba lagi nanti.",
+      "company.error.is_default":
+        "Perusahaan default tidak dapat dihapus. Ubah default company terlebih dahulu.",
+      "company.error.name.duplicate":
+        "Nama perusahaan sudah digunakan di ruang kerja ini. Gunakan nama lain.",
       "company.error.name.min": "Nama perusahaan minimal 3 karakter.",
       "company.error.name.required": "Nama perusahaan wajib diisi.",
       "company.error.nib.duplicate": "NIB sudah terdaftar pada perusahaan lain di ruang kerja ini.",
       "company.error.not_found": "Data yang diminta tidak ditemukan.",
-      "company.error.npwp.duplicate": "NPWP sudah terdaftar pada perusahaan lain di ruang kerja ini.",
+      "company.error.npwp.duplicate":
+        "NPWP sudah terdaftar pada perusahaan lain di ruang kerja ini.",
       "company.error.npwp.invalid": "NPWP harus terdiri dari 16 digit angka.",
       "company.error.phone.duplicate": "Nomor telepon sudah digunakan oleh perusahaan lain.",
       "company.error.postal_code.invalid": "Kode pos harus terdiri dari 5 digit angka.",
-      "company.error.service_unavailable": "Layanan sedang tidak tersedia. Silakan coba lagi nanti.",
+      "company.error.service_unavailable":
+        "Layanan sedang tidak tersedia. Silakan coba lagi nanti.",
       "company.error.session_expired": "Sesi Anda telah berakhir. Silakan masuk kembali.",
       "company.error.unauthorized": "Sesi Anda telah berakhir. Silakan masuk kembali.",
-      "company.error.unit_has_transaction": "Perusahaan tidak dapat dihapus karena unit usaha memiliki transaksi.",
+      "company.error.unit_has_transaction":
+        "Perusahaan tidak dapat dihapus karena unit usaha memiliki transaksi.",
       "company.error.unknown_error": "Terjadi kesalahan. Silakan coba lagi.",
-      "company.error.validation_error": "Validasi gagal. Periksa kembali input Anda lalu coba lagi.",
+      "company.error.validation_error":
+        "Validasi gagal. Periksa kembali input Anda lalu coba lagi.",
       "company.established_date.label": "Tanggal Pendirian Perusahaan",
       "company.fiscal_year.label": "Tahun Buku",
       "company.list.action.add_company": "Tambah Perusahaan",
       "company.list.action.manage_workspace": "Kelola Ruang Kerja",
       "company.list.business_unit.active_label": "{count} Unit Usaha Aktif",
       "company.list.business_unit.total_label": "Total Unit Usaha",
-      "company.list.empty_filtered.description": "Ubah kata kunci pencarian atau atur ulang filter ruang kerja.",
+      "company.list.empty_filtered.description":
+        "Ubah kata kunci pencarian atau atur ulang filter ruang kerja.",
       "company.list.empty_filtered.title": "Perusahaan Tidak Ditemukan",
-      "company.list.error.description": "Terjadi gangguan saat memuat data perusahaan. Silakan coba lagi.",
+      "company.list.error.description":
+        "Terjadi gangguan saat memuat data perusahaan. Silakan coba lagi.",
       "company.list.error.retry": "Coba Lagi",
       "company.list.error.title": "Gagal memuat daftar perusahaan",
       "company.list.filter.apply": "Terapkan",
@@ -6806,18 +7165,21 @@ const manifest: LocalizationManifest = {
       "company.list.filter.select_workspace": "Pilih {name}",
       "company.list.filter.title": "Filter",
       "company.list.load_more.label": "Memuat lebih banyak data",
-      "company.list.not_found.description": "Tidak ada perusahaan yang sesuai kriteria pencarian Anda.",
+      "company.list.not_found.description":
+        "Tidak ada perusahaan yang sesuai kriteria pencarian Anda.",
       "company.list.not_found.title": "Perusahaan Tidak Ditemukan",
       "company.list.ownership.mine": "Milik Saya",
       "company.list.ownership.shared_by": "Dibagikan oleh {name}",
       "company.list.search.loading": "Menerapkan pencarian perusahaan",
       "company.list.search.placeholder": "Cari disini...",
       "company.list.toast.create_failed_title": "Gagal Menambahkan Perusahaan",
-      "company.list.toast.logo_upload_failed_message": "Terjadi gangguan saat mengunggah logo perusahaan.",
+      "company.list.toast.logo_upload_failed_message":
+        "Terjadi gangguan saat mengunggah logo perusahaan.",
       "company.list.toast.logo_upload_failed_title": "Gagal Mengunggah Logo",
       "company.logo.label": "Logo Perusahaan",
       "company.logo.placeholder": "Unggah Logo",
-      "company.modal.save_changes.desc": "Perubahanmu akan disimpan dan data perusahaan akan diperbarui.",
+      "company.modal.save_changes.desc":
+        "Perubahanmu akan disimpan dan data perusahaan akan diperbarui.",
       "company.modal.save_changes.primary_button": "Simpan Perubahan",
       "company.modal.save_changes.secondary_button": "Kembali Edit",
       "company.name.label": "Nama Perusahaan",
@@ -6832,7 +7194,8 @@ const manifest: LocalizationManifest = {
       "company.profile.action.cancel": "Batal",
       "company.profile.action.save": "Simpan",
       "company.profile.action.save_changes": "Simpan Perubahan",
-      "company.profile.discard_dialog.description": "Perubahan data perusahaan yang belum disimpan akan hilang.",
+      "company.profile.discard_dialog.description":
+        "Perubahan data perusahaan yang belum disimpan akan hilang.",
       "company.profile.discard_dialog.primary": "Ya",
       "company.profile.discard_dialog.secondary": "Tidak",
       "company.profile.discard_dialog.title": "Apakah Kamu yakin ingin membatalkan?",
@@ -6840,26 +7203,31 @@ const manifest: LocalizationManifest = {
       "company.profile.error.retry": "Coba Lagi",
       "company.profile.error.title": "Gagal Memuat Profil Perusahaan",
       "company.profile.forbidden.cta_back": "Kembali ke Detail Perusahaan",
-      "company.profile.forbidden.description": "Anda tidak memiliki izin untuk mengubah data perusahaan ini.",
+      "company.profile.forbidden.description":
+        "Anda tidak memiliki izin untuk mengubah data perusahaan ini.",
       "company.profile.forbidden.title": "Akses Ditolak",
       "company.profile.header.title": "Profil Perusahaan",
       "company.profile.modal.edit_prefix": "Edit",
       "company.profile.not_found.cta_back": "Kembali ke Detail Perusahaan",
-      "company.profile.not_found.description": "Data perusahaan tidak ditemukan. Silakan kembali ke halaman detail perusahaan.",
+      "company.profile.not_found.description":
+        "Data perusahaan tidak ditemukan. Silakan kembali ke halaman detail perusahaan.",
       "company.profile.not_found.title": "Halaman Tidak Ditemukan",
       "company.profile.option.currency.idr": "IDR (Rupiah)",
       "company.profile.option.currency.sgd": "SGD (Singapore Dollar)",
       "company.profile.option.currency.usd": "USD (US Dollar)",
-      "company.profile.toast.save_failed_message": "Terjadi gangguan saat menyimpan perubahan data perusahaan.",
+      "company.profile.toast.save_failed_message":
+        "Terjadi gangguan saat menyimpan perubahan data perusahaan.",
       "company.profile.toast.save_failed_title": "Gagal Menyimpan",
       "company.profile.toast.save_success_title": "Perubahan Berhasil Disimpan",
-      "company.profile.toast.validation_failed_message": "Pastikan seluruh data wajib pada section ini terisi dengan benar.",
+      "company.profile.toast.validation_failed_message":
+        "Pastikan seluruh data wajib pada section ini terisi dengan benar.",
       "company.profile.toast.validation_failed_title": "Validasi Gagal",
       "company.province.label": "Provinsi",
       "company.province.placeholder": "Pilih Provinsi",
       "company.save.cancel.button": "Kembali Edit",
       "company.save.confirm.button": "Simpan Perubahan",
-      "company.save.confirm.description": "Perubahanmu akan disimpan dan data perusahaan akan diperbarui.",
+      "company.save.confirm.description":
+        "Perubahanmu akan disimpan dan data perusahaan akan diperbarui.",
       "company.save.confirm.title": "Simpan perubahan data perusahaan sekarang?",
       "company.save.success": "Perubahan data perusahaan berhasil disimpan",
       "company.village.label": "Kelurahan / Desa",
@@ -6884,33 +7252,49 @@ const manifest: LocalizationManifest = {
       "company_and_workspace.listcompany.header.title": "Daftar Perusahaan",
       "company_and_workspace.listrk.header.title": "Daftar Ruang Kerja",
       "company_and_workspace.onboarding.business_unit.add.bu_name.label": "Nama Unit Usaha",
-      "company_and_workspace.onboarding.business_unit.add.bu_name.placeholder": "Contoh: Nina Salon Cabang Bandung",
+      "company_and_workspace.onboarding.business_unit.add.bu_name.placeholder":
+        "Contoh: Nina Salon Cabang Bandung",
       "company_and_workspace.onboarding.business_unit.add.bu_type.label": "Jenis Unit Usaha",
-      "company_and_workspace.onboarding.business_unit.add.bu_type.placeholder": "Pilih Jenis Unit Usaha",
-      "company_and_workspace.onboarding.business_unit.desc": "Opsional - Jika Anda belum memiliki Unit usaha, anda dapat melewati langkah ini dan anda dapat menambahkan unit usaha nanti.",
+      "company_and_workspace.onboarding.business_unit.add.bu_type.placeholder":
+        "Pilih Jenis Unit Usaha",
+      "company_and_workspace.onboarding.business_unit.desc":
+        "Opsional - Jika Anda belum memiliki Unit usaha, anda dapat melewati langkah ini dan anda dapat menambahkan unit usaha nanti.",
       "company_and_workspace.onboarding.business_unit.label": "Data Unit Usaha",
-      "company_and_workspace.onboarding.business_unit.name.error.format": "Nama Unit Usaha hanya boleh berisi huruf, angka, titik, dan koma.",
-      "company_and_workspace.onboarding.business_unit.name.error.min_length": "Nama Unit Usaha minimal 3 karakter.",
-      "company_and_workspace.onboarding.business_unit.name.info.max_length": "Nama Unit Usaha maksimal 60 karakter.",
+      "company_and_workspace.onboarding.business_unit.name.error.format":
+        "Nama Unit Usaha hanya boleh berisi huruf, angka, titik, dan koma.",
+      "company_and_workspace.onboarding.business_unit.name.error.min_length":
+        "Nama Unit Usaha minimal 3 karakter.",
+      "company_and_workspace.onboarding.business_unit.name.info.max_length":
+        "Nama Unit Usaha maksimal 60 karakter.",
       "company_and_workspace.onboarding.business_unit.title": "Unit Usaha",
       "company_and_workspace.onboarding.company.add.business_type.label": "Jenis Usaha",
       "company_and_workspace.onboarding.company.add.business_type.placeholder": "Pilih Jenis Usaha",
       "company_and_workspace.onboarding.company.add.company_name.label": "Nama Perusahaan",
-      "company_and_workspace.onboarding.company.add.company_name.placeholder": "Contoh: PT Kreasi Anak Bangsa / Toko Haji Udin",
+      "company_and_workspace.onboarding.company.add.company_name.placeholder":
+        "Contoh: PT Kreasi Anak Bangsa / Toko Haji Udin",
       "company_and_workspace.onboarding.company.add.country.label": "Negara",
       "company_and_workspace.onboarding.company.add.country.placeholder": "Pilih Negara",
       "company_and_workspace.onboarding.company.add.currency.label": "Mata Uang Utama",
       "company_and_workspace.onboarding.company.add.currency.placeholder": "Pilih Mata Uang",
-      "company_and_workspace.onboarding.company.business_type.error.required": "Pilih Jenis Usaha terlebih dahulu.",
-      "company_and_workspace.onboarding.company.country.error.required": "Pilih Negara terlebih dahulu.",
-      "company_and_workspace.onboarding.company.currency.error.required": "Pilih Mata Uang terlebih dahulu.",
-      "company_and_workspace.onboarding.company.desc": "Lengkapi data perusahaan sebagai fondasi integrasi MyApp.",
+      "company_and_workspace.onboarding.company.business_type.error.required":
+        "Pilih Jenis Usaha terlebih dahulu.",
+      "company_and_workspace.onboarding.company.country.error.required":
+        "Pilih Negara terlebih dahulu.",
+      "company_and_workspace.onboarding.company.currency.error.required":
+        "Pilih Mata Uang terlebih dahulu.",
+      "company_and_workspace.onboarding.company.desc":
+        "Lengkapi data perusahaan sebagai fondasi integrasi MyApp.",
       "company_and_workspace.onboarding.company.label": "Data Perusahaan",
-      "company_and_workspace.onboarding.company.name.error.duplicate": "Nama Perusahaan sudah digunakan di Ruang Kerja ini. Gunakan nama lain agar data tetap rapi.",
-      "company_and_workspace.onboarding.company.name.error.format": "Nama Perusahaan hanya boleh berisi huruf, angka, titik, dan koma.",
-      "company_and_workspace.onboarding.company.name.error.min_length": "Nama Perusahaan minimal 3 karakter.",
-      "company_and_workspace.onboarding.company.name.error.required": "Nama Perusahaan wajib diisi.",
-      "company_and_workspace.onboarding.company.name.info.max_length": "Nama Perusahaan maksimal 60 karakter.",
+      "company_and_workspace.onboarding.company.name.error.duplicate":
+        "Nama Perusahaan sudah digunakan di Ruang Kerja ini. Gunakan nama lain agar data tetap rapi.",
+      "company_and_workspace.onboarding.company.name.error.format":
+        "Nama Perusahaan hanya boleh berisi huruf, angka, titik, dan koma.",
+      "company_and_workspace.onboarding.company.name.error.min_length":
+        "Nama Perusahaan minimal 3 karakter.",
+      "company_and_workspace.onboarding.company.name.error.required":
+        "Nama Perusahaan wajib diisi.",
+      "company_and_workspace.onboarding.company.name.info.max_length":
+        "Nama Perusahaan maksimal 60 karakter.",
       "company_and_workspace.onboarding.company.title": "Perusahaan",
       "company_and_workspace.onboarding.navigation.back.button": "Kembali",
       "company_and_workspace.onboarding.navigation.next.button": "Lanjutkan",
@@ -6920,68 +7304,102 @@ const manifest: LocalizationManifest = {
       "company_and_workspace.onboarding.preview.data.company_name.label": "Nama Perusahaan",
       "company_and_workspace.onboarding.preview.data.country_currency.label": "Negara & Mata Uang",
       "company_and_workspace.onboarding.preview.data.workspace_name.label": "Nama Ruang Kerja",
-      "company_and_workspace.onboarding.preview.info.note": "Anda dapat menambahkan Perusahaan dan Unit Usaha lainnya setelah proses onboarding selesai",
-      "company_and_workspace.onboarding.preview.page_content.intro": "Pratinjau Data\nPeriksa kembali data Anda sebelum menyimpan.",
+      "company_and_workspace.onboarding.preview.info.note":
+        "Anda dapat menambahkan Perusahaan dan Unit Usaha lainnya setelah proses onboarding selesai",
+      "company_and_workspace.onboarding.preview.page_content.intro":
+        "Pratinjau Data\nPeriksa kembali data Anda sebelum menyimpan.",
       "company_and_workspace.onboarding.preview.page_title": "Pratinjau",
       "company_and_workspace.onboarding.start.cta.button": "Mulai Onboarding",
-      "company_and_workspace.onboarding.start.page_content": "Kami akan memandu Anda menyiapkan Ruang Kerja, Perusahaan, dan Unit Usaha pertama Anda dalam beberapa langkah.",
+      "company_and_workspace.onboarding.start.page_content":
+        "Kami akan memandu Anda menyiapkan Ruang Kerja, Perusahaan, dan Unit Usaha pertama Anda dalam beberapa langkah.",
       "company_and_workspace.onboarding.start.page_title": "Siap Untuk Memulai?",
-      "company_and_workspace.onboarding.structure.page_content": "Deskripsi singkat per level:\nRuang Kerja\nMerupakan wadah pengelompokan utama bisnis Anda\nPerusahaan\nMerupakan konteks bisnis yang mengaktifkan modul MyApp\nUnit Usaha\nMerupakan representasi operasional (cabang, outlet, Pabrik)",
+      "company_and_workspace.onboarding.structure.page_content":
+        "Deskripsi singkat per level:\nRuang Kerja\nMerupakan wadah pengelompokan utama bisnis Anda\nPerusahaan\nMerupakan konteks bisnis yang mengaktifkan modul MyApp\nUnit Usaha\nMerupakan representasi operasional (cabang, outlet, Pabrik)",
       "company_and_workspace.onboarding.structure.page_title": "Kenali Struktur Kerja Anda",
       "company_and_workspace.onboarding.success.cta.button": "Masuk ke detail Perusahaan",
-      "company_and_workspace.onboarding.success.page_content": "Ruang Kerja, Perusahaan, dan Unit Usaha berhasil dibuat. Anda sudah dapat mulai menggunakannya.",
+      "company_and_workspace.onboarding.success.page_content":
+        "Ruang Kerja, Perusahaan, dan Unit Usaha berhasil dibuat. Anda sudah dapat mulai menggunakannya.",
       "company_and_workspace.onboarding.success.page_title": "Sukses",
-      "company_and_workspace.onboarding.welcome.page_content": "Di sini, Anda bisa mengelola seluruh identitas bisnis dengan lebih rapi. Mulai dari Ruang Kerja, Perusahaan, hingga Unit Usaha.",
+      "company_and_workspace.onboarding.welcome.page_content":
+        "Di sini, Anda bisa mengelola seluruh identitas bisnis dengan lebih rapi. Mulai dari Ruang Kerja, Perusahaan, hingga Unit Usaha.",
       "company_and_workspace.onboarding.welcome.page_title": "Selamat Datang di MyApp Access",
       "company_and_workspace.onboarding.workspace.add.label": "Nama Ruang kerja",
       "company_and_workspace.onboarding.workspace.add.placeholder": "Contoh: Ruang Kerja Utama",
-      "company_and_workspace.onboarding.workspace.desc": "Ruang Kerja adalah wadah untuk mengelompokkan perusahaan anda",
+      "company_and_workspace.onboarding.workspace.desc":
+        "Ruang Kerja adalah wadah untuk mengelompokkan perusahaan anda",
       "company_and_workspace.onboarding.workspace.label": "Buat Ruang Kerja",
-      "company_and_workspace.onboarding.workspace.name.error.duplicate": "Nama Ruang Kerja telah terdaftar. Silakan gunakan nama yang berbeda.",
-      "company_and_workspace.onboarding.workspace.name.error.format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
-      "company_and_workspace.onboarding.workspace.name.error.min_length": "Nama Ruang Kerja minimal 3 karakter.",
-      "company_and_workspace.onboarding.workspace.name.error.required": "Nama Ruang Kerja wajib diisi.",
-      "company_and_workspace.onboarding.workspace.name.info.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
+      "company_and_workspace.onboarding.workspace.name.error.duplicate":
+        "Nama Ruang Kerja telah terdaftar. Silakan gunakan nama yang berbeda.",
+      "company_and_workspace.onboarding.workspace.name.error.format":
+        "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+      "company_and_workspace.onboarding.workspace.name.error.min_length":
+        "Nama Ruang Kerja minimal 3 karakter.",
+      "company_and_workspace.onboarding.workspace.name.error.required":
+        "Nama Ruang Kerja wajib diisi.",
+      "company_and_workspace.onboarding.workspace.name.info.max_length":
+        "Nama Ruang Kerja maksimal 60 karakter.",
       "company_and_workspace.onboarding.workspace.title": "Ruang kerja",
       "company_and_workspace.workspace.create.action.cancel.button": "Batal",
       "company_and_workspace.workspace.create.action.submit.button": "Simpan",
-      "company_and_workspace.workspace.create.form.name.error.duplicate": "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
-      "company_and_workspace.workspace.create.form.name.error.invalid_format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
-      "company_and_workspace.workspace.create.form.name.error.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
-      "company_and_workspace.workspace.create.form.name.error.min_length": "Nama Ruang Kerja minimal 3 karakter.",
-      "company_and_workspace.workspace.create.form.name.error.required": "Nama Ruang Kerja wajib diisi.",
+      "company_and_workspace.workspace.create.form.name.error.duplicate":
+        "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
+      "company_and_workspace.workspace.create.form.name.error.invalid_format":
+        "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+      "company_and_workspace.workspace.create.form.name.error.max_length":
+        "Nama Ruang Kerja maksimal 60 karakter.",
+      "company_and_workspace.workspace.create.form.name.error.min_length":
+        "Nama Ruang Kerja minimal 3 karakter.",
+      "company_and_workspace.workspace.create.form.name.error.required":
+        "Nama Ruang Kerja wajib diisi.",
       "company_and_workspace.workspace.create.form.name.label": "Nama Ruang Kerja",
       "company_and_workspace.workspace.create.form.name.placeholder": "Contoh: Ruang Kerja Utama",
       "company_and_workspace.workspace.create.modal.title": "Tambah Ruang Kerja",
-      "company_and_workspace.workspace.create.name.info.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
-      "company_and_workspace.workspace.create.toast.success.message": "Ruang Kerja berhasil ditambahkan",
+      "company_and_workspace.workspace.create.name.info.max_length":
+        "Nama Ruang Kerja maksimal 60 karakter.",
+      "company_and_workspace.workspace.create.toast.success.message":
+        "Ruang Kerja berhasil ditambahkan",
       "company_and_workspace.workspace.create.toast.success.title": "Sukses!",
       "company_and_workspace.workspace.delete.action.cancel.button": "Batal",
       "company_and_workspace.workspace.delete.action.confirm.button": "Konfirmasi",
-      "company_and_workspace.workspace.delete.checkbox.confirmation": "Saya menyetujui penghapusan ruang kerja ini dilakukan secara permanen dan tidak dapat dibatalkan",
-      "company_and_workspace.workspace.delete.form.confirmation.label": "Ketik {Nama ruang kerja} untuk mengkonfirmasi",
-      "company_and_workspace.workspace.delete.form.confirmation.placeholder": "Ketik nama ruang kerja",
-      "company_and_workspace.workspace.delete.modal.description": "Semua data di dalam ruang kerja ini akan terhapus secara permanen dan tidak bisa dipulihkan.",
+      "company_and_workspace.workspace.delete.checkbox.confirmation":
+        "Saya menyetujui penghapusan ruang kerja ini dilakukan secara permanen dan tidak dapat dibatalkan",
+      "company_and_workspace.workspace.delete.form.confirmation.label":
+        "Ketik {Nama ruang kerja} untuk mengkonfirmasi",
+      "company_and_workspace.workspace.delete.form.confirmation.placeholder":
+        "Ketik nama ruang kerja",
+      "company_and_workspace.workspace.delete.modal.description":
+        "Semua data di dalam ruang kerja ini akan terhapus secara permanen dan tidak bisa dipulihkan.",
       "company_and_workspace.workspace.delete.modal.title": "Konfirmasi Hapus Ruang Kerja",
       "company_and_workspace.workspace.edit.action.cancel.button": "Batal",
       "company_and_workspace.workspace.edit.action.submit.button": "Simpan",
-      "company_and_workspace.workspace.edit.form.name.error.duplicate": "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
-      "company_and_workspace.workspace.edit.form.name.error.invalid_format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
-      "company_and_workspace.workspace.edit.form.name.error.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
-      "company_and_workspace.workspace.edit.form.name.error.min_length": "Nama Ruang Kerja minimal 3 karakter.",
-      "company_and_workspace.workspace.edit.form.name.error.required": "Nama Ruang Kerja wajib diisi.",
-      "company_and_workspace.workspace.edit.form.name.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
-      "company_and_workspace.workspace.edit.toast.cancle.message": "Perubahan nama ruang kerja dibatalkan",
+      "company_and_workspace.workspace.edit.form.name.error.duplicate":
+        "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
+      "company_and_workspace.workspace.edit.form.name.error.invalid_format":
+        "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+      "company_and_workspace.workspace.edit.form.name.error.max_length":
+        "Nama Ruang Kerja maksimal 60 karakter.",
+      "company_and_workspace.workspace.edit.form.name.error.min_length":
+        "Nama Ruang Kerja minimal 3 karakter.",
+      "company_and_workspace.workspace.edit.form.name.error.required":
+        "Nama Ruang Kerja wajib diisi.",
+      "company_and_workspace.workspace.edit.form.name.max_length":
+        "Nama Ruang Kerja maksimal 60 karakter.",
+      "company_and_workspace.workspace.edit.toast.cancle.message":
+        "Perubahan nama ruang kerja dibatalkan",
       "company_and_workspace.workspace.edit.toast.cancle.title": "Dibatalkan",
-      "company_and_workspace.workspace.edit.toast.success.message": "Nama Ruang Kerja berhasil diperbaharui",
+      "company_and_workspace.workspace.edit.toast.success.message":
+        "Nama Ruang Kerja berhasil diperbaharui",
       "company_and_workspace.workspace.edit.toast.success.title": "Sukses!",
       "company_and_workspace.workspace.list.action.create.button": "Tambah Ruang Kerja",
-      "company_and_workspace.workspace.list.empty.description": "Anda belum memiliki ruang kerja. Buat ruang kerja pertama Anda untuk memulai.",
+      "company_and_workspace.workspace.list.empty.description":
+        "Anda belum memiliki ruang kerja. Buat ruang kerja pertama Anda untuk memulai.",
       "company_and_workspace.workspace.list.empty.title": "Belum Ada Ruang Kerja",
-      "company_and_workspace.workspace.list.error.description": "Terjadi gangguan saat memuat data ruang kerja. Silakan coba lagi.",
+      "company_and_workspace.workspace.list.error.description":
+        "Terjadi gangguan saat memuat data ruang kerja. Silakan coba lagi.",
       "company_and_workspace.workspace.list.error.title": "Gagal Memuat Ruang Kerja",
       "company_and_workspace.workspace.list.header.managed_by.label": "dikelola oleh {nama akun}",
-      "company_and_workspace.workspace.list.not_found.description": "Tidak ada ruang kerja yang sesuai kriteria pencarian Anda.",
+      "company_and_workspace.workspace.list.not_found.description":
+        "Tidak ada ruang kerja yang sesuai kriteria pencarian Anda.",
       "company_and_workspace.workspace.list.not_found.title": "Ruang Kerja Tidak Ditemukan",
       "company_and_workspace.workspace.list.summary.business_unit_total.label": "Total Unit Usaha",
       "company_and_workspace.workspace.list.summary.company_total.label": "Total Perusahaan",
@@ -6989,55 +7407,74 @@ const manifest: LocalizationManifest = {
       "company_detail.access_companyidentity_subtitle": "Identitas Perusahaan",
       "company_detail.access_contact_subtitle": "Kontak",
       "company_detail.access_error.cta_back": "Kembali ke Daftar Perusahaan",
-      "company_detail.access_error.description": "Anda tidak memiliki akses ke perusahaan ini atau akses Anda sudah tidak berlaku.",
+      "company_detail.access_error.description":
+        "Anda tidak memiliki akses ke perusahaan ini atau akses Anda sudah tidak berlaku.",
       "company_detail.access_error.title": "Akses Tidak Tersedia",
       "company_detail.access_legalandadministration_subtitle": "Legal & Administrasi",
       "delete.company.blocked.active_units.action": "Kembali ke Daftar Unit Usaha",
-      "delete.company.blocked.active_units.description": "Beberapa unit usaha dalam perusahaan ini masih aktif. Nonaktifkan terlebih dahulu sebelum melanjutkan proses.",
+      "delete.company.blocked.active_units.description":
+        "Beberapa unit usaha dalam perusahaan ini masih aktif. Nonaktifkan terlebih dahulu sebelum melanjutkan proses.",
       "delete.company.blocked.button.cancel": "Batal",
       "delete.company.blocked.default_company.action": "Daftar Perusahaan",
-      "delete.company.blocked.default_company.description": "Perusahaan ini tidak dapat dihapus karena saat ini ditetapkan sebagai perusahaan default. Silakan ubah perusahaan default ke perusahaan lain jika tetap ingin menghapus perusahaan ini.",
+      "delete.company.blocked.default_company.description":
+        "Perusahaan ini tidak dapat dihapus karena saat ini ditetapkan sebagai perusahaan default. Silakan ubah perusahaan default ke perusahaan lain jika tetap ingin menghapus perusahaan ini.",
       "delete.company.blocked.title": "Gagal Hapus Perusahaan",
-      "delete.company.confirm.approval_text": "Saya menyetujui penghapusan perusahaan ini dilakukan secara permanen dan tidak dapat dibatalkan.",
-      "delete.company.confirm.banner.description": "Semua data terkait akan ikut terhapus dan tidak dapat dikembalikan. Tindakan ini bersifat permanen dan tidak dapat dibatalkan.",
+      "delete.company.confirm.approval_text":
+        "Saya menyetujui penghapusan perusahaan ini dilakukan secara permanen dan tidak dapat dibatalkan.",
+      "delete.company.confirm.banner.description":
+        "Semua data terkait akan ikut terhapus dan tidak dapat dikembalikan. Tindakan ini bersifat permanen dan tidak dapat dibatalkan.",
       "delete.company.confirm.banner.title": "Informasi!",
       "delete.company.confirm.button.cancel": "Batal",
       "delete.company.confirm.button.confirm": "Hapus Perusahaan",
       "delete.company.confirm.button.submit": "Konfirmasi",
-      "delete.company.confirm.description": "Untuk melanjutkan, ketik nama perusahaan di bawah ini sebagai konfirmasi bahwa Anda memahami tindakan ini tidak dapat dibatalkan.",
+      "delete.company.confirm.description":
+        "Untuk melanjutkan, ketik nama perusahaan di bawah ini sebagai konfirmasi bahwa Anda memahami tindakan ini tidak dapat dibatalkan.",
       "delete.company.confirm.input.helper_text": "Ketik {companyName} untuk mengkonfirmasi",
       "delete.company.confirm.input.label": "Nama Perusahaan",
-      "delete.company.confirm.input.placeholder": "Ketik nama perusahaan untuk konfirmasi penghapusan",
+      "delete.company.confirm.input.placeholder":
+        "Ketik nama perusahaan untuk konfirmasi penghapusan",
       "delete.company.confirm.title": "Konfirmasi Penghapusan Perusahaan",
-      "delete.company.error.company_has_transaction": "Perusahaan tidak dapat dihapus karena memiliki transaksi",
+      "delete.company.error.company_has_transaction":
+        "Perusahaan tidak dapat dihapus karena memiliki transaksi",
       "delete.company.error.company_name_mismatch": "Nama perusahaan tidak sesuai",
-      "delete.company.error.company_name_required": "Nama perusahaan harus diisi untuk melanjutkan penghapusan",
+      "delete.company.error.company_name_required":
+        "Nama perusahaan harus diisi untuk melanjutkan penghapusan",
       "delete.company.error.forbidden": "Anda tidak memiliki akses untuk menghapus perusahaan ini.",
-      "delete.company.error.has_active_units": "Perusahaan tidak dapat dihapus karena masih memiliki unit usaha aktif.",
-      "delete.company.error.is_default": "Perusahaan default tidak dapat dihapus. Ubah default company terlebih dahulu.",
+      "delete.company.error.has_active_units":
+        "Perusahaan tidak dapat dihapus karena masih memiliki unit usaha aktif.",
+      "delete.company.error.is_default":
+        "Perusahaan default tidak dapat dihapus. Ubah default company terlebih dahulu.",
       "delete.company.error.not_found": "Perusahaan tidak ditemukan.",
-      "delete.company.error.unit_has_transaction": "Perusahaan tidak dapat dihapus karena unit usaha memiliki transaksi",
+      "delete.company.error.unit_has_transaction":
+        "Perusahaan tidak dapat dihapus karena unit usaha memiliki transaksi",
       "delete.company.error.unknown": "Terjadi gangguan saat menghapus perusahaan.",
-      "delete.company.error.validation_error": "Validasi konfirmasi hapus gagal. Silakan cek kembali input Anda.",
+      "delete.company.error.validation_error":
+        "Validasi konfirmasi hapus gagal. Silakan cek kembali input Anda.",
       "delete.company.impact.banner.title": "Informasi!",
       "delete.company.impact.button.cancel": "Batal",
       "delete.company.impact.button.confirm": "Setuju, Hapus Perusahaan",
       "delete.company.impact.button.continue": "Ya, Lanjutkan",
-      "delete.company.impact.description": "Penghapusan perusahaan akan dilakukan secara permanen dan tidak dapat dipulihkan kembali. Penghapusan ini akan berdampak ke unit usaha di dalamnya.",
+      "delete.company.impact.description":
+        "Penghapusan perusahaan akan dilakukan secara permanen dan tidak dapat dipulihkan kembali. Penghapusan ini akan berdampak ke unit usaha di dalamnya.",
       "delete.company.impact.modal.title": "Ringkasan Dampak Penghapusan",
       "delete.company.impact.summary.description": "Perusahaan {companyName} akan dihapus.",
-      "delete.company.impact.summary.unit_count": "Unit usaha yang akan terhapus {totalBusinessUnit} Unit Usaha yang terhubung.",
+      "delete.company.impact.summary.unit_count":
+        "Unit usaha yang akan terhapus {totalBusinessUnit} Unit Usaha yang terhubung.",
       "delete.company.impact.title": "Ringkasan Dampak Penghapusan Perusahaan",
-      "delete.company.precheck.error.message": "Data perusahaan tidak dapat diverifikasi untuk proses penghapusan. Silakan coba lagi.",
+      "delete.company.precheck.error.message":
+        "Data perusahaan tidak dapat diverifikasi untuk proses penghapusan. Silakan coba lagi.",
       "delete.company.precheck.error.title": "Gagal Memeriksa Dampak Penghapusan",
-      "delete.company.precheck.error.unknown": "Terjadi gangguan saat memeriksa dampak penghapusan perusahaan.",
+      "delete.company.precheck.error.unknown":
+        "Terjadi gangguan saat memeriksa dampak penghapusan perusahaan.",
       "delete.company.precheck.loading.label": "Memeriksa kelayakan penghapusan perusahaan",
       "delete.company.toast.error_title": "Gagal Menghapus Perusahaan",
       "delete.company.toast.success.message": "Perusahaan berhasil dihapus dari daftar.",
       "delete.company.toast.success.title": "Perusahaan Dihapus",
       "error.business_type.required": "Jenis usaha wajib dipilih.",
-      "error.company.name.duplicate": "Nama perusahaan sudah digunakan di ruang kerja ini. Gunakan nama lain.",
-      "error.company.name.invalid_character": "Nama perusahaan hanya boleh berisi huruf, angka, titik, dan koma.",
+      "error.company.name.duplicate":
+        "Nama perusahaan sudah digunakan di ruang kerja ini. Gunakan nama lain.",
+      "error.company.name.invalid_character":
+        "Nama perusahaan hanya boleh berisi huruf, angka, titik, dan koma.",
       "error.company.name.max": "Nama perusahaan maksimal 60 karakter.",
       "error.company.name.min": "Nama perusahaan minimal 3 karakter.",
       "error.company.name.required": "Nama perusahaan wajib diisi.",
@@ -7046,8 +7483,10 @@ const manifest: LocalizationManifest = {
       "error.email.invalid": "Format email tidak valid. Masukkan alamat email yang benar.",
       "error.error.account_not_linked": "Akun ini belum terhubung. Gunakan metode masuk lainnya.",
       "error.error.bad_gateway": "Layanan tidak dapat dijangkau. Silakan coba lagi nanti.",
-      "error.error.bad_request": "Permintaan tidak dapat diproses. Periksa kembali input Anda lalu coba lagi.",
-      "error.error.conflict": "Data bertabrakan dengan data yang sudah ada. Periksa kembali lalu coba lagi.",
+      "error.error.bad_request":
+        "Permintaan tidak dapat diproses. Periksa kembali input Anda lalu coba lagi.",
+      "error.error.conflict":
+        "Data bertabrakan dengan data yang sudah ada. Periksa kembali lalu coba lagi.",
       "error.error.expired_token": "Sesi Anda telah berakhir. Silakan masuk kembali.",
       "error.error.forbidden": "Anda tidak memiliki akses untuk menjalankan aksi ini.",
       "error.error.gateway_timeout": "Permintaan melewati batas waktu. Silakan coba lagi nanti.",
@@ -7109,16 +7548,19 @@ const manifest: LocalizationManifest = {
       "fallback.fb400_d": "Permintaan tidak valid. Silakan periksa input Anda dan coba lagi.",
       "fallback.fb400_h": "Permintaan Tidak Valid",
       "fallback.fb401_b": "Login Ulang",
-      "fallback.fb401_d": "Demi keamanan, sesi Anda sudah habis. Silakan login kembali untuk melanjutkan pekerjaan Anda.",
+      "fallback.fb401_d":
+        "Demi keamanan, sesi Anda sudah habis. Silakan login kembali untuk melanjutkan pekerjaan Anda.",
       "fallback.fb401_h": "Sesi Berakhir",
       "fallback.fb402_b": "Mengerti",
       "fallback.fb402_d": "Permintaan membutuhkan pembayaran untuk dilanjutkan.",
       "fallback.fb402_h": "Pembayaran Diperlukan",
       "fallback.fb403_b": "Hubungi Admin",
-      "fallback.fb403_d": "Anda belum memiliki izin untuk halaman ini. Hubungi admin perusahaan anda agar akses bisa dibuka.",
+      "fallback.fb403_d":
+        "Anda belum memiliki izin untuk halaman ini. Hubungi admin perusahaan anda agar akses bisa dibuka.",
       "fallback.fb403_h": "Akses Terbatas",
       "fallback.fb404_b": "Kembali ke Beranda",
-      "fallback.fb404_d": "Kami tidak menemukan yang Anda cari. Mari kembali ke beranda untuk melanjutkan.",
+      "fallback.fb404_d":
+        "Kami tidak menemukan yang Anda cari. Mari kembali ke beranda untuk melanjutkan.",
       "fallback.fb404_h": "Halaman Tidak Ditemukan",
       "fallback.fb405_b": "Mengerti",
       "fallback.fb405_d": "Aksi ini tidak didukung untuk permintaan tersebut.",
@@ -7149,7 +7591,8 @@ const manifest: LocalizationManifest = {
       "fallback.fb429_h": "Terlalu Banyak Permintaan",
       "fallback.fb500_b": "Baik, saya mengerti",
       "fallback.fb500_b_secondary": "Hubungi CS MyApp",
-      "fallback.fb500_d": "Sistem sedang mengalami gangguan. Tim kami sedang menangani, coba lagi sebentar.",
+      "fallback.fb500_d":
+        "Sistem sedang mengalami gangguan. Tim kami sedang menangani, coba lagi sebentar.",
       "fallback.fb500_h": "Ada Kendala Teknis",
       "fallback.fb501_b": "Baik, saya mengerti",
       "fallback.fb501_b_secondary": "Hubungi CS MyApp",
@@ -7157,15 +7600,18 @@ const manifest: LocalizationManifest = {
       "fallback.fb501_h": "Belum Tersedia",
       "fallback.fb502_b": "Baik, saya mengerti",
       "fallback.fb502_b_secondary": "Hubungi CS MyApp",
-      "fallback.fb502_d": "Terjadi masalah komunikasi dengan server. Biasanya hanya sementara, coba lagi ya.",
+      "fallback.fb502_d":
+        "Terjadi masalah komunikasi dengan server. Biasanya hanya sementara, coba lagi ya.",
       "fallback.fb502_h": "Gangguan Jaringan",
       "fallback.fb503_b": "Baik, saya mengerti",
       "fallback.fb503_b_secondary": "Hubungi CS MyApp",
-      "fallback.fb503_d": "Sistem sedang diperbarui untuk peningkatan layanan. Silakan kembali beberapa saat lagi.",
+      "fallback.fb503_d":
+        "Sistem sedang diperbarui untuk peningkatan layanan. Silakan kembali beberapa saat lagi.",
       "fallback.fb503_h": "Sedang Pemeliharaan",
       "fallback.fb504_b": "Baik, saya mengerti",
       "fallback.fb504_b_secondary": "Hubungi CS MyApp",
-      "fallback.fb504_d": "Permintaan Anda butuh waktu lebih lama dari biasanya. Silakan coba lagi dalam beberapa saat.",
+      "fallback.fb504_d":
+        "Permintaan Anda butuh waktu lebih lama dari biasanya. Silakan coba lagi dalam beberapa saat.",
       "fallback.fb504_h": "Waktu Habis",
       "fallback.support_label": "s.id/smartcare",
       "fallback.support_url": "https://s.id/smartcare",
@@ -7197,46 +7643,59 @@ const manifest: LocalizationManifest = {
       "http.http_415_title": "Format Tidak Didukung",
       "http.http_422_message": "Validasi gagal. Silakan periksa input Anda.",
       "http.http_422_title": "Validasi Gagal",
-      "http.http_429_message": "Terlalu banyak permintaan. Silakan tunggu sebentar sebelum mencoba lagi.",
+      "http.http_429_message":
+        "Terlalu banyak permintaan. Silakan tunggu sebentar sebelum mencoba lagi.",
       "http.http_429_title": "Terlalu Banyak Permintaan",
       "http.http_500_message": "Terjadi kesalahan pada server. Silakan coba lagi nanti.",
       "http.http_500_title": "Kesalahan Server",
       "http.http_502_message": "Kami tidak dapat menghubungi server. Silakan coba lagi.",
       "http.http_502_title": "Gateway Bermasalah",
-      "http.http_503_message": "Layanan sedang tidak tersedia untuk sementara. Silakan coba lagi nanti.",
+      "http.http_503_message":
+        "Layanan sedang tidak tersedia untuk sementara. Silakan coba lagi nanti.",
       "http.http_503_title": "Layanan Tidak Tersedia",
       "http.http_504_message": "Server terlalu lama merespons. Silakan coba lagi.",
       "http.http_504_title": "Gateway Timeout",
       "onboarding.onboarding.business_unit.add.bu_name.label": "Nama Unit Usaha",
-      "onboarding.onboarding.business_unit.add.bu_name.placeholder": "Contoh: Nina Salon Cabang Bandung",
+      "onboarding.onboarding.business_unit.add.bu_name.placeholder":
+        "Contoh: Nina Salon Cabang Bandung",
       "onboarding.onboarding.business_unit.add.bu_type.label": "Jenis Unit Usaha",
       "onboarding.onboarding.business_unit.add.bu_type.placeholder": "Pilih Jenis Unit Usaha",
-      "onboarding.onboarding.business_unit.desc": "Opsional - Jika Anda belum memiliki Unit usaha, anda dapat melewati langkah ini dan anda dapat menambahkan unit usaha nanti.",
+      "onboarding.onboarding.business_unit.desc":
+        "Opsional - Jika Anda belum memiliki Unit usaha, anda dapat melewati langkah ini dan anda dapat menambahkan unit usaha nanti.",
       "onboarding.onboarding.business_unit.label": "Data Unit Usaha",
-      "onboarding.onboarding.business_unit.name.error.format": "Nama Unit Usaha hanya boleh berisi huruf, angka, titik, dan koma.",
-      "onboarding.onboarding.business_unit.name.error.min_length": "Nama Unit Usaha minimal 3 karakter.",
-      "onboarding.onboarding.business_unit.name.info.max_length": "Nama Unit Usaha maksimal 60 karakter.",
+      "onboarding.onboarding.business_unit.name.error.format":
+        "Nama Unit Usaha hanya boleh berisi huruf, angka, titik, dan koma.",
+      "onboarding.onboarding.business_unit.name.error.min_length":
+        "Nama Unit Usaha minimal 3 karakter.",
+      "onboarding.onboarding.business_unit.name.info.max_length":
+        "Nama Unit Usaha maksimal 60 karakter.",
       "onboarding.onboarding.business_unit.title": "Unit Usaha",
       "onboarding.onboarding.company.add.business_type.label": "Jenis Usaha",
       "onboarding.onboarding.company.add.business_type.placeholder": "Pilih Jenis Usaha",
       "onboarding.onboarding.company.add.company_name.label": "Nama Perusahaan",
-      "onboarding.onboarding.company.add.company_name.placeholder": "Contoh: PT Kreasi Anak Bangsa / Toko Haji Udin",
+      "onboarding.onboarding.company.add.company_name.placeholder":
+        "Contoh: PT Kreasi Anak Bangsa / Toko Haji Udin",
       "onboarding.onboarding.company.add.country.label": "Negara",
       "onboarding.onboarding.company.add.country.placeholder": "Pilih Negara",
       "onboarding.onboarding.company.add.currency.label": "Mata Uang Utama",
       "onboarding.onboarding.company.add.currency.placeholder": "Pilih Mata Uang",
-      "onboarding.onboarding.company.business_type.error.required": "Pilih Jenis Usaha terlebih dahulu.",
+      "onboarding.onboarding.company.business_type.error.required":
+        "Pilih Jenis Usaha terlebih dahulu.",
       "onboarding.onboarding.company.country.error.required": "Pilih Negara terlebih dahulu.",
       "onboarding.onboarding.company.currency.error.required": "Pilih Mata Uang terlebih dahulu.",
-      "onboarding.onboarding.company.desc": "Lengkapi data perusahaan sebagai fondasi integrasi MyApp.",
+      "onboarding.onboarding.company.desc":
+        "Lengkapi data perusahaan sebagai fondasi integrasi MyApp.",
       "onboarding.onboarding.company.label": "Data Perusahaan",
-      "onboarding.onboarding.company.name.error.duplicate": "Nama Perusahaan sudah digunakan di Ruang Kerja ini. Gunakan nama lain agar data tetap rapi.",
-      "onboarding.onboarding.company.name.error.format": "Nama Perusahaan hanya boleh berisi huruf, angka, titik, dan koma.",
+      "onboarding.onboarding.company.name.error.duplicate":
+        "Nama Perusahaan sudah digunakan di Ruang Kerja ini. Gunakan nama lain agar data tetap rapi.",
+      "onboarding.onboarding.company.name.error.format":
+        "Nama Perusahaan hanya boleh berisi huruf, angka, titik, dan koma.",
       "onboarding.onboarding.company.name.error.min_length": "Nama Perusahaan minimal 3 karakter.",
       "onboarding.onboarding.company.name.error.required": "Nama Perusahaan wajib diisi.",
       "onboarding.onboarding.company.name.info.max_length": "Nama Perusahaan maksimal 60 karakter.",
       "onboarding.onboarding.company.title": "Perusahaan",
-      "onboarding.onboarding.error.system.page_content": "Sistem sedang mengalami gangguan. coba lagi dalam beberapa saat",
+      "onboarding.onboarding.error.system.page_content":
+        "Sistem sedang mengalami gangguan. coba lagi dalam beberapa saat",
       "onboarding.onboarding.error.system.page_title": "Gangguan Sistem",
       "onboarding.onboarding.navigation.back.button": "Kembali",
       "onboarding.onboarding.navigation.next.button": "Lanjutkan",
@@ -7246,29 +7705,40 @@ const manifest: LocalizationManifest = {
       "onboarding.onboarding.preview.data.company_name.label": "Nama Perusahaan",
       "onboarding.onboarding.preview.data.country_currency.label": "Negara & Mata Uang",
       "onboarding.onboarding.preview.data.workspace_name.label": "Nama Ruang Kerja",
-      "onboarding.onboarding.preview.info.note": "Anda dapat menambahkan Perusahaan dan Unit Usaha lainnya setelah proses onboarding selesai",
-      "onboarding.onboarding.preview.page_content.intro": "Pratinjau Data\nPeriksa kembali data Anda sebelum menyimpan.",
+      "onboarding.onboarding.preview.info.note":
+        "Anda dapat menambahkan Perusahaan dan Unit Usaha lainnya setelah proses onboarding selesai",
+      "onboarding.onboarding.preview.page_content.intro":
+        "Pratinjau Data\nPeriksa kembali data Anda sebelum menyimpan.",
       "onboarding.onboarding.preview.page_title": "Pratinjau",
       "onboarding.onboarding.start.cta.button": "Mulai Onboarding",
-      "onboarding.onboarding.start.page_content": "Kami akan memandu Anda menyiapkan Ruang Kerja, Perusahaan, dan Unit Usaha pertama Anda dalam beberapa langkah.",
+      "onboarding.onboarding.start.page_content":
+        "Kami akan memandu Anda menyiapkan Ruang Kerja, Perusahaan, dan Unit Usaha pertama Anda dalam beberapa langkah.",
       "onboarding.onboarding.start.page_title": "Siap Untuk Memulai?",
       "onboarding.onboarding.step.label": "Langkah",
-      "onboarding.onboarding.structure.page_content": "Deskripsi singkat per level:\n\n* Ruang Kerja\n\nMerupakan wadah pengelompokan utama bisnis Anda\n\n* Perusahaan\n\nMerupakan konteks bisnis yang mengaktifkan modul MyApp\n\n* Unit Usaha\n\nMerupakan representasi operasional (cabang, outlet, Pabrik)",
+      "onboarding.onboarding.structure.page_content":
+        "Deskripsi singkat per level:\n\n* Ruang Kerja\n\nMerupakan wadah pengelompokan utama bisnis Anda\n\n* Perusahaan\n\nMerupakan konteks bisnis yang mengaktifkan modul MyApp\n\n* Unit Usaha\n\nMerupakan representasi operasional (cabang, outlet, Pabrik)",
       "onboarding.onboarding.structure.page_title": "Kenali Struktur Kerja Anda",
       "onboarding.onboarding.success.cta.button": "Masuk ke detail Perusahaan",
-      "onboarding.onboarding.success.page_content": "Ruang Kerja, Perusahaan, dan Unit Usaha berhasil dibuat. Anda sudah dapat mulai menggunakannya.",
+      "onboarding.onboarding.success.page_content":
+        "Ruang Kerja, Perusahaan, dan Unit Usaha berhasil dibuat. Anda sudah dapat mulai menggunakannya.",
       "onboarding.onboarding.success.page_title": "Sukses",
-      "onboarding.onboarding.welcome.page_content": "Di sini, Anda bisa mengelola seluruh identitas bisnis dengan lebih rapi. Mulai dari Ruang Kerja, Perusahaan, hingga Unit Usaha.",
+      "onboarding.onboarding.welcome.page_content":
+        "Di sini, Anda bisa mengelola seluruh identitas bisnis dengan lebih rapi. Mulai dari Ruang Kerja, Perusahaan, hingga Unit Usaha.",
       "onboarding.onboarding.welcome.page_title": "Selamat Datang di MyApp Access",
       "onboarding.onboarding.workspace.add.label": "Nama Ruang kerja",
       "onboarding.onboarding.workspace.add.placeholder": "Contoh: Ruang Kerja Utama",
-      "onboarding.onboarding.workspace.desc": "Ruang Kerja adalah wadah untuk mengelompokkan perusahaan anda",
+      "onboarding.onboarding.workspace.desc":
+        "Ruang Kerja adalah wadah untuk mengelompokkan perusahaan anda",
       "onboarding.onboarding.workspace.label": "Buat Ruang Kerja",
-      "onboarding.onboarding.workspace.name.error.duplicate": "Nama Ruang Kerja telah terdaftar. Silakan gunakan nama yang berbeda.",
-      "onboarding.onboarding.workspace.name.error.format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
-      "onboarding.onboarding.workspace.name.error.min_length": "Nama Ruang Kerja minimal 3 karakter.",
+      "onboarding.onboarding.workspace.name.error.duplicate":
+        "Nama Ruang Kerja telah terdaftar. Silakan gunakan nama yang berbeda.",
+      "onboarding.onboarding.workspace.name.error.format":
+        "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+      "onboarding.onboarding.workspace.name.error.min_length":
+        "Nama Ruang Kerja minimal 3 karakter.",
       "onboarding.onboarding.workspace.name.error.required": "Nama Ruang Kerja wajib diisi.",
-      "onboarding.onboarding.workspace.name.info.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
+      "onboarding.onboarding.workspace.name.info.max_length":
+        "Nama Ruang Kerja maksimal 60 karakter.",
       "onboarding.onboarding.workspace.title": "Ruang kerja",
       "profile.change_password.page.title": "Ubah Kata Sandi",
       "profile.profile_edit_personal.field.name": "Nama Lengkap",
@@ -7292,7 +7762,8 @@ const manifest: LocalizationManifest = {
       "profile.profile.section.security": "Keamanan",
       "role.role_detail.page_title": "Detail Peran",
       "role.rolelist.page_title": "Daftar Peran",
-      "role.rolelist.section.description": "Peran dalam sistem berfungsi untuk mengatur hak akses pengguna sehingga setiap user hanya dapat melihat atau melakukan tindakan sesuai dengan akses yang diberikan",
+      "role.rolelist.section.description":
+        "Peran dalam sistem berfungsi untuk mengatur hak akses pengguna sehingga setiap user hanya dapat melihat atau melakukan tindakan sesuai dengan akses yang diberikan",
       "role.rolelist.table.description.header": "Deskripsi",
       "role.rolelist.table.role_name.header": "Nama Peran",
       "role.rolelist.table.user_count.header": "Jumlah User",
@@ -7311,7 +7782,8 @@ const manifest: LocalizationManifest = {
       "settings.profile.logout.popup.title": "Konfirmasi Logout",
       "settings.profile.title": "Profil",
       "settings.title": "Pengaturan",
-      "user.email_aktifkan_pengguna.subject": "MyApp: Akses Anda di {{Nama Perusahaan}} Diaktifkan Kembali",
+      "user.email_aktifkan_pengguna.subject":
+        "MyApp: Akses Anda di {{Nama Perusahaan}} Diaktifkan Kembali",
       "user.invite_email.subject": "Undangan MyApp: Bergabung ke {{company_name}}",
       "user.ubah_akses_pengguna.modal.title": "Ubah Akses Pengguna",
       "user.ubah_akses_pengguna.toast_title.success": "Sukses!",
@@ -7351,7 +7823,8 @@ const manifest: LocalizationManifest = {
       "user.userlist.title": "Manajemen Pengguna",
       "workspace.delete_info.button.cancel": "Batal",
       "workspace.delete_info.button.company_list": "Daftar Perusahaan",
-      "workspace.delete_info.modal.body": "Ruang Kerja ini masih memiliki data terkait. Anda perlu menghapus seluruh data di dalamnya sebelum dapat menghapus Ruang Kerja",
+      "workspace.delete_info.modal.body":
+        "Ruang Kerja ini masih memiliki data terkait. Anda perlu menghapus seluruh data di dalamnya sebelum dapat menghapus Ruang Kerja",
       "workspace.delete_info.modal.title": "Ruang Kerja Tidak dapat Dihapus",
       "workspace.detail_workspace.edit.label": "Nama Ruang kerja",
       "workspace.detail_workspace.edit.title": "Ubah Ruang kerja",
@@ -7362,10 +7835,14 @@ const manifest: LocalizationManifest = {
       "workspace.listrk.header.title": "Daftar Ruang Kerja",
       "workspace.workspace.create.action.cancel.button": "Batal",
       "workspace.workspace.create.action.submit.button": "Simpan",
-      "workspace.workspace.create.form.name.error.duplicate": "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
-      "workspace.workspace.create.form.name.error.invalid_format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
-      "workspace.workspace.create.form.name.error.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
-      "workspace.workspace.create.form.name.error.min_length": "Nama Ruang Kerja minimal 3 karakter.",
+      "workspace.workspace.create.form.name.error.duplicate":
+        "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
+      "workspace.workspace.create.form.name.error.invalid_format":
+        "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+      "workspace.workspace.create.form.name.error.max_length":
+        "Nama Ruang Kerja maksimal 60 karakter.",
+      "workspace.workspace.create.form.name.error.min_length":
+        "Nama Ruang Kerja minimal 3 karakter.",
       "workspace.workspace.create.form.name.error.required": "Nama Ruang Kerja wajib diisi.",
       "workspace.workspace.create.form.name.label": "Nama Ruang Kerja",
       "workspace.workspace.create.form.name.placeholder": "Contoh: Ruang Kerja Utama",
@@ -7375,19 +7852,25 @@ const manifest: LocalizationManifest = {
       "workspace.workspace.create.toast.success.title": "Sukses!",
       "workspace.workspace.delete.action.cancel.button": "Batal",
       "workspace.workspace.delete.action.confirm.button": "Konfirmasi",
-      "workspace.workspace.delete.checkbox.confirmation": "Saya menyetujui penghapusan ruang kerja ini dilakukan secara permanen dan tidak dapat dibatalkan",
-      "workspace.workspace.delete.form.confirmation.label": "Ketik {Nama ruang kerja} untuk mengkonfirmasi",
+      "workspace.workspace.delete.checkbox.confirmation":
+        "Saya menyetujui penghapusan ruang kerja ini dilakukan secara permanen dan tidak dapat dibatalkan",
+      "workspace.workspace.delete.form.confirmation.label":
+        "Ketik {Nama ruang kerja} untuk mengkonfirmasi",
       "workspace.workspace.delete.form.confirmation.placeholder": "Ketik nama ruang kerja",
       "workspace.workspace.delete.modal.banner_title": "Informasi!",
-      "workspace.workspace.delete.modal.description": "Semua data di dalam ruang kerja ini akan terhapus secara permanen dan tidak bisa dipulihkan.",
+      "workspace.workspace.delete.modal.description":
+        "Semua data di dalam ruang kerja ini akan terhapus secara permanen dan tidak bisa dipulihkan.",
       "workspace.workspace.delete.modal.title": "Konfirmasi Hapus Ruang Kerja",
       "workspace.workspace.delete.toast.success.message": "Data ruang kerja telah berhasil dihapus",
       "workspace.workspace.delete.toast.success.title": "Sukses!",
       "workspace.workspace.edit.action.cancel.button": "Batal",
       "workspace.workspace.edit.action.submit.button": "Simpan",
-      "workspace.workspace.edit.form.name.error.duplicate": "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
-      "workspace.workspace.edit.form.name.error.invalid_format": "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
-      "workspace.workspace.edit.form.name.error.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
+      "workspace.workspace.edit.form.name.error.duplicate":
+        "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
+      "workspace.workspace.edit.form.name.error.invalid_format":
+        "Nama Ruang Kerja hanya boleh berisi huruf, angka, titik, dan koma.",
+      "workspace.workspace.edit.form.name.error.max_length":
+        "Nama Ruang Kerja maksimal 60 karakter.",
       "workspace.workspace.edit.form.name.error.min_length": "Nama Ruang Kerja minimal 3 karakter.",
       "workspace.workspace.edit.form.name.error.required": "Nama Ruang Kerja wajib diisi.",
       "workspace.workspace.edit.form.name.max_length": "Nama Ruang Kerja maksimal 60 karakter.",
@@ -7395,23 +7878,31 @@ const manifest: LocalizationManifest = {
       "workspace.workspace.edit.toast.cancle.title": "Dibatalkan",
       "workspace.workspace.edit.toast.success.message": "Nama Ruang Kerja berhasil diperbaharui",
       "workspace.workspace.edit.toast.success.title": "Sukses!",
-      "workspace.workspace.error.confirm_name.mismatch": "Nama konfirmasi tidak sesuai. Pastikan nama Ruang Kerja diketik dengan benar.",
-      "workspace.workspace.error.has_companies": "Ruang kerja ini tidak dapat dihapus karena masih memiliki perusahaan atau unit usaha terkait.",
-      "workspace.workspace.error.last_remaining": "Ruang kerja ini tidak dapat dihapus karena merupakan ruang kerja terakhir Anda.",
-      "workspace.workspace.error.name.duplicate": "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
+      "workspace.workspace.error.confirm_name.mismatch":
+        "Nama konfirmasi tidak sesuai. Pastikan nama Ruang Kerja diketik dengan benar.",
+      "workspace.workspace.error.has_companies":
+        "Ruang kerja ini tidak dapat dihapus karena masih memiliki perusahaan atau unit usaha terkait.",
+      "workspace.workspace.error.last_remaining":
+        "Ruang kerja ini tidak dapat dihapus karena merupakan ruang kerja terakhir Anda.",
+      "workspace.workspace.error.name.duplicate":
+        "Nama Ruang Kerja sudah terdaftar. Silakan gunakan nama yang berbeda.",
       "workspace.workspace.error.name.required": "Nama Ruang Kerja wajib diisi.",
       "workspace.workspace.list.action.create.button": "Tambah Ruang Kerja",
-      "workspace.workspace.list.empty.description": "Anda belum memiliki ruang kerja. Buat ruang kerja pertama Anda untuk memulai.",
+      "workspace.workspace.list.empty.description":
+        "Anda belum memiliki ruang kerja. Buat ruang kerja pertama Anda untuk memulai.",
       "workspace.workspace.list.empty.title": "Belum Ada Ruang Kerja",
-      "workspace.workspace.list.error.description": "Terjadi gangguan saat memuat data ruang kerja. Silakan coba lagi.",
+      "workspace.workspace.list.error.description":
+        "Terjadi gangguan saat memuat data ruang kerja. Silakan coba lagi.",
       "workspace.workspace.list.error.title": "Gagal Memuat Ruang Kerja",
       "workspace.workspace.list.header.managed_by.label": "dikelola oleh {nama akun}",
-      "workspace.workspace.list.not_found.description": "Tidak ada ruang kerja yang sesuai kriteria pencarian Anda.",
+      "workspace.workspace.list.not_found.description":
+        "Tidak ada ruang kerja yang sesuai kriteria pencarian Anda.",
       "workspace.workspace.list.not_found.title": "Ruang Kerja Tidak Ditemukan",
       "workspace.workspace.list.summary.business_unit_total.label": "Total Unit Usaha",
       "workspace.workspace.list.summary.company_total.label": "Total Perusahaan",
       "workspace_detail.company_list.empty.cta_button": "Tambah Perusahaan",
-      "workspace_detail.company_list.empty.description": "Saat ini belum ada perusahaan yang dapat Anda akses di Ruang Kerja ini.",
+      "workspace_detail.company_list.empty.description":
+        "Saat ini belum ada perusahaan yang dapat Anda akses di Ruang Kerja ini.",
       "workspace_detail.company_list.empty.title": "Belum Ada Perusahaan",
       "workspace_detail.detailrk.company_list": "Daftar Perusahaan",
       "workspace_detail.detailrk.data_info": "Informasi Ruang Kerja",
@@ -7421,9 +7912,9 @@ const manifest: LocalizationManifest = {
       "workspace_detail.detailrk.sumcompany": "Jumlah Perusahaan",
       "workspace_detail.workspace_detail.action.add_company.button": "Tambah Perusahaan",
       "workspace_detail.workspace_detail.company_add.modal.title": "Tambah Perusahaan",
-      "workspace_detail.workspace_detail.page_title": "Detail Ruang Kerja"
-    }
-  }
+      "workspace_detail.workspace_detail.page_title": "Detail Ruang Kerja",
+    },
+  },
 } as const;
 
 /**
@@ -7431,2699 +7922,2706 @@ const manifest: LocalizationManifest = {
  * Leaf values are full message keys for use with store.t().
  */
 export const localization = {
-  "auth_privacy_policy": {
-    "consent": {
-      "privacy_policy": "auth_privacy_policy.consent.privacy_policy"
-    }
+  auth_privacy_policy: {
+    consent: {
+      privacy_policy: "auth_privacy_policy.consent.privacy_policy",
+    },
   },
-  "auth_terms_condition": {
-    "consent": {
-      "terms_conditions": "auth_terms_condition.consent.terms_conditions"
-    }
+  auth_terms_condition: {
+    consent: {
+      terms_conditions: "auth_terms_condition.consent.terms_conditions",
+    },
   },
-  "auth": {
-    "btn_verifikasi_email": "auth.btn_verifikasi_email",
-    "cekemail": {
-      "description": "auth.cekemail.description",
-      "help": {
-        "check_spam": "auth.cekemail.help.check_spam",
-        "didnt_get_email": "auth.cekemail.help.didnt_get_email"
+  auth: {
+    btn_verifikasi_email: "auth.btn_verifikasi_email",
+    cekemail: {
+      description: "auth.cekemail.description",
+      help: {
+        check_spam: "auth.cekemail.help.check_spam",
+        didnt_get_email: "auth.cekemail.help.didnt_get_email",
       },
-      "page_title": "auth.cekemail.page_title"
+      page_title: "auth.cekemail.page_title",
     },
-    "change_email": {
-      "cta": {
-        "cancel": "auth.change_email.cta.cancel",
-        "submit": "auth.change_email.cta.submit"
+    change_email: {
+      cta: {
+        cancel: "auth.change_email.cta.cancel",
+        submit: "auth.change_email.cta.submit",
       },
-      "error": {
-        "email_already_used": "auth.change_email.error.email_already_used",
-        "email_invalid_format": "auth.change_email.error.email_invalid_format",
-        "email_required": "auth.change_email.error.email_required",
-        "email_same_as_previous": "auth.change_email.error.email_same_as_previous"
+      error: {
+        email_already_used: "auth.change_email.error.email_already_used",
+        email_invalid_format: "auth.change_email.error.email_invalid_format",
+        email_required: "auth.change_email.error.email_required",
+        email_same_as_previous: "auth.change_email.error.email_same_as_previous",
       },
-      "field": {
-        "email": {
-          "label": "auth.change_email.field.email.label",
-          "placeholder": "auth.change_email.field.email.placeholder"
-        }
+      field: {
+        email: {
+          label: "auth.change_email.field.email.label",
+          placeholder: "auth.change_email.field.email.placeholder",
+        },
       },
-      "modal": {
-        "subtitle": "auth.change_email.modal.subtitle",
-        "title": "auth.change_email.modal.title"
-      }
+      modal: {
+        subtitle: "auth.change_email.modal.subtitle",
+        title: "auth.change_email.modal.title",
+      },
     },
-    "change_wa": {
-      "cta": {
-        "cancel": "auth.change_wa.cta.cancel",
-        "submit": "auth.change_wa.cta.submit"
+    change_wa: {
+      cta: {
+        cancel: "auth.change_wa.cta.cancel",
+        submit: "auth.change_wa.cta.submit",
       },
-      "error": {
-        "already_used": "auth.change_wa.error.already_used",
-        "invalid_format": "auth.change_wa.error.invalid_format",
-        "required": "auth.change_wa.error.required",
-        "same_as_old": "auth.change_wa.error.same_as_old"
+      error: {
+        already_used: "auth.change_wa.error.already_used",
+        invalid_format: "auth.change_wa.error.invalid_format",
+        required: "auth.change_wa.error.required",
+        same_as_old: "auth.change_wa.error.same_as_old",
       },
-      "field": {
-        "phone": {
-          "label": "auth.change_wa.field.phone.label",
-          "placeholder": "auth.change_wa.field.phone.placeholder"
-        }
+      field: {
+        phone: {
+          label: "auth.change_wa.field.phone.label",
+          placeholder: "auth.change_wa.field.phone.placeholder",
+        },
       },
-      "modal": {
-        "subtitle": "auth.change_wa.modal.subtitle",
-        "title": "auth.change_wa.modal.title"
+      modal: {
+        subtitle: "auth.change_wa.modal.subtitle",
+        title: "auth.change_wa.modal.title",
       },
-      "toast": {
-        "success": {
-          "message": "auth.change_wa.toast.success.message"
-        }
-      }
+      toast: {
+        success: {
+          message: "auth.change_wa.toast.success.message",
+        },
+      },
     },
-    "channel_verifiy": {
-      "page": {
-        "info": "auth.channel_verifiy.page.info",
-        "title": "auth.channel_verifiy.page.title"
-      }
-    },
-    "check_email": {
-      "description": "auth.check_email.description",
-      "description_1": "auth.check_email.description_1",
-      "description_2": "auth.check_email.description_2",
-      "description_3": "auth.check_email.description_3",
-      "help": {
-        "check_spam": "auth.check_email.help.check_spam",
-        "didnt_get_email": "auth.check_email.help.didnt_get_email",
-        "didnt_get_email_few_minutes": "auth.check_email.help.didnt_get_email_few_minutes"
+    channel_verifiy: {
+      page: {
+        info: "auth.channel_verifiy.page.info",
+        title: "auth.channel_verifiy.page.title",
       },
-      "page_title": "auth.check_email.page_title"
     },
-    "confirm_logingoogle": {
-      "error": {
-        "name": {
-          "invalid_char": "auth.confirm_logingoogle.error.name.invalid_char",
-          "required": "auth.confirm_logingoogle.error.name.required"
-        },
-        "wa": {
-          "duplicate": "auth.confirm_logingoogle.error.wa.duplicate",
-          "format": "auth.confirm_logingoogle.error.wa.format",
-          "required": "auth.confirm_logingoogle.error.wa.required"
-        }
+    check_email: {
+      description: "auth.check_email.description",
+      description_1: "auth.check_email.description_1",
+      description_2: "auth.check_email.description_2",
+      description_3: "auth.check_email.description_3",
+      help: {
+        check_spam: "auth.check_email.help.check_spam",
+        didnt_get_email: "auth.check_email.help.didnt_get_email",
+        didnt_get_email_few_minutes: "auth.check_email.help.didnt_get_email_few_minutes",
       },
-      "form": {
-        "email": {
-          "label": "auth.confirm_logingoogle.form.email.label"
-        },
-        "name": {
-          "label": "auth.confirm_logingoogle.form.name.label",
-          "placeholder": "auth.confirm_logingoogle.form.name.placeholder"
-        },
-        "wa": {
-          "label": "auth.confirm_logingoogle.form.wa.label",
-          "placeholder": "auth.confirm_logingoogle.form.wa.placeholder"
-        }
-      }
+      page_title: "auth.check_email.page_title",
     },
-    "email": {
-      "verify": {
-        "body": {
-          "intro": "auth.email.verify.body.intro"
+    confirm_logingoogle: {
+      error: {
+        name: {
+          invalid_char: "auth.confirm_logingoogle.error.name.invalid_char",
+          required: "auth.confirm_logingoogle.error.name.required",
         },
-        "cta": {
-          "button": "auth.email.verify.cta.button"
+        wa: {
+          duplicate: "auth.confirm_logingoogle.error.wa.duplicate",
+          format: "auth.confirm_logingoogle.error.wa.format",
+          required: "auth.confirm_logingoogle.error.wa.required",
         },
-        "footer": {
-          "disclaimer": "auth.email.verify.footer.disclaimer"
+      },
+      form: {
+        email: {
+          label: "auth.confirm_logingoogle.form.email.label",
         },
-        "heading": "auth.email.verify.heading",
-        "invalid_old_link": {
-          "message": "auth.email.verify.invalid_old_link.message",
-          "title": "auth.email.verify.invalid_old_link.title"
+        name: {
+          label: "auth.confirm_logingoogle.form.name.label",
+          placeholder: "auth.confirm_logingoogle.form.name.placeholder",
         },
-        "preheader": "auth.email.verify.preheader",
-        "subject": "auth.email.verify.subject",
-        "success": {
-          "cta": {
-            "home": "auth.email.verify.success.cta.home"
+        wa: {
+          label: "auth.confirm_logingoogle.form.wa.label",
+          placeholder: "auth.confirm_logingoogle.form.wa.placeholder",
+        },
+      },
+    },
+    email: {
+      verify: {
+        body: {
+          intro: "auth.email.verify.body.intro",
+        },
+        cta: {
+          button: "auth.email.verify.cta.button",
+        },
+        footer: {
+          disclaimer: "auth.email.verify.footer.disclaimer",
+        },
+        heading: "auth.email.verify.heading",
+        invalid_old_link: {
+          message: "auth.email.verify.invalid_old_link.message",
+          title: "auth.email.verify.invalid_old_link.title",
+        },
+        preheader: "auth.email.verify.preheader",
+        subject: "auth.email.verify.subject",
+        success: {
+          cta: {
+            home: "auth.email.verify.success.cta.home",
           },
-          "message": "auth.email.verify.success.message",
-          "title": "auth.email.verify.success.title"
-        }
-      }
-    },
-    "errors": {
-      "invalid_email": "auth.errors.invalid_email",
-      "user_not_found": "auth.errors.user_not_found",
-      "weak_password": "auth.errors.weak_password"
-    },
-    "expired": {
-      "cta": {
-        "button": "auth.expired.cta.button"
-      },
-      "message": {
-        "info": "auth.expired.message.info"
-      },
-      "page_title": "auth.expired.page_title",
-      "toast": {
-        "button": "auth.expired.toast.button",
-        "message": "auth.expired.toast.message",
-        "success": "auth.expired.toast.success",
-        "title": "auth.expired.toast.title"
-      }
-    },
-    "google_account_preview_privacy_link": "auth.google_account_preview_privacy_link",
-    "google_account_preview_terms_link": "auth.google_account_preview_terms_link",
-    "google_account_preview": {
-      "privacy_link": "auth.google_account_preview.privacy_link",
-      "terms_link": "auth.google_account_preview.terms_link"
-    },
-    "google_login": {
-      "success": {
-        "cta": "auth.google_login.success.cta"
-      }
-    },
-    "idle": {
-      "popup": {
-        "title": "auth.idle.popup.title",
-        "toast": {
-          "keepalive": {
-            "message": "auth.idle.popup.toast.keepalive.message",
-            "title": "auth.idle.popup.toast.keepalive.title"
-          }
-        }
-      }
-    },
-    "login_by_google_account": {
-      "error": {
-        "email": {
-          "autofill_failed": "auth.login_by_google_account.error.email.autofill_failed"
+          message: "auth.email.verify.success.message",
+          title: "auth.email.verify.success.title",
         },
-        "nama": {
-          "invalid_char": "auth.login_by_google_account.error.nama.invalid_char",
-          "max": "auth.login_by_google_account.error.nama.max",
-          "required": "auth.login_by_google_account.error.nama.required"
-        },
-        "tnc": {
-          "link_failed": "auth.login_by_google_account.error.tnc.link_failed",
-          "required": "auth.login_by_google_account.error.tnc.required"
-        },
-        "wa": {
-          "duplicate": "auth.login_by_google_account.error.wa.duplicate",
-          "format": "auth.login_by_google_account.error.wa.format",
-          "nondigit": "auth.login_by_google_account.error.wa.nondigit",
-          "required": "auth.login_by_google_account.error.wa.required"
-        }
       },
-      "form": {
-        "email": {
-          "label": "auth.login_by_google_account.form.email.label",
-          "placeholder": "auth.login_by_google_account.form.email.placeholder"
-        },
-        "nama": {
-          "label": "auth.login_by_google_account.form.nama.label",
-          "placeholder": "auth.login_by_google_account.form.nama.placeholder"
-        },
-        "submit": {
-          "button": "auth.login_by_google_account.form.submit.button"
-        },
-        "tnc": {
-          "checkbox": "auth.login_by_google_account.form.tnc.checkbox",
-          "link": "auth.login_by_google_account.form.tnc.link"
-        },
-        "wa": {
-          "label": "auth.login_by_google_account.form.wa.label",
-          "placeholder": "auth.login_by_google_account.form.wa.placeholder"
-        }
-      },
-      "page_title": "auth.login_by_google_account.page_title"
     },
-    "login_by_google": {
-      "banner": {
-        "whatsapp_required": {
-          "message": "auth.login_by_google.banner.whatsapp_required.message"
-        }
-      }
+    errors: {
+      invalid_email: "auth.errors.invalid_email",
+      user_not_found: "auth.errors.user_not_found",
+      weak_password: "auth.errors.weak_password",
     },
-    "login_google": {
-      "auth": {
-        "oauth_failed": {
-          "error": {
-            "btnclose": "auth.login_google.auth.oauth_failed.error.btnclose",
-            "message": "auth.login_google.auth.oauth_failed.error.message",
-            "title": "auth.login_google.auth.oauth_failed.error.title"
-          }
-        }
+    expired: {
+      cta: {
+        button: "auth.expired.cta.button",
       },
-      "idconfirm": {
-        "cta_cancel": "auth.login_google.idconfirm.cta_cancel",
-        "cta_confirm": "auth.login_google.idconfirm.cta_confirm",
-        "description": "auth.login_google.idconfirm.description",
-        "info_otp": "auth.login_google.idconfirm.info_otp",
-        "title": "auth.login_google.idconfirm.title"
+      message: {
+        info: "auth.expired.message.info",
       },
-      "register_from_google": {
-        "toast": {
-          "success": {
-            "message": "auth.login_google.register_from_google.toast.success.message",
-            "title": "auth.login_google.register_from_google.toast.success.title"
-          }
-        }
-      }
+      page_title: "auth.expired.page_title",
+      toast: {
+        button: "auth.expired.toast.button",
+        message: "auth.expired.toast.message",
+        success: "auth.expired.toast.success",
+        title: "auth.expired.toast.title",
+      },
     },
-    "login_invite": {
-      "banner": {
-        "title": "auth.login_invite.banner.title"
-      }
+    google_account_preview_privacy_link: "auth.google_account_preview_privacy_link",
+    google_account_preview_terms_link: "auth.google_account_preview_terms_link",
+    google_account_preview: {
+      privacy_link: "auth.google_account_preview.privacy_link",
+      terms_link: "auth.google_account_preview.terms_link",
     },
-    "login_page": {
-      "form": {
-        "button": {
-          "forgot_pass": "auth.login_page.form.button.forgot_pass"
-        }
-      }
+    google_login: {
+      success: {
+        cta: "auth.google_login.success.cta",
+      },
     },
-    "login": {
-      "banner": {
-        "error": {
-          "lockout": "auth.login.banner.error.lockout",
-          "mismatch": "auth.login.banner.error.mismatch"
-        }
-      },
-      "bannermessage": {
-        "session_expired_idle": "auth.login.bannermessage.session_expired_idle"
-      },
-      "bannertitle": {
-        "session_expired_idle": "auth.login.bannertitle.session_expired_idle"
-      },
-      "button": {
-        "forgot": "auth.login.button.forgot",
-        "session_expired_idle": "auth.login.button.session_expired_idle"
-      },
-      "form": {
-        "email_not_found": {
-          "error": "auth.login.form.email_not_found.error",
-          "password_security": {
-            "level_label": "auth.login.form.email_not_found.password_security.level_label",
-            "requirement_list_aria_label": "auth.login.form.email_not_found.password_security.requirement_list_aria_label",
-            "requirement": {
-              "lowercase": "auth.login.form.email_not_found.password_security.requirement.lowercase",
-              "minimum_length": "auth.login.form.email_not_found.password_security.requirement.minimum_length",
-              "number": "auth.login.form.email_not_found.password_security.requirement.number",
-              "symbol": "auth.login.form.email_not_found.password_security.requirement.symbol",
-              "uppercase": "auth.login.form.email_not_found.password_security.requirement.uppercase"
-            }
-          }
-        },
-        "email_wa": {
-          "errors": {
-            "empty": "auth.login.form.email_wa.errors.empty",
-            "format": "auth.login.form.email_wa.errors.format",
-            "not_found": "auth.login.form.email_wa.errors.not_found"
+    idle: {
+      popup: {
+        title: "auth.idle.popup.title",
+        toast: {
+          keepalive: {
+            message: "auth.idle.popup.toast.keepalive.message",
+            title: "auth.idle.popup.toast.keepalive.title",
           },
-          "label": "auth.login.form.email_wa.label",
-          "placeholder": "auth.login.form.email_wa.placeholder"
         },
-        "password_incorrect": {
-          "error": "auth.login.form.password_incorrect.error"
+      },
+    },
+    login_by_google_account: {
+      error: {
+        email: {
+          autofill_failed: "auth.login_by_google_account.error.email.autofill_failed",
         },
-        "password": {
-          "errors": {
-            "empty": "auth.login.form.password.errors.empty",
-            "mismatch": "auth.login.form.password.errors.mismatch"
+        nama: {
+          invalid_char: "auth.login_by_google_account.error.nama.invalid_char",
+          max: "auth.login_by_google_account.error.nama.max",
+          required: "auth.login_by_google_account.error.nama.required",
+        },
+        tnc: {
+          link_failed: "auth.login_by_google_account.error.tnc.link_failed",
+          required: "auth.login_by_google_account.error.tnc.required",
+        },
+        wa: {
+          duplicate: "auth.login_by_google_account.error.wa.duplicate",
+          format: "auth.login_by_google_account.error.wa.format",
+          nondigit: "auth.login_by_google_account.error.wa.nondigit",
+          required: "auth.login_by_google_account.error.wa.required",
+        },
+      },
+      form: {
+        email: {
+          label: "auth.login_by_google_account.form.email.label",
+          placeholder: "auth.login_by_google_account.form.email.placeholder",
+        },
+        nama: {
+          label: "auth.login_by_google_account.form.nama.label",
+          placeholder: "auth.login_by_google_account.form.nama.placeholder",
+        },
+        submit: {
+          button: "auth.login_by_google_account.form.submit.button",
+        },
+        tnc: {
+          checkbox: "auth.login_by_google_account.form.tnc.checkbox",
+          link: "auth.login_by_google_account.form.tnc.link",
+        },
+        wa: {
+          label: "auth.login_by_google_account.form.wa.label",
+          placeholder: "auth.login_by_google_account.form.wa.placeholder",
+        },
+      },
+      page_title: "auth.login_by_google_account.page_title",
+    },
+    login_by_google: {
+      banner: {
+        whatsapp_required: {
+          message: "auth.login_by_google.banner.whatsapp_required.message",
+        },
+      },
+    },
+    login_google: {
+      auth: {
+        oauth_failed: {
+          error: {
+            btnclose: "auth.login_google.auth.oauth_failed.error.btnclose",
+            message: "auth.login_google.auth.oauth_failed.error.message",
+            title: "auth.login_google.auth.oauth_failed.error.title",
           },
-          "label": "auth.login.form.password.label",
-          "placeholder": "auth.login.form.password.placeholder"
         },
-        "remember_me": {
-          "label": "auth.login.form.remember_me.label"
-        },
-        "submit": {
-          "button": "auth.login.form.submit.button",
-          "disabled": "auth.login.form.submit.disabled"
-        }
       },
-      "google_button": {
-        "label": "auth.login.google_button.label"
+      idconfirm: {
+        cta_cancel: "auth.login_google.idconfirm.cta_cancel",
+        cta_confirm: "auth.login_google.idconfirm.cta_confirm",
+        description: "auth.login_google.idconfirm.description",
+        info_otp: "auth.login_google.idconfirm.info_otp",
+        title: "auth.login_google.idconfirm.title",
       },
-      "google_popup": {
-        "loading": "auth.login.google_popup.loading"
-      },
-      "info": {
-        "cancelled": {
-          "subtitle": "auth.login.info.cancelled.subtitle",
-          "title": "auth.login.info.cancelled.title"
-        }
-      },
-      "or": "auth.login.or",
-      "page_title": "auth.login.page_title",
-      "register_prompt": {
-        "link": "auth.login.register_prompt.link",
-        "text": "auth.login.register_prompt.text"
-      },
-      "success": {
-        "home": {
-          "label": "auth.login.success.home.label"
-        },
-        "redirect": {
-          "message": "auth.login.success.redirect.message"
-        },
-        "return": {
-          "label": "auth.login.success.return.label"
-        }
-      },
-      "toast": {
-        "error": {
-          "global": {
-            "submit": "auth.login.toast.error.global.submit",
-            "title": "auth.login.toast.error.global.title"
-          }
-        },
-        "success": {
-          "google_message": "auth.login.toast.success.google_message",
-          "message": "auth.login.toast.success.message",
-          "title": "auth.login.toast.success.title"
-        }
-      },
-      "welcome": "auth.login.welcome"
-    },
-    "logout": {
-      "confirm": {
-        "button_no": "auth.logout.confirm.button_no",
-        "button_yes": "auth.logout.confirm.button_yes",
-        "message": "auth.logout.confirm.message",
-        "title": "auth.logout.confirm.title"
-      },
-      "confirmation": {
-        "button": {
-          "confirm": "auth.logout.confirmation.button.confirm"
-        },
-        "title": "auth.logout.confirmation.title"
-      },
-      "error": {
-        "network": "auth.logout.error.network"
-      },
-      "menu": {
-        "label": "auth.logout.menu.label"
-      },
-      "popup": {
-        "button": {
-          "cancel": "auth.logout.popup.button.cancel",
-          "confirm": "auth.logout.popup.button.confirm"
-        },
-        "error": {
-          "network_failure": "auth.logout.popup.error.network_failure"
-        },
-        "message": "auth.logout.popup.message",
-        "title": "auth.logout.popup.title"
-      },
-      "success": {
-        "toast": "auth.logout.success.toast"
-      }
-    },
-    "otp_whatsapp": {
-      "message": "auth.otp_whatsapp.message"
-    },
-    "otp": {
-      "error_locked": {
-        "banner": {
-          "message": "auth.otp.error_locked.banner.message",
-          "title": "auth.otp.error_locked.banner.title"
-        }
-      },
-      "error": {
-        "expired": "auth.otp.error.expired",
-        "invalid": "auth.otp.error.invalid",
-        "invalid_with_resend": "auth.otp.error.invalid_with_resend",
-        "lock": "auth.otp.error.lock"
-      },
-      "fallback": {
-        "change_meethod_wa": "auth.otp.fallback.change_meethod_wa",
-        "change_method": "auth.otp.fallback.change_method",
-        "sent_email": "auth.otp.fallback.sent_email"
-      },
-      "form": {
-        "instruction": "auth.otp.form.instruction",
-        "label": "auth.otp.form.label",
-        "placeholder": "auth.otp.form.placeholder",
-        "resend": {
-          "button": "auth.otp.form.resend.button",
-          "second": "auth.otp.form.resend.second"
-        }
-      },
-      "loading": {
-        "overlay": {
-          "label": "auth.otp.loading.overlay.label"
-        }
-      },
-      "page_title": "auth.otp.page_title",
-      "success": {
-        "toast": {
-          "message": "auth.otp.success.toast.message"
-        }
-      }
-    },
-    "popup_permission": {
-      "blocked": {
-        "title": "auth.popup_permission.blocked.title"
-      }
-    },
-    "popup": {
-      "button": {
-        "close": "auth.popup.button.close",
-        "extend": "auth.popup.button.extend",
-        "logout": "auth.popup.button.logout"
-      },
-      "message": "auth.popup.message",
-      "title": "auth.popup.title"
-    },
-    "register_invite": {
-      "banner": {
-        "title": "auth.register_invite.banner.title"
-      }
-    },
-    "register": {
-      "error": {
-        "email": {
-          "duplicate": "auth.register.error.email.duplicate",
-          "format": "auth.register.error.email.format",
-          "required": "auth.register.error.email.required"
-        },
-        "global": {
-          "submit": "auth.register.error.global.submit",
-          "title": "auth.register.error.global.title"
-        },
-        "name": {
-          "invalid_char": "auth.register.error.name.invalid_char",
-          "required": "auth.register.error.name.required"
-        },
-        "password": {
-          "common": "auth.register.error.password.common",
-          "confirm_required": "auth.register.error.password.confirm_required",
-          "guide": "auth.register.error.password.guide",
-          "medium": "auth.register.error.password.medium",
-          "mismatch": "auth.register.error.password.mismatch",
-          "required": "auth.register.error.password.required",
-          "strong": "auth.register.error.password.strong",
-          "too_short": "auth.register.error.password.too_short",
-          "weak": "auth.register.error.password.weak"
-        },
-        "terms": {
-          "required": "auth.register.error.terms.required"
-        },
-        "wa": {
-          "duplicate": "auth.register.error.wa.duplicate",
-          "format": "auth.register.error.wa.format",
-          "required": "auth.register.error.wa.required"
-        }
-      },
-      "form": {
-        "checkbox": {
-          "and": "auth.register.form.checkbox.and",
-          "privacy_policy": "auth.register.form.checkbox.privacy_policy",
-          "terms": "auth.register.form.checkbox.terms",
-          "terms_and_conditions": "auth.register.form.checkbox.terms_and_conditions"
-        },
-        "email": {
-          "label": "auth.register.form.email.label",
-          "placeholder": "auth.register.form.email.placeholder"
-        },
-        "name": {
-          "label": "auth.register.form.name.label",
-          "placeholder": "auth.register.form.name.placeholder"
-        },
-        "password": {
-          "confirm": {
-            "label": "auth.register.form.password.confirm.label"
+      register_from_google: {
+        toast: {
+          success: {
+            message: "auth.login_google.register_from_google.toast.success.message",
+            title: "auth.login_google.register_from_google.toast.success.title",
           },
-          "label": "auth.register.form.password.label",
-          "placeholder": "auth.register.form.password.placeholder"
         },
-        "submit": {
-          "button": "auth.register.form.submit.button"
-        },
-        "wa": {
-          "label": "auth.register.form.wa.label",
-          "placeholder": "auth.register.form.wa.placeholder"
-        }
       },
-      "page_title": "auth.register.page_title",
-      "password_security": {
-        "level_label": "auth.register.password_security.level_label",
-        "requirement_list_aria_label": "auth.register.password_security.requirement_list_aria_label",
-        "requirement": {
-          "lowercase": "auth.register.password_security.requirement.lowercase",
-          "minimum_length": "auth.register.password_security.requirement.minimum_length",
-          "number": "auth.register.password_security.requirement.number",
-          "symbol": "auth.register.password_security.requirement.symbol",
-          "uppercase": "auth.register.password_security.requirement.uppercase"
-        }
-      }
     },
-    "resend_email": {
-      "change_email": {
-        "cta": "auth.resend_email.change_email.cta"
+    login_invite: {
+      banner: {
+        title: "auth.login_invite.banner.title",
       },
-      "resend": {
-        "button": {
-          "disabled": "auth.resend_email.resend.button.disabled",
-          "enabled": "auth.resend_email.resend.button.enabled"
+    },
+    login_page: {
+      form: {
+        button: {
+          forgot_pass: "auth.login_page.form.button.forgot_pass",
         },
-        "limit": {
-          "message": "auth.resend_email.resend.limit.message",
-          "title": "auth.resend_email.resend.limit.title"
-        },
-        "success": {
-          "toast_message": "auth.resend_email.resend.success.toast_message",
-          "toast_title": "auth.resend_email.resend.success.toast_title"
-        }
-      }
-    },
-    "screen_privacy_mode": {
-      "title": "auth.screen_privacy_mode.title"
-    },
-    "session_pre_warning_72h": {
-      "modal": {
-        "description": "auth.session_pre_warning_72h.modal.description",
-        "title": "auth.session_pre_warning_72h.modal.title"
-      }
-    },
-    "session_pre_warning_google": {
-      "cta": {
-        "google": "auth.session_pre_warning_google.cta.google"
       },
-      "modal": {
-        "description": "auth.session_pre_warning_google.modal.description",
-        "title": "auth.session_pre_warning_google.modal.title"
-      }
     },
-    "session": {
-      "expired": {
-        "modal": {
-          "button": "auth.session.expired.modal.button",
-          "message": "auth.session.expired.modal.message"
-        }
-      }
-    },
-    "two_factor_authentication": {
-      "email": {
-        "verify": {
-          "invalid_old_email": {
-            "message": "auth.two_factor_authentication.email.verify.invalid_old_email.message",
-            "title": "auth.two_factor_authentication.email.verify.invalid_old_email.title"
-          },
-          "invalid_old_link": {
-            "message_1": "auth.two_factor_authentication.email.verify.invalid_old_link.message_1",
-            "message_2": "auth.two_factor_authentication.email.verify.invalid_old_link.message_2",
-            "message_highlight": "auth.two_factor_authentication.email.verify.invalid_old_link.message_highlight",
-            "title": "auth.two_factor_authentication.email.verify.invalid_old_link.title"
-          },
-          "success": {
-            "cta": {
-              "home": "auth.two_factor_authentication.email.verify.success.cta.home"
+    login: {
+      banner: {
+        error: {
+          lockout: "auth.login.banner.error.lockout",
+          mismatch: "auth.login.banner.error.mismatch",
+        },
+      },
+      bannermessage: {
+        session_expired_idle: "auth.login.bannermessage.session_expired_idle",
+      },
+      bannertitle: {
+        session_expired_idle: "auth.login.bannertitle.session_expired_idle",
+      },
+      button: {
+        forgot: "auth.login.button.forgot",
+        session_expired_idle: "auth.login.button.session_expired_idle",
+      },
+      form: {
+        email_not_found: {
+          error: "auth.login.form.email_not_found.error",
+          password_security: {
+            level_label: "auth.login.form.email_not_found.password_security.level_label",
+            requirement_list_aria_label:
+              "auth.login.form.email_not_found.password_security.requirement_list_aria_label",
+            requirement: {
+              lowercase: "auth.login.form.email_not_found.password_security.requirement.lowercase",
+              minimum_length:
+                "auth.login.form.email_not_found.password_security.requirement.minimum_length",
+              number: "auth.login.form.email_not_found.password_security.requirement.number",
+              symbol: "auth.login.form.email_not_found.password_security.requirement.symbol",
+              uppercase: "auth.login.form.email_not_found.password_security.requirement.uppercase",
             },
-            "message": "auth.two_factor_authentication.email.verify.success.message",
-            "title": "auth.two_factor_authentication.email.verify.success.title"
-          }
-        }
-      }
-    },
-    "ui": {
-      "dashboard": {
-        "action_audit_log": "auth.ui.dashboard.action_audit_log",
-        "action_invite_team": "auth.ui.dashboard.action_invite_team",
-        "action_manage_role": "auth.ui.dashboard.action_manage_role",
-        "card_access_desc": "auth.ui.dashboard.card_access_desc",
-        "card_access_status": "auth.ui.dashboard.card_access_status",
-        "card_access_title": "auth.ui.dashboard.card_access_title",
-        "card_accounting_desc": "auth.ui.dashboard.card_accounting_desc",
-        "card_accounting_status": "auth.ui.dashboard.card_accounting_status",
-        "card_accounting_title": "auth.ui.dashboard.card_accounting_title",
-        "card_cta": "auth.ui.dashboard.card_cta",
-        "hero_subtitle": "auth.ui.dashboard.hero_subtitle",
-        "hero_title": "auth.ui.dashboard.hero_title",
-        "last_action_prefix": "auth.ui.dashboard.last_action_prefix",
-        "section_subtitle": "auth.ui.dashboard.section_subtitle",
-        "section_title": "auth.ui.dashboard.section_title",
-        "welcome": "auth.ui.dashboard.welcome"
-      },
-      "login": {
-        "hide_password": "auth.ui.login.hide_password",
-        "show_password": "auth.ui.login.show_password"
-      },
-      "main_layout": {
-        "language_en_label": "auth.ui.main_layout.language_en_label",
-        "language_id_label": "auth.ui.main_layout.language_id_label",
-        "language_switcher_aria_label": "auth.ui.main_layout.language_switcher_aria_label",
-        "profile_menu_aria_label": "auth.ui.main_layout.profile_menu_aria_label"
-      }
-    },
-    "unregistered_google_account_cancel_button": "auth.unregistered_google_account_cancel_button",
-    "unregistered_google_account_create_account_button": "auth.unregistered_google_account_create_account_button",
-    "unregistered_google_account_message": "auth.unregistered_google_account_message",
-    "unregistered_google_account_title": "auth.unregistered_google_account_title",
-    "unregistered_google_account": {
-      "cancel_button": "auth.unregistered_google_account.cancel_button",
-      "create_account_button": "auth.unregistered_google_account.create_account_button",
-      "error_modal": {
-        "subtitle": "auth.unregistered_google_account.error_modal.subtitle",
-        "title": "auth.unregistered_google_account.error_modal.title"
-      },
-      "message": "auth.unregistered_google_account.message",
-      "page_title": "auth.unregistered_google_account.page_title"
-    },
-    "verification_issue_email": {
-      "cta_switch_wa": "auth.verification_issue_email.cta_switch_wa",
-      "lead": "auth.verification_issue_email.lead",
-      "page_title": "auth.verification_issue_email.page_title"
-    },
-    "verification_issue_wa": {
-      "cta_switch_email": "auth.verification_issue_wa.cta_switch_email",
-      "lead": "auth.verification_issue_wa.lead",
-      "page_title": "auth.verification_issue_wa.page_title"
-    },
-    "verification_limit_email": {
-      "button": {
-        "whatsapp": "auth.verification_limit_email.button.whatsapp"
-      },
-      "limit": {
-        "message": "auth.verification_limit_email.limit.message",
-        "message_subtitle": "auth.verification_limit_email.limit.message_subtitle",
-        "message_title": "auth.verification_limit_email.limit.message_title"
-      }
-    },
-    "verification_method": {
-      "button_continue": "auth.verification_method.button_continue",
-      "option_email": {
-        "desc": "auth.verification_method.option_email.desc",
-        "label": "auth.verification_method.option_email.label"
-      },
-      "option_whatsapp": {
-        "desc": "auth.verification_method.option_whatsapp.desc",
-        "label": "auth.verification_method.option_whatsapp.label"
-      },
-      "page_title": "auth.verification_method.page_title",
-      "section_title": "auth.verification_method.section_title"
-    },
-    "verification": {
-      "resend": {
-        "button": {
-          "label": "auth.verification.resend.button.label",
-          "success_message": "auth.verification.resend.button.success_message"
-        }
-      }
-    },
-    "verifikasi_wa": {
-      "change_wa": {
-        "cta": "auth.verifikasi_wa.change_wa.cta"
-      },
-      "resend": {
-        "button": {
-          "disabled": "auth.verifikasi_wa.resend.button.disabled",
-          "enabled": "auth.verifikasi_wa.resend.button.enabled"
+          },
         },
-        "limit": {
-          "message": "auth.verifikasi_wa.resend.limit.message",
-          "title": "auth.verifikasi_wa.resend.limit.title"
+        email_wa: {
+          errors: {
+            empty: "auth.login.form.email_wa.errors.empty",
+            format: "auth.login.form.email_wa.errors.format",
+            not_found: "auth.login.form.email_wa.errors.not_found",
+          },
+          label: "auth.login.form.email_wa.label",
+          placeholder: "auth.login.form.email_wa.placeholder",
         },
-        "success": {
-          "toast_message": "auth.verifikasi_wa.resend.success.toast_message",
-          "toast_title": "auth.verifikasi_wa.resend.success.toast_title"
-        }
-      }
+        password_incorrect: {
+          error: "auth.login.form.password_incorrect.error",
+        },
+        password: {
+          errors: {
+            empty: "auth.login.form.password.errors.empty",
+            mismatch: "auth.login.form.password.errors.mismatch",
+          },
+          label: "auth.login.form.password.label",
+          placeholder: "auth.login.form.password.placeholder",
+        },
+        remember_me: {
+          label: "auth.login.form.remember_me.label",
+        },
+        submit: {
+          button: "auth.login.form.submit.button",
+          disabled: "auth.login.form.submit.disabled",
+        },
+      },
+      google_button: {
+        label: "auth.login.google_button.label",
+      },
+      google_popup: {
+        loading: "auth.login.google_popup.loading",
+      },
+      info: {
+        cancelled: {
+          subtitle: "auth.login.info.cancelled.subtitle",
+          title: "auth.login.info.cancelled.title",
+        },
+      },
+      or: "auth.login.or",
+      page_title: "auth.login.page_title",
+      register_prompt: {
+        link: "auth.login.register_prompt.link",
+        text: "auth.login.register_prompt.text",
+      },
+      success: {
+        home: {
+          label: "auth.login.success.home.label",
+        },
+        redirect: {
+          message: "auth.login.success.redirect.message",
+        },
+        return: {
+          label: "auth.login.success.return.label",
+        },
+      },
+      toast: {
+        error: {
+          global: {
+            submit: "auth.login.toast.error.global.submit",
+            title: "auth.login.toast.error.global.title",
+          },
+        },
+        success: {
+          google_message: "auth.login.toast.success.google_message",
+          message: "auth.login.toast.success.message",
+          title: "auth.login.toast.success.title",
+        },
+      },
+      welcome: "auth.login.welcome",
     },
-    "verify": {
-      "error": {
-        "limit_reached": "auth.verify.error.limit_reached",
-        "limit_reached_subtitle": "auth.verify.error.limit_reached_subtitle",
-        "limit_reached_title": "auth.verify.error.limit_reached_title",
-        "locked": "auth.verify.error.locked"
+    logout: {
+      confirm: {
+        button_no: "auth.logout.confirm.button_no",
+        button_yes: "auth.logout.confirm.button_yes",
+        message: "auth.logout.confirm.message",
+        title: "auth.logout.confirm.title",
       },
-      "success": {
-        "cta": "auth.verify.success.cta",
-        "message": "auth.verify.success.message",
-        "redirect": "auth.verify.success.redirect",
-        "success_title": "auth.verify.success.success_title",
-        "title": "auth.verify.success.title",
-        "toast": {
-          "message": "auth.verify.success.toast.message",
-          "title": "auth.verify.success.toast.title"
-        }
+      confirmation: {
+        button: {
+          confirm: "auth.logout.confirmation.button.confirm",
+        },
+        title: "auth.logout.confirmation.title",
       },
-      "toast": {
-        "resend_success": "auth.verify.toast.resend_success"
-      }
-    }
-  },
-  "business_unit": {
-    "bu_detail": {
-      "edit": {
-        "form": {
-          "address": {
-            "label": "business_unit.bu_detail.edit.form.address.label",
-            "placeholder": "business_unit.bu_detail.edit.form.address.placeholder"
-          },
-          "city": {
-            "label": "business_unit.bu_detail.edit.form.city.label",
-            "placeholder": "business_unit.bu_detail.edit.form.city.placeholder"
-          },
-          "district": {
-            "label": "business_unit.bu_detail.edit.form.district.label",
-            "placeholder": "business_unit.bu_detail.edit.form.district.placeholder"
-          },
-          "email": {
-            "label": "business_unit.bu_detail.edit.form.email.label",
-            "placeholder": "business_unit.bu_detail.edit.form.email.placeholder"
-          },
-          "name": {
-            "label": "business_unit.bu_detail.edit.form.name.label",
-            "placeholder": "business_unit.bu_detail.edit.form.name.placeholder"
-          },
-          "nib": {
-            "label": "business_unit.bu_detail.edit.form.nib.label",
-            "placeholder": "business_unit.bu_detail.edit.form.nib.placeholder"
-          },
-          "npwp": {
-            "label": "business_unit.bu_detail.edit.form.npwp.label",
-            "placeholder": "business_unit.bu_detail.edit.form.npwp.placeholder"
-          },
-          "opening_date": {
-            "label": "business_unit.bu_detail.edit.form.opening_date.label",
-            "placeholder": "business_unit.bu_detail.edit.form.opening_date.placeholder"
-          },
-          "phone": {
-            "label": "business_unit.bu_detail.edit.form.phone.label",
-            "placeholder": "business_unit.bu_detail.edit.form.phone.placeholder"
-          },
-          "province": {
-            "label": "business_unit.bu_detail.edit.form.province.label",
-            "placeholder": "business_unit.bu_detail.edit.form.province.placeholder"
-          },
-          "type": {
-            "label": "business_unit.bu_detail.edit.form.type.label",
-            "placeholder": "business_unit.bu_detail.edit.form.type.placeholder"
-          },
-          "village": {
-            "label": "business_unit.bu_detail.edit.form.village.label",
-            "placeholder": "business_unit.bu_detail.edit.form.village.placeholder"
-          }
-        }
-      }
+      error: {
+        network: "auth.logout.error.network",
+      },
+      menu: {
+        label: "auth.logout.menu.label",
+      },
+      popup: {
+        button: {
+          cancel: "auth.logout.popup.button.cancel",
+          confirm: "auth.logout.popup.button.confirm",
+        },
+        error: {
+          network_failure: "auth.logout.popup.error.network_failure",
+        },
+        message: "auth.logout.popup.message",
+        title: "auth.logout.popup.title",
+      },
+      success: {
+        toast: "auth.logout.success.toast",
+      },
     },
-    "business_unit_detail": {
-      "button": {
-        "deactivate": "business_unit.business_unit_detail.button.deactivate"
-      },
-      "label": {
-        "active": "business_unit.business_unit_detail.label.active",
-        "address": "business_unit.business_unit_detail.label.address",
-        "bookkeeping_date": "business_unit.business_unit_detail.label.bookkeeping_date",
-        "business_type": "business_unit.business_unit_detail.label.business_type",
-        "email": "business_unit.business_unit_detail.label.email",
-        "phone_number": "business_unit.business_unit_detail.label.phone_number"
-      },
-      "title": "business_unit.business_unit_detail.title"
+    otp_whatsapp: {
+      message: "auth.otp_whatsapp.message",
     },
-    "business_unit_list": {
-      "button": {
-        "add_business_unit": "business_unit.business_unit_list.button.add_business_unit"
+    otp: {
+      error_locked: {
+        banner: {
+          message: "auth.otp.error_locked.banner.message",
+          title: "auth.otp.error_locked.banner.title",
+        },
       },
-      "empty_state": {
-        "no_business_unit": "business_unit.business_unit_list.empty_state.no_business_unit",
-        "no_data": "business_unit.business_unit_list.empty_state.no_data"
+      error: {
+        expired: "auth.otp.error.expired",
+        invalid: "auth.otp.error.invalid",
+        invalid_with_resend: "auth.otp.error.invalid_with_resend",
+        lock: "auth.otp.error.lock",
       },
-      "label": {
-        "branch": "business_unit.business_unit_list.label.branch",
-        "factory": "business_unit.business_unit_list.label.factory",
-        "outlet": "business_unit.business_unit_list.label.outlet"
+      fallback: {
+        change_meethod_wa: "auth.otp.fallback.change_meethod_wa",
+        change_method: "auth.otp.fallback.change_method",
+        sent_email: "auth.otp.fallback.sent_email",
       },
-      "search": {
-        "placeholder": "business_unit.business_unit_list.search.placeholder"
+      form: {
+        instruction: "auth.otp.form.instruction",
+        label: "auth.otp.form.label",
+        placeholder: "auth.otp.form.placeholder",
+        resend: {
+          button: "auth.otp.form.resend.button",
+          second: "auth.otp.form.resend.second",
+        },
       },
-      "title": "business_unit.business_unit_list.title"
+      loading: {
+        overlay: {
+          label: "auth.otp.loading.overlay.label",
+        },
+      },
+      page_title: "auth.otp.page_title",
+      success: {
+        toast: {
+          message: "auth.otp.success.toast.message",
+        },
+      },
     },
-    "business_unit_profile": {
-      "button": {
-        "edit": "business_unit.business_unit_profile.button.edit"
+    popup_permission: {
+      blocked: {
+        title: "auth.popup_permission.blocked.title",
       },
-      "label": {
-        "address": "business_unit.business_unit_profile.label.address",
-        "business_type": "business_unit.business_unit_profile.label.business_type",
-        "business_unit_creation_date": "business_unit.business_unit_profile.label.business_unit_creation_date",
-        "business_unit_identity": "business_unit.business_unit_profile.label.business_unit_identity",
-        "business_unit_name": "business_unit.business_unit_profile.label.business_unit_name",
-        "city_or_regency": "business_unit.business_unit_profile.label.city_or_regency",
-        "contact": "business_unit.business_unit_profile.label.contact",
-        "district": "business_unit.business_unit_profile.label.district",
-        "email": "business_unit.business_unit_profile.label.email",
-        "full_address": "business_unit.business_unit_profile.label.full_address",
-        "legal_and_administration": "business_unit.business_unit_profile.label.legal_and_administration",
-        "logo": "business_unit.business_unit_profile.label.logo",
-        "nib": "business_unit.business_unit_profile.label.nib",
-        "npwpd": "business_unit.business_unit_profile.label.npwpd",
-        "phone_number": "business_unit.business_unit_profile.label.phone_number",
-        "province": "business_unit.business_unit_profile.label.province",
-        "subdistrict": "business_unit.business_unit_profile.label.subdistrict",
-        "whatsapp_number": "business_unit.business_unit_profile.label.whatsapp_number"
-      },
-      "title": "business_unit.business_unit_profile.title"
     },
-    "company_detail": {
-      "bu_add": {
-        "form": {
-          "address": {
-            "label": "business_unit.company_detail.bu_add.form.address.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.address.placeholder"
-          },
-          "bu_logo": {
-            "label": "business_unit.company_detail.bu_add.form.bu_logo.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.bu_logo.placeholder"
-          },
-          "city": {
-            "label": "business_unit.company_detail.bu_add.form.city.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.city.placeholder"
-          },
-          "district": {
-            "label": "business_unit.company_detail.bu_add.form.district.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.district.placeholder"
-          },
-          "email": {
-            "label": "business_unit.company_detail.bu_add.form.email.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.email.placeholder"
-          },
-          "name": {
-            "label": "business_unit.company_detail.bu_add.form.name.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.name.placeholder"
-          },
-          "nib": {
-            "label": "business_unit.company_detail.bu_add.form.nib.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.nib.placeholder"
-          },
-          "npwpd": {
-            "label": "business_unit.company_detail.bu_add.form.npwpd.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.npwpd.placeholder"
-          },
-          "opening_date": {
-            "label": "business_unit.company_detail.bu_add.form.opening_date.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.opening_date.placeholder"
-          },
-          "phone": {
-            "label": "business_unit.company_detail.bu_add.form.phone.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.phone.placeholder"
-          },
-          "province": {
-            "label": "business_unit.company_detail.bu_add.form.province.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.province.placeholder"
-          },
-          "type": {
-            "label": "business_unit.company_detail.bu_add.form.type.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.type.placeholder"
-          },
-          "village": {
-            "label": "business_unit.company_detail.bu_add.form.village.label",
-            "placeholder": "business_unit.company_detail.bu_add.form.village.placeholder"
-          }
-        },
-        "modal": {
-          "title": "business_unit.company_detail.bu_add.modal.title"
-        },
-        "section": {
-          "title": "business_unit.company_detail.bu_add.section.title"
-        }
-      }
+    popup: {
+      button: {
+        close: "auth.popup.button.close",
+        extend: "auth.popup.button.extend",
+        logout: "auth.popup.button.logout",
+      },
+      message: "auth.popup.message",
+      title: "auth.popup.title",
     },
-    "error": {
-      "name": {
-        "duplicate": "business_unit.error.name.duplicate"
-      }
+    register_invite: {
+      banner: {
+        title: "auth.register_invite.banner.title",
+      },
     },
-    "unit": {
-      "delete": {
-        "confirm": {
-          "cancel": {
-            "button": "business_unit.unit.delete.confirm.cancel.button"
-          },
-          "delete": {
-            "button": "business_unit.unit.delete.confirm.delete.button"
-          },
-          "error": {
-            "empty": "business_unit.unit.delete.confirm.error.empty",
-            "min": "business_unit.unit.delete.confirm.error.min",
-            "mismatch": "business_unit.unit.delete.confirm.error.mismatch"
-          },
-          "input": {
-            "label": "business_unit.unit.delete.confirm.input.label",
-            "placeholder": "business_unit.unit.delete.confirm.input.placeholder"
-          },
-          "instruction": "business_unit.unit.delete.confirm.instruction",
-          "title": "business_unit.unit.delete.confirm.title"
+    register: {
+      error: {
+        email: {
+          duplicate: "auth.register.error.email.duplicate",
+          format: "auth.register.error.email.format",
+          required: "auth.register.error.email.required",
         },
-        "error": {
-          "fallback": {
-            "description": "business_unit.unit.delete.error.fallback.description",
-            "title": "business_unit.unit.delete.error.fallback.title"
-          }
+        global: {
+          submit: "auth.register.error.global.submit",
+          title: "auth.register.error.global.title",
         },
-        "impact": {
-          "agree": {
-            "button": "business_unit.unit.delete.impact.agree.button"
-          },
-          "alternative": "business_unit.unit.delete.impact.alternative",
-          "cancel": {
-            "button": "business_unit.unit.delete.impact.cancel.button"
-          },
-          "description": "business_unit.unit.delete.impact.description",
-          "permanent": "business_unit.unit.delete.impact.permanent",
-          "title": "business_unit.unit.delete.impact.title",
-          "transaction_block": "business_unit.unit.delete.impact.transaction_block"
+        name: {
+          invalid_char: "auth.register.error.name.invalid_char",
+          required: "auth.register.error.name.required",
         },
-        "success": {
-          "toast": "business_unit.unit.delete.success.toast"
-        }
+        password: {
+          common: "auth.register.error.password.common",
+          confirm_required: "auth.register.error.password.confirm_required",
+          guide: "auth.register.error.password.guide",
+          medium: "auth.register.error.password.medium",
+          mismatch: "auth.register.error.password.mismatch",
+          required: "auth.register.error.password.required",
+          strong: "auth.register.error.password.strong",
+          too_short: "auth.register.error.password.too_short",
+          weak: "auth.register.error.password.weak",
+        },
+        terms: {
+          required: "auth.register.error.terms.required",
+        },
+        wa: {
+          duplicate: "auth.register.error.wa.duplicate",
+          format: "auth.register.error.wa.format",
+          required: "auth.register.error.wa.required",
+        },
       },
-      "detail": {
-        "action": {
-          "deactivate": {
-            "label": "business_unit.unit.detail.action.deactivate.label"
+      form: {
+        checkbox: {
+          and: "auth.register.form.checkbox.and",
+          privacy_policy: "auth.register.form.checkbox.privacy_policy",
+          terms: "auth.register.form.checkbox.terms",
+          terms_and_conditions: "auth.register.form.checkbox.terms_and_conditions",
+        },
+        email: {
+          label: "auth.register.form.email.label",
+          placeholder: "auth.register.form.email.placeholder",
+        },
+        name: {
+          label: "auth.register.form.name.label",
+          placeholder: "auth.register.form.name.placeholder",
+        },
+        password: {
+          confirm: {
+            label: "auth.register.form.password.confirm.label",
           },
-          "delete": {
-            "label": "business_unit.unit.detail.action.delete.label"
-          }
-        }
-      }
-    }
-  },
-  "common": {
-    "app_powered": "common.app_powered",
-    "app_shell": {
-      "menu": {
-        "chart_of_account": "common.app_shell.menu.chart_of_account",
-        "dashboard": "common.app_shell.menu.dashboard"
-      }
+          label: "auth.register.form.password.label",
+          placeholder: "auth.register.form.password.placeholder",
+        },
+        submit: {
+          button: "auth.register.form.submit.button",
+        },
+        wa: {
+          label: "auth.register.form.wa.label",
+          placeholder: "auth.register.form.wa.placeholder",
+        },
+      },
+      page_title: "auth.register.page_title",
+      password_security: {
+        level_label: "auth.register.password_security.level_label",
+        requirement_list_aria_label: "auth.register.password_security.requirement_list_aria_label",
+        requirement: {
+          lowercase: "auth.register.password_security.requirement.lowercase",
+          minimum_length: "auth.register.password_security.requirement.minimum_length",
+          number: "auth.register.password_security.requirement.number",
+          symbol: "auth.register.password_security.requirement.symbol",
+          uppercase: "auth.register.password_security.requirement.uppercase",
+        },
+      },
     },
-    "app_title": "common.app_title"
-  },
-  "company_add": {
-    "cancel_dialog": {
-      "back_to_form": {
-        "button": "company_add.cancel_dialog.back_to_form.button"
+    resend_email: {
+      change_email: {
+        cta: "auth.resend_email.change_email.cta",
       },
-      "confirm_cancel": {
-        "button": "company_add.cancel_dialog.confirm_cancel.button"
+      resend: {
+        button: {
+          disabled: "auth.resend_email.resend.button.disabled",
+          enabled: "auth.resend_email.resend.button.enabled",
+        },
+        limit: {
+          message: "auth.resend_email.resend.limit.message",
+          title: "auth.resend_email.resend.limit.title",
+        },
+        success: {
+          toast_message: "auth.resend_email.resend.success.toast_message",
+          toast_title: "auth.resend_email.resend.success.toast_title",
+        },
       },
-      "description": "company_add.cancel_dialog.description",
-      "title": "company_add.cancel_dialog.title",
-      "toast": {
-        "message": "company_add.cancel_dialog.toast.message",
-        "title": "company_add.cancel_dialog.toast.title"
-      }
     },
-    "form": {
-      "cancel": {
-        "button": "company_add.form.cancel.button"
-      },
-      "submit": {
-        "button": "company_add.form.submit.button"
-      }
+    screen_privacy_mode: {
+      title: "auth.screen_privacy_mode.title",
     },
-    "toast": {
-      "success": "company_add.toast.success"
+    session_pre_warning_72h: {
+      modal: {
+        description: "auth.session_pre_warning_72h.modal.description",
+        title: "auth.session_pre_warning_72h.modal.title",
+      },
     },
-    "toasttitle": {
-      "success": "company_add.toasttitle.success"
-    }
-  },
-  "company_and_workspace": {
-    "detail_workspace": {
-      "edit": {
-        "label": "company_and_workspace.detail_workspace.edit.label",
-        "title": "company_and_workspace.detail_workspace.edit.title"
-      }
+    session_pre_warning_google: {
+      cta: {
+        google: "auth.session_pre_warning_google.cta.google",
+      },
+      modal: {
+        description: "auth.session_pre_warning_google.modal.description",
+        title: "auth.session_pre_warning_google.modal.title",
+      },
     },
-    "list_workspace": {
-      "modal": {
-        "label": "company_and_workspace.list_workspace.modal.label",
-        "placeholder": "company_and_workspace.list_workspace.modal.placeholder",
-        "title": "company_and_workspace.list_workspace.modal.title"
-      }
+    session: {
+      expired: {
+        modal: {
+          button: "auth.session.expired.modal.button",
+          message: "auth.session.expired.modal.message",
+        },
+      },
     },
-    "listcompany": {
-      "header": {
-        "title": "company_and_workspace.listcompany.header.title"
-      }
-    },
-    "listrk": {
-      "header": {
-        "title": "company_and_workspace.listrk.header.title"
-      }
-    },
-    "onboarding": {
-      "business_unit": {
-        "add": {
-          "bu_name": {
-            "label": "company_and_workspace.onboarding.business_unit.add.bu_name.label",
-            "placeholder": "company_and_workspace.onboarding.business_unit.add.bu_name.placeholder"
+    two_factor_authentication: {
+      email: {
+        verify: {
+          invalid_old_email: {
+            message: "auth.two_factor_authentication.email.verify.invalid_old_email.message",
+            title: "auth.two_factor_authentication.email.verify.invalid_old_email.title",
           },
-          "bu_type": {
-            "label": "company_and_workspace.onboarding.business_unit.add.bu_type.label",
-            "placeholder": "company_and_workspace.onboarding.business_unit.add.bu_type.placeholder"
-          }
-        },
-        "desc": "company_and_workspace.onboarding.business_unit.desc",
-        "label": "company_and_workspace.onboarding.business_unit.label",
-        "name": {
-          "error": {
-            "format": "company_and_workspace.onboarding.business_unit.name.error.format",
-            "min_length": "company_and_workspace.onboarding.business_unit.name.error.min_length"
+          invalid_old_link: {
+            message_1: "auth.two_factor_authentication.email.verify.invalid_old_link.message_1",
+            message_2: "auth.two_factor_authentication.email.verify.invalid_old_link.message_2",
+            message_highlight:
+              "auth.two_factor_authentication.email.verify.invalid_old_link.message_highlight",
+            title: "auth.two_factor_authentication.email.verify.invalid_old_link.title",
           },
-          "info": {
-            "max_length": "company_and_workspace.onboarding.business_unit.name.info.max_length"
-          }
-        },
-        "title": "company_and_workspace.onboarding.business_unit.title"
-      },
-      "company": {
-        "add": {
-          "business_type": {
-            "label": "company_and_workspace.onboarding.company.add.business_type.label",
-            "placeholder": "company_and_workspace.onboarding.company.add.business_type.placeholder"
-          },
-          "company_name": {
-            "label": "company_and_workspace.onboarding.company.add.company_name.label",
-            "placeholder": "company_and_workspace.onboarding.company.add.company_name.placeholder"
-          },
-          "country": {
-            "label": "company_and_workspace.onboarding.company.add.country.label",
-            "placeholder": "company_and_workspace.onboarding.company.add.country.placeholder"
-          },
-          "currency": {
-            "label": "company_and_workspace.onboarding.company.add.currency.label",
-            "placeholder": "company_and_workspace.onboarding.company.add.currency.placeholder"
-          }
-        },
-        "business_type": {
-          "error": {
-            "required": "company_and_workspace.onboarding.company.business_type.error.required"
-          }
-        },
-        "country": {
-          "error": {
-            "required": "company_and_workspace.onboarding.company.country.error.required"
-          }
-        },
-        "currency": {
-          "error": {
-            "required": "company_and_workspace.onboarding.company.currency.error.required"
-          }
-        },
-        "desc": "company_and_workspace.onboarding.company.desc",
-        "label": "company_and_workspace.onboarding.company.label",
-        "name": {
-          "error": {
-            "duplicate": "company_and_workspace.onboarding.company.name.error.duplicate",
-            "format": "company_and_workspace.onboarding.company.name.error.format",
-            "min_length": "company_and_workspace.onboarding.company.name.error.min_length",
-            "required": "company_and_workspace.onboarding.company.name.error.required"
-          },
-          "info": {
-            "max_length": "company_and_workspace.onboarding.company.name.info.max_length"
-          }
-        },
-        "title": "company_and_workspace.onboarding.company.title"
-      },
-      "navigation": {
-        "back": {
-          "button": "company_and_workspace.onboarding.navigation.back.button"
-        },
-        "next": {
-          "button": "company_and_workspace.onboarding.navigation.next.button"
-        }
-      },
-      "preview": {
-        "data": {
-          "business_type": {
-            "label": "company_and_workspace.onboarding.preview.data.business_type.label"
-          },
-          "business_unit_name": {
-            "label": "company_and_workspace.onboarding.preview.data.business_unit_name.label"
-          },
-          "business_unit_type": {
-            "label": "company_and_workspace.onboarding.preview.data.business_unit_type.label"
-          },
-          "company_name": {
-            "label": "company_and_workspace.onboarding.preview.data.company_name.label"
-          },
-          "country_currency": {
-            "label": "company_and_workspace.onboarding.preview.data.country_currency.label"
-          },
-          "workspace_name": {
-            "label": "company_and_workspace.onboarding.preview.data.workspace_name.label"
-          }
-        },
-        "info": {
-          "note": "company_and_workspace.onboarding.preview.info.note"
-        },
-        "page_content": {
-          "intro": "company_and_workspace.onboarding.preview.page_content.intro"
-        },
-        "page_title": "company_and_workspace.onboarding.preview.page_title"
-      },
-      "start": {
-        "cta": {
-          "button": "company_and_workspace.onboarding.start.cta.button"
-        },
-        "page_content": "company_and_workspace.onboarding.start.page_content",
-        "page_title": "company_and_workspace.onboarding.start.page_title"
-      },
-      "structure": {
-        "page_content": "company_and_workspace.onboarding.structure.page_content",
-        "page_title": "company_and_workspace.onboarding.structure.page_title"
-      },
-      "success": {
-        "cta": {
-          "button": "company_and_workspace.onboarding.success.cta.button"
-        },
-        "page_content": "company_and_workspace.onboarding.success.page_content",
-        "page_title": "company_and_workspace.onboarding.success.page_title"
-      },
-      "welcome": {
-        "page_content": "company_and_workspace.onboarding.welcome.page_content",
-        "page_title": "company_and_workspace.onboarding.welcome.page_title"
-      },
-      "workspace": {
-        "add": {
-          "label": "company_and_workspace.onboarding.workspace.add.label",
-          "placeholder": "company_and_workspace.onboarding.workspace.add.placeholder"
-        },
-        "desc": "company_and_workspace.onboarding.workspace.desc",
-        "label": "company_and_workspace.onboarding.workspace.label",
-        "name": {
-          "error": {
-            "duplicate": "company_and_workspace.onboarding.workspace.name.error.duplicate",
-            "format": "company_and_workspace.onboarding.workspace.name.error.format",
-            "min_length": "company_and_workspace.onboarding.workspace.name.error.min_length",
-            "required": "company_and_workspace.onboarding.workspace.name.error.required"
-          },
-          "info": {
-            "max_length": "company_and_workspace.onboarding.workspace.name.info.max_length"
-          }
-        },
-        "title": "company_and_workspace.onboarding.workspace.title"
-      }
-    },
-    "workspace": {
-      "create": {
-        "action": {
-          "cancel": {
-            "button": "company_and_workspace.workspace.create.action.cancel.button"
-          },
-          "submit": {
-            "button": "company_and_workspace.workspace.create.action.submit.button"
-          }
-        },
-        "form": {
-          "name": {
-            "error": {
-              "duplicate": "company_and_workspace.workspace.create.form.name.error.duplicate",
-              "invalid_format": "company_and_workspace.workspace.create.form.name.error.invalid_format",
-              "max_length": "company_and_workspace.workspace.create.form.name.error.max_length",
-              "min_length": "company_and_workspace.workspace.create.form.name.error.min_length",
-              "required": "company_and_workspace.workspace.create.form.name.error.required"
+          success: {
+            cta: {
+              home: "auth.two_factor_authentication.email.verify.success.cta.home",
             },
-            "label": "company_and_workspace.workspace.create.form.name.label",
-            "placeholder": "company_and_workspace.workspace.create.form.name.placeholder"
-          }
-        },
-        "modal": {
-          "title": "company_and_workspace.workspace.create.modal.title"
-        },
-        "name": {
-          "info": {
-            "max_length": "company_and_workspace.workspace.create.name.info.max_length"
-          }
-        },
-        "toast": {
-          "success": {
-            "message": "company_and_workspace.workspace.create.toast.success.message",
-            "title": "company_and_workspace.workspace.create.toast.success.title"
-          }
-        }
-      },
-      "delete": {
-        "action": {
-          "cancel": {
-            "button": "company_and_workspace.workspace.delete.action.cancel.button"
+            message: "auth.two_factor_authentication.email.verify.success.message",
+            title: "auth.two_factor_authentication.email.verify.success.title",
           },
-          "confirm": {
-            "button": "company_and_workspace.workspace.delete.action.confirm.button"
-          }
         },
-        "checkbox": {
-          "confirmation": "company_and_workspace.workspace.delete.checkbox.confirmation"
-        },
-        "form": {
-          "confirmation": {
-            "label": "company_and_workspace.workspace.delete.form.confirmation.label",
-            "placeholder": "company_and_workspace.workspace.delete.form.confirmation.placeholder"
-          }
-        },
-        "modal": {
-          "description": "company_and_workspace.workspace.delete.modal.description",
-          "title": "company_and_workspace.workspace.delete.modal.title"
-        }
       },
-      "edit": {
-        "action": {
-          "cancel": {
-            "button": "company_and_workspace.workspace.edit.action.cancel.button"
-          },
-          "submit": {
-            "button": "company_and_workspace.workspace.edit.action.submit.button"
-          }
+    },
+    ui: {
+      dashboard: {
+        action_audit_log: "auth.ui.dashboard.action_audit_log",
+        action_invite_team: "auth.ui.dashboard.action_invite_team",
+        action_manage_role: "auth.ui.dashboard.action_manage_role",
+        card_access_desc: "auth.ui.dashboard.card_access_desc",
+        card_access_status: "auth.ui.dashboard.card_access_status",
+        card_access_title: "auth.ui.dashboard.card_access_title",
+        card_accounting_desc: "auth.ui.dashboard.card_accounting_desc",
+        card_accounting_status: "auth.ui.dashboard.card_accounting_status",
+        card_accounting_title: "auth.ui.dashboard.card_accounting_title",
+        card_cta: "auth.ui.dashboard.card_cta",
+        hero_subtitle: "auth.ui.dashboard.hero_subtitle",
+        hero_title: "auth.ui.dashboard.hero_title",
+        last_action_prefix: "auth.ui.dashboard.last_action_prefix",
+        section_subtitle: "auth.ui.dashboard.section_subtitle",
+        section_title: "auth.ui.dashboard.section_title",
+        welcome: "auth.ui.dashboard.welcome",
+      },
+      login: {
+        hide_password: "auth.ui.login.hide_password",
+        show_password: "auth.ui.login.show_password",
+      },
+      main_layout: {
+        language_en_label: "auth.ui.main_layout.language_en_label",
+        language_id_label: "auth.ui.main_layout.language_id_label",
+        language_switcher_aria_label: "auth.ui.main_layout.language_switcher_aria_label",
+        profile_menu_aria_label: "auth.ui.main_layout.profile_menu_aria_label",
+      },
+    },
+    unregistered_google_account_cancel_button: "auth.unregistered_google_account_cancel_button",
+    unregistered_google_account_create_account_button:
+      "auth.unregistered_google_account_create_account_button",
+    unregistered_google_account_message: "auth.unregistered_google_account_message",
+    unregistered_google_account_title: "auth.unregistered_google_account_title",
+    unregistered_google_account: {
+      cancel_button: "auth.unregistered_google_account.cancel_button",
+      create_account_button: "auth.unregistered_google_account.create_account_button",
+      error_modal: {
+        subtitle: "auth.unregistered_google_account.error_modal.subtitle",
+        title: "auth.unregistered_google_account.error_modal.title",
+      },
+      message: "auth.unregistered_google_account.message",
+      page_title: "auth.unregistered_google_account.page_title",
+    },
+    verification_issue_email: {
+      cta_switch_wa: "auth.verification_issue_email.cta_switch_wa",
+      lead: "auth.verification_issue_email.lead",
+      page_title: "auth.verification_issue_email.page_title",
+    },
+    verification_issue_wa: {
+      cta_switch_email: "auth.verification_issue_wa.cta_switch_email",
+      lead: "auth.verification_issue_wa.lead",
+      page_title: "auth.verification_issue_wa.page_title",
+    },
+    verification_limit_email: {
+      button: {
+        whatsapp: "auth.verification_limit_email.button.whatsapp",
+      },
+      limit: {
+        message: "auth.verification_limit_email.limit.message",
+        message_subtitle: "auth.verification_limit_email.limit.message_subtitle",
+        message_title: "auth.verification_limit_email.limit.message_title",
+      },
+    },
+    verification_method: {
+      button_continue: "auth.verification_method.button_continue",
+      option_email: {
+        desc: "auth.verification_method.option_email.desc",
+        label: "auth.verification_method.option_email.label",
+      },
+      option_whatsapp: {
+        desc: "auth.verification_method.option_whatsapp.desc",
+        label: "auth.verification_method.option_whatsapp.label",
+      },
+      page_title: "auth.verification_method.page_title",
+      section_title: "auth.verification_method.section_title",
+    },
+    verification: {
+      resend: {
+        button: {
+          label: "auth.verification.resend.button.label",
+          success_message: "auth.verification.resend.button.success_message",
         },
-        "form": {
-          "name": {
-            "error": {
-              "duplicate": "company_and_workspace.workspace.edit.form.name.error.duplicate",
-              "invalid_format": "company_and_workspace.workspace.edit.form.name.error.invalid_format",
-              "max_length": "company_and_workspace.workspace.edit.form.name.error.max_length",
-              "min_length": "company_and_workspace.workspace.edit.form.name.error.min_length",
-              "required": "company_and_workspace.workspace.edit.form.name.error.required"
+      },
+    },
+    verifikasi_wa: {
+      change_wa: {
+        cta: "auth.verifikasi_wa.change_wa.cta",
+      },
+      resend: {
+        button: {
+          disabled: "auth.verifikasi_wa.resend.button.disabled",
+          enabled: "auth.verifikasi_wa.resend.button.enabled",
+        },
+        limit: {
+          message: "auth.verifikasi_wa.resend.limit.message",
+          title: "auth.verifikasi_wa.resend.limit.title",
+        },
+        success: {
+          toast_message: "auth.verifikasi_wa.resend.success.toast_message",
+          toast_title: "auth.verifikasi_wa.resend.success.toast_title",
+        },
+      },
+    },
+    verify: {
+      error: {
+        limit_reached: "auth.verify.error.limit_reached",
+        limit_reached_subtitle: "auth.verify.error.limit_reached_subtitle",
+        limit_reached_title: "auth.verify.error.limit_reached_title",
+        locked: "auth.verify.error.locked",
+      },
+      success: {
+        cta: "auth.verify.success.cta",
+        message: "auth.verify.success.message",
+        redirect: "auth.verify.success.redirect",
+        success_title: "auth.verify.success.success_title",
+        title: "auth.verify.success.title",
+        toast: {
+          message: "auth.verify.success.toast.message",
+          title: "auth.verify.success.toast.title",
+        },
+      },
+      toast: {
+        resend_success: "auth.verify.toast.resend_success",
+      },
+    },
+  },
+  business_unit: {
+    bu_detail: {
+      edit: {
+        form: {
+          address: {
+            label: "business_unit.bu_detail.edit.form.address.label",
+            placeholder: "business_unit.bu_detail.edit.form.address.placeholder",
+          },
+          city: {
+            label: "business_unit.bu_detail.edit.form.city.label",
+            placeholder: "business_unit.bu_detail.edit.form.city.placeholder",
+          },
+          district: {
+            label: "business_unit.bu_detail.edit.form.district.label",
+            placeholder: "business_unit.bu_detail.edit.form.district.placeholder",
+          },
+          email: {
+            label: "business_unit.bu_detail.edit.form.email.label",
+            placeholder: "business_unit.bu_detail.edit.form.email.placeholder",
+          },
+          name: {
+            label: "business_unit.bu_detail.edit.form.name.label",
+            placeholder: "business_unit.bu_detail.edit.form.name.placeholder",
+          },
+          nib: {
+            label: "business_unit.bu_detail.edit.form.nib.label",
+            placeholder: "business_unit.bu_detail.edit.form.nib.placeholder",
+          },
+          npwp: {
+            label: "business_unit.bu_detail.edit.form.npwp.label",
+            placeholder: "business_unit.bu_detail.edit.form.npwp.placeholder",
+          },
+          opening_date: {
+            label: "business_unit.bu_detail.edit.form.opening_date.label",
+            placeholder: "business_unit.bu_detail.edit.form.opening_date.placeholder",
+          },
+          phone: {
+            label: "business_unit.bu_detail.edit.form.phone.label",
+            placeholder: "business_unit.bu_detail.edit.form.phone.placeholder",
+          },
+          province: {
+            label: "business_unit.bu_detail.edit.form.province.label",
+            placeholder: "business_unit.bu_detail.edit.form.province.placeholder",
+          },
+          type: {
+            label: "business_unit.bu_detail.edit.form.type.label",
+            placeholder: "business_unit.bu_detail.edit.form.type.placeholder",
+          },
+          village: {
+            label: "business_unit.bu_detail.edit.form.village.label",
+            placeholder: "business_unit.bu_detail.edit.form.village.placeholder",
+          },
+        },
+      },
+    },
+    business_unit_detail: {
+      button: {
+        deactivate: "business_unit.business_unit_detail.button.deactivate",
+      },
+      label: {
+        active: "business_unit.business_unit_detail.label.active",
+        address: "business_unit.business_unit_detail.label.address",
+        bookkeeping_date: "business_unit.business_unit_detail.label.bookkeeping_date",
+        business_type: "business_unit.business_unit_detail.label.business_type",
+        email: "business_unit.business_unit_detail.label.email",
+        phone_number: "business_unit.business_unit_detail.label.phone_number",
+      },
+      title: "business_unit.business_unit_detail.title",
+    },
+    business_unit_list: {
+      button: {
+        add_business_unit: "business_unit.business_unit_list.button.add_business_unit",
+      },
+      empty_state: {
+        no_business_unit: "business_unit.business_unit_list.empty_state.no_business_unit",
+        no_data: "business_unit.business_unit_list.empty_state.no_data",
+      },
+      label: {
+        branch: "business_unit.business_unit_list.label.branch",
+        factory: "business_unit.business_unit_list.label.factory",
+        outlet: "business_unit.business_unit_list.label.outlet",
+      },
+      search: {
+        placeholder: "business_unit.business_unit_list.search.placeholder",
+      },
+      title: "business_unit.business_unit_list.title",
+    },
+    business_unit_profile: {
+      button: {
+        edit: "business_unit.business_unit_profile.button.edit",
+      },
+      label: {
+        address: "business_unit.business_unit_profile.label.address",
+        business_type: "business_unit.business_unit_profile.label.business_type",
+        business_unit_creation_date:
+          "business_unit.business_unit_profile.label.business_unit_creation_date",
+        business_unit_identity: "business_unit.business_unit_profile.label.business_unit_identity",
+        business_unit_name: "business_unit.business_unit_profile.label.business_unit_name",
+        city_or_regency: "business_unit.business_unit_profile.label.city_or_regency",
+        contact: "business_unit.business_unit_profile.label.contact",
+        district: "business_unit.business_unit_profile.label.district",
+        email: "business_unit.business_unit_profile.label.email",
+        full_address: "business_unit.business_unit_profile.label.full_address",
+        legal_and_administration:
+          "business_unit.business_unit_profile.label.legal_and_administration",
+        logo: "business_unit.business_unit_profile.label.logo",
+        nib: "business_unit.business_unit_profile.label.nib",
+        npwpd: "business_unit.business_unit_profile.label.npwpd",
+        phone_number: "business_unit.business_unit_profile.label.phone_number",
+        province: "business_unit.business_unit_profile.label.province",
+        subdistrict: "business_unit.business_unit_profile.label.subdistrict",
+        whatsapp_number: "business_unit.business_unit_profile.label.whatsapp_number",
+      },
+      title: "business_unit.business_unit_profile.title",
+    },
+    company_detail: {
+      bu_add: {
+        form: {
+          address: {
+            label: "business_unit.company_detail.bu_add.form.address.label",
+            placeholder: "business_unit.company_detail.bu_add.form.address.placeholder",
+          },
+          bu_logo: {
+            label: "business_unit.company_detail.bu_add.form.bu_logo.label",
+            placeholder: "business_unit.company_detail.bu_add.form.bu_logo.placeholder",
+          },
+          city: {
+            label: "business_unit.company_detail.bu_add.form.city.label",
+            placeholder: "business_unit.company_detail.bu_add.form.city.placeholder",
+          },
+          district: {
+            label: "business_unit.company_detail.bu_add.form.district.label",
+            placeholder: "business_unit.company_detail.bu_add.form.district.placeholder",
+          },
+          email: {
+            label: "business_unit.company_detail.bu_add.form.email.label",
+            placeholder: "business_unit.company_detail.bu_add.form.email.placeholder",
+          },
+          name: {
+            label: "business_unit.company_detail.bu_add.form.name.label",
+            placeholder: "business_unit.company_detail.bu_add.form.name.placeholder",
+          },
+          nib: {
+            label: "business_unit.company_detail.bu_add.form.nib.label",
+            placeholder: "business_unit.company_detail.bu_add.form.nib.placeholder",
+          },
+          npwpd: {
+            label: "business_unit.company_detail.bu_add.form.npwpd.label",
+            placeholder: "business_unit.company_detail.bu_add.form.npwpd.placeholder",
+          },
+          opening_date: {
+            label: "business_unit.company_detail.bu_add.form.opening_date.label",
+            placeholder: "business_unit.company_detail.bu_add.form.opening_date.placeholder",
+          },
+          phone: {
+            label: "business_unit.company_detail.bu_add.form.phone.label",
+            placeholder: "business_unit.company_detail.bu_add.form.phone.placeholder",
+          },
+          province: {
+            label: "business_unit.company_detail.bu_add.form.province.label",
+            placeholder: "business_unit.company_detail.bu_add.form.province.placeholder",
+          },
+          type: {
+            label: "business_unit.company_detail.bu_add.form.type.label",
+            placeholder: "business_unit.company_detail.bu_add.form.type.placeholder",
+          },
+          village: {
+            label: "business_unit.company_detail.bu_add.form.village.label",
+            placeholder: "business_unit.company_detail.bu_add.form.village.placeholder",
+          },
+        },
+        modal: {
+          title: "business_unit.company_detail.bu_add.modal.title",
+        },
+        section: {
+          title: "business_unit.company_detail.bu_add.section.title",
+        },
+      },
+    },
+    error: {
+      name: {
+        duplicate: "business_unit.error.name.duplicate",
+      },
+    },
+    unit: {
+      delete: {
+        confirm: {
+          cancel: {
+            button: "business_unit.unit.delete.confirm.cancel.button",
+          },
+          delete: {
+            button: "business_unit.unit.delete.confirm.delete.button",
+          },
+          error: {
+            empty: "business_unit.unit.delete.confirm.error.empty",
+            min: "business_unit.unit.delete.confirm.error.min",
+            mismatch: "business_unit.unit.delete.confirm.error.mismatch",
+          },
+          input: {
+            label: "business_unit.unit.delete.confirm.input.label",
+            placeholder: "business_unit.unit.delete.confirm.input.placeholder",
+          },
+          instruction: "business_unit.unit.delete.confirm.instruction",
+          title: "business_unit.unit.delete.confirm.title",
+        },
+        error: {
+          fallback: {
+            description: "business_unit.unit.delete.error.fallback.description",
+            title: "business_unit.unit.delete.error.fallback.title",
+          },
+        },
+        impact: {
+          agree: {
+            button: "business_unit.unit.delete.impact.agree.button",
+          },
+          alternative: "business_unit.unit.delete.impact.alternative",
+          cancel: {
+            button: "business_unit.unit.delete.impact.cancel.button",
+          },
+          description: "business_unit.unit.delete.impact.description",
+          permanent: "business_unit.unit.delete.impact.permanent",
+          title: "business_unit.unit.delete.impact.title",
+          transaction_block: "business_unit.unit.delete.impact.transaction_block",
+        },
+        success: {
+          toast: "business_unit.unit.delete.success.toast",
+        },
+      },
+      detail: {
+        action: {
+          deactivate: {
+            label: "business_unit.unit.detail.action.deactivate.label",
+          },
+          delete: {
+            label: "business_unit.unit.detail.action.delete.label",
+          },
+        },
+      },
+    },
+  },
+  common: {
+    app_powered: "common.app_powered",
+    app_shell: {
+      menu: {
+        chart_of_account: "common.app_shell.menu.chart_of_account",
+        dashboard: "common.app_shell.menu.dashboard",
+      },
+    },
+    app_title: "common.app_title",
+  },
+  company_add: {
+    cancel_dialog: {
+      back_to_form: {
+        button: "company_add.cancel_dialog.back_to_form.button",
+      },
+      confirm_cancel: {
+        button: "company_add.cancel_dialog.confirm_cancel.button",
+      },
+      description: "company_add.cancel_dialog.description",
+      title: "company_add.cancel_dialog.title",
+      toast: {
+        message: "company_add.cancel_dialog.toast.message",
+        title: "company_add.cancel_dialog.toast.title",
+      },
+    },
+    form: {
+      cancel: {
+        button: "company_add.form.cancel.button",
+      },
+      submit: {
+        button: "company_add.form.submit.button",
+      },
+    },
+    toast: {
+      success: "company_add.toast.success",
+    },
+    toasttitle: {
+      success: "company_add.toasttitle.success",
+    },
+  },
+  company_and_workspace: {
+    detail_workspace: {
+      edit: {
+        label: "company_and_workspace.detail_workspace.edit.label",
+        title: "company_and_workspace.detail_workspace.edit.title",
+      },
+    },
+    list_workspace: {
+      modal: {
+        label: "company_and_workspace.list_workspace.modal.label",
+        placeholder: "company_and_workspace.list_workspace.modal.placeholder",
+        title: "company_and_workspace.list_workspace.modal.title",
+      },
+    },
+    listcompany: {
+      header: {
+        title: "company_and_workspace.listcompany.header.title",
+      },
+    },
+    listrk: {
+      header: {
+        title: "company_and_workspace.listrk.header.title",
+      },
+    },
+    onboarding: {
+      business_unit: {
+        add: {
+          bu_name: {
+            label: "company_and_workspace.onboarding.business_unit.add.bu_name.label",
+            placeholder: "company_and_workspace.onboarding.business_unit.add.bu_name.placeholder",
+          },
+          bu_type: {
+            label: "company_and_workspace.onboarding.business_unit.add.bu_type.label",
+            placeholder: "company_and_workspace.onboarding.business_unit.add.bu_type.placeholder",
+          },
+        },
+        desc: "company_and_workspace.onboarding.business_unit.desc",
+        label: "company_and_workspace.onboarding.business_unit.label",
+        name: {
+          error: {
+            format: "company_and_workspace.onboarding.business_unit.name.error.format",
+            min_length: "company_and_workspace.onboarding.business_unit.name.error.min_length",
+          },
+          info: {
+            max_length: "company_and_workspace.onboarding.business_unit.name.info.max_length",
+          },
+        },
+        title: "company_and_workspace.onboarding.business_unit.title",
+      },
+      company: {
+        add: {
+          business_type: {
+            label: "company_and_workspace.onboarding.company.add.business_type.label",
+            placeholder: "company_and_workspace.onboarding.company.add.business_type.placeholder",
+          },
+          company_name: {
+            label: "company_and_workspace.onboarding.company.add.company_name.label",
+            placeholder: "company_and_workspace.onboarding.company.add.company_name.placeholder",
+          },
+          country: {
+            label: "company_and_workspace.onboarding.company.add.country.label",
+            placeholder: "company_and_workspace.onboarding.company.add.country.placeholder",
+          },
+          currency: {
+            label: "company_and_workspace.onboarding.company.add.currency.label",
+            placeholder: "company_and_workspace.onboarding.company.add.currency.placeholder",
+          },
+        },
+        business_type: {
+          error: {
+            required: "company_and_workspace.onboarding.company.business_type.error.required",
+          },
+        },
+        country: {
+          error: {
+            required: "company_and_workspace.onboarding.company.country.error.required",
+          },
+        },
+        currency: {
+          error: {
+            required: "company_and_workspace.onboarding.company.currency.error.required",
+          },
+        },
+        desc: "company_and_workspace.onboarding.company.desc",
+        label: "company_and_workspace.onboarding.company.label",
+        name: {
+          error: {
+            duplicate: "company_and_workspace.onboarding.company.name.error.duplicate",
+            format: "company_and_workspace.onboarding.company.name.error.format",
+            min_length: "company_and_workspace.onboarding.company.name.error.min_length",
+            required: "company_and_workspace.onboarding.company.name.error.required",
+          },
+          info: {
+            max_length: "company_and_workspace.onboarding.company.name.info.max_length",
+          },
+        },
+        title: "company_and_workspace.onboarding.company.title",
+      },
+      navigation: {
+        back: {
+          button: "company_and_workspace.onboarding.navigation.back.button",
+        },
+        next: {
+          button: "company_and_workspace.onboarding.navigation.next.button",
+        },
+      },
+      preview: {
+        data: {
+          business_type: {
+            label: "company_and_workspace.onboarding.preview.data.business_type.label",
+          },
+          business_unit_name: {
+            label: "company_and_workspace.onboarding.preview.data.business_unit_name.label",
+          },
+          business_unit_type: {
+            label: "company_and_workspace.onboarding.preview.data.business_unit_type.label",
+          },
+          company_name: {
+            label: "company_and_workspace.onboarding.preview.data.company_name.label",
+          },
+          country_currency: {
+            label: "company_and_workspace.onboarding.preview.data.country_currency.label",
+          },
+          workspace_name: {
+            label: "company_and_workspace.onboarding.preview.data.workspace_name.label",
+          },
+        },
+        info: {
+          note: "company_and_workspace.onboarding.preview.info.note",
+        },
+        page_content: {
+          intro: "company_and_workspace.onboarding.preview.page_content.intro",
+        },
+        page_title: "company_and_workspace.onboarding.preview.page_title",
+      },
+      start: {
+        cta: {
+          button: "company_and_workspace.onboarding.start.cta.button",
+        },
+        page_content: "company_and_workspace.onboarding.start.page_content",
+        page_title: "company_and_workspace.onboarding.start.page_title",
+      },
+      structure: {
+        page_content: "company_and_workspace.onboarding.structure.page_content",
+        page_title: "company_and_workspace.onboarding.structure.page_title",
+      },
+      success: {
+        cta: {
+          button: "company_and_workspace.onboarding.success.cta.button",
+        },
+        page_content: "company_and_workspace.onboarding.success.page_content",
+        page_title: "company_and_workspace.onboarding.success.page_title",
+      },
+      welcome: {
+        page_content: "company_and_workspace.onboarding.welcome.page_content",
+        page_title: "company_and_workspace.onboarding.welcome.page_title",
+      },
+      workspace: {
+        add: {
+          label: "company_and_workspace.onboarding.workspace.add.label",
+          placeholder: "company_and_workspace.onboarding.workspace.add.placeholder",
+        },
+        desc: "company_and_workspace.onboarding.workspace.desc",
+        label: "company_and_workspace.onboarding.workspace.label",
+        name: {
+          error: {
+            duplicate: "company_and_workspace.onboarding.workspace.name.error.duplicate",
+            format: "company_and_workspace.onboarding.workspace.name.error.format",
+            min_length: "company_and_workspace.onboarding.workspace.name.error.min_length",
+            required: "company_and_workspace.onboarding.workspace.name.error.required",
+          },
+          info: {
+            max_length: "company_and_workspace.onboarding.workspace.name.info.max_length",
+          },
+        },
+        title: "company_and_workspace.onboarding.workspace.title",
+      },
+    },
+    workspace: {
+      create: {
+        action: {
+          cancel: {
+            button: "company_and_workspace.workspace.create.action.cancel.button",
+          },
+          submit: {
+            button: "company_and_workspace.workspace.create.action.submit.button",
+          },
+        },
+        form: {
+          name: {
+            error: {
+              duplicate: "company_and_workspace.workspace.create.form.name.error.duplicate",
+              invalid_format:
+                "company_and_workspace.workspace.create.form.name.error.invalid_format",
+              max_length: "company_and_workspace.workspace.create.form.name.error.max_length",
+              min_length: "company_and_workspace.workspace.create.form.name.error.min_length",
+              required: "company_and_workspace.workspace.create.form.name.error.required",
             },
-            "max_length": "company_and_workspace.workspace.edit.form.name.max_length"
-          }
-        },
-        "toast": {
-          "cancle": {
-            "message": "company_and_workspace.workspace.edit.toast.cancle.message",
-            "title": "company_and_workspace.workspace.edit.toast.cancle.title"
+            label: "company_and_workspace.workspace.create.form.name.label",
+            placeholder: "company_and_workspace.workspace.create.form.name.placeholder",
           },
-          "success": {
-            "message": "company_and_workspace.workspace.edit.toast.success.message",
-            "title": "company_and_workspace.workspace.edit.toast.success.title"
-          }
-        }
-      },
-      "list": {
-        "action": {
-          "create": {
-            "button": "company_and_workspace.workspace.list.action.create.button"
-          }
         },
-        "empty": {
-          "description": "company_and_workspace.workspace.list.empty.description",
-          "title": "company_and_workspace.workspace.list.empty.title"
+        modal: {
+          title: "company_and_workspace.workspace.create.modal.title",
         },
-        "error": {
-          "description": "company_and_workspace.workspace.list.error.description",
-          "title": "company_and_workspace.workspace.list.error.title"
-        },
-        "header": {
-          "managed_by": {
-            "label": "company_and_workspace.workspace.list.header.managed_by.label"
-          }
-        },
-        "not_found": {
-          "description": "company_and_workspace.workspace.list.not_found.description",
-          "title": "company_and_workspace.workspace.list.not_found.title"
-        },
-        "summary": {
-          "business_unit_total": {
-            "label": "company_and_workspace.workspace.list.summary.business_unit_total.label"
+        name: {
+          info: {
+            max_length: "company_and_workspace.workspace.create.name.info.max_length",
           },
-          "company_total": {
-            "label": "company_and_workspace.workspace.list.summary.company_total.label"
-          }
-        }
-      }
-    }
-  },
-  "company_detail": {
-    "access_address_subtitle": "company_detail.access_address_subtitle",
-    "access_companyidentity_subtitle": "company_detail.access_companyidentity_subtitle",
-    "access_contact_subtitle": "company_detail.access_contact_subtitle",
-    "access_error": {
-      "cta_back": "company_detail.access_error.cta_back",
-      "description": "company_detail.access_error.description",
-      "title": "company_detail.access_error.title"
-    },
-    "access_legalandadministration_subtitle": "company_detail.access_legalandadministration_subtitle"
-  },
-  "company": {
-    "accounting_start_date": {
-      "label": "company.accounting_start_date.label"
-    },
-    "address": {
-      "label": "company.address.label",
-      "placeholder": "company.address.placeholder"
-    },
-    "business_type": {
-      "label": "company.business_type.label",
-      "placeholder": "company.business_type.placeholder"
-    },
-    "business_unit_count": {
-      "label": "company.business_unit_count.label"
-    },
-    "city": {
-      "label": "company.city.label",
-      "placeholder": "company.city.placeholder"
-    },
-    "country": {
-      "label": "company.country.label",
-      "placeholder": "company.country.placeholder"
-    },
-    "create": {
-      "action": {
-        "cancel": {
-          "button": "company.create.action.cancel.button"
         },
-        "submit": {
-          "button": "company.create.action.submit.button"
-        }
-      },
-      "additional_info": {
-        "label": "company.create.additional_info.label"
-      },
-      "form": {
-        "accounting_start_date": {
-          "label": "company.create.form.accounting_start_date.label",
-          "placeholder": "company.create.form.accounting_start_date.placeholder"
-        },
-        "address": {
-          "label": "company.create.form.address.label",
-          "placeholder": "company.create.form.address.placeholder"
-        },
-        "business_type": {
-          "error": {
-            "required": "company.create.form.business_type.error.required"
+        toast: {
+          success: {
+            message: "company_and_workspace.workspace.create.toast.success.message",
+            title: "company_and_workspace.workspace.create.toast.success.title",
           },
-          "label": "company.create.form.business_type.label",
-          "placeholder": "company.create.form.business_type.placeholder"
         },
-        "business_unit_count": {
-          "label": "company.create.form.business_unit_count.label",
-          "placeholder": "company.create.form.business_unit_count.placeholder"
-        },
-        "city": {
-          "label": "company.create.form.city.label",
-          "placeholder": "company.create.form.city.placeholder"
-        },
-        "country": {
-          "error": {
-            "required": "company.create.form.country.error.required"
+      },
+      delete: {
+        action: {
+          cancel: {
+            button: "company_and_workspace.workspace.delete.action.cancel.button",
           },
-          "label": "company.create.form.country.label",
-          "placeholder": "company.create.form.country.placeholder"
-        },
-        "creation_date": {
-          "label": "company.create.form.creation_date.label",
-          "placeholder": "company.create.form.creation_date.placeholder"
-        },
-        "currency": {
-          "error": {
-            "required": "company.create.form.currency.error.required"
+          confirm: {
+            button: "company_and_workspace.workspace.delete.action.confirm.button",
           },
-          "label": "company.create.form.currency.label",
-          "placeholder": "company.create.form.currency.placeholder"
         },
-        "district": {
-          "label": "company.create.form.district.label",
-          "placeholder": "company.create.form.district.placeholder"
+        checkbox: {
+          confirmation: "company_and_workspace.workspace.delete.checkbox.confirmation",
         },
-        "email": {
-          "label": "company.create.form.email.label",
-          "placeholder": "company.create.form.email.placeholder"
-        },
-        "establishment_date": {
-          "label": "company.create.form.establishment_date.label",
-          "placeholder": "company.create.form.establishment_date.placeholder"
-        },
-        "geo": {
-          "city_empty": "company.create.form.geo.city_empty",
-          "city_loading": "company.create.form.geo.city_loading",
-          "city_select_province": "company.create.form.geo.city_select_province",
-          "district_empty": "company.create.form.geo.district_empty",
-          "district_loading": "company.create.form.geo.district_loading",
-          "district_select_city": "company.create.form.geo.district_select_city",
-          "province_empty": "company.create.form.geo.province_empty",
-          "province_loading": "company.create.form.geo.province_loading",
-          "subdistrict_empty": "company.create.form.geo.subdistrict_empty",
-          "subdistrict_loading": "company.create.form.geo.subdistrict_loading",
-          "subdistrict_select_district": "company.create.form.geo.subdistrict_select_district"
-        },
-        "logo": {
-          "label": "company.create.form.logo.label",
-          "max_size": "company.create.form.logo.max_size",
-          "placeholder": "company.create.form.logo.placeholder"
-        },
-        "name": {
-          "error": {
-            "duplicate": "company.create.form.name.error.duplicate",
-            "format": "company.create.form.name.error.format",
-            "min_length": "company.create.form.name.error.min_length",
-            "required": "company.create.form.name.error.required"
+        form: {
+          confirmation: {
+            label: "company_and_workspace.workspace.delete.form.confirmation.label",
+            placeholder: "company_and_workspace.workspace.delete.form.confirmation.placeholder",
           },
-          "info": {
-            "max_length": "company.create.form.name.info.max_length"
+        },
+        modal: {
+          description: "company_and_workspace.workspace.delete.modal.description",
+          title: "company_and_workspace.workspace.delete.modal.title",
+        },
+      },
+      edit: {
+        action: {
+          cancel: {
+            button: "company_and_workspace.workspace.edit.action.cancel.button",
           },
-          "label": "company.create.form.name.label",
-          "placeholder": "company.create.form.name.placeholder"
-        },
-        "nib": {
-          "label": "company.create.form.nib.label",
-          "placeholder": "company.create.form.nib.placeholder"
-        },
-        "phone": {
-          "label": "company.create.form.phone.label",
-          "placeholder": "company.create.form.phone.placeholder"
-        },
-        "postal_code": {
-          "label": "company.create.form.postal_code.label",
-          "placeholder": "company.create.form.postal_code.placeholder"
-        },
-        "province": {
-          "label": "company.create.form.province.label",
-          "placeholder": "company.create.form.province.placeholder"
-        },
-        "sppkp_number": {
-          "label": "company.create.form.sppkp_number.label",
-          "placeholder": "company.create.form.sppkp_number.placeholder"
-        },
-        "subdistrict": {
-          "label": "company.create.form.subdistrict.label",
-          "placeholder": "company.create.form.subdistrict.placeholder"
-        },
-        "tax_id": {
-          "label": "company.create.form.tax_id.label",
-          "placeholder": "company.create.form.tax_id.placeholder"
-        },
-        "vat_status": {
-          "label": "company.create.form.vat_status.label"
-        },
-        "website": {
-          "label": "company.create.form.website.label",
-          "placeholder": "company.create.form.website.placeholder"
-        },
-        "whatsapp": {
-          "label": "company.create.form.whatsapp.label",
-          "placeholder": "company.create.form.whatsapp.placeholder"
-        },
-        "workspace": {
-          "dropdown": "company.create.form.workspace.dropdown",
-          "label": "company.create.form.workspace.label"
-        }
-      },
-      "modal": {
-        "title": "company.create.modal.title"
-      },
-      "option": {
-        "business_type": {
-          "jasa": "company.create.option.business_type.jasa",
-          "manufaktur": "company.create.option.business_type.manufaktur",
-          "retail": "company.create.option.business_type.retail"
-        },
-        "country": {
-          "indonesia": "company.create.option.country.indonesia"
-        },
-        "currency": {
-          "idr": "company.create.option.currency.idr"
-        },
-        "pkp_status": {
-          "non_pkp": "company.create.option.pkp_status.non_pkp",
-          "pkp": "company.create.option.pkp_status.pkp"
-        }
-      },
-      "section": {
-        "address": {
-          "label": "company.create.section.address.label"
-        },
-        "contact": {
-          "label": "company.create.section.contact.label"
-        },
-        "identity": {
-          "label": "company.create.section.identity.label"
-        },
-        "legal": {
-          "label": "company.create.section.legal.label"
-        }
-      }
-    },
-    "created_date": {
-      "label": "company.created_date.label"
-    },
-    "currency": {
-      "label": "company.currency.label",
-      "placeholder": "company.currency.placeholder"
-    },
-    "detail": {
-      "action": {
-        "back_to_list": "company.detail.action.back_to_list",
-        "delete_company": "company.detail.action.delete_company",
-        "primary_company": "company.detail.action.primary_company",
-        "set_default": "company.detail.action.set_default"
-      },
-      "breadcrumb": {
-        "aria_label": "company.detail.breadcrumb.aria_label"
-      },
-      "error": {
-        "description": "company.detail.error.description",
-        "retry": "company.detail.error.retry",
-        "title": "company.detail.error.title"
-      },
-      "header": {
-        "title": "company.detail.header.title"
-      },
-      "info": {
-        "address": {
-          "label": "company.detail.info.address.label"
-        },
-        "business_unit_total": {
-          "active_label": "company.detail.info.business_unit_total.active_label",
-          "label": "company.detail.info.business_unit_total.label"
-        },
-        "email": {
-          "label": "company.detail.info.email.label"
-        },
-        "phone": {
-          "label": "company.detail.info.phone.label"
-        },
-        "whatsapp": {
-          "label": "company.detail.info.whatsapp.label"
-        }
-      },
-      "section": {
-        "business_unit": {
-          "label": "company.detail.section.business_unit.label"
-        },
-        "profile": {
-          "label": "company.detail.section.profile.label"
-        },
-        "role_management": {
-          "label": "company.detail.section.role_management.label"
-        },
-        "user_management": {
-          "label": "company.detail.section.user_management.label"
-        }
-      },
-      "status": {
-        "coming_soon": {
-          "label": "company.detail.status.coming_soon.label"
-        }
-      },
-      "toast": {
-        "set_default_error_title": "company.detail.toast.set_default_error_title",
-        "set_default_success_message": "company.detail.toast.set_default_success_message",
-        "set_default_success_title": "company.detail.toast.set_default_success_title"
-      }
-    },
-    "district": {
-      "label": "company.district.label",
-      "placeholder": "company.district.placeholder"
-    },
-    "email": {
-      "label": "company.email.label"
-    },
-    "error": {
-      "account_not_linked": "company.error.account_not_linked",
-      "bad_gateway": "company.error.bad_gateway",
-      "bad_request": "company.error.bad_request",
-      "business_type": {
-        "invalid": "company.error.business_type.invalid"
-      },
-      "confirm_name": {
-        "mismatch": "company.error.confirm_name.mismatch"
-      },
-      "conflict": "company.error.conflict",
-      "country_code": {
-        "invalid": "company.error.country_code.invalid"
-      },
-      "email": {
-        "invalid": "company.error.email.invalid"
-      },
-      "expired_token": "company.error.expired_token",
-      "forbidden": "company.error.forbidden",
-      "gateway_timeout": "company.error.gateway_timeout",
-      "has_active_units": "company.error.has_active_units",
-      "has_transaction": "company.error.has_transaction",
-      "internal_server_error": "company.error.internal_server_error",
-      "is_default": "company.error.is_default",
-      "name": {
-        "duplicate": "company.error.name.duplicate",
-        "min": "company.error.name.min",
-        "required": "company.error.name.required"
-      },
-      "nib": {
-        "duplicate": "company.error.nib.duplicate"
-      },
-      "not_found": "company.error.not_found",
-      "npwp": {
-        "duplicate": "company.error.npwp.duplicate",
-        "invalid": "company.error.npwp.invalid"
-      },
-      "phone": {
-        "duplicate": "company.error.phone.duplicate"
-      },
-      "postal_code": {
-        "invalid": "company.error.postal_code.invalid"
-      },
-      "service_unavailable": "company.error.service_unavailable",
-      "session_expired": "company.error.session_expired",
-      "unauthorized": "company.error.unauthorized",
-      "unit_has_transaction": "company.error.unit_has_transaction",
-      "unknown_error": "company.error.unknown_error",
-      "validation_error": "company.error.validation_error"
-    },
-    "established_date": {
-      "label": "company.established_date.label"
-    },
-    "fiscal_year": {
-      "label": "company.fiscal_year.label"
-    },
-    "list": {
-      "action": {
-        "add_company": "company.list.action.add_company",
-        "manage_workspace": "company.list.action.manage_workspace"
-      },
-      "business_unit": {
-        "active_label": "company.list.business_unit.active_label",
-        "total_label": "company.list.business_unit.total_label"
-      },
-      "empty_filtered": {
-        "description": "company.list.empty_filtered.description",
-        "title": "company.list.empty_filtered.title"
-      },
-      "error": {
-        "description": "company.list.error.description",
-        "retry": "company.list.error.retry",
-        "title": "company.list.error.title"
-      },
-      "filter": {
-        "apply": "company.list.filter.apply",
-        "button": "company.list.filter.button",
-        "empty_result": "company.list.filter.empty_result",
-        "reset": "company.list.filter.reset",
-        "search_placeholder": "company.list.filter.search_placeholder",
-        "select_workspace": "company.list.filter.select_workspace",
-        "title": "company.list.filter.title"
-      },
-      "load_more": {
-        "label": "company.list.load_more.label"
-      },
-      "not_found": {
-        "description": "company.list.not_found.description",
-        "title": "company.list.not_found.title"
-      },
-      "ownership": {
-        "mine": "company.list.ownership.mine",
-        "shared_by": "company.list.ownership.shared_by"
-      },
-      "search": {
-        "loading": "company.list.search.loading",
-        "placeholder": "company.list.search.placeholder"
-      },
-      "toast": {
-        "create_failed_title": "company.list.toast.create_failed_title",
-        "logo_upload_failed_message": "company.list.toast.logo_upload_failed_message",
-        "logo_upload_failed_title": "company.list.toast.logo_upload_failed_title"
-      }
-    },
-    "logo": {
-      "label": "company.logo.label",
-      "placeholder": "company.logo.placeholder"
-    },
-    "modal": {
-      "save_changes": {
-        "desc": "company.modal.save_changes.desc",
-        "primary_button": "company.modal.save_changes.primary_button",
-        "secondary_button": "company.modal.save_changes.secondary_button"
-      }
-    },
-    "name": {
-      "label": "company.name.label",
-      "placeholder": "company.name.placeholder"
-    },
-    "nib": {
-      "label": "company.nib.label"
-    },
-    "npwp": {
-      "label": "company.npwp.label"
-    },
-    "phone": {
-      "label": "company.phone.label"
-    },
-    "pkp_status": {
-      "label": "company.pkp_status.label",
-      "placeholder": "company.pkp_status.placeholder"
-    },
-    "postal_code": {
-      "label": "company.postal_code.label",
-      "placeholder": "company.postal_code.placeholder"
-    },
-    "profile": {
-      "action": {
-        "cancel": "company.profile.action.cancel",
-        "save": "company.profile.action.save",
-        "save_changes": "company.profile.action.save_changes"
-      },
-      "discard_dialog": {
-        "description": "company.profile.discard_dialog.description",
-        "primary": "company.profile.discard_dialog.primary",
-        "secondary": "company.profile.discard_dialog.secondary",
-        "title": "company.profile.discard_dialog.title"
-      },
-      "error": {
-        "description": "company.profile.error.description",
-        "retry": "company.profile.error.retry",
-        "title": "company.profile.error.title"
-      },
-      "forbidden": {
-        "cta_back": "company.profile.forbidden.cta_back",
-        "description": "company.profile.forbidden.description",
-        "title": "company.profile.forbidden.title"
-      },
-      "header": {
-        "title": "company.profile.header.title"
-      },
-      "modal": {
-        "edit_prefix": "company.profile.modal.edit_prefix"
-      },
-      "not_found": {
-        "cta_back": "company.profile.not_found.cta_back",
-        "description": "company.profile.not_found.description",
-        "title": "company.profile.not_found.title"
-      },
-      "option": {
-        "currency": {
-          "idr": "company.profile.option.currency.idr",
-          "sgd": "company.profile.option.currency.sgd",
-          "usd": "company.profile.option.currency.usd"
-        }
-      },
-      "toast": {
-        "save_failed_message": "company.profile.toast.save_failed_message",
-        "save_failed_title": "company.profile.toast.save_failed_title",
-        "save_success_title": "company.profile.toast.save_success_title",
-        "validation_failed_message": "company.profile.toast.validation_failed_message",
-        "validation_failed_title": "company.profile.toast.validation_failed_title"
-      }
-    },
-    "province": {
-      "label": "company.province.label",
-      "placeholder": "company.province.placeholder"
-    },
-    "save": {
-      "cancel": {
-        "button": "company.save.cancel.button"
-      },
-      "confirm": {
-        "button": "company.save.confirm.button",
-        "description": "company.save.confirm.description",
-        "title": "company.save.confirm.title"
-      },
-      "success": "company.save.success"
-    },
-    "village": {
-      "label": "company.village.label",
-      "placeholder": "company.village.placeholder"
-    },
-    "website": {
-      "label": "company.website.label"
-    },
-    "whatsapp": {
-      "label": "company.whatsapp.label"
-    }
-  },
-  "delete": {
-    "company": {
-      "blocked": {
-        "active_units": {
-          "action": "delete.company.blocked.active_units.action",
-          "description": "delete.company.blocked.active_units.description"
-        },
-        "button": {
-          "cancel": "delete.company.blocked.button.cancel"
-        },
-        "default_company": {
-          "action": "delete.company.blocked.default_company.action",
-          "description": "delete.company.blocked.default_company.description"
-        },
-        "title": "delete.company.blocked.title"
-      },
-      "confirm": {
-        "approval_text": "delete.company.confirm.approval_text",
-        "banner": {
-          "description": "delete.company.confirm.banner.description",
-          "title": "delete.company.confirm.banner.title"
-        },
-        "button": {
-          "cancel": "delete.company.confirm.button.cancel",
-          "confirm": "delete.company.confirm.button.confirm",
-          "submit": "delete.company.confirm.button.submit"
-        },
-        "description": "delete.company.confirm.description",
-        "input": {
-          "helper_text": "delete.company.confirm.input.helper_text",
-          "label": "delete.company.confirm.input.label",
-          "placeholder": "delete.company.confirm.input.placeholder"
-        },
-        "title": "delete.company.confirm.title"
-      },
-      "error": {
-        "company_has_transaction": "delete.company.error.company_has_transaction",
-        "company_name_mismatch": "delete.company.error.company_name_mismatch",
-        "company_name_required": "delete.company.error.company_name_required",
-        "forbidden": "delete.company.error.forbidden",
-        "has_active_units": "delete.company.error.has_active_units",
-        "is_default": "delete.company.error.is_default",
-        "not_found": "delete.company.error.not_found",
-        "unit_has_transaction": "delete.company.error.unit_has_transaction",
-        "unknown": "delete.company.error.unknown",
-        "validation_error": "delete.company.error.validation_error"
-      },
-      "impact": {
-        "banner": {
-          "title": "delete.company.impact.banner.title"
-        },
-        "button": {
-          "cancel": "delete.company.impact.button.cancel",
-          "confirm": "delete.company.impact.button.confirm",
-          "continue": "delete.company.impact.button.continue"
-        },
-        "description": "delete.company.impact.description",
-        "modal": {
-          "title": "delete.company.impact.modal.title"
-        },
-        "summary": {
-          "description": "delete.company.impact.summary.description",
-          "unit_count": "delete.company.impact.summary.unit_count"
-        },
-        "title": "delete.company.impact.title"
-      },
-      "precheck": {
-        "error": {
-          "message": "delete.company.precheck.error.message",
-          "title": "delete.company.precheck.error.title",
-          "unknown": "delete.company.precheck.error.unknown"
-        },
-        "loading": {
-          "label": "delete.company.precheck.loading.label"
-        }
-      },
-      "toast": {
-        "error_title": "delete.company.toast.error_title",
-        "success": {
-          "message": "delete.company.toast.success.message",
-          "title": "delete.company.toast.success.title"
-        }
-      }
-    }
-  },
-  "error": {
-    "business_type": {
-      "required": "error.business_type.required"
-    },
-    "company": {
-      "name": {
-        "duplicate": "error.company.name.duplicate",
-        "invalid_character": "error.company.name.invalid_character",
-        "max": "error.company.name.max",
-        "min": "error.company.name.min",
-        "required": "error.company.name.required"
-      }
-    },
-    "country": {
-      "required": "error.country.required"
-    },
-    "currency": {
-      "required": "error.currency.required"
-    },
-    "email": {
-      "invalid": "error.email.invalid"
-    },
-    "error": {
-      "account_not_linked": "error.error.account_not_linked",
-      "bad_gateway": "error.error.bad_gateway",
-      "bad_request": "error.error.bad_request",
-      "conflict": "error.error.conflict",
-      "expired_token": "error.error.expired_token",
-      "forbidden": "error.error.forbidden",
-      "gateway_timeout": "error.error.gateway_timeout",
-      "internal_server_error": "error.error.internal_server_error",
-      "not_found": "error.error.not_found",
-      "service_unavailable": "error.error.service_unavailable",
-      "session_expired": "error.error.session_expired",
-      "unauthorized": "error.error.unauthorized",
-      "unknown_error": "error.error.unknown_error",
-      "validation_error": "error.error.validation_error"
-    },
-    "logo": {
-      "format": "error.logo.format",
-      "size": "error.logo.size"
-    },
-    "nib": {
-      "duplicate": "error.nib.duplicate",
-      "invalid": "error.nib.invalid"
-    },
-    "npwp": {
-      "duplicate": "error.npwp.duplicate",
-      "invalid": "error.npwp.invalid"
-    },
-    "phone": {
-      "duplicate": "error.phone.duplicate",
-      "invalid": "error.phone.invalid",
-      "max": "error.phone.max"
-    },
-    "postal_code": {
-      "invalid": "error.postal_code.invalid"
-    },
-    "website": {
-      "invalid": "error.website.invalid"
-    },
-    "whatsapp": {
-      "duplicate": "error.whatsapp.duplicate",
-      "invalid": "error.whatsapp.invalid",
-      "max": "error.whatsapp.max"
-    }
-  },
-  "fallback": {
-    "fb200_b": "fallback.fb200_b",
-    "fb200_d": "fallback.fb200_d",
-    "fb200_h": "fallback.fb200_h",
-    "fb201_b": "fallback.fb201_b",
-    "fb201_d": "fallback.fb201_d",
-    "fb201_h": "fallback.fb201_h",
-    "fb202_b": "fallback.fb202_b",
-    "fb202_d": "fallback.fb202_d",
-    "fb202_h": "fallback.fb202_h",
-    "fb204_b": "fallback.fb204_b",
-    "fb204_d": "fallback.fb204_d",
-    "fb204_h": "fallback.fb204_h",
-    "fb300_b": "fallback.fb300_b",
-    "fb300_d": "fallback.fb300_d",
-    "fb300_h": "fallback.fb300_h",
-    "fb301_b": "fallback.fb301_b",
-    "fb301_d": "fallback.fb301_d",
-    "fb301_h": "fallback.fb301_h",
-    "fb302_b": "fallback.fb302_b",
-    "fb302_d": "fallback.fb302_d",
-    "fb302_h": "fallback.fb302_h",
-    "fb303_b": "fallback.fb303_b",
-    "fb303_d": "fallback.fb303_d",
-    "fb303_h": "fallback.fb303_h",
-    "fb304_b": "fallback.fb304_b",
-    "fb304_d": "fallback.fb304_d",
-    "fb304_h": "fallback.fb304_h",
-    "fb307_b": "fallback.fb307_b",
-    "fb307_d": "fallback.fb307_d",
-    "fb307_h": "fallback.fb307_h",
-    "fb308_b": "fallback.fb308_b",
-    "fb308_d": "fallback.fb308_d",
-    "fb308_h": "fallback.fb308_h",
-    "fb400_b": "fallback.fb400_b",
-    "fb400_d": "fallback.fb400_d",
-    "fb400_h": "fallback.fb400_h",
-    "fb401_b": "fallback.fb401_b",
-    "fb401_d": "fallback.fb401_d",
-    "fb401_h": "fallback.fb401_h",
-    "fb402_b": "fallback.fb402_b",
-    "fb402_d": "fallback.fb402_d",
-    "fb402_h": "fallback.fb402_h",
-    "fb403_b": "fallback.fb403_b",
-    "fb403_d": "fallback.fb403_d",
-    "fb403_h": "fallback.fb403_h",
-    "fb404_b": "fallback.fb404_b",
-    "fb404_d": "fallback.fb404_d",
-    "fb404_h": "fallback.fb404_h",
-    "fb405_b": "fallback.fb405_b",
-    "fb405_d": "fallback.fb405_d",
-    "fb405_h": "fallback.fb405_h",
-    "fb406_b": "fallback.fb406_b",
-    "fb406_d": "fallback.fb406_d",
-    "fb406_h": "fallback.fb406_h",
-    "fb408_b": "fallback.fb408_b",
-    "fb408_d": "fallback.fb408_d",
-    "fb408_h": "fallback.fb408_h",
-    "fb409_b": "fallback.fb409_b",
-    "fb409_d": "fallback.fb409_d",
-    "fb409_h": "fallback.fb409_h",
-    "fb410_b": "fallback.fb410_b",
-    "fb410_d": "fallback.fb410_d",
-    "fb410_h": "fallback.fb410_h",
-    "fb413_b": "fallback.fb413_b",
-    "fb413_d": "fallback.fb413_d",
-    "fb413_h": "fallback.fb413_h",
-    "fb415_b": "fallback.fb415_b",
-    "fb415_d": "fallback.fb415_d",
-    "fb415_h": "fallback.fb415_h",
-    "fb422_b": "fallback.fb422_b",
-    "fb422_d": "fallback.fb422_d",
-    "fb422_h": "fallback.fb422_h",
-    "fb429_b": "fallback.fb429_b",
-    "fb429_d": "fallback.fb429_d",
-    "fb429_h": "fallback.fb429_h",
-    "fb500_b": "fallback.fb500_b",
-    "fb500_b_secondary": "fallback.fb500_b_secondary",
-    "fb500_d": "fallback.fb500_d",
-    "fb500_h": "fallback.fb500_h",
-    "fb501_b": "fallback.fb501_b",
-    "fb501_b_secondary": "fallback.fb501_b_secondary",
-    "fb501_d": "fallback.fb501_d",
-    "fb501_h": "fallback.fb501_h",
-    "fb502_b": "fallback.fb502_b",
-    "fb502_b_secondary": "fallback.fb502_b_secondary",
-    "fb502_d": "fallback.fb502_d",
-    "fb502_h": "fallback.fb502_h",
-    "fb503_b": "fallback.fb503_b",
-    "fb503_b_secondary": "fallback.fb503_b_secondary",
-    "fb503_d": "fallback.fb503_d",
-    "fb503_h": "fallback.fb503_h",
-    "fb504_b": "fallback.fb504_b",
-    "fb504_b_secondary": "fallback.fb504_b_secondary",
-    "fb504_d": "fallback.fb504_d",
-    "fb504_h": "fallback.fb504_h",
-    "support_label": "fallback.support_label",
-    "support_url": "fallback.support_url"
-  },
-  "http": {
-    "http_200_message": "http.http_200_message",
-    "http_200_title": "http.http_200_title",
-    "http_201_message": "http.http_201_message",
-    "http_201_title": "http.http_201_title",
-    "http_202_message": "http.http_202_message",
-    "http_202_title": "http.http_202_title",
-    "http_204_message": "http.http_204_message",
-    "http_204_title": "http.http_204_title",
-    "http_400_message": "http.http_400_message",
-    "http_400_title": "http.http_400_title",
-    "http_401_message": "http.http_401_message",
-    "http_401_title": "http.http_401_title",
-    "http_403_message": "http.http_403_message",
-    "http_403_title": "http.http_403_title",
-    "http_404_message": "http.http_404_message",
-    "http_404_title": "http.http_404_title",
-    "http_405_message": "http.http_405_message",
-    "http_405_title": "http.http_405_title",
-    "http_408_message": "http.http_408_message",
-    "http_408_title": "http.http_408_title",
-    "http_409_message": "http.http_409_message",
-    "http_409_title": "http.http_409_title",
-    "http_410_message": "http.http_410_message",
-    "http_410_title": "http.http_410_title",
-    "http_415_message": "http.http_415_message",
-    "http_415_title": "http.http_415_title",
-    "http_422_message": "http.http_422_message",
-    "http_422_title": "http.http_422_title",
-    "http_429_message": "http.http_429_message",
-    "http_429_title": "http.http_429_title",
-    "http_500_message": "http.http_500_message",
-    "http_500_title": "http.http_500_title",
-    "http_502_message": "http.http_502_message",
-    "http_502_title": "http.http_502_title",
-    "http_503_message": "http.http_503_message",
-    "http_503_title": "http.http_503_title",
-    "http_504_message": "http.http_504_message",
-    "http_504_title": "http.http_504_title"
-  },
-  "onboarding": {
-    "onboarding": {
-      "business_unit": {
-        "add": {
-          "bu_name": {
-            "label": "onboarding.onboarding.business_unit.add.bu_name.label",
-            "placeholder": "onboarding.onboarding.business_unit.add.bu_name.placeholder"
+          submit: {
+            button: "company_and_workspace.workspace.edit.action.submit.button",
           },
-          "bu_type": {
-            "label": "onboarding.onboarding.business_unit.add.bu_type.label",
-            "placeholder": "onboarding.onboarding.business_unit.add.bu_type.placeholder"
-          }
         },
-        "desc": "onboarding.onboarding.business_unit.desc",
-        "label": "onboarding.onboarding.business_unit.label",
-        "name": {
-          "error": {
-            "format": "onboarding.onboarding.business_unit.name.error.format",
-            "min_length": "onboarding.onboarding.business_unit.name.error.min_length"
-          },
-          "info": {
-            "max_length": "onboarding.onboarding.business_unit.name.info.max_length"
-          }
-        },
-        "title": "onboarding.onboarding.business_unit.title"
-      },
-      "company": {
-        "add": {
-          "business_type": {
-            "label": "onboarding.onboarding.company.add.business_type.label",
-            "placeholder": "onboarding.onboarding.company.add.business_type.placeholder"
-          },
-          "company_name": {
-            "label": "onboarding.onboarding.company.add.company_name.label",
-            "placeholder": "onboarding.onboarding.company.add.company_name.placeholder"
-          },
-          "country": {
-            "label": "onboarding.onboarding.company.add.country.label",
-            "placeholder": "onboarding.onboarding.company.add.country.placeholder"
-          },
-          "currency": {
-            "label": "onboarding.onboarding.company.add.currency.label",
-            "placeholder": "onboarding.onboarding.company.add.currency.placeholder"
-          }
-        },
-        "business_type": {
-          "error": {
-            "required": "onboarding.onboarding.company.business_type.error.required"
-          }
-        },
-        "country": {
-          "error": {
-            "required": "onboarding.onboarding.company.country.error.required"
-          }
-        },
-        "currency": {
-          "error": {
-            "required": "onboarding.onboarding.company.currency.error.required"
-          }
-        },
-        "desc": "onboarding.onboarding.company.desc",
-        "label": "onboarding.onboarding.company.label",
-        "name": {
-          "error": {
-            "duplicate": "onboarding.onboarding.company.name.error.duplicate",
-            "format": "onboarding.onboarding.company.name.error.format",
-            "min_length": "onboarding.onboarding.company.name.error.min_length",
-            "required": "onboarding.onboarding.company.name.error.required"
-          },
-          "info": {
-            "max_length": "onboarding.onboarding.company.name.info.max_length"
-          }
-        },
-        "title": "onboarding.onboarding.company.title"
-      },
-      "error": {
-        "system": {
-          "page_content": "onboarding.onboarding.error.system.page_content",
-          "page_title": "onboarding.onboarding.error.system.page_title"
-        }
-      },
-      "navigation": {
-        "back": {
-          "button": "onboarding.onboarding.navigation.back.button"
-        },
-        "next": {
-          "button": "onboarding.onboarding.navigation.next.button"
-        }
-      },
-      "preview": {
-        "data": {
-          "business_type": {
-            "label": "onboarding.onboarding.preview.data.business_type.label"
-          },
-          "business_unit_name": {
-            "label": "onboarding.onboarding.preview.data.business_unit_name.label"
-          },
-          "business_unit_type": {
-            "label": "onboarding.onboarding.preview.data.business_unit_type.label"
-          },
-          "company_name": {
-            "label": "onboarding.onboarding.preview.data.company_name.label"
-          },
-          "country_currency": {
-            "label": "onboarding.onboarding.preview.data.country_currency.label"
-          },
-          "workspace_name": {
-            "label": "onboarding.onboarding.preview.data.workspace_name.label"
-          }
-        },
-        "info": {
-          "note": "onboarding.onboarding.preview.info.note"
-        },
-        "page_content": {
-          "intro": "onboarding.onboarding.preview.page_content.intro"
-        },
-        "page_title": "onboarding.onboarding.preview.page_title"
-      },
-      "start": {
-        "cta": {
-          "button": "onboarding.onboarding.start.cta.button"
-        },
-        "page_content": "onboarding.onboarding.start.page_content",
-        "page_title": "onboarding.onboarding.start.page_title"
-      },
-      "step": {
-        "label": "onboarding.onboarding.step.label"
-      },
-      "structure": {
-        "page_content": "onboarding.onboarding.structure.page_content",
-        "page_title": "onboarding.onboarding.structure.page_title"
-      },
-      "success": {
-        "cta": {
-          "button": "onboarding.onboarding.success.cta.button"
-        },
-        "page_content": "onboarding.onboarding.success.page_content",
-        "page_title": "onboarding.onboarding.success.page_title"
-      },
-      "welcome": {
-        "page_content": "onboarding.onboarding.welcome.page_content",
-        "page_title": "onboarding.onboarding.welcome.page_title"
-      },
-      "workspace": {
-        "add": {
-          "label": "onboarding.onboarding.workspace.add.label",
-          "placeholder": "onboarding.onboarding.workspace.add.placeholder"
-        },
-        "desc": "onboarding.onboarding.workspace.desc",
-        "label": "onboarding.onboarding.workspace.label",
-        "name": {
-          "error": {
-            "duplicate": "onboarding.onboarding.workspace.name.error.duplicate",
-            "format": "onboarding.onboarding.workspace.name.error.format",
-            "min_length": "onboarding.onboarding.workspace.name.error.min_length",
-            "required": "onboarding.onboarding.workspace.name.error.required"
-          },
-          "info": {
-            "max_length": "onboarding.onboarding.workspace.name.info.max_length"
-          }
-        },
-        "title": "onboarding.onboarding.workspace.title"
-      }
-    }
-  },
-  "profile": {
-    "change_password": {
-      "page": {
-        "title": "profile.change_password.page.title"
-      }
-    },
-    "profile_edit_personal": {
-      "field": {
-        "name": "profile.profile_edit_personal.field.name"
-      },
-      "page": {
-        "title": "profile.profile_edit_personal.page.title"
-      }
-    },
-    "profile": {
-      "action": {
-        "change_password": "profile.profile.action.change_password",
-        "create_password": "profile.profile.action.create_password",
-        "delete_account": "profile.profile.action.delete_account"
-      },
-      "label": {
-        "address": "profile.profile.label.address",
-        "date_of_birth": "profile.profile.label.date_of_birth",
-        "email": "profile.profile.label.email",
-        "gender": "profile.profile.label.gender",
-        "name": "profile.profile.label.name",
-        "nickname": "profile.profile.label.nickname",
-        "profile_photo": "profile.profile.label.profile_photo",
-        "whatsapp_number": "profile.profile.label.whatsapp_number"
-      },
-      "logout": {
-        "button": "profile.profile.logout.button"
-      },
-      "page": {
-        "title": "profile.profile.page.title"
-      },
-      "section": {
-        "data_account": "profile.profile.section.data_account",
-        "data_privacy": "profile.profile.section.data_privacy",
-        "personal_information": "profile.profile.section.personal_information",
-        "security": "profile.profile.section.security"
-      }
-    }
-  },
-  "role": {
-    "role_detail": {
-      "page_title": "role.role_detail.page_title"
-    },
-    "rolelist": {
-      "page_title": "role.rolelist.page_title",
-      "section": {
-        "description": "role.rolelist.section.description"
-      },
-      "table": {
-        "description": {
-          "header": "role.rolelist.table.description.header"
-        },
-        "role_name": {
-          "header": "role.rolelist.table.role_name.header"
-        },
-        "user_count": {
-          "header": "role.rolelist.table.user_count.header",
-          "tooltip": "role.rolelist.table.user_count.tooltip"
-        }
-      }
-    }
-  },
-  "settings": {
-    "company_setting": {
-      "page_title": "settings.company_setting.page_title"
-    },
-    "preferences": {
-      "language": "settings.preferences.language",
-      "notifications": "settings.preferences.notifications",
-      "theme": "settings.preferences.theme",
-      "title": "settings.preferences.title"
-    },
-    "profile": {
-      "change_password": "settings.profile.change_password",
-      "edit_profile": "settings.profile.edit_profile",
-      "logout": {
-        "button": "settings.profile.logout.button",
-        "popup": {
-          "cancel": "settings.profile.logout.popup.cancel",
-          "confirm": "settings.profile.logout.popup.confirm",
-          "message": "settings.profile.logout.popup.message",
-          "title": "settings.profile.logout.popup.title"
-        }
-      },
-      "title": "settings.profile.title"
-    },
-    "title": "settings.title"
-  },
-  "user": {
-    "email_aktifkan_pengguna": {
-      "subject": "user.email_aktifkan_pengguna.subject"
-    },
-    "invite_email": {
-      "subject": "user.invite_email.subject"
-    },
-    "ubah_akses_pengguna": {
-      "modal": {
-        "title": "user.ubah_akses_pengguna.modal.title"
-      },
-      "toast_title": {
-        "success": "user.ubah_akses_pengguna.toast_title.success"
-      }
-    },
-    "user_activate": {
-      "toast_message": {
-        "success": "user.user_activate.toast_message.success"
-      },
-      "toast_title": {
-        "success": "user.user_activate.toast_title.success"
-      }
-    },
-    "user_deactivate": {
-      "modal": {
-        "title": "user.user_deactivate.modal.title"
-      },
-      "toast_title": {
-        "success": "user.user_deactivate.toast_title.success"
-      }
-    },
-    "user_deactivated": {
-      "page": {
-        "title": "user.user_deactivated.page.title"
-      }
-    },
-    "user_detail": {
-      "button": {
-        "change_role": "user.user_detail.button.change_role",
-        "change_status": "user.user_detail.button.change_status"
-      },
-      "header": {
-        "title": "user.user_detail.header.title"
-      },
-      "page_title": "user.user_detail.page_title",
-      "section": {
-        "access_scope": "user.user_detail.section.access_scope",
-        "email": "user.user_detail.section.email",
-        "invited_by": "user.user_detail.section.invited_by",
-        "join_date": "user.user_detail.section.join_date",
-        "name": "user.user_detail.section.name",
-        "role": "user.user_detail.section.role",
-        "status": "user.user_detail.section.status",
-        "title": "user.user_detail.section.title",
-        "wa_number": "user.user_detail.section.wa_number"
-      }
-    },
-    "user_list": {
-      "header": {
-        "add_user": {
-          "button": "user.user_list.header.add_user.button"
-        }
-      },
-      "modal": {
-        "info": {
-          "company": "user.user_list.modal.info.company"
-        },
-        "label": {
-          "email": "user.user_list.modal.label.email",
-          "role": "user.user_list.modal.label.role"
-        },
-        "placeholder": {
-          "email": "user.user_list.modal.placeholder.email",
-          "role": "user.user_list.modal.placeholder.role"
-        },
-        "title": "user.user_list.modal.title"
-      }
-    },
-    "useradd": {
-      "owner_role": {
-        "banner": {
-          "title": "user.useradd.owner_role.banner.title"
-        }
-      }
-    },
-    "userlist": {
-      "action": {
-        "view_detail": "user.userlist.action.view_detail"
-      },
-      "filter": {
-        "role": {
-          "label": "user.userlist.filter.role.label"
-        }
-      },
-      "pagination": {
-        "rows_per_page": "user.userlist.pagination.rows_per_page"
-      },
-      "resend_invite": {
-        "toast": {
-          "title": "user.userlist.resend_invite.toast.title"
-        }
-      },
-      "search": {
-        "empty": {
-          "title": "user.userlist.search.empty.title"
-        },
-        "placeholder": "user.userlist.search.placeholder"
-      },
-      "table": {
-        "title": "user.userlist.table.title"
-      },
-      "title": "user.userlist.title"
-    }
-  },
-  "workspace_detail": {
-    "company_list": {
-      "empty": {
-        "cta_button": "workspace_detail.company_list.empty.cta_button",
-        "description": "workspace_detail.company_list.empty.description",
-        "title": "workspace_detail.company_list.empty.title"
-      }
-    },
-    "detailrk": {
-      "company_list": "workspace_detail.detailrk.company_list",
-      "data_info": "workspace_detail.detailrk.data_info",
-      "name_ws": "workspace_detail.detailrk.name_ws",
-      "owned_by": "workspace_detail.detailrk.owned_by",
-      "sumbusiness_unit": "workspace_detail.detailrk.sumbusiness_unit",
-      "sumcompany": "workspace_detail.detailrk.sumcompany"
-    },
-    "workspace_detail": {
-      "action": {
-        "add_company": {
-          "button": "workspace_detail.workspace_detail.action.add_company.button"
-        }
-      },
-      "company_add": {
-        "modal": {
-          "title": "workspace_detail.workspace_detail.company_add.modal.title"
-        }
-      },
-      "page_title": "workspace_detail.workspace_detail.page_title"
-    }
-  },
-  "workspace": {
-    "delete_info": {
-      "button": {
-        "cancel": "workspace.delete_info.button.cancel",
-        "company_list": "workspace.delete_info.button.company_list"
-      },
-      "modal": {
-        "body": "workspace.delete_info.modal.body",
-        "title": "workspace.delete_info.modal.title"
-      }
-    },
-    "detail_workspace": {
-      "edit": {
-        "label": "workspace.detail_workspace.edit.label",
-        "title": "workspace.detail_workspace.edit.title"
-      }
-    },
-    "list_workspace": {
-      "modal": {
-        "label": "workspace.list_workspace.modal.label",
-        "placeholder": "workspace.list_workspace.modal.placeholder",
-        "title": "workspace.list_workspace.modal.title"
-      }
-    },
-    "listcompany": {
-      "header": {
-        "title": "workspace.listcompany.header.title"
-      }
-    },
-    "listrk": {
-      "header": {
-        "title": "workspace.listrk.header.title"
-      }
-    },
-    "workspace": {
-      "create": {
-        "action": {
-          "cancel": {
-            "button": "workspace.workspace.create.action.cancel.button"
-          },
-          "submit": {
-            "button": "workspace.workspace.create.action.submit.button"
-          }
-        },
-        "form": {
-          "name": {
-            "error": {
-              "duplicate": "workspace.workspace.create.form.name.error.duplicate",
-              "invalid_format": "workspace.workspace.create.form.name.error.invalid_format",
-              "max_length": "workspace.workspace.create.form.name.error.max_length",
-              "min_length": "workspace.workspace.create.form.name.error.min_length",
-              "required": "workspace.workspace.create.form.name.error.required"
+        form: {
+          name: {
+            error: {
+              duplicate: "company_and_workspace.workspace.edit.form.name.error.duplicate",
+              invalid_format: "company_and_workspace.workspace.edit.form.name.error.invalid_format",
+              max_length: "company_and_workspace.workspace.edit.form.name.error.max_length",
+              min_length: "company_and_workspace.workspace.edit.form.name.error.min_length",
+              required: "company_and_workspace.workspace.edit.form.name.error.required",
             },
-            "label": "workspace.workspace.create.form.name.label",
-            "placeholder": "workspace.workspace.create.form.name.placeholder"
-          }
-        },
-        "modal": {
-          "title": "workspace.workspace.create.modal.title"
-        },
-        "name": {
-          "info": {
-            "max_length": "workspace.workspace.create.name.info.max_length"
-          }
-        },
-        "toast": {
-          "success": {
-            "message": "workspace.workspace.create.toast.success.message",
-            "title": "workspace.workspace.create.toast.success.title"
-          }
-        }
-      },
-      "delete": {
-        "action": {
-          "cancel": {
-            "button": "workspace.workspace.delete.action.cancel.button"
+            max_length: "company_and_workspace.workspace.edit.form.name.max_length",
           },
-          "confirm": {
-            "button": "workspace.workspace.delete.action.confirm.button"
-          }
         },
-        "checkbox": {
-          "confirmation": "workspace.workspace.delete.checkbox.confirmation"
-        },
-        "form": {
-          "confirmation": {
-            "label": "workspace.workspace.delete.form.confirmation.label",
-            "placeholder": "workspace.workspace.delete.form.confirmation.placeholder"
-          }
-        },
-        "modal": {
-          "banner_title": "workspace.workspace.delete.modal.banner_title",
-          "description": "workspace.workspace.delete.modal.description",
-          "title": "workspace.workspace.delete.modal.title"
-        },
-        "toast": {
-          "success": {
-            "message": "workspace.workspace.delete.toast.success.message",
-            "title": "workspace.workspace.delete.toast.success.title"
-          }
-        }
-      },
-      "edit": {
-        "action": {
-          "cancel": {
-            "button": "workspace.workspace.edit.action.cancel.button"
+        toast: {
+          cancle: {
+            message: "company_and_workspace.workspace.edit.toast.cancle.message",
+            title: "company_and_workspace.workspace.edit.toast.cancle.title",
           },
-          "submit": {
-            "button": "workspace.workspace.edit.action.submit.button"
-          }
+          success: {
+            message: "company_and_workspace.workspace.edit.toast.success.message",
+            title: "company_and_workspace.workspace.edit.toast.success.title",
+          },
         },
-        "form": {
-          "name": {
-            "error": {
-              "duplicate": "workspace.workspace.edit.form.name.error.duplicate",
-              "invalid_format": "workspace.workspace.edit.form.name.error.invalid_format",
-              "max_length": "workspace.workspace.edit.form.name.error.max_length",
-              "min_length": "workspace.workspace.edit.form.name.error.min_length",
-              "required": "workspace.workspace.edit.form.name.error.required"
+      },
+      list: {
+        action: {
+          create: {
+            button: "company_and_workspace.workspace.list.action.create.button",
+          },
+        },
+        empty: {
+          description: "company_and_workspace.workspace.list.empty.description",
+          title: "company_and_workspace.workspace.list.empty.title",
+        },
+        error: {
+          description: "company_and_workspace.workspace.list.error.description",
+          title: "company_and_workspace.workspace.list.error.title",
+        },
+        header: {
+          managed_by: {
+            label: "company_and_workspace.workspace.list.header.managed_by.label",
+          },
+        },
+        not_found: {
+          description: "company_and_workspace.workspace.list.not_found.description",
+          title: "company_and_workspace.workspace.list.not_found.title",
+        },
+        summary: {
+          business_unit_total: {
+            label: "company_and_workspace.workspace.list.summary.business_unit_total.label",
+          },
+          company_total: {
+            label: "company_and_workspace.workspace.list.summary.company_total.label",
+          },
+        },
+      },
+    },
+  },
+  company_detail: {
+    access_address_subtitle: "company_detail.access_address_subtitle",
+    access_companyidentity_subtitle: "company_detail.access_companyidentity_subtitle",
+    access_contact_subtitle: "company_detail.access_contact_subtitle",
+    access_error: {
+      cta_back: "company_detail.access_error.cta_back",
+      description: "company_detail.access_error.description",
+      title: "company_detail.access_error.title",
+    },
+    access_legalandadministration_subtitle: "company_detail.access_legalandadministration_subtitle",
+  },
+  company: {
+    accounting_start_date: {
+      label: "company.accounting_start_date.label",
+    },
+    address: {
+      label: "company.address.label",
+      placeholder: "company.address.placeholder",
+    },
+    business_type: {
+      label: "company.business_type.label",
+      placeholder: "company.business_type.placeholder",
+    },
+    business_unit_count: {
+      label: "company.business_unit_count.label",
+    },
+    city: {
+      label: "company.city.label",
+      placeholder: "company.city.placeholder",
+    },
+    country: {
+      label: "company.country.label",
+      placeholder: "company.country.placeholder",
+    },
+    create: {
+      action: {
+        cancel: {
+          button: "company.create.action.cancel.button",
+        },
+        submit: {
+          button: "company.create.action.submit.button",
+        },
+      },
+      additional_info: {
+        label: "company.create.additional_info.label",
+      },
+      form: {
+        accounting_start_date: {
+          label: "company.create.form.accounting_start_date.label",
+          placeholder: "company.create.form.accounting_start_date.placeholder",
+        },
+        address: {
+          label: "company.create.form.address.label",
+          placeholder: "company.create.form.address.placeholder",
+        },
+        business_type: {
+          error: {
+            required: "company.create.form.business_type.error.required",
+          },
+          label: "company.create.form.business_type.label",
+          placeholder: "company.create.form.business_type.placeholder",
+        },
+        business_unit_count: {
+          label: "company.create.form.business_unit_count.label",
+          placeholder: "company.create.form.business_unit_count.placeholder",
+        },
+        city: {
+          label: "company.create.form.city.label",
+          placeholder: "company.create.form.city.placeholder",
+        },
+        country: {
+          error: {
+            required: "company.create.form.country.error.required",
+          },
+          label: "company.create.form.country.label",
+          placeholder: "company.create.form.country.placeholder",
+        },
+        creation_date: {
+          label: "company.create.form.creation_date.label",
+          placeholder: "company.create.form.creation_date.placeholder",
+        },
+        currency: {
+          error: {
+            required: "company.create.form.currency.error.required",
+          },
+          label: "company.create.form.currency.label",
+          placeholder: "company.create.form.currency.placeholder",
+        },
+        district: {
+          label: "company.create.form.district.label",
+          placeholder: "company.create.form.district.placeholder",
+        },
+        email: {
+          label: "company.create.form.email.label",
+          placeholder: "company.create.form.email.placeholder",
+        },
+        establishment_date: {
+          label: "company.create.form.establishment_date.label",
+          placeholder: "company.create.form.establishment_date.placeholder",
+        },
+        geo: {
+          city_empty: "company.create.form.geo.city_empty",
+          city_loading: "company.create.form.geo.city_loading",
+          city_select_province: "company.create.form.geo.city_select_province",
+          district_empty: "company.create.form.geo.district_empty",
+          district_loading: "company.create.form.geo.district_loading",
+          district_select_city: "company.create.form.geo.district_select_city",
+          province_empty: "company.create.form.geo.province_empty",
+          province_loading: "company.create.form.geo.province_loading",
+          subdistrict_empty: "company.create.form.geo.subdistrict_empty",
+          subdistrict_loading: "company.create.form.geo.subdistrict_loading",
+          subdistrict_select_district: "company.create.form.geo.subdistrict_select_district",
+        },
+        logo: {
+          label: "company.create.form.logo.label",
+          max_size: "company.create.form.logo.max_size",
+          placeholder: "company.create.form.logo.placeholder",
+        },
+        name: {
+          error: {
+            duplicate: "company.create.form.name.error.duplicate",
+            format: "company.create.form.name.error.format",
+            min_length: "company.create.form.name.error.min_length",
+            required: "company.create.form.name.error.required",
+          },
+          info: {
+            max_length: "company.create.form.name.info.max_length",
+          },
+          label: "company.create.form.name.label",
+          placeholder: "company.create.form.name.placeholder",
+        },
+        nib: {
+          label: "company.create.form.nib.label",
+          placeholder: "company.create.form.nib.placeholder",
+        },
+        phone: {
+          label: "company.create.form.phone.label",
+          placeholder: "company.create.form.phone.placeholder",
+        },
+        postal_code: {
+          label: "company.create.form.postal_code.label",
+          placeholder: "company.create.form.postal_code.placeholder",
+        },
+        province: {
+          label: "company.create.form.province.label",
+          placeholder: "company.create.form.province.placeholder",
+        },
+        sppkp_number: {
+          label: "company.create.form.sppkp_number.label",
+          placeholder: "company.create.form.sppkp_number.placeholder",
+        },
+        subdistrict: {
+          label: "company.create.form.subdistrict.label",
+          placeholder: "company.create.form.subdistrict.placeholder",
+        },
+        tax_id: {
+          label: "company.create.form.tax_id.label",
+          placeholder: "company.create.form.tax_id.placeholder",
+        },
+        vat_status: {
+          label: "company.create.form.vat_status.label",
+        },
+        website: {
+          label: "company.create.form.website.label",
+          placeholder: "company.create.form.website.placeholder",
+        },
+        whatsapp: {
+          label: "company.create.form.whatsapp.label",
+          placeholder: "company.create.form.whatsapp.placeholder",
+        },
+        workspace: {
+          dropdown: "company.create.form.workspace.dropdown",
+          label: "company.create.form.workspace.label",
+        },
+      },
+      modal: {
+        title: "company.create.modal.title",
+      },
+      option: {
+        business_type: {
+          jasa: "company.create.option.business_type.jasa",
+          manufaktur: "company.create.option.business_type.manufaktur",
+          retail: "company.create.option.business_type.retail",
+        },
+        country: {
+          indonesia: "company.create.option.country.indonesia",
+        },
+        currency: {
+          idr: "company.create.option.currency.idr",
+        },
+        pkp_status: {
+          non_pkp: "company.create.option.pkp_status.non_pkp",
+          pkp: "company.create.option.pkp_status.pkp",
+        },
+      },
+      section: {
+        address: {
+          label: "company.create.section.address.label",
+        },
+        contact: {
+          label: "company.create.section.contact.label",
+        },
+        identity: {
+          label: "company.create.section.identity.label",
+        },
+        legal: {
+          label: "company.create.section.legal.label",
+        },
+      },
+    },
+    created_date: {
+      label: "company.created_date.label",
+    },
+    currency: {
+      label: "company.currency.label",
+      placeholder: "company.currency.placeholder",
+    },
+    detail: {
+      action: {
+        back_to_list: "company.detail.action.back_to_list",
+        delete_company: "company.detail.action.delete_company",
+        primary_company: "company.detail.action.primary_company",
+        set_default: "company.detail.action.set_default",
+      },
+      breadcrumb: {
+        aria_label: "company.detail.breadcrumb.aria_label",
+      },
+      error: {
+        description: "company.detail.error.description",
+        retry: "company.detail.error.retry",
+        title: "company.detail.error.title",
+      },
+      header: {
+        title: "company.detail.header.title",
+      },
+      info: {
+        address: {
+          label: "company.detail.info.address.label",
+        },
+        business_unit_total: {
+          active_label: "company.detail.info.business_unit_total.active_label",
+          label: "company.detail.info.business_unit_total.label",
+        },
+        email: {
+          label: "company.detail.info.email.label",
+        },
+        phone: {
+          label: "company.detail.info.phone.label",
+        },
+        whatsapp: {
+          label: "company.detail.info.whatsapp.label",
+        },
+      },
+      section: {
+        business_unit: {
+          label: "company.detail.section.business_unit.label",
+        },
+        profile: {
+          label: "company.detail.section.profile.label",
+        },
+        role_management: {
+          label: "company.detail.section.role_management.label",
+        },
+        user_management: {
+          label: "company.detail.section.user_management.label",
+        },
+      },
+      status: {
+        coming_soon: {
+          label: "company.detail.status.coming_soon.label",
+        },
+      },
+      toast: {
+        set_default_error_title: "company.detail.toast.set_default_error_title",
+        set_default_success_message: "company.detail.toast.set_default_success_message",
+        set_default_success_title: "company.detail.toast.set_default_success_title",
+      },
+    },
+    district: {
+      label: "company.district.label",
+      placeholder: "company.district.placeholder",
+    },
+    email: {
+      label: "company.email.label",
+    },
+    error: {
+      account_not_linked: "company.error.account_not_linked",
+      bad_gateway: "company.error.bad_gateway",
+      bad_request: "company.error.bad_request",
+      business_type: {
+        invalid: "company.error.business_type.invalid",
+      },
+      confirm_name: {
+        mismatch: "company.error.confirm_name.mismatch",
+      },
+      conflict: "company.error.conflict",
+      country_code: {
+        invalid: "company.error.country_code.invalid",
+      },
+      email: {
+        invalid: "company.error.email.invalid",
+      },
+      expired_token: "company.error.expired_token",
+      forbidden: "company.error.forbidden",
+      gateway_timeout: "company.error.gateway_timeout",
+      has_active_units: "company.error.has_active_units",
+      has_transaction: "company.error.has_transaction",
+      internal_server_error: "company.error.internal_server_error",
+      is_default: "company.error.is_default",
+      name: {
+        duplicate: "company.error.name.duplicate",
+        min: "company.error.name.min",
+        required: "company.error.name.required",
+      },
+      nib: {
+        duplicate: "company.error.nib.duplicate",
+      },
+      not_found: "company.error.not_found",
+      npwp: {
+        duplicate: "company.error.npwp.duplicate",
+        invalid: "company.error.npwp.invalid",
+      },
+      phone: {
+        duplicate: "company.error.phone.duplicate",
+      },
+      postal_code: {
+        invalid: "company.error.postal_code.invalid",
+      },
+      service_unavailable: "company.error.service_unavailable",
+      session_expired: "company.error.session_expired",
+      unauthorized: "company.error.unauthorized",
+      unit_has_transaction: "company.error.unit_has_transaction",
+      unknown_error: "company.error.unknown_error",
+      validation_error: "company.error.validation_error",
+    },
+    established_date: {
+      label: "company.established_date.label",
+    },
+    fiscal_year: {
+      label: "company.fiscal_year.label",
+    },
+    list: {
+      action: {
+        add_company: "company.list.action.add_company",
+        manage_workspace: "company.list.action.manage_workspace",
+      },
+      business_unit: {
+        active_label: "company.list.business_unit.active_label",
+        total_label: "company.list.business_unit.total_label",
+      },
+      empty_filtered: {
+        description: "company.list.empty_filtered.description",
+        title: "company.list.empty_filtered.title",
+      },
+      error: {
+        description: "company.list.error.description",
+        retry: "company.list.error.retry",
+        title: "company.list.error.title",
+      },
+      filter: {
+        apply: "company.list.filter.apply",
+        button: "company.list.filter.button",
+        empty_result: "company.list.filter.empty_result",
+        reset: "company.list.filter.reset",
+        search_placeholder: "company.list.filter.search_placeholder",
+        select_workspace: "company.list.filter.select_workspace",
+        title: "company.list.filter.title",
+      },
+      load_more: {
+        label: "company.list.load_more.label",
+      },
+      not_found: {
+        description: "company.list.not_found.description",
+        title: "company.list.not_found.title",
+      },
+      ownership: {
+        mine: "company.list.ownership.mine",
+        shared_by: "company.list.ownership.shared_by",
+      },
+      search: {
+        loading: "company.list.search.loading",
+        placeholder: "company.list.search.placeholder",
+      },
+      toast: {
+        create_failed_title: "company.list.toast.create_failed_title",
+        logo_upload_failed_message: "company.list.toast.logo_upload_failed_message",
+        logo_upload_failed_title: "company.list.toast.logo_upload_failed_title",
+      },
+    },
+    logo: {
+      label: "company.logo.label",
+      placeholder: "company.logo.placeholder",
+    },
+    modal: {
+      save_changes: {
+        desc: "company.modal.save_changes.desc",
+        primary_button: "company.modal.save_changes.primary_button",
+        secondary_button: "company.modal.save_changes.secondary_button",
+      },
+    },
+    name: {
+      label: "company.name.label",
+      placeholder: "company.name.placeholder",
+    },
+    nib: {
+      label: "company.nib.label",
+    },
+    npwp: {
+      label: "company.npwp.label",
+    },
+    phone: {
+      label: "company.phone.label",
+    },
+    pkp_status: {
+      label: "company.pkp_status.label",
+      placeholder: "company.pkp_status.placeholder",
+    },
+    postal_code: {
+      label: "company.postal_code.label",
+      placeholder: "company.postal_code.placeholder",
+    },
+    profile: {
+      action: {
+        cancel: "company.profile.action.cancel",
+        save: "company.profile.action.save",
+        save_changes: "company.profile.action.save_changes",
+      },
+      discard_dialog: {
+        description: "company.profile.discard_dialog.description",
+        primary: "company.profile.discard_dialog.primary",
+        secondary: "company.profile.discard_dialog.secondary",
+        title: "company.profile.discard_dialog.title",
+      },
+      error: {
+        description: "company.profile.error.description",
+        retry: "company.profile.error.retry",
+        title: "company.profile.error.title",
+      },
+      forbidden: {
+        cta_back: "company.profile.forbidden.cta_back",
+        description: "company.profile.forbidden.description",
+        title: "company.profile.forbidden.title",
+      },
+      header: {
+        title: "company.profile.header.title",
+      },
+      modal: {
+        edit_prefix: "company.profile.modal.edit_prefix",
+      },
+      not_found: {
+        cta_back: "company.profile.not_found.cta_back",
+        description: "company.profile.not_found.description",
+        title: "company.profile.not_found.title",
+      },
+      option: {
+        currency: {
+          idr: "company.profile.option.currency.idr",
+          sgd: "company.profile.option.currency.sgd",
+          usd: "company.profile.option.currency.usd",
+        },
+      },
+      toast: {
+        save_failed_message: "company.profile.toast.save_failed_message",
+        save_failed_title: "company.profile.toast.save_failed_title",
+        save_success_title: "company.profile.toast.save_success_title",
+        validation_failed_message: "company.profile.toast.validation_failed_message",
+        validation_failed_title: "company.profile.toast.validation_failed_title",
+      },
+    },
+    province: {
+      label: "company.province.label",
+      placeholder: "company.province.placeholder",
+    },
+    save: {
+      cancel: {
+        button: "company.save.cancel.button",
+      },
+      confirm: {
+        button: "company.save.confirm.button",
+        description: "company.save.confirm.description",
+        title: "company.save.confirm.title",
+      },
+      success: "company.save.success",
+    },
+    village: {
+      label: "company.village.label",
+      placeholder: "company.village.placeholder",
+    },
+    website: {
+      label: "company.website.label",
+    },
+    whatsapp: {
+      label: "company.whatsapp.label",
+    },
+  },
+  delete: {
+    company: {
+      blocked: {
+        active_units: {
+          action: "delete.company.blocked.active_units.action",
+          description: "delete.company.blocked.active_units.description",
+        },
+        button: {
+          cancel: "delete.company.blocked.button.cancel",
+        },
+        default_company: {
+          action: "delete.company.blocked.default_company.action",
+          description: "delete.company.blocked.default_company.description",
+        },
+        title: "delete.company.blocked.title",
+      },
+      confirm: {
+        approval_text: "delete.company.confirm.approval_text",
+        banner: {
+          description: "delete.company.confirm.banner.description",
+          title: "delete.company.confirm.banner.title",
+        },
+        button: {
+          cancel: "delete.company.confirm.button.cancel",
+          confirm: "delete.company.confirm.button.confirm",
+          submit: "delete.company.confirm.button.submit",
+        },
+        description: "delete.company.confirm.description",
+        input: {
+          helper_text: "delete.company.confirm.input.helper_text",
+          label: "delete.company.confirm.input.label",
+          placeholder: "delete.company.confirm.input.placeholder",
+        },
+        title: "delete.company.confirm.title",
+      },
+      error: {
+        company_has_transaction: "delete.company.error.company_has_transaction",
+        company_name_mismatch: "delete.company.error.company_name_mismatch",
+        company_name_required: "delete.company.error.company_name_required",
+        forbidden: "delete.company.error.forbidden",
+        has_active_units: "delete.company.error.has_active_units",
+        is_default: "delete.company.error.is_default",
+        not_found: "delete.company.error.not_found",
+        unit_has_transaction: "delete.company.error.unit_has_transaction",
+        unknown: "delete.company.error.unknown",
+        validation_error: "delete.company.error.validation_error",
+      },
+      impact: {
+        banner: {
+          title: "delete.company.impact.banner.title",
+        },
+        button: {
+          cancel: "delete.company.impact.button.cancel",
+          confirm: "delete.company.impact.button.confirm",
+          continue: "delete.company.impact.button.continue",
+        },
+        description: "delete.company.impact.description",
+        modal: {
+          title: "delete.company.impact.modal.title",
+        },
+        summary: {
+          description: "delete.company.impact.summary.description",
+          unit_count: "delete.company.impact.summary.unit_count",
+        },
+        title: "delete.company.impact.title",
+      },
+      precheck: {
+        error: {
+          message: "delete.company.precheck.error.message",
+          title: "delete.company.precheck.error.title",
+          unknown: "delete.company.precheck.error.unknown",
+        },
+        loading: {
+          label: "delete.company.precheck.loading.label",
+        },
+      },
+      toast: {
+        error_title: "delete.company.toast.error_title",
+        success: {
+          message: "delete.company.toast.success.message",
+          title: "delete.company.toast.success.title",
+        },
+      },
+    },
+  },
+  error: {
+    business_type: {
+      required: "error.business_type.required",
+    },
+    company: {
+      name: {
+        duplicate: "error.company.name.duplicate",
+        invalid_character: "error.company.name.invalid_character",
+        max: "error.company.name.max",
+        min: "error.company.name.min",
+        required: "error.company.name.required",
+      },
+    },
+    country: {
+      required: "error.country.required",
+    },
+    currency: {
+      required: "error.currency.required",
+    },
+    email: {
+      invalid: "error.email.invalid",
+    },
+    error: {
+      account_not_linked: "error.error.account_not_linked",
+      bad_gateway: "error.error.bad_gateway",
+      bad_request: "error.error.bad_request",
+      conflict: "error.error.conflict",
+      expired_token: "error.error.expired_token",
+      forbidden: "error.error.forbidden",
+      gateway_timeout: "error.error.gateway_timeout",
+      internal_server_error: "error.error.internal_server_error",
+      not_found: "error.error.not_found",
+      service_unavailable: "error.error.service_unavailable",
+      session_expired: "error.error.session_expired",
+      unauthorized: "error.error.unauthorized",
+      unknown_error: "error.error.unknown_error",
+      validation_error: "error.error.validation_error",
+    },
+    logo: {
+      format: "error.logo.format",
+      size: "error.logo.size",
+    },
+    nib: {
+      duplicate: "error.nib.duplicate",
+      invalid: "error.nib.invalid",
+    },
+    npwp: {
+      duplicate: "error.npwp.duplicate",
+      invalid: "error.npwp.invalid",
+    },
+    phone: {
+      duplicate: "error.phone.duplicate",
+      invalid: "error.phone.invalid",
+      max: "error.phone.max",
+    },
+    postal_code: {
+      invalid: "error.postal_code.invalid",
+    },
+    website: {
+      invalid: "error.website.invalid",
+    },
+    whatsapp: {
+      duplicate: "error.whatsapp.duplicate",
+      invalid: "error.whatsapp.invalid",
+      max: "error.whatsapp.max",
+    },
+  },
+  fallback: {
+    fb200_b: "fallback.fb200_b",
+    fb200_d: "fallback.fb200_d",
+    fb200_h: "fallback.fb200_h",
+    fb201_b: "fallback.fb201_b",
+    fb201_d: "fallback.fb201_d",
+    fb201_h: "fallback.fb201_h",
+    fb202_b: "fallback.fb202_b",
+    fb202_d: "fallback.fb202_d",
+    fb202_h: "fallback.fb202_h",
+    fb204_b: "fallback.fb204_b",
+    fb204_d: "fallback.fb204_d",
+    fb204_h: "fallback.fb204_h",
+    fb300_b: "fallback.fb300_b",
+    fb300_d: "fallback.fb300_d",
+    fb300_h: "fallback.fb300_h",
+    fb301_b: "fallback.fb301_b",
+    fb301_d: "fallback.fb301_d",
+    fb301_h: "fallback.fb301_h",
+    fb302_b: "fallback.fb302_b",
+    fb302_d: "fallback.fb302_d",
+    fb302_h: "fallback.fb302_h",
+    fb303_b: "fallback.fb303_b",
+    fb303_d: "fallback.fb303_d",
+    fb303_h: "fallback.fb303_h",
+    fb304_b: "fallback.fb304_b",
+    fb304_d: "fallback.fb304_d",
+    fb304_h: "fallback.fb304_h",
+    fb307_b: "fallback.fb307_b",
+    fb307_d: "fallback.fb307_d",
+    fb307_h: "fallback.fb307_h",
+    fb308_b: "fallback.fb308_b",
+    fb308_d: "fallback.fb308_d",
+    fb308_h: "fallback.fb308_h",
+    fb400_b: "fallback.fb400_b",
+    fb400_d: "fallback.fb400_d",
+    fb400_h: "fallback.fb400_h",
+    fb401_b: "fallback.fb401_b",
+    fb401_d: "fallback.fb401_d",
+    fb401_h: "fallback.fb401_h",
+    fb402_b: "fallback.fb402_b",
+    fb402_d: "fallback.fb402_d",
+    fb402_h: "fallback.fb402_h",
+    fb403_b: "fallback.fb403_b",
+    fb403_d: "fallback.fb403_d",
+    fb403_h: "fallback.fb403_h",
+    fb404_b: "fallback.fb404_b",
+    fb404_d: "fallback.fb404_d",
+    fb404_h: "fallback.fb404_h",
+    fb405_b: "fallback.fb405_b",
+    fb405_d: "fallback.fb405_d",
+    fb405_h: "fallback.fb405_h",
+    fb406_b: "fallback.fb406_b",
+    fb406_d: "fallback.fb406_d",
+    fb406_h: "fallback.fb406_h",
+    fb408_b: "fallback.fb408_b",
+    fb408_d: "fallback.fb408_d",
+    fb408_h: "fallback.fb408_h",
+    fb409_b: "fallback.fb409_b",
+    fb409_d: "fallback.fb409_d",
+    fb409_h: "fallback.fb409_h",
+    fb410_b: "fallback.fb410_b",
+    fb410_d: "fallback.fb410_d",
+    fb410_h: "fallback.fb410_h",
+    fb413_b: "fallback.fb413_b",
+    fb413_d: "fallback.fb413_d",
+    fb413_h: "fallback.fb413_h",
+    fb415_b: "fallback.fb415_b",
+    fb415_d: "fallback.fb415_d",
+    fb415_h: "fallback.fb415_h",
+    fb422_b: "fallback.fb422_b",
+    fb422_d: "fallback.fb422_d",
+    fb422_h: "fallback.fb422_h",
+    fb429_b: "fallback.fb429_b",
+    fb429_d: "fallback.fb429_d",
+    fb429_h: "fallback.fb429_h",
+    fb500_b: "fallback.fb500_b",
+    fb500_b_secondary: "fallback.fb500_b_secondary",
+    fb500_d: "fallback.fb500_d",
+    fb500_h: "fallback.fb500_h",
+    fb501_b: "fallback.fb501_b",
+    fb501_b_secondary: "fallback.fb501_b_secondary",
+    fb501_d: "fallback.fb501_d",
+    fb501_h: "fallback.fb501_h",
+    fb502_b: "fallback.fb502_b",
+    fb502_b_secondary: "fallback.fb502_b_secondary",
+    fb502_d: "fallback.fb502_d",
+    fb502_h: "fallback.fb502_h",
+    fb503_b: "fallback.fb503_b",
+    fb503_b_secondary: "fallback.fb503_b_secondary",
+    fb503_d: "fallback.fb503_d",
+    fb503_h: "fallback.fb503_h",
+    fb504_b: "fallback.fb504_b",
+    fb504_b_secondary: "fallback.fb504_b_secondary",
+    fb504_d: "fallback.fb504_d",
+    fb504_h: "fallback.fb504_h",
+    support_label: "fallback.support_label",
+    support_url: "fallback.support_url",
+  },
+  http: {
+    http_200_message: "http.http_200_message",
+    http_200_title: "http.http_200_title",
+    http_201_message: "http.http_201_message",
+    http_201_title: "http.http_201_title",
+    http_202_message: "http.http_202_message",
+    http_202_title: "http.http_202_title",
+    http_204_message: "http.http_204_message",
+    http_204_title: "http.http_204_title",
+    http_400_message: "http.http_400_message",
+    http_400_title: "http.http_400_title",
+    http_401_message: "http.http_401_message",
+    http_401_title: "http.http_401_title",
+    http_403_message: "http.http_403_message",
+    http_403_title: "http.http_403_title",
+    http_404_message: "http.http_404_message",
+    http_404_title: "http.http_404_title",
+    http_405_message: "http.http_405_message",
+    http_405_title: "http.http_405_title",
+    http_408_message: "http.http_408_message",
+    http_408_title: "http.http_408_title",
+    http_409_message: "http.http_409_message",
+    http_409_title: "http.http_409_title",
+    http_410_message: "http.http_410_message",
+    http_410_title: "http.http_410_title",
+    http_415_message: "http.http_415_message",
+    http_415_title: "http.http_415_title",
+    http_422_message: "http.http_422_message",
+    http_422_title: "http.http_422_title",
+    http_429_message: "http.http_429_message",
+    http_429_title: "http.http_429_title",
+    http_500_message: "http.http_500_message",
+    http_500_title: "http.http_500_title",
+    http_502_message: "http.http_502_message",
+    http_502_title: "http.http_502_title",
+    http_503_message: "http.http_503_message",
+    http_503_title: "http.http_503_title",
+    http_504_message: "http.http_504_message",
+    http_504_title: "http.http_504_title",
+  },
+  onboarding: {
+    onboarding: {
+      business_unit: {
+        add: {
+          bu_name: {
+            label: "onboarding.onboarding.business_unit.add.bu_name.label",
+            placeholder: "onboarding.onboarding.business_unit.add.bu_name.placeholder",
+          },
+          bu_type: {
+            label: "onboarding.onboarding.business_unit.add.bu_type.label",
+            placeholder: "onboarding.onboarding.business_unit.add.bu_type.placeholder",
+          },
+        },
+        desc: "onboarding.onboarding.business_unit.desc",
+        label: "onboarding.onboarding.business_unit.label",
+        name: {
+          error: {
+            format: "onboarding.onboarding.business_unit.name.error.format",
+            min_length: "onboarding.onboarding.business_unit.name.error.min_length",
+          },
+          info: {
+            max_length: "onboarding.onboarding.business_unit.name.info.max_length",
+          },
+        },
+        title: "onboarding.onboarding.business_unit.title",
+      },
+      company: {
+        add: {
+          business_type: {
+            label: "onboarding.onboarding.company.add.business_type.label",
+            placeholder: "onboarding.onboarding.company.add.business_type.placeholder",
+          },
+          company_name: {
+            label: "onboarding.onboarding.company.add.company_name.label",
+            placeholder: "onboarding.onboarding.company.add.company_name.placeholder",
+          },
+          country: {
+            label: "onboarding.onboarding.company.add.country.label",
+            placeholder: "onboarding.onboarding.company.add.country.placeholder",
+          },
+          currency: {
+            label: "onboarding.onboarding.company.add.currency.label",
+            placeholder: "onboarding.onboarding.company.add.currency.placeholder",
+          },
+        },
+        business_type: {
+          error: {
+            required: "onboarding.onboarding.company.business_type.error.required",
+          },
+        },
+        country: {
+          error: {
+            required: "onboarding.onboarding.company.country.error.required",
+          },
+        },
+        currency: {
+          error: {
+            required: "onboarding.onboarding.company.currency.error.required",
+          },
+        },
+        desc: "onboarding.onboarding.company.desc",
+        label: "onboarding.onboarding.company.label",
+        name: {
+          error: {
+            duplicate: "onboarding.onboarding.company.name.error.duplicate",
+            format: "onboarding.onboarding.company.name.error.format",
+            min_length: "onboarding.onboarding.company.name.error.min_length",
+            required: "onboarding.onboarding.company.name.error.required",
+          },
+          info: {
+            max_length: "onboarding.onboarding.company.name.info.max_length",
+          },
+        },
+        title: "onboarding.onboarding.company.title",
+      },
+      error: {
+        system: {
+          page_content: "onboarding.onboarding.error.system.page_content",
+          page_title: "onboarding.onboarding.error.system.page_title",
+        },
+      },
+      navigation: {
+        back: {
+          button: "onboarding.onboarding.navigation.back.button",
+        },
+        next: {
+          button: "onboarding.onboarding.navigation.next.button",
+        },
+      },
+      preview: {
+        data: {
+          business_type: {
+            label: "onboarding.onboarding.preview.data.business_type.label",
+          },
+          business_unit_name: {
+            label: "onboarding.onboarding.preview.data.business_unit_name.label",
+          },
+          business_unit_type: {
+            label: "onboarding.onboarding.preview.data.business_unit_type.label",
+          },
+          company_name: {
+            label: "onboarding.onboarding.preview.data.company_name.label",
+          },
+          country_currency: {
+            label: "onboarding.onboarding.preview.data.country_currency.label",
+          },
+          workspace_name: {
+            label: "onboarding.onboarding.preview.data.workspace_name.label",
+          },
+        },
+        info: {
+          note: "onboarding.onboarding.preview.info.note",
+        },
+        page_content: {
+          intro: "onboarding.onboarding.preview.page_content.intro",
+        },
+        page_title: "onboarding.onboarding.preview.page_title",
+      },
+      start: {
+        cta: {
+          button: "onboarding.onboarding.start.cta.button",
+        },
+        page_content: "onboarding.onboarding.start.page_content",
+        page_title: "onboarding.onboarding.start.page_title",
+      },
+      step: {
+        label: "onboarding.onboarding.step.label",
+      },
+      structure: {
+        page_content: "onboarding.onboarding.structure.page_content",
+        page_title: "onboarding.onboarding.structure.page_title",
+      },
+      success: {
+        cta: {
+          button: "onboarding.onboarding.success.cta.button",
+        },
+        page_content: "onboarding.onboarding.success.page_content",
+        page_title: "onboarding.onboarding.success.page_title",
+      },
+      welcome: {
+        page_content: "onboarding.onboarding.welcome.page_content",
+        page_title: "onboarding.onboarding.welcome.page_title",
+      },
+      workspace: {
+        add: {
+          label: "onboarding.onboarding.workspace.add.label",
+          placeholder: "onboarding.onboarding.workspace.add.placeholder",
+        },
+        desc: "onboarding.onboarding.workspace.desc",
+        label: "onboarding.onboarding.workspace.label",
+        name: {
+          error: {
+            duplicate: "onboarding.onboarding.workspace.name.error.duplicate",
+            format: "onboarding.onboarding.workspace.name.error.format",
+            min_length: "onboarding.onboarding.workspace.name.error.min_length",
+            required: "onboarding.onboarding.workspace.name.error.required",
+          },
+          info: {
+            max_length: "onboarding.onboarding.workspace.name.info.max_length",
+          },
+        },
+        title: "onboarding.onboarding.workspace.title",
+      },
+    },
+  },
+  profile: {
+    change_password: {
+      page: {
+        title: "profile.change_password.page.title",
+      },
+    },
+    profile_edit_personal: {
+      field: {
+        name: "profile.profile_edit_personal.field.name",
+      },
+      page: {
+        title: "profile.profile_edit_personal.page.title",
+      },
+    },
+    profile: {
+      action: {
+        change_password: "profile.profile.action.change_password",
+        create_password: "profile.profile.action.create_password",
+        delete_account: "profile.profile.action.delete_account",
+      },
+      label: {
+        address: "profile.profile.label.address",
+        date_of_birth: "profile.profile.label.date_of_birth",
+        email: "profile.profile.label.email",
+        gender: "profile.profile.label.gender",
+        name: "profile.profile.label.name",
+        nickname: "profile.profile.label.nickname",
+        profile_photo: "profile.profile.label.profile_photo",
+        whatsapp_number: "profile.profile.label.whatsapp_number",
+      },
+      logout: {
+        button: "profile.profile.logout.button",
+      },
+      page: {
+        title: "profile.profile.page.title",
+      },
+      section: {
+        data_account: "profile.profile.section.data_account",
+        data_privacy: "profile.profile.section.data_privacy",
+        personal_information: "profile.profile.section.personal_information",
+        security: "profile.profile.section.security",
+      },
+    },
+  },
+  role: {
+    role_detail: {
+      page_title: "role.role_detail.page_title",
+    },
+    rolelist: {
+      page_title: "role.rolelist.page_title",
+      section: {
+        description: "role.rolelist.section.description",
+      },
+      table: {
+        description: {
+          header: "role.rolelist.table.description.header",
+        },
+        role_name: {
+          header: "role.rolelist.table.role_name.header",
+        },
+        user_count: {
+          header: "role.rolelist.table.user_count.header",
+          tooltip: "role.rolelist.table.user_count.tooltip",
+        },
+      },
+    },
+  },
+  settings: {
+    company_setting: {
+      page_title: "settings.company_setting.page_title",
+    },
+    preferences: {
+      language: "settings.preferences.language",
+      notifications: "settings.preferences.notifications",
+      theme: "settings.preferences.theme",
+      title: "settings.preferences.title",
+    },
+    profile: {
+      change_password: "settings.profile.change_password",
+      edit_profile: "settings.profile.edit_profile",
+      logout: {
+        button: "settings.profile.logout.button",
+        popup: {
+          cancel: "settings.profile.logout.popup.cancel",
+          confirm: "settings.profile.logout.popup.confirm",
+          message: "settings.profile.logout.popup.message",
+          title: "settings.profile.logout.popup.title",
+        },
+      },
+      title: "settings.profile.title",
+    },
+    title: "settings.title",
+  },
+  user: {
+    email_aktifkan_pengguna: {
+      subject: "user.email_aktifkan_pengguna.subject",
+    },
+    invite_email: {
+      subject: "user.invite_email.subject",
+    },
+    ubah_akses_pengguna: {
+      modal: {
+        title: "user.ubah_akses_pengguna.modal.title",
+      },
+      toast_title: {
+        success: "user.ubah_akses_pengguna.toast_title.success",
+      },
+    },
+    user_activate: {
+      toast_message: {
+        success: "user.user_activate.toast_message.success",
+      },
+      toast_title: {
+        success: "user.user_activate.toast_title.success",
+      },
+    },
+    user_deactivate: {
+      modal: {
+        title: "user.user_deactivate.modal.title",
+      },
+      toast_title: {
+        success: "user.user_deactivate.toast_title.success",
+      },
+    },
+    user_deactivated: {
+      page: {
+        title: "user.user_deactivated.page.title",
+      },
+    },
+    user_detail: {
+      button: {
+        change_role: "user.user_detail.button.change_role",
+        change_status: "user.user_detail.button.change_status",
+      },
+      header: {
+        title: "user.user_detail.header.title",
+      },
+      page_title: "user.user_detail.page_title",
+      section: {
+        access_scope: "user.user_detail.section.access_scope",
+        email: "user.user_detail.section.email",
+        invited_by: "user.user_detail.section.invited_by",
+        join_date: "user.user_detail.section.join_date",
+        name: "user.user_detail.section.name",
+        role: "user.user_detail.section.role",
+        status: "user.user_detail.section.status",
+        title: "user.user_detail.section.title",
+        wa_number: "user.user_detail.section.wa_number",
+      },
+    },
+    user_list: {
+      header: {
+        add_user: {
+          button: "user.user_list.header.add_user.button",
+        },
+      },
+      modal: {
+        info: {
+          company: "user.user_list.modal.info.company",
+        },
+        label: {
+          email: "user.user_list.modal.label.email",
+          role: "user.user_list.modal.label.role",
+        },
+        placeholder: {
+          email: "user.user_list.modal.placeholder.email",
+          role: "user.user_list.modal.placeholder.role",
+        },
+        title: "user.user_list.modal.title",
+      },
+    },
+    useradd: {
+      owner_role: {
+        banner: {
+          title: "user.useradd.owner_role.banner.title",
+        },
+      },
+    },
+    userlist: {
+      action: {
+        view_detail: "user.userlist.action.view_detail",
+      },
+      filter: {
+        role: {
+          label: "user.userlist.filter.role.label",
+        },
+      },
+      pagination: {
+        rows_per_page: "user.userlist.pagination.rows_per_page",
+      },
+      resend_invite: {
+        toast: {
+          title: "user.userlist.resend_invite.toast.title",
+        },
+      },
+      search: {
+        empty: {
+          title: "user.userlist.search.empty.title",
+        },
+        placeholder: "user.userlist.search.placeholder",
+      },
+      table: {
+        title: "user.userlist.table.title",
+      },
+      title: "user.userlist.title",
+    },
+  },
+  workspace_detail: {
+    company_list: {
+      empty: {
+        cta_button: "workspace_detail.company_list.empty.cta_button",
+        description: "workspace_detail.company_list.empty.description",
+        title: "workspace_detail.company_list.empty.title",
+      },
+    },
+    detailrk: {
+      company_list: "workspace_detail.detailrk.company_list",
+      data_info: "workspace_detail.detailrk.data_info",
+      name_ws: "workspace_detail.detailrk.name_ws",
+      owned_by: "workspace_detail.detailrk.owned_by",
+      sumbusiness_unit: "workspace_detail.detailrk.sumbusiness_unit",
+      sumcompany: "workspace_detail.detailrk.sumcompany",
+    },
+    workspace_detail: {
+      action: {
+        add_company: {
+          button: "workspace_detail.workspace_detail.action.add_company.button",
+        },
+      },
+      company_add: {
+        modal: {
+          title: "workspace_detail.workspace_detail.company_add.modal.title",
+        },
+      },
+      page_title: "workspace_detail.workspace_detail.page_title",
+    },
+  },
+  workspace: {
+    delete_info: {
+      button: {
+        cancel: "workspace.delete_info.button.cancel",
+        company_list: "workspace.delete_info.button.company_list",
+      },
+      modal: {
+        body: "workspace.delete_info.modal.body",
+        title: "workspace.delete_info.modal.title",
+      },
+    },
+    detail_workspace: {
+      edit: {
+        label: "workspace.detail_workspace.edit.label",
+        title: "workspace.detail_workspace.edit.title",
+      },
+    },
+    list_workspace: {
+      modal: {
+        label: "workspace.list_workspace.modal.label",
+        placeholder: "workspace.list_workspace.modal.placeholder",
+        title: "workspace.list_workspace.modal.title",
+      },
+    },
+    listcompany: {
+      header: {
+        title: "workspace.listcompany.header.title",
+      },
+    },
+    listrk: {
+      header: {
+        title: "workspace.listrk.header.title",
+      },
+    },
+    workspace: {
+      create: {
+        action: {
+          cancel: {
+            button: "workspace.workspace.create.action.cancel.button",
+          },
+          submit: {
+            button: "workspace.workspace.create.action.submit.button",
+          },
+        },
+        form: {
+          name: {
+            error: {
+              duplicate: "workspace.workspace.create.form.name.error.duplicate",
+              invalid_format: "workspace.workspace.create.form.name.error.invalid_format",
+              max_length: "workspace.workspace.create.form.name.error.max_length",
+              min_length: "workspace.workspace.create.form.name.error.min_length",
+              required: "workspace.workspace.create.form.name.error.required",
             },
-            "max_length": "workspace.workspace.edit.form.name.max_length"
-          }
-        },
-        "toast": {
-          "cancle": {
-            "message": "workspace.workspace.edit.toast.cancle.message",
-            "title": "workspace.workspace.edit.toast.cancle.title"
+            label: "workspace.workspace.create.form.name.label",
+            placeholder: "workspace.workspace.create.form.name.placeholder",
           },
-          "success": {
-            "message": "workspace.workspace.edit.toast.success.message",
-            "title": "workspace.workspace.edit.toast.success.title"
-          }
-        }
-      },
-      "error": {
-        "confirm_name": {
-          "mismatch": "workspace.workspace.error.confirm_name.mismatch"
         },
-        "has_companies": "workspace.workspace.error.has_companies",
-        "last_remaining": "workspace.workspace.error.last_remaining",
-        "name": {
-          "duplicate": "workspace.workspace.error.name.duplicate",
-          "required": "workspace.workspace.error.name.required"
-        }
-      },
-      "list": {
-        "action": {
-          "create": {
-            "button": "workspace.workspace.list.action.create.button"
-          }
+        modal: {
+          title: "workspace.workspace.create.modal.title",
         },
-        "empty": {
-          "description": "workspace.workspace.list.empty.description",
-          "title": "workspace.workspace.list.empty.title"
-        },
-        "error": {
-          "description": "workspace.workspace.list.error.description",
-          "title": "workspace.workspace.list.error.title"
-        },
-        "header": {
-          "managed_by": {
-            "label": "workspace.workspace.list.header.managed_by.label"
-          }
-        },
-        "not_found": {
-          "description": "workspace.workspace.list.not_found.description",
-          "title": "workspace.workspace.list.not_found.title"
-        },
-        "summary": {
-          "business_unit_total": {
-            "label": "workspace.workspace.list.summary.business_unit_total.label"
+        name: {
+          info: {
+            max_length: "workspace.workspace.create.name.info.max_length",
           },
-          "company_total": {
-            "label": "workspace.workspace.list.summary.company_total.label"
-          }
-        }
-      }
-    }
-  }
+        },
+        toast: {
+          success: {
+            message: "workspace.workspace.create.toast.success.message",
+            title: "workspace.workspace.create.toast.success.title",
+          },
+        },
+      },
+      delete: {
+        action: {
+          cancel: {
+            button: "workspace.workspace.delete.action.cancel.button",
+          },
+          confirm: {
+            button: "workspace.workspace.delete.action.confirm.button",
+          },
+        },
+        checkbox: {
+          confirmation: "workspace.workspace.delete.checkbox.confirmation",
+        },
+        form: {
+          confirmation: {
+            label: "workspace.workspace.delete.form.confirmation.label",
+            placeholder: "workspace.workspace.delete.form.confirmation.placeholder",
+          },
+        },
+        modal: {
+          banner_title: "workspace.workspace.delete.modal.banner_title",
+          description: "workspace.workspace.delete.modal.description",
+          title: "workspace.workspace.delete.modal.title",
+        },
+        toast: {
+          success: {
+            message: "workspace.workspace.delete.toast.success.message",
+            title: "workspace.workspace.delete.toast.success.title",
+          },
+        },
+      },
+      edit: {
+        action: {
+          cancel: {
+            button: "workspace.workspace.edit.action.cancel.button",
+          },
+          submit: {
+            button: "workspace.workspace.edit.action.submit.button",
+          },
+        },
+        form: {
+          name: {
+            error: {
+              duplicate: "workspace.workspace.edit.form.name.error.duplicate",
+              invalid_format: "workspace.workspace.edit.form.name.error.invalid_format",
+              max_length: "workspace.workspace.edit.form.name.error.max_length",
+              min_length: "workspace.workspace.edit.form.name.error.min_length",
+              required: "workspace.workspace.edit.form.name.error.required",
+            },
+            max_length: "workspace.workspace.edit.form.name.max_length",
+          },
+        },
+        toast: {
+          cancle: {
+            message: "workspace.workspace.edit.toast.cancle.message",
+            title: "workspace.workspace.edit.toast.cancle.title",
+          },
+          success: {
+            message: "workspace.workspace.edit.toast.success.message",
+            title: "workspace.workspace.edit.toast.success.title",
+          },
+        },
+      },
+      error: {
+        confirm_name: {
+          mismatch: "workspace.workspace.error.confirm_name.mismatch",
+        },
+        has_companies: "workspace.workspace.error.has_companies",
+        last_remaining: "workspace.workspace.error.last_remaining",
+        name: {
+          duplicate: "workspace.workspace.error.name.duplicate",
+          required: "workspace.workspace.error.name.required",
+        },
+      },
+      list: {
+        action: {
+          create: {
+            button: "workspace.workspace.list.action.create.button",
+          },
+        },
+        empty: {
+          description: "workspace.workspace.list.empty.description",
+          title: "workspace.workspace.list.empty.title",
+        },
+        error: {
+          description: "workspace.workspace.list.error.description",
+          title: "workspace.workspace.list.error.title",
+        },
+        header: {
+          managed_by: {
+            label: "workspace.workspace.list.header.managed_by.label",
+          },
+        },
+        not_found: {
+          description: "workspace.workspace.list.not_found.description",
+          title: "workspace.workspace.list.not_found.title",
+        },
+        summary: {
+          business_unit_total: {
+            label: "workspace.workspace.list.summary.business_unit_total.label",
+          },
+          company_total: {
+            label: "workspace.workspace.list.summary.company_total.label",
+          },
+        },
+      },
+    },
+  },
 } as const satisfies LocalizationNode;
 
 /**

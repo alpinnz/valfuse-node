@@ -27,7 +27,11 @@
     "example:localization:watch": "npm run localization:watch --workspace=packages/examples/react-example",
     "example:localization:validate": "npm run localization:validate --workspace=packages/examples/react-example",
     "dev:react": "npm run dev --workspace=packages/examples/react-example",
-    "dev:vue": "npm run dev --workspace=packages/examples/vue-example"
+    "dev:vue": "npm run dev --workspace=packages/examples/vue-example",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:coverage": "turbo test -- --coverage",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run test"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
