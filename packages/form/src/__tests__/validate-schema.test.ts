@@ -44,9 +44,7 @@ describe("validateSchema", () => {
     const schema = createSchema({
       name: {
         type: "string",
-        rules: [
-          { name: "required", error: { message: "Name is required" } },
-        ],
+        rules: [{ name: "required", error: { message: "Name is required" } }],
       },
     });
 
@@ -165,9 +163,7 @@ describe("validateSchema", () => {
     });
 
     const errors = validateSchema(schema, { username: "user name!" });
-    expect(errors.username?.message).toBe(
-      "Only alphanumeric and underscore allowed"
-    );
+    expect(errors.username?.message).toBe("Only alphanumeric and underscore allowed");
   });
 
   it("should return regex error when value does not match pattern config", () => {
@@ -185,9 +181,7 @@ describe("validateSchema", () => {
     });
 
     const errors = validateSchema(schema, { username: "user name!" });
-    expect(errors.username?.message).toBe(
-      "Only alphanumeric and underscore allowed"
-    );
+    expect(errors.username?.message).toBe("Only alphanumeric and underscore allowed");
   });
 
   it("should not return regex error when value matches the pattern", () => {
@@ -292,8 +286,12 @@ describe("validateSchema", () => {
         ],
       },
     });
-    expect(validateSchema(schema, { role: { active: false } }).role?.message).toBe("Role must be active");
-    expect(validateSchema(schema, { role: { name: "Admin" } }).role?.message).toBe("Role must be active");
+    expect(validateSchema(schema, { role: { active: false } }).role?.message).toBe(
+      "Role must be active"
+    );
+    expect(validateSchema(schema, { role: { name: "Admin" } }).role?.message).toBe(
+      "Role must be active"
+    );
   });
 
   it("should not return shape error when required keys/values match", () => {
@@ -356,9 +354,7 @@ describe("validateSchema", () => {
     const schema = createSchema({
       password: {
         type: "string",
-        rules: [
-          { name: "required", error: { message: "Password is required" } },
-        ],
+        rules: [{ name: "required", error: { message: "Password is required" } }],
       },
       confirmPassword: {
         type: "string",
@@ -383,9 +379,7 @@ describe("validateSchema", () => {
     const schema = createSchema({
       password: {
         type: "string",
-        rules: [
-          { name: "required", error: { message: "Password is required" } },
-        ],
+        rules: [{ name: "required", error: { message: "Password is required" } }],
       },
       confirmPassword: {
         type: "string",
@@ -437,9 +431,7 @@ describe("validateSchema", () => {
       },
       email: {
         type: "string",
-        rules: [
-          { name: "required", error: { message: "Email is required" } },
-        ],
+        rules: [{ name: "required", error: { message: "Email is required" } }],
       },
     });
 
@@ -460,4 +452,3 @@ describe("validateSchema", () => {
     expect(Object.keys(errors)).toHaveLength(0);
   });
 });
-

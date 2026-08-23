@@ -1,10 +1,7 @@
 {
   "base_locale": "en",
   "fallback_locale": "en",
-  "locales": [
-    "en",
-    "id"
-  ],
+  "locales": ["en", "id"],
   "entries": [
     {
       "key": "auth_privacy_policy.consent.privacy_policy",
@@ -320,9 +317,7 @@
     },
     {
       "key": "auth.login_by_google_account.error.nama.invalid_char",
-      "placeholders": [
-        "x"
-      ]
+      "placeholders": ["x"]
     },
     {
       "key": "auth.login_by_google_account.error.nama.max",
@@ -454,9 +449,7 @@
     },
     {
       "key": "auth.login.banner.error.mismatch",
-      "placeholders": [
-        "attempts"
-      ]
+      "placeholders": ["attempts"]
     },
     {
       "key": "auth.login.bannermessage.session_expired_idle",
@@ -528,9 +521,7 @@
     },
     {
       "key": "auth.login.form.password_incorrect.error",
-      "placeholders": [
-        "attempts"
-      ]
+      "placeholders": ["attempts"]
     },
     {
       "key": "auth.login.form.password.errors.empty",
@@ -686,9 +677,7 @@
     },
     {
       "key": "auth.otp_whatsapp.message",
-      "placeholders": [
-        "otp_code"
-      ]
+      "placeholders": ["otp_code"]
     },
     {
       "key": "auth.otp.error_locked.banner.message",
@@ -776,9 +765,7 @@
     },
     {
       "key": "auth.popup.message",
-      "placeholders": [
-        "time"
-      ]
+      "placeholders": ["time"]
     },
     {
       "key": "auth.popup.title",
@@ -962,9 +949,7 @@
     },
     {
       "key": "auth.resend_email.resend.button.disabled",
-      "placeholders": [
-        "seconds"
-      ]
+      "placeholders": ["seconds"]
     },
     {
       "key": "auth.resend_email.resend.button.enabled",
@@ -1264,9 +1249,7 @@
     },
     {
       "key": "auth.verifikasi_wa.resend.button.disabled",
-      "placeholders": [
-        "seconds"
-      ]
+      "placeholders": ["seconds"]
     },
     {
       "key": "auth.verifikasi_wa.resend.button.enabled",
@@ -1314,9 +1297,7 @@
     },
     {
       "key": "auth.verify.success.redirect",
-      "placeholders": [
-        "xx"
-      ]
+      "placeholders": ["xx"]
     },
     {
       "key": "auth.verify.success.success_title",
@@ -2920,9 +2901,7 @@
     },
     {
       "key": "company.list.business_unit.active_label",
-      "placeholders": [
-        "count"
-      ]
+      "placeholders": ["count"]
     },
     {
       "key": "company.list.business_unit.total_label",
@@ -2970,9 +2949,7 @@
     },
     {
       "key": "company.list.filter.select_workspace",
-      "placeholders": [
-        "name"
-      ]
+      "placeholders": ["name"]
     },
     {
       "key": "company.list.filter.title",
@@ -2996,9 +2973,7 @@
     },
     {
       "key": "company.list.ownership.shared_by",
-      "placeholders": [
-        "name"
-      ]
+      "placeholders": ["name"]
     },
     {
       "key": "company.list.search.loading",
@@ -3278,9 +3253,7 @@
     },
     {
       "key": "delete.company.confirm.input.helper_text",
-      "placeholders": [
-        "companyName"
-      ]
+      "placeholders": ["companyName"]
     },
     {
       "key": "delete.company.confirm.input.label",
@@ -3360,15 +3333,11 @@
     },
     {
       "key": "delete.company.impact.summary.description",
-      "placeholders": [
-        "companyName"
-      ]
+      "placeholders": ["companyName"]
     },
     {
       "key": "delete.company.impact.summary.unit_count",
-      "placeholders": [
-        "totalBusinessUnit"
-      ]
+      "placeholders": ["totalBusinessUnit"]
     },
     {
       "key": "delete.company.impact.title",
@@ -4512,9 +4481,7 @@
     },
     {
       "key": "user.invite_email.subject",
-      "placeholders": [
-        "company_name"
-      ]
+      "placeholders": ["company_name"]
     },
     {
       "key": "user.ubah_akses_pengguna.modal.title",

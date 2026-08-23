@@ -19,4 +19,3 @@ export type ValfuseError = {
 export type ValfuseFieldErrors<TFieldName extends string = string> = Partial<
   Record<TFieldName, string | ValfuseError>
 >;
-

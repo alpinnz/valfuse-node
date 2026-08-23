@@ -190,7 +190,7 @@ export type UseValfuseFormReturn<TFieldValues extends Record<string, unknown>> =
    *
    * Returns `true` if all triggered fields are valid, `false` otherwise.
    */
-  trigger: (name?: keyof TFieldValues & string | Array<keyof TFieldValues & string>) => boolean;
+  trigger: (name?: (keyof TFieldValues & string) | Array<keyof TFieldValues & string>) => boolean;
   /**
    * Watch field values — mirrors react-hook-form's `watch`:
    *
@@ -206,5 +206,3 @@ export type UseValfuseFormReturn<TFieldValues extends Record<string, unknown>> =
   /** Reset the form to default values (or provided partial values) */
   reset: (values?: Partial<TFieldValues>) => void;
 };
-
-

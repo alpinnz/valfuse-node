@@ -41,13 +41,16 @@ describe("number rule: min", () => {
   const rule = mkRule({ name: "min", value: 5, error: ERR });
 
   it("fails when number is below minimum", () => expect(validateNumberRule(4, rule)).toEqual(ERR));
-  it("fails when number is 0 (below minimum of 5)", () => expect(validateNumberRule(0, rule)).toEqual(ERR));
-  it("fails for negative number (below minimum)", () => expect(validateNumberRule(-10, rule)).toEqual(ERR));
+  it("fails when number is 0 (below minimum of 5)", () =>
+    expect(validateNumberRule(0, rule)).toEqual(ERR));
+  it("fails for negative number (below minimum)", () =>
+    expect(validateNumberRule(-10, rule)).toEqual(ERR));
 
   it("passes when number equals minimum", () => expect(validateNumberRule(5, rule)).toBeNull());
   it("passes when number exceeds minimum", () => expect(validateNumberRule(100, rule)).toBeNull());
 
-  it("skips check for null (no hasNumericValue)", () => expect(validateNumberRule(null, rule)).toBeNull());
+  it("skips check for null (no hasNumericValue)", () =>
+    expect(validateNumberRule(null, rule)).toBeNull());
   it("skips check for undefined", () => expect(validateNumberRule(undefined, rule)).toBeNull());
   it("skips check for empty string", () => expect(validateNumberRule("", rule)).toBeNull());
   it("skips check for NaN", () => expect(validateNumberRule(NaN, rule)).toBeNull());
@@ -99,7 +102,8 @@ describe("number rule: gt", () => {
 describe("number rule: gte", () => {
   const rule = mkRule({ name: "gte", value: 10, error: ERR });
 
-  it("fails when number is below gte value", () => expect(validateNumberRule(9, rule)).toEqual(ERR));
+  it("fails when number is below gte value", () =>
+    expect(validateNumberRule(9, rule)).toEqual(ERR));
   it("fails when number is negative", () => expect(validateNumberRule(-5, rule)).toEqual(ERR));
 
   it("passes when number equals gte value", () => expect(validateNumberRule(10, rule)).toBeNull());
@@ -134,7 +138,8 @@ describe("number rule: lt", () => {
 describe("number rule: lte", () => {
   const rule = mkRule({ name: "lte", value: 10, error: ERR });
 
-  it("fails when number exceeds lte value", () => expect(validateNumberRule(11, rule)).toEqual(ERR));
+  it("fails when number exceeds lte value", () =>
+    expect(validateNumberRule(11, rule)).toEqual(ERR));
 
   it("passes when number equals lte value", () => expect(validateNumberRule(10, rule)).toBeNull());
   it("passes when number is below lte value", () => expect(validateNumberRule(5, rule)).toBeNull());
@@ -182,7 +187,8 @@ describe("number rule: nonnegative", () => {
   it("fails for a negative number", () => expect(validateNumberRule(-1, rule)).toEqual(ERR));
   it("fails for a negative float", () => expect(validateNumberRule(-0.001, rule)).toEqual(ERR));
 
-  it("passes for 0 (nonnegative includes zero)", () => expect(validateNumberRule(0, rule)).toBeNull());
+  it("passes for 0 (nonnegative includes zero)", () =>
+    expect(validateNumberRule(0, rule)).toBeNull());
   it("passes for a positive integer", () => expect(validateNumberRule(5, rule)).toBeNull());
   it("passes for a positive float", () => expect(validateNumberRule(0.5, rule)).toBeNull());
 
@@ -200,7 +206,8 @@ describe("number rule: negative", () => {
 
   it("passes for -1", () => expect(validateNumberRule(-1, rule)).toBeNull());
   it("passes for a large negative number", () => expect(validateNumberRule(-999, rule)).toBeNull());
-  it("passes for a small negative float", () => expect(validateNumberRule(-0.001, rule)).toBeNull());
+  it("passes for a small negative float", () =>
+    expect(validateNumberRule(-0.001, rule)).toBeNull());
 
   it("skips check for null", () => expect(validateNumberRule(null, rule)).toBeNull());
 });
@@ -213,7 +220,8 @@ describe("number rule: nonpositive", () => {
   it("fails for a positive number", () => expect(validateNumberRule(1, rule)).toEqual(ERR));
   it("fails for a positive float", () => expect(validateNumberRule(0.001, rule)).toEqual(ERR));
 
-  it("passes for 0 (nonpositive includes zero)", () => expect(validateNumberRule(0, rule)).toBeNull());
+  it("passes for 0 (nonpositive includes zero)", () =>
+    expect(validateNumberRule(0, rule)).toBeNull());
   it("passes for -1", () => expect(validateNumberRule(-1, rule)).toBeNull());
   it("passes for large negative number", () => expect(validateNumberRule(-999, rule)).toBeNull());
 
@@ -263,7 +271,10 @@ describe("number rules integration via validateSchema", () => {
 
   it("validates min for number field", () => {
     const schema = createSchema({
-      score: { type: "number", rules: [{ name: "min", value: 0, error: { message: "Score cannot be negative" } }] },
+      score: {
+        type: "number",
+        rules: [{ name: "min", value: 0, error: { message: "Score cannot be negative" } }],
+      },
     });
     expect(validateSchema(schema, { score: -1 }).score?.message).toBe("Score cannot be negative");
     expect(validateSchema(schema, { score: 0 }).score).toBeUndefined();
@@ -271,7 +282,10 @@ describe("number rules integration via validateSchema", () => {
 
   it("validates max for number field", () => {
     const schema = createSchema({
-      score: { type: "number", rules: [{ name: "max", value: 100, error: { message: "Score cannot exceed 100" } }] },
+      score: {
+        type: "number",
+        rules: [{ name: "max", value: 100, error: { message: "Score cannot exceed 100" } }],
+      },
     });
     expect(validateSchema(schema, { score: 101 }).score?.message).toBe("Score cannot exceed 100");
     expect(validateSchema(schema, { score: 100 }).score).toBeUndefined();
@@ -279,15 +293,23 @@ describe("number rules integration via validateSchema", () => {
 
   it("validates gt rule", () => {
     const schema = createSchema({
-      price: { type: "number", rules: [{ name: "gt", value: 0, error: { message: "Price must be greater than 0" } }] },
+      price: {
+        type: "number",
+        rules: [{ name: "gt", value: 0, error: { message: "Price must be greater than 0" } }],
+      },
     });
-    expect(validateSchema(schema, { price: 0 }).price?.message).toBe("Price must be greater than 0");
+    expect(validateSchema(schema, { price: 0 }).price?.message).toBe(
+      "Price must be greater than 0"
+    );
     expect(validateSchema(schema, { price: 0.01 }).price).toBeUndefined();
   });
 
   it("validates gte rule", () => {
     const schema = createSchema({
-      qty: { type: "number", rules: [{ name: "gte", value: 1, error: { message: "Quantity must be at least 1" } }] },
+      qty: {
+        type: "number",
+        rules: [{ name: "gte", value: 1, error: { message: "Quantity must be at least 1" } }],
+      },
     });
     expect(validateSchema(schema, { qty: 0 }).qty?.message).toBe("Quantity must be at least 1");
     expect(validateSchema(schema, { qty: 1 }).qty).toBeUndefined();
@@ -295,15 +317,23 @@ describe("number rules integration via validateSchema", () => {
 
   it("validates lt rule", () => {
     const schema = createSchema({
-      pct: { type: "number", rules: [{ name: "lt", value: 100, error: { message: "Percentage must be less than 100" } }] },
+      pct: {
+        type: "number",
+        rules: [{ name: "lt", value: 100, error: { message: "Percentage must be less than 100" } }],
+      },
     });
-    expect(validateSchema(schema, { pct: 100 }).pct?.message).toBe("Percentage must be less than 100");
+    expect(validateSchema(schema, { pct: 100 }).pct?.message).toBe(
+      "Percentage must be less than 100"
+    );
     expect(validateSchema(schema, { pct: 99.9 }).pct).toBeUndefined();
   });
 
   it("validates lte rule", () => {
     const schema = createSchema({
-      pct: { type: "number", rules: [{ name: "lte", value: 100, error: { message: "Percentage cannot exceed 100" } }] },
+      pct: {
+        type: "number",
+        rules: [{ name: "lte", value: 100, error: { message: "Percentage cannot exceed 100" } }],
+      },
     });
     expect(validateSchema(schema, { pct: 101 }).pct?.message).toBe("Percentage cannot exceed 100");
     expect(validateSchema(schema, { pct: 100 }).pct).toBeUndefined();
@@ -319,7 +349,10 @@ describe("number rules integration via validateSchema", () => {
 
   it("validates positive rule", () => {
     const schema = createSchema({
-      price: { type: "number", rules: [{ name: "positive", error: { message: "Must be positive" } }] },
+      price: {
+        type: "number",
+        rules: [{ name: "positive", error: { message: "Must be positive" } }],
+      },
     });
     expect(validateSchema(schema, { price: 0 }).price?.message).toBe("Must be positive");
     expect(validateSchema(schema, { price: 1 }).price).toBeUndefined();
@@ -327,15 +360,23 @@ describe("number rules integration via validateSchema", () => {
 
   it("validates nonnegative rule", () => {
     const schema = createSchema({
-      balance: { type: "number", rules: [{ name: "nonnegative", error: { message: "Balance cannot be negative" } }] },
+      balance: {
+        type: "number",
+        rules: [{ name: "nonnegative", error: { message: "Balance cannot be negative" } }],
+      },
     });
-    expect(validateSchema(schema, { balance: -1 }).balance?.message).toBe("Balance cannot be negative");
+    expect(validateSchema(schema, { balance: -1 }).balance?.message).toBe(
+      "Balance cannot be negative"
+    );
     expect(validateSchema(schema, { balance: 0 }).balance).toBeUndefined();
   });
 
   it("validates negative rule", () => {
     const schema = createSchema({
-      temp: { type: "number", rules: [{ name: "negative", error: { message: "Temperature must be negative" } }] },
+      temp: {
+        type: "number",
+        rules: [{ name: "negative", error: { message: "Temperature must be negative" } }],
+      },
     });
     expect(validateSchema(schema, { temp: 0 }).temp?.message).toBe("Temperature must be negative");
     expect(validateSchema(schema, { temp: -1 }).temp).toBeUndefined();
@@ -343,17 +384,29 @@ describe("number rules integration via validateSchema", () => {
 
   it("validates nonpositive rule", () => {
     const schema = createSchema({
-      offset: { type: "number", rules: [{ name: "nonpositive", error: { message: "Offset must be nonpositive" } }] },
+      offset: {
+        type: "number",
+        rules: [{ name: "nonpositive", error: { message: "Offset must be nonpositive" } }],
+      },
     });
-    expect(validateSchema(schema, { offset: 1 }).offset?.message).toBe("Offset must be nonpositive");
+    expect(validateSchema(schema, { offset: 1 }).offset?.message).toBe(
+      "Offset must be nonpositive"
+    );
     expect(validateSchema(schema, { offset: 0 }).offset).toBeUndefined();
   });
 
   it("validates multipleOf rule", () => {
     const schema = createSchema({
-      duration: { type: "number", rules: [{ name: "multipleOf", value: 15, error: { message: "Must be a multiple of 15 minutes" } }] },
+      duration: {
+        type: "number",
+        rules: [
+          { name: "multipleOf", value: 15, error: { message: "Must be a multiple of 15 minutes" } },
+        ],
+      },
     });
-    expect(validateSchema(schema, { duration: 20 }).duration?.message).toBe("Must be a multiple of 15 minutes");
+    expect(validateSchema(schema, { duration: 20 }).duration?.message).toBe(
+      "Must be a multiple of 15 minutes"
+    );
     expect(validateSchema(schema, { duration: 30 }).duration).toBeUndefined();
     expect(validateSchema(schema, { duration: 45 }).duration).toBeUndefined();
   });
@@ -374,4 +427,3 @@ describe("number rules integration via validateSchema", () => {
     expect(validateSchema(schema, { age: 25 }).age).toBeUndefined();
   });
 });
-

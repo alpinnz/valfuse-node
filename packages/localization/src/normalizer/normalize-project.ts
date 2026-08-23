@@ -38,4 +38,3 @@ export async function normalizeProject(
 
   return { locales, modules, entries };
 }
-

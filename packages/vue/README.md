@@ -45,8 +45,20 @@ import { createSchema } from "@valfuse-node/core";
 import { useValfuseForm } from "@valfuse-node/vue";
 
 const schema = createSchema({
-  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
-  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  password: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "minLength", value: 8, error: { message: "Min 8" } },
+    ],
+  },
 });
 
 type LoginValues = { email: string; password: string };
@@ -92,36 +104,36 @@ function useValfuseForm<TFieldValues extends Record<string, unknown>>(
 
 ```ts
 interface UseValfuseFormProps<TFieldValues> {
-  schema: ValfuseSchema;                                       // required
-  defaultValues: TFieldValues;                                  // required (inferred)
-  mode?: "onSubmit" | "onChange" | "onBlur" | "onTouched" | "all";  // default: "onSubmit"
-  reValidateMode?: "onChange" | "onBlur" | "onSubmit";         // default: "onChange"
+  schema: ValfuseSchema; // required
+  defaultValues: TFieldValues; // required (inferred)
+  mode?: "onSubmit" | "onChange" | "onBlur" | "onTouched" | "all"; // default: "onSubmit"
+  reValidateMode?: "onChange" | "onBlur" | "onSubmit"; // default: "onChange"
 }
 ```
 
-| Option | Type | Default | Notes |
-|---|---|---|---|
-| `schema` | `ValfuseSchema` | — (required) | The rule-based schema from `@valfuse-node/form` |
-| `defaultValues` | object literal | — (required) | The generic `TFieldValues` is **inferred** from this |
-| `mode` | union | `"onSubmit"` | When validation first runs |
-| `reValidateMode` | union | `"onChange"` | Mode used after the first submit attempt to re-validate fields the user fixes |
+| Option           | Type            | Default      | Notes                                                                         |
+| ---------------- | --------------- | ------------ | ----------------------------------------------------------------------------- |
+| `schema`         | `ValfuseSchema` | — (required) | The rule-based schema from `@valfuse-node/form`                               |
+| `defaultValues`  | object literal  | — (required) | The generic `TFieldValues` is **inferred** from this                          |
+| `mode`           | union           | `"onSubmit"` | When validation first runs                                                    |
+| `reValidateMode` | union           | `"onChange"` | Mode used after the first submit attempt to re-validate fields the user fixes |
 
 ### Return value
 
 ```ts
 interface UseValfuseFormReturn<TFieldValues> {
-  formState:   ValfuseFormState<TFieldValues>;   // reactive
-  control:     ValfuseFormControl<TFieldValues>;
-  register:    (name) => { name, modelValue, "onUpdate:modelValue", onBlur };
-  handleSubmit:(onValid) => (e: Event) => Promise<void>;
-  setErrors:   (errors) => void;
+  formState: ValfuseFormState<TFieldValues>; // reactive
+  control: ValfuseFormControl<TFieldValues>;
+  register: (name) => { name; modelValue; "onUpdate:modelValue"; onBlur };
+  handleSubmit: (onValid) => (e: Event) => Promise<void>;
+  setErrors: (errors) => void;
   clearErrors: (fields?) => void;
-  setValue:    (name, value) => void;
-  getValue:    (name) => TFieldValues[TName];
-  getValues:   () => TFieldValues;
-  trigger:     (name?) => boolean;
-  watch:       ValfuseVueWatchFunction<TFieldValues>;
-  reset:       (values?) => void;
+  setValue: (name, value) => void;
+  getValue: (name) => TFieldValues[TName];
+  getValues: () => TFieldValues;
+  trigger: (name?) => boolean;
+  watch: ValfuseVueWatchFunction<TFieldValues>;
+  reset: (values?) => void;
 }
 ```
 
@@ -131,18 +143,18 @@ interface UseValfuseFormReturn<TFieldValues> {
 
 `formState` is a `reactive()` proxy — every field is a getter so Vue tracks reads and triggers re-renders.
 
-| Field | Type | Description |
-|---|---|---|
-| `errors` | `Partial<Record<keyof T, ValfuseFieldError>>` | Current field errors |
-| `isSubmitting` | `boolean` | `true` while the async submit handler is running |
-| `isSubmitted` | `boolean` | `true` after the first submit attempt |
-| `isSubmitSuccessful` | `boolean` | `true` if the most recent submit completed without throwing |
-| `submitCount` | `number` | Total submit attempts |
-| `isDirty` | `boolean` | `true` if any field differs from `defaultValues` |
-| `isValid` | `boolean` | `true` when no errors are present |
-| `dirtyFields` | `Partial<Record<keyof T, true>>` | Fields that differ from `defaultValues` |
-| `touchedFields` | `Partial<Record<keyof T, true>>` | Fields the user has blurred |
-| `defaultValues` | `Readonly<T>` | The defaults passed at composable initialization |
+| Field                | Type                                          | Description                                                 |
+| -------------------- | --------------------------------------------- | ----------------------------------------------------------- |
+| `errors`             | `Partial<Record<keyof T, ValfuseFieldError>>` | Current field errors                                        |
+| `isSubmitting`       | `boolean`                                     | `true` while the async submit handler is running            |
+| `isSubmitted`        | `boolean`                                     | `true` after the first submit attempt                       |
+| `isSubmitSuccessful` | `boolean`                                     | `true` if the most recent submit completed without throwing |
+| `submitCount`        | `number`                                      | Total submit attempts                                       |
+| `isDirty`            | `boolean`                                     | `true` if any field differs from `defaultValues`            |
+| `isValid`            | `boolean`                                     | `true` when no errors are present                           |
+| `dirtyFields`        | `Partial<Record<keyof T, true>>`              | Fields that differ from `defaultValues`                     |
+| `touchedFields`      | `Partial<Record<keyof T, true>>`              | Fields the user has blurred                                 |
+| `defaultValues`      | `Readonly<T>`                                 | The defaults passed at composable initialization            |
 
 ```vue
 <template>
@@ -189,6 +201,7 @@ const onSubmit = form.handleSubmit(async (values) => {
 ```
 
 The handler:
+
 1. Calls `e.preventDefault()` on the submit event
 2. Validates the form
 3. If valid → calls `onValid(values)` and sets `isSubmitting = true` for the duration
@@ -200,8 +213,8 @@ The handler:
 
 ```ts
 form.setErrors({ email: { message: "Account exists", code: "auth.duplicate" } });
-form.clearErrors();                       // clear all
-form.clearErrors(["email", "password"]);  // clear specific fields
+form.clearErrors(); // clear all
+form.clearErrors(["email", "password"]); // clear specific fields
 ```
 
 `form.setErrors` accepts a `SetErrorsInput` — pass either a string (`{ email: "Required" }`) or a `ValfuseError` object (`{ email: { message, code, type } }`). Strings are normalized to objects automatically.
@@ -214,7 +227,7 @@ form.clearErrors(["email", "password"]);  // clear specific fields
 form.setValue("email", "alice@example.com");
 
 const current = form.getValue("email");
-const all     = form.getValues();
+const all = form.getValues();
 ```
 
 `getValue` and `getValues` are **Vue-specific extensions** not present in the React adapter. They return snapshots — mutating them has no effect on the form.
@@ -224,9 +237,9 @@ const all     = form.getValues();
 ## `form.trigger`
 
 ```ts
-form.trigger();             // all fields
-form.trigger("email");      // one field
-form.trigger(["email", "password"]);  // many
+form.trigger(); // all fields
+form.trigger("email"); // one field
+form.trigger(["email", "password"]); // many
 // returns boolean — true if all triggered fields are valid
 ```
 
@@ -237,15 +250,17 @@ Diff-merges results into `formState.errors` without clobbering unrelated field e
 ## `form.watch(...)` — multi-overload
 
 ```ts
-const all     = form.watch();                          // TFieldValues snapshot
-const email   = form.watch("email");                   // TFieldValues["email"]
-const pair    = form.watch(["email", "name"]);         // Array of values
+const all = form.watch(); // TFieldValues snapshot
+const email = form.watch("email"); // TFieldValues["email"]
+const pair = form.watch(["email", "name"]); // Array of values
 
-const unsub = form.watch((values, info) => {           // subscribe to all changes
+const unsub = form.watch((values, info) => {
+  // subscribe to all changes
   console.log("changed:", info?.name, values);
 });
 
-const unsubField = form.watch("email", (value) => {    // legacy: subscribe to one field
+const unsubField = form.watch("email", (value) => {
+  // legacy: subscribe to one field
   console.log("email is now", value);
 });
 
@@ -261,8 +276,8 @@ unsubField();
 ## `form.reset(values?)`
 
 ```ts
-form.reset();                  // back to defaultValues
-form.reset({ email: "" });     // partial override
+form.reset(); // back to defaultValues
+form.reset({ email: "" }); // partial override
 ```
 
 Resets values, errors, touched, dirty, **and** submission state (`isSubmitted`, `isSubmitSuccessful`, `submitCount`).
@@ -274,9 +289,9 @@ Resets values, errors, touched, dirty, **and** submission state (`isSubmitted`, 
 Same shape as the React adapter's `control` — an opaque object you can pass to a future `<ValfuseController>` Vue equivalent. The `_values`, `_errors`, `_touchedFields` getters always return the latest snapshot.
 
 ```ts
-form.control._values;          // current values
-form.control._errors;          // current errors
-form.control._touchedFields;   // ReadonlySet of touched field names
+form.control._values; // current values
+form.control._errors; // current errors
+form.control._touchedFields; // ReadonlySet of touched field names
 form.control._updateField(name, value);
 form.control._touchField(name);
 ```
@@ -309,17 +324,17 @@ This works because `form.getValue` reads the latest value and `form.setValue` wr
 
 ## API Parity vs React
 
-| Feature | React (`@valfuse-node/react`) | Vue (`@valfuse-node/vue`) |
-|---|---|---|
-| Field binding | `{...form.register('f')}` (JSX spread) | `v-bind="form.register('f')"` |
-| Custom field | `<ValfuseController>` + `form.control` | `getValue` / `setValue` (no controller yet) |
-| Watch snapshot | `form.watch()` | `form.watch()` |
-| Watch subscribe (global) | `form.watch((values, info) => …)` | `form.watch((values, info) => …)` |
-| Watch subscribe (one field) | `form.watch("email", cb)` | `form.watch("email", cb)` (legacy) |
-| Watch subscribe (multi) | `form.watch(["a", "b"], cb)` | — use multiple single-field subscriptions |
-| Manual trigger | `form.trigger()` | `form.trigger()` |
-| Localization runtime | `<LocalizationProvider>` + `useLocalization()` | — not provided; use the underlying `@valfuse-node/localization` package |
-| Mode values | `onSubmit \| onChange \| onBlur \| onTouched \| all` | `onSubmit \| onChange \| onBlur \| onTouched \| all` |
+| Feature                     | React (`@valfuse-node/react`)                        | Vue (`@valfuse-node/vue`)                                               |
+| --------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------- |
+| Field binding               | `{...form.register('f')}` (JSX spread)               | `v-bind="form.register('f')"`                                           |
+| Custom field                | `<ValfuseController>` + `form.control`               | `getValue` / `setValue` (no controller yet)                             |
+| Watch snapshot              | `form.watch()`                                       | `form.watch()`                                                          |
+| Watch subscribe (global)    | `form.watch((values, info) => …)`                    | `form.watch((values, info) => …)`                                       |
+| Watch subscribe (one field) | `form.watch("email", cb)`                            | `form.watch("email", cb)` (legacy)                                      |
+| Watch subscribe (multi)     | `form.watch(["a", "b"], cb)`                         | — use multiple single-field subscriptions                               |
+| Manual trigger              | `form.trigger()`                                     | `form.trigger()`                                                        |
+| Localization runtime        | `<LocalizationProvider>` + `useLocalization()`       | — not provided; use the underlying `@valfuse-node/localization` package |
+| Mode values                 | `onSubmit \| onChange \| onBlur \| onTouched \| all` | `onSubmit \| onChange \| onBlur \| onTouched \| all`                    |
 
 The form contract (`UseValfuseFormReturn`) is **identical at the type level** between React and Vue, so the same schema and the same `defaultValues` can be reused across adapters.
 
@@ -348,8 +363,14 @@ import type {
 import { createSchema } from "@valfuse-node/form";
 
 export const userSchema = createSchema({
-  name:  { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
-  email: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
+  name: { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
 });
 
 export type UserValues = { name: string; email: string };
@@ -403,7 +424,7 @@ async function onSubmit(values: UserValues) {
 import { computed } from "vue";
 
 const values = computed(() => form.getValues());
-const dirty  = computed(() => form.formState.dirtyFields);
+const dirty = computed(() => form.formState.dirtyFields);
 </script>
 
 <template>

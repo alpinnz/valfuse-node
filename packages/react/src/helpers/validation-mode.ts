@@ -29,4 +29,3 @@ export function shouldValidateOnChange(mode: ValfuseFormMode, isTouched: boolean
 export function shouldValidateOnBlur(mode: ValfuseFormMode): boolean {
   return mode === "onBlur" || mode === "all" || mode === "onTouched";
 }
-

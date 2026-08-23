@@ -85,4 +85,3 @@ describe("mapToFieldErrors", () => {
     expect(result.email).not.toHaveProperty("metadata");
   });
 });
-

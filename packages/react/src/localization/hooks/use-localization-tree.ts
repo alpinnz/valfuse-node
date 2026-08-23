@@ -39,8 +39,7 @@ export function useLocalizationTree() {
       if (!leaf) continue;
 
       if (entry.placeholders.length > 0) {
-        cursor[leaf] = (params: Record<string, string | number>) =>
-          store.t(entry.key, params);
+        cursor[leaf] = (params: Record<string, string | number>) => store.t(entry.key, params);
       } else {
         cursor[leaf] = store.t(entry.key);
       }
@@ -49,5 +48,3 @@ export function useLocalizationTree() {
     return { strings, placeholders };
   }, [store, manifest]);
 }
-
-

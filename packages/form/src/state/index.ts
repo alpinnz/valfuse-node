@@ -15,7 +15,7 @@ export {
   getValue,
   getValues,
   type FormValuesState,
-} from './values';
+} from "./values";
 
 // Touched state
 export {
@@ -26,7 +26,7 @@ export {
   isTouched,
   toTouchedFieldsRecord,
   type FormTouchedState,
-} from './touched';
+} from "./touched";
 
 // Errors state
 export {
@@ -39,7 +39,7 @@ export {
   getFieldError,
   toFormErrors,
   type FormErrorsState,
-} from './errors';
+} from "./errors";
 
 // Submission state
 export {
@@ -49,4 +49,4 @@ export {
   endSubmitFailure,
   resetSubmission,
   type FormSubmissionState,
-} from './submitting';
+} from "./submitting";

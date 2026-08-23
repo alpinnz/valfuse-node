@@ -3,11 +3,7 @@ import { useReactValfuseForm, ValfuseController } from "@valfuse-node/core";
 import { TextInput } from "./components/text-input";
 import { RoleDropdownId } from "./components/role-dropdown-id";
 import { userIdSchema } from "./schemas/user-id.schema";
-import {
-  createUserApi,
-  mapApiValidationErrors,
-  type ApiValidationErrorResponse,
-} from "./user.api";
+import { createUserApi, mapApiValidationErrors, type ApiValidationErrorResponse } from "./user.api";
 import type { Role, UserIdFormValues } from "./types/user-form.types";
 
 const ROLE_OPTIONS: Role[] = [
@@ -80,4 +76,3 @@ export function UserIdForm() {
     </form>
   );
 }
-

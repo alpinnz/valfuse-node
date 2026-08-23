@@ -46,11 +46,13 @@ export function useFieldValidation<TFieldValues extends Record<string, unknown>>
         //    (e.g. "hel" → "hell" → "hello" all produce the same "Invalid email" error).
         const prevError = prev[name as keyof TFieldValues];
         if (
-          error && prevError &&
+          error &&
+          prevError &&
           error.message === prevError.message &&
-          error.type    === prevError.type &&
-          error.code    === prevError.code
-        ) return prev;
+          error.type === prevError.type &&
+          error.code === prevError.code
+        )
+          return prev;
         const next = { ...prev };
         if (error) {
           next[name as keyof TFieldValues] = error;

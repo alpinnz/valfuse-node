@@ -2,13 +2,7 @@ import type { ValfuseError, ValfuseGenericRule } from "../types";
 
 // ─── Generic rule name registry ───────────────────────────────────────────────
 
-const GENERIC_RULE_NAMES = new Set<string>([
-  "custom",
-  "refine",
-  "matchField",
-  "oneOf",
-  "notOneOf",
-]);
+const GENERIC_RULE_NAMES = new Set<string>(["custom", "refine", "matchField", "oneOf", "notOneOf"]);
 
 /** Returns `true` if the rule is a generic/cross-type rule (not tied to a field type). */
 export function isGenericRule(rule: { name: string }): rule is ValfuseGenericRule {

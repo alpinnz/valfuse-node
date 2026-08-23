@@ -40,7 +40,9 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const { schema, defaultValues, mode = "onSubmit", reValidateMode = "onChange" } = options;
 
   // ─── Internal state ────────────────────────────────────────────────────────
-  const values = reactive<Record<string, unknown>>({ ...(defaultValues as Record<string, unknown>) });
+  const values = reactive<Record<string, unknown>>({
+    ...(defaultValues as Record<string, unknown>),
+  });
   // Errors are kept in a `ref` so we can replace the whole object atomically
   // on each validation run — cheaper than diffing on a reactive proxy.
   const errors = ref<ValfuseFormErrors<TFieldValues>>({});
@@ -92,9 +94,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     fieldWatchers.get(name)?.forEach((cb) => cb(value));
     if (globalWatchers.size > 0) {
       const info = { name, type: "change" as const };
-      globalWatchers.forEach((cb) =>
-        cb(values as TFieldValues, info)
-      );
+      globalWatchers.forEach((cb) => cb(values as TFieldValues, info));
     }
   }
 
@@ -121,9 +121,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     };
   }
 
-  async function runSubmit(
-    fn: (values: TFieldValues) => Promise<void> | void
-  ): Promise<void> {
+  async function runSubmit(fn: (values: TFieldValues) => Promise<void> | void): Promise<void> {
     isSubmitted.value = true;
     submitCount.value += 1;
     const validationErrors = runValidation();
@@ -192,7 +190,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   }
 
   function trigger(
-    name?: keyof TFieldValues & string | Array<keyof TFieldValues & string>
+    name?: (keyof TFieldValues & string) | Array<keyof TFieldValues & string>
   ): boolean {
     const validationErrors = runValidation();
     const fieldsToValidate: string[] =
@@ -306,8 +304,12 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   // internally, so deep mutations are tracked.
   const control = reactive<ValfuseFormControl<TFieldValues>>({
     _values: values as TFieldValues,
-    get _errors(): ValfuseFormErrors<TFieldValues> { return errors.value; },
-    get _touchedFields(): ReadonlySet<keyof TFieldValues> { return touchedSet.value as ReadonlySet<keyof TFieldValues>; },
+    get _errors(): ValfuseFormErrors<TFieldValues> {
+      return errors.value;
+    },
+    get _touchedFields(): ReadonlySet<keyof TFieldValues> {
+      return touchedSet.value as ReadonlySet<keyof TFieldValues>;
+    },
     _updateField: (name, value) => {
       const key = String(name);
       values[key] = value;
@@ -322,29 +324,51 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   // ─── Computed projections for the public formState ───────────────────────
   // Computed refs are used for the Set→Record conversions — they memoize
   // until the underlying Set ref changes.
-  const dirtyFieldsRecord: ComputedRef<ValfuseDirtyFields<TFieldValues>> = computed(
-    () => setToRecord<ValfuseDirtyFields<TFieldValues>>(dirtySet.value)
+  const dirtyFieldsRecord: ComputedRef<ValfuseDirtyFields<TFieldValues>> = computed(() =>
+    setToRecord<ValfuseDirtyFields<TFieldValues>>(dirtySet.value)
   );
-  const touchedFieldsRecord: ComputedRef<ValfuseTouchedFields<TFieldValues>> = computed(
-    () => setToRecord<ValfuseTouchedFields<TFieldValues>>(touchedSet.value)
+  const touchedFieldsRecord: ComputedRef<ValfuseTouchedFields<TFieldValues>> = computed(() =>
+    setToRecord<ValfuseTouchedFields<TFieldValues>>(touchedSet.value)
   );
   const isDirtyComputed: ComputedRef<boolean> = computed(() => dirtySet.value.size > 0);
-  const isValidComputed: ComputedRef<boolean> = computed(() => Object.keys(errors.value).length === 0);
+  const isValidComputed: ComputedRef<boolean> = computed(
+    () => Object.keys(errors.value).length === 0
+  );
 
   // ─── Reactive formState ──────────────────────────────────────────────────
   // Getters expose the latest values; Vue tracks each read and re-renders
   // consumers when the underlying refs change.
   const formState = reactive({
-    get errors() { return errors.value; },
-    get isSubmitting() { return isSubmitting.value; },
-    get isSubmitted() { return isSubmitted.value; },
-    get isSubmitSuccessful() { return isSubmitSuccessful.value; },
-    get submitCount() { return submitCount.value; },
-    get isDirty() { return isDirtyComputed.value; },
-    get isValid() { return isValidComputed.value; },
-    get dirtyFields() { return dirtyFieldsRecord.value; },
-    get touchedFields() { return touchedFieldsRecord.value; },
-    get defaultValues() { return { ...(defaultValues as Record<string, unknown>) } as TFieldValues; },
+    get errors() {
+      return errors.value;
+    },
+    get isSubmitting() {
+      return isSubmitting.value;
+    },
+    get isSubmitted() {
+      return isSubmitted.value;
+    },
+    get isSubmitSuccessful() {
+      return isSubmitSuccessful.value;
+    },
+    get submitCount() {
+      return submitCount.value;
+    },
+    get isDirty() {
+      return isDirtyComputed.value;
+    },
+    get isValid() {
+      return isValidComputed.value;
+    },
+    get dirtyFields() {
+      return dirtyFieldsRecord.value;
+    },
+    get touchedFields() {
+      return touchedFieldsRecord.value;
+    },
+    get defaultValues() {
+      return { ...(defaultValues as Record<string, unknown>) } as TFieldValues;
+    },
   }) as ValfuseFormState<TFieldValues>;
 
   return {

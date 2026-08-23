@@ -5,4 +5,3 @@
  */
 export { shouldValidateOnChange, shouldValidateOnBlur } from "./validation-mode";
 export { buildFieldError, mapToFieldErrors } from "./field-error";
-

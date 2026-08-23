@@ -44,7 +44,10 @@ const schema = createSchema({
   email: {
     type: "string",
     transform: t.pipe(t.trim, t.toLowerCase),
-    rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }],
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
   },
   age: {
     type: "number",
@@ -63,7 +66,13 @@ const result = validateSchema(schema, cleaned);
 ### ⚛️ React
 
 ```tsx
-import { createSchema, useReactValfuseForm, LocalizationProvider, useLocalization, localStorageStrategy } from "@valfuse-node/core";
+import {
+  createSchema,
+  useReactValfuseForm,
+  LocalizationProvider,
+  useLocalization,
+  localStorageStrategy,
+} from "@valfuse-node/core";
 import manifest from "./loc/manifest.json";
 
 <LocalizationProvider manifest={manifest} storage={localStorageStrategy()}>
@@ -71,8 +80,20 @@ import manifest from "./loc/manifest.json";
 </LocalizationProvider>;
 
 const schema = createSchema({
-  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
-  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  password: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "minLength", value: 8, error: { message: "Min 8" } },
+    ],
+  },
 });
 
 export function LoginForm() {
@@ -84,14 +105,20 @@ export function LoginForm() {
   });
 
   return (
-    <form onSubmit={form.handleSubmit(async (values) => { await loginApi(values); })}>
+    <form
+      onSubmit={form.handleSubmit(async (values) => {
+        await loginApi(values);
+      })}
+    >
       <input {...form.register("email")} placeholder={translate("auth.email")} />
       {form.formState.errors.email && <span>{form.formState.errors.email.message}</span>}
 
       <input type="password" {...form.register("password")} />
       {form.formState.errors.password && <span>{form.formState.errors.password.message}</span>}
 
-      <button type="submit" disabled={form.formState.isSubmitting}>{translate("auth.submit")}</button>
+      <button type="submit" disabled={form.formState.isSubmitting}>
+        {translate("auth.submit")}
+      </button>
     </form>
   );
 }
@@ -104,8 +131,20 @@ export function LoginForm() {
 import { createSchema, useVueValfuseForm } from "@valfuse-node/core";
 
 const schema = createSchema({
-  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
-  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  password: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "minLength", value: 8, error: { message: "Min 8" } },
+    ],
+  },
 });
 
 type Values = { email: string; password: string };
@@ -146,7 +185,7 @@ npx valfuse-localization generate --watch
 // Or use the runtime interpolator directly (browser-safe):
 import { interpolate } from "@valfuse-node/core";
 
-interpolate("Hello, {name}!", { name: "Alice" });   // → "Hello, Alice!"
+interpolate("Hello, {name}!", { name: "Alice" }); // → "Hello, Alice!"
 interpolate("{count, plural, one {# item} other {# items}}", { count: 5 });
 // → "5 items"
 ```
@@ -157,23 +196,40 @@ interpolate("{count, plural, one {# item} other {# items}}", { count: 5 });
 
 `@valfuse-node/core` re-exports four packages. Two are flattened (no name collisions). The two adapter packages share a single value-level name (`useValfuseForm`), which is renamed at the umbrella level to `useReactValfuseForm` / `useVueValfuseForm` following the `{Tech}{Domain}{Feature}` convention. The underlying adapter packages keep their original `useValfuseForm` name.
 
-| Source | Access pattern | Why? |
-|---|---|---|
-| `@valfuse-node/form` | Top-level (`createSchema`, `validateSchema`, `t`, …) | Framework-agnostic, no collision risk |
-| `@valfuse-node/localization` | Top-level (`interpolate`, `compileProject`, `loadConfig`, …) | Framework-agnostic, no collision risk |
-| `@valfuse-node/react` | Top-level (`useReactValfuseForm`, `ValfuseController`, `LocalizationProvider`, `useLocalization`, …) | The single conflicting value `useValfuseForm` is renamed to disambiguate |
-| `@valfuse-node/vue` | Top-level (`useVueValfuseForm`, …) | Same reason as React |
+| Source                       | Access pattern                                                                                       | Why?                                                                     |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `@valfuse-node/form`         | Top-level (`createSchema`, `validateSchema`, `t`, …)                                                 | Framework-agnostic, no collision risk                                    |
+| `@valfuse-node/localization` | Top-level (`interpolate`, `compileProject`, `loadConfig`, …)                                         | Framework-agnostic, no collision risk                                    |
+| `@valfuse-node/react`        | Top-level (`useReactValfuseForm`, `ValfuseController`, `LocalizationProvider`, `useLocalization`, …) | The single conflicting value `useValfuseForm` is renamed to disambiguate |
+| `@valfuse-node/vue`          | Top-level (`useVueValfuseForm`, …)                                                                   | Same reason as React                                                     |
 
 ```ts
 import {
   // Form domain
-  createSchema, validateSchema, transformValues, normalizeError, t,
+  createSchema,
+  validateSchema,
+  transformValues,
+  normalizeError,
+  t,
   // Localization
-  interpolate, compileProject, loadConfig, runGenerate,
+  interpolate,
+  compileProject,
+  loadConfig,
+  runGenerate,
   // React adapter — note the Tech-prefix
-  useReactValfuseForm, ValfuseController, LocalizationProvider, useLocalization,
-  useLocalizationTree, createLocalizationStore, createLazyLocaleLoader, createSsrLocalizationState,
-  localStorageStrategy, sessionStorageStrategy, cookieStrategy, memoryStrategy, composeStorage,
+  useReactValfuseForm,
+  ValfuseController,
+  LocalizationProvider,
+  useLocalization,
+  useLocalizationTree,
+  createLocalizationStore,
+  createLazyLocaleLoader,
+  createSsrLocalizationState,
+  localStorageStrategy,
+  sessionStorageStrategy,
+  cookieStrategy,
+  memoryStrategy,
+  composeStorage,
   // Vue adapter — Tech-prefix disambiguates the identically-named React hook
   useVueValfuseForm,
 } from "@valfuse-node/core";
@@ -195,9 +251,9 @@ Define your field structure and per-field rules. Returns a plain schema object �
 
 ```ts
 const schema = createSchema({
-  name:  { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
-  age:   { type: "number", rules: [{ name: "min", value: 18, error: { message: "18+" } }] },
-  tags:  { type: "array",  rules: [{ name: "nonempty", error: { message: "Add at least 1" } }] },
+  name: { type: "string", rules: [{ name: "required", error: { message: "Required" } }] },
+  age: { type: "number", rules: [{ name: "min", value: 18, error: { message: "18+" } }] },
+  tags: { type: "array", rules: [{ name: "nonempty", error: { message: "Add at least 1" } }] },
 });
 ```
 
@@ -205,14 +261,14 @@ const schema = createSchema({
 
 **Built-in rules (full reference in [`@valfuse-node/form` README](../form/README.md#built-in-rules)):**
 
-| Type | Rules |
-|---|---|
-| `string` | `required`, `min`, `max`, `length`, `email`, `url`, `uuid`, `regex`, `includes`, `startsWith`, `endsWith` |
-| `number` | `required`, `min`, `max`, `gt`, `gte`, `lt`, `lte`, `int`, `positive`, `nonnegative`, `negative`, `nonpositive`, `multipleOf` |
-| `boolean` | `required`, `literal`, `accepted` |
-| `array` | `required`, `min`, `max`, `length`, `nonempty` |
-| `object` | `required`, `shape` |
-| generic | `custom`, `refine`, `matchField`, `oneOf`, `notOneOf` |
+| Type      | Rules                                                                                                                         |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `string`  | `required`, `min`, `max`, `length`, `email`, `url`, `uuid`, `regex`, `includes`, `startsWith`, `endsWith`                     |
+| `number`  | `required`, `min`, `max`, `gt`, `gte`, `lt`, `lte`, `int`, `positive`, `nonnegative`, `negative`, `nonpositive`, `multipleOf` |
+| `boolean` | `required`, `literal`, `accepted`                                                                                             |
+| `array`   | `required`, `min`, `max`, `length`, `nonempty`                                                                                |
+| `object`  | `required`, `shape`                                                                                                           |
+| generic   | `custom`, `refine`, `matchField`, `oneOf`, `notOneOf`                                                                         |
 
 #### `validateSchema(schema, values)`
 
@@ -237,18 +293,22 @@ normalizeError("Something went wrong");
 
 #### `t(...transformerNames)` — built-in transformers
 
-| Group | Transformer | Effect |
-|---|---|---|
-| String | `t.trim`, `t.trimStart`, `t.trimEnd` | Whitespace removal |
-| String | `t.toLowerCase`, `t.toUpperCase`, `t.toTitleCase`, `t.toSentenceCase` | Case |
-| String | `t.collapseSpaces` | Collapse whitespace |
-| Coercion | `t.toNumber`, `t.toInteger`, `t.toFloat` | String → number |
-| Coercion | `t.toBoolean` | `"true"/"1"/1/true` → `true` |
-| Compose | `t.pipe(...fns)` | Left-to-right composition |
+| Group    | Transformer                                                           | Effect                       |
+| -------- | --------------------------------------------------------------------- | ---------------------------- |
+| String   | `t.trim`, `t.trimStart`, `t.trimEnd`                                  | Whitespace removal           |
+| String   | `t.toLowerCase`, `t.toUpperCase`, `t.toTitleCase`, `t.toSentenceCase` | Case                         |
+| String   | `t.collapseSpaces`                                                    | Collapse whitespace          |
+| Coercion | `t.toNumber`, `t.toInteger`, `t.toFloat`                              | String → number              |
+| Coercion | `t.toBoolean`                                                         | `"true"/"1"/1/true` → `true` |
+| Compose  | `t.pipe(...fns)`                                                      | Left-to-right composition    |
 
 ```ts
 const schema = createSchema({
-  email: { type: "string", transform: t.pipe(t.trim, t.toLowerCase), rules: [{ name: "required", error: { message: "Required" } }] },
+  email: {
+    type: "string",
+    transform: t.pipe(t.trim, t.toLowerCase),
+    rules: [{ name: "required", error: { message: "Required" } }],
+  },
 });
 ```
 
@@ -260,13 +320,13 @@ The localization package has three import surfaces (CLI + compiler, browser runt
 
 #### Compiler / CLI (Node.js only)
 
-| Export | Use |
-|---|---|
-| `loadConfig(path)` | Load and parse `valfuse-localization.yaml` |
-| `compileProject(config)` | Run the full compile pipeline |
-| `normalizeProject(config)` | Normalize raw locale data |
-| `validateProject(config)` | Check key/placeholder parity |
-| `runInit` / `runGenerate` / `runValidate` / `runCoverage` / `runClean` | CLI command handlers |
+| Export                                                                 | Use                                        |
+| ---------------------------------------------------------------------- | ------------------------------------------ |
+| `loadConfig(path)`                                                     | Load and parse `valfuse-localization.yaml` |
+| `compileProject(config)`                                               | Run the full compile pipeline              |
+| `normalizeProject(config)`                                             | Normalize raw locale data                  |
+| `validateProject(config)`                                              | Check key/placeholder parity               |
+| `runInit` / `runGenerate` / `runValidate` / `runCoverage` / `runClean` | CLI command handlers                       |
 
 ```ts
 import { loadConfig, compileProject } from "@valfuse-node/core";
@@ -277,15 +337,15 @@ const compiled = await compileProject("./", config);
 
 #### Runtime (browser-safe)
 
-| Export | Use |
-|---|---|
-| `interpolate(template, params, options?)` | Replace `{name}` placeholders |
-| `lookupMessage(context, key)` | Look up a translation by dot-path key |
-| `pickPluralVariant(variants, count)` | Pick plural form by count |
-| `pickGenderVariant(variants, gender)` | Pick gender form |
-| `pickContextVariant(variants, context)` | Pick context form |
+| Export                                                                                         | Use                                                                                   |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `interpolate(template, params, options?)`                                                      | Replace `{name}` placeholders                                                         |
+| `lookupMessage(context, key)`                                                                  | Look up a translation by dot-path key                                                 |
+| `pickPluralVariant(variants, count)`                                                           | Pick plural form by count                                                             |
+| `pickGenderVariant(variants, gender)`                                                          | Pick gender form                                                                      |
+| `pickContextVariant(variants, context)`                                                        | Pick context form                                                                     |
 | `pickStructuredPluralVariant` / `pickStructuredGenderVariant` / `pickStructuredContextVariant` | High-level structured variant pickers (auto-parse the JSON payload from the manifest) |
-| `parseStructuredVariants(value)` | Decode a JSON-encoded variant map |
+| `parseStructuredVariants(value)`                                                               | Decode a JSON-encoded variant map                                                     |
 
 ```ts
 import { interpolate } from "@valfuse-node/core";
@@ -318,16 +378,19 @@ All React values are at the top level. React is an optional peer dep — if you 
 
 ```ts
 import {
-  useReactValfuseForm,        // main hook
-  ValfuseController,         // controlled-input bridge component
-  LocalizationProvider,      // context provider
-  useLocalization,           // translation hook (full localizer API)
-  useLocalizationTree,       // nested-tree hook
-  createLocalizationStore,   // standalone mutable store
-  createLazyLocaleLoader,    // code-split locales
-  createSsrLocalizationState,// SSR snapshot helper
-  localStorageStrategy, sessionStorageStrategy,
-  cookieStrategy, memoryStrategy, composeStorage,
+  useReactValfuseForm, // main hook
+  ValfuseController, // controlled-input bridge component
+  LocalizationProvider, // context provider
+  useLocalization, // translation hook (full localizer API)
+  useLocalizationTree, // nested-tree hook
+  createLocalizationStore, // standalone mutable store
+  createLazyLocaleLoader, // code-split locales
+  createSsrLocalizationState, // SSR snapshot helper
+  localStorageStrategy,
+  sessionStorageStrategy,
+  cookieStrategy,
+  memoryStrategy,
+  composeStorage,
 } from "@valfuse-node/core";
 ```
 
@@ -342,27 +405,27 @@ const form = useReactValfuseForm<UserValues>({
 });
 ```
 
-| Method / Property | Description |
-|---|---|
-| `form.register(name)` | Spread `{ name, value, onChange, onBlur, ref }` onto an `<input>` |
-| `form.handleSubmit(fn)` | Returns `onSubmit` handler; only calls `fn(values)` when validation passes |
-| `form.formState.errors` | `Partial<Record<keyof T, ValfuseFieldError>>` — active errors |
-| `form.formState.isSubmitting` | `true` while submit function is awaiting |
-| `form.formState.isSubmitted` | `true` after first submit attempt |
-| `form.formState.isSubmitSuccessful` | `true` if the most recent submit completed without throwing |
-| `form.formState.submitCount` | Total submit attempts |
-| `form.formState.isValid` | `true` when no validation errors exist |
-| `form.formState.isDirty` | `true` when any field differs from `defaultValues` |
-| `form.formState.dirtyFields` | Fields that differ from `defaultValues` |
-| `form.formState.touchedFields` | Fields the user has blurred |
-| `form.formState.defaultValues` | The defaults passed to the hook |
-| `form.setErrors(errors)` | Inject errors manually (e.g. from API response) |
-| `form.clearErrors(fields?)` | Clear one, many, or all errors |
-| `form.setValue(name, value, options?)` | Programmatically set a field value (`{ shouldValidate: true }` to run validation) |
-| `form.trigger(name?)` | Manually trigger validation. `name` can be a string, an array, or omitted (validate all) |
-| `form.watch(...)` | Multi-overload subscribe / snapshot — `watch()`, `watch("email")`, `watch(["a","b"])`, `watch(callback)` |
-| `form.reset(values?)` | Reset to `defaultValues` (or provided partial values); also clears submission state |
-| `form.control` | Pass to `<ValfuseController>` for custom inputs |
+| Method / Property                      | Description                                                                                              |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `form.register(name)`                  | Spread `{ name, value, onChange, onBlur, ref }` onto an `<input>`                                        |
+| `form.handleSubmit(fn)`                | Returns `onSubmit` handler; only calls `fn(values)` when validation passes                               |
+| `form.formState.errors`                | `Partial<Record<keyof T, ValfuseFieldError>>` — active errors                                            |
+| `form.formState.isSubmitting`          | `true` while submit function is awaiting                                                                 |
+| `form.formState.isSubmitted`           | `true` after first submit attempt                                                                        |
+| `form.formState.isSubmitSuccessful`    | `true` if the most recent submit completed without throwing                                              |
+| `form.formState.submitCount`           | Total submit attempts                                                                                    |
+| `form.formState.isValid`               | `true` when no validation errors exist                                                                   |
+| `form.formState.isDirty`               | `true` when any field differs from `defaultValues`                                                       |
+| `form.formState.dirtyFields`           | Fields that differ from `defaultValues`                                                                  |
+| `form.formState.touchedFields`         | Fields the user has blurred                                                                              |
+| `form.formState.defaultValues`         | The defaults passed to the hook                                                                          |
+| `form.setErrors(errors)`               | Inject errors manually (e.g. from API response)                                                          |
+| `form.clearErrors(fields?)`            | Clear one, many, or all errors                                                                           |
+| `form.setValue(name, value, options?)` | Programmatically set a field value (`{ shouldValidate: true }` to run validation)                        |
+| `form.trigger(name?)`                  | Manually trigger validation. `name` can be a string, an array, or omitted (validate all)                 |
+| `form.watch(...)`                      | Multi-overload subscribe / snapshot — `watch()`, `watch("email")`, `watch(["a","b"])`, `watch(callback)` |
+| `form.reset(values?)`                  | Reset to `defaultValues` (or provided partial values); also clears submission state                      |
+| `form.control`                         | Pass to `<ValfuseController>` for custom inputs                                                          |
 
 #### `<ValfuseController>`
 
@@ -417,22 +480,22 @@ function Header() {
 
 **`useLocalization()` returns:**
 
-| Group | API | Description |
-|---|---|---|
-| Translate | `translate(key, fallback?)` | Lookup with optional fallback |
-| Translate | `translateOrNull(key)` | Returns `null` when missing or key is `null`/`undefined` |
-| Format | `format(key, params)` | Lookup + placeholder interpolation |
-| Format | `formatOrNull(key, params)` | Format, returns `null` when missing |
-| Variants | `plural(key, count)` | Pick a plural branch |
-| Variants | `pluralOrNull(key, count)` | Plural, returns `null` when missing |
-| Variants | `gender(key, value, params)` | Pick a gender branch |
-| Variants | `context(key, value, params?)` | Pick a context branch |
-| Namespace | `namespace(scope)` | Returns a `NamespacedLocalizer` with the 8 methods above, all auto-prefixed |
-| Iteration | `entriesForLocale` | `Array<[key, value]>` sorted alphabetically by key |
-| Context | `locale` | Current locale string |
-| Context | `setLocale(locale)` | Switch active locale (also writes to the configured `storage`) |
-| Context | `store` | Lower-level `LocalizationStore` — `store.t(key, params)`, `store.getLocale()`, `store.setLocale(locale)` |
-| Context | `manifest` | The raw `RuntimeManifest` passed to the provider |
+| Group     | API                            | Description                                                                                              |
+| --------- | ------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| Translate | `translate(key, fallback?)`    | Lookup with optional fallback                                                                            |
+| Translate | `translateOrNull(key)`         | Returns `null` when missing or key is `null`/`undefined`                                                 |
+| Format    | `format(key, params)`          | Lookup + placeholder interpolation                                                                       |
+| Format    | `formatOrNull(key, params)`    | Format, returns `null` when missing                                                                      |
+| Variants  | `plural(key, count)`           | Pick a plural branch                                                                                     |
+| Variants  | `pluralOrNull(key, count)`     | Plural, returns `null` when missing                                                                      |
+| Variants  | `gender(key, value, params)`   | Pick a gender branch                                                                                     |
+| Variants  | `context(key, value, params?)` | Pick a context branch                                                                                    |
+| Namespace | `namespace(scope)`             | Returns a `NamespacedLocalizer` with the 8 methods above, all auto-prefixed                              |
+| Iteration | `entriesForLocale`             | `Array<[key, value]>` sorted alphabetically by key                                                       |
+| Context   | `locale`                       | Current locale string                                                                                    |
+| Context   | `setLocale(locale)`            | Switch active locale (also writes to the configured `storage`)                                           |
+| Context   | `store`                        | Lower-level `LocalizationStore` — `store.t(key, params)`, `store.getLocale()`, `store.setLocale(locale)` |
+| Context   | `manifest`                     | The raw `RuntimeManifest` passed to the provider                                                         |
 
 **Storage strategies:** `localStorageStrategy` | `sessionStorageStrategy` | `cookieStrategy` | `memoryStrategy` | `composeStorage`
 
@@ -447,8 +510,20 @@ All Vue values are at the top level. Vue is an optional peer dep.
 import { createSchema, useVueValfuseForm } from "@valfuse-node/core";
 
 const schema = createSchema({
-  email:    { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "email", error: { message: "Invalid" } }] },
-  password: { type: "string", rules: [{ name: "required", error: { message: "Required" } }, { name: "minLength", value: 8, error: { message: "Min 8" } }] },
+  email: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "email", error: { message: "Invalid" } },
+    ],
+  },
+  password: {
+    type: "string",
+    rules: [
+      { name: "required", error: { message: "Required" } },
+      { name: "minLength", value: 8, error: { message: "Min 8" } },
+    ],
+  },
 });
 
 type Values = { email: string; password: string };
@@ -501,13 +576,13 @@ const schema = createSchema({
     transform: (v) => String(v).trim().toLowerCase(),
     rules: [
       { name: "required", error: { message: "Email is required", code: "email.required" } },
-      { name: "email",    error: { message: "Invalid email",     code: "email.invalid" } },
+      { name: "email", error: { message: "Invalid email", code: "email.invalid" } },
     ],
   },
   password: {
     type: "string",
     rules: [
-      { name: "required",  error: { message: "Required",  code: "password.required" } },
+      { name: "required", error: { message: "Required", code: "password.required" } },
       { name: "minLength", value: 8, error: { message: "Min 8 chars", code: "password.min" } },
     ],
   },

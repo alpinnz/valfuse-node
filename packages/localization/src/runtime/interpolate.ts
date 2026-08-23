@@ -12,13 +12,8 @@
  * Missing params keep their original token (`{token}`) so missing values
  * are visible during development.
  */
-export function interpolate(
-  value: string,
-  params: Record<string, string | number> = {}
-): string {
-  return value.replace(
-    /\{([a-zA-Z_][a-zA-Z0-9_]*)\}/gu,
-    (_match, name: string) => String(params[name] ?? `{${name}}`)
+export function interpolate(value: string, params: Record<string, string | number> = {}): string {
+  return value.replace(/\{([a-zA-Z_][a-zA-Z0-9_]*)\}/gu, (_match, name: string) =>
+    String(params[name] ?? `{${name}}`)
   );
 }
-

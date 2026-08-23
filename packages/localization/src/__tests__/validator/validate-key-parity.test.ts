@@ -77,9 +77,7 @@ describe("validateKeyParity", () => {
       {
         module: "auth",
         locale: "id",
-        messages: [
-          makeMessage({ key: "login", sourceKey: "login", module: "auth", locale: "id" }),
-        ],
+        messages: [makeMessage({ key: "login", sourceKey: "login", module: "auth", locale: "id" })],
       },
       {
         module: "billing",

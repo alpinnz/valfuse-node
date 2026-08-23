@@ -21,16 +21,21 @@ const ERR = { message: "error", code: "test.generic" };
 // ─── isGenericRule ────────────────────────────────────────────────────────────
 
 describe("isGenericRule", () => {
-  it("returns true for 'custom'", () => expect(isGenericRule({ name: "custom" } as any)).toBe(true));
-  it("returns true for 'refine'", () => expect(isGenericRule({ name: "refine" } as any)).toBe(true));
-  it("returns true for 'matchField'", () => expect(isGenericRule({ name: "matchField" } as any)).toBe(true));
+  it("returns true for 'custom'", () =>
+    expect(isGenericRule({ name: "custom" } as any)).toBe(true));
+  it("returns true for 'refine'", () =>
+    expect(isGenericRule({ name: "refine" } as any)).toBe(true));
+  it("returns true for 'matchField'", () =>
+    expect(isGenericRule({ name: "matchField" } as any)).toBe(true));
   it("returns true for 'oneOf'", () => expect(isGenericRule({ name: "oneOf" } as any)).toBe(true));
-  it("returns true for 'notOneOf'", () => expect(isGenericRule({ name: "notOneOf" } as any)).toBe(true));
+  it("returns true for 'notOneOf'", () =>
+    expect(isGenericRule({ name: "notOneOf" } as any)).toBe(true));
 
   it("returns false for 'required'", () => expect(isGenericRule({ name: "required" })).toBe(false));
   it("returns false for 'min'", () => expect(isGenericRule({ name: "min" })).toBe(false));
   it("returns false for 'email'", () => expect(isGenericRule({ name: "email" })).toBe(false));
-  it("returns false for unknown rule names", () => expect(isGenericRule({ name: "unknown" })).toBe(false));
+  it("returns false for unknown rule names", () =>
+    expect(isGenericRule({ name: "unknown" })).toBe(false));
 });
 
 // ─── custom ───────────────────────────────────────────────────────────────────
@@ -240,7 +245,9 @@ describe("generic rules integration via validateSchema", () => {
         ],
       },
     });
-    expect(validateSchema(schema, { username: "user name" }).username?.message).toBe("Username cannot contain spaces");
+    expect(validateSchema(schema, { username: "user name" }).username?.message).toBe(
+      "Username cannot contain spaces"
+    );
     expect(validateSchema(schema, { username: "username" }).username).toBeUndefined();
   });
 
@@ -275,7 +282,9 @@ describe("generic rules integration via validateSchema", () => {
         ],
       },
     });
-    expect(validateSchema(schema, { username: "root" }).username?.message).toBe("Username is reserved");
+    expect(validateSchema(schema, { username: "root" }).username?.message).toBe(
+      "Username is reserved"
+    );
     expect(validateSchema(schema, { username: "alice" }).username).toBeUndefined();
   });
 
@@ -322,7 +331,10 @@ describe("generic rules integration via validateSchema", () => {
 
   it("validates custom rule with cross-field access on number field", () => {
     const schema = createSchema({
-      minPrice: { type: "number", rules: [{ name: "required", error: { message: "Min price required" } }] },
+      minPrice: {
+        type: "number",
+        rules: [{ name: "required", error: { message: "Min price required" } }],
+      },
       maxPrice: {
         type: "number",
         rules: [
@@ -366,10 +378,14 @@ describe("generic rules integration via validateSchema", () => {
     const schema = createSchema({
       priority: {
         type: "number",
-        rules: [{ name: "oneOf", value: [1, 2, 3], error: { message: "Priority must be 1, 2, or 3" } }],
+        rules: [
+          { name: "oneOf", value: [1, 2, 3], error: { message: "Priority must be 1, 2, or 3" } },
+        ],
       },
     });
-    expect(validateSchema(schema, { priority: 4 }).priority?.message).toBe("Priority must be 1, 2, or 3");
+    expect(validateSchema(schema, { priority: 4 }).priority?.message).toBe(
+      "Priority must be 1, 2, or 3"
+    );
     expect(validateSchema(schema, { priority: 2 }).priority).toBeUndefined();
   });
 
@@ -377,11 +393,12 @@ describe("generic rules integration via validateSchema", () => {
     const schema = createSchema({
       port: {
         type: "number",
-        rules: [{ name: "notOneOf", value: [80, 443, 22], error: { message: "Reserved port number" } }],
+        rules: [
+          { name: "notOneOf", value: [80, 443, 22], error: { message: "Reserved port number" } },
+        ],
       },
     });
     expect(validateSchema(schema, { port: 80 }).port?.message).toBe("Reserved port number");
     expect(validateSchema(schema, { port: 8080 }).port).toBeUndefined();
   });
 });
-

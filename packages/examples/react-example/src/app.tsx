@@ -12,9 +12,8 @@ export function App() {
       <section style={{ marginBottom: "2.5rem" }}>
         <h1 style={{ margin: "0 0 0.5rem" }}>valfuse-node — Demo</h1>
         <p style={{ color: "#64748b", margin: 0 }}>
-          Form validation (<code>@valfuse-node/core</code> +{" "}
-          <code>@valfuse-node/react</code>) and i18n localization (
-          <code>@valfuse-node/localization</code>) in one monorepo.
+          Form validation (<code>@valfuse-node/core</code> + <code>@valfuse-node/react</code>) and
+          i18n localization (<code>@valfuse-node/localization</code>) in one monorepo.
         </p>
       </section>
 
@@ -22,8 +21,8 @@ export function App() {
       <section style={{ marginBottom: "3rem" }}>
         <h2 style={{ margin: "0 0 0.25rem" }}>Localization Demo</h2>
         <p style={{ color: "#64748b", fontSize: "0.875rem", margin: "0 0 1.25rem" }}>
-          Live translation preview — switch locale to see all keys resolve from the
-          generated <code>localization.ts</code> manifest.
+          Live translation preview — switch locale to see all keys resolve from the generated{" "}
+          <code>localization.ts</code> manifest.
         </p>
         <LocalizationProvider
           manifest={localizationManifest}
@@ -40,8 +39,8 @@ export function App() {
       <section style={{ marginBottom: "3rem" }}>
         <h2 style={{ margin: "0 0 0.25rem" }}>Form — All Features Demo</h2>
         <p style={{ color: "#64748b", fontSize: "0.875rem", margin: "0 0 1.25rem" }}>
-          All <code>useValfuseForm</code> APIs in one form — observe{" "}
-          <code>formState</code> and <code>watch</code> changes in real time.
+          All <code>useValfuseForm</code> APIs in one form — observe <code>formState</code> and{" "}
+          <code>watch</code> changes in real time.
         </p>
         <AllFeaturesDemo />
       </section>
@@ -64,9 +63,7 @@ export function App() {
           </section>
           <section>
             <h3>ID Value</h3>
-            <p style={{ color: "#64748b", fontSize: "0.875rem" }}>
-              Role stored as ID string
-            </p>
+            <p style={{ color: "#64748b", fontSize: "0.875rem" }}>Role stored as ID string</p>
             <UserIdForm />
           </section>
         </div>
@@ -74,4 +71,3 @@ export function App() {
     </main>
   );
 }
-

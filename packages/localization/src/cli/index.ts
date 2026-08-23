@@ -28,9 +28,7 @@ async function main(): Promise<void> {
       const formatArg = rest.find((arg) => arg.startsWith("--format="));
       const outputArg = rest.find((arg) => arg.startsWith("--output="));
       await runCoverage({
-        format: formatArg
-          ? (formatArg.replace("--format=", "") as "json" | "html")
-          : undefined,
+        format: formatArg ? (formatArg.replace("--format=", "") as "json" | "html") : undefined,
         output: outputArg ? outputArg.replace("--output=", "") : undefined,
       });
       return;
@@ -49,4 +47,3 @@ main().catch((error: unknown) => {
   console.error(error);
   process.exit(1);
 });
-

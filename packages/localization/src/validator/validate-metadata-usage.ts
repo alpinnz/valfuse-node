@@ -8,11 +8,7 @@ export function validateMetadataUsage(project: NormalizedProject): Diagnostic[] 
   for (const entry of project.entries) {
     for (const message of Object.values(entry.messages)) {
       const value = message.value ?? "";
-      if (
-        (message.metadata || message.structured) &&
-        value.length === 0 &&
-        !message.structured
-      ) {
+      if ((message.metadata || message.structured) && value.length === 0 && !message.structured) {
         diagnostics.push({
           code: DIAGNOSTIC_CODES.valueRequired,
           severity: "error",

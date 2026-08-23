@@ -1,9 +1,6 @@
 import type { ValfuseError, ValfuseBooleanRule } from "../types";
 
-export function validateBooleanRule(
-  value: unknown,
-  rule: ValfuseBooleanRule
-): ValfuseError | null {
+export function validateBooleanRule(value: unknown, rule: ValfuseBooleanRule): ValfuseError | null {
   const isValuePresent = value !== null && value !== undefined;
 
   switch (rule.name) {

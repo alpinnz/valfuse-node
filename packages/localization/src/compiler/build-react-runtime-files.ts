@@ -1,9 +1,10 @@
 import type { RuntimeManifest } from "../types/manifest";
 import { buildRuntimeModel } from "./build-runtime-model";
 
-export function buildReactRuntimeFiles(
-  manifest: RuntimeManifest
-): { entry: string; types: string } {
+export function buildReactRuntimeFiles(manifest: RuntimeManifest): {
+  entry: string;
+  types: string;
+} {
   const model = buildRuntimeModel(manifest);
 
   const entry = [
@@ -57,4 +58,3 @@ export function buildReactRuntimeFiles(
 
   return { entry, types };
 }
-

@@ -17,4 +17,3 @@ export function lookupMessage(context: RuntimeContext, key: string): string {
     key
   );
 }
-

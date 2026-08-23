@@ -49,4 +49,3 @@ export interface LocalizationConfig {
   validation: ValidationConfig;
   reporting: ReportingConfig;
 }
-

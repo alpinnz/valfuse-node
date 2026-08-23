@@ -13,11 +13,7 @@ export async function runValidate(options: { cwd?: string } = {}): Promise<void>
     // eslint-disable-next-line no-console
     console.log(report);
   }
-  if (
-    compiled.diagnostics.some((d) => d.severity === "error") &&
-    config.strict
-  ) {
+  if (compiled.diagnostics.some((d) => d.severity === "error") && config.strict) {
     throw new Error("Localization validation failed.");
   }
 }
-

@@ -57,4 +57,3 @@ export function validateSchema(
 
   return fieldErrors;
 }
-

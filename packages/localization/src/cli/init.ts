@@ -38,4 +38,3 @@ export async function runInit(options: { cwd?: string } = {}): Promise<void> {
   // eslint-disable-next-line no-console
   console.log(`✅ Initialized localization files in ${baseDir}`);
 }
-

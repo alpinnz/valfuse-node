@@ -13,12 +13,8 @@ async function walk(dir: string, files: string[], ext: string): Promise<void> {
   }
 }
 
-export async function scanLocalizationFiles(
-  inputDir: string,
-  ext = "json"
-): Promise<string[]> {
+export async function scanLocalizationFiles(inputDir: string, ext = "json"): Promise<string[]> {
   const files: string[] = [];
   await walk(inputDir, files, ext);
   return files.sort();
 }
-

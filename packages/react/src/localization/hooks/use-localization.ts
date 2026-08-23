@@ -26,9 +26,7 @@ export interface NamespacedLocalizer {
 }
 
 export type TranslationFallback =
-  | string
-  | Record<string, string>
-  | ((key: string) => string | undefined);
+  string | Record<string, string> | ((key: string) => string | undefined);
 
 export interface UseLocalizationOptions {
   fallback?: TranslationFallback;
@@ -92,8 +90,7 @@ export function useLocalization(options: UseLocalizationOptions = {}) {
   );
 
   const format = useCallback(
-    (key: string, params: InterpolationParams) =>
-      interpolate(translate(key), params),
+    (key: string, params: InterpolationParams) => interpolate(translate(key), params),
     [translate]
   );
 
@@ -115,9 +112,7 @@ export function useLocalization(options: UseLocalizationOptions = {}) {
 
   const raw = useCallback(
     (key: string) =>
-      manifest.messages[locale]?.[key] ??
-      manifest.messages[manifest.fallback_locale]?.[key] ??
-      "",
+      manifest.messages[locale]?.[key] ?? manifest.messages[manifest.fallback_locale]?.[key] ?? "",
     [locale, manifest.fallback_locale, manifest.messages]
   );
 
@@ -151,14 +146,11 @@ export function useLocalization(options: UseLocalizationOptions = {}) {
   const namespace = useCallback(
     (scope: string): NamespacedLocalizer => ({
       translate: (key, fallbackValue) => translate(`${scope}.${key}`, fallbackValue),
-      translateOrNull: (key) =>
-        key == null ? null : translateOrNull(`${scope}.${key}`),
+      translateOrNull: (key) => (key == null ? null : translateOrNull(`${scope}.${key}`)),
       format: (key, params) => format(`${scope}.${key}`, params),
-      formatOrNull: (key, params) =>
-        key == null ? null : formatOrNull(`${scope}.${key}`, params),
+      formatOrNull: (key, params) => (key == null ? null : formatOrNull(`${scope}.${key}`, params)),
       plural: (key, count) => plural(`${scope}.${key}`, count),
-      pluralOrNull: (key, count) =>
-        key == null ? null : pluralOrNull(`${scope}.${key}`, count),
+      pluralOrNull: (key, count) => (key == null ? null : pluralOrNull(`${scope}.${key}`, count)),
       gender: (key, value, params) => gender(`${scope}.${key}`, value, params),
       context: (key, value, params) => contextFn(`${scope}.${key}`, value, params),
     }),
@@ -166,10 +158,7 @@ export function useLocalization(options: UseLocalizationOptions = {}) {
   );
 
   const entriesForLocale = useMemo(
-    () =>
-      Object.entries(manifest.messages[locale] ?? {}).sort(([a], [b]) =>
-        a.localeCompare(b)
-      ),
+    () => Object.entries(manifest.messages[locale] ?? {}).sort(([a], [b]) => a.localeCompare(b)),
     [locale, manifest.messages]
   );
 
@@ -187,4 +176,3 @@ export function useLocalization(options: UseLocalizationOptions = {}) {
     entriesForLocale,
   };
 }
-

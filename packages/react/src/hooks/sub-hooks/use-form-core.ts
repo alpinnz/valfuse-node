@@ -19,19 +19,13 @@ export function useFormCore<TFieldValues extends Record<string, unknown>>(
   const { schema, defaultValues, mode = "onSubmit" } = props;
 
   // ── Reactive state ──────────────────────────────────────────────────────
-  const [values, setValues] = useState<TFieldValues>(
-    () => ({ ...defaultValues }) as TFieldValues
-  );
-  const [errors, setErrorsState] = useState<
-    FormCore<TFieldValues>["errors"]
-  >({});
+  const [values, setValues] = useState<TFieldValues>(() => ({ ...defaultValues }) as TFieldValues);
+  const [errors, setErrorsState] = useState<FormCore<TFieldValues>["errors"]>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
   const [submitCount, setSubmitCount] = useState(0);
-  const [touchedFields, setTouchedFields] = useState<Set<string>>(
-    () => new Set()
-  );
+  const [touchedFields, setTouchedFields] = useState<Set<string>>(() => new Set());
 
   // ── Stale-read refs (callbacks read .current instead of closing over state) ─
   const valuesRef = useRef(values);

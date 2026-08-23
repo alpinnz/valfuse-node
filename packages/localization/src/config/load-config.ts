@@ -31,4 +31,3 @@ export async function loadConfig(cwd: string): Promise<LocalizationConfig> {
   validateConfig(normalized);
   return normalized;
 }
-

@@ -116,25 +116,25 @@ const roleId = computed({
 
 ## Apa yang Didemonstrasikan
 
-| Fitur | Di Mana | Kode Inti |
-|---|---|---|
-| `register()` untuk native input | `TextInput.vue` | `<input v-bind="form.register('email')" />` |
-| `getValue` / `setValue` untuk custom input | `UserObjectForm`, `UserIdForm` | `computed({ get, set })` wrapper |
-| `form.setErrors()` — inject server errors | `user.api.ts` simulate | `form.setErrors({ email: { message, code, type: "server" } })` |
-| `form.clearErrors()` — manual reset | error UI | `form.clearErrors()` / `form.clearErrors(["email"])` |
-| `form.watch(name, cb)` — per-field subscription | effect / `onUnmounted` cleanup | `const unsub = form.watch("email", cb); onUnmounted(unsub)` |
-| `form.watch((values, info) => …)` — global subscription | reactive debug panel | `form.watch((values) => { … })` |
-| `form.handleSubmit()` — async submit | `@submit` handler | `form.handleSubmit(async (values) => { … })` |
-| `formState.isSubmitting` — disable button | submit button | `<button :disabled="form.formState.isSubmitting">` |
-| `formState.isDirty` — unsaved indicator | debug panel | `form.formState.isDirty` |
-| `formState.errors.*.code` — semantic code | error renderer | `form.formState.errors.email?.code` |
-| `formState.touchedFields` — blur tracking | error UI (touched-only) | `form.formState.touchedFields.email` |
-| Object value pattern | `UserObjectForm` | `defaultValues: { role: null }` |
-| ID value pattern | `UserIdForm` | `defaultValues: { roleId: "" }` |
-| Cross-field validation (`matchField`) | password confirm | `matchField: "password"` di schema |
-| Custom rule | `user.api.ts` simulate | `validate: (v, all) => !usedEmails.has(v)` |
-| Mode switching via remount | `AllFeaturesForm` | `<AllFeaturesFormInner :key="mode" :mode="mode" />` |
-| Reactive debug panel | `AllFeaturesFormInner` | `computed(() => form.getValues())` |
+| Fitur                                                   | Di Mana                        | Kode Inti                                                      |
+| ------------------------------------------------------- | ------------------------------ | -------------------------------------------------------------- |
+| `register()` untuk native input                         | `TextInput.vue`                | `<input v-bind="form.register('email')" />`                    |
+| `getValue` / `setValue` untuk custom input              | `UserObjectForm`, `UserIdForm` | `computed({ get, set })` wrapper                               |
+| `form.setErrors()` — inject server errors               | `user.api.ts` simulate         | `form.setErrors({ email: { message, code, type: "server" } })` |
+| `form.clearErrors()` — manual reset                     | error UI                       | `form.clearErrors()` / `form.clearErrors(["email"])`           |
+| `form.watch(name, cb)` — per-field subscription         | effect / `onUnmounted` cleanup | `const unsub = form.watch("email", cb); onUnmounted(unsub)`    |
+| `form.watch((values, info) => …)` — global subscription | reactive debug panel           | `form.watch((values) => { … })`                                |
+| `form.handleSubmit()` — async submit                    | `@submit` handler              | `form.handleSubmit(async (values) => { … })`                   |
+| `formState.isSubmitting` — disable button               | submit button                  | `<button :disabled="form.formState.isSubmitting">`             |
+| `formState.isDirty` — unsaved indicator                 | debug panel                    | `form.formState.isDirty`                                       |
+| `formState.errors.*.code` — semantic code               | error renderer                 | `form.formState.errors.email?.code`                            |
+| `formState.touchedFields` — blur tracking               | error UI (touched-only)        | `form.formState.touchedFields.email`                           |
+| Object value pattern                                    | `UserObjectForm`               | `defaultValues: { role: null }`                                |
+| ID value pattern                                        | `UserIdForm`                   | `defaultValues: { roleId: "" }`                                |
+| Cross-field validation (`matchField`)                   | password confirm               | `matchField: "password"` di schema                             |
+| Custom rule                                             | `user.api.ts` simulate         | `validate: (v, all) => !usedEmails.has(v)`                     |
+| Mode switching via remount                              | `AllFeaturesForm`              | `<AllFeaturesFormInner :key="mode" :mode="mode" />`            |
+| Reactive debug panel                                    | `AllFeaturesFormInner`         | `computed(() => form.getValues())`                             |
 
 ---
 
@@ -142,17 +142,17 @@ const roleId = computed({
 
 Adapter Vue menjaga **kontrak yang sama** dengan React, dengan dua perbedaan utama:
 
-| Fitur | React (`@valfuse-node/react`) | Vue (`@valfuse-node/vue`) |
-|---|---|---|
-| Field binding | `{...form.register('f')}` (JSX spread) | `v-bind="form.register('f')"` |
-| Custom field | `<ValfuseController>` + `form.control` | `getValue` / `setValue` (no controller yet) |
-| Watch snapshot | `form.watch()` | `form.watch()` |
-| Watch subscribe (global) | `form.watch((values, info) => …)` | `form.watch((values, info) => …)` |
-| Watch subscribe (one field) | `form.watch('f', cb)` | `form.watch('f', cb)` (legacy) |
-| Watch subscribe (multi) | `form.watch(['a','b'], cb)` | — gunakan multiple `watch(name, cb)` |
-| Manual trigger | `form.trigger()` | `form.trigger()` |
-| Localization runtime | `<LocalizationProvider>` + `useLocalization()` | — tidak tersedia di adapter Vue; pakai package `@valfuse-node/localization` langsung |
-| Mode values | `onSubmit \| onChange \| onBlur \| onTouched \| all` | `onSubmit \| onChange \| onBlur \| onTouched \| all` |
+| Fitur                       | React (`@valfuse-node/react`)                        | Vue (`@valfuse-node/vue`)                                                            |
+| --------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Field binding               | `{...form.register('f')}` (JSX spread)               | `v-bind="form.register('f')"`                                                        |
+| Custom field                | `<ValfuseController>` + `form.control`               | `getValue` / `setValue` (no controller yet)                                          |
+| Watch snapshot              | `form.watch()`                                       | `form.watch()`                                                                       |
+| Watch subscribe (global)    | `form.watch((values, info) => …)`                    | `form.watch((values, info) => …)`                                                    |
+| Watch subscribe (one field) | `form.watch('f', cb)`                                | `form.watch('f', cb)` (legacy)                                                       |
+| Watch subscribe (multi)     | `form.watch(['a','b'], cb)`                          | — gunakan multiple `watch(name, cb)`                                                 |
+| Manual trigger              | `form.trigger()`                                     | `form.trigger()`                                                                     |
+| Localization runtime        | `<LocalizationProvider>` + `useLocalization()`       | — tidak tersedia di adapter Vue; pakai package `@valfuse-node/localization` langsung |
+| Mode values                 | `onSubmit \| onChange \| onBlur \| onTouched \| all` | `onSubmit \| onChange \| onBlur \| onTouched \| all`                                 |
 
 > **Kontrak TypeScript identik:** `UseValfuseFormReturn<T>` didefinisikan sama persis di kedua adapter. Skema + `defaultValues` yang sama bisa dipakai ulang.
 
@@ -189,13 +189,13 @@ src/
 
 ## Scripts
 
-| Script | Perintah | Fungsi |
-|---|---|---|
-| `dev` | `vite` | Dev server di `http://localhost:5174` |
-| `build` | `vue-tsc -b && vite build` | Production build |
-| `typecheck` | `vue-tsc --noEmit` | Cek TypeScript di `.vue` |
-| `lint` | `eslint src` | ESLint |
-| `clean` | `rm -rf dist` | Hapus output |
+| Script      | Perintah                   | Fungsi                                |
+| ----------- | -------------------------- | ------------------------------------- |
+| `dev`       | `vite`                     | Dev server di `http://localhost:5174` |
+| `build`     | `vue-tsc -b && vite build` | Production build                      |
+| `typecheck` | `vue-tsc --noEmit`         | Cek TypeScript di `.vue`              |
+| `lint`      | `eslint src`               | ESLint                                |
+| `clean`     | `rm -rf dist`              | Hapus output                          |
 
 ---
 

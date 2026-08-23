@@ -8,16 +8,11 @@ export function normalizeMetadata(
     ...metadata,
     placeholders: metadata.placeholders
       ? Object.fromEntries(
-          Object.entries(metadata.placeholders).sort(([a], [b]) =>
-            a.localeCompare(b)
-          )
+          Object.entries(metadata.placeholders).sort(([a], [b]) => a.localeCompare(b))
         )
       : undefined,
     custom: metadata.custom
-      ? Object.fromEntries(
-          Object.entries(metadata.custom).sort(([a], [b]) => a.localeCompare(b))
-        )
+      ? Object.fromEntries(Object.entries(metadata.custom).sort(([a], [b]) => a.localeCompare(b)))
       : undefined,
   };
 }
-

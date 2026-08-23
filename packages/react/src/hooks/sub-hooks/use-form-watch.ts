@@ -44,14 +44,10 @@ export function useFormWatch<TFieldValues extends Record<string, unknown>>(
         return () => watchSubscribersRef.current.delete(cb);
       }
       if (Array.isArray(nameOrNamesOrCallback)) {
-        return nameOrNamesOrCallback.map(
-          (n) => valuesRef.current[n as keyof TFieldValues]
-        );
+        return nameOrNamesOrCallback.map((n) => valuesRef.current[n as keyof TFieldValues]);
       }
       if (typeof nameOrNamesOrCallback === "string") {
-        return valuesRef.current[
-          nameOrNamesOrCallback as keyof TFieldValues
-        ];
+        return valuesRef.current[nameOrNamesOrCallback as keyof TFieldValues];
       }
       return valuesRef.current;
     },

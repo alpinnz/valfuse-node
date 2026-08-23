@@ -17,8 +17,16 @@ const schema = createSchema({
     transform: (v: unknown) => String(v).toLowerCase().trim(),
     rules: [
       { name: "required", error: { message: "Username wajib diisi", code: "username.required" } },
-      { name: "min", value: 3, error: { message: "Username minimal 3 karakter", code: "username.min" } },
-      { name: "max", value: 20, error: { message: "Username maksimal 20 karakter", code: "username.max" } },
+      {
+        name: "min",
+        value: 3,
+        error: { message: "Username minimal 3 karakter", code: "username.min" },
+      },
+      {
+        name: "max",
+        value: 20,
+        error: { message: "Username maksimal 20 karakter", code: "username.max" },
+      },
     ],
   },
   email: {
@@ -102,14 +110,25 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
 
 <template>
   <div
-    style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: start;"
+    style="
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+    "
   >
     <!-- ── Left column: form + controls ───────────────────────────────────── -->
     <div>
-
       <!-- 1. register() — v-bind spread ke TextInput wrapper ──────────────── -->
-      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.9rem;">
-        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px;">
+      <fieldset
+        style="
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 0.75rem;
+          margin-bottom: 0.9rem;
+        "
+      >
+        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px">
           register() — v-bind spread ke wrapper component
         </legend>
 
@@ -133,13 +152,13 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
           />
 
           <!-- bio: menggunakan getValue/setValue langsung (native textarea) -->
-          <div style="margin-bottom: 0.75rem;">
+          <div style="margin-bottom: 0.75rem">
             <label
               for="af-bio"
-              style="display: block; font-size: 0.85rem; margin-bottom: 0.2rem; font-weight: 500;"
+              style="display: block; font-size: 0.85rem; margin-bottom: 0.2rem; font-weight: 500"
             >
               Bio
-              <span style="color: #64748b; font-weight: 400; font-size: 0.75rem;">
+              <span style="color: #64748b; font-weight: 400; font-size: 0.75rem">
                 (opsional — pakai getValue/setValue langsung)
               </span>
             </label>
@@ -147,7 +166,7 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
               id="af-bio"
               rows="3"
               placeholder="Ceritakan sedikit tentang dirimu..."
-              :value="(form.getValue('bio') as string)"
+              :value="form.getValue('bio') as string"
               :style="{
                 ...inputStyle(!!form.formState.errors.bio),
                 resize: 'vertical',
@@ -158,7 +177,7 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
             <p
               v-if="form.formState.errors.bio?.message"
               role="alert"
-              style="color: #ef4444; margin: 2px 0 0; font-size: 0.78rem;"
+              style="color: #ef4444; margin: 2px 0 0; font-size: 0.78rem"
             >
               {{ form.formState.errors.bio.message }}
             </p>
@@ -167,18 +186,26 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
       </fieldset>
 
       <!-- 2. getValue / setValue — native select ───────────────────────────── -->
-      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.9rem;">
-        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px;">
+      <fieldset
+        style="
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 0.75rem;
+          margin-bottom: 0.9rem;
+        "
+      >
+        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px">
           getValue / setValue — custom select
         </legend>
-        <div style="margin-bottom: 0.75rem;">
+        <div style="margin-bottom: 0.75rem">
           <label
             for="af-priority"
-            style="display: block; font-size: 0.85rem; margin-bottom: 0.2rem; font-weight: 500;"
-          >Priority</label>
+            style="display: block; font-size: 0.85rem; margin-bottom: 0.2rem; font-weight: 500"
+            >Priority</label
+          >
           <select
             id="af-priority"
-            :value="(form.getValue('priority') as string)"
+            :value="form.getValue('priority') as string"
             :style="inputStyle(!!form.formState.errors.priority)"
             @change="form.setValue('priority', ($event.target as HTMLSelectElement).value)"
             @blur="form.register('priority').onBlur()"
@@ -191,7 +218,7 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
           <p
             v-if="form.formState.errors.priority?.message"
             role="alert"
-            style="color: #ef4444; margin: 2px 0 0; font-size: 0.78rem;"
+            style="color: #ef4444; margin: 2px 0 0; font-size: 0.78rem"
           >
             {{ form.formState.errors.priority.message }}
           </p>
@@ -199,40 +226,100 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
       </fieldset>
 
       <!-- handleSubmit ────────────────────────────────────────────────────── -->
-      <div style="margin-bottom: 0.9rem;">
+      <div style="margin-bottom: 0.9rem">
         <button
           type="submit"
           form="all-features-form"
           :disabled="form.formState.isSubmitting"
-          style="padding: 0.55rem 1.5rem; background: #2563eb; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.9rem;"
+          style="
+            padding: 0.55rem 1.5rem;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+          "
         >
           {{ form.formState.isSubmitting ? "⏳ Menyimpan..." : "Submit" }}
         </button>
 
         <pre
           v-if="form.formState.isSubmitted && submitResult"
-          style="margin-top: 0.5rem; background: #f0fdf4; border: 1px solid #86efac; border-radius: 6px; padding: 0.6rem; font-size: 0.78rem; white-space: pre-wrap;"
-        >✅ Submit berhasil!
+          style="
+            margin-top: 0.5rem;
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 6px;
+            padding: 0.6rem;
+            font-size: 0.78rem;
+            white-space: pre-wrap;
+          "
+        >
+✅ Submit berhasil!
 {{ submitResult }}</pre>
       </div>
 
       <!-- 3. setValue() ───────────────────────────────────────────────────── -->
-      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.9rem;">
-        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px;">setValue()</legend>
+      <fieldset
+        style="
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 0.75rem;
+          margin-bottom: 0.9rem;
+        "
+      >
+        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px">
+          setValue()
+        </legend>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #7c3aed;"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #7c3aed;
+          "
           @click="form.setValue('username', 'prefilluser')"
         >
           setValue("username", "prefilluser")
         </button>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #7c3aed;"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #7c3aed;
+          "
           @click="form.setValue('email', 'valid@example.com')"
         >
           setValue("email", valid)
         </button>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #dc2626;"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #dc2626;
+          "
           @click="form.setValue('email', 'bukan-email')"
         >
           setValue("email", invalid)
@@ -240,22 +327,64 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
       </fieldset>
 
       <!-- 4. clearErrors() ────────────────────────────────────────────────── -->
-      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.9rem;">
-        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px;">clearErrors()</legend>
+      <fieldset
+        style="
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 0.75rem;
+          margin-bottom: 0.9rem;
+        "
+      >
+        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px">
+          clearErrors()
+        </legend>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #059669;"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #059669;
+          "
           @click="form.clearErrors()"
         >
           clearErrors() — semua
         </button>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #059669;"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #059669;
+          "
           @click="form.clearErrors(['email'])"
         >
           clearErrors(["email"])
         </button>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #059669;"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #059669;
+          "
           @click="form.clearErrors(['username', 'email'])"
         >
           clearErrors(["username","email"])
@@ -263,39 +392,121 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
       </fieldset>
 
       <!-- 5. setErrors() — simulasi server error ────────────────────────── -->
-      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.9rem;">
-        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px;">setErrors() — simulasi error API</legend>
+      <fieldset
+        style="
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 0.75rem;
+          margin-bottom: 0.9rem;
+        "
+      >
+        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px">
+          setErrors() — simulasi error API
+        </legend>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #b45309;"
-          @click="form.setErrors({
-            username: { message: 'Username sudah dipakai', type: 'server', code: 'username.taken' },
-            email: { message: 'Email sudah terdaftar', type: 'server', code: 'email.duplicate' },
-          })"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #b45309;
+          "
+          @click="
+            form.setErrors({
+              username: {
+                message: 'Username sudah dipakai',
+                type: 'server',
+                code: 'username.taken',
+              },
+              email: { message: 'Email sudah terdaftar', type: 'server', code: 'email.duplicate' },
+            })
+          "
         >
           setErrors(username + email)
         </button>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #b45309;"
-          @click="form.setErrors({
-            priority: { message: 'Priority tidak diizinkan', type: 'server', code: 'priority.forbidden' },
-          })"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #b45309;
+          "
+          @click="
+            form.setErrors({
+              priority: {
+                message: 'Priority tidak diizinkan',
+                type: 'server',
+                code: 'priority.forbidden',
+              },
+            })
+          "
         >
           setErrors(priority)
         </button>
       </fieldset>
 
       <!-- 6. reset() ──────────────────────────────────────────────────────── -->
-      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.9rem;">
-        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px;">reset()</legend>
+      <fieldset
+        style="
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 0.75rem;
+          margin-bottom: 0.9rem;
+        "
+      >
+        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px">reset()</legend>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #64748b;"
-          @click="() => { form.reset(); submitResult = ''; }"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #64748b;
+          "
+          @click="
+            () => {
+              form.reset();
+              submitResult = '';
+            }
+          "
         >
           reset() — ke defaultValues
         </button>
         <button
-          style="padding: 0.3rem 0.7rem; margin-right: 0.4rem; margin-bottom: 0.4rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-family: monospace; color: #fff; background: #64748b;"
-          @click="() => { form.reset({ username: 'johndoe', email: 'john@doe.com' }); submitResult = ''; }"
+          style="
+            padding: 0.3rem 0.7rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: monospace;
+            color: #fff;
+            background: #64748b;
+          "
+          @click="
+            () => {
+              form.reset({ username: 'johndoe', email: 'john@doe.com' });
+              submitResult = '';
+            }
+          "
         >
           reset(partial) — username + email
         </button>
@@ -304,83 +515,187 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
 
     <!-- ── Right column: formState + watch log ────────────────────────────── -->
     <div>
-
       <!-- formState debug panel ──────────────────────────────────────────── -->
       <div
-        style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.875rem; font-size: 0.8rem; margin-bottom: 0.9rem;"
+        style="
+          background: #f8fafc;
+          border: 1px solid #cbd5e1;
+          border-radius: 8px;
+          padding: 0.875rem;
+          font-size: 0.8rem;
+          margin-bottom: 0.9rem;
+        "
       >
-        <h4 style="margin: 0 0 0.6rem; font-family: monospace; color: #1e293b;">formState</h4>
-        <table style="width: 100%; border-collapse: collapse;">
+        <h4 style="margin: 0 0 0.6rem; font-family: monospace; color: #1e293b">formState</h4>
+        <table style="width: 100%; border-collapse: collapse">
           <tbody>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 3px 8px 3px 0; font-family: monospace; color: #7c3aed; white-space: nowrap;">isValid</td>
+            <tr style="border-bottom: 1px solid #f1f5f9">
+              <td
+                style="
+                  padding: 3px 8px 3px 0;
+                  font-family: monospace;
+                  color: #7c3aed;
+                  white-space: nowrap;
+                "
+              >
+                isValid
+              </td>
               <td>
-                <span :style="{ display:'inline-block', padding:'1px 7px', borderRadius:'10px', fontSize:'0.72rem', fontWeight:600, background: form.formState.isValid ? '#22c55e' : '#ef4444', color:'#fff' }">
+                <span
+                  :style="{
+                    display: 'inline-block',
+                    padding: '1px 7px',
+                    borderRadius: '10px',
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    background: form.formState.isValid ? '#22c55e' : '#ef4444',
+                    color: '#fff',
+                  }"
+                >
                   {{ String(form.formState.isValid) }}
                 </span>
               </td>
             </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 3px 8px 3px 0; font-family: monospace; color: #7c3aed; white-space: nowrap;">isSubmitting</td>
+            <tr style="border-bottom: 1px solid #f1f5f9">
+              <td
+                style="
+                  padding: 3px 8px 3px 0;
+                  font-family: monospace;
+                  color: #7c3aed;
+                  white-space: nowrap;
+                "
+              >
+                isSubmitting
+              </td>
               <td>
-                <span :style="{ display:'inline-block', padding:'1px 7px', borderRadius:'10px', fontSize:'0.72rem', fontWeight:600, background: form.formState.isSubmitting ? '#22c55e' : '#ef4444', color:'#fff' }">
+                <span
+                  :style="{
+                    display: 'inline-block',
+                    padding: '1px 7px',
+                    borderRadius: '10px',
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    background: form.formState.isSubmitting ? '#22c55e' : '#ef4444',
+                    color: '#fff',
+                  }"
+                >
                   {{ String(form.formState.isSubmitting) }}
                 </span>
               </td>
             </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 3px 8px 3px 0; font-family: monospace; color: #7c3aed; white-space: nowrap;">isSubmitted</td>
+            <tr style="border-bottom: 1px solid #f1f5f9">
+              <td
+                style="
+                  padding: 3px 8px 3px 0;
+                  font-family: monospace;
+                  color: #7c3aed;
+                  white-space: nowrap;
+                "
+              >
+                isSubmitted
+              </td>
               <td>
-                <span :style="{ display:'inline-block', padding:'1px 7px', borderRadius:'10px', fontSize:'0.72rem', fontWeight:600, background: form.formState.isSubmitted ? '#22c55e' : '#ef4444', color:'#fff' }">
+                <span
+                  :style="{
+                    display: 'inline-block',
+                    padding: '1px 7px',
+                    borderRadius: '10px',
+                    fontSize: '0.72rem',
+                    fontWeight: 600,
+                    background: form.formState.isSubmitted ? '#22c55e' : '#ef4444',
+                    color: '#fff',
+                  }"
+                >
                   {{ String(form.formState.isSubmitted) }}
                 </span>
               </td>
             </tr>
-            <tr style="border-bottom: 1px solid #f1f5f9;">
-              <td style="padding: 3px 8px 3px 0; font-family: monospace; color: #7c3aed; white-space: nowrap;">dirtyFields</td>
-              <td><code style="font-size: 0.72rem;">{{ dirtyFieldsLabel(form.formState) }}</code></td>
+            <tr style="border-bottom: 1px solid #f1f5f9">
+              <td
+                style="
+                  padding: 3px 8px 3px 0;
+                  font-family: monospace;
+                  color: #7c3aed;
+                  white-space: nowrap;
+                "
+              >
+                dirtyFields
+              </td>
+              <td>
+                <code style="font-size: 0.72rem">{{ dirtyFieldsLabel(form.formState) }}</code>
+              </td>
             </tr>
             <tr>
-              <td style="padding: 3px 8px 3px 0; font-family: monospace; color: #7c3aed; white-space: nowrap;">touchedFields</td>
-              <td><code style="font-size: 0.72rem;">{{ touchedFieldsLabel(form.formState) }}</code></td>
+              <td
+                style="
+                  padding: 3px 8px 3px 0;
+                  font-family: monospace;
+                  color: #7c3aed;
+                  white-space: nowrap;
+                "
+              >
+                touchedFields
+              </td>
+              <td>
+                <code style="font-size: 0.72rem">{{ touchedFieldsLabel(form.formState) }}</code>
+              </td>
             </tr>
           </tbody>
         </table>
 
         <!-- errors -->
-        <div style="margin-top: 0.6rem;">
-          <span style="font-family: monospace; color: #7c3aed;">errors</span>
+        <div style="margin-top: 0.6rem">
+          <span style="font-family: monospace; color: #7c3aed">errors</span>
           <span
             v-if="Object.keys(form.formState.errors).length === 0"
-            style="margin-left: 6px; color: #64748b; font-size: 0.75rem;"
-          >{{}}</span>
-          <div v-else style="margin-top: 4px;">
+            style="margin-left: 6px; color: #64748b; font-size: 0.75rem"
+            >{{}}</span
+          >
+          <div v-else style="margin-top: 4px">
             <div
               v-for="(err, field) in form.formState.errors"
               :key="field"
-              style="padding: 3px 8px; margin-bottom: 2px; background: #fee2e2; border-radius: 4px; line-height: 1.4;"
+              style="
+                padding: 3px 8px;
+                margin-bottom: 2px;
+                background: #fee2e2;
+                border-radius: 4px;
+                line-height: 1.4;
+              "
             >
-              <strong style="font-family: monospace;">{{ field }}</strong>:
+              <strong style="font-family: monospace">{{ field }}</strong
+              >:
               {{ err?.message }}
-              <span v-if="err?.code" style="color: #94a3b8; margin-left: 4px; font-size: 0.72rem;">[{{ err.code }}]</span>
-              <span v-if="err?.type" style="color: #94a3b8; margin-left: 4px; font-size: 0.72rem;">type={{ err.type }}</span>
+              <span v-if="err?.code" style="color: #94a3b8; margin-left: 4px; font-size: 0.72rem"
+                >[{{ err.code }}]</span
+              >
+              <span v-if="err?.type" style="color: #94a3b8; margin-left: 4px; font-size: 0.72rem"
+                >type={{ err.type }}</span
+              >
             </div>
           </div>
         </div>
       </div>
 
       <!-- watch(name, cb) — log perubahan ────────────────────────────────── -->
-      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.9rem;">
-        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px;">
+      <fieldset
+        style="
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 0.75rem;
+          margin-bottom: 0.9rem;
+        "
+      >
+        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px">
           watch("username", cb) + watch("priority", cb)
         </legend>
         <p
           v-if="watchLog.length === 0"
-          style="color: #94a3b8; font-size: 0.78rem; font-style: italic; margin: 0;"
+          style="color: #94a3b8; font-size: 0.78rem; font-style: italic; margin: 0"
         >
           Belum ada perubahan...
         </p>
-        <div v-else style="display: flex; flex-direction: column; gap: 3px;">
+        <div v-else style="display: flex; flex-direction: column; gap: 3px">
           <div
             v-for="(entry, i) in watchLog"
             :key="i"
@@ -393,23 +708,21 @@ function touchedFieldsLabel(formState: ValfuseFormState<typeof DEFAULT_VALUES>):
               lineHeight: 1.4,
             }"
           >
-            <span style="font-family: monospace; color: #7c3aed;">[{{ entry.name }}]</span>
+            <span style="font-family: monospace; color: #7c3aed">[{{ entry.name }}]</span>
             {{ JSON.stringify(entry.value) }}
           </div>
         </div>
       </fieldset>
 
       <!-- getValues() — snapshot semua nilai ─────────────────────────────── -->
-      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem;">
-        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px;">
+      <fieldset style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem">
+        <legend style="font-family: monospace; font-size: 0.85rem; padding: 0 4px">
           getValues() — snapshot
         </legend>
-        <code style="font-size: 0.75rem; word-break: break-all; white-space: pre-wrap;">{{
+        <code style="font-size: 0.75rem; word-break: break-all; white-space: pre-wrap">{{
           JSON.stringify(form.getValues(), null, 2)
         }}</code>
       </fieldset>
-
     </div>
   </div>
 </template>
-

@@ -13,9 +13,7 @@ describe("interpolate", () => {
   });
 
   it("accepts numeric parameter values and stringifies them", () => {
-    expect(interpolate("You have {count} messages", { count: 5 })).toBe(
-      "You have 5 messages"
-    );
+    expect(interpolate("You have {count} messages", { count: 5 })).toBe("You have 5 messages");
   });
 
   it("returns the original token when a param is missing", () => {
@@ -40,9 +38,7 @@ describe("interpolate", () => {
   });
 
   it("accepts an empty params object without throwing", () => {
-    expect(interpolate("plain string with no tokens", {})).toBe(
-      "plain string with no tokens"
-    );
+    expect(interpolate("plain string with no tokens", {})).toBe("plain string with no tokens");
   });
 
   it("defaults params to {} when not provided", () => {
@@ -58,9 +54,7 @@ describe("interpolate", () => {
   });
 
   it("supports underscores and digits in placeholder names (after first char)", () => {
-    expect(interpolate("{user_id_1} = {value2}", { user_id_1: "u", value2: "v" })).toBe(
-      "u = v"
-    );
+    expect(interpolate("{user_id_1} = {value2}", { user_id_1: "u", value2: "v" })).toBe("u = v");
   });
 
   it("does not match Unicode letters in placeholder names (ASCII-only contract)", () => {

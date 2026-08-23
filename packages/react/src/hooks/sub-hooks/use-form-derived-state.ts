@@ -9,10 +9,7 @@
  */
 import { useMemo } from "react";
 import { validateSchema, transformValues } from "@valfuse-node/form";
-import type {
-  ValfuseDirtyFields,
-  ValfuseTouchedFields,
-} from "../../types/index";
+import type { ValfuseDirtyFields, ValfuseTouchedFields } from "../../types/index";
 import type { FormCore } from "./form-core";
 
 export function useFormDerivedState<TFieldValues extends Record<string, unknown>>(
@@ -23,35 +20,27 @@ export function useFormDerivedState<TFieldValues extends Record<string, unknown>
   const isDirty = useMemo(
     () =>
       Object.keys(defaultValues).some(
-        (key) =>
-          values[key as keyof TFieldValues] !==
-          defaultValues[key as keyof TFieldValues]
+        (key) => values[key as keyof TFieldValues] !== defaultValues[key as keyof TFieldValues]
       ),
     [values, defaultValues]
   );
 
   const dirtyFields = useMemo(
     () =>
-      Object.keys(defaultValues).reduce<ValfuseDirtyFields<TFieldValues>>(
-        (acc, key) => {
-          const k = key as keyof TFieldValues;
-          if (values[k] !== defaultValues[k]) acc[k] = true;
-          return acc;
-        },
-        {}
-      ),
+      Object.keys(defaultValues).reduce<ValfuseDirtyFields<TFieldValues>>((acc, key) => {
+        const k = key as keyof TFieldValues;
+        if (values[k] !== defaultValues[k]) acc[k] = true;
+        return acc;
+      }, {}),
     [values, defaultValues]
   );
 
   const touchedFieldsRecord = useMemo(
     () =>
-      Array.from(touchedFields).reduce<ValfuseTouchedFields<TFieldValues>>(
-        (acc, key) => {
-          acc[key as keyof TFieldValues] = true;
-          return acc;
-        },
-        {}
-      ),
+      Array.from(touchedFields).reduce<ValfuseTouchedFields<TFieldValues>>((acc, key) => {
+        acc[key as keyof TFieldValues] = true;
+        return acc;
+      }, {}),
     [touchedFields]
   );
 
@@ -65,10 +54,7 @@ export function useFormDerivedState<TFieldValues extends Record<string, unknown>
   // (or wrapped in useMemo) to keep these deps stable across renders.
   const isValid = useMemo(() => {
     if (Object.keys(errors).length > 0) return false;
-    const transformed = transformValues(
-      schema,
-      values as Record<string, unknown>
-    );
+    const transformed = transformValues(schema, values as Record<string, unknown>);
     return Object.keys(validateSchema(schema, transformed)).length === 0;
   }, [schema, values, errors]);
 

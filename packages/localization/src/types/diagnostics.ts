@@ -7,4 +7,3 @@ export interface Diagnostic {
   filePath?: string;
   key?: string;
 }
-

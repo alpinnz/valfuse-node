@@ -22,4 +22,3 @@ export interface NormalizedProject {
   modules: string[];
   entries: NormalizedLocaleModule[];
 }
-

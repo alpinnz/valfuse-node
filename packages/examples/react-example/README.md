@@ -113,23 +113,23 @@ Demonstrasi lengkap **semua** API `useValfuseForm` di satu form (jika ada di exa
 
 ## Apa yang Didemonstrasikan
 
-| Fitur | Di Mana | Kode Inti |
-|---|---|---|
-| `register()` untuk native `<input>` | `TextInput` component | `{...form.register("name")}` |
-| `<ValfuseController>` untuk custom input | `UserObjectForm`, `UserIdForm` | `<ValfuseController control={form.control} name="…" render={…} />` |
-| `form.setErrors()` — inject server errors | submit handler di `user.api.ts` | `form.setErrors({ email: { message, code, type: "server" } })` |
-| `form.clearErrors()` — manual reset | error UI | `form.clearErrors("email")` |
-| `form.watch()` — subscribe per-field | effect di komponen | `const unsub = form.watch("email", cb)` |
-| `form.handleSubmit()` — async submit | form onSubmit | `form.handleSubmit(async (values) => { … })` |
-| `formState.isSubmitting` — disable button | submit button | `<button disabled={form.formState.isSubmitting}>` |
-| `formState.isDirty` — unsaved indicator | header | `form.formState.isDirty` |
-| `formState.errors.*.code` — semantic code | error renderer | `form.formState.errors.email?.code` |
-| `formState.touchedFields` — blur tracking | error UI (touched-only) | `form.formState.touchedFields.email` |
-| Object value pattern | `UserObjectForm` | `defaultValues: { role: null }` |
-| ID value pattern | `UserIdForm` | `defaultValues: { roleId: "" }` |
-| Cross-field validation (`matchField`) | password confirm | `matchField: "password"` di schema |
-| Custom rule | `user.api.ts` simulate | `validate: (v, all) => !usedEmails.has(v)` |
-| Localization (full i18n) | `app.tsx` + `useLocalization` | `<LocalizationProvider manifest={manifest} storage={localStorageStrategy()}>` |
+| Fitur                                     | Di Mana                         | Kode Inti                                                                     |
+| ----------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------- |
+| `register()` untuk native `<input>`       | `TextInput` component           | `{...form.register("name")}`                                                  |
+| `<ValfuseController>` untuk custom input  | `UserObjectForm`, `UserIdForm`  | `<ValfuseController control={form.control} name="…" render={…} />`            |
+| `form.setErrors()` — inject server errors | submit handler di `user.api.ts` | `form.setErrors({ email: { message, code, type: "server" } })`                |
+| `form.clearErrors()` — manual reset       | error UI                        | `form.clearErrors("email")`                                                   |
+| `form.watch()` — subscribe per-field      | effect di komponen              | `const unsub = form.watch("email", cb)`                                       |
+| `form.handleSubmit()` — async submit      | form onSubmit                   | `form.handleSubmit(async (values) => { … })`                                  |
+| `formState.isSubmitting` — disable button | submit button                   | `<button disabled={form.formState.isSubmitting}>`                             |
+| `formState.isDirty` — unsaved indicator   | header                          | `form.formState.isDirty`                                                      |
+| `formState.errors.*.code` — semantic code | error renderer                  | `form.formState.errors.email?.code`                                           |
+| `formState.touchedFields` — blur tracking | error UI (touched-only)         | `form.formState.touchedFields.email`                                          |
+| Object value pattern                      | `UserObjectForm`                | `defaultValues: { role: null }`                                               |
+| ID value pattern                          | `UserIdForm`                    | `defaultValues: { roleId: "" }`                                               |
+| Cross-field validation (`matchField`)     | password confirm                | `matchField: "password"` di schema                                            |
+| Custom rule                               | `user.api.ts` simulate          | `validate: (v, all) => !usedEmails.has(v)`                                    |
+| Localization (full i18n)                  | `app.tsx` + `useLocalization`   | `<LocalizationProvider manifest={manifest} storage={localStorageStrategy()}>` |
 
 ---
 
@@ -241,18 +241,18 @@ valfuse-localization.yaml                      ← config untuk CLI
 
 ## Scripts
 
-| Script | Perintah | Fungsi |
-|---|---|---|
-| `dev` | `vite` | Dev server di `http://localhost:5173` |
-| `build` | `tsc -b && vite build` | Production build |
-| `typecheck` | `tsc --noEmit` | Cek TypeScript tanpa emit |
-| `lint` | `eslint src` | ESLint |
-| `clean` | `rm -rf dist` | Hapus output |
-| `localization:generate` | `valfuse-localization generate` | Compile sources → TS/JSON |
-| `localization:watch` | `valfuse-localization generate --watch` | Watch mode |
-| `localization:validate` | `valfuse-localization validate` | Cek parity & validators |
-| `localization:coverage` | `valfuse-localization coverage` | Coverage report |
-| `localization:clean` | `valfuse-localization clean` | Hapus generated output |
+| Script                  | Perintah                                | Fungsi                                |
+| ----------------------- | --------------------------------------- | ------------------------------------- |
+| `dev`                   | `vite`                                  | Dev server di `http://localhost:5173` |
+| `build`                 | `tsc -b && vite build`                  | Production build                      |
+| `typecheck`             | `tsc --noEmit`                          | Cek TypeScript tanpa emit             |
+| `lint`                  | `eslint src`                            | ESLint                                |
+| `clean`                 | `rm -rf dist`                           | Hapus output                          |
+| `localization:generate` | `valfuse-localization generate`         | Compile sources → TS/JSON             |
+| `localization:watch`    | `valfuse-localization generate --watch` | Watch mode                            |
+| `localization:validate` | `valfuse-localization validate`         | Cek parity & validators               |
+| `localization:coverage` | `valfuse-localization coverage`         | Coverage report                       |
+| `localization:clean`    | `valfuse-localization clean`            | Hapus generated output                |
 
 ---
 

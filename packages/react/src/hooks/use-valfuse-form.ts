@@ -16,10 +16,7 @@
  */
 import { useMemo } from "react";
 
-import type {
-  UseValfuseFormProps,
-  UseValfuseFormReturn,
-} from "../types/index";
+import type { UseValfuseFormProps, UseValfuseFormReturn } from "../types/index";
 
 import { useFormCore } from "./sub-hooks/use-form-core";
 import { useFieldValidation } from "./sub-hooks/use-field-validation";
@@ -46,10 +43,11 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     clearStaleFieldError,
   });
   const { watch } = useFormWatch(core);
-  const { handleSubmit, setErrors, clearErrors, setValue, trigger, reset } =
-    useFormActions(core, clearStaleFieldError);
-  const { isDirty, dirtyFields, touchedFieldsRecord, isValid } =
-    useFormDerivedState(core);
+  const { handleSubmit, setErrors, clearErrors, setValue, trigger, reset } = useFormActions(
+    core,
+    clearStaleFieldError
+  );
+  const { isDirty, dirtyFields, touchedFieldsRecord, isValid } = useFormDerivedState(core);
 
   // formState is memoized so consumers who spread it into props or use it in
   // useEffect deps get a stable reference — only changes when a field inside changes.

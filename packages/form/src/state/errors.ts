@@ -3,7 +3,7 @@
 // ============================================================================
 // Pure functions for managing validation errors state.
 
-import type { ValfuseFormErrors, ValfuseFieldError } from '../types';
+import type { ValfuseFormErrors, ValfuseFieldError } from "../types";
 
 // ============================================================================
 // State Types
@@ -42,7 +42,11 @@ export function setErrors(
         changed = true;
       }
     } else {
-      if (newErrors[field]?.message !== error.message || newErrors[field]?.type !== error.type || newErrors[field]?.code !== error.code) {
+      if (
+        newErrors[field]?.message !== error.message ||
+        newErrors[field]?.type !== error.type ||
+        newErrors[field]?.code !== error.code
+      ) {
         newErrors[field] = error;
         changed = true;
       }
@@ -68,7 +72,11 @@ export function setFieldError(
   }
 
   const existing = state.errors[name];
-  if (existing?.message === error.message && existing?.type === error.type && existing?.code === error.code) {
+  if (
+    existing?.message === error.message &&
+    existing?.type === error.type &&
+    existing?.code === error.code
+  ) {
     return state; // identical error, no change
   }
 
@@ -82,9 +90,7 @@ export function clearFieldErrors(
 ): FormErrorsState {
   if (names === undefined) {
     // Clear all
-    return Object.keys(state.errors).length > 0
-      ? { errors: {} }
-      : state;
+    return Object.keys(state.errors).length > 0 ? { errors: {} } : state;
   }
 
   const fieldsToClear = Array.isArray(names) ? names : [names];

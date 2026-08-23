@@ -1,9 +1,6 @@
 import type { ValfuseError, ValfuseObjectRule } from "../types";
 
-export function validateObjectRule(
-  value: unknown,
-  rule: ValfuseObjectRule
-): ValfuseError | null {
+export function validateObjectRule(value: unknown, rule: ValfuseObjectRule): ValfuseError | null {
   switch (rule.name) {
     case "required":
       if (value === null || value === undefined) {
@@ -31,4 +28,3 @@ export function validateObjectRule(
 
   return null;
 }
-

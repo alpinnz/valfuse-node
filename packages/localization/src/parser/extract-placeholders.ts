@@ -8,4 +8,3 @@ export function extractPlaceholders(value: string): string[] {
   }
   return [...names].sort();
 }
-

@@ -14,9 +14,7 @@ function readVariants(value: unknown): Record<string, string> {
   return result;
 }
 
-export function parseStructuredNode(
-  node: Record<string, unknown>
-): StructuredNode | undefined {
+export function parseStructuredNode(node: Record<string, unknown>): StructuredNode | undefined {
   if ("@plural" in node) {
     return { type: "plural", variants: readVariants(node["@plural"]) };
   }
@@ -28,4 +26,3 @@ export function parseStructuredNode(
   }
   return undefined;
 }
-

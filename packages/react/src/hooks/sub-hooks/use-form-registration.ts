@@ -14,10 +14,7 @@
  * trigger needless re-renders of React.memo'd child inputs.
  */
 import { useCallback, useMemo, type ChangeEvent } from "react";
-import {
-  shouldValidateOnChange,
-  shouldValidateOnBlur,
-} from "../../helpers/index";
+import { shouldValidateOnChange, shouldValidateOnBlur } from "../../helpers/index";
 import type { FormCore } from "./form-core";
 import type { ValfuseFormControl } from "../../types/index";
 
@@ -46,14 +43,8 @@ export function useFormRegistration<TFieldValues extends Record<string, unknown>
   const register = useCallback(
     <TName extends keyof TFieldValues & string>(name: TName) => ({
       name,
-      value: valuesRef.current[name] as
-        | string
-        | number
-        | readonly string[]
-        | undefined,
-      onChange: (
-        e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-      ) => {
+      value: valuesRef.current[name] as string | number | readonly string[] | undefined,
+      onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const rawValue = e.target.value as TFieldValues[TName];
         // Apply field-level transform before storing — read via schemaRef to avoid stale closure.
         const fieldTransform = schemaRef.current[name]?.transform;
@@ -64,9 +55,7 @@ export function useFormRegistration<TFieldValues extends Record<string, unknown>
         lastChangedFieldRef.current = name;
         setValues(updated as TFieldValues);
 
-        if (
-          shouldValidateOnChange(modeRef.current, touchedFieldsRef.current.has(name))
-        ) {
+        if (shouldValidateOnChange(modeRef.current, touchedFieldsRef.current.has(name))) {
           validateField(name, updated as Record<string, unknown>);
         } else {
           clearStaleFieldError(name);
@@ -104,10 +93,7 @@ export function useFormRegistration<TFieldValues extends Record<string, unknown>
   // value / error / touch change. They only recreate when the schema changes
   // (via validateField dep), which is rare in practice.
   const _updateField = useCallback(
-    <TName extends keyof TFieldValues & string>(
-      name: TName,
-      value: TFieldValues[TName]
-    ) => {
+    <TName extends keyof TFieldValues & string>(name: TName, value: TFieldValues[TName]) => {
       // Apply field-level transform — read via schemaRef to avoid stale closure.
       const fieldTransform = schemaRef.current[name]?.transform;
       const transformedValue = fieldTransform
@@ -116,9 +102,7 @@ export function useFormRegistration<TFieldValues extends Record<string, unknown>
       const updated = { ...valuesRef.current, [name]: transformedValue };
       lastChangedFieldRef.current = name;
       setValues(updated as TFieldValues);
-      if (
-        shouldValidateOnChange(modeRef.current, touchedFieldsRef.current.has(name))
-      ) {
+      if (shouldValidateOnChange(modeRef.current, touchedFieldsRef.current.has(name))) {
         validateField(name, updated as Record<string, unknown>);
       } else {
         // Mirror register.onChange: clear any stale API error when not running

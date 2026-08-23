@@ -14,4 +14,3 @@ export interface RuntimeContext {
   /** Flattened runtime message table grouped by locale. */
   messages: Record<string, Record<string, string>>;
 }
-

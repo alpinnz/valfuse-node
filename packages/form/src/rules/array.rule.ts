@@ -1,9 +1,6 @@
 import type { ValfuseError, ValfuseArrayRule } from "../types";
 
-export function validateArrayRule(
-  value: unknown,
-  rule: ValfuseArrayRule
-): ValfuseError | null {
+export function validateArrayRule(value: unknown, rule: ValfuseArrayRule): ValfuseError | null {
   const parsedArray = Array.isArray(value) ? value : null;
   const isValuePresent = value !== null && value !== undefined;
 

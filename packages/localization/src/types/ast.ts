@@ -20,10 +20,7 @@ export interface StructuredContextNode {
   variants: Record<string, string>;
 }
 
-export type StructuredNode =
-  | StructuredPluralNode
-  | StructuredGenderNode
-  | StructuredContextNode;
+export type StructuredNode = StructuredPluralNode | StructuredGenderNode | StructuredContextNode;
 
 export interface LocalizedLeaf {
   value: string;
@@ -35,8 +32,4 @@ export interface LocalizationAstObject {
   [key: string]: LocalizationAstNode;
 }
 
-export type LocalizationAstNode =
-  | string
-  | LocalizedLeaf
-  | LocalizationAstObject;
-
+export type LocalizationAstNode = string | LocalizedLeaf | LocalizationAstObject;

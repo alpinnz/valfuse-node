@@ -26,13 +26,7 @@ function Row({ label, value }: { label: string; value: string }) {
   );
 }
 
-function DemoSection({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function DemoSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section style={{ marginBottom: 32 }}>
       <h3
@@ -57,8 +51,7 @@ function DemoSection({
 // ─── Main demo ────────────────────────────────────────────────────────────────
 
 export function LocalizationDemo() {
-  const { locale, setLocale, manifest, translate, format, entriesForLocale } =
-    useLocalization({});
+  const { locale, setLocale, manifest, translate, format, entriesForLocale } = useLocalization({});
 
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
@@ -68,8 +61,7 @@ export function LocalizationDemo() {
     const q = query.trim().toLowerCase();
     if (!q) return entriesForLocale;
     return entriesForLocale.filter(
-      ([key, value]) =>
-        key.toLowerCase().includes(q) || value.toLowerCase().includes(q)
+      ([key, value]) => key.toLowerCase().includes(q) || value.toLowerCase().includes(q)
     );
   }, [entriesForLocale, query]);
 
@@ -139,10 +131,7 @@ export function LocalizationDemo() {
         />
         <Row
           label={`${localization.auth.verifikasi_wa.resend.button.disabled} (seconds=30)`}
-          value={format(
-            localization.auth.verifikasi_wa.resend.button.disabled,
-            { seconds: 30 }
-          )}
+          value={format(localization.auth.verifikasi_wa.resend.button.disabled, { seconds: 30 })}
         />
       </DemoSection>
 
@@ -190,4 +179,3 @@ export function LocalizationDemo() {
     </div>
   );
 }
-
