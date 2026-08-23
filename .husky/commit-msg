@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# Enforce Conventional Commits on every commit message.
+# Rules are defined in commitlint.config.mjs.
+npx --no -- commitlint --edit "$1"

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# Enforce staged-file quality on every commit:
+#   - ESLint (with autofix) on staged TS/TSX
+#   - Prettier (autofix) on staged files
+# Configured via the `lint-staged` block in package.json (runs from repo root,
+# so it covers every workspace in this monorepo).
+npx lint-staged

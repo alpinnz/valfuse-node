@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.turbo/
+
+# Vite cache
+.vite/
+
+# Lockfiles are machine-generated — never reformat
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Auto-generated localization runtime (already excluded from lint)
+**/src/assets/localizations/localization.ts
+**/src/assets/localizations/localization.types.ts
+
+# Reports / generated docs
+*.csv
+audit-codebase.md
+audit-baseline.md
+
+# Claude agent definitions — internal tooling config, not project code
+.claude/
+
+# Browser-automation scratch artifacts
+.playwright-mcp/

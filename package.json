@@ -11,8 +11,12 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "test": "turbo test",
+    "test:coverage": "turbo test -- --coverage",
     "typecheck": "turbo typecheck",
     "clean": "turbo clean",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky",
     "publish:core": "npm publish --workspace=packages/core",
     "publish:localization": "npm publish --workspace=packages/localization",
     "publish:react": "npm publish --workspace=packages/react",
@@ -26,11 +30,30 @@
     "dev:vue": "npm run dev --workspace=packages/examples/vue-example"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
     "@eslint/js": "latest",
+    "@vitest/coverage-v8": "^4.1.11",
     "eslint": "latest",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "prettier": "^3.9.6",
     "tsup": "latest",
     "turbo": "latest",
     "typescript": "latest",
     "typescript-eslint": "latest"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,mts,cts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
