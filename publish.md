@@ -50,8 +50,9 @@ Workflow `Publish` meng-autentikasi ke registry npm melalui GitHub secret
 ### 1.2 `.nvmrc`
 
 Repo memuat file `.nvmrc` berisi versi Node LTS (misal `20`) yang dipakai oleh
-`actions/setup-node@v4` (`node-version-file: ".nvmrc"`) sehingga versi runner
-selalu konsisten dengan pengembangan lokal.
+`actions/setup-node` (`node-version-file: ".nvmrc"`) sehingga versi runner
+selalu konsisten dengan pengembangan lokal. Setiap paket juga mendeklarasikan
+`engines.node: ">=20.0.0"` di `package.json`-nya sebagai kontrak minimum Node.
 
 ---
 
@@ -69,8 +70,8 @@ selalu konsisten dengan pengembangan lokal.
 Job `validate` berjalan sebagai single job di runner `ubuntu-latest` dan
 menjalankan pipeline lengkap secara berurutan:
 
-1. **Checkout** — `actions/checkout@v4`.
-2. **Setup Node** — `actions/setup-node@v4`, node versi dari `.nvmrc`,
+1. **Checkout** — `actions/checkout@v6`.
+2. **Setup Node** — `actions/setup-node@v6`, node versi dari `.nvmrc`,
    cache npm.
 3. **Install** — `npm ci` (deterministik berdasar `package-lock.json`).
 4. **Format check** — `npm run format:check` (Prettier, `--check .`).
@@ -134,8 +135,8 @@ Contoh:
 
 Langkah lengkap:
 
-1. `actions/checkout@v4`.
-2. `actions/setup-node@v4` dengan
+1. `actions/checkout@v6`.
+2. `actions/setup-node@v6` dengan
    `registry-url: https://registry.npmjs.org` (menyiapkan kredensial npm).
 3. `npm ci`.
 4. **Resolve target package dari tag** — memisahkan `<pkg>` dan `<semver>`,
@@ -145,10 +146,13 @@ Langkah lengkap:
    workflow **gagal (exit 1) tanpa publish** (lihat §6.3).
 6. `npm test --workspace=packages/<pkg>` — gerbang pengujian.
 7. `npm run build --workspace=packages/<pkg>`.
-8. `npm publish --workspace=packages/<pkg>` dengan env
-   `NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}` —
+8. `npm publish --workspace=packages/<pkg> --provenance --access public`
+   dengan env `NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}` —
    hanya `dist/` + `README.md` + `LICENSE` (sesuai `files` di tiap
-   `package.json`) yang diunggah.
+   `package.json`) yang diunggah. Flag `--provenance` menempelkan bukti asal
+   build (SLSA) ke metada paket (lihat §3.5); `--access public` valid untuk
+   scoped package publik meski `publishConfig.access` sudah mengatur hal yang
+   sama.
 
 > Workflow memakai `--workspace`, sehingga hanya paket target yang diuji,
 > dibangun, dan diterbitkan — tidak seluruh monorepo, dan tidak pernah
@@ -156,9 +160,33 @@ Langkah lengkap:
 
 ### 3.4 Guard tambahan
 
-- `permissions: contents: read` — workflow tidak meminta izin menulis ke repo.
+- `permissions: contents: read` — workflow tidak meminta izin menulis ke repo
+  (kecuali `id-token: write` khusus provenance, lihat §3.5).
+- `timeout-minutes: 20` — membatasi durasi job supaya tidak berjalan abadi.
 - `concurrency: group: publish-${{ github.ref }}` — tag yang sama hanya punya
-  satu run aktif; tag baru terbenter dengan run sebelumnya.
+  satu run aktif; run baru menggantikan yang lama tanpa tumpang-tindih.
+- **Check version not already published** — sebelum build/publish, workflow
+  menjalankan `npm view "<pkg>@<ver>" version`; jika versi sudah ada di npm,
+  workflow **gagal cepat** dengan pesan jelas (bukan `EPUBLISHCONFLICT`
+  tersembunyi di langkah publish).
+
+### 3.5 Provenance (SLSA)
+
+Workflow menerbitkan dengan **npm provenance**:
+
+```yaml
+permissions:
+  contents: read
+  id-token: write
+```
+
+- `npm publish --provenance` membuat GitHub Actions menempelkan _signed
+  provenance_ (asal build) ke metada paket di npm — bukti bahwa paket
+  benar-benar dibangun dari repo ini, bukan kompromi rantai pasok.
+- Dipublikasikan ke registry publik; dapat diinspeksi konsumen via
+  `npm view @valfuse-node/<pkg> provenance`.
+- Tidak ada secret ekstra yang diperlukan selain `NPM_PUBLISH_TOKEN`;
+  provenance memakai OIDC yang aktif default di GitHub.
 
 ---
 
