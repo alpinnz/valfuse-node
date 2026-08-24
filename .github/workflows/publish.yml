@@ -7,6 +7,9 @@ on:
 
 permissions:
   contents: read
+  # Required for npm provenance (SLSA): the OIDC token lets npm attest the
+  # build origin in the published package metadata.
+  id-token: write
 
 concurrency:
   group: publish-${{ github.ref }}
@@ -18,10 +21,11 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: ".nvmrc"
           cache: "npm"
@@ -32,8 +36,8 @@ jobs:
 
       # -------------------------------------------------------------------
       # Resolve which package (if any) this tag targets.
-      # Expected tag format:  v<semver>-<package>   e.g. v0.3.0-core
-      # - bare tags like v0.3.0 are intentionally IGNORED (skip, exit 0).
+      # Expected tag format:  v<semver>-<package>   e.g. v0.4.0-core
+      # - bare tags like v0.4.0 are intentionally IGNORED (skip, exit 0).
       # - unknown package names are ignored with a warning.
       # - a version mismatch between tag and package.json is a HARD FAIL.
       # -------------------------------------------------------------------
@@ -72,7 +76,8 @@ jobs:
         if: steps.resolve.outputs.match != 'true'
         run: echo "No publishable package targeted by this tag."
 
-      # Hard gate: tag version MUST equal package version (publish.md 2.2.6)
+      # Hard gate: tag version MUST equal package version (matching the
+      # local `npm run release:verify` guard in scripts/verify-release.mjs).
       - name: Verify version matches tag
         if: steps.resolve.outputs.match == 'true'
         run: |
@@ -86,6 +91,23 @@ jobs:
           fi
           echo "Version ${PACKAGE_VERSION} matches tag ${GITHUB_REF_NAME}."
 
+      # Early, readable failure: version already published → fail instead of
+      # letting `npm publish` emit an EPUBLISHCONFLICT deep in the run log.
+      - name: Check version not already published
+        if: steps.resolve.outputs.match == 'true'
+        run: |
+          PKG_NAME="${{ steps.resolve.outputs.pkg_name }}"
+          TAG_VERSION="${{ steps.resolve.outputs.tag_version }}"
+
+          EXISTING="$(
+            npm view "${PKG_NAME}@${TAG_VERSION}" version 2>/dev/null || true
+          )"
+          if [ -n "${EXISTING}" ]; then
+            echo "${PKG_NAME}@${TAG_VERSION} is already published on npm."
+            exit 1
+          fi
+          echo "${PKG_NAME}@${TAG_VERSION} is not on npm yet — ready to publish."
+
       - name: Test package
         if: steps.resolve.outputs.match == 'true'
         run: npm test --workspace="${{ steps.resolve.outputs.path }}"
@@ -94,8 +116,8 @@ jobs:
         if: steps.resolve.outputs.match == 'true'
         run: npm run build --workspace="${{ steps.resolve.outputs.path }}"
 
-      - name: Publish package
+      - name: Publish package (provenance)
         if: steps.resolve.outputs.match == 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
-        run: npm publish --workspace="${{ steps.resolve.outputs.path }}"
+        run: npm publish --workspace="${{ steps.resolve.outputs.path }}" --provenance --access public
