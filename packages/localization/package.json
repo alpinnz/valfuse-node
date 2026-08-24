@@ -65,5 +65,14 @@
     "tsup": "8.5.1",
     "typescript": "6.0.3",
     "vitest": "4.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpinnz/valfuse-node.git",
+    "directory": "packages/localization"
+  },
+  "homepage": "https://github.com/alpinnz/valfuse-node#readme",
+  "bugs": {
+    "url": "https://github.com/alpinnz/valfuse-node/issues"
   }
 }

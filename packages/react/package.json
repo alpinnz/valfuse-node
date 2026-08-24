@@ -60,5 +60,14 @@
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpinnz/valfuse-node.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/alpinnz/valfuse-node#readme",
+  "bugs": {
+    "url": "https://github.com/alpinnz/valfuse-node/issues"
   }
 }
