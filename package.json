@@ -45,6 +45,9 @@
     "typescript": "latest",
     "typescript-eslint": "latest"
   },
+  "overrides": {
+    "nanoid": "^3.3.18"
+  },
   "lint-staged": {
     "*.{ts,tsx,mts,cts}": [
       "eslint --fix",
