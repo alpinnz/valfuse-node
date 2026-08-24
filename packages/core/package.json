@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/core",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Umbrella entry point for valfuse-node — re-exports form domain, localization runtime, and React/Vue adapters so a single install gives you the full library.",
   "license": "MIT",
   "sideEffects": false,

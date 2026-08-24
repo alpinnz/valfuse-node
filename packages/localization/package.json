@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/localization",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Localization generation engine — compiler, CLI, validator and runtime for @valfuse-node",
   "license": "MIT",
   "keywords": [
