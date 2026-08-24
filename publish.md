@@ -246,17 +246,26 @@ Contoh rilis `@valfuse-node/react` ke `0.4.0`:
    git push origin master        # trigger CI
    ```
 
-3. **Buat tag rilis** (dan verifikasi local saat tag == version):
+3. **Verifikasi tag lokal** sebelum push (guard CLI):
+
+   ```bash
+   npm run release:verify -- v0.4.0-react
+   ```
+
+   Skrip ini memastikan tag `v<semver>-<pkg>` valid, paket dikenali, dan versi
+   sama dengan `package.json` di `packages/<pkg>`. Tidak cocok → exit 1.
+
+4. **Buat tag rilis**:
 
    ```bash
    git tag v0.4.0-react
    git push origin v0.4.0-react  # trigger Publish
    ```
 
-4. **Tunggu workflow `Publish`** → tab **Actions** → run terbaru. Pastikan
+5. **Tunggu workflow `Publish`** → tab **Actions** → run terbaru. Pastikan
    langkah **Verify version matches tag** hijau.
 
-5. **Verifikasi di npm** → buka
+6. **Verifikasi di npm** → buka
    `https://www.npmjs.com/package/@valfuse-node/react`.
 
 ### 6.1 Checklist rilis
