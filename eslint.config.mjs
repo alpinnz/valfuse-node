@@ -33,5 +33,20 @@ export default tseslint.config(
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
     },
+  },
+  {
+    // Node tooling scripts (repo root `scripts/`) run in Node, not the
+    // browser. `no-console` stays enforced in library `src/` — but CLI
+    // tooling legitimately prints user-facing output.
+    files: ["scripts/**/*.mjs", "scripts/**/*.cjs"],
+    languageOptions: {
+      globals: {
+        console: "readonly",
+        process: "readonly",
+      },
+    },
+    rules: {
+      "no-console": "off",
+    },
   }
 );

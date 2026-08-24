@@ -28,9 +28,7 @@
     "example:localization:validate": "npm run localization:validate --workspace=packages/examples/react-example",
     "dev:react": "npm run dev --workspace=packages/examples/react-example",
     "dev:vue": "npm run dev --workspace=packages/examples/vue-example",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "test:coverage": "turbo test -- --coverage",
+    "release:verify": "node scripts/verify-release.mjs",
     "validate": "npm run format:check && npm run lint && npm run typecheck && npm run test"
   },
   "devDependencies": {
