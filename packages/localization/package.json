@@ -13,7 +13,7 @@
     "valfuse"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=20.0.0"
   },
   "type": "module",
   "main": "dist/index.js",

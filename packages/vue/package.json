@@ -52,5 +52,8 @@
     "@vue/test-utils": "2.4.10",
     "vitest": "4.1.6",
     "vue": "^3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
