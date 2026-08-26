@@ -305,8 +305,33 @@ npm run dev           # Watch mode for all packages
 npm run lint          # ESLint
 npm run typecheck     # TypeScript --noEmit across all packages
 npm run test          # Run all unit tests
+npm run format        # Prettier --write the whole repo
+npm run format:check  # Prettier --check (CI gate)
+npm run validate      # format:check + lint + typecheck + test (full local CI)
 npm run clean         # Remove all dist/ + node_modules/.cache/turbo
 ```
+
+### Commit & release conventions
+
+Commits are enforced as **Conventional Commits** by husky hooks (`commitlint`
+on commit-msg, `lint-staged` on pre-commit) — invalid messages are rejected
+locally. Types: `feat fix docs style refactor perf test build ci chore revert`;
+scopes mirror the packages (`core`, `form`, `localization`, `react`, `vue`,
+`examples`, …). See [`publish.md`](./publish.md) for the full reference.
+
+Releasing is fully automated per package via git tags:
+
+```bash
+# 1. Bump the version in packages/<pkg>/package.json, commit, push (triggers CI)
+# 2. Verify the tag matches the package version:
+npm run release:verify -- v0.4.0-react
+# 3. Tag and push — GitHub Actions tests, builds, and publishes to npm:
+git tag v0.4.0-react && git push origin v0.4.0-react
+```
+
+Published packages carry **SLSA provenance** attestations; each release runs
+test → build → version-verify → publish inside a single workflow
+([`publish.yml`](./.github/workflows/publish.yml)).
 
 ### Per-package scripts
 
