@@ -108,9 +108,12 @@ jobs:
           fi
           echo "${PKG_NAME}@${TAG_VERSION} is not on npm yet — ready to publish."
 
-      - name: Test package
+      # Turbo resolves the workspace dependency graph: `test` depends on
+      # `^build`, so dependencies' dist/ are built first — required because
+      # packages import each other via their built entry points.
+      - name: Test package (with dependency build)
         if: steps.resolve.outputs.match == 'true'
-        run: npm test --workspace="${{ steps.resolve.outputs.path }}"
+        run: npx turbo run test --filter=@valfuse-node/${{ steps.resolve.outputs.pkg }}
 
       - name: Build package
         if: steps.resolve.outputs.match == 'true'
