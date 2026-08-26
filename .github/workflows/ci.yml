@@ -41,11 +41,13 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Test with coverage
-        run: npm run test:coverage
-
+      # Build first: tests import sibling packages through their built
+      # entry points, so a fresh runner has no dist/ until this runs.
       - name: Build
         run: npm run build
+
+      - name: Test with coverage
+        run: npm run test:coverage
 
       - name: Security audit
         run: npm audit --audit-level=high
