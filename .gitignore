@@ -47,6 +47,9 @@ Thumbs.db
 # npm pack output
 *.tgz
 
+# Localization compiler report outputs (regenerable via the localization CLI)
+packages/examples/*/src/assets/localizations/reports/
+
 # Logs
 logs/
 *.log
