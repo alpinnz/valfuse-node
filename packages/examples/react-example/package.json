@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@valfuse-node/core": "*",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@types/react": "19.2.14",

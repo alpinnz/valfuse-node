@@ -53,14 +53,14 @@
     "clean": "rm -rf dist coverage"
   },
   "dependencies": {
-    "chokidar": "^3.6.0",
+    "chokidar": "^5.0.0",
     "yaml": "^2.5.1"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "25.9.1",
+    "@types/node": "26.3.0",
     "@vitest/coverage-v8": "4.1.6",
     "tsup": "8.5.1",
     "typescript": "6.0.3",
