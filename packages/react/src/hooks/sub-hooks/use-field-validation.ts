@@ -16,7 +16,8 @@
  * `setValue`, `_updateField`, `_touchField`) can include them as deps
  * without churn.
  */
-import { useCallback, type Dispatch, type SetStateAction } from "react";
+import { useCallback } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import type { ValfuseSchema } from "@valfuse-node/form";
 import { validateSchema } from "@valfuse-node/form";
 import type { ValfuseFormErrors } from "../../types/index";

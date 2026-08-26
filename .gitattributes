@@ -1,0 +1,16 @@
+# Normalize line endings repo-wide.
+# LF in the repository and on checkout for text files; Prettier's
+# `endOfLine: "lf"` then holds on every OS, so `format:check` is stable.
+* text=auto eol=lf
+
+# Windows scripts must keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary

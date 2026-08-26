@@ -13,7 +13,8 @@
  * `useCallback` deps at `valfuse-controller.tsx:74,79` don't churn and
  * trigger needless re-renders of React.memo'd child inputs.
  */
-import { useCallback, useMemo, type ChangeEvent } from "react";
+import { useCallback, useMemo } from "react";
+import type { ChangeEvent } from "react";
 import { shouldValidateOnChange, shouldValidateOnBlur } from "../../helpers/index";
 import type { FormCore } from "./form-core";
 import type { ValfuseFormControl } from "../../types/index";

@@ -48,9 +48,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "6.0.7",
-    "@vitest/coverage-v8": "4.1.6",
+    "@vitest/coverage-v8": "4.1.11",
     "@vue/test-utils": "2.4.10",
-    "vitest": "4.1.6",
+    "vitest": "4.1.11",
     "vue": "^3"
   },
   "engines": {

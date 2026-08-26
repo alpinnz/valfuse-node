@@ -1,0 +1,130 @@
+- generic [ref=e2]:
+    - generic [ref=e3]:
+        - link "Skip to content" [ref=e4] [cursor=pointer]:
+            - /url: "#start-of-content"
+        - banner [ref=e9]:
+            - heading "Navigation Menu" [level=2] [ref=e10]
+            - generic [ref=e12]:
+                - button "Toggle navigation" [ref=e14] [cursor=pointer]
+                - link "Homepage" [ref=e18] [cursor=pointer]:
+                    - /url: /
+                - generic [ref=e21]:
+                    - link "Sign in" [ref=e22] [cursor=pointer]:
+                        - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Falpinnz%2Fvalfuse-node%2Fgraphs%2Fcontributors
+                    - button "Appearance settings" [ref=e25] [cursor=pointer]
+    - main [ref=e32]:
+        - generic [ref=e33]:
+            - generic [ref=e34]:
+                - generic [ref=e36]:
+                    - link "alpinnz" [ref=e40] [cursor=pointer]:
+                        - /url: /alpinnz
+                    - generic [ref=e41]: /
+                    - strong [ref=e42]:
+                        - link "valfuse-node" [ref=e43] [cursor=pointer]:
+                            - /url: /alpinnz/valfuse-node
+                    - generic [ref=e44]: Public
+                - generic [ref=e45]:
+                    - list:
+                        - listitem [ref=e46]:
+                            - link "You must be signed in to change notification settings" [ref=e47] [cursor=pointer]:
+                                - /url: /login?return_to=%2Falpinnz%2Fvalfuse-node
+                                - text: Notifications
+                        - listitem [ref=e50]:
+                            - link "Fork 0" [ref=e51] [cursor=pointer]:
+                                - /url: /login?return_to=%2Falpinnz%2Fvalfuse-node
+                                - text: Fork
+                                - generic "0" [ref=e54]
+                        - listitem [ref=e55]:
+                            - link "You must be signed in to star a repository" [ref=e57] [cursor=pointer]:
+                                - /url: /login?return_to=%2Falpinnz%2Fvalfuse-node
+                                - text: Star
+                                - generic "0 users starred this repository" [ref=e60]: "0"
+            - navigation "Repository" [ref=e61]:
+                - list [ref=e62]:
+                    - listitem [ref=e63]:
+                        - link "Code" [ref=e64] [cursor=pointer]:
+                            - /url: /alpinnz/valfuse-node
+                    - listitem [ref=e68]:
+                        - link "Issues" [ref=e69] [cursor=pointer]:
+                            - /url: /alpinnz/valfuse-node/issues
+                    - listitem [ref=e74]:
+                        - link "Pull requests" [ref=e75] [cursor=pointer]:
+                            - /url: /alpinnz/valfuse-node/pulls
+                    - listitem [ref=e79]:
+                        - link "Actions" [ref=e80] [cursor=pointer]:
+                            - /url: /alpinnz/valfuse-node/actions
+                    - listitem [ref=e84]:
+                        - link "Projects" [ref=e85] [cursor=pointer]:
+                            - /url: /alpinnz/valfuse-node/projects
+                    - listitem [ref=e89]:
+                        - link "Security and quality" [ref=e90] [cursor=pointer]:
+                            - /url: /alpinnz/valfuse-node/security
+                    - listitem [ref=e94]:
+                        - link "Insights" [ref=e95] [cursor=pointer]:
+                            - /url: /alpinnz/valfuse-node/pulse
+        - generic [ref=e100]:
+            - 'heading "Insights: alpinnz/valfuse-node" [level=1] [ref=e101]'
+            - generic [ref=e103]:
+                - navigation "Insights" [ref=e105]:
+                    - link "Pulse" [ref=e106] [cursor=pointer]:
+                        - /url: /alpinnz/valfuse-node/pulse
+                    - link "Contributors" [ref=e107]:
+                        - /url: /alpinnz/valfuse-node/graphs/contributors
+                    - link "Community standards" [ref=e108] [cursor=pointer]:
+                        - /url: /alpinnz/valfuse-node/community
+                    - link "Commits" [ref=e109] [cursor=pointer]:
+                        - /url: /alpinnz/valfuse-node/graphs/commit-activity
+                    - link "Code frequency" [ref=e110] [cursor=pointer]:
+                        - /url: /alpinnz/valfuse-node/graphs/code-frequency
+                    - link "Dependency graph" [ref=e111] [cursor=pointer]:
+                        - /url: /alpinnz/valfuse-node/network/dependencies
+                    - link "Network" [ref=e112] [cursor=pointer]:
+                        - /url: /alpinnz/valfuse-node/network
+                    - link "Forks" [ref=e113] [cursor=pointer]:
+                        - /url: /alpinnz/valfuse-node/forks
+                - generic [ref=e117]:
+                    - generic [ref=e118]:
+                        - generic [ref=e119]:
+                            - heading "Contributors" [level=1] [ref=e120]
+                            - paragraph [ref=e121]: Contributions per week to master, excluding merge commits
+                        - generic [ref=e122]:
+                            - 'button "Period: Custom range" [ref=e123] [cursor=pointer]'
+                            - 'button "Contributions: Commits" [ref=e126] [cursor=pointer]'
+                    - generic [ref=e136]:
+                        - generic [ref=e137]: Loading
+                        - paragraph [ref=e143]: Crunching the latest data, just for you. Hang tight…
+    - contentinfo [ref=e144]:
+        - heading "Footer" [level=2] [ref=e145]
+        - generic [ref=e146]:
+            - generic [ref=e147]:
+                - link "GitHub Homepage" [ref=e148] [cursor=pointer]:
+                    - /url: https://github.com
+                - generic [ref=e151]: © 2026 GitHub, Inc.
+            - navigation "Footer" [ref=e152]:
+                - heading "Footer navigation" [level=3] [ref=e153]
+                - list "Footer navigation" [ref=e154]:
+                    - listitem [ref=e155]:
+                        - link "Terms" [ref=e156] [cursor=pointer]:
+                            - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+                    - listitem [ref=e157]:
+                        - link "Privacy" [ref=e158] [cursor=pointer]:
+                            - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+                    - listitem [ref=e159]:
+                        - link "Security" [ref=e160] [cursor=pointer]:
+                            - /url: https://github.com/security
+                    - listitem [ref=e161]:
+                        - link "Status" [ref=e162] [cursor=pointer]:
+                            - /url: https://www.githubstatus.com/
+                    - listitem [ref=e163]:
+                        - link "Community" [ref=e164] [cursor=pointer]:
+                            - /url: https://github.community/
+                    - listitem [ref=e165]:
+                        - link "Docs" [ref=e166] [cursor=pointer]:
+                            - /url: https://docs.github.com/
+                    - listitem [ref=e167]:
+                        - link "Contact" [ref=e168] [cursor=pointer]:
+                            - /url: https://support.github.com?tags=dotcom-footer
+                    - listitem [ref=e169]:
+                        - button "Manage cookies" [ref=e171] [cursor=pointer]
+                    - listitem [ref=e172]:
+                        - button "Do not share my personal information" [ref=e174] [cursor=pointer]

@@ -13,7 +13,8 @@
  * it can mirror `register.onChange`'s "no full validation → just clear stale
  * errors" behaviour when `shouldValidate` isn't requested.
  */
-import { useCallback, type FormEvent } from "react";
+import { useCallback } from "react";
+import type { FormEvent } from "react";
 import { validateSchema, normalizeError, transformValues } from "@valfuse-node/form";
 import type { ValfuseFieldErrors } from "@valfuse-node/form";
 import type { ValfuseFormErrors } from "../../types/index";

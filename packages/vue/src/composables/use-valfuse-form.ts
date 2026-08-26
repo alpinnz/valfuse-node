@@ -1,4 +1,5 @@
-import { computed, reactive, ref, shallowRef, type ComputedRef } from "vue";
+import { computed, reactive, ref, shallowRef } from "vue";
+import type { ComputedRef } from "vue";
 import { validateSchema, transformValues, normalizeError } from "@valfuse-node/form";
 import type {
   ValfuseFieldErrors,
