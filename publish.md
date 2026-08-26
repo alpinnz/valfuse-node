@@ -144,7 +144,10 @@ Langkah lengkap:
 5. **Verify version matches tag** — membandingkan `<semver>` pada tag dengan
    field `version` pada `packages/<pkg>/package.json`. Jika tidak sama;
    workflow **gagal (exit 1) tanpa publish** (lihat §6.3).
-6. `npm test --workspace=packages/<pkg>` — gerbang pengujian.
+6. `npx turbo run test --filter=@valfuse-node/<pkg>` — gerbang pengujian.
+   Turbo menyelesaikan dependency graph (`test dependsOn ^build`), sehingga
+   `dist/` paket-paket yang diimpor target dibangun otomatis lebih dulu —
+   wajib, karena runner CI tidak memiliki artefak build sebelumnya.
 7. `npm run build --workspace=packages/<pkg>`.
 8. `npm publish --workspace=packages/<pkg> --provenance --access public`
    dengan env `NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}` —
