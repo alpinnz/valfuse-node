@@ -31,6 +31,7 @@ npm install @valfuse-node/core
   - [`createSsrLocalizationState`](#createssrlocalizationstate)
 - [Type Reference](#type-reference)
 - [Development Usage](#development-usage)
+- [Release history](#release-history)
 - [Support](#support)
 - [License](#license)
 
@@ -646,6 +647,13 @@ function UserFormHeader() {
   );
 }
 ```
+
+---
+
+## Release history
+
+Release notes for this independently versioned package are maintained in the
+monorepo's [changelog](https://github.com/alpinnz/valfuse-node/blob/master/CHANGELOG.md).
 
 ---
 

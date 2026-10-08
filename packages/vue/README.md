@@ -33,6 +33,7 @@ npm install @valfuse-node/core
 - [API Parity vs React](#api-parity-vs-react)
 - [Type Reference](#type-reference)
 - [Development Usage](#development-usage)
+- [Release history](#release-history)
 - [Support](#support)
 - [License](#license)
 
@@ -434,6 +435,13 @@ const dirty = computed(() => form.formState.dirtyFields);
   <pre>valid:  {{ form.formState.isValid }}</pre>
 </template>
 ```
+
+---
+
+## Release history
+
+Release notes for this independently versioned package are maintained in the
+monorepo's [changelog](https://github.com/alpinnz/valfuse-node/blob/master/CHANGELOG.md).
 
 ---
 

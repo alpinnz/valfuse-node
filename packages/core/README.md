@@ -29,6 +29,7 @@ That single command gives you:
 - [End-to-End Example](#end-to-end-example)
 - [Architecture](#architecture)
 - [Sub-package READMEs](#sub-package-readmes)
+- [Release history](#release-history)
 - [Support](#support)
 - [License](#license)
 
@@ -712,6 +713,13 @@ For deeper detail on any specific surface:
   `LocalizationProvider`, storage strategies
 - [`@valfuse-node/vue`](https://github.com/alpinnz/valfuse-node/blob/master/packages/vue/README.md) — `useValfuseForm` composable, v-model bindings,
   parity with React
+
+---
+
+## Release history
+
+Release notes for this independently versioned package are maintained in the
+monorepo's [changelog](https://github.com/alpinnz/valfuse-node/blob/master/CHANGELOG.md).
 
 ---
 

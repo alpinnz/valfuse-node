@@ -26,6 +26,7 @@ Requires **Node.js ≥ 22** for the CLI / compiler. The runtime is browser-safe 
 - [Watch Mode](#watch-mode)
 - [Type Reference](#type-reference)
 - [Development Usage](#development-usage)
+- [Release history](#release-history)
 - [Support](#support)
 - [License](#license)
 
@@ -600,6 +601,13 @@ const compiled = await compileProject("./", config);
 
 await writeFile("./public/manifest.json", JSON.stringify(compiled.manifest, null, 2));
 ```
+
+---
+
+## Release history
+
+Release notes for this independently versioned package are maintained in the
+monorepo's [changelog](https://github.com/alpinnz/valfuse-node/blob/master/CHANGELOG.md).
 
 ---
 

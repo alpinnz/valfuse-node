@@ -20,6 +20,7 @@ npm install @valfuse-node/form
 - [Framework-Agnostic State](#framework-agnostic-state)
 - [Type Reference](#type-reference)
 - [Development Usage](#development-usage)
+- [Release history](#release-history)
 - [Support](#support)
 - [License](#license)
 
@@ -606,6 +607,13 @@ import { useVueValfuseForm } from "@valfuse-node/core";
 const form = useVueValfuseForm({ schema: userSchema, defaultValues: { … } });
 </script>
 ```
+
+---
+
+## Release history
+
+Release notes for this independently versioned package are maintained in the
+monorepo's [changelog](https://github.com/alpinnz/valfuse-node/blob/master/CHANGELOG.md).
 
 ---
 

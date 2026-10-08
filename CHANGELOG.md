@@ -14,6 +14,39 @@ _Nothing yet._
 
 ---
 
+## [0.3.2] — 2026-08-26
+
+### Changed
+
+- **All published packages** (`core`, `form`, `localization`, `react`, and `vue`) are released at `0.3.2`.
+- **Node.js minimum:** all five published packages now require Node.js `>=22` (previously `>=20`).
+- **`@valfuse-node/localization`:** upgrades `chokidar` to v5 for watch mode.
+- **`@valfuse-node/react`:** updates the test baseline to React 19; the published peer dependency continues to support React `>=18`.
+
+### Infrastructure
+
+- CI now builds workspace dependencies before package tests, runs on Ubuntu and Windows, and uses a consistent coverage provider.
+- Development tooling and dependency versions were refreshed.
+
+---
+
+## [0.3.1] — 2026-08-26
+
+### Added
+
+- Per-package tag publishing with npm provenance, a package-version guard, and the local `release:verify` command.
+
+### Changed
+
+- Added repository metadata and a Node.js `>=20` engine declaration to each publishable package.
+- Pinned the transitive `nanoid` dependency to a patched version.
+
+### Infrastructure
+
+- The publish workflow builds workspace dependencies before running the target package's tests.
+
+---
+
 ## [0.3.0] — 2026-06-04
 
 ### Changed
@@ -139,7 +172,9 @@ _Nothing yet._
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.3.0...HEAD
-[0.3.0]: https://github.com/alpinnz/valfuse-node/compare/v0.2.0...v0.3.0
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.3.2-core...HEAD
+[0.3.2]: https://github.com/alpinnz/valfuse-node/tree/v0.3.2-core
+[0.3.1]: https://github.com/alpinnz/valfuse-node/tree/v0.3.1-form
+[0.3.0]: https://github.com/alpinnz/valfuse-node/commit/6ddadf0
 [0.2.0]: https://github.com/alpinnz/valfuse-node/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/alpinnz/valfuse-node/releases/tag/v0.1.0
