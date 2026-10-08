@@ -2,11 +2,14 @@
 
 Thank you for your interest in contributing to `valfuse-node`.
 
+By participating, you agree to follow the project's
+[Code of Conduct](./CODE_OF_CONDUCT.md).
+
 ---
 
 ## Prerequisites
 
-- Node.js `>=20`
+- Node.js `>=22`
 - npm `>=11`
 
 ---

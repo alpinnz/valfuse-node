@@ -80,7 +80,7 @@ _Nothing yet._
   - Removed unused `@valfuse-node/core` dependency from `@valfuse-node/localization` (broke the build-time circular dependency).
   - **Breaking:** `core` no longer exports the empty `CoreOrchestrationConfig` interface from `0.1.0`. The previous `core` build produced 0-byte ESM output and failed lint, so no real consumer could have been using it.
 
-- **Architecture:** the documented role of `core` flipped from "orchestration placeholder" to "umbrella facade". See `docs/adr/ADR-001-core-orchestration.md` addendum and `docs/adr/ADR-002-shared-utilities.md` for context.
+- **Architecture:** the documented role of `core` flipped from "orchestration placeholder" to "umbrella facade". See [ADR-0001](./docs/decisions/0001-core-umbrella-facade.md) and [ADR-0002](./docs/decisions/0002-shared-utilities-extraction.md) for context.
 
 - **`@valfuse-node/core@0.2.0`** — adapter hook naming standardization
   - Replaces the `ReactAdapter` / `VueAdapter` namespace pattern with flat, top-level exports using a `{Tech}{Domain}{Feature}` naming convention.

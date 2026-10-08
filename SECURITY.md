@@ -6,7 +6,9 @@ If you discover a security vulnerability in `valfuse-node`, please report it res
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Please email the maintainers directly or use the repository's private vulnerability reporting feature.
+Use the repository's [private vulnerability reporting feature](https://github.com/alpinnz/valfuse-node/security/advisories/new).
+If it is unavailable, contact the maintainer privately using the contact
+information on the [maintainer's GitHub profile](https://github.com/alpinnz).
 
 Include the following in your report:
 

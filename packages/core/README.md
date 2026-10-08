@@ -29,6 +29,7 @@ That single command gives you:
 - [End-to-End Example](#end-to-end-example)
 - [Architecture](#architecture)
 - [Sub-package READMEs](#sub-package-readmes)
+- [Support](#support)
 - [License](#license)
 
 ---
@@ -259,7 +260,7 @@ const schema = createSchema({
 
 **Supported field types:** `string` | `number` | `boolean` | `array` | `object`
 
-**Built-in rules (full reference in [`@valfuse-node/form` README](../form/README.md#built-in-rules)):**
+**Built-in rules (full reference in [`@valfuse-node/form` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/form/README.md#built-in-rules)):**
 
 | Type      | Rules                                                                                                                         |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -312,7 +313,8 @@ const schema = createSchema({
 });
 ```
 
-See [`@valfuse-node/form` README](../form/README.md#value-transformation) for full coverage of all transformers and custom-transformer authoring.
+See the [`@valfuse-node/form` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/form/README.md#value-transformation)
+for full coverage of all transformers and custom-transformer authoring.
 
 ### Localization (flattened to top level)
 
@@ -368,9 +370,11 @@ npx valfuse-localization coverage       # per-locale coverage report
 npx valfuse-localization clean          # remove generated output
 ```
 
-Requires **Node.js ≥ 20**.
+Requires **Node.js ≥ 22**.
 
-See [`@valfuse-node/localization` README](../localization/README.md) for the full source-file format, structured variants, config file, and programmatic compiler pipeline.
+See the [`@valfuse-node/localization` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/localization/README.md)
+for the full source-file format, structured variants, config file, and
+programmatic compiler pipeline.
 
 ### React adapter
 
@@ -499,7 +503,8 @@ function Header() {
 
 **Storage strategies:** `localStorageStrategy` | `sessionStorageStrategy` | `cookieStrategy` | `memoryStrategy` | `composeStorage`
 
-See [`@valfuse-node/react` README](../react/README.md#localization-runtime) for full storage-strategy options and the `useLocalizationTree()` hook.
+See the [`@valfuse-node/react` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/react/README.md#localization-runtime)
+for full storage-strategy options and the `useLocalizationTree()` hook.
 
 ### Vue adapter
 
@@ -551,7 +556,11 @@ async function onSubmit(values: Values) {
 
 The Vue `register()` returns `{ name, modelValue, "onUpdate:modelValue", onBlur }` — compatible with Vue's `v-bind` and `v-model`. The form contract is **identical at the type level** with the React adapter.
 
-> **Heads-up:** The Vue adapter is currently a thin composable; it does not yet expose a `<ValfuseController>` equivalent, `getValue`/`getValues` convenience getters, or all the `useLocalization`-family helpers. See [`@valfuse-node/vue` README](../vue/README.md#api-parity-vs-react) for the full parity matrix.
+> **Heads-up:** The Vue adapter is currently a thin composable; it does not yet
+> expose a `<ValfuseController>` equivalent, `getValue`/`getValues` convenience
+> getters, or all the `useLocalization`-family helpers. See the
+> [`@valfuse-node/vue` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/vue/README.md#api-parity-vs-react)
+> for the full parity matrix.
 
 ---
 
@@ -695,13 +704,27 @@ export function SignupForm() {
 
 For deeper detail on any specific surface:
 
-- [`@valfuse-node/form`](../form/README.md) — schema, rules, transformers, validation, framework-agnostic state
-- [`@valfuse-node/localization`](../localization/README.md) — CLI, compiler, runtime interpolation, structured variants, validators
-- [`@valfuse-node/react`](../react/README.md) — `useValfuseForm`, `<ValfuseController>`, `LocalizationProvider`, storage strategies
-- [`@valfuse-node/vue`](../vue/README.md) — `useValfuseForm` composable, v-model bindings, parity with React
+- [`@valfuse-node/form`](https://github.com/alpinnz/valfuse-node/blob/master/packages/form/README.md) — schema, rules, transformers, validation,
+  framework-agnostic state
+- [`@valfuse-node/localization`](https://github.com/alpinnz/valfuse-node/blob/master/packages/localization/README.md) — CLI, compiler, runtime interpolation,
+  structured variants, validators
+- [`@valfuse-node/react`](https://github.com/alpinnz/valfuse-node/blob/master/packages/react/README.md) — `useValfuseForm`, `<ValfuseController>`,
+  `LocalizationProvider`, storage strategies
+- [`@valfuse-node/vue`](https://github.com/alpinnz/valfuse-node/blob/master/packages/vue/README.md) — `useValfuseForm` composable, v-model bindings,
+  parity with React
+
+---
+
+## Support
+
+For usage questions, bug reports, and feature requests, see the
+[project support guide](https://github.com/alpinnz/valfuse-node/blob/master/SUPPORT.md).
+For security reports, follow the
+[security policy](https://github.com/alpinnz/valfuse-node/blob/master/SECURITY.md).
+Do not use public issues for security reports.
 
 ---
 
 ## License
 
-[MIT](../../LICENSE)
+[MIT](LICENSE)

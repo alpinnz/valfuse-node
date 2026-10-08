@@ -22,6 +22,7 @@
 - [Development](#development)
 - [Examples](#examples)
 - [Contributing](#contributing)
+- [Support](#support)
 - [License](#license)
 
 ---
@@ -267,6 +268,9 @@ function Header() {
 
 **Bundle:** `@valfuse-node/core` is a ~270-byte ESM facade — it re-exports named values from the four sub-packages. Bundlers still tree-shake unused exports.
 
+For package boundaries, conventions, and engineering guides, see the
+[`docs/` index](./docs/README.md).
+
 ---
 
 ## Sub-package READMEs
@@ -285,8 +289,8 @@ For deeper detail on any specific surface:
 
 ### Prereqs
 
-- Node.js ≥ 20 (required by `@valfuse-node/localization`)
-- npm ≥ 10 (the repo uses npm workspaces; not yarn/pnpm)
+- Node.js ≥ 22 (see `.nvmrc`)
+- npm 11 (the repository pins `npm@11.6.2` and uses npm workspaces)
 
 ### Bootstrap
 
@@ -307,7 +311,7 @@ npm run typecheck     # TypeScript --noEmit across all packages
 npm run test          # Run all unit tests
 npm run format        # Prettier --write the whole repo
 npm run format:check  # Prettier --check (CI gate)
-npm run validate      # format:check + lint + typecheck + test (full local CI)
+npm run validate      # format:check + lint + typecheck + test
 npm run clean         # Remove all dist/ + node_modules/.cache/turbo
 ```
 
@@ -317,7 +321,9 @@ Commits are enforced as **Conventional Commits** by husky hooks (`commitlint`
 on commit-msg, `lint-staged` on pre-commit) — invalid messages are rejected
 locally. Types: `feat fix docs style refactor perf test build ci chore revert`;
 scopes mirror the packages (`core`, `form`, `localization`, `react`, `vue`,
-`examples`, …). See [`publish.md`](./publish.md) for the full reference.
+`examples`, …). See the
+[release and publishing guide](./docs/release-and-publishing.md) for the full
+reference.
 
 Releasing is fully automated per package via git tags:
 
@@ -350,8 +356,7 @@ valfuse-node/
 │   └── examples/
 │       ├── react-example/    ← private playground (UserObjectForm, UserIdForm)
 │       └── vue-example/      ← private playground (AllFeaturesForm, etc.)
-├── docs/
-│   └── adr/                  ← Architecture Decision Records
+├── docs/                     ← Architecture and engineering guides
 ├── package.json              ← root workspace + scripts
 ├── turbo.json
 └── tsconfig.base.json
@@ -398,7 +403,9 @@ Demonstrates:
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the development workflow, branch strategy, and PR conventions. The monorepo uses:
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the development workflow,
+branch strategy, and PR conventions. Contributions follow the
+[Code of Conduct](./CODE_OF_CONDUCT.md). The monorepo uses:
 
 - **turbo** for build orchestration
 - **npm workspaces** for dependency management
@@ -406,6 +413,14 @@ See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the development workflow, branch 
 - **vitest** for unit tests
 - **ESLint** (flat config) + **typescript-eslint**
 - **Keep a Changelog** format — see [`CHANGELOG.md`](./CHANGELOG.md)
+
+---
+
+## Support
+
+For usage questions, bug reports, or feature requests, see
+[`SUPPORT.md`](./SUPPORT.md). For security vulnerabilities, follow
+[`SECURITY.md`](./SECURITY.md); do not report them in public issues.
 
 ---
 

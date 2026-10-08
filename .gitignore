@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+.npm/
 
 # Build outputs
 dist/
@@ -14,6 +15,8 @@ coverage/
 !**/src/coverage/**
 !**/__tests__/coverage/
 !**/__tests__/coverage/**
+coverage.html
+coverage.json
 
 # Turborepo cache
 .turbo/
@@ -23,8 +26,13 @@ coverage/
 
 # Environment variables
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.*.sample
+!.env.template
+!.env.*.template
 
 # Editor directories
 .vscode/
@@ -38,7 +46,11 @@ coverage/
 # OS generated files
 .DS_Store
 .DS_Store?
+Desktop.ini
+desktop.ini
 ._*
+.AppleDouble/
+.LSOverride
 .Spotlight-V7
 .Trashes
 ehthumbs.db
@@ -54,4 +66,7 @@ packages/examples/*/src/assets/localizations/reports/
 logs/
 *.log
 npm-debug.log*
+
+# Browser automation scratch artifacts
+.playwright-mcp/
 

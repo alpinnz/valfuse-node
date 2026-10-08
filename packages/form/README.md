@@ -20,6 +20,7 @@ npm install @valfuse-node/form
 - [Framework-Agnostic State](#framework-agnostic-state)
 - [Type Reference](#type-reference)
 - [Development Usage](#development-usage)
+- [Support](#support)
 - [License](#license)
 
 ---
@@ -608,6 +609,16 @@ const form = useVueValfuseForm({ schema: userSchema, defaultValues: { … } });
 
 ---
 
+## Support
+
+For usage questions, bug reports, and feature requests, see the
+[project support guide](https://github.com/alpinnz/valfuse-node/blob/master/SUPPORT.md).
+For security reports, follow the
+[security policy](https://github.com/alpinnz/valfuse-node/blob/master/SECURITY.md).
+Do not use public issues for security reports.
+
+---
+
 ## License
 
-[MIT](../../LICENSE)
+[MIT](LICENSE)

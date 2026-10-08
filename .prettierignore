@@ -29,8 +29,8 @@ pnpm-lock.yaml
 audit-codebase.md
 audit-baseline.md
 
-# Claude agent definitions — internal tooling config, not project code
-.claude/
+# Codex instructions and skills - internal tooling config, not project code
+.codex/
 
 # Browser-automation scratch artifacts
 .playwright-mcp/
