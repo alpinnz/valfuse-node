@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/react",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "React adapter for valfuse-node — useValfuseForm hook, ValfuseController, and localization runtime",
   "license": "MIT",
   "sideEffects": false,

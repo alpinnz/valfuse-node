@@ -14,6 +14,16 @@ _Nothing yet._
 
 ---
 
+## [0.3.3] — 2026-10-08
+
+### Changed
+
+- Updated the published README files for all five packages with links to the monorepo release history.
+- Completed the central changelog through `0.3.2` and corrected release references to existing tags.
+- Documentation-only release; no runtime API changes.
+
+---
+
 ## [0.3.2] — 2026-08-26
 
 ### Changed
@@ -172,7 +182,8 @@ _Nothing yet._
 
 ---
 
-[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.3.2-core...HEAD
+[Unreleased]: https://github.com/alpinnz/valfuse-node/compare/v0.3.3-core...HEAD
+[0.3.3]: https://github.com/alpinnz/valfuse-node/tree/v0.3.3-core
 [0.3.2]: https://github.com/alpinnz/valfuse-node/tree/v0.3.2-core
 [0.3.1]: https://github.com/alpinnz/valfuse-node/tree/v0.3.1-form
 [0.3.0]: https://github.com/alpinnz/valfuse-node/commit/6ddadf0
