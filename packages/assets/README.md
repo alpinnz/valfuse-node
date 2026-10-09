@@ -37,12 +37,13 @@ public/assets/
 └── icons/search.svg
 ```
 
-Create `valfuse-assets.yaml` in the project root:
+Create `valfuse.yaml` in the project root:
 
 ```yaml
-input_dir: public/assets
-output_file: src/assets/assets.ts
-base_path: /assets
+assets:
+  input_dir: public/assets
+  output_file: src/assets/assets.ts
+  base_path: /assets
 ```
 
 Run `npx valfuse-assets`. It generates `src/assets/assets.ts`:
@@ -83,13 +84,19 @@ your server or CDN uses to serve that directory.
 
 ## Configuration
 
-The CLI reads `valfuse-assets.yaml` from the current working directory, matching
-the config-file convention used by the localization CLI:
+The CLI reads the `assets` section of `valfuse.yaml` from the current
+working directory. The same file can also contain `barrel` and `localization`
+sections for the other Valfuse generators:
 
 ```yaml
-input_dir: public/media
-output_file: src/assets/assets.ts
-base_path: /media
+assets:
+  input_dir: public/media
+  output_file: src/assets/assets.ts
+  base_path: /media
+
+barrel:
+  input_dir: src
+  output_file: src/index.ts
 ```
 
 Relative file paths in this config are resolved from the current working
@@ -112,7 +119,7 @@ The default values are:
 Pass another config file with `--config`:
 
 ```bash
-npx valfuse-assets --config config/valfuse-assets.yaml
+npx valfuse-assets --config config/valfuse.yaml
 ```
 
 Use `--check` in CI to fail when the generated module is missing or stale. It

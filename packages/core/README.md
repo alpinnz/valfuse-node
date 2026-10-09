@@ -361,18 +361,18 @@ The localization package has three import surfaces (CLI + compiler, browser runt
 
 #### Compiler / CLI (Node.js only)
 
-| Export                                                                 | Use                                        |
-| ---------------------------------------------------------------------- | ------------------------------------------ |
-| `loadConfig(path)`                                                     | Load and parse `valfuse-localization.yaml` |
-| `compileProject(config)`                                               | Run the full compile pipeline              |
-| `normalizeProject(config)`                                             | Normalize raw locale data                  |
-| `validateProject(config)`                                              | Check key/placeholder parity               |
-| `runInit` / `runGenerate` / `runValidate` / `runCoverage` / `runClean` | CLI command handlers                       |
+| Export                                                                 | Use                                                         |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `loadConfig(cwd)`                                                      | Load and parse the `localization` section of `valfuse.yaml` |
+| `compileProject(config)`                                               | Run the full compile pipeline                               |
+| `normalizeProject(config)`                                             | Normalize raw locale data                                   |
+| `validateProject(config)`                                              | Check key/placeholder parity                                |
+| `runInit` / `runGenerate` / `runValidate` / `runCoverage` / `runClean` | CLI command handlers                                        |
 
 ```ts
 import { loadConfig, compileProject } from "@valfuse-node/core";
 
-const config = await loadConfig("./valfuse-localization.yaml");
+const config = await loadConfig("./");
 const compiled = await compileProject("./", config);
 ```
 
@@ -401,7 +401,7 @@ interpolate("{count, plural, one {# item} other {# items}}", { count: 5 });
 #### CLI
 
 ```bash
-npx valfuse-localization init           # scaffold valfuse-localization.yaml + a sample module
+npx valfuse-localization init           # scaffold sample locale files
 npx valfuse-localization generate       # compile JSON → TypeScript
 npx valfuse-localization generate --watch
 npx valfuse-localization validate       # key/placeholder parity check

@@ -37,14 +37,15 @@ src/rules/
 └── internal.test.ts
 ```
 
-Create `valfuse-barrel.yaml` in the project root:
+Add a `barrel` section to the shared `valfuse.yaml` in the project root:
 
 ```yaml
-input_dir: src/rules
-output_file: src/rules/index.ts
-include:
-  - email.ts
-  - required.ts
+barrel:
+  input_dir: src/rules
+  output_file: src/rules/index.ts
+  include:
+    - email.ts
+    - required.ts
 ```
 
 Run the generator:
@@ -70,21 +71,23 @@ import { emailRule, requiredRule } from "./rules";
 
 ## Configuration
 
-The CLI reads `valfuse-barrel.yaml` from the current working directory.
-Relative paths are resolved from that directory; absolute file paths are also
-accepted. Pass a different config with `--config <file>`.
+The CLI reads the `barrel` section of `valfuse.yaml` from the current
+working directory. The same file can also contain `assets` and `localization`
+sections. Relative paths are resolved from that directory; absolute file paths
+are also accepted. Pass a different config with `--config <file>`.
 
 ```yaml
-input_dir: src
-output_file: src/index.ts
+barrel:
+  input_dir: src
+  output_file: src/index.ts
 
-# Optional exact filenames to expose. Omit it or use [] to scan all eligible
-# direct children.
-include: []
+  # Optional exact filenames to expose. Omit it or use [] to scan all eligible
+  # direct children.
+  include: []
 
-# Optional exact filenames to omit during automatic scanning.
-exclude:
-  - internal.ts
+  # Optional exact filenames to omit during automatic scanning.
+  exclude:
+    - internal.ts
 ```
 
 | Option        | Default        | Purpose                                                  |
@@ -120,7 +123,7 @@ when `include` is non-empty, it already defines the selected files.
 ```bash
 npx valfuse-barrel
 npx valfuse-barrel --check
-npx valfuse-barrel --config config/valfuse-barrel.yaml
+npx valfuse-barrel --config config/valfuse.yaml
 npx valfuse-barrel --help
 ```
 
@@ -156,12 +159,12 @@ re-export default exports, resolve duplicate names, create aliases, or infer
 which exports are intended to be public. Use an `include` allowlist or hand
 write explicit exports when you need those controls.
 
-Generation is non-recursive by design. For multiple directories, create one
-config per directory and run each explicitly:
+Generation is non-recursive by design. For multiple directories, add a separate
+config file with a `barrel` section for each directory and run each explicitly:
 
 ```bash
-npx valfuse-barrel --config valfuse-barrel.rules.yaml
-npx valfuse-barrel --config valfuse-barrel.components.yaml
+npx valfuse-barrel --config valfuse.rules.yaml
+npx valfuse-barrel --config valfuse.components.yaml
 ```
 
 Internal modules should import one another directly instead of importing from

@@ -21,7 +21,8 @@ const HELP = [
   "  --check          Exit with an error when the generated file is stale",
   "  --help, -h       Show this help",
   "",
-  "The default config file is valfuse-barrel.yaml. Defaults for omitted options:",
+  'The default config file is valfuse.yaml. Configure these options under the "barrel" section.',
+  "Defaults for omitted options:",
   "  input_dir:   src",
   "  output_file: src/index.ts",
   "  include:     all eligible direct-child .ts/.tsx files",
@@ -90,7 +91,7 @@ function parseArguments(args: string[]): CliOptions {
 }
 
 async function readConfig(cwd: string, configFile?: string): Promise<BarrelGeneratorConfigInput> {
-  const filePath = resolve(cwd, configFile ?? "valfuse-barrel.yaml");
+  const filePath = resolve(cwd, configFile ?? "valfuse.yaml");
   let content: string;
   try {
     content = await readFile(filePath, "utf8");
@@ -117,7 +118,27 @@ async function readConfig(cwd: string, configFile?: string): Promise<BarrelGener
     );
   }
 
-  return parseConfigObject(parsed, filePath);
+  return parseConfigObject(readGeneratorConfigSection(parsed, "barrel", filePath), filePath);
+}
+
+function readGeneratorConfigSection(
+  value: unknown,
+  sectionName: string,
+  filePath: string
+): unknown {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new Error("Barrel config must be a YAML mapping: " + filePath);
+  }
+
+  const root = value as Record<string, unknown>;
+  if (Object.prototype.hasOwnProperty.call(root, sectionName)) {
+    return root[sectionName];
+  }
+
+  const legacyKeys = new Set(["input_dir", "output_file", "include", "exclude"]);
+  if (Object.keys(root).every((key) => legacyKeys.has(key))) return root;
+
+  throw new Error('Barrel config section "barrel" is missing in ' + filePath + ".");
 }
 
 function parseConfigObject(value: unknown, filePath: string): BarrelGeneratorConfigInput {

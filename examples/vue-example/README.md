@@ -239,9 +239,9 @@ npm run codegen:core           # assets/barrel melalui API core Node.js
 npm run codegen:core:check     # cek API core tanpa menulis file
 ```
 
-`valfuse-assets.yaml`, `valfuse-barrel.yaml`, dan `valfuse-localization.yaml`
-adalah konfigurasi sumber. Asset SVG berada di `public/assets`; generator hanya
-membuat URL typed dan tidak menyalin file. CLI tersedia sebagai script
+`valfuse.yaml` memuat section `assets`, `barrel`, dan `localization`.
+Asset SVG berada di `public/assets`; generator hanya membuat URL typed dan tidak
+menyalin file. CLI tersedia sebagai script
 `assets:*`, `barrel:*`, dan `localization:*`.
 
 `npm run typecheck` juga membangkitkan output lebih dahulu. File registry assets

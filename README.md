@@ -88,7 +88,7 @@ To generate typed paths for files under your app's public asset directory:
 
 ```bash
 npm install --save-dev @valfuse-node/assets
-# Add valfuse-assets.yaml in the project root, then run:
+# Add an `assets` section to valfuse.yaml in the project root, then run:
 npx valfuse-assets
 ```
 
@@ -101,7 +101,7 @@ To generate package entry barrels from selected TypeScript modules:
 
 ```
 npm install --save-dev @valfuse-node/barrel
-# Add valfuse-barrel.yaml, then run:
+# Add a `barrel` section to valfuse.yaml, then run:
 npx valfuse-barrel
 ```
 

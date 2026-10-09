@@ -1,0 +1,43 @@
+assets:
+  input_dir: public/assets
+  output_file: src/assets/assets.ts
+  base_path: /assets
+
+barrel:
+  input_dir: src/features/demo
+  output_file: src/features/demo/index.ts
+  include:
+    - all-features-form.ts
+    - assets-demo.ts
+    - form-domain-demo.ts
+    - generator-demo.ts
+    - localization-demo.ts
+
+localization:
+  input_dir: assets/localizations
+  output_dir: src/assets/localizations
+
+  framework: vue
+  class_name: Localization
+
+  base_locale: en
+  fallback_locale: en
+  strict: true
+  namespace_prefix: module
+
+  generated:
+    runtime_entry_file: localization.ts
+    runtime_types_file: localization.types.ts
+    runtime_manifest_file: localization.manifest.json
+
+  validation:
+    max_depth: 8
+    require_key_parity: true
+    require_placeholder_parity: true
+    require_structured_parity: true
+    allow_custom_metadata: true
+    validate_path_metadata_consistency: true
+
+  reporting:
+    output_dir: src/assets/localizations/reports
+    coverage_format: json

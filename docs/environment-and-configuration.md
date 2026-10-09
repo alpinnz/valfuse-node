@@ -32,22 +32,21 @@ Turborepo can still build upstream packages required by its lint, typecheck,
 and test tasks. Use `npm run build` to run the build task across all
 workspaces explicitly.
 
-## Localization configuration
+## Valfuse generator configuration
 
-The localization CLI reads the consumer project's
-`valfuse-localization.yaml`. It defines the locale source and generated output
-for that project; it is separate from the monorepo's npm and TypeScript
-configuration. See the [localization package README](../packages/localization/README.md)
-for its schema and command options.
+All Valfuse generators read package-specific sections from the consumer
+project's `valfuse.yaml`. The `localization` section defines locale
+sources and generated output; see the
+[localization package README](../packages/localization/README.md) for its schema
+and command options.
 
-The asset generator reads `valfuse-assets.yaml` from the consumer project. Its
-`input_dir`, `output_file`, and `base_path` options define the static asset
-directory, generated TypeScript module, and public URL prefix. See the
-[assets package README](../packages/assets/README.md) for defaults and usage.
+The `assets` section's `input_dir`, `output_file`, and `base_path` options define
+the static asset directory, generated TypeScript module, and public URL prefix.
+See the [assets package README](../packages/assets/README.md) for defaults and
+usage.
 
-The barrel generator reads **valfuse-barrel.yaml** from the consumer project.
-It scans direct children of one configured directory and can use an explicit
-**include** list to limit generated public exports. See the
+The `barrel` section scans direct children of one configured directory and can
+use an explicit **include** list to limit generated public exports. See the
 [barrel package README](../packages/barrel/README.md) for its options.
 
 The library and examples do not require a repository-level `.env` file.

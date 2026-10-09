@@ -17,7 +17,7 @@ Requires **Node.js ≥ 22** for the CLI / compiler. The runtime is browser-safe 
 - [Source File Format (YAML / JSON)](#source-file-format-yaml--json)
 - [Structured Variants (Plural / Gender / Context)](#structured-variants-plural--gender--context)
 - [Inline Metadata](#inline-metadata)
-- [The `valfuse-localization.yaml` Config File](#the-valfuse-localizationyaml-config-file)
+- [The shared `valfuse.yaml` Config File](#the-shared-valfuseyaml-config-file)
 - [CLI Commands](#cli-commands)
 - [Generated Outputs](#generated-outputs)
 - [Browser Runtime API](#browser-runtime-api)
@@ -246,47 +246,50 @@ Attach developer-only metadata to a leaf using sibling keys. Metadata is **never
 
 ---
 
-## The `valfuse-localization.yaml` Config File
+## The shared `valfuse.yaml` Config File
 
 ```yaml
-input_dir: assets/localizations # where the YAML/JSON source files live
-output_dir: src/assets/localizations # where the generated TS/JSON go
+localization:
+  input_dir: assets/localizations # where the YAML/JSON source files live
+  output_dir: src/assets/localizations # where the generated TS/JSON go
 
-framework: react # react | vue | nest
-class_name: Localization # name of the generated class/namespace
+  framework: react # react | vue | nest
+  class_name: Localization # name of the generated class/namespace
 
-base_locale: en # default locale at runtime
-fallback_locale: en # fallback when a key is missing
-strict: true # throw on errors (vs. just warn)
+  base_locale: en # default locale at runtime
+  fallback_locale: en # fallback when a key is missing
+  strict: true # throw on errors (vs. just warn)
 
-# Prepend the module folder name to every key:
-#   "module" (default) → common.auth.login.title
-#   "none"             → auth.login.title
-namespace_prefix: module
+  # Prepend the module folder name to every key:
+  #   "module" (default) → common.auth.login.title
+  #   "none"             → auth.login.title
+  namespace_prefix: module
 
-generated:
-  runtime_entry_file: localization.ts
-  runtime_types_file: localization.types.ts
-  runtime_manifest_file: localization.manifest.json
+  generated:
+    runtime_entry_file: localization.ts
+    runtime_types_file: localization.types.ts
+    runtime_manifest_file: localization.manifest.json
 
-validation:
-  max_depth: 10 # reject nested objects deeper than this
-  require_key_parity: true # every key must exist in every locale
-  require_placeholder_parity: true # placeholder set must match across locales
-  require_structured_parity: true # @plural/@gender/@context variants must match
-  allow_custom_metadata: true # allow @custom blocks
-  validate_path_metadata_consistency: true # metadata must match across locales
+  validation:
+    max_depth: 10 # reject nested objects deeper than this
+    require_key_parity: true # every key must exist in every locale
+    require_placeholder_parity: true # placeholder set must match across locales
+    require_structured_parity: true # @plural/@gender/@context variants must match
+    allow_custom_metadata: true # allow @custom blocks
+    validate_path_metadata_consistency: true # metadata must match across locales
 
-reporting:
-  output_dir: src/assets/localizations/reports
-  coverage_format: json # json | html
+  reporting:
+    output_dir: src/assets/localizations/reports
+    coverage_format: json # json | html
 ```
 
 ---
 
 ## CLI Commands
 
-All commands read `valfuse-localization.yaml` from the current working directory. Pass `{ cwd: "..." }` programmatically.
+All commands read the `localization` section of `valfuse.yaml` from the
+current working directory. Pass `{ cwd: "..." }` programmatically. The same
+file can contain `assets` and `barrel` sections for the other generators.
 
 ### `npx valfuse-localization init`
 

@@ -20,7 +20,8 @@ Options:
   --check          Exit with an error when the generated file is stale
   --help, -h       Show this help
 
-The default config file is valfuse-assets.yaml. Defaults for omitted options:
+The default config file is valfuse.yaml. Configure these options under
+the "assets" section. Defaults for omitted options:
   input_dir:   public/assets
   output_file: src/assets/assets.ts
   base_path:   /assets
@@ -85,7 +86,7 @@ function parseArguments(args: string[]): CliOptions {
 }
 
 async function readConfig(cwd: string, configFile?: string): Promise<AssetGeneratorConfigInput> {
-  const filePath = resolve(cwd, configFile ?? "valfuse-assets.yaml");
+  const filePath = resolve(cwd, configFile ?? "valfuse.yaml");
   let content: string;
 
   try {
@@ -110,7 +111,27 @@ async function readConfig(cwd: string, configFile?: string): Promise<AssetGenera
     });
   }
 
-  return parseConfigObject(parsed, filePath);
+  return parseConfigObject(readGeneratorConfigSection(parsed, "assets", filePath), filePath);
+}
+
+function readGeneratorConfigSection(
+  value: unknown,
+  sectionName: string,
+  filePath: string
+): unknown {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new Error(`Asset config must be a YAML mapping: ${filePath}`);
+  }
+
+  const root = value as Record<string, unknown>;
+  if (Object.prototype.hasOwnProperty.call(root, sectionName)) {
+    return root[sectionName];
+  }
+
+  const legacyKeys = new Set(["input_dir", "output_file", "base_path"]);
+  if (Object.keys(root).every((key) => legacyKeys.has(key))) return root;
+
+  throw new Error(`Asset config section "assets" is missing in ${filePath}.`);
 }
 
 function parseConfigObject(value: unknown, filePath: string): AssetGeneratorConfigInput {
