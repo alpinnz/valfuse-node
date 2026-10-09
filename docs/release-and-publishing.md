@@ -104,11 +104,27 @@ Badge status CI dapat ditambahkan ke README:
 on:
   push:
     tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing package release tag
+        required: true
+        type: string
 ```
 
 Artinya: setiap kali **tag berprefiks `v`** di-push ke remote
 (`git push origin <tag>`), GitHub Actions menjalankan workflow. Karena repo
-monorepo, **tag menentukan paket mana** yang diterbitkan.
+monorepo, **tag menentukan paket mana** yang diterbitkan. Workflow juga bisa
+di-dispatch manual dengan input `release_tag` untuk menjalankan ulang rilis
+yang tag-nya sudah ada.
+
+GitHub tidak membuat event `push` untuk tag jika lebih dari tiga tag dikirim
+sekaligus. Push maksimal tiga tag per perintah, atau gunakan trigger manual
+ketika tag release sudah terlanjur ada.
+
+```bash
+gh workflow run publish.yml --ref master -f release_tag=v0.3.4-form
+```
 
 ### 3.2 Skema tag: `v<semver>-<package>`
 
