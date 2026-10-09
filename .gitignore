@@ -62,6 +62,9 @@ Thumbs.db
 # Localization compiler report outputs (regenerable via the localization CLI)
 packages/examples/*/src/assets/localizations/reports/
 
+# Generated static asset registry (regenerable via the assets CLI)
+**/src/assets/assets.ts
+
 # Logs
 logs/
 *.log
@@ -69,4 +72,3 @@ npm-debug.log*
 
 # Browser automation scratch artifacts
 .playwright-mcp/
-

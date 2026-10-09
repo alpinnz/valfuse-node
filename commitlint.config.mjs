@@ -47,6 +47,8 @@ export default {
       "always",
       [
         "core",
+        "assets",
+        "barrel",
         "form",
         "localization",
         "react",

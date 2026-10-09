@@ -1,6 +1,6 @@
 # @valfuse-node/core
 
-> **Umbrella entry point for valfuse-node** — one install, one import path, the full library: form domain, localization, and React/Vue adapters.
+> **Umbrella entry point for valfuse-node** — one install for the form domain, localization, React/Vue adapters, and Node.js code generators.
 
 ```bash
 npm install @valfuse-node/core
@@ -8,12 +8,19 @@ npm install @valfuse-node/core
 
 That single command gives you:
 
+- Node.js asset generation API via **@valfuse-node/core/assets**
+- Node.js barrel generation API via **@valfuse-node/core/barrel**
 - 📦 **Form domain** (`@valfuse-node/form`) — schema, rules, validation, transformation, state
 - 🌐 **Localization** (`@valfuse-node/localization`) — CLI compiler, validators, browser runtime
 - ⚛️ **React adapter** (`@valfuse-node/react`) — `useReactValfuseForm` hook, `<ValfuseController>`, `<LocalizationProvider>`
 - 💚 **Vue adapter** (`@valfuse-node/vue`) — `useVueValfuseForm` composable
 
 **Peer dependencies (optional):** `react >= 18` (for the React adapter), `vue >= 3` (for the Vue adapter). Both are listed as optional peer deps, so you can install `@valfuse-node/core` and use only the form/localization pieces without React or Vue.
+
+The root import is the runtime facade. Node.js code-generation APIs use
+explicit subpaths: `@valfuse-node/core/assets` and `@valfuse-node/core/barrel`.
+This keeps filesystem-based generators out of the root module graph for
+browser-oriented imports.
 
 ---
 
@@ -26,6 +33,7 @@ That single command gives you:
   - [Localization](#localization-flattened-to-top-level)
   - [React Adapter](#react-adapter)
   - [Vue Adapter](#vue-adapter)
+- [Code generation APIs (Node.js)](#code-generation-apis-nodejs)
 - [End-to-End Example](#end-to-end-example)
 - [Architecture](#architecture)
 - [Sub-package READMEs](#sub-package-readmes)
@@ -565,6 +573,27 @@ The Vue `register()` returns `{ name, modelValue, "onUpdate:modelValue", onBlur 
 
 ---
 
+## Code generation APIs (Node.js)
+
+For programmatic asset and barrel generation, import the explicit Node.js
+subpaths. The command-line tools remain available as **valfuse-assets** and
+**valfuse-barrel**.
+
+```ts
+import { generateAssets } from "@valfuse-node/core/assets";
+import { generateBarrel } from "@valfuse-node/core/barrel";
+
+await generateAssets({ cwd: process.cwd() });
+await generateBarrel({
+  cwd: process.cwd(),
+  config: {
+    inputDir: "src/rules",
+    outputFile: "src/rules/index.ts",
+    include: ["email.ts", "required.ts"],
+  },
+});
+```
+
 ## End-to-End Example
 
 A complete React form with validation, transformation, server-error injection, and localization:
@@ -670,7 +699,7 @@ export function SignupForm() {
 
 ## Architecture
 
-`@valfuse-node/core` is a **pure re-export facade** — its bundle is ~270 bytes of ESM. Nothing is bundled, duplicated, or re-implemented.
+`@valfuse-node/core` keeps its main runtime entry as a re-export facade. Code-generation APIs live at explicit Node.js subpaths, so importing the root does not load the filesystem-based generators.
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -693,9 +722,9 @@ export function SignupForm() {
 - `localization` → nothing (zero deps; runtime is browser-safe)
 - `react` → `form`, `localization` (peer: `react`)
 - `vue` → `form` (peer: `vue`)
-- `core` → `form`, `localization`, `react`, `vue` (peer: `react`, `vue` — both optional)
+- `core` → `form`, `localization`, `react`, `vue`, `assets`, `barrel` (peer: `react`, `vue` — both optional)
 
-**Build:** turbo builds `form` → `localization` → `react` → `vue` → `core` in order. Each package's `dist/` is what `core` resolves at runtime.
+**Build:** turbo builds dependencies before `core`, including `form`, `localization`, `react`, `vue`, `assets`, and `barrel`. Each package's `dist/` is what `core` resolves at runtime.
 
 **Tree-shaking:** Because `core` is a facade with named re-exports (not a bundle), bundlers can still tree-shake unused exports. Importing `createSchema` from `core` does NOT pull in React or Vue at runtime.
 
@@ -705,6 +734,8 @@ export function SignupForm() {
 
 For deeper detail on any specific surface:
 
+- [`@valfuse-node/assets`](https://github.com/alpinnz/valfuse-node/blob/master/packages/assets/README.md) — static asset registry CLI and API
+- [`@valfuse-node/barrel`](https://github.com/alpinnz/valfuse-node/blob/master/packages/barrel/README.md) — TypeScript barrel CLI and API
 - [`@valfuse-node/form`](https://github.com/alpinnz/valfuse-node/blob/master/packages/form/README.md) — schema, rules, transformers, validation,
   framework-agnostic state
 - [`@valfuse-node/localization`](https://github.com/alpinnz/valfuse-node/blob/master/packages/localization/README.md) — CLI, compiler, runtime interpolation,

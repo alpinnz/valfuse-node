@@ -8,9 +8,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+_Nothing yet._
+
+---
+
+## [0.4.0] — 2026-10-09
+
+### Added
+
+- Added **@valfuse-node/core@0.4.0** subpaths for the Node.js asset and barrel generator APIs.
+- Added **@valfuse-node/assets@0.1.0**, a CLI and Node.js API that generate a typed TypeScript registry from static asset directories.
+- Added **@valfuse-node/barrel@0.1.0**, a CLI and Node.js API that generate deterministic barrels from selected TypeScript modules.
+
 ### Changed
 
-_Nothing yet._
+- Made the localization CLI executable-bit build step work on Windows and Unix by using Node.js instead of chmod.
 
 ---
 

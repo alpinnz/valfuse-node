@@ -58,7 +58,7 @@ jobs:
           PKG="${TAG##*-}"
 
           case "${PKG}" in
-            core|form|localization|react|vue) ;;
+            core|assets|barrel|form|localization|react|vue) ;;
             *)
               echo "Tag '${TAG}' targets unknown package '${PKG}'; skipping."
               echo "match=false" >> "$GITHUB_OUTPUT"

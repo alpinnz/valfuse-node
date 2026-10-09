@@ -1,6 +1,6 @@
 # valfuse-node
 
-> **Config-first form validation and localization library for React and Vue.**
+> **Config-first form validation, localization, static asset tooling, and TypeScript barrel generation for React and Vue.**
 > No Zod. No react-hook-form. No UI coupling. Just plain objects and framework hooks.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
@@ -46,13 +46,15 @@ Most form libraries require you to learn a heavy abstraction or lock you into a 
 
 ## Packages
 
-| Package                                                           | Description                                                                             | npm          |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------ |
-| [`@valfuse-node/core`](./packages/core/README.md)                 | **Umbrella entry point** — re-exports form, localization, and adapters from one package | ✅ published |
-| [`@valfuse-node/form`](./packages/form/README.md)                 | Framework-agnostic schema, rules, validation, transformation, state                     | ✅ published |
-| [`@valfuse-node/react`](./packages/react/README.md)               | React `useValfuseForm` hook, `<ValfuseController>`, full localization runtime           | ✅ published |
-| [`@valfuse-node/vue`](./packages/vue/README.md)                   | Vue 3 `useValfuseForm` composable with native v-model bindings                          | ✅ published |
-| [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON/YAML → type-safe TypeScript localization + browser runtime           | ✅ published |
+| Package                                                           | Description                                                                   | npm           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------- |
+| [`@valfuse-node/core`](./packages/core/README.md)                 | **Umbrella entry point** — runtime facade and Node.js generator subpaths      | ✅ published  |
+| [`@valfuse-node/assets`](./packages/assets/README.md)             | CLI and Node.js API for generating typed TypeScript paths for static assets   | not published |
+| [@valfuse-node/barrel](./packages/barrel/README.md)               | CLI and Node.js API for generating TypeScript barrel files                    | not published |
+| [`@valfuse-node/form`](./packages/form/README.md)                 | Framework-agnostic schema, rules, validation, transformation, state           | ✅ published  |
+| [`@valfuse-node/react`](./packages/react/README.md)               | React `useValfuseForm` hook, `<ValfuseController>`, full localization runtime | ✅ published  |
+| [`@valfuse-node/vue`](./packages/vue/README.md)                   | Vue 3 `useValfuseForm` composable with native v-model bindings                | ✅ published  |
+| [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON/YAML → type-safe TypeScript localization + browser runtime | ✅ published  |
 
 > The `@valfuse-node/example-react` and `@valfuse-node/example-vue` packages are private playgrounds — see [Examples](#examples).
 
@@ -81,7 +83,31 @@ If you only need the localization CLI / runtime:
 npm install @valfuse-node/localization
 ```
 
+To generate typed paths for files under your app's public asset directory:
+
+```bash
+npm install --save-dev @valfuse-node/assets
+# Add valfuse-assets.yaml in the project root, then run:
+npx valfuse-assets
+```
+
+The YAML config maps `input_dir`, `output_file`, and `base_path`; see the
+[assets package README](./packages/assets/README.md) for a complete example.
+
 ---
+
+To generate package entry barrels from selected TypeScript modules:
+
+```
+npm install --save-dev @valfuse-node/barrel
+# Add valfuse-barrel.yaml, then run:
+npx valfuse-barrel
+```
+
+The **@valfuse-node/core** root import exports the form, localization, React,
+and Vue APIs. Its explicit **/assets** and **/barrel** subpaths expose the
+Node.js generator APIs without loading them through the root import. Install
+the individual generator packages directly when you only need their CLI tools.
 
 ## Quick Start
 
@@ -275,9 +301,12 @@ For package boundaries, conventions, and engineering guides, see the
 
 ## Sub-package READMEs
 
+- [**@valfuse-node/barrel**](./packages/barrel/README.md) — CLI and Node.js API for generating TypeScript barrel files
+
 For deeper detail on any specific surface:
 
 - [**`@valfuse-node/core`**](./packages/core/README.md) — umbrella entry point with full quick-start and import map
+- [**`@valfuse-node/assets`**](./packages/assets/README.md) — CLI and Node.js API for generating a typed static asset registry
 - [**`@valfuse-node/form`**](./packages/form/README.md) — schema, all rules by type, transformers, validation, framework-agnostic state
 - [**`@valfuse-node/localization`**](./packages/localization/README.md) — CLI, compiler pipeline, source-file format, structured variants, validators, runtime
 - [**`@valfuse-node/react`**](./packages/react/README.md) — `useValfuseForm`, `<ValfuseController>`, `<LocalizationProvider>`, storage strategies, `useLocalization` full API
@@ -348,7 +377,9 @@ Each package exposes the same scripts — `npm run -w @valfuse-node/form build`,
 ```
 valfuse-node/
 ├── packages/
-│   ├── core/                 ← umbrella facade (270 B)
+│   ├── assets/               ← static asset path generator
+│   ├── barrel/               ← TypeScript barrel generator
+│   ├── core/                 ← umbrella facade
 │   ├── form/                 ← schema + rules + validation (framework-agnostic)
 │   ├── localization/         ← CLI + compiler + runtime
 │   ├── react/                ← React adapter

@@ -4,11 +4,13 @@ Dokumentasi ini menjelaskan pipeline _Continuous Integration_ (CI) dan alur
 publikasi paket **@valfuse-node** (monorepo) ke npm yang dijalankan oleh GitHub
 Actions, beserta tooling _git governance_ lokal yang mengontrol kualitas commit.
 
-Monorepo berisi **5 paket library** yang dipublikasikan ke npm, semuanya
+Monorepo berisi **7 paket** yang dapat dipublikasikan ke npm, semuanya
 scoped di bawah `@valfuse-node/*`:
 
 | Package                      | Workspace path          | Ekspor utama                                           |
 | ---------------------------- | ----------------------- | ------------------------------------------------------ |
+| `@valfuse-node/assets`       | `packages/assets`       | CLI dan API untuk typed static asset registry          |
+| `@valfuse-node/barrel`       | `packages/barrel`       | CLI dan API untuk generated TypeScript barrel files    |
 | `@valfuse-node/core`         | `packages/core`         | Umbrella entry (re-export form/localization/react/vue) |
 | `@valfuse-node/form`         | `packages/form`         | Validasi & state form framework-agnostic               |
 | `@valfuse-node/localization` | `packages/localization` | Compiler, CLI, runtime i18n                            |
@@ -121,6 +123,8 @@ Contoh:
 
 | Tag                   | Paket diterbitkan            |
 | --------------------- | ---------------------------- |
+| `v0.1.0-assets`       | `@valfuse-node/assets`       |
+| `v0.1.0-barrel`       | `@valfuse-node/barrel`       |
 | `v0.4.0-core`         | `@valfuse-node/core`         |
 | `v0.4.0-form`         | `@valfuse-node/form`         |
 | `v0.3.1-localization` | `@valfuse-node/localization` |
@@ -141,7 +145,7 @@ Langkah lengkap:
    `registry-url: https://registry.npmjs.org` (menyiapkan kredensial npm).
 3. `npm ci`.
 4. **Resolve target package dari tag** — memisahkan `<pkg>` dan `<semver>`,
-   whitelist `core|form|localization|react|vue`; jika tag tidak pas → skip.
+   whitelist `assets|barrel|core|form|localization|react|vue`; jika tag tidak pas → skip.
 5. **Verify version matches tag** — membandingkan `<semver>` pada tag dengan
    field `version` pada `packages/<pkg>/package.json`. Jika tidak sama;
    workflow **gagal (exit 1) tanpa publish** (lihat §6.3).
@@ -222,7 +226,7 @@ mengaktifkan hooks. Hook yang aktif:
 
 ```js
 type-enum: ['feat','fix','docs','style','refactor','perf','test','build','ci','chore','revert']
-scope-enum: ['core','form','localization','react','vue','examples', 'react-example','vue-example','adapter','repository','release','changelog','eslint','prettier','husky','commitlint','ci','deps','docs','adr','tools','package','cli']
+scope-enum: ['assets','barrel','core','form','localization','react','vue','examples', 'react-example','vue-example','adapter','repository','release','changelog','eslint','prettier','husky','commitlint','ci','deps','docs','adr','tools','package','cli']
 header-max-length: 72
 subject-case: never sentence/start/pascal/upper
 ```
@@ -231,6 +235,8 @@ Contoh pesan yang valid:
 
 ```bash
 feat(form): add date-field validation
+feat(assets): generate typed static asset paths
+feat(barrel): generate TypeScript barrel files
 fix(react): sync valuesRef before submit
 test(localization): cover enum interpolation
 ci: add per-package tag publish workflow
@@ -313,18 +319,16 @@ Contoh rilis `@valfuse-node/react` ke `0.4.0`:
 
 ### 6.2 Dependency-Order untuk RELEASE
 
-Package adapter (`react`, `vue`, `core`) mengimpor `@valfuse-node/*` (misal
-laris `react` memakai `form` + `localization`). Ada _dependency order_ yang
-disarankan saat rilis:
+Packages that depend on another published package should be released after
+their dependencies:
 
-1. `@valfuse-node/localization` dan/atau `@valfuse-node/form`
-2. `@valfuse-node/react` (tergantung form + localization)
-3. `@valfuse-node/vue` (tergantung form)
-4. `@valfuse-node/core` (umbrella — re-export semua)
+1. **@valfuse-node/assets** and **@valfuse-node/barrel** (independent tools)
+2. **@valfuse-node/form** and **@valfuse-node/localization**
+3. **@valfuse-node/react** and **@valfuse-node/vue** (framework adapters)
+4. **@valfuse-node/core** (facade with runtime and generator subpaths)
 
-> Publikasikan packages dependensi terlebih dahulu bila versi constraintnya
-> berubah; bukan wajib bila hanya bump versi minor adaptor tanpa mengubah
-> dependency.
+Publish dependencies first when releasing the full set of tags. The
+**publish:all** root script follows this order.
 
 ---
 

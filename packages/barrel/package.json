@@ -1,0 +1,63 @@
+{
+  "name": "@valfuse-node/barrel",
+  "version": "0.1.0",
+  "description": "Generate deterministic TypeScript barrel files from source modules",
+  "license": "MIT",
+  "keywords": [
+    "barrel",
+    "barrel-file",
+    "codegen",
+    "typescript",
+    "cli",
+    "valfuse"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "valfuse-barrel": "dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "clean": "node clean.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "yaml": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.3.0",
+    "tsup": "8.5.1",
+    "typescript": "6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpinnz/valfuse-node.git",
+    "directory": "packages/barrel"
+  },
+  "homepage": "https://github.com/alpinnz/valfuse-node#readme",
+  "bugs": {
+    "url": "https://github.com/alpinnz/valfuse-node/issues"
+  }
+}

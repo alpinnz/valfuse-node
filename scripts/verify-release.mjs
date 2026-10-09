@@ -19,6 +19,8 @@ import { fileURLToPath } from "node:url";
 
 const PKGS = {
   core: "core",
+  assets: "assets",
+  barrel: "barrel",
   form: "form",
   localization: "localization",
   react: "react",

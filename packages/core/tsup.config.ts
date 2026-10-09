@@ -4,7 +4,11 @@ import { defineConfig } from "tsup";
 // every entry resolves to a `require('@valfuse-node/...')` at runtime, so
 // consumers can tree-shake per-package and we never duplicate domain code.
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: {
+    index: "src/index.ts",
+    assets: "src/assets.ts",
+    barrel: "src/barrel.ts",
+  },
   format: ["cjs", "esm"],
   dts: true,
   clean: true,
@@ -13,6 +17,8 @@ export default defineConfig({
   external: [
     "@valfuse-node/form",
     "@valfuse-node/localization",
+    "@valfuse-node/assets",
+    "@valfuse-node/barrel",
     "@valfuse-node/react",
     "@valfuse-node/vue",
     "react",

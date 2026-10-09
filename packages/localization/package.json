@@ -45,7 +45,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup && chmod +x dist/cli/index.js",
+    "build": "tsup && node -e \"import('node:fs/promises').then(({ chmod }) => chmod('dist/cli/index.js', 0o755))\"",
     "dev": "tsup --watch",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",

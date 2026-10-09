@@ -1,0 +1,63 @@
+{
+  "name": "@valfuse-node/assets",
+  "version": "0.1.0",
+  "description": "Generate a typed TypeScript registry for static asset paths",
+  "license": "MIT",
+  "keywords": [
+    "assets",
+    "asset-generator",
+    "codegen",
+    "typescript",
+    "cli",
+    "valfuse"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "valfuse-assets": "dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "clean": "node clean.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "yaml": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.3.0",
+    "tsup": "8.5.1",
+    "typescript": "6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpinnz/valfuse-node.git",
+    "directory": "packages/assets"
+  },
+  "homepage": "https://github.com/alpinnz/valfuse-node#readme",
+  "bugs": {
+    "url": "https://github.com/alpinnz/valfuse-node/issues"
+  }
+}
