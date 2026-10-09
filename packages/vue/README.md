@@ -3,16 +3,24 @@
 > Vue 3 adapter for `@valfuse-node` — `useValfuseForm` composable with reactive `formState`, native v-model bindings, and a 1:1 API contract with the React adapter.
 
 ```bash
-npm install @valfuse-node/vue @valfuse-node/core
+npm install @valfuse-node/vue @valfuse-node/form vue
 ```
 
-**Peer dependency:** `vue >= 3`
+Requires **Node.js 22 or newer** for the supported package toolchain. The
+adapter peer dependency is **Vue 3 or newer**. It depends on
+`@valfuse-node/form`; install that package directly when your application
+imports the schema API.
 
-If you want a single install, use the umbrella package:
+If your application already uses both React and Vue and wants the umbrella
+facade, install its framework peers as well:
 
 ```bash
-npm install @valfuse-node/core
+npm install @valfuse-node/core react react-dom vue
 ```
+
+The core root entry re-exports both framework adapters. See the
+[`@valfuse-node/core` install and compatibility notes](../core/README.md#install-and-compatibility)
+before using that entry.
 
 ---
 
@@ -43,7 +51,7 @@ npm install @valfuse-node/core
 
 ```vue
 <script setup lang="ts">
-import { createSchema } from "@valfuse-node/core";
+import { createSchema } from "@valfuse-node/form";
 import { useValfuseForm } from "@valfuse-node/vue";
 
 const schema = createSchema({

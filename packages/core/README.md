@@ -1,12 +1,15 @@
 # @valfuse-node/core
 
-> **Umbrella entry point for valfuse-node** — one install for the form domain, localization, React/Vue adapters, and Node.js code generators.
+> **Umbrella entry point for valfuse-node** — a common import facade for the form domain, localization, React/Vue adapters, and Node.js code generators.
+
+To load the full root facade directly in Node.js, install its optional framework
+peers too:
 
 ```bash
-npm install @valfuse-node/core
+npm install @valfuse-node/core react react-dom vue
 ```
 
-That single command gives you:
+The core package graph gives you:
 
 - Node.js asset generation API via **@valfuse-node/core/assets**
 - Node.js barrel generation API via **@valfuse-node/core/barrel**
@@ -15,7 +18,30 @@ That single command gives you:
 - ⚛️ **React adapter** (`@valfuse-node/react`) — `useReactValfuseForm` hook, `<ValfuseController>`, `<LocalizationProvider>`
 - 💚 **Vue adapter** (`@valfuse-node/vue`) — `useVueValfuseForm` composable
 
-**Peer dependencies (optional):** `react >= 18` (for the React adapter), `vue >= 3` (for the Vue adapter). Both are listed as optional peer deps, so you can install `@valfuse-node/core` and use only the form/localization pieces without React or Vue.
+## Install and compatibility
+
+**Framework peers:** `@valfuse-node/core` declares `react >= 18` and
+`vue >= 3` as optional peers because not every application uses both adapters.
+The React adapter also declares `react-dom >= 18` as a peer dependency.
+The core root entry re-exports both the React and Vue adapters. When loading
+the core root entry, make both framework packages available, even if the
+application only calls APIs from one adapter. The install command at the top
+includes those peers.
+
+Do not rely on tree-shaking to avoid resolving these peer imports. For a
+framework-neutral project, install and use the standalone packages instead:
+
+```bash
+npm install @valfuse-node/form @valfuse-node/localization
+```
+
+For an app that uses only one adapter, install that adapter with
+`@valfuse-node/form` and its framework peer directly.
+
+The published packages declare **Node.js 22 or newer** in `engines`. React
+applications need React and React DOM 18 or newer; Vue applications need Vue 3
+or newer. Install only the framework packages used by your application when
+you consume the individual adapter packages.
 
 The root import is the runtime facade. Node.js code-generation APIs use
 explicit subpaths: `@valfuse-node/core/assets` and `@valfuse-node/core/barrel`.
@@ -27,6 +53,7 @@ browser-oriented imports.
 ## Table of Contents
 
 - [Quick Start by Adapter](#quick-start-by-adapter)
+- [Install and compatibility](#install-and-compatibility)
 - [Import Map](#import-map)
 - [API Reference](#api-reference)
   - [Form Domain](#form-domain-flattened-to-top-level)
@@ -47,8 +74,11 @@ browser-oriented imports.
 
 ### 🧩 Form-only (Node.js, server actions, any framework)
 
+For framework-neutral use, import the standalone form package directly. This
+keeps the React and Vue adapter peers out of the dependency graph.
+
 ```ts
-import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/core";
+import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/form";
 
 const schema = createSchema({
   email: {
@@ -387,7 +417,11 @@ programmatic compiler pipeline.
 
 ### React adapter
 
-All React values are at the top level. React is an optional peer dep — if you only use form/localization, you don't need it installed.
+All React values are at the top level. React is an optional peer in package
+metadata, but the core root facade statically re-exports both adapters and
+requires their peer modules to be resolvable. For form/localization-only usage,
+import the standalone packages as described in
+[Install and compatibility](#install-and-compatibility).
 
 ```ts
 import {
@@ -517,7 +551,10 @@ for full storage-strategy options and the `useLocalizationTree()` hook.
 
 ### Vue adapter
 
-All Vue values are at the top level. Vue is an optional peer dep.
+All Vue values are at the top level. Vue is an optional peer in package
+metadata; the core root facade still requires both adapter peers to be
+resolvable when imported. Use `@valfuse-node/vue` directly if you do not need
+the umbrella facade.
 
 ```vue
 <script setup lang="ts">
@@ -713,20 +750,25 @@ export function SignupForm() {
             ▼                  ▼             ▼           ▼
    @valfuse-node/form  @valfuse-node/   @valfuse-node/  @valfuse-node/
                         localization     react          vue
-                       (zero deps)      (peer: react)  (peer: vue)
+                       (yaml, chokidar) (peer: react,   (peer: vue)
+                                        react-dom)
 ```
 
 **Dependency direction** (strictly inner→outer is forbidden):
 
 - `form` → nothing (pure domain)
-- `localization` → nothing (zero deps; runtime is browser-safe)
-- `react` → `form`, `localization` (peer: `react`)
+- `localization` → `yaml`, `chokidar` for compiler/watch tooling; browser runtime is isolated
+- `react` → `form`, `localization` (peers: `react`, `react-dom`)
 - `vue` → `form` (peer: `vue`)
 - `core` → `form`, `localization`, `react`, `vue`, `assets`, `barrel` (peer: `react`, `vue` — both optional)
 
 **Build:** turbo builds dependencies before `core`, including `form`, `localization`, `react`, `vue`, `assets`, and `barrel`. Each package's `dist/` is what `core` resolves at runtime.
 
-**Tree-shaking:** Because `core` is a facade with named re-exports (not a bundle), bundlers can still tree-shake unused exports. Importing `createSchema` from `core` does NOT pull in React or Vue at runtime.
+**Tree-shaking and peer loading:** `core` is a facade with named re-exports,
+which lets compatible bundlers remove unused exports. Its root entry still
+statically re-exports both framework adapters, so direct Node.js imports need
+the React and Vue peer modules to resolve. Use the standalone packages or a
+single adapter package when you need to avoid an unused framework peer.
 
 ---
 

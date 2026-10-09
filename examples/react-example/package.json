@@ -1,0 +1,47 @@
+{
+  "name": "@valfuse-node/example-react",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reference implementation and playground for valfuse-node — form validation + localization",
+  "scripts": {
+    "predev": "npm run generate",
+    "dev": "vite",
+    "prebuild": "npm run generate",
+    "build": "tsc -b && vite build",
+    "lint": "eslint src",
+    "pretypecheck": "npm run generate",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "generate": "npm run assets:generate && npm run barrel:generate && npm run localization:generate",
+    "generate:check": "npm run assets:check && npm run barrel:check && npm run localization:validate",
+    "assets:generate": "valfuse-assets",
+    "assets:check": "valfuse-assets --check",
+    "barrel:generate": "valfuse-barrel",
+    "barrel:check": "valfuse-barrel --check",
+    "codegen:core": "node scripts/generate-with-core.mjs",
+    "codegen:core:check": "node scripts/generate-with-core.mjs --check",
+    "localization:generate": "valfuse-localization generate",
+    "localization:watch": "valfuse-localization generate --watch",
+    "localization:validate": "valfuse-localization validate",
+    "localization:coverage": "valfuse-localization coverage",
+    "localization:clean": "valfuse-localization clean"
+  },
+  "dependencies": {
+    "@valfuse-node/core": "*",
+    "@valfuse-node/form": "*",
+    "@valfuse-node/react": "*",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@valfuse-node/assets": "*",
+    "@valfuse-node/barrel": "*",
+    "@valfuse-node/localization": "*",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "typescript": "6.0.3",
+    "vue": "^3",
+    "vite": "8.2.0"
+  }
+}

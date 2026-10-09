@@ -1,0 +1,8 @@
+input_dir: src/features/demo
+output_file: src/features/demo/index.ts
+include:
+  - all-features-form.tsx
+  - assets-demo.tsx
+  - form-domain-demo.tsx
+  - generator-demo.tsx
+  - localization-demo.tsx

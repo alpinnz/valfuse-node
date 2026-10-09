@@ -21,15 +21,21 @@ Form-domain behavior still belongs in `@valfuse-node/form`.
   renames colliding form hooks to `useReactValfuseForm` and
   `useVueValfuseForm`; the adapter packages keep their own
   `useValfuseForm` exports.
-- React and Vue remain optional peer dependencies for consumers who only use
-  the framework-neutral surfaces.
+- React and Vue are optional peer dependencies in package metadata, but the
+  core root facade statically re-exports both adapters. Consumers loading that
+  root entry must make both framework peers resolvable. Framework-neutral and
+  single-framework consumers should use the standalone packages to avoid the
+  unused adapter peer.
 
 ## Consequences
 
-Consumers can install the umbrella package for a single import surface. The
-core dependency graph points outward to the packages it re-exports, so it must
-remain a facade and must not become a dependency of those packages. Package
-specific imports remain available for consumers who want a smaller surface.
+Consumers can install the umbrella package for a single import surface. Its
+root entry statically re-exports both adapters, so direct Node.js imports
+require both framework peer modules to resolve even though they are optional in
+package metadata. Consumers who do not use both frameworks should import the
+standalone packages. The core dependency graph points outward to the packages
+it re-exports, so it must remain a facade and must not become a dependency of
+those packages.
 
 The earlier shared-utilities proposal is recorded as superseded in
 [ADR-0002](./0002-shared-utilities-extraction.md).

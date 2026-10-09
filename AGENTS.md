@@ -161,7 +161,7 @@ performed unless they actually were.
 ## Repository Guidance
 
 - This repository is a private npm workspace monorepo using npm@11.6.2; preserve package-lock.json as the lockfile.
-- Workspace packages live under packages/* and packages/examples/*.
+- Published workspace packages live under `packages/<package>/`; private demo applications live under `examples/<framework>-example/`.
 - Root scripts include validate, build, lint, typecheck, test, and format:check. Check package.json before choosing a command.
 - Keep repository-specific reusable workflows in .codex/skills/. Use a skill only when its stated scope matches the request.
 - Read the applicable .codex/rules/*.md file for the task: architecture, backend/API, frontend, code review, debugging, dependencies, naming, observability, performance, reliability, security, testing, or git workflow.

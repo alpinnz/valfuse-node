@@ -3,16 +3,25 @@
 > React 18+ adapter for `@valfuse-node` — `useValfuseForm` hook, `<ValfuseController>`, full localization runtime (provider, hooks, storage strategies, SSR helpers). No external form library dependency.
 
 ```bash
-npm install @valfuse-node/react @valfuse-node/core
+npm install @valfuse-node/react @valfuse-node/form react react-dom
 ```
 
-**Peer dependencies:** `react >= 18`, `react-dom >= 18`
+Requires **Node.js 22 or newer** for the supported package toolchain. The
+adapter peer dependencies are **React 18 or newer** and **React DOM 18 or
+newer**. The adapter depends on `@valfuse-node/form` and
+`@valfuse-node/localization`; install `@valfuse-node/form` directly when your
+application imports its schema API.
 
-If you want a single install, use the umbrella package:
+If your application already uses both React and Vue and wants the umbrella
+facade, install its framework peers as well:
 
 ```bash
-npm install @valfuse-node/core
+npm install @valfuse-node/core react react-dom vue
 ```
+
+The core root entry re-exports both framework adapters. See the
+[`@valfuse-node/core` install and compatibility notes](../core/README.md#install-and-compatibility)
+before using that entry.
 
 ---
 
@@ -27,7 +36,7 @@ npm install @valfuse-node/core
   - [`useLocalizationTree()`](#uselocalizationtree)
   - [Storage strategies](#storage-strategies)
   - [`createLocalizationStore`](#createlocalizationstore)
-  - [`createLazyLocaleLoader`](#createlazyloacaleloader)
+  - [`createLazyLocaleLoader`](#createlazylocaleloader)
   - [`createSsrLocalizationState`](#createssrlocalizationstate)
 - [Type Reference](#type-reference)
 - [Development Usage](#development-usage)
@@ -40,7 +49,7 @@ npm install @valfuse-node/core
 ## Quick Start
 
 ```tsx
-import { createSchema } from "@valfuse-node/core";
+import { createSchema } from "@valfuse-node/form";
 import { useValfuseForm } from "@valfuse-node/react";
 
 const schema = createSchema({
@@ -557,7 +566,7 @@ export type UserValues = {
 ### Build a form with all features
 
 ```tsx
-import { useReactValfuseForm, ValfuseController } from "@valfuse-node/core";
+import { useValfuseForm as useReactValfuseForm, ValfuseController } from "@valfuse-node/react";
 import { userSchema, type UserValues } from "./schemas/user";
 
 export function UserForm() {

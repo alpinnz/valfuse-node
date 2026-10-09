@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/assets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate a typed TypeScript registry for static asset paths",
   "license": "MIT",
   "keywords": [

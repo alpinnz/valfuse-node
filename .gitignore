@@ -60,7 +60,7 @@ Thumbs.db
 *.tgz
 
 # Localization compiler report outputs (regenerable via the localization CLI)
-packages/examples/*/src/assets/localizations/reports/
+examples/*/src/assets/localizations/reports/
 
 # Generated static asset registry (regenerable via the assets CLI)
 **/src/assets/assets.ts

@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/core",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Umbrella entry point for Valfuse runtime APIs, with explicit Node.js code-generation subpaths.",
   "license": "MIT",
   "sideEffects": false,

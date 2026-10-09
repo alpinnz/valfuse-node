@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "@@module": "common",
+  "welcome": "Hello, {name}!",
+  "asset_count": {
+    "@plural": {
+      "zero": "No assets selected",
+      "one": "{count} asset selected",
+      "other": "{count} assets selected"
+    }
+  },
+  "runtime_note": "This Vue example uses the framework-neutral localization runtime."
+}

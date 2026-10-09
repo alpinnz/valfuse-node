@@ -13,7 +13,7 @@
 ## Workspace commands
 
 Root scripts use Turborepo to run package tasks across `packages/*` and
-`packages/examples/*`:
+`examples/*`:
 
 | Command                                 | Purpose                                      |
 | --------------------------------------- | -------------------------------------------- |

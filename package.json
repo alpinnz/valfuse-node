@@ -4,7 +4,7 @@
   "packageManager": "npm@11.6.2",
   "workspaces": [
     "packages/*",
-    "packages/examples/*"
+    "examples/*"
   ],
   "scripts": {
     "dev": "turbo dev",
@@ -25,11 +25,11 @@
     "publish:vue": "npm publish --workspace=packages/vue",
     "publish:form": "npm publish --workspace=packages/form",
     "publish:all": "npm run publish:assets && npm run publish:barrel && npm run publish:form && npm run publish:localization && npm run publish:react && npm run publish:vue && npm run publish:core",
-    "example:localization:generate": "npm run localization:generate --workspace=packages/examples/react-example",
-    "example:localization:watch": "npm run localization:watch --workspace=packages/examples/react-example",
-    "example:localization:validate": "npm run localization:validate --workspace=packages/examples/react-example",
-    "dev:react": "npm run dev --workspace=packages/examples/react-example",
-    "dev:vue": "npm run dev --workspace=packages/examples/vue-example",
+    "example:localization:generate": "npm run localization:generate --workspace=examples/react-example",
+    "example:localization:watch": "npm run localization:watch --workspace=examples/react-example",
+    "example:localization:validate": "npm run localization:validate --workspace=examples/react-example",
+    "dev:react": "npm run dev --workspace=examples/react-example",
+    "dev:vue": "npm run dev --workspace=examples/vue-example",
     "release:verify": "node scripts/verify-release.mjs",
     "validate": "npm run format:check && npm run lint && npm run typecheck && npm run test"
   },

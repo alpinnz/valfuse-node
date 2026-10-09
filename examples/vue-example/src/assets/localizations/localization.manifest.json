@@ -1,0 +1,31 @@
+{
+  "base_locale": "en",
+  "fallback_locale": "en",
+  "locales": ["en", "id"],
+  "entries": [
+    {
+      "key": "common.asset_count",
+      "placeholders": []
+    },
+    {
+      "key": "common.runtime_note",
+      "placeholders": []
+    },
+    {
+      "key": "common.welcome",
+      "placeholders": ["name"]
+    }
+  ],
+  "messages": {
+    "en": {
+      "common.asset_count": "{\"one\":\"{count} asset selected\",\"other\":\"{count} assets selected\",\"zero\":\"No assets selected\"}",
+      "common.runtime_note": "This Vue example uses the framework-neutral localization runtime.",
+      "common.welcome": "Hello, {name}!"
+    },
+    "id": {
+      "common.asset_count": "{\"one\":\"{count} aset dipilih\",\"other\":\"{count} aset dipilih\",\"zero\":\"Tidak ada aset dipilih\"}",
+      "common.runtime_note": "Contoh Vue ini menggunakan localization runtime yang tidak terikat framework.",
+      "common.welcome": "Halo, {name}!"
+    }
+  }
+}

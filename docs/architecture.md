@@ -2,22 +2,22 @@
 
 `valfuse-node` is a TypeScript monorepo for reusable form validation,
 localization, static asset tooling, and TypeScript barrel generation. It is built with npm workspaces and Turborepo. The
-examples under `packages/examples/` are private Vite applications used to
+examples under `examples/` are private Vite applications used to
 exercise the public APIs.
 
 ## Package responsibilities
 
-| Workspace                         | Responsibility                                                                                       |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `@valfuse-node/assets`            | Node.js CLI and API that generate typed TypeScript registries for static asset URLs                  |
-| `@valfuse-node/barrel`            | Node.js CLI and API that generate selected TypeScript barrel files                                   |
-| `@valfuse-node/form`              | Framework-agnostic schemas, rules, validation, value transformation, errors, and state types         |
-| `@valfuse-node/localization`      | Node.js configuration, locale compiler and CLI, validators, generated artifacts, and browser runtime |
-| `@valfuse-node/react`             | React form hook and controller, plus React localization provider, hooks, and storage strategies      |
-| `@valfuse-node/vue`               | Vue form composable and Vue-specific form types                                                      |
-| `@valfuse-node/core`              | Umbrella package with runtime root exports and explicit Node.js generator subpaths                   |
-| `packages/examples/react-example` | Private React playground and integration reference                                                   |
-| `packages/examples/vue-example`   | Private Vue playground and integration reference                                                     |
+| Workspace                    | Responsibility                                                                                       |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `@valfuse-node/assets`       | Node.js CLI and API that generate typed TypeScript registries for static asset URLs                  |
+| `@valfuse-node/barrel`       | Node.js CLI and API that generate selected TypeScript barrel files                                   |
+| `@valfuse-node/form`         | Framework-agnostic schemas, rules, validation, value transformation, errors, and state types         |
+| `@valfuse-node/localization` | Node.js configuration, locale compiler and CLI, validators, generated artifacts, and browser runtime |
+| `@valfuse-node/react`        | React form hook and controller, plus React localization provider, hooks, and storage strategies      |
+| `@valfuse-node/vue`          | Vue form composable and Vue-specific form types                                                      |
+| `@valfuse-node/core`         | Umbrella package with runtime root exports and explicit Node.js generator subpaths                   |
+| `examples/react-example`     | Private React playground and integration reference                                                   |
+| `examples/vue-example`       | Private Vue playground and integration reference                                                     |
 
 ## Dependency direction
 

@@ -1,0 +1,3 @@
+input_dir: public/assets
+output_file: src/assets/assets.ts
+base_path: /assets

@@ -53,6 +53,11 @@ Requires **Node.js ≥ 22** for the CLI / compiler. The runtime is browser-safe 
 
 The compiler runs at build time; the runtime is shipped to the browser. There is no overlap — the runtime never imports Node-only APIs.
 
+The compiler and watch tooling use the package's Node.js dependencies (`yaml`
+for configuration and source parsing, and `chokidar` for watch mode). The
+browser runtime entry is separate and has no runtime dependency on either
+tooling package.
+
 ---
 
 ## Quick Start

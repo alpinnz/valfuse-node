@@ -62,25 +62,26 @@ Most form libraries require you to learn a heavy abstraction or lock you into a 
 
 ## Installation
 
-For most apps, install the umbrella:
+For the full core root facade, install the umbrella and its React and Vue peer
+packages. The root facade re-exports both adapters, so both peers must be
+resolvable when the root entry is loaded:
 
 ```bash
-npm install @valfuse-node/core
-# + peer (only what you actually use)
-npm install react@>=18 react-dom@>=18     # for the React adapter
-npm install vue@>=3                        # for the Vue adapter
+npm install @valfuse-node/core react react-dom vue
 ```
 
-If you only need a subset (e.g. just the form domain in a server action):
+For a framework-neutral project, install only the packages you use:
 
 ```bash
-npm install @valfuse-node/form
+npm install @valfuse-node/form @valfuse-node/localization
 ```
 
-If you only need the localization CLI / runtime:
+For one framework adapter, use its package with the shared form package and
+that framework's peer dependencies:
 
 ```bash
-npm install @valfuse-node/localization
+npm install @valfuse-node/react @valfuse-node/form react react-dom
+npm install @valfuse-node/vue @valfuse-node/form vue
 ```
 
 To generate typed paths for files under your app's public asset directory:
@@ -276,23 +277,34 @@ function Header() {
               │     ├─ @valfuse-node/react  (peer: react)
               │     └─ @valfuse-node/vue    (peer: vue)
               │
-              ├─ packages/examples/react-example  (private)
-              └─ packages/examples/vue-example    (private)
+              ├─ examples/react-example  (private)
+              └─ examples/vue-example    (private)
 ```
 
 **Dependency direction** (strictly inner→outer is forbidden):
 
-| Package        | Depends on                             | Peer                                      |
-| -------------- | -------------------------------------- | ----------------------------------------- |
-| `form`         | —                                      | —                                         |
-| `localization` | —                                      | —                                         |
-| `react`        | `form`, `localization`                 | `react >= 18`                             |
-| `vue`          | `form`                                 | `vue >= 3`                                |
-| `core`         | `form`, `localization`, `react`, `vue` | `react >= 18`, `vue >= 3` (both optional) |
+| Package        | Depends on                                                 | Peer                                      |
+| -------------- | ---------------------------------------------------------- | ----------------------------------------- |
+| `form`         | —                                                          | —                                         |
+| `assets`       | `yaml` (generator config)                                  | —                                         |
+| `barrel`       | `yaml` (generator config)                                  | —                                         |
+| `localization` | `yaml`, `chokidar` (Node compiler/watch)                   | —                                         |
+| `react`        | `form`, `localization`                                     | `react >= 18`, `react-dom >= 18`          |
+| `vue`          | `form`                                                     | `vue >= 3`                                |
+| `core`         | `form`, `localization`, `react`, `vue`, `assets`, `barrel` | `react >= 18`, `vue >= 3` (both optional) |
+
+The core package itself marks React and Vue optional, but its root facade
+re-exports both adapters. Direct Node.js imports of that facade need both peer
+modules to resolve; the React adapter also requires `react-dom >= 18`.
 
 **Build order:** `form` → `localization` → `react` → `vue` → `core` (turbo handles this automatically).
 
-**Bundle:** `@valfuse-node/core` is a ~270-byte ESM facade — it re-exports named values from the four sub-packages. Bundlers still tree-shake unused exports.
+**Bundle and peer loading:** `@valfuse-node/core` is a re-export facade with
+named values from its package dependencies. Compatible bundlers can tree-shake
+unused exports, but the root entry statically re-exports both framework
+adapters. Direct Node.js imports therefore require the React and Vue peer
+modules to resolve. Use standalone packages or one adapter package when the
+application should not depend on an unused framework.
 
 For package boundaries, conventions, and engineering guides, see the
 [`docs/` index](./docs/README.md).
@@ -397,14 +409,23 @@ valfuse-node/
 
 ## Examples
 
-Two private reference apps under `packages/examples/`. Use them to copy-paste working patterns into your own project.
+Two private reference apps under `examples/`. Use them to copy-paste working patterns into your own project.
+Both examples now cover the shared form domain, generated assets, localization,
+barrel generation, and the core facade. Their guides map each package to the
+relevant demo and document the workspace commands:
 
-### `packages/examples/react-example`
+- [React example guide](./examples/react-example/README.md)
+- [Vue example guide](./examples/vue-example/README.md)
+
+### `examples/react-example`
 
 ```bash
-cd packages/examples/react-example
+cd examples/react-example
 npm run dev          # http://localhost:5173
 ```
+
+The [React example guide](./examples/react-example/README.md) includes a
+package-to-feature map and the generator commands.
 
 Demonstrates:
 
@@ -414,12 +435,15 @@ Demonstrates:
 - `LocalizationProvider` + `useLocalization` for full i18n
 - Watch mode for the localization CLI
 
-### `packages/examples/vue-example`
+### `examples/vue-example`
 
 ```bash
-cd packages/examples/vue-example
+cd examples/vue-example
 npm run dev          # http://localhost:5174
 ```
+
+The [Vue example guide](./examples/vue-example/README.md) includes a
+package-to-feature map and the generator commands.
 
 Demonstrates:
 

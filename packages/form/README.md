@@ -6,6 +6,11 @@
 npm install @valfuse-node/form
 ```
 
+The published package declares **Node.js 22 or newer** in `engines`. The form
+domain has no React, Vue, or other runtime framework peer dependency; it can be
+used directly in server-side code or imported by a browser application's
+framework adapter.
+
 ---
 
 ## Table of Contents
@@ -596,14 +601,14 @@ export const userSchema = createSchema({/* … */});
 
 ```tsx
 // web (React)
-import { useReactValfuseForm } from "@valfuse-node/core";
+import { useValfuseForm as useReactValfuseForm } from "@valfuse-node/react";
 const form = useReactValfuseForm({ schema: userSchema, defaultValues: { … } });
 ```
 
 ```vue
 <!-- mobile (Vue) -->
 <script setup>
-import { useVueValfuseForm } from "@valfuse-node/core";
+import { useValfuseForm as useVueValfuseForm } from "@valfuse-node/vue";
 const form = useVueValfuseForm({ schema: userSchema, defaultValues: { … } });
 </script>
 ```

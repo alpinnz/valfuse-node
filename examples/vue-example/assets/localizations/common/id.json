@@ -1,0 +1,13 @@
+{
+  "@@locale": "id",
+  "@@module": "common",
+  "welcome": "Halo, {name}!",
+  "asset_count": {
+    "@plural": {
+      "zero": "Tidak ada aset dipilih",
+      "one": "{count} aset dipilih",
+      "other": "{count} aset dipilih"
+    }
+  },
+  "runtime_note": "Contoh Vue ini menggunakan localization runtime yang tidak terikat framework."
+}
