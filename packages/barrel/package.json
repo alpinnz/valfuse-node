@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/barrel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generate deterministic TypeScript barrel files from source modules",
   "license": "MIT",
   "keywords": [
@@ -34,7 +34,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && node -e \"import('node:fs/promises').then(({ chmod }) => chmod('dist/cli/index.js', 0o755))\"",
     "dev": "tsup --watch",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
