@@ -271,7 +271,7 @@ Contoh ini memakai setiap lapisan Valfuse yang relevan untuk aplikasi React:
 
 | Package                      | Demo yang bisa dicoba                                                                                    |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `@valfuse-node/core`         | Facade runtime di `app.tsx`; adapter React; subpath Node.js `core/assets` dan `core/barrel`              |
+| `@valfuse-node/core`         | Facade runtime di `app.tsx` dan adapter React                                                            |
 | `@valfuse-node/form`         | Validasi dan transformasi framework-neutral di `form-domain-demo.tsx`, serta schema yang dipakai adapter |
 | `@valfuse-node/react`        | `useValfuseForm`, `ValfuseController`, localization provider, hooks, dan storage strategy                |
 | `@valfuse-node/localization` | CLI generate/validate/coverage/watch dan manifest yang dipakai React runtime                             |
@@ -291,8 +291,6 @@ npm run generate               # assets + barrel + localization
 npm run dev                    # generate otomatis lalu buka Vite
 npm run build                  # generate otomatis lalu build production
 npm run generate:check         # validasi output tanpa menulis file
-npm run codegen:core           # assets/barrel melalui API core Node.js
-npm run codegen:core:check     # cek API core tanpa menulis file
 ```
 
 `valfuse.yaml` memuat section `assets`, `barrel`, dan `localization`.

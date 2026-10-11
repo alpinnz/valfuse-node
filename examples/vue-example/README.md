@@ -214,7 +214,7 @@ Contoh ini memakai setiap lapisan Valfuse yang relevan untuk aplikasi Vue:
 
 | Package                      | Demo yang bisa dicoba                                                                                  |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `@valfuse-node/core`         | Facade runtime di `App.vue`; adapter Vue; subpath Node.js `core/assets` dan `core/barrel`              |
+| `@valfuse-node/core`         | Facade runtime di `App.vue` dan adapter Vue                                                            |
 | `@valfuse-node/form`         | Validasi dan transformasi framework-neutral di `FormDomainDemo.vue`, serta schema yang dipakai adapter |
 | `@valfuse-node/vue`          | `useValfuseForm`, binding `v-model`, state reaktif, custom value object dan ID                         |
 | `@valfuse-node/localization` | CLI generate/validate/coverage/watch dan browser-safe runtime dengan interpolasi serta plural          |
@@ -236,8 +236,6 @@ npm run generate               # assets + barrel + localization
 npm run dev                    # generate otomatis lalu buka Vite
 npm run build                  # generate otomatis lalu build production
 npm run generate:check         # validasi output tanpa menulis file
-npm run codegen:core           # assets/barrel melalui API core Node.js
-npm run codegen:core:check     # cek API core tanpa menulis file
 ```
 
 `valfuse.yaml` memuat section `assets`, `barrel`, dan `localization`.

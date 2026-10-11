@@ -1,7 +1,4 @@
 <script setup lang="ts">
-const coreImports = `import { generateAssets } from "@valfuse-node/core/assets";
-import { generateBarrel } from "@valfuse-node/core/barrel";`;
-
 const generators = [
   {
     packageName: "@valfuse-node/assets",
@@ -18,11 +15,6 @@ const generators = [
     command: "npm run localization:generate",
     output: "src/assets/localizations/",
   },
-  {
-    packageName: "@valfuse-node/core/assets + @valfuse-node/core/barrel",
-    command: "npm run codegen:core",
-    output: "the same generated asset and barrel files through the Node.js API",
-  },
 ];
 </script>
 
@@ -30,8 +22,8 @@ const generators = [
   <div>
     <p>
       Standalone CLI Node.js berjalan sebelum dev, build, dan typecheck. Output-nya dipakai aplikasi
-      ini; barrel hasil generate menjadi entry import untuk semua demo section. Perintah
-      <code>codegen:core</code> menjalankan generator melalui subpath Node.js core.
+      ini; barrel hasil generate menjadi entry import untuk semua demo section. Barrel dibuat
+      melalui CLI publik <code>valfuse-barrel</code>.
     </p>
     <ul>
       <li
@@ -46,16 +38,8 @@ const generators = [
       </li>
     </ul>
     <p>
-      Runtime facade diakses dari <code>@valfuse-node/core</code>. Generator filesystem tersedia
-      pada subpath Node.js <code>@valfuse-node/core/assets</code> dan
-      <code>@valfuse-node/core/barrel</code>.
-    </p>
-    <pre style="background: #f1f5f9; border-radius: 0.5rem; overflow-x: auto; padding: 1rem">{{
-      coreImports
-    }}</pre>
-    <p>
-      Jalankan <code>npm run generate:check</code> atau <code>npm run codegen:core:check</code>
-      untuk memastikan output generated sesuai dengan input.
+      Runtime facade diakses dari <code>@valfuse-node/core</code>. Jalankan
+      <code>npm run generate:check</code> untuk memastikan output generated sesuai dengan input.
     </p>
   </div>
 </template>
