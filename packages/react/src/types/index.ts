@@ -152,6 +152,8 @@ export type UseValfuseFormProps<TFieldValues extends Record<string, unknown>> = 
    * - `"all"` — on both onChange and onBlur
    */
   mode?: ValfuseFormMode;
+  /** Validation mode used after the first submit attempt. */
+  reValidateMode?: "onChange" | "onBlur" | "onSubmit";
 };
 
 export type UseValfuseFormReturn<TFieldValues extends Record<string, unknown>> = {

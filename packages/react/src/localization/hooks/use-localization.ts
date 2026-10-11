@@ -6,24 +6,18 @@ import {
   pickStructuredGenderVariant,
   pickStructuredPluralVariant,
 } from "@valfuse-node/localization/runtime";
+import type {
+  GenderVariant,
+  InterpolationParams,
+  NamespacedLocalizer,
+} from "@valfuse-node/localization/runtime";
 import { LocalizationContext } from "../provider/localization-provider";
 
-export type InterpolationParams = Record<string, string | number>;
-export type GenderVariant = "male" | "female" | "other";
-
-export interface NamespacedLocalizer {
-  translate(key: string, fallbackValue?: string | null): string;
-  /** Returns `null` when key does not exist or is `null`/`undefined`. */
-  translateOrNull(key: string | null | undefined): string | null;
-  format(key: string, params: InterpolationParams): string;
-  /** Returns `null` when key does not exist or is `null`/`undefined`. */
-  formatOrNull(key: string | null | undefined, params: InterpolationParams): string | null;
-  plural(key: string, count: number): string;
-  /** Returns `null` when key does not exist or is `null`/`undefined`. */
-  pluralOrNull(key: string | null | undefined, count: number): string | null;
-  gender(key: string, gender: GenderVariant, params: InterpolationParams): string;
-  context(key: string, context: string, params?: InterpolationParams): string;
-}
+export type {
+  GenderVariant,
+  InterpolationParams,
+  NamespacedLocalizer,
+} from "@valfuse-node/localization/runtime";
 
 export type TranslationFallback =
   string | Record<string, string> | ((key: string) => string | undefined);

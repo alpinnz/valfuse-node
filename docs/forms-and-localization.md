@@ -29,9 +29,11 @@ interpolation and message lookup. The compiler configuration belongs to the
 consumer project. Generated locale assets are then loaded by that application
 at build time or runtime according to its setup.
 
-The React adapter provides `LocalizationProvider`, React hooks, and locale
-preference storage. The Vue adapter currently provides form integration only;
-Vue applications can use the localization package's runtime directly.
+The React adapter provides `LocalizationProvider`, React hooks, and built-in
+locale preference storage strategies. The Vue adapter provides
+`LocalizationProvider`, `useLocalization()`, and `useLocalizationTree()` with
+an optional app-provided storage adapter. Both use the browser-safe runtime
+from `@valfuse-node/localization/runtime`.
 
 ## Errors and network boundaries
 

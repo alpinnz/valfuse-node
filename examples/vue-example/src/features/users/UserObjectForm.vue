@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useValfuseForm } from "@valfuse-node/vue";
+import { ValfuseController, useValfuseForm } from "@valfuse-node/vue";
 import TextInput from "./components/TextInput.vue";
 import RoleDropdownObject from "./components/RoleDropdownObject.vue";
 import { userObjectSchema } from "./schemas/user-object.schema";
 import { createUserApi, mapApiValidationErrors, type ApiValidationErrorResponse } from "./user.api";
-import type { Role } from "./types/user-form.types";
+import type { Role, UserObjectFormValues } from "./types/user-form.types";
 
 const ROLE_OPTIONS: Role[] = [
   { id: "admin", name: "Admin" },
@@ -12,7 +12,7 @@ const ROLE_OPTIONS: Role[] = [
   { id: "viewer", name: "Viewer" },
 ];
 
-const form = useValfuseForm({
+const form = useValfuseForm<UserObjectFormValues>({
   schema: userObjectSchema,
   defaultValues: { name: "", email: "", role: null },
   mode: "onSubmit",
@@ -20,10 +20,10 @@ const form = useValfuseForm({
 
 const onSubmit = form.handleSubmit(async (values) => {
   try {
-    const role = values.role as Role | null;
+    const role = values.role;
     await createUserApi({
-      name: values.name as string,
-      email: values.email as string,
+      name: values.name,
+      email: values.email,
       roleId: role?.id,
     });
   } catch (err) {
@@ -52,16 +52,13 @@ const onSubmit = form.handleSubmit(async (values) => {
       v-bind="form.register('email')"
     />
 
-    <!-- register() pada custom component →
-         role menyimpan Role | null, gunakan getValue/setValue secara eksplisit
-         karena register() mengembalikan modelValue: unknown (bukan Role | null) -->
-    <RoleDropdownObject
-      :modelValue="form.getValue('role') as Role | null"
-      :options="ROLE_OPTIONS"
-      :error="form.formState.errors.role?.message"
-      @update:modelValue="form.setValue('role', $event)"
-      @blur="form.register('role').onBlur()"
-    />
+    <ValfuseController :control="form.control" name="role" v-slot="{ field, fieldState }">
+      <RoleDropdownObject
+        v-bind="field"
+        :options="ROLE_OPTIONS"
+        :error="fieldState.error?.message"
+      />
+    </ValfuseController>
 
     <button
       type="submit"

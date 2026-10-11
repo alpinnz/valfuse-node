@@ -82,6 +82,15 @@ The generated registry contains URL strings only. Keep the source files in the
 public directory and make sure the configured `base_path` matches the URL path
 your server or CDN uses to serve that directory.
 
+For Express, mount the matching directory with its URL prefix:
+
+```ts
+app.use("/assets", express.static("public/assets"));
+```
+
+With this mount, configure `base_path: /assets`; the same generated paths can
+then be used by Express responses, React components, and Vue templates.
+
 ## Configuration
 
 The CLI reads the `assets` section of `valfuse.yaml` from the current

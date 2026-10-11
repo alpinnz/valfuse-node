@@ -1,7 +1,7 @@
 import type { RuntimeManifest } from "../types/manifest";
 import { buildRuntimeModel } from "./build-runtime-model";
 
-export function buildReactRuntimeFiles(manifest: RuntimeManifest): {
+export function buildRuntimeFiles(manifest: RuntimeManifest): {
   entry: string;
   types: string;
 } {

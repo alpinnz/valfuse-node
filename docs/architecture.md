@@ -14,7 +14,7 @@ exercise the public APIs.
 | `@valfuse-node/form`         | Framework-agnostic schemas, rules, validation, value transformation, errors, and state types         |
 | `@valfuse-node/localization` | Node.js configuration, locale compiler and CLI, validators, generated artifacts, and browser runtime |
 | `@valfuse-node/react`        | React form hook and controller, plus React localization provider, hooks, and storage strategies      |
-| `@valfuse-node/vue`          | Vue form composable and Vue-specific form types                                                      |
+| `@valfuse-node/vue`          | Vue form composable, localization provider/hooks, and Vue-specific types                             |
 | `@valfuse-node/core`         | Umbrella package with runtime root exports and explicit Node.js generator subpaths                   |
 | `examples/react-example`     | Private React playground and integration reference                                                   |
 | `examples/vue-example`       | Private Vue playground and integration reference                                                     |
@@ -36,6 +36,7 @@ flowchart TD
   react --> form
   react --> localization
   vue --> form
+  vue --> localization
   core --> form
   core --> localization
   core --> assets

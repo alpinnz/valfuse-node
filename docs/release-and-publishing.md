@@ -139,11 +139,12 @@ Contoh:
 
 | Tag                   | Paket diterbitkan            |
 | --------------------- | ---------------------------- |
-| `v0.1.0-assets`       | `@valfuse-node/assets`       |
-| `v0.1.0-barrel`       | `@valfuse-node/barrel`       |
-| `v0.4.0-core`         | `@valfuse-node/core`         |
-| `v0.4.0-form`         | `@valfuse-node/form`         |
-| `v0.3.1-localization` | `@valfuse-node/localization` |
+| `v0.2.0-assets`       | `@valfuse-node/assets`       |
+| `v0.2.0-barrel`       | `@valfuse-node/barrel`       |
+| `v0.5.0-core`         | `@valfuse-node/core`         |
+| `v0.3.4-form`         | `@valfuse-node/form`         |
+| `v0.1.0-express`      | `@valfuse-node/express`      |
+| `v0.5.0-localization` | `@valfuse-node/localization` |
 | `v0.4.0-react`        | `@valfuse-node/react`        |
 | `v0.4.0-vue`          | `@valfuse-node/vue`          |
 
@@ -242,7 +243,7 @@ mengaktifkan hooks. Hook yang aktif:
 
 ```js
 type-enum: ['feat','fix','docs','style','refactor','perf','test','build','ci','chore','revert']
-scope-enum: ['assets','barrel','core','form','localization','react','vue','examples', 'react-example','vue-example','adapter','repository','release','changelog','eslint','prettier','husky','commitlint','ci','deps','docs','adr','tools','package','cli']
+scope-enum: ['assets','barrel','core','express','form','localization','react','vue','examples', 'react-example','vue-example','adapter','repository','release','changelog','eslint','prettier','husky','commitlint','ci','deps','docs','adr','tools','package','cli']
 header-max-length: 72
 subject-case: never sentence/start/pascal/upper
 ```
@@ -251,6 +252,7 @@ Contoh pesan yang valid:
 
 ```bash
 feat(form): add date-field validation
+feat(express): add request validation middleware
 feat(assets): generate typed static asset paths
 feat(barrel): generate TypeScript barrel files
 fix(react): sync valuesRef before submit
@@ -340,7 +342,8 @@ their dependencies:
 
 1. **@valfuse-node/assets** and **@valfuse-node/barrel** (independent tools)
 2. **@valfuse-node/form** and **@valfuse-node/localization**
-3. **@valfuse-node/react** and **@valfuse-node/vue** (framework adapters)
+3. **@valfuse-node/express**, **@valfuse-node/react**, and **@valfuse-node/vue**
+   (framework adapters)
 4. **@valfuse-node/core** (facade with runtime and generator subpaths)
 
 Publish dependencies first when releasing the full set of tags. The

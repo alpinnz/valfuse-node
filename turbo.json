@@ -7,7 +7,7 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "src/assets/localizations/**"]
+      "outputs": ["dist/**", "src/assets/assets.ts", "src/assets/localizations/**"]
     },
     "lint": {
       "dependsOn": ["^build"]

@@ -23,6 +23,7 @@ pnpm-lock.yaml
 # Auto-generated localization runtime (already excluded from lint)
 **/src/assets/localizations/localization.ts
 **/src/assets/localizations/localization.types.ts
+**/src/assets/localizations/localization.manifest.json
 
 # Reports / generated docs
 *.csv

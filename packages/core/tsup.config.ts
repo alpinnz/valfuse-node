@@ -8,6 +8,7 @@ export default defineConfig({
     index: "src/index.ts",
     assets: "src/assets.ts",
     barrel: "src/barrel.ts",
+    express: "src/express.ts",
   },
   format: ["cjs", "esm"],
   dts: true,
@@ -21,8 +22,10 @@ export default defineConfig({
     "@valfuse-node/barrel",
     "@valfuse-node/react",
     "@valfuse-node/vue",
+    "@valfuse-node/express",
     "react",
     "react-dom",
     "vue",
+    "express",
   ],
 });

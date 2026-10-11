@@ -63,6 +63,57 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   const fieldWatchers = new Map<string, Set<(v: unknown) => void>>();
   const globalWatchers = new Set<ValfuseWatchCallback<TFieldValues>>();
 
+  function validateField(name: string): void {
+    const fieldSchema = schema[name];
+    if (!fieldSchema) return;
+
+    const fieldErrors = validateSchema({ [name]: fieldSchema }, values);
+    const error = fieldErrors[name];
+    const nextErrors = { ...errors.value };
+    if (error) {
+      nextErrors[name as keyof TFieldValues] = {
+        ...error,
+        type: error.type ?? "validation",
+      };
+    } else {
+      delete nextErrors[name as keyof TFieldValues];
+    }
+    errors.value = nextErrors;
+  }
+
+  function clearFieldError(name: string): void {
+    if (!(name in errors.value)) return;
+    const nextErrors = { ...errors.value };
+    delete nextErrors[name as keyof TFieldValues];
+    errors.value = nextErrors;
+  }
+
+  function shouldValidateChange(name: string): boolean {
+    if (isSubmitted.value) return reValidateMode === "onChange";
+    return (
+      mode === "onChange" || mode === "all" || (mode === "onTouched" && touchedSet.value.has(name))
+    );
+  }
+
+  function shouldValidateBlur(): boolean {
+    if (isSubmitted.value) return reValidateMode === "onBlur";
+    return mode === "onBlur" || mode === "all" || mode === "onTouched";
+  }
+
+  function updateValue<TName extends keyof TFieldValues & string>(
+    name: TName,
+    value: TFieldValues[TName],
+    shouldValidate: boolean
+  ): void {
+    const key = String(name);
+    const fieldTransform = schema[key]?.transform;
+    values[key] = fieldTransform ? fieldTransform(value) : value;
+    markDirty(key, values[key]);
+    notifyWatchers(key, values[key]);
+    if (shouldValidate) validateField(key);
+    else clearFieldError(key);
+  }
+
   // ─── Helpers ──────────────────────────────────────────────────────────────
   function runValidation(): ValfuseFormErrors<TFieldValues> {
     const typed = transformValues(schema, values as Record<string, unknown>);
@@ -106,18 +157,11 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       name: key,
       modelValue: values[key],
       "onUpdate:modelValue": (value: unknown) => {
-        values[key] = value;
-        markDirty(key, value);
-        notifyWatchers(key, value);
-        if (mode === "onChange" || (isSubmitted.value && reValidateMode === "onChange")) {
-          errors.value = runValidation();
-        }
+        updateValue(name, value as TFieldValues[typeof name], shouldValidateChange(key));
       },
       onBlur: () => {
         markTouched(key);
-        if (mode === "onBlur" || (isSubmitted.value && reValidateMode === "onBlur")) {
-          errors.value = runValidation();
-        }
+        if (shouldValidateBlur()) validateField(key);
       },
     };
   }
@@ -137,9 +181,9 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
       const typed = transformValues(schema, values as Record<string, unknown>) as TFieldValues;
       await fn(typed);
       isSubmitSuccessful.value = true;
-    } catch {
+    } catch (error) {
       isSubmitSuccessful.value = false;
-      throw new Error("Submit handler failed");
+      throw error;
     } finally {
       isSubmitting.value = false;
     }
@@ -175,15 +219,16 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     errors.value = next;
   }
 
-  function setValue(name: keyof TFieldValues & string, value: unknown): void {
-    const key = String(name);
-    values[key] = value;
-    markDirty(key, value);
-    notifyWatchers(key, value);
+  function setValue<TName extends keyof TFieldValues & string>(
+    name: TName,
+    value: TFieldValues[TName],
+    options?: { shouldValidate?: boolean }
+  ): void {
+    updateValue(name, value, options?.shouldValidate ?? false);
   }
 
-  function getValue(name: keyof TFieldValues & string): unknown {
-    return values[String(name)];
+  function getValue<TName extends keyof TFieldValues & string>(name: TName): TFieldValues[TName] {
+    return values[String(name)] as TFieldValues[TName];
   }
 
   function getValues(): TFieldValues {
@@ -232,8 +277,8 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   }
 
   function reset(overrides?: Partial<TFieldValues>): void {
-    const next = (overrides ?? defaultValues) as Record<string, unknown>;
-    for (const k of Object.keys(values)) values[k] = next[k] ?? undefined;
+    const next = { ...defaultValues, ...overrides } as Record<string, unknown>;
+    for (const k of Object.keys(values)) values[k] = next[k];
     errors.value = {};
     isSubmitted.value = false;
     isSubmitSuccessful.value = false;
@@ -296,9 +341,8 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     return { ...values } as TFieldValues;
   }
 
-  // ─── Control (for ValfuseController / Vue equivalent) ─────────────────────
-  // Same shape as the React adapter's control object so a future
-  // <ValfuseController> Vue component can accept it identically.
+  // ─── Control (for ValfuseController / useValfuseController) ───────────────
+  // Same shape as React's control object so Vue's controller APIs can consume it.
   //
   // We use `reactive` with getters for the snapshot-like fields so consumers
   // always read the latest value. `_values` is the same reactive proxy used
@@ -313,12 +357,11 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
     },
     _updateField: (name, value) => {
       const key = String(name);
-      values[key] = value;
-      markDirty(key, value);
-      notifyWatchers(key, value);
+      updateValue(name as keyof TFieldValues & string, value, shouldValidateChange(key));
     },
     _touchField: (name) => {
       markTouched(String(name));
+      if (shouldValidateBlur()) validateField(String(name));
     },
   }) as ValfuseFormControl<TFieldValues>;
 
@@ -333,7 +376,7 @@ export function useValfuseForm<TFieldValues extends Record<string, unknown>>(
   );
   const isDirtyComputed: ComputedRef<boolean> = computed(() => dirtySet.value.size > 0);
   const isValidComputed: ComputedRef<boolean> = computed(
-    () => Object.keys(errors.value).length === 0
+    () => Object.keys(errors.value).length === 0 && Object.keys(runValidation()).length === 0
   );
 
   // ─── Reactive formState ──────────────────────────────────────────────────

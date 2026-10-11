@@ -37,6 +37,7 @@ The form package is the **shared contract** for the entire `@valfuse-node` ecosy
 
 - **Use directly in Node.js / server actions** — no React or Vue required.
 - **Use as the validation engine** for `useReactValfuseForm` / `useVueValfuseForm` — the adapters read the same `ValfuseSchema` and `ValfuseFormState` interfaces.
+- **Use with Express** through `@valfuse-node/express`'s `validateBody` middleware. It transforms and validates parsed request bodies using the same schema.
 - **Type-safe end-to-end** — `defaultValues` infers the value type; `setErrors` is typed by your field names; `formState.errors` is a `Record<keyof TFieldValues, ValfuseFieldError>`.
 
 ```ts

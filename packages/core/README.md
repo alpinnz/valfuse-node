@@ -1,6 +1,6 @@
 # @valfuse-node/core
 
-> **Umbrella entry point for valfuse-node** — a common import facade for the form domain, localization, React/Vue adapters, and Node.js code generators.
+> **Umbrella entry point for valfuse-node** — a common import facade for the form domain, localization, React/Vue adapters, Express middleware, and Node.js code generators.
 
 To load the full root facade directly in Node.js, install its optional framework
 peers too:
@@ -13,15 +13,18 @@ The core package graph gives you:
 
 - Node.js asset generation API via **@valfuse-node/core/assets**
 - Node.js barrel generation API via **@valfuse-node/core/barrel**
+- Express middleware via **@valfuse-node/core/express**
 - 📦 **Form domain** (`@valfuse-node/form`) — schema, rules, validation, transformation, state
 - 🌐 **Localization** (`@valfuse-node/localization`) — CLI compiler, validators, browser runtime
 - ⚛️ **React adapter** (`@valfuse-node/react`) — `useReactValfuseForm` hook, `<ValfuseController>`, `<LocalizationProvider>`
-- 💚 **Vue adapter** (`@valfuse-node/vue`) — `useVueValfuseForm` composable
+- 💚 **Vue adapter** (`@valfuse-node/vue`) — `useVueValfuseForm`, localization provider, and composables
 
 ## Install and compatibility
 
 **Framework peers:** `@valfuse-node/core` declares `react >= 18` and
 `vue >= 3` as optional peers because not every application uses both adapters.
+`@valfuse-node/express` is an optional peer, used only by the explicit
+`/express` subpath. Install it when that subpath is needed.
 The React adapter also declares `react-dom >= 18` as a peer dependency.
 The core root entry re-exports both the React and Vue adapters. When loading
 the core root entry, make both framework packages available, even if the
@@ -44,9 +47,37 @@ or newer. Install only the framework packages used by your application when
 you consume the individual adapter packages.
 
 The root import is the runtime facade. Node.js code-generation APIs use
-explicit subpaths: `@valfuse-node/core/assets` and `@valfuse-node/core/barrel`.
-This keeps filesystem-based generators out of the root module graph for
-browser-oriented imports.
+explicit subpaths: `@valfuse-node/core/assets`, `@valfuse-node/core/barrel`,
+and `@valfuse-node/core/express`. This keeps filesystem-based generators and
+the Express peer out of the root module graph for browser-oriented imports.
+
+### Express
+
+Use the Express subpath with the standalone form and localization packages. It
+does not load the React or Vue adapters:
+
+```bash
+npm install @valfuse-node/core @valfuse-node/express @valfuse-node/form @valfuse-node/localization express
+```
+
+```ts
+import {
+  validateBody,
+  validateParams,
+  validateQuery,
+  createLocalizationMiddleware,
+} from "@valfuse-node/core/express";
+import { createSchema } from "@valfuse-node/form";
+```
+
+TypeScript apps should also install compatible Express declarations:
+
+```bash
+npm install --save-dev @types/express
+```
+
+See the [`@valfuse-node/express` README](../express/README.md) for complete
+middleware examples.
 
 ---
 
@@ -54,6 +85,7 @@ browser-oriented imports.
 
 - [Quick Start by Adapter](#quick-start-by-adapter)
 - [Install and compatibility](#install-and-compatibility)
+  - [Express subpath](#express)
 - [Import Map](#import-map)
 - [API Reference](#api-reference)
   - [Form Domain](#form-domain-flattened-to-top-level)
@@ -241,7 +273,10 @@ interpolate("{count, plural, one {# item} other {# items}}", { count: 5 });
 | `@valfuse-node/form`         | Top-level (`createSchema`, `validateSchema`, `t`, …)                                                 | Framework-agnostic, no collision risk                                    |
 | `@valfuse-node/localization` | Top-level (`interpolate`, `compileProject`, `loadConfig`, …)                                         | Framework-agnostic, no collision risk                                    |
 | `@valfuse-node/react`        | Top-level (`useReactValfuseForm`, `ValfuseController`, `LocalizationProvider`, `useLocalization`, …) | The single conflicting value `useValfuseForm` is renamed to disambiguate |
-| `@valfuse-node/vue`          | Top-level (`useVueValfuseForm`, …)                                                                   | Same reason as React                                                     |
+| `@valfuse-node/vue`          | Top-level (`useVueValfuseForm`, `VueLocalizationProvider`, `useVueLocalization`, …)                  | Adapter names are prefixed to keep framework choice explicit             |
+
+Express middleware is available only from `@valfuse-node/core/express`; it is
+kept out of the root entry so browser applications do not load Express.
 
 ```ts
 import {
@@ -272,6 +307,10 @@ import {
   composeStorage,
   // Vue adapter — Tech-prefix disambiguates the identically-named React hook
   useVueValfuseForm,
+  VueLocalizationProvider,
+  provideVueLocalization,
+  useVueLocalization,
+  useVueLocalizationTree,
 } from "@valfuse-node/core";
 ```
 
@@ -600,13 +639,7 @@ async function onSubmit(values: Values) {
 </template>
 ```
 
-The Vue `register()` returns `{ name, modelValue, "onUpdate:modelValue", onBlur }` — compatible with Vue's `v-bind` and `v-model`. The form contract is **identical at the type level** with the React adapter.
-
-> **Heads-up:** The Vue adapter is currently a thin composable; it does not yet
-> expose a `<ValfuseController>` equivalent, `getValue`/`getValues` convenience
-> getters, or all the `useLocalization`-family helpers. See the
-> [`@valfuse-node/vue` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/vue/README.md#api-parity-vs-react)
-> for the full parity matrix.
+The Vue `register()` returns `{ name, modelValue, "onUpdate:modelValue", onBlur }` — compatible with Vue's `v-bind` and `v-model`. Vue also provides `getValue()` / `getValues()` and a localization provider/composable. Custom fields use Vue `computed` bindings; the React-specific `<ValfuseController>` is not part of the Vue API.
 
 ---
 
@@ -736,7 +769,7 @@ export function SignupForm() {
 
 ## Architecture
 
-`@valfuse-node/core` keeps its main runtime entry as a re-export facade. Code-generation APIs live at explicit Node.js subpaths, so importing the root does not load the filesystem-based generators.
+`@valfuse-node/core` keeps its main runtime entry as a re-export facade. Code-generation APIs and Express middleware live at explicit subpaths, so importing the root does not load the filesystem-based generators or Express peer.
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -759,10 +792,11 @@ export function SignupForm() {
 - `form` → nothing (pure domain)
 - `localization` → `yaml`, `chokidar` for compiler/watch tooling; browser runtime is isolated
 - `react` → `form`, `localization` (peers: `react`, `react-dom`)
-- `vue` → `form` (peer: `vue`)
-- `core` → `form`, `localization`, `react`, `vue`, `assets`, `barrel` (peer: `react`, `vue` — both optional)
+- `vue` → `form`, `localization` (peer: `vue`)
+- `express` → `form`, `localization` (peer: `express`)
+- `core` → `form`, `localization`, `react`, `vue`, `express`, `assets`, `barrel` (React, Vue, Express peers are optional)
 
-**Build:** turbo builds dependencies before `core`, including `form`, `localization`, `react`, `vue`, `assets`, and `barrel`. Each package's `dist/` is what `core` resolves at runtime.
+**Build:** turbo builds dependencies before `core`, including `form`, `localization`, `express`, `react`, `vue`, `assets`, and `barrel`. Each package's `dist/` is what `core` resolves at runtime.
 
 **Tree-shaking and peer loading:** `core` is a facade with named re-exports,
 which lets compatible bundlers remove unused exports. Its root entry still
@@ -784,8 +818,9 @@ For deeper detail on any specific surface:
   structured variants, validators
 - [`@valfuse-node/react`](https://github.com/alpinnz/valfuse-node/blob/master/packages/react/README.md) — `useValfuseForm`, `<ValfuseController>`,
   `LocalizationProvider`, storage strategies
-- [`@valfuse-node/vue`](https://github.com/alpinnz/valfuse-node/blob/master/packages/vue/README.md) — `useValfuseForm` composable, v-model bindings,
-  parity with React
+- [`@valfuse-node/vue`](https://github.com/alpinnz/valfuse-node/blob/master/packages/vue/README.md) — `useValfuseForm`, v-model bindings,
+  localization provider and composables
+- [`@valfuse-node/express`](https://github.com/alpinnz/valfuse-node/blob/master/packages/express/README.md) — body/params/query validation and request-scoped localization
 
 ---
 

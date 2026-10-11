@@ -1,0 +1,30 @@
+{
+  "base_locale": "en",
+  "fallback_locale": "en",
+  "locales": [
+    "en",
+    "id"
+  ],
+  "entries": [
+    {
+      "key": "common.ready",
+      "placeholders": []
+    },
+    {
+      "key": "common.user_created",
+      "placeholders": [
+        "name"
+      ]
+    }
+  ],
+  "messages": {
+    "en": {
+      "common.ready": "Express example is ready.",
+      "common.user_created": "User {name} was created."
+    },
+    "id": {
+      "common.ready": "Contoh Express siap.",
+      "common.user_created": "Pengguna {name} berhasil dibuat."
+    }
+  }
+}

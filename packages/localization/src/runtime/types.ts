@@ -14,3 +14,20 @@ export interface RuntimeContext {
   /** Flattened runtime message table grouped by locale. */
   messages: Record<string, Record<string, string>>;
 }
+
+export type InterpolationParams = Record<string, string | number>;
+export type GenderVariant = "male" | "female" | "other";
+
+export interface NamespacedLocalizer {
+  translate(key: string, fallbackValue?: string | null): string;
+  /** Returns `null` when key does not exist or is `null`/`undefined`. */
+  translateOrNull(key: string | null | undefined): string | null;
+  format(key: string, params: InterpolationParams): string;
+  /** Returns `null` when key does not exist or is `null`/`undefined`. */
+  formatOrNull(key: string | null | undefined, params: InterpolationParams): string | null;
+  plural(key: string, count: number): string;
+  /** Returns `null` when key does not exist or is `null`/`undefined`. */
+  pluralOrNull(key: string | null | undefined, count: number): string | null;
+  gender(key: string, gender: GenderVariant, params: InterpolationParams): string;
+  context(key: string, context: string, params?: InterpolationParams): string;
+}

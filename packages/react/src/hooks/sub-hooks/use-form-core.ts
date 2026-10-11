@@ -16,7 +16,7 @@ import type { UseValfuseFormProps } from "../../types/index";
 export function useFormCore<TFieldValues extends Record<string, unknown>>(
   props: UseValfuseFormProps<TFieldValues>
 ): FormCore<TFieldValues> {
-  const { schema, defaultValues, mode = "onSubmit" } = props;
+  const { schema, defaultValues, mode = "onSubmit", reValidateMode = "onChange" } = props;
 
   // ── Reactive state ──────────────────────────────────────────────────────
   const [values, setValues] = useState<TFieldValues>(() => ({ ...defaultValues }) as TFieldValues);
@@ -41,7 +41,7 @@ export function useFormCore<TFieldValues extends Record<string, unknown>>(
 
   // Allows control handlers to read the latest mode without being in useMemo deps.
   const modeRef = useRef(mode);
-  modeRef.current = mode;
+  modeRef.current = isSubmitted ? reValidateMode : mode;
 
   // Allows register/control onChange handlers to always read the latest schema
   // (including transform functions) without being in useCallback deps.

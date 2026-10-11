@@ -72,7 +72,7 @@ Demonstrasi lengkap **semua** API `useValfuseForm` di satu form. Inner component
 - `reset()` — reset ke `defaultValues` atau nilai override
 - `handleSubmit()` — async submit dengan loading state
 - `formState` debug panel — `errors`, `isValid`, `isDirty`, `dirtyFields`, `touchedFields`
-- Mode selector — `onSubmit` | `onChange` | `onBlur` | `all` (remount via `:key`)
+- Mode selector — `onSubmit` | `onChange` | `onBlur` | `onTouched` | `all` (remount via `:key`)
 
 ### 🔹 `UserObjectForm`
 
@@ -142,19 +142,19 @@ const roleId = computed({
 
 Adapter Vue menjaga **kontrak yang sama** dengan React, dengan dua perbedaan utama:
 
-| Fitur                       | React (`@valfuse-node/react`)                        | Vue (`@valfuse-node/vue`)                                                            |
-| --------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Field binding               | `{...form.register('f')}` (JSX spread)               | `v-bind="form.register('f')"`                                                        |
-| Custom field                | `<ValfuseController>` + `form.control`               | `getValue` / `setValue` (no controller yet)                                          |
-| Watch snapshot              | `form.watch()`                                       | `form.watch()`                                                                       |
-| Watch subscribe (global)    | `form.watch((values, info) => …)`                    | `form.watch((values, info) => …)`                                                    |
-| Watch subscribe (one field) | `form.watch('f', cb)`                                | `form.watch('f', cb)` (legacy)                                                       |
-| Watch subscribe (multi)     | `form.watch(['a','b'], cb)`                          | — gunakan multiple `watch(name, cb)`                                                 |
-| Manual trigger              | `form.trigger()`                                     | `form.trigger()`                                                                     |
-| Localization runtime        | `<LocalizationProvider>` + `useLocalization()`       | — tidak tersedia di adapter Vue; pakai package `@valfuse-node/localization` langsung |
-| Mode values                 | `onSubmit \| onChange \| onBlur \| onTouched \| all` | `onSubmit \| onChange \| onBlur \| onTouched \| all`                                 |
+| Fitur                       | React (`@valfuse-node/react`)                        | Vue (`@valfuse-node/vue`)                            |
+| --------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| Field binding               | `{...form.register('f')}` (JSX spread)               | `v-bind="form.register('f')"`                        |
+| Custom field                | `<ValfuseController>` + `form.control`               | `getValue` / `setValue` with Vue `computed` binding  |
+| Watch snapshot              | `form.watch()`                                       | `form.watch()`                                       |
+| Watch subscribe (global)    | `form.watch((values, info) => …)`                    | `form.watch((values, info) => …)`                    |
+| Watch subscribe (one field) | `form.watch('f', cb)`                                | `form.watch('f', cb)` (legacy)                       |
+| Watch subscribe (multi)     | `form.watch(['a','b'], cb)`                          | — gunakan multiple `watch(name, cb)`                 |
+| Manual trigger              | `form.trigger()`                                     | `form.trigger()`                                     |
+| Localization runtime        | `<LocalizationProvider>` + `useLocalization()`       | `<LocalizationProvider>` + `useLocalization()`       |
+| Mode values                 | `onSubmit \| onChange \| onBlur \| onTouched \| all` | `onSubmit \| onChange \| onBlur \| onTouched \| all` |
 
-> **Kontrak TypeScript identik:** `UseValfuseFormReturn<T>` didefinisikan sama persis di kedua adapter. Skema + `defaultValues` yang sama bisa dipakai ulang.
+> Schema dan bentuk `defaultValues` yang sama dapat dipakai ulang. Binding mengikuti pola native masing-masing framework; Vue juga menambahkan `getValue()` dan `getValues()`.
 
 > **Catatan:** `<ValfuseController>` belum tersedia di Vue. Untuk input custom (dropdown, date picker, checkbox group), gunakan pola `computed({ get, set })` dengan `form.getValue` / `form.setValue` — lihat `UserObjectForm.vue` untuk contoh.
 
@@ -221,9 +221,10 @@ Contoh ini memakai setiap lapisan Valfuse yang relevan untuk aplikasi Vue:
 | `@valfuse-node/assets`       | Registry typed dari `public/assets`, ditampilkan di galeri assets                                      |
 | `@valfuse-node/barrel`       | Membuat `src/features/demo/index.ts`, yang dipakai `App.vue` untuk mengimpor demo                      |
 
-Adapter React ada di `examples/react-example`. Vue belum memiliki provider
-localization; contoh ini memakai runtime framework-neutral dari
-`@valfuse-node/localization/runtime` langsung.
+Adapter React ada di `examples/react-example`. Demo localization di `App.vue`
+menggunakan `LocalizationProvider` dan `useLocalization()` dari adapter Vue;
+fungsi runtime framework-neutral tetap tersedia dari
+`@valfuse-node/localization/runtime`.
 
 ### Jalankan di workspace ini
 

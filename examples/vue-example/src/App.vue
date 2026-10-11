@@ -8,6 +8,8 @@ import {
   GeneratorDemo,
   LocalizationDemo,
 } from "./features/demo";
+import { LocalizationProvider } from "@valfuse-node/vue";
+import localizationManifest from "./assets/localizations/localization";
 </script>
 
 <template>
@@ -48,7 +50,9 @@ import {
 
     <section id="localization" style="margin-bottom: 3rem">
       <h2>Localization runtime</h2>
-      <LocalizationDemo />
+      <LocalizationProvider :manifest="localizationManifest" initial-locale="en">
+        <LocalizationDemo />
+      </LocalizationProvider>
     </section>
 
     <section id="vue-adapter" style="margin-bottom: 3rem">

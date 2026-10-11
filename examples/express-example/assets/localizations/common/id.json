@@ -1,0 +1,6 @@
+{
+  "@@locale": "id",
+  "@@module": "common",
+  "ready": "Contoh Express siap.",
+  "user_created": "Pengguna {name} berhasil dibuat."
+}

@@ -1,45 +1,27 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import {
-  interpolate,
-  lookupMessage,
-  pickStructuredPluralVariant,
-} from "@valfuse-node/localization/runtime";
-import localizationManifest from "../../assets/localizations/localization";
+import { useLocalization } from "@valfuse-node/vue";
 
-const locale = ref(localizationManifest.base_locale);
+const { locale, setLocale, translate, format, plural, manifest } = useLocalization();
 const assetCount = ref(2);
 
-const runtimeContext = computed(() => ({
-  locale: locale.value,
-  fallbackLocale: localizationManifest.fallback_locale,
-  messages: localizationManifest.messages,
-}));
+const welcomeMessage = computed(() => format("common.welcome", { name: "Valfuse" }));
+const runtimeNote = computed(() => translate("common.runtime_note"));
+const assetCountMessage = computed(() => plural("common.asset_count", assetCount.value));
 
-const welcomeMessage = computed(() =>
-  interpolate(lookupMessage(runtimeContext.value, "common.welcome"), { name: "Valfuse" })
-);
-
-const assetCountMessage = computed(() =>
-  pickStructuredPluralVariant(
-    lookupMessage(runtimeContext.value, "common.asset_count"),
-    assetCount.value
-  )
-);
+function selectLocale(event: Event): void {
+  setLocale((event.target as HTMLSelectElement).value);
+}
 </script>
 
 <template>
   <div style="display: grid; gap: 1rem; max-width: 34rem">
-    <p>
-      Vue adapter belum menyediakan provider localization. Demo ini memakai browser-safe runtime
-      dari
-      <code>@valfuse-node/localization/runtime</code> langsung.
-    </p>
+    <p>{{ runtimeNote }}</p>
     <label style="display: grid; gap: 0.4rem">
       Locale
-      <select v-model="locale">
+      <select :value="locale" @change="selectLocale">
         <option
-          v-for="availableLocale in localizationManifest.locales"
+          v-for="availableLocale in manifest.locales"
           :key="availableLocale"
           :value="availableLocale"
         >

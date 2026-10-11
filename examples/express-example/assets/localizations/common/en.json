@@ -1,0 +1,6 @@
+{
+  "@@locale": "en",
+  "@@module": "common",
+  "ready": "Express example is ready.",
+  "user_created": "User {name} was created."
+}

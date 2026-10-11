@@ -1,4 +1,4 @@
-export type Framework = "react" | "vue" | "nest";
+export type Framework = "react" | "vue" | "express" | "nest";
 
 export interface GeneratedConfig {
   runtime_entry_file: string;

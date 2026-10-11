@@ -3,7 +3,7 @@ import type { RuntimeManifest } from "../types/manifest";
 import { normalizeProject } from "../normalizer/normalize-project";
 import { validateProject } from "../validator/validate-project";
 import { buildManifest } from "./build-manifest";
-import { buildReactRuntimeFiles } from "./build-react-runtime-files";
+import { buildRuntimeFiles } from "./build-runtime-files";
 import type { Diagnostic } from "../types/diagnostics";
 
 export interface CompiledProject {
@@ -22,9 +22,8 @@ export async function compileProject(
   const diagnostics = validateProject(normalized, config);
   const manifest = buildManifest(normalized, config);
 
-  // Currently only React runtime files are generated in the examples/react-example.
-  // Vue/Nest templates are not included in adapter-react scope.
-  const files = buildReactRuntimeFiles(manifest);
+  // The generated manifest and runtime types are shared by all framework adapters.
+  const files = buildRuntimeFiles(manifest);
 
   const placeholders = Object.fromEntries(
     manifest.entries

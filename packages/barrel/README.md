@@ -69,6 +69,10 @@ export * from "./required";
 import { emailRule, requiredRule } from "./rules";
 ```
 
+The generator is framework-neutral. Express projects can use it to expose
+route, middleware, or schema modules through a stable TypeScript entry point;
+it does not add Express-specific runtime code.
+
 ## Configuration
 
 The CLI reads the `barrel` section of `valfuse.yaml` from the current

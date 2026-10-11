@@ -1,0 +1,40 @@
+{
+  "name": "@valfuse-node/example-express",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Express reference app for Valfuse request validation and localization",
+  "scripts": {
+    "predev": "npm run generate",
+    "dev": "tsx watch src/server.ts",
+    "prebuild": "npm run generate",
+    "build": "tsup src/server.ts --format esm --out-dir dist --external express --external @valfuse-node/core --external @valfuse-node/form",
+    "lint": "eslint src",
+    "pretypecheck": "npm run generate",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "generate": "npm run assets:generate && npm run barrel:generate && npm run localization:generate",
+    "generate:check": "npm run assets:check && npm run barrel:check && npm run localization:validate",
+    "assets:generate": "node ../../packages/assets/dist/cli/index.js",
+    "assets:check": "node ../../packages/assets/dist/cli/index.js --check",
+    "barrel:generate": "node ../../packages/barrel/dist/cli/index.js",
+    "barrel:check": "node ../../packages/barrel/dist/cli/index.js --check",
+    "localization:generate": "node ../../packages/localization/dist/cli/index.js generate",
+    "localization:validate": "node ../../packages/localization/dist/cli/index.js validate"
+  },
+  "dependencies": {
+    "@valfuse-node/core": "*",
+    "@valfuse-node/form": "*",
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "@valfuse-node/assets": "*",
+    "@valfuse-node/barrel": "*",
+    "@valfuse-node/localization": "*",
+    "@types/express": "^5.0.3",
+    "@types/node": "26.3.0",
+    "tsup": "8.5.1",
+    "tsx": "^4.8.1",
+    "typescript": "6.0.3"
+  }
+}

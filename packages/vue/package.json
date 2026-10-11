@@ -1,7 +1,7 @@
 {
   "name": "@valfuse-node/vue",
-  "version": "0.3.4",
-  "description": "Vue adapter for valfuse-node — useValfuseForm composable",
+  "version": "0.4.0",
+  "description": "Vue adapter for valfuse-node — form, controller, and localization composables",
   "license": "MIT",
   "sideEffects": false,
   "keywords": [
@@ -30,15 +30,16 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external vue --external @valfuse-node/form",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external vue --external @valfuse-node/form",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external vue --external @valfuse-node/form --external @valfuse-node/localization",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external vue --external @valfuse-node/form --external @valfuse-node/localization",
     "lint": "eslint src",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist coverage"
   },
   "dependencies": {
-    "@valfuse-node/form": "*"
+    "@valfuse-node/form": "*",
+    "@valfuse-node/localization": "*"
   },
   "peerDependencies": {
     "vue": ">=3"

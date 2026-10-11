@@ -2,6 +2,7 @@ import { effectScope, nextTick } from "vue";
 import { describe, expect, it } from "vitest";
 import { createSchema } from "@valfuse-node/form";
 import { useValfuseForm } from "../composables/use-valfuse-form";
+import { useValfuseController } from "../components/valfuse-controller";
 
 // ─── Schema ───────────────────────────────────────────────────────────────────
 
@@ -409,5 +410,121 @@ describe("useValfuseForm — reset", () => {
     expect(form.formState.isSubmitSuccessful).toBe(false);
     expect(form.formState.dirtyFields).toEqual({});
     expect(form.formState.touchedFields).toEqual({});
+  });
+
+  it("merges partial values over defaults and preserves null", () => {
+    const form = inScope(() =>
+      useValfuseForm({
+        schema: testSchema,
+        defaultValues: { email: "valid@example.com" as string | null, password: "longenough" },
+      })
+    );
+
+    form.reset({ email: null });
+
+    expect(form.getValues()).toEqual({ email: null, password: "longenough" });
+  });
+});
+
+describe("useValfuseForm — validation modes and setValue", () => {
+  it("validates onTouched fields on blur and subsequent changes", () => {
+    const form = inScope(() =>
+      useValfuseForm({
+        schema: testSchema,
+        defaultValues: { email: "", password: "longenough" },
+        mode: "onTouched",
+      })
+    );
+    const email = form.register("email");
+
+    email["onUpdate:modelValue"]("invalid");
+    expect(form.formState.errors.email).toBeUndefined();
+
+    email.onBlur();
+    expect(form.formState.errors.email?.message).toBe("Invalid email");
+
+    email["onUpdate:modelValue"]("valid@example.com");
+    expect(form.formState.errors.email).toBeUndefined();
+  });
+
+  it("mode=all validates on value changes", () => {
+    const form = inScope(() =>
+      useValfuseForm({
+        schema: testSchema,
+        defaultValues: { email: "", password: "longenough" },
+        mode: "all",
+      })
+    );
+
+    form.register("email")["onUpdate:modelValue"]("invalid");
+
+    expect(form.formState.errors.email?.message).toBe("Invalid email");
+  });
+
+  it("uses reValidateMode after the first submit attempt", async () => {
+    const form = inScope(() =>
+      useValfuseForm({
+        schema: testSchema,
+        defaultValues: { email: "valid@example.com", password: "longenough" },
+        mode: "onSubmit",
+        reValidateMode: "onBlur",
+      })
+    );
+
+    await form.handleSubmit(() => {})(new Event("submit"));
+    const email = form.register("email");
+    email["onUpdate:modelValue"]("invalid");
+    expect(form.formState.errors.email).toBeUndefined();
+
+    email.onBlur();
+    expect(form.formState.errors.email?.message).toBe("Invalid email");
+  });
+
+  it("supports explicit validation in setValue", () => {
+    const form = inScope(() =>
+      useValfuseForm({
+        schema: testSchema,
+        defaultValues: { email: "valid@example.com", password: "longenough" },
+      })
+    );
+
+    form.setValue("email", "invalid", { shouldValidate: true });
+
+    expect(form.formState.errors.email?.message).toBe("Invalid email");
+  });
+
+  it("preserves the original submit error", async () => {
+    const form = inScope(() =>
+      useValfuseForm({
+        schema: testSchema,
+        defaultValues: { email: "valid@example.com", password: "longenough" },
+      })
+    );
+    const submitError = new Error("Request failed");
+
+    await expect(
+      form.handleSubmit(() => Promise.reject(submitError))(new Event("submit"))
+    ).rejects.toBe(submitError);
+    expect(form.formState.isSubmitSuccessful).toBe(false);
+    expect(form.formState.isSubmitting).toBe(false);
+  });
+});
+
+describe("Vue controlled fields", () => {
+  it("binds custom field values, changes, and blur state", () => {
+    inScope(() => {
+      const form = useValfuseForm({
+        schema: testSchema,
+        defaultValues: { email: "", password: "" },
+      });
+      const binding = useValfuseController(form.control, "email");
+
+      expect(binding.value.field.modelValue).toBe("");
+      binding.value.field["onUpdate:modelValue"]("person@example.com");
+      expect(form.getValue("email")).toBe("person@example.com");
+      binding.value.field.onBlur();
+      expect(form.formState.touchedFields.email).toBe(true);
+      expect(binding.value.fieldState.isTouched).toBe(true);
+    });
   });
 });

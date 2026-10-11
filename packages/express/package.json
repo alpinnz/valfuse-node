@@ -1,0 +1,68 @@
+{
+  "name": "@valfuse-node/express",
+  "version": "0.1.0",
+  "description": "Express middleware for Valfuse form validation and localization",
+  "license": "MIT",
+  "sideEffects": false,
+  "keywords": [
+    "express",
+    "expressjs",
+    "validation",
+    "localization",
+    "typescript",
+    "valfuse"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external express --external @valfuse-node/form --external @valfuse-node/localization",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external express --external @valfuse-node/form --external @valfuse-node/localization",
+    "lint": "eslint src",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist coverage"
+  },
+  "dependencies": {
+    "@valfuse-node/form": "*",
+    "@valfuse-node/localization": "*"
+  },
+  "peerDependencies": {
+    "express": ">=4.18.0",
+    "@types/express": "^4.17.21 || ^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "26.3.0",
+    "tsup": "8.5.1",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpinnz/valfuse-node.git",
+    "directory": "packages/express"
+  },
+  "homepage": "https://github.com/alpinnz/valfuse-node#readme",
+  "bugs": {
+    "url": "https://github.com/alpinnz/valfuse-node/issues"
+  }
+}

@@ -41,7 +41,7 @@ Requires **Node.js ≥ 22** for the CLI / compiler. The runtime is browser-safe 
                                 ↓ valfuse-localization generate
 ┌────────────────────────────────────────────────────────────────────┐
 │  Generated artifacts          →   out: src/assets/localizations/  │
-│    • localization.ts          (framework-specific entry point)    │
+│    • localization.ts          (portable runtime entry point)       │
 │    • localization.types.ts    (TypeScript types for all keys)     │
 │    • localization.manifest.json (browser-loadable runtime data)   │
 └────────────────────────────────────────────────────────────────────┘
@@ -253,7 +253,7 @@ localization:
   input_dir: assets/localizations # where the YAML/JSON source files live
   output_dir: src/assets/localizations # where the generated TS/JSON go
 
-  framework: react # react | vue | nest
+  framework: react # react | vue | express | nest
   class_name: Localization # name of the generated class/namespace
 
   base_locale: en # default locale at runtime
@@ -344,10 +344,10 @@ npx valfuse-localization clean
 
 ### `localization.ts` — the framework-specific entry point
 
-Exposes a singleton with the active locale, a `t()` lookup function, and the underlying manifest. The exact shape depends on `framework: react | vue | nest` in the config.
+Emits the runtime manifest and type-safe key tree shared by the framework adapters. Set `framework` to `react`, `vue`, `express`, or the existing `nest` value to describe the target integration. Express applications can pass the generated manifest to `createLocalizationMiddleware` from `@valfuse-node/express`.
 
 ```ts
-// For framework: react
+// The generated files are portable across React, Vue, and Express.
 import { Localization, localization } from "./assets/localizations/localization";
 // `localization` is the runtime manifest + t() helper
 // `Localization` is the class for the configured framework
@@ -547,7 +547,7 @@ interface InlineMetadata {
   custom?: Record<string, unknown>;
 }
 
-type Framework = "react" | "vue" | "nest";
+type Framework = "react" | "vue" | "express" | "nest";
 type NamespacePrefix = "module" | "none";
 ```
 

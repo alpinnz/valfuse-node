@@ -12,6 +12,8 @@
 //     export it); it is renamed at the umbrella level to `useReactValfuseForm`
 //     and `useVueValfuseForm`. Adapter packages keep their original names.
 //   - Types come from `form` (single source of truth) and are exported once.
+//   - Express middleware is available through the explicit `./express` subpath
+//     so the browser-oriented root entry does not load the Express peer.
 
 // ---------------------------------------------------------------------------
 // Form domain (framework-agnostic): schema, rules, validation, transformation,

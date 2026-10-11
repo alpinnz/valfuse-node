@@ -29,9 +29,7 @@ export interface ValfuseVueWatchFunction<
 /**
  * Validation trigger mode.
  *
- * Mirrors the React adapter and the form-domain contract exactly.
- * `onTouched` is supported by React; for Vue we currently support the same
- * three core modes. Extend when needed.
+ * Mirrors the React adapter and form-domain validation modes.
  */
 export type ValfuseFormMode = "onSubmit" | "onChange" | "onBlur" | "onTouched" | "all";
 
@@ -47,7 +45,7 @@ export interface UseValfuseFormProps<TFieldValues extends Record<string, unknown
   defaultValues: TFieldValues;
   mode?: ValfuseFormMode;
   /** Mode used to re-validate a field after the first submit attempt. */
-  reValidateMode?: ValfuseFormMode;
+  reValidateMode?: "onChange" | "onBlur" | "onSubmit";
 }
 
 /**
@@ -94,9 +92,7 @@ export interface ValfuseRegisterReturn {
  *  - `register` returns the Vue-native `ValfuseRegisterReturn` (v-model shape).
  *  - `getValue` and `getValues` are convenience getters not present in React.
  *
- * All other members match the React contract 1:1. In particular, `control`
- * is the same shape used by React's `<ValfuseController>` — a future
- * Vue equivalent component will accept it identically.
+ * All other members match the React contract 1:1. In particular, `control` is shared with React and can be passed to Vue's controller APIs.
  */
 export interface UseValfuseFormReturn<TFieldValues extends Record<string, unknown>> {
   formState: ValfuseFormState<TFieldValues>;
@@ -105,12 +101,16 @@ export interface UseValfuseFormReturn<TFieldValues extends Record<string, unknow
   handleSubmit: (fn: (values: TFieldValues) => Promise<void> | void) => (e: Event) => Promise<void>;
   setErrors: (errors: SetErrorsInput) => void;
   clearErrors: (fields?: Array<keyof TFieldValues & string>) => void;
-  setValue: (name: keyof TFieldValues & string, value: unknown) => void;
+  setValue: <TName extends keyof TFieldValues & string>(
+    name: TName,
+    value: TFieldValues[TName],
+    options?: { shouldValidate?: boolean }
+  ) => void;
   trigger: (name?: (keyof TFieldValues & string) | Array<keyof TFieldValues & string>) => boolean;
   watch: ValfuseVueWatchFunction<TFieldValues>;
   reset: (values?: Partial<TFieldValues>) => void;
-  /** Vue-specific extension: read a single field value. */
-  getValue: (name: keyof TFieldValues & string) => unknown;
+  /** Vue-specific extension: read a single field value with its field type. */
+  getValue: <TName extends keyof TFieldValues & string>(name: TName) => TFieldValues[TName];
   /** Vue-specific extension: read all field values. */
   getValues: () => TFieldValues;
 }

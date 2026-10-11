@@ -1191,3 +1191,32 @@ describe("setValue + trigger stale-ref regression", () => {
     expect(result.current.formState.errors.agreed).toBeDefined();
   });
 });
+
+describe("reValidateMode", () => {
+  it("uses the configured mode after the first submit attempt", async () => {
+    const { result } = renderHook(() =>
+      useValfuseForm({
+        schema: testLoginSchema,
+        defaultValues: { email: "valid@example.com", password: "longenough" },
+        mode: "onSubmit",
+        reValidateMode: "onBlur",
+      })
+    );
+
+    await act(async () => {
+      await result.current.handleSubmit(() => {})();
+    });
+
+    await act(async () => {
+      result.current.register("email").onChange({
+        target: { value: "invalid" },
+      } as React.ChangeEvent<HTMLInputElement>);
+    });
+    expect(result.current.formState.errors.email).toBeUndefined();
+
+    await act(async () => {
+      result.current.register("email").onBlur();
+    });
+    expect(result.current.formState.errors.email?.message).toBe("Invalid email format");
+  });
+});
