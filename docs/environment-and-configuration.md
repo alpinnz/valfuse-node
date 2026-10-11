@@ -15,22 +15,26 @@
 Root scripts use Turborepo to run package tasks across `packages/*` and
 `examples/*`:
 
-| Command                                 | Purpose                                      |
-| --------------------------------------- | -------------------------------------------- |
-| `npm run build`                         | Build workspace packages in dependency order |
-| `npm run lint`                          | Run ESLint in each workspace                 |
-| `npm run typecheck`                     | Run TypeScript checks in each workspace      |
-| `npm run test`                          | Run Vitest in packages with tests            |
-| `npm run test:coverage`                 | Run Vitest with coverage enabled             |
-| `npm run format:check`                  | Check formatting with Prettier               |
-| `npm run validate`                      | Run format check, lint, typecheck, and tests |
-| `npm run dev:react` / `npm run dev:vue` | Start one example application                |
+| Command                                                         | Purpose                                      |
+| --------------------------------------------------------------- | -------------------------------------------- |
+| `npm run build`                                                 | Build workspace packages in dependency order |
+| `npm run lint`                                                  | Run ESLint in each workspace                 |
+| `npm run typecheck`                                             | Run TypeScript checks in each workspace      |
+| `npm run test`                                                  | Run Vitest in packages with tests            |
+| `npm run test:coverage`                                         | Run Vitest with coverage enabled             |
+| `npm run format:check`                                          | Check formatting with Prettier               |
+| `npm run validate`                                              | Run format check, lint, typecheck, and tests |
+| `npm run dev:react` / `npm run dev:vue` / `npm run dev:express` | Start one example application                |
 
 The CI workflow also runs a build, coverage-enabled tests, and `npm audit`.
 `npm run validate` does not invoke the root build task as a separate step.
 Turborepo can still build upstream packages required by its lint, typecheck,
 and test tasks. Use `npm run build` to run the build task across all
 workspaces explicitly.
+
+Build workspace packages before starting an example from a clean checkout.
+Example generator scripts invoke the built CLI entry points from `packages/assets`,
+`packages/barrel`, and `packages/localization` directly.
 
 ## Valfuse generator configuration
 

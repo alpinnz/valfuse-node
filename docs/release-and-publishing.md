@@ -4,18 +4,19 @@ Dokumentasi ini menjelaskan pipeline _Continuous Integration_ (CI) dan alur
 publikasi paket **@valfuse-node** (monorepo) ke npm yang dijalankan oleh GitHub
 Actions, beserta tooling _git governance_ lokal yang mengontrol kualitas commit.
 
-Monorepo berisi **7 paket** yang dapat dipublikasikan ke npm, semuanya
-scoped di bawah `@valfuse-node/*`:
+Workflow rilis berbasis tag mendukung **8 paket** di bawah scope
+`@valfuse-node/*`:
 
-| Package                      | Workspace path          | Ekspor utama                                           |
-| ---------------------------- | ----------------------- | ------------------------------------------------------ |
-| `@valfuse-node/assets`       | `packages/assets`       | CLI dan API untuk typed static asset registry          |
-| `@valfuse-node/barrel`       | `packages/barrel`       | CLI dan API untuk generated TypeScript barrel files    |
-| `@valfuse-node/core`         | `packages/core`         | Umbrella entry (re-export form/localization/react/vue) |
-| `@valfuse-node/form`         | `packages/form`         | Validasi & state form framework-agnostic               |
-| `@valfuse-node/localization` | `packages/localization` | Compiler, CLI, runtime i18n                            |
-| `@valfuse-node/react`        | `packages/react`        | React adapter (hooks + controller)                     |
-| `@valfuse-node/vue`          | `packages/vue`          | Vue adapter (composables)                              |
+| Package                      | Workspace path          | Ekspor utama                                        |
+| ---------------------------- | ----------------------- | --------------------------------------------------- |
+| `@valfuse-node/assets`       | `packages/assets`       | CLI dan API untuk typed static asset registry       |
+| `@valfuse-node/barrel`       | `packages/barrel`       | CLI dan API untuk generated TypeScript barrel files |
+| `@valfuse-node/core`         | `packages/core`         | Root re-exports + `/assets`, `/barrel`, `/express`  |
+| `@valfuse-node/express`      | `packages/express`      | Express middleware untuk validasi dan localization  |
+| `@valfuse-node/form`         | `packages/form`         | Validasi & state form framework-agnostic            |
+| `@valfuse-node/localization` | `packages/localization` | Compiler, CLI, runtime i18n                         |
+| `@valfuse-node/react`        | `packages/react`        | React adapter (hooks + controller)                  |
+| `@valfuse-node/vue`          | `packages/vue`          | Vue adapter (composables)                           |
 
 Dua workflow GitHub Actions dikelola di `.github/workflows/`:
 
@@ -123,7 +124,7 @@ sekaligus. Push maksimal tiga tag per perintah, atau gunakan trigger manual
 ketika tag release sudah terlanjur ada.
 
 ```bash
-gh workflow run publish.yml --ref master -f release_tag=v0.3.4-form
+gh workflow run publish.yml --ref master -f release_tag=v0.3.5-form
 ```
 
 ### 3.2 Skema tag: `v<semver>-<package>`
@@ -140,10 +141,10 @@ Contoh:
 | Tag                   | Paket diterbitkan            |
 | --------------------- | ---------------------------- |
 | `v0.2.0-assets`       | `@valfuse-node/assets`       |
-| `v0.2.0-barrel`       | `@valfuse-node/barrel`       |
+| `v0.2.1-barrel`       | `@valfuse-node/barrel`       |
 | `v0.5.0-core`         | `@valfuse-node/core`         |
-| `v0.3.4-form`         | `@valfuse-node/form`         |
-| `v0.1.0-express`      | `@valfuse-node/express`      |
+| `v0.3.5-form`         | `@valfuse-node/form`         |
+| `v0.1.1-express`      | `@valfuse-node/express`      |
 | `v0.5.0-localization` | `@valfuse-node/localization` |
 | `v0.4.0-react`        | `@valfuse-node/react`        |
 | `v0.4.0-vue`          | `@valfuse-node/vue`          |
@@ -161,8 +162,8 @@ Langkah lengkap:
 2. `actions/setup-node@v6` dengan
    `registry-url: https://registry.npmjs.org` (menyiapkan kredensial npm).
 3. `npm ci`.
-4. **Resolve target package dari tag** — memisahkan `<pkg>` dan `<semver>`,
-   whitelist `assets|barrel|core|form|localization|react|vue`; jika tag tidak pas → skip.
+4. **Select target package from tag** — memisahkan `<pkg>` dan `<semver>`,
+   allowlist `assets|barrel|core|express|form|localization|react|vue`; jika tag tidak pas → skip.
 5. **Verify version matches tag** — membandingkan `<semver>` pada tag dengan
    field `version` pada `packages/<pkg>/package.json`. Jika tidak sama;
    workflow **gagal (exit 1) tanpa publish** (lihat §6.3).
@@ -243,7 +244,7 @@ mengaktifkan hooks. Hook yang aktif:
 
 ```js
 type-enum: ['feat','fix','docs','style','refactor','perf','test','build','ci','chore','revert']
-scope-enum: ['assets','barrel','core','express','form','localization','react','vue','examples', 'react-example','vue-example','adapter','repository','release','changelog','eslint','prettier','husky','commitlint','ci','deps','docs','adr','tools','package','cli']
+scope-enum: ['core','assets','barrel','express','form','localization','react','vue','examples','express-example','react-example','vue-example','adapter','repository','release','changelog','eslint','prettier','husky','commitlint','ci','deps','docs','adr','tools','package','cli']
 header-max-length: 72
 subject-case: never sentence/start/pascal/upper
 ```

@@ -35,9 +35,15 @@ locale preference storage strategies. The Vue adapter provides
 an optional app-provided storage adapter. Both use the browser-safe runtime
 from `@valfuse-node/localization/runtime`.
 
+The Express adapter consumes the generated runtime manifest in
+`createLocalizationMiddleware()` and creates localization state per request.
+The same locale sources can therefore serve browser and Express applications.
+
 ## Errors and network boundaries
 
 Form errors are data returned by validation or supplied by the application.
 Adapters expose methods such as `setErrors` so an application can map a
 server response into field errors. Valfuse does not make HTTP requests or
 define a server error protocol; the consuming application owns that mapping.
+Express middleware validates request data with the shared schema, but
+authentication and authorization remain responsibilities of the server app.

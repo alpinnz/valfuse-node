@@ -12,6 +12,30 @@ _Nothing yet._
 
 ---
 
+## [0.3.5] — 2026-10-11
+
+### Changed
+
+- **`@valfuse-node/form@0.3.5`** — clarified that its framework-agnostic schema validation and transformations are reusable by server APIs, while form-state primitives support form adapters. Documentation and package metadata only; no runtime API changes.
+
+---
+
+## [0.2.1] — 2026-10-11
+
+### Changed
+
+- **`@valfuse-node/barrel@0.2.1`** — clarified workspace CLI usage for generating example barrels. Documentation only; no runtime API changes.
+
+---
+
+## [0.1.1] — 2026-10-11
+
+### Changed
+
+- **`@valfuse-node/express@0.1.1`** — clarified that Express shares the portable localization manifest format with React and Vue. Documentation only; no runtime API changes.
+
+---
+
 ## [0.4.0] — 2026-10-09
 
 ### Added

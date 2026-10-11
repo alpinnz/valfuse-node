@@ -156,6 +156,13 @@ Generate after changing the selected source modules. Run `npm run barrel:check`
 in CI, and commit generated files when they form part of the package's public
 source API.
 
+The scripts above are for consumer projects where the package binary is on
+the local npm script path. In this monorepo, the React, Vue, and Express
+examples call the built workspace CLI directly with Node.js
+(`node ../../packages/barrel/dist/cli/index.js`) so generator execution is
+consistent in local runs and Turbo CI. See each example README for its
+workspace commands.
+
 ## Public API and dependency guidance
 
 This generator creates only `export * from "..."` statements. It does not

@@ -1,6 +1,6 @@
 # @valfuse-node/example-react
 
-> Reference implementation dan playground untuk `valfuse-node` — React 18.
+> Reference implementation dan playground untuk `valfuse-node` — React 19.
 
 Package ini **bukan production package**. Digunakan sebagai:
 
@@ -297,6 +297,9 @@ npm run generate:check         # validasi output tanpa menulis file
 Asset SVG berada di `public/assets`; generator hanya membuat URL typed dan tidak
 menyalin file. CLI tersedia sebagai script
 `assets:*`, `barrel:*`, dan `localization:*`.
+Script barrel memanggil CLI workspace yang sama dari
+`packages/barrel/dist/cli/index.js`; gunakan `@valfuse-node/barrel` sebagai
+sumber generator dan buat ulang file output melalui `npm run barrel:generate`.
 
 `npm run typecheck` juga membangkitkan output lebih dahulu. File registry assets
 dan barrel dapat dibuat ulang; jangan edit manual. Demo localization React

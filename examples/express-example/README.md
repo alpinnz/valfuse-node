@@ -65,3 +65,7 @@ npm run build
 `valfuse.yaml` configures the same framework-neutral assets and barrel
 generators used by the React and Vue examples, plus the Express localization
 runtime manifest.
+
+The `barrel:generate` and `barrel:check` scripts call the shared CLI built
+from `packages/barrel`; generated route exports should be regenerated through
+those scripts rather than edited by hand.

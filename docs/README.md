@@ -12,7 +12,7 @@ remain in each workspace's README.
 | [Code conventions](./code-conventions.md)                           | TypeScript, public exports, imports, and naming conventions                     |
 | [Environment and configuration](./environment-and-configuration.md) | Node.js, npm, workspace commands, localization, asset, and barrel configuration |
 | [Forms and localization](./forms-and-localization.md)               | Framework-neutral form behavior and the localization compiler/runtime           |
-| [Framework adapters and state](./framework-adapters-and-state.md)   | React and Vue adapter responsibilities and form state ownership                 |
+| [Framework adapters and state](./framework-adapters-and-state.md)   | Express, React, and Vue adapter responsibilities and form state ownership       |
 | [Security and data handling](./security-and-data-handling.md)       | Validation boundaries and handling of values, errors, and locale data           |
 | [Testing](./testing.md)                                             | Vitest setup, package test commands, and CI quality gates                       |
 | [Release and publishing](./release-and-publishing.md)               | CI workflows, npm release tags, package publishing, and troubleshooting         |
@@ -31,6 +31,7 @@ remain in each workspace's README.
 - Package API references: [`assets`](../packages/assets/README.md),
   [`barrel`](../packages/barrel/README.md),
   [`core`](../packages/core/README.md),
+  [`express`](../packages/express/README.md),
   [`form`](../packages/form/README.md),
   [`localization`](../packages/localization/README.md),
   [`react`](../packages/react/README.md), and

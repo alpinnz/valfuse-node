@@ -15,8 +15,10 @@ abstraction.
 ## Public exports and imports
 
 - Declare package APIs through the package's public entry point. The `form`,
-  `localization`, `react`, and `vue` packages use `public-api.ts` files where
-  applicable; `core` is a direct umbrella re-export.
+  `localization`, `react`, and `vue` packages curate exports in `public-api.ts`;
+  `assets`, `barrel`, and `express` export through their entry files. `core`
+  re-exports runtime APIs at its root and keeps Express and generator APIs in
+  explicit subpaths.
 - Import another workspace through its package name and exported entry point.
   Do not reach into another package's internal `src/` paths.
 - Keep package dependencies pointed toward the owning domain. Do not move code

@@ -1,9 +1,9 @@
 # Testing
 
 The packages use Vitest. Tests are kept with their owning package under
-`src/__tests__/`; React tests use a DOM environment, while domain and compiler
-tests run in Node. Vue tests use the Vue testing utilities configured by that
-workspace.
+`src/__tests__/`; React tests use a DOM environment, while domain, compiler,
+and Express middleware tests run in Node. Vue tests use the Vue testing
+utilities configured by that workspace.
 
 ## Run checks
 
@@ -30,5 +30,6 @@ explicitly builds before running coverage-enabled tests and also runs
 `npm audit --audit-level=high` on Ubuntu and Windows.
 
 When adding tests, assert public behavior at the package boundary. Keep
-framework-specific interaction tests in the relevant adapter workspace and
-test compiler or validation logic without a UI runtime where possible.
+framework-specific interaction and middleware tests in the relevant adapter
+workspace and test compiler or validation logic without a UI runtime where
+possible.

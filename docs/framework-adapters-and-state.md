@@ -1,8 +1,8 @@
 # Framework adapters and state
 
-The framework adapters connect the shared form domain to framework-native
-components and reactivity. They do not add a router or application-wide state
-manager.
+The adapters connect the shared form domain to framework-native components,
+reactivity, or request middleware. They do not add a router, persistence layer,
+or application-wide state manager.
 
 ## Form state ownership
 
@@ -23,6 +23,13 @@ Locale preference strategies include local storage, session storage, cookies,
 memory, and composition. They store the selected locale preference. They are
 not intended to store form submissions or credentials.
 
+## Express
+
+`@valfuse-node/express` provides middleware for validating request bodies,
+params, query values, headers, and cookies with shared form schemas. Its
+localization middleware creates request-scoped locale state from the generated
+runtime manifest. It does not add routing, authentication, or persistence.
+
 ## Vue
 
 `@valfuse-node/vue` provides the `useValfuseForm` composable. Bind compatible
@@ -32,4 +39,5 @@ currently provide a Vue equivalent of `ValfuseController`.
 
 See the [React](../packages/react/README.md) and
 [Vue](../packages/vue/README.md) READMEs for complete API contracts and
-examples.
+examples. For server middleware, see the
+[Express README](../packages/express/README.md).

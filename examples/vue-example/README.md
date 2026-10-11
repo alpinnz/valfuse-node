@@ -242,11 +242,14 @@ npm run generate:check         # validasi output tanpa menulis file
 Asset SVG berada di `public/assets`; generator hanya membuat URL typed dan tidak
 menyalin file. CLI tersedia sebagai script
 `assets:*`, `barrel:*`, dan `localization:*`.
+Script barrel memanggil CLI workspace yang sama dari
+`packages/barrel/dist/cli/index.js`; gunakan `@valfuse-node/barrel` sebagai
+sumber generator dan buat ulang file output melalui `npm run barrel:generate`.
 
 `npm run typecheck` juga membangkitkan output lebih dahulu. File registry assets
-dan barrel dapat dibuat ulang; jangan edit manual. Karena adapter Vue belum
-menyediakan provider localization, demo locale dan plural memakai runtime
-langsung dan state `ref`/`computed` Vue.
+dan barrel dapat dibuat ulang; jangan edit manual. Demo localization memakai
+`LocalizationProvider`, `useLocalization()`, dan `useLocalizationTree()` dari
+adapter Vue, bersama runtime framework-neutral untuk fungsi terjemahan.
 
 ## License
 

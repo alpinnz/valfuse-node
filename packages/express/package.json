@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/express",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Express middleware for Valfuse form validation and localization",
   "license": "MIT",
   "sideEffects": false,

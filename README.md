@@ -46,16 +46,16 @@ Most form libraries require you to learn a heavy abstraction or lock you into a 
 
 ## Packages
 
-| Package                                                           | Description                                                                   | npm           |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------- |
-| [`@valfuse-node/core`](./packages/core/README.md)                 | **Umbrella entry point** — runtime facade and Node.js generator subpaths      | ✅ published  |
-| [`@valfuse-node/assets`](./packages/assets/README.md)             | CLI and Node.js API for generating typed TypeScript paths for static assets   | not published |
-| [@valfuse-node/barrel](./packages/barrel/README.md)               | CLI and Node.js API for generating TypeScript barrel files                    | not published |
-| [`@valfuse-node/form`](./packages/form/README.md)                 | Framework-agnostic schema, rules, validation, transformation, state           | ✅ published  |
-| [`@valfuse-node/react`](./packages/react/README.md)               | React `useValfuseForm` hook, `<ValfuseController>`, full localization runtime | ✅ published  |
-| [`@valfuse-node/vue`](./packages/vue/README.md)                   | Vue 3 `useValfuseForm` composable with native v-model bindings                | ✅ published  |
-| [`@valfuse-node/express`](./packages/express/README.md)           | Express middleware for request validation and localization                    | ✅ published  |
-| [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON/YAML → type-safe TypeScript localization + browser runtime | ✅ published  |
+| Package                                                           | Description                                                                   | npm          |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------ |
+| [`@valfuse-node/core`](./packages/core/README.md)                 | **Umbrella entry point** — runtime facade and explicit Node.js subpaths       | ✅ published |
+| [`@valfuse-node/assets`](./packages/assets/README.md)             | CLI and Node.js API for generating typed TypeScript paths for static assets   | ✅ published |
+| [@valfuse-node/barrel](./packages/barrel/README.md)               | CLI and Node.js API for generating TypeScript barrel files                    | ✅ published |
+| [`@valfuse-node/form`](./packages/form/README.md)                 | Shared schema validation and transforms, plus form-state primitives           | ✅ published |
+| [`@valfuse-node/react`](./packages/react/README.md)               | React `useValfuseForm` hook, `<ValfuseController>`, full localization runtime | ✅ published |
+| [`@valfuse-node/vue`](./packages/vue/README.md)                   | Vue 3 `useValfuseForm` composable with native v-model bindings                | ✅ published |
+| [`@valfuse-node/express`](./packages/express/README.md)           | Express middleware for request validation and localization                    | ✅ published |
+| [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON/YAML → type-safe TypeScript localization + browser runtime | ✅ published |
 
 > The `@valfuse-node/example-react`, `@valfuse-node/example-vue`, and `@valfuse-node/example-express` packages are private examples — see [Examples](#examples).
 
@@ -108,9 +108,10 @@ npx valfuse-barrel
 ```
 
 The **@valfuse-node/core** root import exports the form, localization, React,
-and Vue APIs. Its explicit **/assets** and **/barrel** subpaths expose the
-Node.js generator APIs without loading them through the root import. Install
-the individual generator packages directly when you only need their CLI tools.
+and Vue APIs. Its explicit **/assets**, **/barrel**, and **/express** subpaths
+expose the Node.js generator APIs and Express middleware without loading them
+through the root import. Install the individual packages directly when you
+only need their CLI tools or Express integration.
 
 ## Quick Start
 
@@ -274,32 +275,36 @@ function Header() {
 └────────────────────────────────────────────────────────────────┘
               │
               ├─ @valfuse-node/core       (umbrella facade)
+              │     ├─ @valfuse-node/assets (subpath: /assets)
+              │     ├─ @valfuse-node/barrel (subpath: /barrel)
               │     ├─ @valfuse-node/form
               │     ├─ @valfuse-node/localization
               │     ├─ @valfuse-node/express (peer: express)
               │     ├─ @valfuse-node/react  (peer: react)
               │     └─ @valfuse-node/vue    (peer: vue)
               │
+              ├─ examples/express-example (private)
               ├─ examples/react-example  (private)
               └─ examples/vue-example    (private)
 ```
 
 **Dependency direction** (strictly inner→outer is forbidden):
 
-| Package        | Depends on                                                            | Peer                             |
-| -------------- | --------------------------------------------------------------------- | -------------------------------- |
-| `form`         | —                                                                     | —                                |
-| `assets`       | `yaml` (generator config)                                             | —                                |
-| `barrel`       | `yaml` (generator config)                                             | —                                |
-| `localization` | `yaml`, `chokidar` (Node compiler/watch)                              | —                                |
-| `react`        | `form`, `localization`                                                | `react >= 18`, `react-dom >= 18` |
-| `vue`          | `form`, `localization`                                                | `vue >= 3`                       |
-| `express`      | `form`, `localization`                                                | `express >= 4.18`                |
-| `core`         | `form`, `localization`, `react`, `vue`, `express`, `assets`, `barrel` | React, Vue, Express (optional)   |
+| Package        | Depends on                                                 | Peer                             |
+| -------------- | ---------------------------------------------------------- | -------------------------------- |
+| `form`         | —                                                          | —                                |
+| `assets`       | `yaml` (generator config)                                  | —                                |
+| `barrel`       | `yaml` (generator config)                                  | —                                |
+| `localization` | `yaml`, `chokidar` (Node compiler/watch)                   | —                                |
+| `react`        | `form`, `localization`                                     | `react >= 18`, `react-dom >= 18` |
+| `vue`          | `form`, `localization`                                     | `vue >= 3`                       |
+| `express`      | `form`, `localization`                                     | `express >= 4.18`                |
+| `core`         | `form`, `localization`, `react`, `vue`, `assets`, `barrel` | React, Vue, Express (optional)   |
 
-The core package itself marks React, Vue, and Express optional, but its root facade
-re-exports both adapters. Direct Node.js imports of that facade need both peer
-modules to resolve; the React adapter also requires `react-dom >= 18`.
+The core root facade re-exports the React and Vue adapters, so direct Node.js
+imports of that facade need both peer modules available. Express is an optional
+peer used only by the explicit `/express` subpath; the React adapter also
+requires `react-dom >= 18`.
 
 **Build order:** `form` → `localization` → `express` / `react` / `vue` → `core` (turbo handles this automatically).
 
@@ -420,8 +425,9 @@ Three private reference apps live under `examples/`. Use them to copy working
 patterns into your own project. The React and Vue apps cover the shared form
 domain, generated assets, localization, barrel generation, and the core facade.
 The Express app demonstrates request validation, request-scoped localization,
-static assets, and generated route exports. Their guides document the relevant
-package APIs and workspace commands:
+static assets, and generated route exports. All three use the shared
+`@valfuse-node/barrel` CLI for generated exports. Their guides document the
+relevant package APIs and workspace commands:
 
 - [React example guide](./examples/react-example/README.md)
 - [Vue example guide](./examples/vue-example/README.md)

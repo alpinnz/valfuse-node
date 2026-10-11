@@ -1,15 +1,15 @@
 # @valfuse-node/form
 
-> Framework-agnostic form domain: schema definition, rule-based validation, value transformation, error normalization, and pure state-management primitives. Zero React/Vue dependencies — usable in Node.js, server actions, CLI tools, or any framework.
+> Framework-agnostic schema validation and form-state primitives. Reuse schemas in React and Vue forms, Express REST middleware, Node.js server actions, or CLI tools.
 
 ```bash
 npm install @valfuse-node/form
 ```
 
-The published package declares **Node.js 22 or newer** in `engines`. The form
-domain has no React, Vue, or other runtime framework peer dependency; it can be
-used directly in server-side code or imported by a browser application's
-framework adapter.
+The published package declares **Node.js 22 or newer** in `engines`. It has no
+React, Vue, or other runtime framework peer dependency. Its schema and
+validation APIs can be used directly on server-side data or by the Express
+adapter; its form-state primitives support framework adapters and applications.
 
 ---
 
@@ -37,12 +37,15 @@ The form package is the **shared contract** for the entire `@valfuse-node` ecosy
 
 - **Use directly in Node.js / server actions** — no React or Vue required.
 - **Use as the validation engine** for `useReactValfuseForm` / `useVueValfuseForm` — the adapters read the same `ValfuseSchema` and `ValfuseFormState` interfaces.
-- **Use with Express** through `@valfuse-node/express`'s `validateBody` middleware. It transforms and validates parsed request bodies using the same schema.
+- **Use with Express REST APIs** through `@valfuse-node/express` middleware for request bodies, route params, and query values. It transforms and validates parsed request data using the same schema.
 - **Type-safe end-to-end** — `defaultValues` infers the value type; `setErrors` is typed by your field names; `formState.errors` is a `Record<keyof TFieldValues, ValfuseFieldError>`.
 
 ```ts
 import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/form";
 ```
+
+See the [Express adapter guide](../express/README.md) for REST middleware
+examples using the same schema API.
 
 ---
 

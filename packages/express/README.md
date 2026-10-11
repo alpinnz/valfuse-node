@@ -177,7 +177,7 @@ The asset and barrel generators are framework-neutral too; configure
 barrel generator for server modules when it fits the project's layout.
 
 The localization compiler accepts `framework: express` and emits the same
-portable manifest used by the React and Vue applications.
+portable manifest format used by React, Vue, and Express applications.
 
 ## Core subpath
 

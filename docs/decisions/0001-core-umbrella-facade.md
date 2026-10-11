@@ -17,6 +17,8 @@ Form-domain behavior still belongs in `@valfuse-node/form`.
 - `@valfuse-node/core` depends on and re-exports the public APIs of `form`,
   `localization`, `react`, and `vue`.
 - `core` contains no form or localization domain implementation.
+- Express middleware and Node.js generator APIs are exposed through the
+  explicit `/express`, `/assets`, and `/barrel` subpaths, not through the root.
 - Framework-neutral exports are available at the top level. The umbrella
   renames colliding form hooks to `useReactValfuseForm` and
   `useVueValfuseForm`; the adapter packages keep their own

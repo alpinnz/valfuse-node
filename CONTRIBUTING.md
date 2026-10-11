@@ -30,56 +30,19 @@ npm run build
 ```
 valfuse-node/
 ├── packages/
-│   ├── core/                            # @valfuse-node/core (umbrella — re-exports the others)
-│   │   └── src/
-│   │       └── index.ts                 # Facade: re-exports from form/localization (flat) and react/vue (flat with `{Tech}`-prefixed hook names: useReactValfuseForm, useVueValfuseForm)
-│   │
-│   ├── localization/                    # @valfuse-node/localization
-│   │   └── src/
-│   │       ├── cli/                     # CLI commands (generate, validate, coverage, init, clean)
-│   │       ├── compiler/                # Build manifest, runtime model, React runtime files
-│   │       ├── config/                  # Load, normalize, and validate project config
-│   │       ├── coverage/                # Coverage report builders (HTML, JSON)
-│   │       ├── diagnostics/             # Diagnostic codes and terminal report renderer
-│   │       ├── emitter/                 # Output dir management and runtime file emission
-│   │       ├── loader/                  # File index builder and locale file scanner
-│   │       ├── normalizer/              # Key/node normalization and metadata handling
-│   │       ├── parser/                  # Localization file parser and placeholder extractor
-│   │       ├── runtime/                 # Browser runtime (interpolation, variants, lookup)
-│   │       ├── types/                   # Shared TypeScript types
-│   │       ├── validator/               # Validation rules (parity, depth, collisions, placeholders)
-│   │       ├── watch/                   # Watch service and ignore patterns
-│   │       ├── browser.ts               # Browser/runtime package entry point
-│   │       ├── public-api.ts            # Named re-exports for the public API
-│   │       └── index.ts                 # Package entry point (Node.js / CLI)
-│   │
-│   ├── react/                           # @valfuse-node/react
-│   │   └── src/
-│   │       ├── components/              # ValfuseController
-│   │       ├── helpers/                 # Field error helpers, validation mode utilities
-│   │       ├── hooks/                   # useValfuseForm
-│   │       ├── localization/
-│   │       │   ├── bridge/              # LocalizationStore
-│   │       │   ├── hooks/               # useLocalization, useLocalizationTree
-│   │       │   ├── lazy/                # createLazyLocaleLoader
-│   │       │   ├── provider/            # LocalizationProvider
-│   │       │   ├── ssr/                 # createSsrLocalizationState
-│   │       │   └── storage/             # localeStorage
-│   │       ├── types/                   # React-specific TypeScript types
-│   │       ├── public-api.ts            # Named re-exports for the public API
-│   │       └── index.ts                 # Package entry point
-│   │
-│   ├── vue/                             # @valfuse-node/vue
-│   │   └── src/
-│   │       ├── composables/             # useValfuseForm
-│   │       ├── types/                   # Vue-specific TypeScript types
-│   │       ├── public-api.ts            # Named re-exports for the public API
-│   │       └── index.ts                 # Package entry point
-│   │
-   └── examples/
-       ├── react-example/               # Private playground — React (not published)
-       └── vue-example/                 # Private playground — Vue 3 (not published)
-│
+│   ├── assets/                          # @valfuse-node/assets
+│   ├── barrel/                          # @valfuse-node/barrel
+│   ├── core/                            # Root facade and /assets, /barrel, /express subpaths
+│   ├── express/                         # @valfuse-node/express middleware
+│   ├── form/                            # @valfuse-node/form domain
+│   ├── localization/                    # Compiler, CLI, and browser runtime
+│   ├── react/                           # @valfuse-node/react adapter
+│   ├── vue/                             # @valfuse-node/vue adapter
+├── examples/
+│   ├── express-example/                 # Private Express server reference
+│   ├── react-example/                   # Private React playground
+│   └── vue-example/                     # Private Vue 3 playground
+├── docs/                                # Architecture and engineering guides
 ├── turbo.json
 ├── tsconfig.base.json
 └── eslint.config.mjs
@@ -98,6 +61,9 @@ npm run dev:react
 
 # Run only the Vue example
 npm run dev:vue
+
+# Run only the Express example
+npm run dev:express
 
 # Build all packages
 npm run build
@@ -121,6 +87,7 @@ npm run clean
 # Test a specific package
 npm run test --workspace=packages/core
 npm run test --workspace=packages/react
+npm run test --workspace=packages/express
 
 # Localization CLI (from root)
 npm run example:localization:generate
@@ -134,10 +101,14 @@ npm run example:localization:validate
 
 ```bash
 # Publish individual packages
-npm run publish:core
+npm run publish:assets
+npm run publish:barrel
+npm run publish:form
 npm run publish:localization
+npm run publish:express
 npm run publish:react
 npm run publish:vue
+npm run publish:core
 
 # Publish all packages at once
 npm run publish:all
@@ -185,14 +156,14 @@ A task is considered done when:
 
 ### Architecture Rules
 
-- `form` and `localization` are **zero-dependency domain packages** — they must not import React, Vue, or any UI framework
+- `form` is a zero-dependency domain package. `localization` has Node.js compiler dependencies, but neither package may import React, Vue, Express, or another framework adapter
 - `react` may depend on `form` and `localization` only — no external form libraries
-- `vue` may depend on `form` only — no external form libraries
-- `core` is the **umbrella facade** — it re-exports from `form`, `localization`, `react`, and `vue`. It must not contain any domain logic of its own; it is a re-export layer only.
+- `vue` may depend on `form` and `localization` only — no external form libraries
+- `express` may depend on `form` and `localization`; Express is its framework peer
+- `core` is the **umbrella facade** — its root re-exports from `form`, `localization`, `react`, and `vue`; Express and the Node.js generators are explicit subpaths. It must not contain domain logic of its own.
 - `localization` must not depend on React or any UI framework (browser runtime is framework-agnostic)
-- `examples/react-example` may depend on all packages
-- `examples/vue-example` may depend on all packages
-- Public API must be declared in `public-api.ts` and re-exported from `index.ts` (except `core`, which has no `public-api.ts` because it is itself a re-export layer)
+- Each example may depend on the packages needed by its framework and demo
+- Public APIs must be exported from each package entry point. `form`, `localization`, `react`, and `vue` curate exports in `public-api.ts`; `assets`, `barrel`, and `express` export through their entry files, while `core` provides its root and explicit subpath entry points.
 - No cross-package internal imports (e.g. `@valfuse-node/form/src/rules/string.rule`)
 - The `localization` package exposes two entry points: `index.ts` (Node.js/CLI) and `browser.ts` (runtime)
 

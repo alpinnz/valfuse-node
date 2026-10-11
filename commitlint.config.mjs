@@ -3,7 +3,7 @@
  *
  * Follows the Conventional Commits specification extended with scopes that
  * actually exist in this monorepo (one package per scope), so history stays
- * consistent across every workspace (core/form/localization/react/vue/examples).
+ * consistent across every workspace.
  *
  * Reference:
  *   https://www.conventionalcommits.org/en/v1.0.0/
@@ -49,11 +49,13 @@ export default {
         "core",
         "assets",
         "barrel",
+        "express",
         "form",
         "localization",
         "react",
         "vue",
         "examples",
+        "express-example",
         "react-example",
         "vue-example",
         // Adapters were historically a separate package; kept for
