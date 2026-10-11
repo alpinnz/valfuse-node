@@ -85,6 +85,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@valfuse-node/express": "*",
     "@types/react": "19.2.14",
     "@vitest/coverage-v8": "4.1.11",
     "react": "^19.2.8",
