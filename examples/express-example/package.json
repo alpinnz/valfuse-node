@@ -17,8 +17,8 @@
     "generate:check": "npm run assets:check && npm run barrel:check && npm run localization:validate",
     "assets:generate": "node ../../packages/assets/dist/cli/index.js",
     "assets:check": "node ../../packages/assets/dist/cli/index.js --check",
-    "barrel:generate": "valfuse-barrel",
-    "barrel:check": "valfuse-barrel --check",
+    "barrel:generate": "node ../../packages/barrel/dist/cli/index.js",
+    "barrel:check": "node ../../packages/barrel/dist/cli/index.js --check",
     "localization:generate": "node ../../packages/localization/dist/cli/index.js generate",
     "localization:validate": "node ../../packages/localization/dist/cli/index.js validate"
   },
