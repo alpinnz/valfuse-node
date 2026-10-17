@@ -1,5 +1,8 @@
 export { createLocalizationMiddleware } from "./middleware/create-localization-middleware";
-export type { LocalizationMiddlewareOptions } from "./middleware/create-localization-middleware";
+export type {
+  ExpressLocaleStorage,
+  LocalizationMiddlewareOptions,
+} from "./middleware/create-localization-middleware";
 export {
   validateBody,
   validateParams,

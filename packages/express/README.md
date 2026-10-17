@@ -147,22 +147,61 @@ app.post(
 `createLocalizationMiddleware` uses a generated `RuntimeManifest` and adds a
 request-scoped localizer to `response.locals.localization`. By default it
 selects a supported locale from `Accept-Language`, then falls back to the
-manifest's base locale. Provide `getLocale` when the application selects locale
-from a route, session, or other request state. Unsupported locales fall back to
-the base locale.
+manifest's base locale. Pass an `ExpressLocaleStorage` to read and persist a
+locale through request-scoped application state such as a session or cookie.
+The storage receives the current request and response, so it does not keep
+mutable locale state shared between requests. Unsupported stored locales fall
+back to the manifest's base locale. The existing `getLocale` callback remains
+available for read-only/custom selection when the storage has no saved locale.
 
 ```ts
 import express from "express";
+import type { Request } from "express";
 import manifest from "./assets/localizations/localization.manifest.json";
-import { createLocalizationMiddleware } from "@valfuse-node/express";
+import { createLocalizationMiddleware, type ExpressLocaleStorage } from "@valfuse-node/express";
 
 const app = express();
-app.use(createLocalizationMiddleware(manifest));
+app.use(express.json());
+app.use(sessionMiddleware); // Application-provided session middleware.
+
+type SessionRequest = Request & { session: { locale?: string } };
+const localeStorage: ExpressLocaleStorage = {
+  get(request) {
+    return (request as SessionRequest).session.locale;
+  },
+  set(request, _response, locale) {
+    (request as SessionRequest).session.locale = locale;
+  },
+  remove(request) {
+    delete (request as SessionRequest).session.locale;
+  },
+};
+
+app.use(createLocalizationMiddleware(manifest, { storage: localeStorage }));
 
 app.get("/health", (_request, response) => {
   response.json({ message: response.locals.localization.translate("common.ready") });
 });
+
+app.post("/locale", (request, response) => {
+  const locale: unknown = request.body?.locale;
+  if (typeof locale !== "string" || !manifest.locales.includes(locale)) {
+    return response.status(400).json({ code: "UNSUPPORTED_LOCALE" });
+  }
+
+  response.locals.localization.setLocale(locale);
+  return response.json({
+    locale: response.locals.localization.locale,
+    message: response.locals.localization.translate("common.ready"),
+  });
+});
 ```
+
+Change the stored locale from an application route with
+`response.locals.localization.setLocale(locale)`. It returns `false` for a
+locale absent from the manifest and applies a supported locale to the current
+response as well as the configured storage. Keep application-specific input
+validation on the route that changes the preference.
 
 The localizer also exposes `format`, `plural`, `gender`, `context`, and
 `namespace` helpers. Its locale state is created per request, so concurrent

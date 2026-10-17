@@ -1,4 +1,4 @@
-import type { Request } from "express";
+import type { Request, Response } from "express";
 import {
   interpolate,
   lookupMessage,
@@ -17,6 +17,15 @@ import type {
 export interface LocalizationMiddlewareOptions {
   /** Return the locale selected by application-specific request logic. */
   getLocale?: (request: Request) => string | undefined;
+  /** Persist a locale using request-scoped application storage such as a session or cookie. */
+  storage?: ExpressLocaleStorage;
+}
+
+/** Request-aware locale persistence for Express applications. */
+export interface ExpressLocaleStorage {
+  get(request: Request): string | undefined;
+  set(request: Request, response: Response, locale: string): void;
+  remove?(request: Request, response: Response): void;
 }
 
 /** Adds a request-scoped localizer to `response.locals.localization`. */
@@ -25,7 +34,7 @@ export function createLocalizationMiddleware(
   options: LocalizationMiddlewareOptions = {}
 ): ExpressLocalizationMiddleware {
   return (request, response, next) => {
-    const locale = selectLocale(request, manifest, options.getLocale);
+    let locale = selectLocale(request, manifest, options);
     const context = {
       locale,
       fallbackLocale: manifest.fallback_locale,
@@ -48,7 +57,16 @@ export function createLocalizationMiddleware(
       pickStructuredPluralVariant(readRawMessage(key), count);
 
     const localizer: ExpressLocalization = {
-      locale,
+      get locale() {
+        return locale;
+      },
+      setLocale(nextLocale) {
+        if (!manifest.locales.includes(nextLocale)) return false;
+        options.storage?.set(request, response, nextLocale);
+        locale = nextLocale;
+        context.locale = nextLocale;
+        return true;
+      },
       translate,
       translateOrNull(key) {
         return key === null || key === undefined || !hasKey(key) ? null : translate(key);
@@ -80,10 +98,17 @@ export function createLocalizationMiddleware(
 function selectLocale(
   request: Request,
   manifest: RuntimeManifest,
-  getLocale: LocalizationMiddlewareOptions["getLocale"]
+  options: LocalizationMiddlewareOptions
 ): string {
-  if (getLocale) {
-    const requestedLocale = getLocale(request);
+  if (options.storage) {
+    const storedLocale = options.storage.get(request);
+    if (storedLocale !== undefined) {
+      return manifest.locales.includes(storedLocale) ? storedLocale : manifest.base_locale;
+    }
+  }
+
+  if (options.getLocale) {
+    const requestedLocale = options.getLocale(request);
     return requestedLocale && manifest.locales.includes(requestedLocale)
       ? requestedLocale
       : manifest.base_locale;

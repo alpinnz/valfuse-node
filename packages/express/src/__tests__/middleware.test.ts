@@ -192,4 +192,37 @@ describe("Express localization middleware", () => {
     expect(res.locals.localization.format("common.greeting", { name: "Ada" })).toBe("Halo, Ada!");
     expect(next).toHaveBeenCalledOnce();
   });
+
+  it("reads locale from request-aware storage and persists supported changes", () => {
+    const manifest: RuntimeManifest = {
+      base_locale: "en",
+      fallback_locale: "en",
+      locales: ["en", "id"],
+      entries: [{ key: "common.greeting", placeholders: [] }],
+      messages: {
+        en: { "common.greeting": "Hello!" },
+        id: { "common.greeting": "Halo!" },
+      },
+    };
+    const storage = {
+      get: vi.fn(() => "id"),
+      set: vi.fn(),
+    };
+    const { res, next } = invoke(
+      createLocalizationMiddleware(manifest, { storage }),
+      createRequest({ acceptsLanguages: (() => "en") as Request["acceptsLanguages"] })
+    );
+    const localizer = res.locals.localization;
+
+    expect(localizer.locale).toBe("id");
+    expect(localizer.translate("common.greeting")).toBe("Halo!");
+    expect(localizer.setLocale("en")).toBe(true);
+    expect(localizer.locale).toBe("en");
+    expect(localizer.translate("common.greeting")).toBe("Hello!");
+    expect(storage.set).toHaveBeenCalledWith(expect.anything(), res, "en");
+    expect(localizer.setLocale("fr")).toBe(false);
+    expect(localizer.locale).toBe("en");
+    expect(storage.set).toHaveBeenCalledOnce();
+    expect(next).toHaveBeenCalledOnce();
+  });
 });

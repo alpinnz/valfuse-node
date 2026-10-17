@@ -6,6 +6,8 @@ export type { InterpolationParams, NamespacedLocalizer } from "@valfuse-node/loc
 
 export interface ExpressLocalization extends NamespacedLocalizer {
   readonly locale: string;
+  /** Persist and apply a supported locale to this response. Returns false for unsupported locales. */
+  setLocale(locale: string): boolean;
   namespace(scope: string): NamespacedLocalizer;
 }
 
