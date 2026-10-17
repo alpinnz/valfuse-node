@@ -12,6 +12,14 @@ _Nothing yet._
 
 ---
 
+## [0.2.0] — 2026-10-18
+
+### Added
+
+- **`@valfuse-node/express@0.2.0`** — adds request-aware locale storage and `setLocale` support for Express localization middleware.
+
+---
+
 ## [0.3.5] — 2026-10-11
 
 ### Changed
