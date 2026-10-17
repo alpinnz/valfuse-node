@@ -33,6 +33,7 @@ remain in each workspace's README.
   [`core`](../packages/core/README.md),
   [`express`](../packages/express/README.md),
   [`form`](../packages/form/README.md),
+  [`validation`](../packages/validation/README.md),
   [`localization`](../packages/localization/README.md),
   [`react`](../packages/react/README.md), and
   [`vue`](../packages/vue/README.md)

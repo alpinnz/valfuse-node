@@ -85,6 +85,9 @@ barrel:
   input_dir: src
   output_file: src/index.ts
 
+  # Optional: generate an index.ts in each eligible nested directory too.
+  recursive: false
+
   # Optional exact filenames to expose. Omit it or use [] to scan all eligible
   # direct children.
   include: []
@@ -96,10 +99,11 @@ barrel:
 
 | Option        | Default        | Purpose                                                  |
 | ------------- | -------------- | -------------------------------------------------------- |
-| `input_dir`   | `src`          | Directory to scan; the scan is not recursive             |
-| `output_file` | `src/index.ts` | Generated file; must have a `.ts` extension              |
+| `input_dir`   | `src`          | Directory to scan                                        |
+| `output_file` | `src/index.ts` | Root output; must be `input_dir/index.ts` when recursive |
 | `include`     | `[]`           | Exact filename allowlist; empty means automatic scanning |
 | `exclude`     | `[]`           | Exact filename denylist for automatic scanning           |
+| `recursive`   | `false`        | Generate `index.ts` in eligible nested directories too   |
 
 The YAML config uses snake_case names. The programmatic API uses camelCase
 names. Unknown YAML keys, empty paths, invalid lists, duplicate filenames, or
@@ -108,8 +112,13 @@ entries must be file names without directory paths.
 
 ### Files included by the scan
 
-Only direct-child regular files with `.ts` or `.tsx` extensions are eligible.
-The generator skips:
+Only regular `.ts` or `.tsx` files are eligible. By default, the generator
+scans direct children of `input_dir`. With `recursive: true`, it also scans
+visible nested directories and generates an `index.ts` in each directory that
+contains eligible files. Nested barrels use `index.ts`; the configured
+`output_file` names the root barrel. Recursive scans skip hidden directories
+and common test/build directories. In every scanned directory, the generator
+skips:
 
 - hidden files;
 - `index.ts` and `index.tsx`;
@@ -117,10 +126,11 @@ The generator skips:
 - `*.test.ts`, `*.test.tsx`, `*.spec.ts`, `*.spec.tsx`, `*.stories.ts`, and
   `*.stories.tsx`.
 
-Use `include` to define a stable public surface when the folder contains
-internal modules. An allowlisted file must exist directly under `input_dir` and
-must pass the same eligibility checks. `exclude` is useful for automatic scans;
-when `include` is non-empty, it already defines the selected files.
+Use `include` to define a stable public surface when a folder contains internal
+modules. An allowlisted file must exist directly under `input_dir` and pass the
+same eligibility checks. In recursive mode, the same filename allowlist is
+applied to each nested directory; absent entries in nested directories are
+ignored. `exclude` applies in every scanned directory.
 
 ## Generate and check
 
@@ -131,11 +141,11 @@ npx valfuse-barrel --config config/valfuse.yaml
 npx valfuse-barrel --help
 ```
 
-| Option            | Behavior                                  |
-| ----------------- | ----------------------------------------- |
-| `--config <file>` | Read another YAML config file             |
-| `--check`         | Fail if generated output is missing/stale |
-| `--help`, `-h`    | Print CLI usage and defaults              |
+| Option            | Behavior                                      |
+| ----------------- | --------------------------------------------- |
+| `--config <file>` | Read another YAML config file                 |
+| `--check`         | Fail if any generated output is missing/stale |
+| `--help`, `-h`    | Print CLI usage and defaults                  |
 
 `--check` does not write files. It exits with an error if output is missing or
 does not match the current source selection. Existing output is rewritten only
@@ -170,8 +180,10 @@ re-export default exports, resolve duplicate names, create aliases, or infer
 which exports are intended to be public. Use an `include` allowlist or hand
 write explicit exports when you need those controls.
 
-Generation is non-recursive by design. For multiple directories, add a separate
-config file with a `barrel` section for each directory and run each explicitly:
+Generation is non-recursive by default. Set `recursive: true` when every
+eligible directory in a source tree should use the same allowlist. Use separate
+non-recursive configs when directories need different allowlists; do not
+overlap those configs with a recursive config for the same tree:
 
 ```bash
 npx valfuse-barrel --config valfuse.rules.yaml
@@ -198,6 +210,7 @@ const result = await generateBarrel({
   config: {
     inputDir: "src/rules",
     outputFile: "src/rules/index.ts",
+    recursive: true,
     include: ["email.ts", "required.ts"],
   },
 });
@@ -214,24 +227,28 @@ console.log(result.moduleCount, result.changed);
   outputFile: "src/index.ts",
   include: [],
   exclude: [],
+  recursive: false,
 }
 ```
 
 The package entry exports `generateBarrel` and
 `DEFAULT_BARREL_GENERATOR_CONFIG`. Its public types are
 `BarrelGeneratorConfig`, `BarrelGeneratorConfigInput`, `GenerateBarrelOptions`,
-and `GenerateBarrelResult`.
+`GenerateBarrelOutput`, and `GenerateBarrelResult`.
 
 On success, `generateBarrel` returns `GenerateBarrelResult` with `moduleCount`
-(the number of re-exported files), `outputFile` (an absolute path), and
-`changed` (whether the generator wrote a new version). It throws an `Error` if
-the input directory is missing, the config is invalid, no modules are selected,
-an allowlisted module is missing, or check mode finds stale output.
+(the total number of re-exported files), `outputFile` (the primary affected
+absolute path), and `changed` (whether any output changed). Recursive mode also
+returns `outputFiles` with each generated path and its module count, plus
+`removedFiles` when obsolete generated barrels were removed. It throws an
+`Error` if the input directory is missing, the config is invalid, no modules
+are selected, an allowlisted root module is missing, or check mode finds stale
+output.
 
 ## Troubleshooting
 
 - **No TypeScript modules found:** check `input_dir`, file extensions, and the
-  default exclusions. The generator never descends into child directories.
+  default exclusions. Set `recursive: true` to scan nested directories.
 - **Included module not found:** use the exact eligible file name, including
   `.ts` or `.tsx`, relative to `input_dir`.
 - **Duplicate exports or a circular import:** narrow `include` or hand-write

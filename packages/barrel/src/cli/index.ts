@@ -11,22 +11,23 @@ interface CliOptions {
 }
 
 const HELP = [
-  "valfuse-barrel - generate a TypeScript barrel from one directory",
+  "valfuse-barrel - generate TypeScript barrels from source directories",
   "",
   "Usage:",
   "  valfuse-barrel [--config <file>] [--check]",
   "",
   "Options:",
   "  --config <file>  Read generator options from a YAML file",
-  "  --check          Exit with an error when the generated file is stale",
+  "  --check          Exit with an error when any generated file is stale",
   "  --help, -h       Show this help",
   "",
   'The default config file is valfuse.yaml. Configure these options under the "barrel" section.',
   "Defaults for omitted options:",
   "  input_dir:   src",
   "  output_file: src/index.ts",
-  "  include:     all eligible direct-child .ts/.tsx files",
+  "  include:     all eligible .ts/.tsx files",
   "  exclude:     []",
+  "  recursive:   false",
 ].join("\n");
 
 async function main(): Promise<void> {
@@ -41,19 +42,27 @@ async function main(): Promise<void> {
   const config = await readConfig(cwd, options.configFile);
   const result = await generateBarrel({ cwd, config, check: options.check });
 
-  // eslint-disable-next-line no-console
-  console.log(
-    (options.check
-      ? "Barrel is up to date"
-      : result.changed
-        ? "Generated barrel"
-        : "Barrel is up to date") +
-      ": " +
-      relative(cwd, result.outputFile) +
-      " (" +
-      result.moduleCount +
-      " modules)"
-  );
+  const generatedOutputs = result.outputFiles ?? [result];
+  for (const output of generatedOutputs) {
+    // eslint-disable-next-line no-console
+    console.log(
+      (options.check
+        ? "Barrel is up to date"
+        : output.changed
+          ? "Generated barrel"
+          : "Barrel is up to date") +
+        ": " +
+        relative(cwd, output.outputFile) +
+        " (" +
+        output.moduleCount +
+        " modules)"
+    );
+  }
+
+  for (const removedFile of result.removedFiles ?? []) {
+    // eslint-disable-next-line no-console
+    console.log("Removed stale barrel: " + relative(cwd, removedFile));
+  }
 }
 
 function parseArguments(args: string[]): CliOptions {
@@ -135,7 +144,7 @@ function readGeneratorConfigSection(
     return root[sectionName];
   }
 
-  const legacyKeys = new Set(["input_dir", "output_file", "include", "exclude"]);
+  const legacyKeys = new Set(["input_dir", "output_file", "include", "exclude", "recursive"]);
   if (Object.keys(root).every((key) => legacyKeys.has(key))) return root;
 
   throw new Error('Barrel config section "barrel" is missing in ' + filePath + ".");
@@ -163,6 +172,14 @@ function parseConfigObject(value: unknown, filePath: string): BarrelGeneratorCon
       }
       if (key === "include") config.include = entry;
       if (key === "exclude") config.exclude = entry;
+      continue;
+    }
+
+    if (key === "recursive") {
+      if (typeof entry !== "boolean") {
+        throw new Error('Barrel config option "recursive" must be a boolean.');
+      }
+      config.recursive = entry;
       continue;
     }
 

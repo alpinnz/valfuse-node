@@ -1,6 +1,6 @@
 import express from "express";
 import type { Response } from "express";
-import type { ExpressLocalizationLocals } from "@valfuse-node/core/express";
+import type { ExpressLocalizationLocals } from "@valfuse-node/express";
 
 export const healthRouter = express.Router();
 

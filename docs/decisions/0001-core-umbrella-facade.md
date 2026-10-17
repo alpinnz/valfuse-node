@@ -10,7 +10,8 @@
 Consumers need one package entry point for the Valfuse form, localization,
 React, and Vue APIs. The earlier `core` orchestration proposal left the package
 without orchestration behavior and did not provide that installation path.
-Form-domain behavior still belongs in `@valfuse-node/form`.
+`core` remains a facade. The separation between validation and form state is
+defined in [ADR-0003](./0003-separate-validation-engine.md).
 
 ## Decision
 

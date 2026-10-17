@@ -1,6 +1,6 @@
 import type { NextFunction, Request, RequestHandler, Response } from "express";
 import { describe, expect, it, vi } from "vitest";
-import { createSchema, t } from "@valfuse-node/form";
+import { createSchema, t } from "@valfuse-node/validation";
 import type { RuntimeManifest } from "@valfuse-node/localization";
 import {
   createLocalizationMiddleware,

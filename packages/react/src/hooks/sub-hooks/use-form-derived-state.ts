@@ -8,7 +8,7 @@
  * validation — consistent with `handleSubmit` and `trigger`.
  */
 import { useMemo } from "react";
-import { validateSchema, transformValues } from "@valfuse-node/form";
+import { validateSchema, transformValues } from "@valfuse-node/validation";
 import type { ValfuseDirtyFields, ValfuseTouchedFields } from "../../types/index";
 import type { FormCore } from "./form-core";
 

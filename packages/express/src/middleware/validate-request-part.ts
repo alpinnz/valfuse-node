@@ -1,7 +1,7 @@
 import type { Request, RequestHandler, Response } from "express";
 import type { ParamsDictionary, Query } from "express-serve-static-core";
-import { transformValues, validateSchema } from "@valfuse-node/form";
-import type { ValfuseSchema } from "@valfuse-node/form";
+import { transformValues, validateSchema } from "@valfuse-node/validation";
+import type { ValfuseSchema } from "@valfuse-node/validation";
 import type {
   ExpressBodyMiddleware,
   ExpressCookiesMiddleware,

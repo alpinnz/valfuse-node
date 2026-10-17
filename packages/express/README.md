@@ -3,7 +3,7 @@
 > Express middleware for validating request bodies, route params, and query values, and localizing each request with Valfuse.
 
 ```bash
-npm install @valfuse-node/express @valfuse-node/form @valfuse-node/localization express
+npm install @valfuse-node/express @valfuse-node/validation @valfuse-node/localization express
 npm install --save-dev @types/express
 ```
 
@@ -22,7 +22,7 @@ when route handlers need a narrower type.
 ```ts
 import express from "express";
 import type { Response } from "express";
-import { createSchema, t } from "@valfuse-node/form";
+import { createSchema, t } from "@valfuse-node/validation";
 import { validateBody } from "@valfuse-node/express";
 import type { ExpressBodyLocals } from "@valfuse-node/express";
 
@@ -61,7 +61,7 @@ unchanged.
 
 ```ts
 import type { Response } from "express";
-import { createSchema, t } from "@valfuse-node/form";
+import { createSchema, t } from "@valfuse-node/validation";
 import { validateParams, validateQuery } from "@valfuse-node/express";
 import type { ExpressParamsLocals, ExpressQueryLocals } from "@valfuse-node/express";
 
@@ -170,8 +170,9 @@ requests do not share mutable localization state.
 
 ## Share Valfuse configuration
 
-The `@valfuse-node/form` schema contract works in Express, React, and Vue. Keep
-the schema in a framework-neutral module and pass it to the matching adapter.
+The `@valfuse-node/validation` schema contract works independently of Express,
+React, and Vue. Keep each form or API schema in a framework-neutral module and
+pass it to the matching adapter when the input contract is the same.
 The asset and barrel generators are framework-neutral too; configure
 `base_path` to match the URL prefix mounted by `express.static`, and use the
 barrel generator for server modules when it fits the project's layout.

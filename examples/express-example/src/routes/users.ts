@@ -1,6 +1,6 @@
 import express from "express";
 import type { Response } from "express";
-import { createSchema, t } from "@valfuse-node/form";
+import { createSchema, t } from "@valfuse-node/validation";
 import {
   validateBody,
   validateParams,
@@ -9,7 +9,7 @@ import {
   type ExpressLocalizationLocals,
   type ExpressParamsLocals,
   type ExpressQueryLocals,
-} from "@valfuse-node/core/express";
+} from "@valfuse-node/express";
 
 type CreateUserBody = {
   name: string;

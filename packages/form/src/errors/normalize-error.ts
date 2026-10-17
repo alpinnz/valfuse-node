@@ -1,4 +1,4 @@
-import type { ValfuseError } from "../types";
+import type { ValfuseError } from "@valfuse-node/validation";
 
 export function normalizeError(error: string | ValfuseError): ValfuseError {
   if (typeof error === "string") {

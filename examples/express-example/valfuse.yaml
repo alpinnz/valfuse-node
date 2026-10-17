@@ -6,6 +6,7 @@ assets:
 barrel:
   input_dir: src/routes
   output_file: src/routes/index.ts
+  recursive: true
   include:
     - health.ts
     - users.ts

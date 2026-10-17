@@ -22,6 +22,7 @@ const PKGS = {
   assets: "assets",
   barrel: "barrel",
   form: "form",
+  validation: "validation",
   express: "express",
   localization: "localization",
   react: "react",

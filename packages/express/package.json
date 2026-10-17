@@ -1,7 +1,7 @@
 {
   "name": "@valfuse-node/express",
-  "version": "0.1.1",
-  "description": "Express middleware for Valfuse form validation and localization",
+  "version": "0.1.2",
+  "description": "Express middleware for Valfuse request validation and localization",
   "license": "MIT",
   "sideEffects": false,
   "keywords": [
@@ -28,15 +28,15 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external express --external @valfuse-node/form --external @valfuse-node/localization",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external express --external @valfuse-node/form --external @valfuse-node/localization",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external express --external @valfuse-node/validation --external @valfuse-node/localization",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external express --external @valfuse-node/validation --external @valfuse-node/localization",
     "lint": "eslint src",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist coverage"
   },
   "dependencies": {
-    "@valfuse-node/form": "*",
+    "@valfuse-node/validation": "*",
     "@valfuse-node/localization": "*"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/react",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "React adapter for valfuse-node — useValfuseForm hook, ValfuseController, and localization runtime",
   "license": "MIT",
   "sideEffects": false,
@@ -29,8 +29,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external react --external react-dom --external @valfuse-node/form --external @valfuse-node/localization",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external react --external react-dom --external @valfuse-node/form --external @valfuse-node/localization",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external react --external react-dom --external @valfuse-node/form --external @valfuse-node/validation --external @valfuse-node/localization",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external react --external react-dom --external @valfuse-node/form --external @valfuse-node/validation --external @valfuse-node/localization",
     "lint": "eslint src",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@valfuse-node/form": "*",
+    "@valfuse-node/validation": "*",
     "@valfuse-node/localization": "*"
   },
   "peerDependencies": {

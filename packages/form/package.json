@@ -1,12 +1,10 @@
 {
   "name": "@valfuse-node/form",
-  "version": "0.3.5",
-  "description": "Framework-agnostic schema validation, transformations, and form-state primitives",
+  "version": "0.3.6",
+  "description": "Framework-agnostic form-state primitives",
   "license": "MIT",
   "sideEffects": false,
   "keywords": [
-    "validation",
-    "schema",
     "form",
     "typescript",
     "valfuse"
@@ -27,19 +25,17 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --external @valfuse-node/validation",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external @valfuse-node/validation",
     "lint": "eslint src",
-    "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist coverage"
   },
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "@vitest/coverage-v8": "4.1.11",
-    "vitest": "4.1.11"
+  "dependencies": {
+    "@valfuse-node/validation": "*"
   },
   "engines": {
     "node": ">=22.0.0"

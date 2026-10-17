@@ -1,5 +1,5 @@
 import type { ChangeEvent } from "react";
-import type { ValfuseFieldErrors, ValfuseSchema } from "@valfuse-node/form";
+import type { ValfuseFieldErrors, ValfuseSchema } from "@valfuse-node/validation";
 
 // ─── Validation mode ──────────────────────────────────────────────────────────
 

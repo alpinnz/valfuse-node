@@ -1,10 +1,5 @@
-import {
-  createSchema,
-  normalizeError,
-  t,
-  transformValues,
-  validateSchema,
-} from "@valfuse-node/form";
+import { createSchema, t, transformValues, validateSchema } from "@valfuse-node/validation";
+import { normalizeError } from "@valfuse-node/form";
 
 const domainSchema = createSchema({
   email: {
@@ -31,7 +26,7 @@ export function FormDomainDemo() {
   return (
     <div>
       <p>
-        <code>@valfuse-node/form</code> exposes framework-neutral schema, validation,
+        <code>@valfuse-node/validation</code> exposes framework-neutral schema, validation,
         transformation, transformer, and error APIs. The adapter forms below use the same domain
         package.
       </p>

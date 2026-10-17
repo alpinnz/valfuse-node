@@ -53,6 +53,7 @@ export default {
         "form",
         "localization",
         "react",
+        "validation",
         "vue",
         "examples",
         "express-example",

@@ -1,15 +1,16 @@
 import { computed, reactive, ref, shallowRef } from "vue";
 import type { ComputedRef } from "vue";
-import { validateSchema, transformValues, normalizeError } from "@valfuse-node/form";
+import { validateSchema, transformValues } from "@valfuse-node/validation";
+import { normalizeError } from "@valfuse-node/form";
+import type { ValfuseFieldErrors } from "@valfuse-node/validation";
 import type {
-  ValfuseFieldErrors,
-  SetErrorsInput,
   ValfuseFormErrors,
   ValfuseFormControl,
   ValfuseDirtyFields,
   ValfuseTouchedFields,
   ValfuseWatchCallback,
 } from "@valfuse-node/form";
+import type { SetErrorsInput } from "@valfuse-node/form";
 import type {
   UseValfuseFormProps,
   UseValfuseFormReturn,

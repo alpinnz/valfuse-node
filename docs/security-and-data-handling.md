@@ -1,7 +1,8 @@
 # Security and data handling
 
-Valfuse is a form and localization library. It does not authenticate users,
-authorize operations, send application requests, or persist form submissions.
+Valfuse provides validation, form, and localization libraries. It does not
+authenticate users, authorize operations, send application requests, or persist
+form submissions.
 The consuming application remains responsible for those boundaries.
 
 ## Validation and errors

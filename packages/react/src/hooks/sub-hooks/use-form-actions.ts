@@ -15,8 +15,9 @@
  */
 import { useCallback } from "react";
 import type { FormEvent } from "react";
-import { validateSchema, normalizeError, transformValues } from "@valfuse-node/form";
-import type { ValfuseFieldErrors } from "@valfuse-node/form";
+import { validateSchema, transformValues } from "@valfuse-node/validation";
+import { normalizeError } from "@valfuse-node/form";
+import type { ValfuseFieldErrors } from "@valfuse-node/validation";
 import type { ValfuseFormErrors } from "../../types/index";
 import { buildFieldError, mapToFieldErrors } from "../../helpers/index";
 import type { FormCore } from "./form-core";

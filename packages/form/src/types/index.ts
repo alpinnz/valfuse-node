@@ -1,78 +1,12 @@
 // ============================================================================
-// Form Domain Types
+// Form State Types
 // ============================================================================
-// Framework-agnostic types for form validation and state management.
+// Framework-agnostic types for form state and adapter contracts.
 // These interfaces allow React, Vue, and other adapters to implement the form contract.
 
-// ============================================================================
-// Import from type files
-// ============================================================================
+import type { ValfuseSchema } from "@valfuse-node/validation";
 
-import type {
-  ValfuseRuleError,
-  ValfuseErrorType,
-  ValfuseError,
-  ValfuseFieldErrors,
-} from "./errors";
-
-import type {
-  ValfuseRegexValue,
-  ValfuseStringRule,
-  ValfuseNumberRule,
-  ValfuseBooleanRule,
-  ValfuseArrayRule,
-  ValfuseObjectRule,
-  ValfuseGenericRule,
-  ValfuseCustomRule,
-  ValfuseRefineRule,
-  ValfuseMatchFieldRule,
-  ValfuseOneOfRule,
-  ValfuseNotOneOfRule,
-} from "./rules";
-
-import type {
-  ValfuseTransformer,
-  ValfuseStringFieldSchema,
-  ValfuseNumberFieldSchema,
-  ValfuseBooleanFieldSchema,
-  ValfuseArrayFieldSchema,
-  ValfuseObjectFieldSchema,
-  ValfuseFieldSchema,
-  ValfuseSchema,
-  SetErrorsInput,
-} from "./schema";
-
-// ============================================================================
-// Re-export for public API
-// ============================================================================
-
-export type {
-  ValfuseRuleError,
-  ValfuseErrorType,
-  ValfuseError,
-  ValfuseFieldErrors,
-  ValfuseRegexValue,
-  ValfuseStringRule,
-  ValfuseNumberRule,
-  ValfuseBooleanRule,
-  ValfuseArrayRule,
-  ValfuseObjectRule,
-  ValfuseGenericRule,
-  ValfuseCustomRule,
-  ValfuseRefineRule,
-  ValfuseMatchFieldRule,
-  ValfuseOneOfRule,
-  ValfuseNotOneOfRule,
-  ValfuseTransformer,
-  ValfuseStringFieldSchema,
-  ValfuseNumberFieldSchema,
-  ValfuseBooleanFieldSchema,
-  ValfuseArrayFieldSchema,
-  ValfuseObjectFieldSchema,
-  ValfuseFieldSchema,
-  ValfuseSchema,
-  SetErrorsInput,
-};
+export type { SetErrorsInput } from "./schema";
 
 // ============================================================================
 // Validation Mode

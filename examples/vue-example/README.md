@@ -212,14 +212,15 @@ src/
 
 Contoh ini memakai setiap lapisan Valfuse yang relevan untuk aplikasi Vue:
 
-| Package                      | Demo yang bisa dicoba                                                                                  |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `@valfuse-node/core`         | Facade runtime di `App.vue` dan adapter Vue                                                            |
-| `@valfuse-node/form`         | Validasi dan transformasi framework-neutral di `FormDomainDemo.vue`, serta schema yang dipakai adapter |
-| `@valfuse-node/vue`          | `useValfuseForm`, binding `v-model`, state reaktif, custom value object dan ID                         |
-| `@valfuse-node/localization` | CLI generate/validate/coverage/watch dan browser-safe runtime dengan interpolasi serta plural          |
-| `@valfuse-node/assets`       | Registry typed dari `public/assets`, ditampilkan di galeri assets                                      |
-| `@valfuse-node/barrel`       | Membuat `src/features/demo/index.ts`, yang dipakai `App.vue` untuk mengimpor demo                      |
+| Package                      | Demo yang bisa dicoba                                                                         |
+| ---------------------------- | --------------------------------------------------------------------------------------------- |
+| `@valfuse-node/core`         | Facade runtime di `App.vue` dan adapter Vue                                                   |
+| `@valfuse-node/validation`   | Schema, aturan, dan transformasi yang dipakai form demo dan API backend                       |
+| `@valfuse-node/form`         | State dan kontrak form framework-agnostic                                                     |
+| `@valfuse-node/vue`          | `useValfuseForm`, binding `v-model`, state reaktif, custom value object dan ID                |
+| `@valfuse-node/localization` | CLI generate/validate/coverage/watch dan browser-safe runtime dengan interpolasi serta plural |
+| `@valfuse-node/assets`       | Registry typed dari `public/assets`, ditampilkan di galeri assets                             |
+| `@valfuse-node/barrel`       | Membuat `index.ts` pada direktori features yang berisi modul `.ts` atau `.tsx`                |
 
 Adapter React ada di `examples/react-example`. Demo localization di `App.vue`
 menggunakan `LocalizationProvider` dan `useLocalization()` dari adapter Vue;
@@ -242,9 +243,11 @@ npm run generate:check         # validasi output tanpa menulis file
 Asset SVG berada di `public/assets`; generator hanya membuat URL typed dan tidak
 menyalin file. CLI tersedia sebagai script
 `assets:*`, `barrel:*`, dan `localization:*`.
-Script barrel memanggil CLI workspace yang sama dari
-`packages/barrel/dist/cli/index.js`; gunakan `@valfuse-node/barrel` sebagai
-sumber generator dan buat ulang file output melalui `npm run barrel:generate`.
+Script barrel memanggil CLI workspace `@valfuse-node/barrel` yang sudah dibuild.
+Dengan `recursive: true`, setiap direktori features yang berisi modul `.ts` atau
+`.tsx` mendapat `index.ts`. Buat ulang output melalui
+`npm run barrel:generate`; build workspace terlebih dahulu dari root pada
+checkout baru.
 
 `npm run typecheck` juga membangkitkan output lebih dahulu. File registry assets
 dan barrel dapat dibuat ulang; jangan edit manual. Demo localization memakai

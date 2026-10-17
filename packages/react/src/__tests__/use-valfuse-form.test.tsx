@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { createSchema, t } from "@valfuse-node/form";
+import { createSchema, t } from "@valfuse-node/validation";
 import { useValfuseForm } from "../hooks/use-valfuse-form";
 
 const testLoginSchema = createSchema({

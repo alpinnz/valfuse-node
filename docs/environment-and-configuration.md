@@ -33,8 +33,11 @@ and test tasks. Use `npm run build` to run the build task across all
 workspaces explicitly.
 
 Build workspace packages before starting an example from a clean checkout.
-Example generator scripts invoke the built CLI entry points from `packages/assets`,
-`packages/barrel`, and `packages/localization` directly.
+Example scripts invoke the `valfuse-assets` and `valfuse-localization` binaries
+declared by their workspace package dependencies. For barrel generation, they
+call the built workspace CLI at `packages/barrel/dist/cli/index.js`, following
+the monorepo guidance in the
+[`@valfuse-node/barrel` README](../packages/barrel/README.md).
 
 ## Valfuse generator configuration
 
@@ -49,8 +52,9 @@ the static asset directory, generated TypeScript module, and public URL prefix.
 See the [assets package README](../packages/assets/README.md) for defaults and
 usage.
 
-The `barrel` section scans direct children of one configured directory and can
-use an explicit **include** list to limit generated public exports. See the
+The `barrel` section scans direct children of one configured directory by
+default. Set `recursive: true` to generate an `index.ts` in each nested
+directory that contains eligible `.ts` or `.tsx` modules. See the
 [barrel package README](../packages/barrel/README.md) for its options.
 
 The library and examples do not require a repository-level `.env` file.

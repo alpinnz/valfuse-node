@@ -31,31 +31,32 @@
 
 Most form libraries require you to learn a heavy abstraction or lock you into a specific validation engine (Zod, Yup, etc.). Valfuse takes a different approach:
 
-| Concern           | Valfuse approach                                                         |
-| ----------------- | ------------------------------------------------------------------------ |
-| Schema definition | Plain objects — readable, serializable, no runtime magic                 |
-| Validation        | Native rule engine, no Zod / Yup dependency                              |
-| React integration | Only `useState`, `useRef`, `useCallback` — no hidden state machines      |
-| Vue integration   | Native Vue composable with `reactive`, `ref` — no extra wrapper          |
-| Error model       | Schema, manual, and server errors unified in `formState.errors`          |
-| Localization      | YAML-configured CLI that compiles JSON locales into type-safe TypeScript |
-| UI                | Zero UI coupling — works with any component library or raw HTML          |
-| Multi-framework   | One schema is reused across React, Vue, and Node.js                      |
+| Concern           | Valfuse approach                                                                             |
+| ----------------- | -------------------------------------------------------------------------------------------- |
+| Schema definition | Plain objects — readable, serializable, no runtime magic                                     |
+| Validation        | Native rule engine, no Zod / Yup dependency                                                  |
+| React integration | Only `useState`, `useRef`, `useCallback` — no hidden state machines                          |
+| Vue integration   | Native Vue composable with `reactive`, `ref` — no extra wrapper                              |
+| Error model       | Schema, manual, and server errors unified in `formState.errors`                              |
+| Localization      | YAML-configured CLI that compiles JSON locales into type-safe TypeScript                     |
+| UI                | Zero UI coupling — works with any component library or raw HTML                              |
+| Multi-framework   | One validation engine supports React, Vue, and Node.js; schemas can follow each API contract |
 
 ---
 
 ## Packages
 
-| Package                                                           | Description                                                                   | npm          |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------ |
-| [`@valfuse-node/core`](./packages/core/README.md)                 | **Umbrella entry point** — runtime facade and explicit Node.js subpaths       | ✅ published |
-| [`@valfuse-node/assets`](./packages/assets/README.md)             | CLI and Node.js API for generating typed TypeScript paths for static assets   | ✅ published |
-| [@valfuse-node/barrel](./packages/barrel/README.md)               | CLI and Node.js API for generating TypeScript barrel files                    | ✅ published |
-| [`@valfuse-node/form`](./packages/form/README.md)                 | Shared schema validation and transforms, plus form-state primitives           | ✅ published |
-| [`@valfuse-node/react`](./packages/react/README.md)               | React `useValfuseForm` hook, `<ValfuseController>`, full localization runtime | ✅ published |
-| [`@valfuse-node/vue`](./packages/vue/README.md)                   | Vue 3 `useValfuseForm` composable with native v-model bindings                | ✅ published |
-| [`@valfuse-node/express`](./packages/express/README.md)           | Express middleware for request validation and localization                    | ✅ published |
-| [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON/YAML → type-safe TypeScript localization + browser runtime | ✅ published |
+| Package                                                           | Description                                                                   | npm            |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------- |
+| [`@valfuse-node/core`](./packages/core/README.md)                 | **Umbrella entry point** — runtime facade and explicit Node.js subpaths       | ✅ published   |
+| [`@valfuse-node/assets`](./packages/assets/README.md)             | CLI and Node.js API for generating typed TypeScript paths for static assets   | ✅ published   |
+| [@valfuse-node/barrel](./packages/barrel/README.md)               | CLI and Node.js API for generating TypeScript barrel files                    | ✅ published   |
+| [`@valfuse-node/validation`](./packages/validation/README.md)     | Framework-neutral schemas, rules, transforms, and validation                  | 🆕 new package |
+| [`@valfuse-node/form`](./packages/form/README.md)                 | Framework-neutral form-state primitives                                       | ✅ published   |
+| [`@valfuse-node/react`](./packages/react/README.md)               | React `useValfuseForm` hook, `<ValfuseController>`, full localization runtime | ✅ published   |
+| [`@valfuse-node/vue`](./packages/vue/README.md)                   | Vue 3 `useValfuseForm` composable with native v-model bindings                | ✅ published   |
+| [`@valfuse-node/express`](./packages/express/README.md)           | Express middleware for request validation and localization                    | ✅ published   |
+| [`@valfuse-node/localization`](./packages/localization/README.md) | CLI compiler: JSON/YAML → type-safe TypeScript localization + browser runtime | ✅ published   |
 
 > The `@valfuse-node/example-react`, `@valfuse-node/example-vue`, and `@valfuse-node/example-express` packages are private examples — see [Examples](#examples).
 
@@ -74,16 +75,16 @@ npm install @valfuse-node/core react react-dom vue
 For a framework-neutral project, install only the packages you use:
 
 ```bash
-npm install @valfuse-node/form @valfuse-node/localization
+npm install @valfuse-node/validation @valfuse-node/localization
 ```
 
-For one framework adapter, use its package with the shared form package and
-that framework's peer dependencies:
+For one framework adapter, use its package with the form-state and validation
+packages and that framework's peer dependencies:
 
 ```bash
-npm install @valfuse-node/react @valfuse-node/form react react-dom
-npm install @valfuse-node/vue @valfuse-node/form vue
-npm install @valfuse-node/express @valfuse-node/form @valfuse-node/localization express
+npm install @valfuse-node/react @valfuse-node/form @valfuse-node/validation react react-dom
+npm install @valfuse-node/vue @valfuse-node/form @valfuse-node/validation vue
+npm install @valfuse-node/express @valfuse-node/validation @valfuse-node/localization express
 ```
 
 To generate typed paths for files under your app's public asset directory:
@@ -107,18 +108,19 @@ npm install --save-dev @valfuse-node/barrel
 npx valfuse-barrel
 ```
 
-The **@valfuse-node/core** root import exports the form, localization, React,
-and Vue APIs. Its explicit **/assets**, **/barrel**, and **/express** subpaths
-expose the Node.js generator APIs and Express middleware without loading them
-through the root import. Install the individual packages directly when you
-only need their CLI tools or Express integration.
+The **@valfuse-node/core** root import exports the form, validation,
+localization, React, and Vue APIs. Its explicit **/assets**, **/barrel**,
+**/express**, and **/validation** subpaths expose the Node.js generator APIs,
+Express middleware, and validation-only entry without loading them through the
+root import. Install the individual packages directly when you only need their
+CLI tools or Express integration.
 
 ## Quick Start
 
-### 🧩 Form-only (Node.js, server actions)
+### 🧩 Validation-only (Node.js, server actions)
 
 ```ts
-import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/core";
+import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/validation";
 
 const schema = createSchema({
   email: {
@@ -277,6 +279,7 @@ function Header() {
               ├─ @valfuse-node/core       (umbrella facade)
               │     ├─ @valfuse-node/assets (subpath: /assets)
               │     ├─ @valfuse-node/barrel (subpath: /barrel)
+              │     ├─ @valfuse-node/validation (subpath: /validation)
               │     ├─ @valfuse-node/form
               │     ├─ @valfuse-node/localization
               │     ├─ @valfuse-node/express (peer: express)
@@ -290,23 +293,26 @@ function Header() {
 
 **Dependency direction** (strictly inner→outer is forbidden):
 
-| Package        | Depends on                                                 | Peer                             |
-| -------------- | ---------------------------------------------------------- | -------------------------------- |
-| `form`         | —                                                          | —                                |
-| `assets`       | `yaml` (generator config)                                  | —                                |
-| `barrel`       | `yaml` (generator config)                                  | —                                |
-| `localization` | `yaml`, `chokidar` (Node compiler/watch)                   | —                                |
-| `react`        | `form`, `localization`                                     | `react >= 18`, `react-dom >= 18` |
-| `vue`          | `form`, `localization`                                     | `vue >= 3`                       |
-| `express`      | `form`, `localization`                                     | `express >= 4.18`                |
-| `core`         | `form`, `localization`, `react`, `vue`, `assets`, `barrel` | React, Vue, Express (optional)   |
+| Package        | Depends on                                                               | Peer                             |
+| -------------- | ------------------------------------------------------------------------ | -------------------------------- |
+| `validation`   | —                                                                        | —                                |
+| `form`         | `validation`                                                             | —                                |
+| `assets`       | `yaml` (generator config)                                                | —                                |
+| `barrel`       | `yaml` (generator config)                                                | —                                |
+| `localization` | `yaml`, `chokidar` (Node compiler/watch)                                 | —                                |
+| `react`        | `form`, `validation`, `localization`                                     | `react >= 18`, `react-dom >= 18` |
+| `vue`          | `form`, `validation`, `localization`                                     | `vue >= 3`                       |
+| `express`      | `validation`, `localization`                                             | `express >= 4.18`                |
+| `core`         | `form`, `validation`, `localization`, `react`, `vue`, `assets`, `barrel` | React, Vue, Express (optional)   |
 
 The core root facade re-exports the React and Vue adapters, so direct Node.js
 imports of that facade need both peer modules available. Express is an optional
 peer used only by the explicit `/express` subpath; the React adapter also
 requires `react-dom >= 18`.
 
-**Build order:** `form` → `localization` → `express` / `react` / `vue` → `core` (turbo handles this automatically).
+**Build order:** `validation` → `form` → `express` / `react` / `vue` → `core`
+(turbo handles this automatically; `localization`, `assets`, and `barrel` are
+built as dependencies where needed).
 
 **Bundle and peer loading:** `@valfuse-node/core` is a re-export facade with
 named values from its package dependencies. Compatible bundlers can tree-shake
@@ -328,7 +334,8 @@ For deeper detail on any specific surface:
 
 - [**`@valfuse-node/core`**](./packages/core/README.md) — umbrella entry point with full quick-start and import map
 - [**`@valfuse-node/assets`**](./packages/assets/README.md) — CLI and Node.js API for generating a typed static asset registry
-- [**`@valfuse-node/form`**](./packages/form/README.md) — schema, all rules by type, transformers, validation, framework-agnostic state
+- [**`@valfuse-node/validation`**](./packages/validation/README.md) — schemas, rules, transformers, and validation
+- [**`@valfuse-node/form`**](./packages/form/README.md) — framework-agnostic form-state primitives
 - [**`@valfuse-node/localization`**](./packages/localization/README.md) — CLI, compiler pipeline, source-file format, structured variants, validators, runtime
 - [**`@valfuse-node/react`**](./packages/react/README.md) — `useValfuseForm`, `<ValfuseController>`, `<LocalizationProvider>`, storage strategies, `useLocalization` full API
 - [**`@valfuse-node/vue`**](./packages/vue/README.md) — `useValfuseForm`, Vue-native form bindings, localization provider and composables
@@ -381,9 +388,9 @@ Releasing is fully automated per package via git tags:
 ```bash
 # 1. Bump the version in packages/<pkg>/package.json, commit, push (triggers CI)
 # 2. Verify the tag matches the package version:
-npm run release:verify -- v0.4.0-react
+npm run release:verify -- v0.4.1-react
 # 3. Tag and push — GitHub Actions tests, builds, and publishes to npm:
-git tag v0.4.0-react && git push origin v0.4.0-react
+git tag v0.4.1-react && git push origin v0.4.1-react
 ```
 
 Published packages carry **SLSA provenance** attestations; each release runs
@@ -392,7 +399,8 @@ test → build → version-verify → publish inside a single workflow
 
 ### Per-package scripts
 
-Each package exposes the same scripts — `npm run -w @valfuse-node/form build`, `npm run -w @valfuse-node/localization test`, etc.
+Packages expose the scripts relevant to their source; schema validation tests
+live in `@valfuse-node/validation`.
 
 ### Project layout
 
@@ -402,7 +410,8 @@ valfuse-node/
 │   ├── assets/               ← static asset path generator
 │   ├── barrel/               ← TypeScript barrel generator
 │   ├── core/                 ← umbrella facade
-│   ├── form/                 ← schema + rules + validation (framework-agnostic)
+│   ├── form/                 ← framework-agnostic form state
+│   ├── validation/           ← schemas, rules, and transformations
 │   ├── express/              ← Express middleware adapter
 │   ├── localization/         ← CLI + compiler + runtime
 │   ├── react/                ← React adapter
@@ -422,8 +431,8 @@ valfuse-node/
 ## Examples
 
 Three private reference apps live under `examples/`. Use them to copy working
-patterns into your own project. The React and Vue apps cover the shared form
-domain, generated assets, localization, barrel generation, and the core facade.
+patterns into your own project. The React and Vue apps cover form state, the
+validation engine, generated assets, localization, barrel generation, and the core facade.
 The Express app demonstrates request validation, request-scoped localization,
 static assets, and generated route exports. All three use the shared
 `@valfuse-node/barrel` CLI for generated exports. Their guides document the

@@ -5,19 +5,19 @@
 // `npm install @valfuse-node/core` gives consumers the full library.
 //
 // Naming convention:
-//   - Framework-agnostic APIs (`form`, `localization`) are flattened to top
-//     level — no naming collision risk.
+//   - Framework-agnostic APIs (`form`, validation compatibility exports, and
+//     `localization`) are flattened to the top level.
 //   - Framework adapters (`react`, `vue`) follow the `{Tech}{Domain}{Feature}`
 //     pattern. The only value-level conflict is `useValfuseForm` (both adapters
 //     export it); it is renamed at the umbrella level to `useReactValfuseForm`
 //     and `useVueValfuseForm`. Adapter packages keep their original names.
-//   - Types come from `form` (single source of truth) and are exported once.
+//   - Form and validation types retain their package ownership and are
+//     re-exported through the compatibility facade.
 //   - Express middleware is available through the explicit `./express` subpath
 //     so the browser-oriented root entry does not load the Express peer.
 
 // ---------------------------------------------------------------------------
-// Form domain (framework-agnostic): schema, rules, validation, transformation,
-// state, and the `t` transformer namespace.
+// Form state plus validation exports re-exported from `form` for compatibility.
 // ---------------------------------------------------------------------------
 export * from "@valfuse-node/form";
 

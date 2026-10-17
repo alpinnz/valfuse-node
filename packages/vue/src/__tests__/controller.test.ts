@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { defineComponent, h, nextTick } from "vue";
 import { describe, expect, it } from "vitest";
-import { createSchema } from "@valfuse-node/form";
+import { createSchema } from "@valfuse-node/validation";
 import { useValfuseForm } from "../composables/use-valfuse-form";
 import { ValfuseController } from "../components/valfuse-controller";
 import type {

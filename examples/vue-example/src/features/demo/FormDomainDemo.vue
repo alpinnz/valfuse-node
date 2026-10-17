@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import {
-  createSchema,
-  normalizeError,
-  t,
-  transformValues,
-  validateSchema,
-} from "@valfuse-node/form";
+import { createSchema, t, transformValues, validateSchema } from "@valfuse-node/validation";
+import { normalizeError } from "@valfuse-node/form";
 
 const domainSchema = createSchema({
   email: {
@@ -32,8 +27,9 @@ const normalizedServerError = normalizeError("The server rejected this example r
 <template>
   <div>
     <p>
-      <code>@valfuse-node/form</code> exposes framework-neutral schema, validation, transformation,
-      transformer, and error APIs. The adapter forms below use the same domain package.
+      <code>@valfuse-node/validation</code> exposes framework-neutral schema, validation,
+      transformation, transformer, and error APIs. The adapter forms below use the same domain
+      package.
     </p>
     <div
       style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr))"

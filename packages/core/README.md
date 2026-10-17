@@ -1,6 +1,6 @@
 # @valfuse-node/core
 
-> **Umbrella entry point for valfuse-node** — a common import facade for the form domain, localization, React/Vue adapters, Express middleware, and Node.js code generators.
+> **Umbrella entry point for valfuse-node** — a common import facade for validation, form state, localization, React/Vue adapters, Express middleware, and Node.js code generators.
 
 To load the full root facade directly in Node.js, install its optional framework
 peers too:
@@ -14,7 +14,8 @@ The core package graph gives you:
 - Node.js asset generation API via **@valfuse-node/core/assets**
 - Node.js barrel generation API via **@valfuse-node/core/barrel**
 - Express middleware via **@valfuse-node/core/express**
-- 📦 **Form domain** (`@valfuse-node/form`) — schema, rules, validation, transformation, state
+- Schema validation via **@valfuse-node/core/validation**
+- 📦 **Form state** (`@valfuse-node/form`) — framework-neutral state and adapter contracts
 - 🌐 **Localization** (`@valfuse-node/localization`) — CLI compiler, validators, browser runtime
 - ⚛️ **React adapter** (`@valfuse-node/react`) — `useReactValfuseForm` hook, `<ValfuseController>`, `<LocalizationProvider>`
 - 💚 **Vue adapter** (`@valfuse-node/vue`) — `useVueValfuseForm`, localization provider, and composables
@@ -35,11 +36,15 @@ Do not rely on tree-shaking to avoid resolving these peer imports. For a
 framework-neutral project, install and use the standalone packages instead:
 
 ```bash
-npm install @valfuse-node/form @valfuse-node/localization
+npm install @valfuse-node/validation @valfuse-node/localization
 ```
 
-For an app that uses only one adapter, install that adapter with
-`@valfuse-node/form` and its framework peer directly.
+For an app that uses one form adapter, install that adapter with
+`@valfuse-node/form`, `@valfuse-node/validation`, and its framework peer.
+
+The core root keeps validation exports available for compatibility. New code
+can import them from `@valfuse-node/core/validation` or
+`@valfuse-node/validation` to make the package boundary explicit.
 
 The published packages declare **Node.js 22 or newer** in `engines`. React
 applications need React and React DOM 18 or newer; Vue applications need Vue 3
@@ -48,16 +53,16 @@ you consume the individual adapter packages.
 
 The root import is the runtime facade. Node.js code-generation APIs use
 explicit subpaths: `@valfuse-node/core/assets`, `@valfuse-node/core/barrel`,
-and `@valfuse-node/core/express`. This keeps filesystem-based generators and
-the Express peer out of the root module graph for browser-oriented imports.
+`@valfuse-node/core/express`, and `@valfuse-node/core/validation`. This keeps
+filesystem-based generators and the Express peer out of browser-oriented imports.
 
 ### Express
 
-Use the Express subpath with the standalone form and localization packages. It
+Use the Express subpath with the standalone validation and localization packages. It
 does not load the React or Vue adapters:
 
 ```bash
-npm install @valfuse-node/core @valfuse-node/express @valfuse-node/form @valfuse-node/localization express
+npm install @valfuse-node/core @valfuse-node/express @valfuse-node/validation @valfuse-node/localization express
 ```
 
 ```ts
@@ -67,7 +72,7 @@ import {
   validateQuery,
   createLocalizationMiddleware,
 } from "@valfuse-node/core/express";
-import { createSchema } from "@valfuse-node/form";
+import { createSchema } from "@valfuse-node/core/validation";
 ```
 
 TypeScript apps should also install compatible Express declarations:
@@ -88,7 +93,7 @@ middleware examples.
   - [Express subpath](#express)
 - [Import Map](#import-map)
 - [API Reference](#api-reference)
-  - [Form Domain](#form-domain-flattened-to-top-level)
+  - [Validation API](#validation-api)
   - [Localization](#localization-flattened-to-top-level)
   - [React Adapter](#react-adapter)
   - [Vue Adapter](#vue-adapter)
@@ -104,13 +109,14 @@ middleware examples.
 
 ## Quick Start by Adapter
 
-### 🧩 Form-only (Node.js, server actions, any framework)
+### 🧩 Validation-only (Node.js, server actions, any framework)
 
-For framework-neutral use, import the standalone form package directly. This
-keeps the React and Vue adapter peers out of the dependency graph.
+For framework-neutral validation, import the validation package or the core
+validation subpath. This keeps the React and Vue adapter peers out of the
+dependency graph.
 
 ```ts
-import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/form";
+import { createSchema, validateSchema, transformValues, t } from "@valfuse-node/core/validation";
 
 const schema = createSchema({
   email: {
@@ -266,11 +272,16 @@ interpolate("{count, plural, one {# item} other {# items}}", { count: 5 });
 
 ## Import Map
 
-`@valfuse-node/core` re-exports four packages. Two are flattened (no name collisions). The two adapter packages share a single value-level name (`useValfuseForm`), which is renamed at the umbrella level to `useReactValfuseForm` / `useVueValfuseForm` following the `{Tech}{Domain}{Feature}` convention. The underlying adapter packages keep their original `useValfuseForm` name.
+The core root re-exports form state, validation compatibility exports,
+localization, and the React and Vue adapters. The adapter packages share one
+value-level name (`useValfuseForm`), renamed in the core facade to
+`useReactValfuseForm` and `useVueValfuseForm`. The adapter packages keep their
+original hook name.
 
 | Source                       | Access pattern                                                                                       | Why?                                                                     |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| `@valfuse-node/form`         | Top-level (`createSchema`, `validateSchema`, `t`, …)                                                 | Framework-agnostic, no collision risk                                    |
+| `@valfuse-node/validation`   | `@valfuse-node/core/validation` (`createSchema`, `validateSchema`, `t`, …)                           | Validation-only entry without form state                                 |
+| `@valfuse-node/form`         | Top-level form state and adapter contracts                                                           | Used by React and Vue adapters                                           |
 | `@valfuse-node/localization` | Top-level (`interpolate`, `compileProject`, `loadConfig`, …)                                         | Framework-agnostic, no collision risk                                    |
 | `@valfuse-node/react`        | Top-level (`useReactValfuseForm`, `ValfuseController`, `LocalizationProvider`, `useLocalization`, …) | The single conflicting value `useValfuseForm` is renamed to disambiguate |
 | `@valfuse-node/vue`          | Top-level (`useVueValfuseForm`, `VueLocalizationProvider`, `useVueLocalization`, …)                  | Adapter names are prefixed to keep framework choice explicit             |
@@ -280,7 +291,7 @@ kept out of the root entry so browser applications do not load Express.
 
 ```ts
 import {
-  // Form domain
+  // Form state and validation compatibility exports
   createSchema,
   validateSchema,
   transformValues,
@@ -316,13 +327,13 @@ import {
 
 > **Why tech-prefix the hooks?** Both `@valfuse-node/react` and `@valfuse-node/vue` export a hook named `useValfuseForm`. Flattening both into the umbrella would silently shadow one. The `{Tech}{Domain}{Feature}` rename (`useReactValfuseForm` / `useVueValfuseForm`) makes the choice explicit at the call site. The underlying adapter packages still export `useValfuseForm` for backward compat — the rename is umbrella-level only.
 
-> **TypeScript-only:** all types are re-exported flat from the form domain (no collision — both adapters import the same types from `@valfuse-node/form`).
+> **TypeScript-only:** validation types come from `@valfuse-node/validation`; form-state types come from `@valfuse-node/form`.
 
 ---
 
 ## API Reference
 
-### Form domain (flattened to top level)
+### Validation API
 
 #### `createSchema(fields)`
 
@@ -338,7 +349,7 @@ const schema = createSchema({
 
 **Supported field types:** `string` | `number` | `boolean` | `array` | `object`
 
-**Built-in rules (full reference in [`@valfuse-node/form` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/form/README.md#built-in-rules)):**
+**Built-in rules:**
 
 | Type      | Rules                                                                                                                         |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -391,7 +402,7 @@ const schema = createSchema({
 });
 ```
 
-See the [`@valfuse-node/form` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/form/README.md#value-transformation)
+See the [`@valfuse-node/validation` README](https://github.com/alpinnz/valfuse-node/blob/master/packages/validation/README.md)
 for full coverage of all transformers and custom-transformer authoring.
 
 ### Localization (flattened to top level)
@@ -771,32 +782,50 @@ export function SignupForm() {
 
 `@valfuse-node/core` keeps its main runtime entry as a re-export facade. Code-generation APIs and Express middleware live at explicit subpaths, so importing the root does not load the filesystem-based generators or Express peer.
 
-```
-┌────────────────────────────────────────────────────────────┐
-│  @valfuse-node/core  (this package — facade only)         │
-│    ├─ Form domain exports (flattened)                     │
-│    ├─ Localization exports (flattened)                     │
-│    ├─ React adapter exports (flat, with useReactValfuseForm)│
-│    └─ Vue adapter exports   (flat, with useVueValfuseForm) │
-└────────────────────────────────────────────────────────────┘
-            │                  │             │           │
-            ▼                  ▼             ▼           ▼
-   @valfuse-node/form  @valfuse-node/   @valfuse-node/  @valfuse-node/
-                        localization     react          vue
-                       (yaml, chokidar) (peer: react,   (peer: vue)
-                                        react-dom)
+```mermaid
+flowchart TD
+  validation[Validation engine]
+  form[Form state]
+  localization[Localization]
+  assets[Asset generator]
+  barrel[Barrel generator]
+  express[Express adapter]
+  react[React adapter]
+  vue[Vue adapter]
+  core[Core facade]
+
+  form --> validation
+  express --> validation
+  express --> localization
+  react --> form
+  react --> validation
+  react --> localization
+  vue --> form
+  vue --> validation
+  vue --> localization
+  core --> form
+  core --> validation
+  core --> localization
+  core --> assets
+  core --> barrel
+  core -. optional peer .-> express
+  core --> react
+  core --> vue
 ```
 
 **Dependency direction** (strictly inner→outer is forbidden):
 
-- `form` → nothing (pure domain)
+- `validation` → nothing (pure schema engine)
+- `form` → `validation` (compatibility type and API re-exports)
 - `localization` → `yaml`, `chokidar` for compiler/watch tooling; browser runtime is isolated
-- `react` → `form`, `localization` (peers: `react`, `react-dom`)
-- `vue` → `form`, `localization` (peer: `vue`)
-- `express` → `form`, `localization` (peer: `express`)
-- `core` → `form`, `localization`, `react`, `vue`, `express`, `assets`, `barrel` (React, Vue, Express peers are optional)
+- `react` → `form`, `validation`, `localization` (peers: `react`, `react-dom`)
+- `vue` → `form`, `validation`, `localization` (peer: `vue`)
+- `express` → `validation`, `localization` (peer: `express`)
+- `core` → `form`, `validation`, `localization`, `react`, `vue`, `express`, `assets`, `barrel` (React, Vue, Express peers are optional)
 
-**Build:** turbo builds dependencies before `core`, including `form`, `localization`, `express`, `react`, `vue`, `assets`, and `barrel`. Each package's `dist/` is what `core` resolves at runtime.
+**Build:** Turbo builds workspace dependencies before the target package. The
+`validation` package is built before `form`, the framework adapters, Express,
+and `core`, which consumes the published-style package entry points.
 
 **Tree-shaking and peer loading:** `core` is a facade with named re-exports,
 which lets compatible bundlers remove unused exports. Its root entry still
@@ -812,8 +841,8 @@ For deeper detail on any specific surface:
 
 - [`@valfuse-node/assets`](https://github.com/alpinnz/valfuse-node/blob/master/packages/assets/README.md) — static asset registry CLI and API
 - [`@valfuse-node/barrel`](https://github.com/alpinnz/valfuse-node/blob/master/packages/barrel/README.md) — TypeScript barrel CLI and API
-- [`@valfuse-node/form`](https://github.com/alpinnz/valfuse-node/blob/master/packages/form/README.md) — schema, rules, transformers, validation,
-  framework-agnostic state
+- [`@valfuse-node/validation`](https://github.com/alpinnz/valfuse-node/blob/master/packages/validation/README.md) — schemas, rules, transformers, and validation
+- [`@valfuse-node/form`](https://github.com/alpinnz/valfuse-node/blob/master/packages/form/README.md) — framework-agnostic form state and adapter contracts
 - [`@valfuse-node/localization`](https://github.com/alpinnz/valfuse-node/blob/master/packages/localization/README.md) — CLI, compiler, runtime interpolation,
   structured variants, validators
 - [`@valfuse-node/react`](https://github.com/alpinnz/valfuse-node/blob/master/packages/react/README.md) — `useValfuseForm`, `<ValfuseController>`,

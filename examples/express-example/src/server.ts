@@ -1,5 +1,5 @@
 import express from "express";
-import { createLocalizationMiddleware } from "@valfuse-node/core/express";
+import { createLocalizationMiddleware } from "@valfuse-node/express";
 import { assets } from "./assets/assets";
 import localizationManifest from "./assets/localizations/localization";
 import { healthRouter, usersRouter } from "./routes";

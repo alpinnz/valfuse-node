@@ -18,8 +18,8 @@
  */
 import { useCallback } from "react";
 import type { Dispatch, SetStateAction } from "react";
-import type { ValfuseSchema } from "@valfuse-node/form";
-import { validateSchema } from "@valfuse-node/form";
+import type { ValfuseSchema } from "@valfuse-node/validation";
+import { validateSchema } from "@valfuse-node/validation";
 import type { ValfuseFormErrors } from "../../types/index";
 import { buildFieldError } from "../../helpers/index";
 

@@ -4,19 +4,20 @@ Dokumentasi ini menjelaskan pipeline _Continuous Integration_ (CI) dan alur
 publikasi paket **@valfuse-node** (monorepo) ke npm yang dijalankan oleh GitHub
 Actions, beserta tooling _git governance_ lokal yang mengontrol kualitas commit.
 
-Workflow rilis berbasis tag mendukung **8 paket** di bawah scope
+Workflow rilis berbasis tag mendukung **9 paket** di bawah scope
 `@valfuse-node/*`:
 
-| Package                      | Workspace path          | Ekspor utama                                        |
-| ---------------------------- | ----------------------- | --------------------------------------------------- |
-| `@valfuse-node/assets`       | `packages/assets`       | CLI dan API untuk typed static asset registry       |
-| `@valfuse-node/barrel`       | `packages/barrel`       | CLI dan API untuk generated TypeScript barrel files |
-| `@valfuse-node/core`         | `packages/core`         | Root re-exports + `/assets`, `/barrel`, `/express`  |
-| `@valfuse-node/express`      | `packages/express`      | Express middleware untuk validasi dan localization  |
-| `@valfuse-node/form`         | `packages/form`         | Validasi & state form framework-agnostic            |
-| `@valfuse-node/localization` | `packages/localization` | Compiler, CLI, runtime i18n                         |
-| `@valfuse-node/react`        | `packages/react`        | React adapter (hooks + controller)                  |
-| `@valfuse-node/vue`          | `packages/vue`          | Vue adapter (composables)                           |
+| Package                      | Workspace path          | Ekspor utama                                                      |
+| ---------------------------- | ----------------------- | ----------------------------------------------------------------- |
+| `@valfuse-node/assets`       | `packages/assets`       | CLI dan API untuk typed static asset registry                     |
+| `@valfuse-node/barrel`       | `packages/barrel`       | CLI dan API untuk generated TypeScript barrel files               |
+| `@valfuse-node/core`         | `packages/core`         | Root re-exports + `/assets`, `/barrel`, `/express`, `/validation` |
+| `@valfuse-node/express`      | `packages/express`      | Express middleware untuk validasi dan localization                |
+| `@valfuse-node/form`         | `packages/form`         | State form framework-agnostic                                     |
+| `@valfuse-node/localization` | `packages/localization` | Compiler, CLI, runtime i18n                                       |
+| `@valfuse-node/react`        | `packages/react`        | React adapter (hooks + controller)                                |
+| `@valfuse-node/vue`          | `packages/vue`          | Vue adapter (composables)                                         |
+| `@valfuse-node/validation`   | `packages/validation`   | Schema, rules, transforms, and validation engine                  |
 
 Dua workflow GitHub Actions dikelola di `.github/workflows/`:
 
@@ -124,7 +125,7 @@ sekaligus. Push maksimal tiga tag per perintah, atau gunakan trigger manual
 ketika tag release sudah terlanjur ada.
 
 ```bash
-gh workflow run publish.yml --ref master -f release_tag=v0.3.5-form
+gh workflow run publish.yml --ref master -f release_tag=v0.3.6-form
 ```
 
 ### 3.2 Skema tag: `v<semver>-<package>`
@@ -141,13 +142,14 @@ Contoh:
 | Tag                   | Paket diterbitkan            |
 | --------------------- | ---------------------------- |
 | `v0.2.0-assets`       | `@valfuse-node/assets`       |
-| `v0.2.1-barrel`       | `@valfuse-node/barrel`       |
-| `v0.5.0-core`         | `@valfuse-node/core`         |
-| `v0.3.5-form`         | `@valfuse-node/form`         |
-| `v0.1.1-express`      | `@valfuse-node/express`      |
+| `v0.3.0-barrel`       | `@valfuse-node/barrel`       |
+| `v0.6.0-core`         | `@valfuse-node/core`         |
+| `v0.3.6-form`         | `@valfuse-node/form`         |
+| `v0.1.0-validation`   | `@valfuse-node/validation`   |
+| `v0.1.2-express`      | `@valfuse-node/express`      |
 | `v0.5.0-localization` | `@valfuse-node/localization` |
-| `v0.4.0-react`        | `@valfuse-node/react`        |
-| `v0.4.0-vue`          | `@valfuse-node/vue`          |
+| `v0.4.1-react`        | `@valfuse-node/react`        |
+| `v0.4.1-vue`          | `@valfuse-node/vue`          |
 
 - Tag **tanpa suffix** seperti `v0.3.0` atau nama paket yang **tidak dikenal**
   (mis `v0.3.0-foo`) **diabaikan** — workflow akan _skip_ tanpa menerbitkan apa
@@ -163,7 +165,7 @@ Langkah lengkap:
    `registry-url: https://registry.npmjs.org` (menyiapkan kredensial npm).
 3. `npm ci`.
 4. **Select target package from tag** — memisahkan `<pkg>` dan `<semver>`,
-   allowlist `assets|barrel|core|express|form|localization|react|vue`; jika tag tidak pas → skip.
+   allowlist `assets|barrel|core|express|form|localization|react|validation|vue`; jika tag tidak pas → skip.
 5. **Verify version matches tag** — membandingkan `<semver>` pada tag dengan
    field `version` pada `packages/<pkg>/package.json`. Jika tidak sama;
    workflow **gagal (exit 1) tanpa publish** (lihat §6.3).
@@ -171,7 +173,9 @@ Langkah lengkap:
    Turbo menyelesaikan dependency graph (`test dependsOn ^build`), sehingga
    `dist/` paket-paket yang diimpor target dibangun otomatis lebih dulu —
    wajib, karena runner CI tidak memiliki artefak build sebelumnya.
-7. `npm run build --workspace=packages/<pkg>`.
+   Package yang tidak memiliki script `test` melewati langkah pengujian.
+7. `npx turbo run build --filter=@valfuse-node/<pkg>` — membangun paket target
+   beserta dependency workspace yang diperlukan.
 8. `npm publish --workspace=packages/<pkg> --provenance --access public`
    dengan env `NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}` —
    hanya `dist/` + `README.md` + `LICENSE` (sesuai `files` di tiap
@@ -290,7 +294,7 @@ feat: add x                     # scope tidak terdaftar → ditolak
 
 ## 6. Alur Release Lengkap (Per-Package)
 
-Contoh rilis `@valfuse-node/react` ke `0.4.0`:
+Contoh rilis `@valfuse-node/react` ke `0.4.1`:
 
 1. **Naikkan versi** di `packages/react/package.json` (semver).
    Bila ada perubahan dependency workspace (mis. menaikkan `@valfuse-node/form`
@@ -307,7 +311,7 @@ Contoh rilis `@valfuse-node/react` ke `0.4.0`:
 3. **Verifikasi tag lokal** sebelum push (guard CLI):
 
    ```bash
-   npm run release:verify -- v0.4.0-react
+   npm run release:verify -- v0.4.1-react
    ```
 
    Skrip ini memastikan tag `v<semver>-<pkg>` valid, paket dikenali, dan versi
@@ -316,8 +320,8 @@ Contoh rilis `@valfuse-node/react` ke `0.4.0`:
 4. **Buat tag rilis**:
 
    ```bash
-   git tag v0.4.0-react
-   git push origin v0.4.0-react  # trigger Publish
+   git tag v0.4.1-react
+   git push origin v0.4.1-react  # trigger Publish
    ```
 
 5. **Tunggu workflow `Publish`** → tab **Actions** → run terbaru. Pastikan
@@ -342,7 +346,7 @@ Packages that depend on another published package should be released after
 their dependencies:
 
 1. **@valfuse-node/assets** and **@valfuse-node/barrel** (independent tools)
-2. **@valfuse-node/form** and **@valfuse-node/localization**
+2. **@valfuse-node/validation**, **@valfuse-node/form**, and **@valfuse-node/localization**
 3. **@valfuse-node/express**, **@valfuse-node/react**, and **@valfuse-node/vue**
    (framework adapters)
 4. **@valfuse-node/core** (facade with runtime and generator subpaths)
@@ -386,12 +390,12 @@ lint` cakupan seluruh workspace.
 ```mermaid
 flowchart LR
     A[Push commit / PR on master or main] --> CI[Workflow CI<br/>format + lint + typecheck<br/>+ build + test:coverage + audit]
-    T[Push tag v0.4.0-react] --> P[Publish workflow<br/>test + build + verify version]
+    T[Push tag v0.4.1-react] --> P[Publish workflow<br/>test + build + verify version]
     CI -->|pass| OK[Green]
     P -->|verify ok| PUB[npm publish<br/>NPM_PUBLISH_TOKEN]
     PUB --> NPMWEB[npmjs.com/package/@valfuse-node/react]
-    C0[Create tag v0.4.0-react] --> T
-    B0[git commit -m 'chore(release): bump @valfuse-node/react to 0.4.0'] --> C0
+    C0[Create tag v0.4.1-react] --> T
+    B0[git commit -m 'chore(release): bump @valfuse-node/react to 0.4.1'] --> C0
 ```
 
 Jika salah satu langkah gagal, pipeline berhenti di langkah tsb dan tidak ada

@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/barrel",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Generate deterministic TypeScript barrel files from source modules",
   "license": "MIT",
   "keywords": [
@@ -38,6 +38,7 @@
     "dev": "tsup --watch",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
     "clean": "node clean.mjs"
   },
   "publishConfig": {
@@ -48,8 +49,10 @@
   },
   "devDependencies": {
     "@types/node": "26.3.0",
+    "@vitest/coverage-v8": "4.1.11",
     "tsup": "8.5.1",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
   },
   "repository": {
     "type": "git",

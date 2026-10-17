@@ -269,14 +269,15 @@ valfuse.yaml                                   ← config assets, barrel, dan lo
 
 Contoh ini memakai setiap lapisan Valfuse yang relevan untuk aplikasi React:
 
-| Package                      | Demo yang bisa dicoba                                                                                    |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `@valfuse-node/core`         | Facade runtime di `app.tsx` dan adapter React                                                            |
-| `@valfuse-node/form`         | Validasi dan transformasi framework-neutral di `form-domain-demo.tsx`, serta schema yang dipakai adapter |
-| `@valfuse-node/react`        | `useValfuseForm`, `ValfuseController`, localization provider, hooks, dan storage strategy                |
-| `@valfuse-node/localization` | CLI generate/validate/coverage/watch dan manifest yang dipakai React runtime                             |
-| `@valfuse-node/assets`       | Registry typed dari `public/assets`, ditampilkan di galeri assets                                        |
-| `@valfuse-node/barrel`       | Membuat `src/features/demo/index.ts`, yang dipakai `app.tsx` untuk mengimpor demo                        |
+| Package                      | Demo yang bisa dicoba                                                                     |
+| ---------------------------- | ----------------------------------------------------------------------------------------- |
+| `@valfuse-node/core`         | Facade runtime di `app.tsx` dan adapter React                                             |
+| `@valfuse-node/validation`   | Schema, aturan, dan transformasi yang dipakai form demo dan API backend                   |
+| `@valfuse-node/form`         | State dan kontrak form framework-agnostic                                                 |
+| `@valfuse-node/react`        | `useValfuseForm`, `ValfuseController`, localization provider, hooks, dan storage strategy |
+| `@valfuse-node/localization` | CLI generate/validate/coverage/watch dan manifest yang dipakai React runtime              |
+| `@valfuse-node/assets`       | Registry typed dari `public/assets`, ditampilkan di galeri assets                         |
+| `@valfuse-node/barrel`       | Membuat `index.ts` pada direktori features yang berisi modul `.ts` atau `.tsx`            |
 
 Package `@valfuse-node/vue` ditunjukkan di `examples/vue-example`; adapter
 framework-specific hanya dipakai pada contoh framework terkait.
@@ -297,9 +298,11 @@ npm run generate:check         # validasi output tanpa menulis file
 Asset SVG berada di `public/assets`; generator hanya membuat URL typed dan tidak
 menyalin file. CLI tersedia sebagai script
 `assets:*`, `barrel:*`, dan `localization:*`.
-Script barrel memanggil CLI workspace yang sama dari
-`packages/barrel/dist/cli/index.js`; gunakan `@valfuse-node/barrel` sebagai
-sumber generator dan buat ulang file output melalui `npm run barrel:generate`.
+Script barrel memanggil CLI workspace `@valfuse-node/barrel` yang sudah dibuild.
+Dengan `recursive: true`, setiap direktori features yang berisi modul `.ts` atau
+`.tsx` mendapat `index.ts`. Buat ulang output melalui
+`npm run barrel:generate`; build workspace terlebih dahulu dari root pada
+checkout baru.
 
 `npm run typecheck` juga membangkitkan output lebih dahulu. File registry assets
 dan barrel dapat dibuat ulang; jangan edit manual. Demo localization React

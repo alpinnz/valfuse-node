@@ -1,5 +1,4 @@
 import type {
-  ValfuseSchema,
   SetErrorsInput,
   ValfuseFormErrors,
   ValfuseFormControl,
@@ -7,6 +6,7 @@ import type {
   ValfuseTouchedFields,
   ValfuseWatchFunction,
 } from "@valfuse-node/form";
+import type { ValfuseSchema } from "@valfuse-node/validation";
 
 /**
  * Vue-specific watch function with the additional legacy `watch(name, callback)`

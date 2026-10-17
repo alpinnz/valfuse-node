@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { createSchema } from "@valfuse-node/form";
+import { createSchema } from "@valfuse-node/validation";
 import { ValfuseController } from "../components/valfuse-controller";
 import { useValfuseForm } from "../hooks/use-valfuse-form";
 

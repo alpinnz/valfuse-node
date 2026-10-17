@@ -1,6 +1,6 @@
 {
   "name": "@valfuse-node/core",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Umbrella entry point for Valfuse runtime APIs, framework adapters, and explicit Node.js subpaths.",
   "license": "MIT",
   "sideEffects": false,
@@ -42,6 +42,11 @@
       "types": "./dist/express.d.ts",
       "import": "./dist/express.mjs",
       "require": "./dist/express.js"
+    },
+    "./validation": {
+      "types": "./dist/validation.d.ts",
+      "import": "./dist/validation.mjs",
+      "require": "./dist/validation.js"
     }
   },
   "files": [
@@ -59,6 +64,7 @@
   },
   "dependencies": {
     "@valfuse-node/form": "*",
+    "@valfuse-node/validation": "*",
     "@valfuse-node/localization": "*",
     "@valfuse-node/assets": "*",
     "@valfuse-node/barrel": "*",

@@ -1,8 +1,9 @@
 # Framework adapters and state
 
-The adapters connect the shared form domain to framework-native components,
-reactivity, or request middleware. They do not add a router, persistence layer,
-or application-wide state manager.
+React and Vue adapters connect the form-state package and validation engine to
+framework-native components. The Express adapter connects the validation
+engine to request middleware. They do not add a router, persistence layer, or
+application-wide state manager.
 
 ## Form state ownership
 
@@ -26,7 +27,8 @@ not intended to store form submissions or credentials.
 ## Express
 
 `@valfuse-node/express` provides middleware for validating request bodies,
-params, query values, headers, and cookies with shared form schemas. Its
+params, query values, headers, and cookies with API schemas from the shared
+validation engine. Its
 localization middleware creates request-scoped locale state from the generated
 runtime manifest. It does not add routing, authentication, or persistence.
 

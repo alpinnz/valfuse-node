@@ -9,6 +9,7 @@ export default defineConfig({
     assets: "src/assets.ts",
     barrel: "src/barrel.ts",
     express: "src/express.ts",
+    validation: "src/validation.ts",
   },
   format: ["cjs", "esm"],
   dts: true,
@@ -17,6 +18,7 @@ export default defineConfig({
   sourcemap: true,
   external: [
     "@valfuse-node/form",
+    "@valfuse-node/validation",
     "@valfuse-node/localization",
     "@valfuse-node/assets",
     "@valfuse-node/barrel",

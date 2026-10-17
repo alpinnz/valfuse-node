@@ -1,16 +1,18 @@
 # Forms and localization
 
-This repository keeps the form domain and localization tooling in separate
-packages. Their detailed APIs and configuration formats are maintained in
-the [form](../packages/form/README.md) and
+This repository keeps form state, schema validation, and localization tooling
+in separate packages. Their detailed APIs and configuration formats are
+maintained in the [form](../packages/form/README.md),
+[validation](../packages/validation/README.md), and
 [localization](../packages/localization/README.md) package READMEs.
 
-## Form domain
+## Form state and validation
 
-`@valfuse-node/form` defines framework-neutral schemas, built-in and custom
-rules, value transformations, validation results, normalized field errors,
-and form-related types. Applications can use it directly or through an
-adapter. A typical flow is:
+`@valfuse-node/validation` defines framework-neutral schemas, built-in and
+custom rules, value transformations, and validation results. React and Vue
+form adapters use `@valfuse-node/form` for UI state and the validation package
+for field rules. Express uses the same validation engine at the API boundary.
+A typical flow is:
 
 1. Define a schema with `createSchema`.
 2. Transform raw values when the schema specifies transformations.
@@ -45,5 +47,6 @@ Form errors are data returned by validation or supplied by the application.
 Adapters expose methods such as `setErrors` so an application can map a
 server response into field errors. Valfuse does not make HTTP requests or
 define a server error protocol; the consuming application owns that mapping.
-Express middleware validates request data with the shared schema, but
-authentication and authorization remain responsibilities of the server app.
+Express middleware validates request data with its API schema and the shared
+validation engine. Authentication and authorization remain responsibilities
+of the server app.

@@ -67,7 +67,7 @@ jobs:
           PKG="${TAG##*-}"
 
           case "${PKG}" in
-            core|assets|barrel|form|localization|express|react|vue) ;;
+            core|assets|barrel|form|localization|express|react|validation|vue) ;;
             *)
               echo "Tag '${TAG}' targets unknown package '${PKG}'; skipping."
               echo "match=false" >> "$GITHUB_OUTPUT"
@@ -80,6 +80,8 @@ jobs:
           echo "pkg_name=@valfuse-node/${PKG}" >> "$GITHUB_OUTPUT"
           echo "path=packages/${PKG}" >> "$GITHUB_OUTPUT"
           echo "tag_version=${VERSION}" >> "$GITHUB_OUTPUT"
+          HAS_TEST=$(node -p "Boolean(require('./packages/${PKG}/package.json').scripts?.test)")
+          echo "has_test=${HAS_TEST}" >> "$GITHUB_OUTPUT"
 
       - name: Skip (tag not for a publishable package)
         if: steps.resolve.outputs.match != 'true'
@@ -121,12 +123,16 @@ jobs:
       # `^build`, so dependencies' dist/ are built first — required because
       # packages import each other via their built entry points.
       - name: Test package (with dependency build)
-        if: steps.resolve.outputs.match == 'true'
+        if: steps.resolve.outputs.match == 'true' && steps.resolve.outputs.has_test == 'true'
         run: npx turbo run test --filter=@valfuse-node/${{ steps.resolve.outputs.pkg }}
+
+      - name: Skip package tests (no test script)
+        if: steps.resolve.outputs.match == 'true' && steps.resolve.outputs.has_test != 'true'
+        run: echo "Target package has no test script; skipping package tests."
 
       - name: Build package
         if: steps.resolve.outputs.match == 'true'
-        run: npm run build --workspace="${{ steps.resolve.outputs.path }}"
+        run: npx turbo run build --filter=@valfuse-node/${{ steps.resolve.outputs.pkg }}
 
       - name: Publish package (provenance)
         if: steps.resolve.outputs.match == 'true'

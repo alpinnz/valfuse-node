@@ -3,6 +3,7 @@ export interface BarrelGeneratorConfig {
   outputFile: string;
   include: readonly string[];
   exclude: readonly string[];
+  recursive?: boolean;
 }
 
 export type BarrelGeneratorConfigInput = Partial<BarrelGeneratorConfig>;
@@ -14,6 +15,14 @@ export interface GenerateBarrelOptions {
 }
 
 export interface GenerateBarrelResult {
+  moduleCount: number;
+  outputFile: string;
+  changed: boolean;
+  outputFiles?: readonly GenerateBarrelOutput[];
+  removedFiles?: readonly string[];
+}
+
+export interface GenerateBarrelOutput {
   moduleCount: number;
   outputFile: string;
   changed: boolean;

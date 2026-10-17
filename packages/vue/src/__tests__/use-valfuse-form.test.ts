@@ -1,6 +1,6 @@
 import { effectScope, nextTick } from "vue";
 import { describe, expect, it } from "vitest";
-import { createSchema } from "@valfuse-node/form";
+import { createSchema } from "@valfuse-node/validation";
 import { useValfuseForm } from "../composables/use-valfuse-form";
 import { useValfuseController } from "../components/valfuse-controller";
 

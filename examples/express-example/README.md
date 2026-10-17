@@ -66,6 +66,9 @@ npm run build
 generators used by the React and Vue examples, plus the Express localization
 runtime manifest.
 
-The `barrel:generate` and `barrel:check` scripts call the shared CLI built
-from `packages/barrel`; generated route exports should be regenerated through
-those scripts rather than edited by hand.
+The `barrel:generate` and `barrel:check` scripts call the built workspace CLI
+from `@valfuse-node/barrel`. Build the workspace packages from the repository
+root before running an example from a clean checkout. Regenerate route exports
+through those scripts rather than editing the generated file by hand. With
+`recursive: true`, each route subdirectory containing `.ts` or `.tsx` modules
+also receives its own `index.ts`.

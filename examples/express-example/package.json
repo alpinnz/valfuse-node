@@ -8,23 +8,23 @@
     "predev": "npm run generate",
     "dev": "tsx watch src/server.ts",
     "prebuild": "npm run generate",
-    "build": "tsup src/server.ts --format esm --out-dir dist --external express --external @valfuse-node/core --external @valfuse-node/form",
+    "build": "tsup src/server.ts --format esm --out-dir dist --external express --external @valfuse-node/express --external @valfuse-node/validation",
     "lint": "eslint src",
     "pretypecheck": "npm run generate",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist",
     "generate": "npm run assets:generate && npm run barrel:generate && npm run localization:generate",
     "generate:check": "npm run assets:check && npm run barrel:check && npm run localization:validate",
-    "assets:generate": "node ../../packages/assets/dist/cli/index.js",
-    "assets:check": "node ../../packages/assets/dist/cli/index.js --check",
+    "assets:generate": "valfuse-assets",
+    "assets:check": "valfuse-assets --check",
     "barrel:generate": "node ../../packages/barrel/dist/cli/index.js",
     "barrel:check": "node ../../packages/barrel/dist/cli/index.js --check",
-    "localization:generate": "node ../../packages/localization/dist/cli/index.js generate",
-    "localization:validate": "node ../../packages/localization/dist/cli/index.js validate"
+    "localization:generate": "valfuse-localization generate",
+    "localization:validate": "valfuse-localization validate"
   },
   "dependencies": {
-    "@valfuse-node/core": "*",
-    "@valfuse-node/form": "*",
+    "@valfuse-node/express": "*",
+    "@valfuse-node/validation": "*",
     "express": "^5.3.0"
   },
   "devDependencies": {

@@ -1,0 +1,55 @@
+{
+  "name": "@valfuse-node/validation",
+  "version": "0.1.0",
+  "description": "Framework-agnostic schema validation and value transformations",
+  "license": "MIT",
+  "sideEffects": false,
+  "keywords": [
+    "validation",
+    "schema",
+    "typescript",
+    "valfuse"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "lint": "eslint src",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist coverage"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "4.1.11",
+    "vitest": "4.1.11"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpinnz/valfuse-node.git",
+    "directory": "packages/validation"
+  },
+  "homepage": "https://github.com/alpinnz/valfuse-node#readme",
+  "bugs": {
+    "url": "https://github.com/alpinnz/valfuse-node/issues"
+  }
+}

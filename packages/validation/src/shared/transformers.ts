@@ -85,7 +85,7 @@ function pipe(...fns: ValfuseTransformer[]): ValfuseTransformer {
 // ─── Namespace export ─────────────────────────────────────────────────────────
 
 /**
- * Built-in transformers — import as `import { t } from "@valfuse-node/form"`.
+ * Built-in transformers — import as `import { t } from "@valfuse-node/validation"`.
  *
  * @example
  * transform: t.trim

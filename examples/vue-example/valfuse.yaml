@@ -4,14 +4,9 @@ assets:
   base_path: /assets
 
 barrel:
-  input_dir: src/features/demo
-  output_file: src/features/demo/index.ts
-  include:
-    - all-features-form.ts
-    - assets-demo.ts
-    - form-domain-demo.ts
-    - generator-demo.ts
-    - localization-demo.ts
+  input_dir: src/features
+  output_file: src/features/index.ts
+  recursive: true
 
 localization:
   input_dir: assets/localizations

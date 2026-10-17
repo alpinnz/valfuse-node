@@ -6,7 +6,7 @@
  * stay co-located with the state they mirror to prevent mirror drift.
  */
 import type { Dispatch, MutableRefObject, SetStateAction } from "react";
-import type { ValfuseSchema } from "@valfuse-node/form";
+import type { ValfuseSchema } from "@valfuse-node/validation";
 import type {
   ValfuseFormErrors,
   ValfuseFormMode,
